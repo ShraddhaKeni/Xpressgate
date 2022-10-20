@@ -67,7 +67,7 @@ const Addguest = () => {
             <Button type="submit" className="btnAdd">Add</Button>
         </Form>
 
-      </div>
+      </div>  
     </div>
   )
 }
