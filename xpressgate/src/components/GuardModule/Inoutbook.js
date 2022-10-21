@@ -11,6 +11,8 @@ const Inoutbook = () => {
   const [perPage] = useState(10);
   const [pageCount, setPageCount] = useState(0)
 
+
+
   const getData = async () => {
     const res = await axios.get(`https://jsonplaceholder.typicode.com/photos`)
     const data = res.data;
