@@ -17,7 +17,7 @@ const Login = () => {
     }
   }
   return (
-    <div className="container1">
+    <div className="logincontainer">
       <div id="logoid">
         <img src="/images/loginlogo.svg" alt="" />
         <div className="signin">
@@ -34,7 +34,7 @@ const Login = () => {
               <label className='email'>Email</label>
               <input ref={username} type="email" className="form-control emailtextbox" id="loginemailid" placeholder='Email' ></input>
             </div>
-            <br></br>
+            <br></br><br></br>
             <div className='email_input'>
               <label className='password'>Password</label>
               <input ref={password} type="password" className="form-control passwordtextbox" id="loginemailid" placeholder='Password'></input>

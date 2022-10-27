@@ -2,7 +2,7 @@ html {
   height: 100vh;
 }
 
-.container1 {
+.dashboardcontainer {
   display: grid;
   height: 100vh;
   grid-template-columns: 0.5fr 2fr;
@@ -56,7 +56,7 @@ input::-webkit-inner-spin-button {
 }
 
 .backgroundimg {
-  background-image: url("C:\Users\shraddha.keni\Documents\xpressgate-frontend\xpressgate\public\images\dashboardbackground.svg");
+  background-image: url("../../../public/images/dashboardbackground.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -188,7 +188,7 @@ input::-webkit-inner-spin-button {
   margin-top: -8%;
 }
 
-.card {
+.dashboardcard {
   width: fit-content;
   margin-left: 24%;
   margin-bottom: 10%;
@@ -221,7 +221,7 @@ input::-webkit-inner-spin-button {
   }
 
   .backgroundimg {
-    background-image: url("C:\Users\shraddha.keni\Documents\xpressgate-frontend\xpressgate\public\images\dashboardbackground.svg");
+    background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;

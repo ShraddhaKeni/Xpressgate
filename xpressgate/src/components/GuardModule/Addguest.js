@@ -5,7 +5,7 @@ import { Form } from 'react-bootstrap';
 
 const Addguest = () => {
   return (
-    <div className="container1">
+    <div className="addguestcontainer">
       <div id="headersection">
         <div class="firstheadersection">
           <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
