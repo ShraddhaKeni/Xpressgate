@@ -31,37 +31,37 @@ const Addguest = () => {
           <div class="form-group row">
               <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label labelsize">Entry No</label>
               <div class="col-sm-4 col-md-4 col-lg-4">
-                <select class="form-control input-lg" id="inputentryno"></select>
+                <select class="form-control input-lg" id="inputentryno" placeholder="Entry No"></select>
               </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-2 col-form-label labelsize">Guest Name</label>
               <div class="col-lg-4">
-                <input type="text" class="form-control input-lg" id="inputguestname"></input>
+                <input type="text" class="form-control input-lg" name="inputguestname" placeholder="Guest Name"></input>
               </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-2 col-form-label labelsize">Block No</label>
               <div class="col-lg-4">
-                <input type="number" class="form-control input-lg" id="inputblockno"></input>
+                <input type="number" class="form-control input-lg" name="inputblockno" placeholder="Block No" value></input>
               </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-2 col-form-label labelsize">Flat No</label>
               <div class="col-lg-4">
-                <input type="number" class="form-control input-lg" id="inputflatno"></input>
+                <input type="number" class="form-control input-lg" name="inputflatno" placeholder="Flat No"></input>
               </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-2 col-form-label labelsize">Vehicle No</label>
               <div class="col-lg-4">
-                <input type="number" class="form-control input-lg" id="inputvehicleno"></input>
+                <input type="number" class="form-control input-lg" name="inputvehicleno" placeholder="Vehicle No"></input>
               </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-2 col-form-label labelsize">No of people</label>
               <div class="col-lg-4">
-                <input type="number" class="form-control input-lg" id="inputnoofpeople"></input>
+                <input type="number" class="form-control input-lg" name="inputnoofpeople" placeholder="No of people"></input>
               </div>
             </div>
             <Button type="submit" className="btnAdd">Add</Button>

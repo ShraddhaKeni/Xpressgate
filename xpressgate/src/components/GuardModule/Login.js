@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './Login.css';
 import { Form, Button } from 'react-bootstrap';
 
 const Login = () => {
+
+  let username= useRef([])
+  let password= useRef([])
+  const loginGuard = async(username,password)=>{
+    try{
+     console.log(localStorage.getItem('username'))
+     localStorage.clear()
+    }
+    catch(err)
+    {
+
+    }
+  }
   return (
     <div className="container1">
       <div id="logoid">
@@ -19,14 +32,14 @@ const Login = () => {
           <div className='input_fields'>
             <div className='email_input'>
               <label className='email'>Email</label>
-              <input type="email" className="form-control emailtextbox" id="loginemailid" placeholder='Email' ></input>
+              <input ref={username} type="email" className="form-control emailtextbox" id="loginemailid" placeholder='Email' ></input>
             </div>
             <br></br>
             <div className='email_input'>
               <label className='password'>Password</label>
-              <input type="password" className="form-control passwordtextbox" id="loginemailid" placeholder='Password'></input>
+              <input ref={password} type="password" className="form-control passwordtextbox" id="loginemailid" placeholder='Password'></input>
             </div>
-            <Button type="submit" className="btnlogin">Login</Button>
+            <Button type="submit" className="btnlogin" onClick={()=>{loginGuard(username.current.value,password.current.value)}}>Login</Button>
             <div className='forgotpassword'><a href='https://gitlab.com/users/password/new' style={{color:"#FD6B22"}}>Forgot Password?</a></div>
           </div>
         </Form>

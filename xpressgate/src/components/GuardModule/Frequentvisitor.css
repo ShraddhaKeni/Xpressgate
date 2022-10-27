@@ -101,12 +101,13 @@ html {
   background-color: #017069;
   color: #fff;
   border-radius: 14px;
-  width: 110px;
-  height: 40px;
+  width: 120px;
+  height: 50px;
   font-size: 20px;
   font-weight: 500;
   padding-top: 0%;
-  margin-left: 15%;
+  /* margin-left: -10%; */
+  margin-right: 30%;
 }
 
 .btnApprove:hover {
@@ -117,13 +118,13 @@ html {
   background-color: #96230A;
   color: #fff;
   border-radius: 14px;
-  width: 110px;
-  height: 40px;
+  width: 120px;
+  height: 50px;
   font-size: 20px;
   font-weight: 500;
-  margin-top: -9%;
+  margin-top: -15%;
   padding-top: 0%;
-  margin-left: 60%;
+  margin-left: 34%;
 }
 
 .btnDeny:hover {
@@ -211,8 +212,8 @@ html {
   font-size: 20px;
 }
 
-.card {
-  width: 30%;
+.frequentvisitorcard {
+  width: 25%;
   margin: auto;
   margin-top: 5%;
   background-color: #fff;
@@ -230,6 +231,7 @@ html {
   border-radius: 8px;
   margin: auto;
   font-weight: 700;
+  text-transform: capitalize;
 }
 
 .flatclass {
@@ -389,7 +391,7 @@ html {
     margin-top: -16%;
   }
 
-  .card {
+  .frequentvisitorcard {
     width: 50%;
     margin: auto;
     margin-top: 5%;
@@ -402,11 +404,11 @@ html {
     background-color: #96230A;
     color: #fff;
     border-radius: 14px;
-    width: 110px;
-    height: 40px;
+    width: 120px;
+    height: 50px;
     font-size: 20px;
     font-weight: 500;
-    margin-top: -10%;
+    margin-top: -13%;
     padding-top: 0%;
     margin-left: 60%;
   }
