@@ -2,7 +2,7 @@ html {
   height: 100vh;
 }
 
-.inoutcard_container1 {
+.inoutbookcardcontainer {
   display: grid;
   height: 100vh;
   grid-template-columns: 0.5fr 2fr;
@@ -196,7 +196,7 @@ html {
   font-size: 20px;
 }
 
-.card {
+.inoutbookcard {
   width: 30%;
   margin: auto;
   margin-top: 5%;

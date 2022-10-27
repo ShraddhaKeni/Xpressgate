@@ -6,7 +6,7 @@ import LogOut from './Utils/LogOut';
 
 const Addguest = () => {
   return (
-    <div className="guest_container1">
+    <div className="addguestcontainer">
       <div id="headersection">
         <div class="firstheadersection">
           <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>

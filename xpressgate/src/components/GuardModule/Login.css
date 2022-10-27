@@ -2,7 +2,7 @@ html{
   height: 100vh;
 }
 
-.container1 {
+.logincontainer {
   display: grid;
   height: 100vh;
   grid-template-columns: 1.8fr 2fr;
@@ -35,9 +35,10 @@ html{
  /* left: 148px;
   top: 340px; */
   background-color: #14335D;
-  margin-left: 15%;
+   margin-left: 28%; 
   margin-top: 6%;
   font-size: 36px;
+  
 }
 
 .signinlabel{
@@ -69,20 +70,24 @@ html{
 .input_fields
 {
   position: absolute;
-  width: 70%;
+  width: 45%;
   height: 50%;
-  left: 15%;
+  left: 27.5%;
 }
 
 .email{
   position: relative;
-  right:46.5%;
+  right:44.5%;
+  font-family: 'Rubik', sans-serif;
+  font-size: 18px;
 }
 
 .password
 {
   position: relative;
-  right: 44%;
+  right: 41%;
+  font-family: 'Rubik', sans-serif;
+  font-size: 18px;
 }
 
 .forgotpassword{

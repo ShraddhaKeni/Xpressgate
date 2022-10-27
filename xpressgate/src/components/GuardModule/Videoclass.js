@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 
 const Videoclass = () => {
   return (
-    <div className="video_container1">
+    <div className="videoclasscontainer">
       <div id="headersection">
         <div class="firstheadersection">
           <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
@@ -29,7 +29,7 @@ const Videoclass = () => {
           </div>
           <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
             <div className="col">
-              <div className="card">
+              <div className="videocard">
                 {/* <a href='abc'><img src="/images/guestcard.svg" className="card-img-top" alt="guest card"></img></a> */}
                 <video className='videoclass' src="video.mp4" controls></video>
                 <label className='card-titlename'>Lorem ipsum dolor sit amet</label>
@@ -37,35 +37,35 @@ const Videoclass = () => {
               </div>
             </div>
             <div className="col">
-              <div className="card">
+              <div className="videocard">
               <video className='videoclass' src="video.mp4" controls></video>
                 <label className='card-titlename'>Lorem ipsum dolor sit amet</label>
                 <p className='card-content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
               </div>
             </div>
             <div className="col">
-              <div className="card">
+              <div className="videocard">
               <video className='videoclass' src="video.mp4" controls></video>
                 <label className='card-titlename'>Lorem ipsum dolor sit amet</label>
                 <p className='card-content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
               </div>
             </div>
             <div className="col">
-              <div className="card">
+              <div className="videocard">
               <video className='videoclass' src="video.mp4" controls></video>
                 <label className='card-titlename'>Lorem ipsum dolor sit amet</label>
                 <p className='card-content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
               </div>
             </div>
             <div className="col">
-              <div className="card">
+              <div className="videocard">
               <video className='videoclass' src="video.mp4" controls></video>
                 <label className='card-titlename'>Lorem ipsum dolor sit amet</label>
                 <p className='card-content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
               </div>
             </div>
             <div className="col">
-              <div className="card">
+              <div className="videocard">
               <video className='videoclass' src="video.mp4" controls></video>
                 <label className='card-titlename'>Lorem ipsum dolor sit amet</label>
                 <p className='card-content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>

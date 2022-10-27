@@ -2,7 +2,7 @@ html {
   height: 100vh;
 }
 
-.service_container1 {
+.dailyservicepasscodecontainer {
   display: grid;
   height: 100vh;
   grid-template-columns: 0.5fr 2fr;
@@ -160,7 +160,7 @@ html {
   margin-left: 25%;
 }
 
-.card {
+.dailycard {
   width: 45%;
   margin: auto;
   margin-top: 8%;
@@ -285,7 +285,7 @@ html {
     margin-top: -5%;
   }
 
-  .card {
+  .dailycard {
     width: 60%;
     margin: auto;
     margin-top: 12%;

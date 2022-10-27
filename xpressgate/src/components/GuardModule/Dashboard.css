@@ -2,7 +2,7 @@ html {
   height: 100vh;
 }
 
-.dashboard_container1 {
+.dashboardcontainer {
   display: grid;
   height: 100vh;
   grid-template-columns: 0.5fr 2fr;
@@ -188,7 +188,7 @@ input::-webkit-inner-spin-button {
   margin-top: -8%;
 }
 
-.card {
+.dashboardcard {
   width: fit-content;
   margin-left: 24%;
   margin-bottom: 10%;

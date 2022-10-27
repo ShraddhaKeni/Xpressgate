@@ -2,7 +2,7 @@ html {
   height: 100vh;
 }
 
-.guest_container1 {
+.addguestcontainer {
   display: grid;
   height: 100vh;
   grid-template-columns: 0.5fr 2fr;

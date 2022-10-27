@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 const Dailyservicepasscode = () => {
  
   return (
-    <div className="service_container1">
+    <div className="dailyservicepasscodecontainer">
       <div id="headersection">
         <div class="firstheadersection">
           <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
@@ -29,7 +29,7 @@ const Dailyservicepasscode = () => {
         </div>
         {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}
             <div className="col-sm-6 col-md-6 col-lg-6">
-              <div className="card">
+              <div className="dailycard">
                 <br></br>
                 <div className='profileimage'><img src="/images/dailyservicepasscodeimage.svg" alt="profile"/></div>
                 <label className="namelabel">Rita Kumari</label>

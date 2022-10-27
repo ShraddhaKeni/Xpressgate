@@ -2,7 +2,7 @@ html {
   height: 100vh;
 }
 
-.video_container1 {
+.videoclasscontainer {
   display: grid;
   height: 100vh;
   grid-template-columns: 0.5fr 2fr;

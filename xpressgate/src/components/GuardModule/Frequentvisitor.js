@@ -3,17 +3,7 @@ import './Frequentvisitor.css';
 import { Button } from 'react-bootstrap';
 
 
-const Frequentvisitor = ({entryData}) => {
-  //const [entryData, setData] = useState({});
-  // const [code,setCode]=useState()
-  //console.warn("props", props.match.paramsid);
-  
-  // useEffect(() => {
-  //   getAllData();
-  // }, [])
-
-  // const getAllData = async ({entryData}) => {
-  // }
+const Frequentvisitor = ({freqvisitordata}) => {
 
   const current = new Date();
   const[date, setDate] = useState(`${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`);
@@ -21,12 +11,10 @@ const Frequentvisitor = ({entryData}) => {
   // const date = ;
 
   return (
-
-
-    <div className="frequent_container1">
+    <div className="frequentvisitorcontainer">
       <div id="headersection">
         <div class="firstheadersection">
-          {console.log(entryData)}
+          {console.log(freqvisitordata)}
           <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
           <div id="dashboardguard"><label>Guard</label></div>
           <div id="dashboardspace"></div>
@@ -44,18 +32,18 @@ const Frequentvisitor = ({entryData}) => {
       </div>
       <div className='backgroundimg'>
         <div className='Addvendordisplay'>
-          <label>{entryData.code}</label>
+          <label>{freqvisitordata.code}</label>
         </div>
         {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}
         <div className="col">
           <div className="frequentvisitorcard">
             <br></br>
-            <label className="namelabel">{entryData.booked}</label>
-            <div className='profclass'>{entryData.service}</div>
+            <label className="namelabel">{freqvisitordata.booked}</label>
+            <div className='profclass'>{freqvisitordata.service}</div>
             <br></br>
             <div className='flatclass'>
               <label>Flat No</label>
-              <div className='flatnodisplay'>{entryData.flatID[0].Flat_number} ,{entryData.flatID[0].Block_name}</div>
+              <div className='flatnodisplay'>{freqvisitordata.flatID[0].Flat_number} ,{freqvisitordata.flatID[0].Block_name}</div>
             </div>
             <br></br>
             <div><label className='allowedclass'>Allowed by</label></div>
@@ -65,7 +53,7 @@ const Frequentvisitor = ({entryData}) => {
               <div><label className='intime'>In-Time: </label></div>
               <div><label className='outtime'>Out-Time: </label></div>
               <div><label className='noofpeople'>No of People: 1</label></div>
-              <div><label className='vehicleno'>Vehicle No: MH-29-2901</label></div>
+              <div><label className='vehicleno'>Vehicle No: <input type='text'></input></label></div>
             </div>
             <br></br>
             <Button type="submit" className="btnApprove">APPROVE</Button>
