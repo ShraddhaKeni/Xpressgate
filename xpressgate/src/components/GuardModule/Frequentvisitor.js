@@ -23,7 +23,7 @@ const Frequentvisitor = ({entryData}) => {
   return (
 
 
-    <div className="container1">
+    <div className="frequent_container1">
       <div id="headersection">
         <div class="firstheadersection">
           {console.log(entryData)}

@@ -26,15 +26,15 @@ const Inoutbook = () => {
   }
 
   useEffect(() => {
-    getData()
-  }, [offset])
+   
+  }, [])
 
   const handlePageClick = (e) => {
     const selectedPage = e.selected;
     setOffset(selectedPage + 1)
   };
   return (
-    <div className="container1">
+    <div className="inoutbook_container1">
       <div id="headersection">
         <div class="firstheadersection">
           <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>

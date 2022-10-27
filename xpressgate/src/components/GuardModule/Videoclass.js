@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 
 const Videoclass = () => {
   return (
-    <div className="container1">
+    <div className="video_container1">
       <div id="headersection">
         <div class="firstheadersection">
           <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>

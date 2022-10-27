@@ -2,9 +2,10 @@ import React from 'react';
 import './Dailyhelplist.css';
 import { Button } from 'react-bootstrap';
 
-const Dailyhelplist = () => {
+const Dailyhelplist = (props) => {
+  console.log(props)
   return (
-    <div className="container1">
+    <div className="help_container1">
       <div id="headersection">
         <div class="firstheadersection">
           <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
@@ -29,76 +30,12 @@ const Dailyhelplist = () => {
           </div>
           <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
             <div className="col">
-              <div className="card">
+              <div className="daily_card">
                 {/* <a href='abc'><img src="/images/guestcard.svg" className="card-img-top" alt="guest card"></img></a> */}
                 <img className="card-img-top" src="/images/dailyhelplistprofile.svg"  alt="guest card"></img>
                 <label className='card-titlename'>Rita Kumari</label>
                 <label className='card-profession'>Maid</label>
                 <label className='card-allowedhouses'>Allowed in 5 Houses</label>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card">
-              <img className="card-img-top" src="/images/dailyhelplistprofile.svg"  alt="guest card"></img>
-                <label className='card-titlename'>Rita Kumari</label>
-                <label className='card-profession'>Cleaner</label>
-                <label className='card-allowedhouses'>Allowed in 2 Houses</label>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card">
-              <img className="card-img-top" src="/images/dailyhelplistprofile.svg"  alt="guest card"></img>
-                <label className='card-titlename'>Rita Kumari</label>
-                <label className='card-profession'>Laundary</label>
-                <label className='card-allowedhouses'>Allowed in 2 Houses</label>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card">
-              <img className="card-img-top" src="/images/dailyhelplistprofile.svg"  alt="guest card"></img>
-                <label className='card-titlename'>Rita Kumari</label>
-                <label className='card-profession'>Maid</label>
-                <label className='card-allowedhouses'>Allowed in 5 Houses</label>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card">
-              <img className="card-img-top" src="/images/dailyhelplistprofile.svg"  alt="guest card"></img>
-                <label className='card-titlename'>Rita Kumari</label>
-                <label className='card-profession'>Cleaner</label>
-                <label className='card-allowedhouses'>Allowed in 2 Houses</label>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card">
-              <img className="card-img-top" src="/images/dailyhelplistprofile.svg"  alt="guest card"></img>
-                <label className='card-titlename'>Rita Kumari</label>
-                <label className='card-profession'>Laundary</label>
-                <label className='card-allowedhouses'>Allowed in 2 Houses</label>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card">
-              <img className="card-img-top" src="/images/dailyhelplistprofile.svg"  alt="guest card"></img>
-                <label className='card-titlename'>Rita Kumari</label>
-                <label className='card-profession'>Maid</label>
-                <label className='card-allowedhouses'>Allowed in 5 Houses</label>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card">
-              <img className="card-img-top" src="/images/dailyhelplistprofile.svg"  alt="guest card"></img>
-                <label className='card-titlename'>Rita Kumari</label>
-                <label className='card-profession'>Cleaner</label>
-                <label className='card-allowedhouses'>Allowed in 2 Houses</label>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card">
-              <img className="card-img-top" src="/images/dailyhelplistprofile.svg"  alt="guest card"></img>
-                <label className='card-titlename'>Rita Kumari</label>
-                <label className='card-profession'>Laundary</label>
-                <label className='card-allowedhouses'>Allowed in 2 Houses</label>
               </div>
             </div>
           </div>

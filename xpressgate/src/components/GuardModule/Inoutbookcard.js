@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 const Inoutbookcard = () => {
  
   return (
-    <div className="container1">
+    <div className="inoutcard_container1">
       <div id="headersection">
         <div class="firstheadersection">
           <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
