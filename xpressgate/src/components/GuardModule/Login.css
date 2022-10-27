@@ -1,0 +1,98 @@
+html{
+  height: 100vh;
+}
+
+.container1 {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1.8fr 2fr;
+  grid-template-rows: 2.4fr 2fr;
+  grid-template-areas: "logoid loginimgid"
+    "loginformid loginimgid"
+}
+
+#logoid {
+   /* background-color: aquamarine;   */
+  /* margin-top: 10%; */
+  grid-area: logoid;
+}
+
+#loginimgid {
+   /* background-color: blueviolet;   */
+  grid-area: loginimgid;
+}
+
+#loginformid {
+  /* background-color: blue;  */
+  grid-area: loginformid;
+  position: relative;
+}
+
+.signin {
+  /* position: absolute; */
+  width: 493px;
+  height: 76px;
+ /* left: 148px;
+  top: 340px; */
+  background-color: #14335D;
+  margin-left: 15%;
+  margin-top: 6%;
+  font-size: 36px;
+}
+
+.signinlabel{
+  display:inline-block;
+  margin-top: 2%;
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+}
+
+.req{
+  color: red;
+}
+
+.btnlogin{
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 311px;
+  height: 60px; 
+  font-size: 151%;
+  font-weight: 500;
+  margin-top: 4%;
+}
+
+#logoid img{
+  margin-top: 10%;
+}
+
+.input_fields
+{
+  position: absolute;
+  width: 70%;
+  height: 50%;
+  left: 15%;
+}
+
+.email{
+  position: relative;
+  right:46.5%;
+}
+
+.password
+{
+  position: relative;
+  right: 44%;
+}
+
+.forgotpassword{
+  margin-top: 3%;
+}
+
+.emailtextbox{
+  width: 97%;
+}
+
+.passwordtextbox{
+  width: 97%
+}
