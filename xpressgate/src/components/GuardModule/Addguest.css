@@ -34,7 +34,6 @@ html {
 
 .backgroundimg {
   background-image: url("../../../public/images/dashboardbackground.svg");
-  
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;

@@ -26,8 +26,8 @@ const Inoutbook = () => {
   }
 
   useEffect(() => {
-    getData()
-  }, [offset])
+   
+  }, [])
 
   const handlePageClick = (e) => {
     const selectedPage = e.selected;

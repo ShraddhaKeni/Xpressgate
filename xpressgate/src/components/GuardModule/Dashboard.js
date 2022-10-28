@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import './Dashboard.css';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
+import {Link, Navigate} from 'react-router-dom'
+import LogOut from './Utils/LogOut';
 import Frequentvisitor from './Frequentvisitor';
 import Dailyservicepasscode from './Dailyservicepasscode';
+import HeaderSection from './Utils/HeaderSection';
+import GuardSideSection from './Utils/GuardSideSection';
 
 const Dashboard = () => {
 
@@ -32,49 +36,36 @@ const Dashboard = () => {
       console.log('Please check again');
     }
   }
+
+  const shiftFocus=(e)=>{
+    let id = parseInt(e.target.id)
+    if(e.target.value=='')
+    {
+      document.getElementById(id-1).focus()
+    }
+    else
+    {
+      document.getElementById(id+1).focus()
+    }
+  }
+  
  
-  // const checktype = async (message) => {
-  //   //console.log(message);
-  //   //if (message == 'Vendor') {
-  //    return
-  //   }
-  //   else if (message == 'Daily') {
-  //     return <Frequentvisitor freqvisitordata={entryData} />
-  //   }else{
-  //     return <Frequentvisitor freqvisitordata={entryData} />
-  //   }
-  // }
   return (
     <>
       {entryData.booked ?message=='Vendor'?<Frequentvisitor freqvisitordata={entryData}/>:<Dailyservicepasscode/> : <div className="dashboardcontainer">
-        <div id="headersection">
-          <div class="firstheadersection">
-            <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-            <div id="dashboardguard"><label>Guard</label></div>
-            <div id="dashboardspace"></div>
-            <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-            <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-            <div id="dashboardlogoutbutton"> <Button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
-          </div>
-        </div>
-        <div id="guardnamesection">
-          <div className='guardname'>
-            <img src="/images/guardnameicon.svg" alt="guard name" />
-            <label>Guard Name</label>
-          </div>
-          <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
-        </div>
+        <HeaderSection/>
+        <GuardSideSection/>
         <div className='backgroundimg'>
           <div id="cardsection">
             <div className='enterpasscodesearch'>
               <label>ENTER PASSCODE</label>
               <div className='code'>
-                <input type='text' className='dashboard_passcode' maxlength="1" id='1'></input>
-                <input type='text' className='dashboard_passcode' maxlength="1" id='2'></input>
-                <input type='text' className='dashboard_passcode' maxlength="1" id='3'></input>
-                <input type='text' className='dashboard_passcode' maxlength="1" id='4'></input>
-                <input type='text' className='dashboard_passcode' maxlength="1" id='5'></input>
-                <input type='text' className='dashboard_passcode' maxlength="1" id='6'></input>
+                <input type='text' className='dashboard_passcode' onKeyUp={e=>{shiftFocus(e)}}  maxlength="1" id='1'></input>
+                <input type='text' className='dashboard_passcode' onKeyUp={e=>{shiftFocus(e)}}  maxlength="1" id='2'></input>
+                <input type='text' className='dashboard_passcode' onKeyUp={e=>{shiftFocus(e)}}  maxlength="1" id='3'></input>
+                <input type='text' className='dashboard_passcode' onKeyUp={e=>{shiftFocus(e)}}  maxlength="1" id='4'></input>
+                <input type='text' className='dashboard_passcode' onKeyUp={e=>{shiftFocus(e)}}  maxlength="1" id='5'></input>
+                <input type='text' className='dashboard_passcode' onKeyUp={e=>{shiftFocus(e)}}  maxlength="1" id='6'></input>
               </div>
 
               <img src="/images/searchicon.svg" onClick={() => { checkInputs() }} alt="search" />
