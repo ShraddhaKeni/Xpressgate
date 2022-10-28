@@ -34,17 +34,6 @@ function App() {
             <Route path="/dailyservice" element={<Dailyservicepasscode />} exact></Route> 
           </Route>
           <Route path="/" element={<Login />} exact></Route>
-          <Route path="/" element={<Login />}></Route>
-          <Route path="/dashboard" element={<Dashboard />} exact></Route>
-          <Route path="/addvendor" element={<Addvendor />} exact></Route>
-          <Route path="/addguest" element={<Addguest />} exact></Route>
-          <Route path="/dailyhelp" element={<Dailyhelplist />} exact></Route>
-          <Route path="/videoclass" element={<Videoclass />} exact></Route>
-          <Route path="/inoutbook" element={<Inoutbook />} exact></Route>
-          <Route path="/vendorlist" element={<Vendorlist />} exact></Route>
-          <Route path="/inoutbookcard" element={<Inoutbookcard />} exact></Route>
-          <Route path="/frequentvisitor" element={<Frequentvisitor />} exact></Route>
-          <Route path="/dailyservice" element={<Dailyservicepasscode />} exact></Route> 
         </Routes>
       </Router>
     </div>
