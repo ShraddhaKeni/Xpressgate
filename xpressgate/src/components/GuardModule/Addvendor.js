@@ -2,27 +2,14 @@ import React from 'react';
 import './Addvendor.css';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
+import HeaderSection from './Utils/HeaderSection';
+import GuardSideSection from './Utils/GuardSideSection';
 
 const Addvendor = () => {
   return (
     <div className="addvendorcontainer">
-      <div id="headersection">
-        <div class="firstheadersection">
-          <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="dashboardguard"><label>Guard</label></div>
-          <div id="dashboardspace"></div>
-          <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="dashboardlogoutbutton"> <Button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
-        </div>
-      </div>
-      <div id="guardnamesection">
-        <div className='guardname'>
-          <img src="/images/guardnameicon.svg" alt="guard name" />
-          <label>Guard Name</label>
-        </div>
-        <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
-      </div>
+     <HeaderSection/>
+      <GuardSideSection/>
       <div className='backgroundimg'>
         <div className='Addvendordisplay'>
           <label>Add Vendor</label>

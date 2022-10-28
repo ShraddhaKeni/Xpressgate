@@ -2,6 +2,7 @@ import React from 'react';
 import './Addguest.css';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
+import LogOut from './Utils/LogOut';
 
 const Addguest = () => {
   return (
@@ -13,7 +14,7 @@ const Addguest = () => {
           <div id="dashboardspace"></div>
           <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
           <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="dashboardlogoutbutton"> <Button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
+          <div id="dashboardlogoutbutton"><LogOut/></div>
         </div>
       </div>
       <div id="guardnamesection">
