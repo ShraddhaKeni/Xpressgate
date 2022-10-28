@@ -22,8 +22,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />}></Route>
           <Route path="/dashboard" element={<Dashboard />} exact></Route>
-          <Route path="/addvendor" element={<Addvendor />} exact></Route>
-          <Route path="/addguest" element={<Addguest />} exact></Route>
+          {/* <Route path="/addvendor" element={<Addvendor />} exact></Route>
+          <Route path="/addguest" element={<Addguest />} exact></Route> */}
           <Route path="/dailyhelp" element={<Dailyhelplist />} exact></Route>
           <Route path="/videoclass" element={<Videoclass />} exact></Route>
           <Route path="/inoutbook" element={<Inoutbook />} exact></Route>

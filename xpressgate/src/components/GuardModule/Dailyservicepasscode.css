@@ -141,14 +141,14 @@ html {
   height: auto;
 }
 
-.Addvendordisplay {
+.dailyservicepasscodedisplay {
   width: 300px;
   height: 64px;
   background-color: #AED8DC;
   border-radius: 30px;
   font-size: 40px;
   margin: auto;
-  margin-top: 6%;
+  margin-top: -2%;
 }
 
 .labelsize {
@@ -161,7 +161,7 @@ html {
 }
 
 .dailycard {
-  width: 45%;
+  width: 35%;
   margin: auto;
   margin-top: 8%;
   background-color: #14335D;
@@ -177,7 +177,7 @@ html {
   color: #222433;
 }
 
-.namelabel {
+.dailyhelpnamelabel {
   font-weight: 600;
   font-size: 22px;
   font-family: 'Rubik', sans-serif;
@@ -192,28 +192,33 @@ html {
 }
 
 .allowedlabel {
-  font-weight: 500;
+  font-weight: 200;
   font-size: 22px;
   font-family: 'Rubik', sans-serif;
   color: #fff;
 }
 
 .profileimage img{
+  padding-top: 5%;
   width: 50%;
 }
 
 .flatclass {
   display: block;
-  background-color: #AED8DC;
+  background-color: #fff;
   margin-top: 8%;
+}
+
+.flatnum{
+  margin-top: 4%;
 }
 
 .detailslabel{
   color: #14335D;
   display: block;
   background-color: #AED8DC;
-  width: 40%;
-  margin-top: 3%;
+  width: 60%;
+  margin-top: 1%;
   line-height: 3;
   border-radius: 15px;
   text-align: left;
@@ -274,15 +279,15 @@ html {
     font-size: 20px;
   }
 
-  .Addvendordisplay {
+  .dailyservicepasscodedisplay {
     width: 300px;
     height: 64px;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 20px;
-    padding-top: 14px;
+    font-size: 40px;
+    padding-top: 0px;
     margin: auto;
-    margin-top: -5%;
+    margin-top: -16%;
   }
 
   .dailycard {
@@ -308,7 +313,7 @@ html {
 
   .flatclass {
     display: block;
-    background-color: #AED8DC;
+    background-color: #fff;
     margin-top: 12%;
   }  
 

@@ -24,7 +24,7 @@ const Vendorlist = () => {
         <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='backgroundimg'>
-        <div className='Addvendordisplay'>
+        <div className='vendorlistdisplay'>
           <label>Vendor List</label>
         </div>
         <div className='row'>

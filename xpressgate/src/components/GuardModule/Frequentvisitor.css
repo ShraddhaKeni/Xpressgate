@@ -107,7 +107,7 @@ html {
   font-weight: 500;
   padding-top: 0%;
   /* margin-left: -10%; */
-  margin-right: 30%;
+  margin-right: 34%;
 }
 
 .btnApprove:hover {
@@ -122,9 +122,9 @@ html {
   height: 50px;
   font-size: 20px;
   font-weight: 500;
-  margin-top: -15%;
+  margin-top: -20%;
   padding-top: 0%;
-  margin-left: 34%;
+  margin-left: 40%;
 }
 
 .btnDeny:hover {
@@ -175,7 +175,7 @@ html {
   height: auto;
 }
 
-.Addvendordisplay {
+.frequentvisitordisplay {
   width: 300px;
   height: 64px;
   background-color: #AED8DC;
@@ -380,7 +380,7 @@ html {
     font-size: 20px;
   }
 
-  .Addvendordisplay {
+  .frequentvisitordisplay {
     width: 300px;
     height: 64px;
     background-color: #AED8DC;

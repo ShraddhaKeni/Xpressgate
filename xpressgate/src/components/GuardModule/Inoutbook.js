@@ -53,7 +53,7 @@ const Inoutbook = () => {
         <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='backgroundimg'>
-        <div className='Addvendordisplay'>
+        <div className='inoutbookdisplay'>
           <label>In-out Book</label>
         </div>
         {/* <div class="table-responsive"> */}

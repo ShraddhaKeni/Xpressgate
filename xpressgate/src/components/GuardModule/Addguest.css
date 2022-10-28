@@ -147,7 +147,7 @@ html {
   height: auto;
 }
 
-.Addvendordisplay{
+.Addguestdisplay{
   width: 300px;
   height: 64px;
   background-color: #AED8DC;
@@ -232,7 +232,7 @@ html {
   font-size: 20px;
 }
 
-.Addvendordisplay {
+.Addguestdisplay {
   width: 300px;
   height: 64px;
   background-color: #AED8DC;

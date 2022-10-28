@@ -199,6 +199,7 @@ input::-webkit-inner-spin-button {
   margin-top: 5%;
   padding-left: 25px;
   margin-right: 125px;
+  width:100%;
 }
 
 /* Media query for laptop */
@@ -238,5 +239,20 @@ input::-webkit-inner-spin-button {
 .fullcardscss {
   margin-top: 5%;
   margin-right: 4%;
+}
+
+.dbcard-img-top{
+  width:150%;
+}
+
+.dashboard_passcode {
+  position: relative;
+  top: 36px;
+  border: none;
+  outline: none;
+  background-color: #CFDBEB;
+  text-align: center;
+  width: 14px;
+  border-bottom: 5px solid #000000;
 }
 }

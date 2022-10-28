@@ -46,7 +46,7 @@ const Dashboard = () => {
   // }
   return (
     <>
-      {entryData.booked ?message=='Vendor'?<Frequentvisitor freqvisitordata={entryData}/>:<Dailyservicepasscode/> : <div className="dashboardcontainer">
+      {entryData.booked ?message=='Vendor'?<Frequentvisitor freqvisitordata={entryData}/>:<Dailyservicepasscode  dailyservicepasscodedata={entryData}/> : <div className="dashboardcontainer">
         <div id="headersection">
           <div class="firstheadersection">
             <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
