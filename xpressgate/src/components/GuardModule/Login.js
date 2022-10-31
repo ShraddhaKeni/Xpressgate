@@ -16,14 +16,16 @@ const Login = () => {
           password:password.current.value
         }
         const {data} = await axios.post(`api/auth/guardlogin`,loginCreds)
+        
         localStorage.setItem('accesstoken',data.data.accessToken)
         localStorage.setItem('community_id',data.data.community_id)
         localStorage.setItem('guard_id',data.data.id)
         window.location.href='/dashboard'
     }
     catch(err)
-    {
-      console.log(err)
+    { 
+      document.getElementById('loginemailid').style.border='2px solid red'
+      document.getElementById('loginpassword').style.border='2px solid red'
     }
   }
   return (
@@ -42,12 +44,12 @@ const Login = () => {
           <div className='input_fields'>
             <div className='email_input'>
               <label className='email'>Username</label>
-              <input ref={username} type="text" className="form-control emailtextbox" id="loginemailid" placeholder='Username' ></input>
+              <input ref={username} type="text" className="form-control emailtextbox" onKeyPress={(e)=>{document.getElementById(e.target.id).style.border='none'}} id="loginemailid" placeholder='Username' ></input>
             </div>
             <br></br><br></br>
             <div className='email_input'>
               <label className='password'>Password</label>
-              <input ref={password} type="password" className="form-control passwordtextbox" id="loginemailid" placeholder='Password'></input>
+              <input ref={password} type="password" className="form-control passwordtextbox" onKeyPress={(e)=>{document.getElementById(e.target.id).style.border='none'}} id="loginpassword" placeholder='Password'></input>
             </div>
             <br></br>
             <Button type="button" className="btnlogin" onClick={()=>{loginGuard()}}>Login</Button>

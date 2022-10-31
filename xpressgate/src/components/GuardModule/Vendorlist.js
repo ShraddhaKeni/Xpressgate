@@ -1,8 +1,28 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import './Vendorlist.css';
 import { Button } from 'react-bootstrap';
+import axios from 'axios';
 
 const Vendorlist = () => {
+
+  const [vendorData,setData]= useState([])
+  const [vendorBooking,setBookingData] = useState()
+
+  useEffect(()=>{
+    getAllVendorData()
+  },[])
+
+  const getAllVendorData=async()=>{
+    try
+    {
+      const {data} = await axios.get(`/api/vendor/getAll`)
+      console.log(data)
+    }
+    catch(err)
+    {
+
+    }
+  }
 
   return (
     <div className="vendorlistcontainer">
@@ -52,147 +72,6 @@ const Vendorlist = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Electrician</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Electrician</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Electrician</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Electrician</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Electrician</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Electrician</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Electrician</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Electrician</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Electrician</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Electrician</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Electrician</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Electrician</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Electrician</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Electrician</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
             <tr>
               <td>1</td>
               <td>Ram naik</td>

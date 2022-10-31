@@ -94,12 +94,12 @@ const Dashboard = () => {
               </div>
               <div className="col">
                 <div className="dashboardcard">
-                  <img src="/images/vendorcard.svg" className="dbcard-img-top" alt="vendor card"></img>
+                  <img src="/images/vendorcard.svg" className="dbcard-img-top" alt="vendor card" onClick={()=>{window.location.href='/vendorlist'}}></img>
                 </div>
               </div>
               <div className="col">
                 <div className="dashboardcard">
-                <a href='/dailyhelp'><img src="/images/dailyhelpcard.svg" className="dbcard-img-top" alt="dailyhelp card"></img></a>
+                  <img src="/images/dailyhelpcard.svg" className="dbcard-img-top" onClick={()=>{window.location.href='/dailyhelp'}} alt="dailyhelp card"></img>
                 </div>
               </div>
               <div className="col">
