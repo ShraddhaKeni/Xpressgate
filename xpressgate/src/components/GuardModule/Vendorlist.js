@@ -43,8 +43,8 @@ const Vendorlist = () => {
         </div>
         <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
-      <div className='backgroundimg'>
-        <div className='Addvendordisplay'>
+      <div className='vlbackgroundimg'>
+        <div className='vendorlistdisplay'>
           <label>Vendor List</label>
         </div>
         <div className='row'>

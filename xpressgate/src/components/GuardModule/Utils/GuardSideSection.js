@@ -1,4 +1,5 @@
 import React from 'react'
+import './Utils.css';
 
 const GuardSideSection = () => {
   return (
