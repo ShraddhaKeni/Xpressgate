@@ -23,7 +23,7 @@ const Inoutbookcard = () => {
         </div>
         <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
-      <div className='backgroundimg'>
+      <div className='iobcbackgroundimg'>
         <div className='inoutbookcarddisplay'>
           <label>In-out Book</label>
         </div>

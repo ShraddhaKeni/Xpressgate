@@ -53,9 +53,25 @@ const Dashboard = () => {
   return (
     <>
       {entryData.booked ?message=='Vendor'?<Frequentvisitor freqvisitordata={entryData}/>:<Dailyservicepasscode dailyservicepasscodedata={entryData}/> : <div className="dashboardcontainer">
-        <HeaderSection/>
-        <GuardSideSection/>
-        <div className='backgroundimg'>
+        
+      <div id="headersection">
+        <div className="firstheadersection">
+          <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+          <div id="dashboardguard"><label>Guard</label></div>
+          <div id="dashboardspace"></div>
+          <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+          <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="dashboardlogoutbutton"><LogOut/></div>
+        </div>
+      </div>
+      <div id="guardnamesection">
+        <div className='guardname'>
+          <img src="/images/guardnameicon.svg" alt="guard name" />
+          <label>Guard Name</label>
+        </div>
+        <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
+      </div>
+        <div className='dashboardbackgroundimg'>
           <div id="cardsection">
             <div className='enterpasscodesearch'>
               <label>ENTER PASSCODE</label>
@@ -83,12 +99,12 @@ const Dashboard = () => {
               </div>
               <div className="col">
                 <div className="dashboardcard">
-                  <img src="/images/dailyhelpcard.svg" className="dbcard-img-top" alt="dailyhelp card"></img>
+                <a href='/dailyhelp'><img src="/images/dailyhelpcard.svg" className="dbcard-img-top" alt="dailyhelp card"></img></a>
                 </div>
               </div>
               <div className="col">
                 <div className="dashboardcard">
-                  <img src="/images/inoutbookcard.svg" className="dbcard-img-top" alt="inout book card"></img>
+                 <img src="/images/inoutbookcard.svg" className="dbcard-img-top" alt="inout book card"></img>
                 </div>
               </div>
               <div className="col">

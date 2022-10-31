@@ -32,7 +32,7 @@ html {
 
 }
 
-.backgroundimg {
+.iobbackgroundimg {
   background-image: url("../../../public/images/dashboardbackground.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -217,7 +217,7 @@ table th {
     height: auto;
   }
 
-  .backgroundimg {
+  .iobbackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;
     background-position: center;

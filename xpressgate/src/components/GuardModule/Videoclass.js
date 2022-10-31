@@ -22,7 +22,7 @@ const Videoclass = () => {
         </div>
         <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
-      <div className='backgroundimg'>
+      <div className='vcbackgroundimg'>
         <div id="cardsection">
           <div className='Dailyhelplistdisplay'>
             <label>Daily Help List</label>

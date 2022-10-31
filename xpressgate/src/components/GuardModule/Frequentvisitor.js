@@ -30,7 +30,7 @@ const Frequentvisitor = ({freqvisitordata}) => {
         </div>
         <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
-      <div className='backgroundimg'>
+      <div className='fvbackgroundimg'>
         <div className='frequentvisitordisplay'>
           <label>{freqvisitordata.code}</label>
         </div>

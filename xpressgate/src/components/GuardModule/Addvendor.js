@@ -10,7 +10,7 @@ const Addvendor = () => {
     <div className="addvendorcontainer">
      <HeaderSection/>
       <GuardSideSection/>
-      <div className='backgroundimg'>
+      <div className='addvendorbackgroundimg'>
         <div className='Addvendordisplay'>
           <label>Add Vendor</label>
         </div>

@@ -29,9 +29,24 @@ const Dailyservicepasscode = ({dailyservicepasscodedata}) => {
 
   return (
     <div className="dailyservicepasscodecontainer">
-      <HeaderSection/>
-      <GuardSideSection/>
-      <div className='backgroundimg'>
+       <div id="dspheadersection">
+        <div class="dspfirstheadersection">
+          <div id="dspdashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+          <div id="dspdashboardguard"><label>Guard</label></div>
+          <div id="dspdashboardspace"></div>
+          <div id="dspdashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+          <div id="dspdashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="dspdashboardlogoutbutton"> <Button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
+        </div>
+      </div>
+      <div id="dspguardnamesection">
+        <div className='dspguardname'>
+          <img src="/images/guardnameicon.svg" alt="guard name" />
+          <label>Guard Name</label>
+        </div>
+        <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
+      </div>
+      <div className='dsepbackgroundimg'>
         <div className='dailyservicepasscodedisplay'>
           <label>{dailyservicepasscodedata.code}</label>
         </div>

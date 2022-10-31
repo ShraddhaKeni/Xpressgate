@@ -26,7 +26,7 @@ html {
 }
 
 
-.backgroundimg {
+.iobcbackgroundimg {
   background-image: url("../../../public/images/dashboardbackground.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -321,7 +321,7 @@ html {
     height: auto;
   }
 
-  .backgroundimg {
+  .iobcbackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -391,4 +391,15 @@ html {
     padding-top: 1%;
     margin: auto;
   }
+}
+
+/* Media query for mobile */
+@media only screen  and (min-device-width : 320px) and (max-device-width : 425px) {
+  #dashboardlogo img {
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-bottom: 5%;
+    width: 114%;
+}
+
 }

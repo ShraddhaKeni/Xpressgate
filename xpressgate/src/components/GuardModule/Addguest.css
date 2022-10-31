@@ -32,7 +32,7 @@ html {
 
 }
 
-.backgroundimg {
+.addguestbackgroundimg {
   background-image: url("../../../public/images/dashboardbackground.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -194,7 +194,7 @@ html {
     height: auto;
 }
 
-.backgroundimg {
+.addguestbackgroundimg {
   background-image: url("../../../public/images/dashboardbackground.svg");
   background-repeat: no-repeat;
   background-position: center;
