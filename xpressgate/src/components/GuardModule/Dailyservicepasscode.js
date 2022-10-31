@@ -5,8 +5,8 @@ import axios from 'axios';
 import HeaderSection from './Utils/HeaderSection';
 import GuardSideSection from './Utils/GuardSideSection';
 
-const Dailyservicepasscode = ({dailyservicepasscodedata}) => {
-
+const Dailyservicepasscode = ({dailyservicepasscodedata, dailydata}) => {
+  console.log(dailydata)
   const [flats,setFlats] = useState([])
   const [staff,setStaff] = useState({})
   const [service,setService] = useState()
