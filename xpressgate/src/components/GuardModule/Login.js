@@ -43,14 +43,15 @@ const Login = () => {
         <Form>
           <div className='input_fields'>
             <div className='email_input'>
-              <label className='email'>Email</label>
-              <input ref={username} type="text" className="form-control emailtextbox" onKeyPress={(e)=>{document.getElementById(e.target.id).style.border='none'}} id="loginemailid" placeholder='Email' ></input>
+              <label className='email'>Username</label>
+              <input ref={username} type="text" className="form-control emailtextbox" onKeyPress={(e)=>{document.getElementById(e.target.id).style.border='none'}} id="loginemailid" placeholder='Username' ></input>
             </div>
             <br></br><br></br>
             <div className='email_input'>
               <label className='password'>Password</label>
               <input ref={password} type="password" className="form-control passwordtextbox" onKeyPress={(e)=>{document.getElementById(e.target.id).style.border='none'}} id="loginpassword" placeholder='Password'></input>
             </div>
+            <br></br>
             <Button type="button" className="btnlogin" onClick={()=>{loginGuard()}}>Login</Button>
             <div className='forgotpassword'><a href='https://gitlab.com/users/password/new' style={{color:"#FD6B22"}}>Forgot Password?</a></div>
           </div>

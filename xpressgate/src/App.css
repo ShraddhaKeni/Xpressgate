@@ -36,3 +36,41 @@
     transform: rotate(360deg);
   }
 }
+
+.cogwheel
+{
+  transition: 0.5s ease;
+}
+
+.cogwheel:hover
+{
+  transform: rotate(90deg);
+}
+
+.bellicon
+{
+  transition: 0.5s ease;
+}
+.bellicon:hover{
+  animation: bellanimation .5s;
+}
+
+@keyframes bellanimation {
+  0%{
+    transform: rotate(20deg);
+  }
+  25%{
+    transform: rotate(-20deg);
+  }
+  50%{
+    transform: rotate(20deg);
+  }
+  75%
+  {
+    transform: rotate(-20deg);
+  
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}

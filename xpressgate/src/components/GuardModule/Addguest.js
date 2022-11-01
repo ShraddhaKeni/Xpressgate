@@ -8,7 +8,7 @@ const Addguest = () => {
   return (
     <div className="addguestcontainer">
       <div id="headersection">
-        <div class="firstheadersection">
+        <div className="firstheadersection">
           <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
           <div id="dashboardguard"><label>Guard</label></div>
           <div id="dashboardspace"></div>
@@ -24,8 +24,8 @@ const Addguest = () => {
         </div>
         <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
-      <div className='backgroundimg'>
-        <div className='Addvendordisplay'>
+      <div className='addguestbackgroundimg'>
+        <div className='Addguestdisplay'>
           <label>Add Guest</label>
         </div>
         <Form className='formclass'>

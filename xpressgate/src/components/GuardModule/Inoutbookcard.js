@@ -23,8 +23,8 @@ const Inoutbookcard = () => {
         </div>
         <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
-      <div className='backgroundimg'>
-        <div className='Addvendordisplay'>
+      <div className='iobcbackgroundimg'>
+        <div className='inoutbookcarddisplay'>
           <label>In-out Book</label>
         </div>
         {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}
