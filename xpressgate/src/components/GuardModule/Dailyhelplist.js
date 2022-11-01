@@ -9,17 +9,11 @@ const Dailyhelplist = () => {
 
   
   useEffect(()=>{
-      getData()
+     
   },[])    
 
 
-  const getData = async()=>{ 
-   
-      
-  }
-  const sortArray = ()=>{
-    
-  }
+
 
   return (
     <div className="dailyhelplistcontainer"> 
@@ -30,9 +24,9 @@ const Dailyhelplist = () => {
           <div className='Dailyhelplistdisplay'>
             <label>Daily Help List</label>
           </div>
-         
+        
           <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
-          
+
 
             {/* <div className="col">
               <div className="dailyhelpminicard">
