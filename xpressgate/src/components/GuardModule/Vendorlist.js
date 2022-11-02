@@ -3,6 +3,8 @@ import './Vendorlist.css';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import PaginationCalculate from './Utils/paginationCalculate';
+import LogOut from './Utils/LogOut';
+import { Link, Navigate } from 'react-router-dom';
 
 const Vendorlist = () => {
 
@@ -49,7 +51,6 @@ const Vendorlist = () => {
   async function  paginate(event)
   {
     const {data} = await axios.get(`/api/vendor/list`)
-    
     setCurrentpage(event.selected+1)
     const indexoflast = (event.selected+1)*postPerPage  //endoffset
     const indexoffirst = (indexoflast - postPerPage) //startoffset
@@ -57,8 +58,18 @@ const Vendorlist = () => {
   }
   async function findText(e)
   {
-   
+    let text = vendorData.filter(x=>x.vendor_name.toLowerCase().includes(e.target.value.toLowerCase()))
+    if(text)
+    {
+      setCurrentPosts(text)
+    }
+    else
+    {
+      paginate(0)
+    }
+    
   }
+ 
   var srno = 1 
   return (
     <div className="vendorlistcontainer">
@@ -69,7 +80,7 @@ const Vendorlist = () => {
           <div id="dashboardspace"></div>
           <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" className='bellicon' alt="notificationicon" /></a></div>
           <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" className='cogwheel' alt="settingicon" /></a></div>
-          <div id="dashboardlogoutbutton"> <Button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
+          <div id="dashboardlogoutbutton"> <LogOut/> </div>
         </div>
       </div>
       <div id="guardnamesection">
@@ -86,7 +97,7 @@ const Vendorlist = () => {
         <div className='row'>
           <div className='searchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-            <span><label className='searchlabel'>Search</label><input onKeyUp={(e)=>{findText(e)}}></input></span>
+            <span><label className='searchlabel'>Search</label><input className='search_input' onChange={(e)=>{findText(e)}}></input></span>
           </div>
           <div className='addvendor'>
             <span><img src="/images/addvendor.svg" alt='addvendor icon'></img></span>
@@ -94,7 +105,7 @@ const Vendorlist = () => {
           </div>
         </div>
         {/* <div class="table-responsive"> */}
-        <table id="inoutbooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
+        <table id="inoutbooktable" class="table vendorList table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>
               <th class="th-sm"></th>
@@ -110,16 +121,19 @@ const Vendorlist = () => {
           <tbody>
             {currentPosts.map((item,index)=>{
               return(
-                <tr key={item.booking_id}>
+                
+                <tr key={item.booking_id} id={item._id}  >
                 <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
-                <td>{item.vendor_name}</td>
+                <td><Link className='linkToPage' to='/vendorentry' state={{id:item.booking_id}}>{item.vendor_name}</Link></td>
                 <td>{item.service}</td>
                 <td>{item.block}</td>
                 <td>{item.flats}</td>
                 <td>{dateTimeFormat(item.date)}</td>
                 <td>-</td>
                 <td>-</td>
+               
               </tr>
+             
               )
             })}
            

@@ -16,7 +16,7 @@ const Login = () => {
           password:password.current.value
         }
         const {data} = await axios.post(`api/auth/guardlogin`,loginCreds)
-        
+        localStorage.clear()
         localStorage.setItem('accesstoken',data.data.accessToken)
         localStorage.setItem('community_id',data.data.community_id)
         localStorage.setItem('guard_id',data.data.id)
@@ -24,6 +24,7 @@ const Login = () => {
     }
     catch(err)
     { 
+      
       document.getElementById('loginemailid').style.border='2px solid red'
       document.getElementById('loginpassword').style.border='2px solid red'
     }
