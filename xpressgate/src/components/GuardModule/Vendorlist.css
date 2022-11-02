@@ -209,6 +209,17 @@ table th {
   border-radius: 15px;
   margin-left: 20%;
   margin-top: 2%;
+  
+}
+
+.search_input
+{
+  outline: none;
+  border: none;
+  height: 40px;
+  width: 210px;
+  border-radius: 5px;
+  margin-left: 10px;
 }
 
 .searchbox img{
@@ -326,3 +337,24 @@ table th {
   }
 }
 
+.vendorList
+{
+  border-radius: 5px;
+}
+
+table tr td
+{
+  text-decoration: none;
+}
+.linkToPage
+{
+  text-decoration: none;
+  color: #000;
+  border: none;
+  outline: none;
+}
+.linkToPage:hover
+{
+  color: rgb(255, 123, 0);
+  text-decoration: none;
+}

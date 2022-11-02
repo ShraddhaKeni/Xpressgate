@@ -14,6 +14,7 @@ import Inoutbookcard from './components/GuardModule/Inoutbookcard';
 import Frequentvisitor from './components/GuardModule/Frequentvisitor';
 import Dailyservicepasscode from './components/GuardModule/Dailyservicepasscode';
 import PrivateRoutes from './components/GuardModule/Utils/PrivateRoutes';
+import VendorEntryDetails from './components/GuardModule/VendorEntryDetails';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
             <Route path="/inoutbookcard" element={<Inoutbookcard />} exact></Route>   
             <Route path="/frequent" element={<Frequentvisitor/>} exact></Route>   
             <Route path="/dailyservice" element={<Dailyservicepasscode />} exact></Route> 
+            <Route path="/vendorentry" element={<VendorEntryDetails/>} exact></Route>
           </Route>
           <Route path="/" element={<Login />} exact></Route>
         </Routes>
