@@ -175,3 +175,30 @@ html {
   margin-top: -16%;
 }
 }
+.pagination_ul
+{
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  gap: 15px;
+}
+
+.pagination_ul li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#0A899654;
+  color: black;
+  width: 30px;
+  height: 30px;
+  font-weight: 999;
+  border-radius: 5px;
+}
+
+.pagination_ul .selected
+{
+  background: #0A8996;
+  color: white;
+}

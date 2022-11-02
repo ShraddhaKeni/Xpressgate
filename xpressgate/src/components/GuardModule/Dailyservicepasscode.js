@@ -4,28 +4,30 @@ import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import HeaderSection from './Utils/HeaderSection';
 import GuardSideSection from './Utils/GuardSideSection';
-
-const Dailyservicepasscode = ({dailyservicepasscodedata, dailydata}) => {
-  console.log(dailydata)
+import { useLocation } from 'react-router-dom';
+const Dailyservicepasscode = () => {
+  
   const [flats,setFlats] = useState([])
   const [staff,setStaff] = useState({})
   const [service,setService] = useState()
+  const location = useLocation()
+  console.log(location.state)
   useEffect(()=>{
-    getAll()
+    // getAll()
   },[])
  
-  const getAll=async()=>{
-    try {
-      const {data}= await axios.get(`api/resident/helperstaff/getOne/${dailyservicepasscodedata.booked_id}`)
-      setFlats(dailyservicepasscodedata.flatID)
-      setStaff(data.data.staff[0])
-      const serviceType= await axios.get(`api/admin/dailyhelp/getStafftype/${data.data.staff[0].serviceType}`)
-      setService(serviceType.data.data.dailyhelp.serviceType)
+  // const getAll=async()=>{
+  //   try {
+  //     const {data}= await axios.get(`api/resident/helperstaff/getOne/${dailyservicepasscodedata.booked_id}`)
+  //     setFlats(dailyservicepasscodedata.flatID)
+  //     setStaff(data.data.staff[0])
+  //     const serviceType= await axios.get(`api/admin/dailyhelp/getStafftype/${data.data.staff[0].serviceType}`)
+  //     setService(serviceType.data.data.dailyhelp.serviceType)
       
-    } catch (error) {
+  //   } catch (error) {
       
-    }
-  }
+  //   }
+  // }
 
   return (
     <div className="dailyservicepasscodecontainer">
@@ -48,7 +50,7 @@ const Dailyservicepasscode = ({dailyservicepasscodedata, dailydata}) => {
       </div>
       <div className='dsepbackgroundimg'>
         <div className='dailyservicepasscodedisplay'>
-          <label>{dailyservicepasscodedata.code}</label>
+          <label>{}</label>
         </div>
         {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}
             <div className="col-sm-6 col-md-6 col-lg-6">

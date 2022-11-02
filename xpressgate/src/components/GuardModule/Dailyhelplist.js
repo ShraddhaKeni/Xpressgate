@@ -57,16 +57,25 @@ const Dailyhelplist = () => {
             {dailyhelpdata.map(dailydata => {
 
               const dailyservicedata = () => {
-                navigate('/dailyservice', { state: { dailydata } });
+                console.log('oi')
+               
+                // navigate('/dailyservice', { state: { dailydata } });
               }
               return (
                 <div className="col">
+                  
+                  <Link to='/dailyservice' state={{
+                      dailydata:dailydata._id,
+                      helpername:dailydata.helper_name
+                    
+                    }}>
                   <div className="dailyhelpminicard" onClick={() => dailyservicedata()}>
-                    <img className="card-img-top" src={"http://143.110.187.80:5050/uploads/staff/" + dailydata.helper_image} alt="profile"></img><br></br>
+                    <img className="card-img-top" src={"http://143.110.187.80:5050" + dailydata.helper_image} alt="profile"></img><br></br>
                     <label className='dhcard-titlename'>{dailydata.helper_name}</label><br></br>
                     <label className='dhcard-profession'>{dailydata.service}</label><br></br>
                     <label className='dhcard-allowedhouses'>Allowed in {dailydata.booking_id.length} Houses</label>
                   </div>
+                  </Link>
                 </div>)
             })}
 
