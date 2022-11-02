@@ -12,7 +12,7 @@ const Vendorlist = () => {
   //pagination states 
 
   const [currentPage, setCurrentpage] = useState(1)
-  const [postPerPage, setPostPerPage] = useState(11)
+  const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts,setCurrentPosts] = useState([])
   const [pageCount,setpageCount] = useState(0)
 
@@ -55,7 +55,10 @@ const Vendorlist = () => {
     const indexoffirst = (indexoflast - postPerPage) //startoffset
     setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
   }
- 
+  async function findText(e)
+  {
+   
+  }
   var srno = 1 
   return (
     <div className="vendorlistcontainer">
@@ -83,7 +86,7 @@ const Vendorlist = () => {
         <div className='row'>
           <div className='searchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-            <span><label className='searchlabel'>Search</label></span>
+            <span><label className='searchlabel'>Search</label><input onKeyUp={(e)=>{findText(e)}}></input></span>
           </div>
           <div className='addvendor'>
             <span><img src="/images/addvendor.svg" alt='addvendor icon'></img></span>
@@ -108,7 +111,7 @@ const Vendorlist = () => {
             {currentPosts.map((item,index)=>{
               return(
                 <tr key={item.booking_id}>
-                <td>{currentPage<=2?(currentPage-1)*11+(index+1):(currentPage-1+1)+(index+1)}</td>
+                <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
                 <td>{item.vendor_name}</td>
                 <td>{item.service}</td>
                 <td>{item.block}</td>
