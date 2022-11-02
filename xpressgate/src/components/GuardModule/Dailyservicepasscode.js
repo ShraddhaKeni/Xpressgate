@@ -34,10 +34,10 @@ const Dailyservicepasscode = ({props}) => {
       const serviceType= await axios.get(`api/admin/dailyhelp/getStafftype/${data.data.staff[0].serviceType}`)
       setService(serviceType.data.data.dailyhelp.serviceType)
       
-    } catch (error) {
+  //   } catch (error) {
       
-    }
-  }
+  //   }
+  // }
 
   return (
     <div className="dailyservicepasscodecontainer">
@@ -92,4 +92,3 @@ const Dailyservicepasscode = ({props}) => {
 }
 
 export default Dailyservicepasscode
-

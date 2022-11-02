@@ -2,28 +2,64 @@ import React, { useEffect,useState } from 'react';
 import './Vendorlist.css';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
+import PaginationCalculate from './Utils/paginationCalculate';
 
 const Vendorlist = () => {
 
   const [vendorData,setData]= useState([])
   const [vendorBooking,setBookingData] = useState()
 
+  //pagination states 
+
+  const [currentPage, setCurrentpage] = useState(1)
+  const [postPerPage, setPostPerPage] = useState(12)
+  const [currentPosts,setCurrentPosts] = useState([])
+  const [pageCount,setpageCount] = useState(0)
+
   useEffect(()=>{
     getAllVendorData()
-  },[])
+   
+  },[currentPage])
 
   const getAllVendorData=async()=>{
     try
     {
-      const {data} = await axios.get(`/api/vendor/getAll`)
-      console.log(data)
+      const {data} = await axios.get(`/api/vendor/list`)
+      
+      setData(data.data.list)
+      const indexoflast = currentPage*postPerPage  //endoffset
+      const indexoffirst = indexoflast - postPerPage //startoffset
+      setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
     }
     catch(err)
     {
-
+      console.log(err)
     }
   }
 
+
+
+  const  dateTimeFormat=(date)=>
+  {
+    var d = new Date(date)
+    return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()
+    
+  }
+
+  async function  paginate(event)
+  {
+    const {data} = await axios.get(`/api/vendor/list`)
+    
+    setCurrentpage(event.selected+1)
+    const indexoflast = (event.selected+1)*postPerPage  //endoffset
+    const indexoffirst = (indexoflast - postPerPage) //startoffset
+    setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
+  }
+  async function findText(e)
+  {
+   
+  }
+  var srno = 1 
   return (
     <div className="vendorlistcontainer">
       <div id="headersection">
@@ -31,8 +67,8 @@ const Vendorlist = () => {
           <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
           <div id="dashboardguard"><label>Guard</label></div>
           <div id="dashboardspace"></div>
-          <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" className='bellicon' alt="notificationicon" /></a></div>
+          <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" className='cogwheel' alt="settingicon" /></a></div>
           <div id="dashboardlogoutbutton"> <Button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
         </div>
       </div>
@@ -50,7 +86,7 @@ const Vendorlist = () => {
         <div className='row'>
           <div className='searchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-            <span><label className='searchlabel'>Search</label></span>
+            <span><label className='searchlabel'>Search</label><input onKeyUp={(e)=>{findText(e)}}></input></span>
           </div>
           <div className='addvendor'>
             <span><img src="/images/addvendor.svg" alt='addvendor icon'></img></span>
@@ -72,18 +108,24 @@ const Vendorlist = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Electrician</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
+            {currentPosts.map((item,index)=>{
+              return(
+                <tr key={item.booking_id}>
+                <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
+                <td>{item.vendor_name}</td>
+                <td>{item.service}</td>
+                <td>{item.block}</td>
+                <td>{item.flats}</td>
+                <td>{dateTimeFormat(item.date)}</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+              )
+            })}
+           
           </tbody>
         </table>
+        <PaginationCalculate totalPages={vendorData.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
       </div>
     </div>
   )
