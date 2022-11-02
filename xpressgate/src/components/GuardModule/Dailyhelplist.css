@@ -356,5 +356,65 @@ html {
     color: #000;
   }
   
-  
+}
+
+/* Media query for mobile */
+@media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
+  .sideimage {
+    display: none;
+  }
+
+  #dhlguardnamesection {
+    display: none;
+  }
+
+  #dhldashboardguard {
+    display: none;
+  }
+
+  #dashboardlogo img {
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-bottom: 5%;
+    width: 114%;
+  }
+
+  .code {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .enterpasscodesearch {
+    width: 58%;
+    height: 10%;
+    background-color: #CFDBEB;
+    border-radius: 25px;
+    border-color: #0A8996;
+    border-style: solid;
+    margin: auto;
+    margin-top: 5%;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0A8996;
+  }
+
+  .dashboardcard {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-left: 6%;
+    margin-bottom: 10%;
+    border: none;
+  }
+
+  .dashboardbackgroundimg {
+    background-image: url("../../../public/images/dashboardbackground.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    margin-top: 10.5%;
+  }
+
 }
