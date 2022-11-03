@@ -1,14 +1,15 @@
 import axios from 'axios';
 import React,{useEffect, useState} from 'react'
 import { Button } from 'react-bootstrap';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import LogOut from './Utils/LogOut';
 const VendorEntryDetails = () => {
     const current = new Date();
     const [date, setDate] = useState(`${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`);
     const [vendorData, setVendorData] = useState({})
+    const [bookings,setBookings] = useState([])
     const location = useLocation()
-    
+    const navigate = useNavigate()
 
     useEffect(()=>{
         getData()
@@ -18,13 +19,14 @@ const VendorEntryDetails = () => {
         try {
             const {data} = await axios.get(`/api/vendorlist/getOne/${location.state.id}`)
             setVendorData(data.data.list[0])
+            setBookings(data.data.list)
         } catch (error) {
             
         }
     } 
 
     const submitData=async()=>{
-        const data = {
+        const submitData = {
             firstname:vendorData.vendor_name,
             lastname:'',
             mobileno:vendorData.contact,
@@ -33,12 +35,22 @@ const VendorEntryDetails = () => {
             community_id:localStorage.getItem('community_id'),
             flat_id:vendorData.flat_id,
             type:2,
-            status:1,
+            bookedID:location.state.id,
+            status:2,
             allowed_by:localStorage.getItem('guard_id')
         }
         try {
-            const saveData = await axios.post(`/api/inout/add`,data)
-            window.location.href='/vendorlist'
+          bookings.map(async(items)=>{
+            try {
+              const bookingUpdate = await axios.get(`/api/bookvendor/removeBooking/${items.booking_id}`)
+            } catch (error) {
+              console.log(error)
+            }
+            
+          })
+            const {data} = await axios.post(`/api/inout/add`,submitData)
+            
+            
         } catch (error) {
             console.log(error)
         }
@@ -48,7 +60,7 @@ const VendorEntryDetails = () => {
       <div className="frequentvisitorcontainer">
         <div id="headersection">
           <div class="firstheadersection">
-           {console.log(vendorData)}
+           
             <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
             <div id="dashboardguard"><label>Guard</label></div>
             <div id="dashboardspace"></div>
@@ -66,7 +78,7 @@ const VendorEntryDetails = () => {
         </div>
         <div className='fvbackgroundimg'>
           <div className='frequentvisitordisplay'>
-            <label>{vendorData.entrycode}</label>
+            <label>Details</label>
           </div>
           {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}
           <div className="col">
@@ -93,8 +105,11 @@ const VendorEntryDetails = () => {
               <Button type="button" onClick={()=>{submitData()}} className="btnApprove">APPROVE</Button>
               <Button type="submit" className="btnDeny">DENY</Button>
               <br></br>
+              
             </div>
+           
           </div>
+        
           {/* </div> */}
         </div>
       </div>
