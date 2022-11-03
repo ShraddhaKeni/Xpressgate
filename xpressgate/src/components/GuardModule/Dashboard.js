@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Dashboard.css';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
@@ -14,6 +14,23 @@ const Dashboard = () => {
   const [entryData, setEntryData] = useState({})
   const [message, setMessage] = useState({})
 
+  useEffect(()=>{
+    const config = {
+      headers:{
+        'x-access-token':localStorage.getItem('accesstoken')
+      }
+    }
+    axios.get(`/api/guard/checkLogin`,config)
+          .then(({data})=>{   
+          })
+          .catch(err=>{
+            localStorage.clear();
+            window.location.href='/'
+          })
+          
+          
+          
+  },[]) 
   const checkInputs = async () => {
     let a = document.getElementById('1').value
     let b = document.getElementById('2').value
