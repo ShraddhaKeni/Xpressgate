@@ -109,7 +109,7 @@ const Dashboard = () => {
               </div>
               <div className="col">
                 <div className="dashboardcard">
-                  <img src="/images/videoclass.svg" className="dbcard-img-top" alt="video class"></img>
+                  <img src="/images/videoclass.svg" className="dbcard-img-top" onClick={()=>{window.location.href='/videoclass'}} alt="video class"></img>
                 </div>
               </div>
             </div>
