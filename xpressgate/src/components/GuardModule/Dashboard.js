@@ -20,7 +20,7 @@ const Dashboard = () => {
         'x-access-token':localStorage.getItem('accesstoken')
       }
     }
-    axios.get(`/api/guard/checkLogin`,config)
+   axios.get(`/api/guard/checkLogin`,config)
           .then(({data})=>{   
           })
           .catch(err=>{
@@ -106,7 +106,7 @@ const Dashboard = () => {
             <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
               <div className="col">
                 <div className="dashboardcard">
-                  <a href='abc'><img src="/images/guestcard.svg" className="dbcard-img-top" alt="guest card"></img></a>
+                 <img src="/images/guestcard.svg" onClick={()=>{window.location.href='/guestlist'}} className="dbcard-img-top" alt="guest card"></img>
                 </div>
               </div>
               <div className="col">

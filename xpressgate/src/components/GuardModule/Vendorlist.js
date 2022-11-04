@@ -5,6 +5,7 @@ import axios from 'axios';
 import PaginationCalculate from './Utils/paginationCalculate';
 import LogOut from './Utils/LogOut';
 import { Link, Navigate, useLocation,useNavigate } from 'react-router-dom';
+import HeaderSection from './Utils/HeaderSection';
 
 const Vendorlist = () => {
 
@@ -13,7 +14,7 @@ const Vendorlist = () => {
   const [inout,setInOut] = useState([])
   const location = useLocation()
   const navigate = useNavigate()
- 
+  const [stat,setStat] = useState(false)
   //pagination states 
 
   const [currentPage, setCurrentpage] = useState(1)
@@ -33,11 +34,11 @@ const Vendorlist = () => {
       const {data} = await axios.get(`http://localhost:5050/api/vendor/list`)
       const response = await axios.get(`/api/inout/getall/${localStorage.getItem('community_id')}`)
       setInOut(response.data.data.list)
-      setData(data.data.list)
+      setData(data.data.list.filter(x=>x.bookingstatus==true))
       checkNavigate()
       const indexoflast = currentPage*postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
-      setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
+      setCurrentPosts(data.data.list.filter(x=>x.bookingstatus==true).slice(indexoffirst,indexoflast))
     }
     catch(err)
     {
@@ -66,7 +67,7 @@ const Vendorlist = () => {
     setCurrentpage(event.selected+1)
     const indexoflast = (event.selected+1)*postPerPage  //endoffset
     const indexoffirst = (indexoflast - postPerPage) //startoffset
-    setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
+    setCurrentPosts(data.data.list.filter(x=>x.bookingstatus==true).slice(indexoffirst,indexoflast))
   }
   async function findText(e)
   {
@@ -95,12 +96,13 @@ const Vendorlist = () => {
     
     <div className="vendorlistcontainer">
       <div id="headersection">
-     
+
         <div class="firstheadersection">
           <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
           <div id="dashboardguard"><label>Guard</label></div>
           <div id="dashboardspace"></div>
-          <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" className='bellicon' alt="notificationicon" /></a></div>
+          <div id="dashboardnotification" onClick={()=>{setStat(!stat)}}><img src="/images/notification.svg" className='bellicon' alt="notificationicon" /></div>
+          {stat?<div className='notification_section'><HeaderSection/></div>:''}
           <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" className='cogwheel' alt="settingicon" /></a></div>
           <div id="dashboardlogoutbutton"> <LogOut/> </div>
         </div>

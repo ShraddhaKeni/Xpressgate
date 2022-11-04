@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 //require('dotenv').config()
 import Login from './components/GuardModule/Login';
@@ -15,9 +15,12 @@ import Frequentvisitor from './components/GuardModule/Frequentvisitor';
 import Dailyservicepasscode from './components/GuardModule/Dailyservicepasscode';
 import PrivateRoutes from './components/GuardModule/Utils/PrivateRoutes';
 import VendorEntryDetails from './components/GuardModule/VendorEntryDetails';
+import GuestList from './components/GuardModule/GuestList';
 
 function App() {
-
+ useEffect(()=>{
+  
+ },[])
   return (
     <div className="App">
       <Router>
@@ -34,6 +37,7 @@ function App() {
             <Route path="/frequent" element={<Frequentvisitor/>} exact></Route>   
             <Route path="/dailyservice" element={<Dailyservicepasscode />} exact></Route> 
             <Route path="/vendorentry" element={<VendorEntryDetails/>} exact></Route>
+            <Route path="/guestlist" element={<GuestList/>} exact></Route>
           </Route>
           <Route path="/" element={<Login />} exact></Route>
         </Routes>
