@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import ReactPaginate from 'react-paginate';
+import {useNavigate} from 'react-router-dom'
 
 const Inoutbook = () => {
   const [inoutdata, setInoutdata] = useState([])
@@ -11,7 +12,7 @@ const Inoutbook = () => {
   const [data, setData] = useState([]);
   const [perPage] = useState(10);
   const [pageCount, setPageCount] = useState(0)
-
+  const navigate = useNavigate()
   
  
   const  dateTimeFormat=(timestamp)=>
@@ -36,7 +37,9 @@ const Inoutbook = () => {
       console.log(err)
     }
   }
-
+  const routeNavigate=(id)=>{
+    navigate('/inoutbookcard',{state:{id:id}})
+  }
   const handlePageClick = (e) => {
     const selectedPage = e.selected;
     setOffset(selectedPage + 1)
@@ -83,7 +86,7 @@ const Inoutbook = () => {
               return (
                 <tr>
                   <td>1</td>
-                  <td>{iodata.guestFirstName} {iodata.guestLastName}</td>
+                  <td onClick={()=>routeNavigate(iodata.booking_id)}>{iodata.guestFirstName} {iodata.guestLastName}</td>
                   <td>{iodata.type=='2'? iodata.type=='1' ? 'Guest' : 'Vendor' : 'Daily Helper'}</td>
                   <td>{iodata.block_name}</td>
                   <td>{iodata.flat_number}</td>
