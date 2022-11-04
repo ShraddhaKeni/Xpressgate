@@ -26,7 +26,12 @@ const Dailyhelplist = () => {
     }
 
   }
+
   const navigate = useNavigate();
+
+  const routeChange = (id)=>{
+    navigate('/dailyservice',{state:{id:id}})
+  }
   return (
     <div className="dailyhelplistcontainer">
       <div id="dhlheadersection">
@@ -52,18 +57,11 @@ const Dailyhelplist = () => {
             <label>Daily Help List</label>
           </div>
           <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
-            {dailyhelpdata.map(dailydata => {
+            {dailyhelpdata.map((dailydata) => {
 
               return (
-                <Link to='/dailyservice' state={{
-                  dailyid: dailydata._id,
-                  helpername: dailydata.helper_name,
-                  servicetype: dailydata.service,
-                  bookinglength: dailydata.booking_id,
-                  flats: dailydata.flats,
-                  blocks: dailydata.block
-                }}>
-                  <div className="col">
+               
+                  <div className="col" onClick={()=>routeChange(dailydata._id)}>
                     <div className="dailyhelpminicard"><br></br>
                       <img className="card-img-top" src={"http://143.110.187.80:5050" + dailydata.helper_image} alt="profile"></img><br></br>
                       <label className='dhcard-titlename'>{dailydata.helper_name}</label><br></br>
@@ -72,7 +70,7 @@ const Dailyhelplist = () => {
                     </div>
 
                   </div>
-               </Link>)
+              )
             })}
 
           </div>
