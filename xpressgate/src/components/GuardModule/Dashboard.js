@@ -69,7 +69,7 @@ const Dashboard = () => {
  
   return (
     <>
-      {entryData.booked ?message=='Vendor'?<Frequentvisitor freqvisitordata={entryData}/>:<Dailyservicepasscode dailyservicepasscodedata={entryData}/> : <div className="dashboardcontainer">
+      {entryData.booked ?message=='Vendor'?<Frequentvisitor freqvisitordata={entryData}/>:<Dailyservicepasscode props={entryData}/> : <div className="dashboardcontainer">
         
       <div id="headersection">
         <div className="firstheadersection">
@@ -121,12 +121,12 @@ const Dashboard = () => {
               </div>
               <div className="col">
                 <div className="dashboardcard">
-                 <img src="/images/inoutbookcard.svg" className="dbcard-img-top" alt="inout book card"></img>
+                 <img src="/images/inoutbookcard.svg" className="dbcard-img-top" onClick={() =>{window.location.href = '/inoutbook'}} alt="inout book card"></img>
                 </div>
               </div>
               <div className="col">
                 <div className="dashboardcard">
-                  <img src="/images/videoclass.svg" className="dbcard-img-top" alt="video class"></img>
+                  <img src="/images/videoclass.svg" className="dbcard-img-top" onClick={()=>{window.location.href='/videoclass'}} alt="video class"></img>
                 </div>
               </div>
             </div>

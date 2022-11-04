@@ -4,12 +4,51 @@ import './Inoutbook.css';
 import { Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import ReactPaginate from 'react-paginate';
+import PaginationCalculate from './Utils/paginationCalculate';
+import { useNavigate } from 'react-router-dom';
+
 const GuestList = () => {
-    const [offset, setOffset] = useState(0);
-    const [data, setData] = useState([]);
-    const [perPage] = useState(10);
-    const [pageCount, setPageCount] = useState(0)
+
+    const [guests,setGuests] = useState([])
+    const [currentPage, setCurrentpage] = useState(1)
+    const [postPerPage, setPostPerPage] = useState(12)
+    const [currentPosts,setCurrentPosts] = useState([])
+    const [pageCount,setpageCount] = useState(0)
+    const navigate = useNavigate()
+    useEffect(()=>{
+        getData()
+    },[])
+
+    const getData=async()=>{
+        try {
+            const {data}= await axios.post(`/api/guard/getallguest`,{community_id:localStorage.getItem('community_id')})
+            setGuests(data.data.guests_list)
+            const indexoflast = currentPage*postPerPage  //endoffset
+            const indexoffirst = indexoflast - postPerPage //startoffset
+            setCurrentPosts(data.data.guests_list.filter(x=>x.status==true).slice(indexoffirst,indexoflast))
+            
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    const  dateTimeFormat=(date)=>
+    {
+      var d = new Date(date)
+      return d.getHours()+':'+d.getMinutes()
+      
+    }
+async function  paginate(event)
+  {
+    const {data}= await axios.post(`/api/guard/getallguest`,{community_id:localStorage.getItem('community_id')})
+    setCurrentpage(event.selected+1)
+    const indexoflast = (event.selected+1)*postPerPage  //endoffset
+    const indexoffirst = (indexoflast - postPerPage) //startoffset
+    setCurrentPosts(data.data.guests_list.filter(x=>x.status==true).slice(indexoffirst,indexoflast))
+}
+const guestEntry=async(id)=>{
+    navigate('/guestentry',{state:{id:id}})
+}
+  
   return (
     <div className="inoutbookcontainer">
       <div id="headersection">
@@ -48,21 +87,25 @@ const GuestList = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Amazon Delivery</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
+            {currentPosts.map((items,index)=>{
+           return( <tr key={items._id}>
+                <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
+                <td onClick={()=>{guestEntry(items.Guest_id)}}>{items.guestFirstName} {items.guestLastName}</td>
+                <td>Guest</td>
+                <td>{items.block_name}</td>
+                <td>{items.flat_number}</td>
+                <td>Today</td>
+                <td>{dateTimeFormat(items.time)}</td>
+                <td>-</td>
+            </tr>)
+            })}
+            
           </tbody>
         </table>
         {/* <div className="App">
       {data} */}
-     
+             <PaginationCalculate totalPages={guests.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+
         {/* </div> */}
       </div>
     </div>

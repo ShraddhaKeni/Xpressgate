@@ -6,28 +6,36 @@ import axios from 'axios'
 import ReactPaginate from 'react-paginate';
 
 const Inoutbook = () => {
+  const [inoutdata, setInoutdata] = useState([])
   const [offset, setOffset] = useState(0);
   const [data, setData] = useState([]);
   const [perPage] = useState(10);
   const [pageCount, setPageCount] = useState(0)
 
-
-
-  const getData = async () => {
-    const res = await axios.get(`https://jsonplaceholder.typicode.com/photos`)
-    const data = res.data;
-    const slice = data.slice(offset, offset + perPage)
-    const postData = slice.map(pd => <div key={pd.id}>
-      <p>{pd.title}</p>
-      <img src={pd.thumbnailUrl} alt="" />
-    </div>)
-    setData(postData)
-    setPageCount(Math.ceil(data.length / perPage))
+  
+ 
+  const  dateTimeFormat=(timestamp)=>
+  {
+    var d = new Date(timestamp)
+    return d.getHours()+':'+d.getMinutes()  
   }
 
   useEffect(() => {
-   
+    getInOutBookData()
   }, [])
+
+  const getInOutBookData = async () => {
+    try {
+
+      const community_id = "632970d054edb049bcd0f0b4"
+
+      const { data } = await axios.get(`api/inout/getall/` + community_id)
+      setInoutdata(data.data.list)
+      //console.log(data.data.list)
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   const handlePageClick = (e) => {
     const selectedPage = e.selected;
@@ -56,7 +64,7 @@ const Inoutbook = () => {
         <div className='inoutbookdisplay'>
           <label>In-out Book</label>
         </div>
-        {/* <div class="table-responsive"> */}
+
         <table id="inoutbooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>
@@ -71,188 +79,23 @@ const Inoutbook = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Amazon Delivery</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Amazon Delivery</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Amazon Delivery</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Amazon Delivery</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Amazon Delivery</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Amazon Delivery</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Amazon Delivery</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Amazon Delivery</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Amazon Delivery</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Amazon Delivery</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Amazon Delivery</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Amazon Delivery</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Amazon Delivery</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Amazon Delivery</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Amazon Delivery</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
-
-            <tr>
-              <td>1</td>
-              <td>Ram naik</td>
-              <td>Amazon Delivery</td>
-              <td>Block A</td>
-              <td>1010</td>
-              <td>Today</td>
-              <td>16:20</td>
-              <td>Out</td>
-            </tr>
+            {inoutdata.map(iodata => {
+              return (
+                <tr>
+                  <td>1</td>
+                  <td>{iodata.guestFirstName} {iodata.guestLastName}</td>
+                  <td>{iodata.type=='2'? iodata.type=='1' ? 'Guest' : 'Vendor' : 'Daily Helper'}</td>
+                  <td>{iodata.block_name}</td>
+                  <td>{iodata.flat_number}</td>
+                  <td>{iodata.guestFirstName}</td>
+                  <td>{dateTimeFormat(iodata.intime)}</td>
+                  <td>{iodata.guestFirstName}</td>
+                </tr>)
+            })}
           </tbody>
         </table>
-        {/* <div className="App">
-      {data} */}
-        <ReactPaginate
-          previousLabel={"prev"}
-          nextLabel={"next"}
-          breakLabel={"..."}
-          breakClassName={"break-me"}
-          pageCount={pageCount}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          onPageChange={handlePageClick}
-          containerClassName={"pagination"}
-          subContainerClassName={"pages pagination"}
-          activeClassName={"active"} />
-        {/* </div> */}
       </div>
     </div>
-    // </div>
   )
 }
 

@@ -16,6 +16,10 @@ import Dailyservicepasscode from './components/GuardModule/Dailyservicepasscode'
 import PrivateRoutes from './components/GuardModule/Utils/PrivateRoutes';
 import VendorEntryDetails from './components/GuardModule/VendorEntryDetails';
 import GuestList from './components/GuardModule/GuestList';
+import Forgotpassword from './components/GuardModule/Forgotpassword';
+import OTPscreen from './components/GuardModule/otp';
+import Newpassword from './components/GuardModule/Newpassword';
+import GuestEntry from './components/GuardModule/GuestEntry';
 
 function App() {
  useEffect(()=>{
@@ -38,6 +42,10 @@ function App() {
             <Route path="/dailyservice" element={<Dailyservicepasscode />} exact></Route> 
             <Route path="/vendorentry" element={<VendorEntryDetails/>} exact></Route>
             <Route path="/guestlist" element={<GuestList/>} exact></Route>
+            <Route path="/forgotpassword" element={<Forgotpassword/>} exact></Route>
+            <Route path="/otp" element={<OTPscreen/>} exact></Route>
+            <Route path="/newpassword" element={<Newpassword/>} exact></Route>
+            <Route path="/guestentry" element={<GuestEntry/>} exact></Route>
           </Route>
           <Route path="/" element={<Login />} exact></Route>
         </Routes>
