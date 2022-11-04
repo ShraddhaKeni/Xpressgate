@@ -17,7 +17,7 @@ const Otp = () => {
       }
      
       let { data } = await axios.post(`api/auth/guardresetpass`, dataverify)
-      navigate('/otp', { state: { mobile: location.state.mobile } })
+      navigate('/newpassword', { state: { guardid: data.data.guard_id } })
       console.log(data)
     } 
     catch (error) {
