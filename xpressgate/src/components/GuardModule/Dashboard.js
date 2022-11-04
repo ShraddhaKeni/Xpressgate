@@ -121,7 +121,7 @@ const Dashboard = () => {
               </div>
               <div className="col">
                 <div className="dashboardcard">
-                 <img src="/images/inoutbookcard.svg" className="dbcard-img-top" alt="inout book card"></img>
+                 <img src="/images/inoutbookcard.svg" className="dbcard-img-top" onClick={() =>{window.location.href = '/inoutbook'}} alt="inout book card"></img>
                 </div>
               </div>
               <div className="col">

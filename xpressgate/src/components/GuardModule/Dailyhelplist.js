@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import LogOut from './Utils/LogOut';
 import { Link, useNavigate } from 'react-router-dom'
+import './otp.css';
 
 const Dailyhelplist = () => {
   const [dailyhelpdata, setDailyhelpdata] = useState([])
@@ -63,11 +64,11 @@ const Dailyhelplist = () => {
                   blocks: dailydata.block
                 }}>
                   <div className="col">
-                    <div className="dailyhelpminicard">
-                      <img className="card-img-top" src={"http://143.110.187.80:5050/uploads/staff/" + dailydata.helper_image} alt="profile"></img><br></br>
+                    <div className="dailyhelpminicard"><br></br>
+                      <img className="card-img-top" src={"http://143.110.187.80:5050" + dailydata.helper_image} alt="profile"></img><br></br>
                       <label className='dhcard-titlename'>{dailydata.helper_name}</label><br></br>
                       <label className='dhcard-profession'>{dailydata.service}</label><br></br>
-                      <label className='dhcard-allowedhouses'>Allowed in {dailydata.booking_id.length} Houses</label>
+                      <label className='dhcard-allowedhouses'>Allowed in {dailydata.booking_id.length} Houses</label><br></br><br></br>
                     </div>
 
                   </div>

@@ -15,6 +15,8 @@ import Frequentvisitor from './components/GuardModule/Frequentvisitor';
 import Dailyservicepasscode from './components/GuardModule/Dailyservicepasscode';
 import PrivateRoutes from './components/GuardModule/Utils/PrivateRoutes';
 import VendorEntryDetails from './components/GuardModule/VendorEntryDetails';
+import Forgotpassword from './components/GuardModule/Forgotpassword';
+import OTPscreen from './components/GuardModule/otp';
 
 function App() {
 
@@ -34,6 +36,8 @@ function App() {
             <Route path="/frequent" element={<Frequentvisitor/>} exact></Route>   
             <Route path="/dailyservice" element={<Dailyservicepasscode />} exact></Route> 
             <Route path="/vendorentry" element={<VendorEntryDetails/>} exact></Route>
+            <Route path="/forgotpassword" element={<Forgotpassword/>} exact></Route>
+            <Route path="/otp" element={<OTPscreen/>} exact></Route>
           </Route>
           <Route path="/" element={<Login />} exact></Route>
         </Routes>

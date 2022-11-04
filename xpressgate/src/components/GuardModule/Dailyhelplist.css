@@ -216,6 +216,7 @@ html {
   width: 30%;
   height: 30%;
   margin: auto;
+  border-radius: 50px;
 }
 
 .fullcardscss{

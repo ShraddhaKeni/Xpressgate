@@ -5,17 +5,18 @@ import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 
 const Dailyservicepasscode = ({ props }) => {
+console.log(props)
 
   const [flats, setFlats] = useState([])
   const [staff, setStaff] = useState({})
   const [service, setService] = useState()
 
   const location = useLocation();
-  console.log(location);
+  //console.log(location);
 
   useEffect(() => {
     if (location.state) {
-      console.log(location.state)
+      //console.log(location.state)
       setFlats(location.state.flats)
     }
     else {
