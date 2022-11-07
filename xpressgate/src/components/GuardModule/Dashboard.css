@@ -11,11 +11,6 @@ html {
     "guardnamesection cardsection"
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
 
 .code {
   display: flex;
@@ -37,21 +32,20 @@ input::-webkit-inner-spin-button {
 }
 
 #headersection {
-  /* background-color: aquamarine; */
-  /* margin-top: 10%; */
+  
   grid-area: headersection;
   background-color: #F9F9FF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #guardnamesection {
-  /* background-color: blueviolet; */
+ 
   grid-area: guardnamesection;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #cardsection {
-  /* background-color: blue; */
+ 
   grid-area: cardsection;
   position: relative;
 
@@ -99,7 +93,7 @@ input::-webkit-inner-spin-button {
   font-size: 20px;
 }
 
-*/ #dashboardspace {
+#dashboardspace {
   grid-area: dashboardspace;
 }
 
@@ -140,7 +134,7 @@ input::-webkit-inner-spin-button {
   padding-top: 2%;
 }
 
-*/ .guardname {
+.guardname {
   display: flex;
   width: 80%;
   height: 12%;
@@ -205,7 +199,6 @@ input::-webkit-inner-spin-button {
   width: 100%;
 }
 
-/* Media query for laptop */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   #dashboardguard label {
     margin-top: 14%;
@@ -276,7 +269,6 @@ input::-webkit-inner-spin-button {
   }
 }
 
-/* Media query for mobile */
 @media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
   .sideimage {
     display: none;

@@ -20,8 +20,7 @@ import Forgotpassword from './components/GuardModule/Forgotpassword';
 import OTPscreen from './components/GuardModule/otp';
 import Newpassword from './components/GuardModule/Newpassword';
 import GuestEntry from './components/GuardModule/GuestEntry';
-import Select from './components/Select';
-import Society from './components/Society';
+
 
 function App() {
  useEffect(()=>{

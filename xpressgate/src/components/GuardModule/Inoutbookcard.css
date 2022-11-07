@@ -12,15 +12,13 @@ html {
 }
 
 #headersection {
-  /* background-color: aquamarine; */
-  /* margin-top: 10%; */
+
   grid-area: headersection;
   background-color: #F9F9FF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #guardnamesection {
-  /* background-color: blueviolet; */
   grid-area: guardnamesection;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -105,7 +103,6 @@ html {
   height: 40px;
   font-size: 20px;
   font-weight: 500;
-  /* margin-top: 18%; */
   padding-top: 0%;
   margin: auto;
 }
@@ -306,7 +303,6 @@ html {
   color: #14335D;
 }
 
-/* Media query for laptop */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   .guardname label {
     margin-left: 7%;
@@ -387,13 +383,11 @@ html {
     height: 40px;
     font-size: 20px;
     font-weight: 500;
-    /* margin-top: 18%; */
     padding-top: 1%;
     margin: auto;
   }
 }
 
-/* Media query for mobile */
 @media only screen  and (min-device-width : 320px) and (max-device-width : 425px) {
   #dashboardlogo img {
     margin-top: 5%;
