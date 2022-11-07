@@ -12,21 +12,18 @@ html {
 }
 
 #headersection {
-  /* background-color: aquamarine; */
-  /* margin-top: 10%; */
+
   grid-area: headersection;
   background-color: #F9F9FF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #guardnamesection {
-  /* background-color: blueviolet; */
   grid-area: guardnamesection;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #cardsection {
-  /* background-color: blue; */
   grid-area: cardsection;
   position: relative;
 
@@ -183,7 +180,6 @@ html {
   margin-Top: 2%;
   max-Width: 80%;
   background-color: #F9FAFF;
-  /* -webkit-border-radius: 14px; */
   border-radius: 14px;
   border-collapse: separate;
   font-family: 'Rubik', sans-serif;
@@ -223,14 +219,12 @@ table th {
 }
 
 .searchbox img{
-  /* margin-top: 7px;
-  margin-right: 20px; */
+ 
   margin-left: -42%;
 }
 
 .searchlabel{
-  /* margin-right: 88px;
-  margin-bottom: 10px; */
+
   font-family: 'Rubik', sans-serif;
   margin: 10px;
   font-size: 14px;
@@ -255,7 +249,6 @@ table th {
   font-size: 14px;
 }
 
-/* Media query for laptop */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   .guardname label {
     margin-left: 7%;
@@ -361,9 +354,4 @@ table tr td
 
 .inactive{
   display: none;
-}
-
-.dashboardnotification
-{
-  
 }

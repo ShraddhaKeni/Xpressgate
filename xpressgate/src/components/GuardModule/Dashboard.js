@@ -13,7 +13,7 @@ const Dashboard = () => {
 
   const [entryData, setEntryData] = useState({})
   const [message, setMessage] = useState({})
-
+  const [stat,setStat] = useState(false)
   useEffect(()=>{
     const config = {
       headers:{
@@ -76,7 +76,8 @@ const Dashboard = () => {
           <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
           <div id="dashboardguard"><label>Guard</label></div>
           <div id="dashboardspace"></div>
-          <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+          <div id="dashboardnotification" onClick={()=>{setStat(!stat)}}><img src="/images/notification.svg" className='bellicon' alt="notificationicon" /></div>
+          {stat?<div className='notification_section'><HeaderSection/></div>:''}
           <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
           <div id="dashboardlogoutbutton"><LogOut/></div>
         </div>
