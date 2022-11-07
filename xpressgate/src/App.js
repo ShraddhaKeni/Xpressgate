@@ -18,6 +18,7 @@ import VendorEntryDetails from './components/GuardModule/VendorEntryDetails';
 import Forgotpassword from './components/GuardModule/Forgotpassword';
 import OTPscreen from './components/GuardModule/otp';
 import Newpassword from './components/GuardModule/Newpassword';
+import SocietyDashboard from './components/SocietyModule/Societydashboard'
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
             <Route path="/forgotpassword" element={<Forgotpassword/>} exact></Route>
             <Route path="/otp" element={<OTPscreen/>} exact></Route>
             <Route path="/newpassword" element={<Newpassword/>} exact></Route>
+            <Route path="/societydashboard" element={<SocietyDashboard />} exact></Route>
           </Route>
           <Route path="/" element={<Login />} exact></Route>
         </Routes>
