@@ -5,15 +5,15 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import ReactPaginate from 'react-paginate';
 import {useNavigate} from 'react-router-dom'
+import PaginationCalculate from './Utils/paginationCalculate';
 
 const Inoutbook = () => {
   const [inoutdata, setInoutdata] = useState([])
-  const [offset, setOffset] = useState(0);
-  const [data, setData] = useState([]);
-  const [perPage] = useState(10);
-  const [pageCount, setPageCount] = useState(0)
   const navigate = useNavigate()
-  
+  const [currentPage, setCurrentpage] = useState(1)
+  const [postPerPage, setPostPerPage] = useState(12)
+  const [currentPosts,setCurrentPosts] = useState([])
+  const [community_id, setID] = useState("632970d054edb049bcd0f0b4")
  
   const  dateTimeFormat=(timestamp)=>
   {
@@ -28,10 +28,13 @@ const Inoutbook = () => {
   const getInOutBookData = async () => {
     try {
 
-      const community_id = "632970d054edb049bcd0f0b4"
+      
 
       const { data } = await axios.get(`api/inout/getall/` + community_id)
       setInoutdata(data.data.list)
+      const indexoflast = currentPage*postPerPage  //endoffset
+      const indexoffirst = indexoflast - postPerPage //startoffset
+      setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
       //console.log(data.data.list)
     } catch (err) {
       console.log(err)
@@ -40,10 +43,15 @@ const Inoutbook = () => {
   const routeNavigate=(id)=>{
     navigate('/inoutbookcard',{state:{id:id}})
   }
-  const handlePageClick = (e) => {
-    const selectedPage = e.selected;
-    setOffset(selectedPage + 1)
-  };
+ 
+
+  const paginate = async(event)=>{
+    const { data } = await axios.get(`api/inout/getall/` + community_id)
+    setCurrentpage(event.selected+1)
+    const indexoflast = currentPage*postPerPage  //endoffset
+    const indexoffirst = indexoflast - postPerPage //startoffset
+    setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
+  }
   return (
     <div className="inoutbookcontainer">
       <div id="headersection">
@@ -84,9 +92,9 @@ const Inoutbook = () => {
           <tbody>
             {inoutdata.map(iodata => {
               return (
-                <tr>
+                <tr onClick={()=>routeNavigate(iodata.booking_id)}>
                   <td>1</td>
-                  <td onClick={()=>routeNavigate(iodata.booking_id)}>{iodata.guestFirstName} {iodata.guestLastName}</td>
+                  <td >{iodata.guestFirstName} {iodata.guestLastName}</td>
                   <td>{iodata.type=='2'? iodata.type=='1' ? 'Guest' : 'Vendor' : 'Daily Helper'}</td>
                   <td>{iodata.block_name}</td>
                   <td>{iodata.flat_number}</td>
@@ -97,6 +105,8 @@ const Inoutbook = () => {
             })}
           </tbody>
         </table>
+        <PaginationCalculate totalPages={inoutdata.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+
       </div>
     </div>
   )

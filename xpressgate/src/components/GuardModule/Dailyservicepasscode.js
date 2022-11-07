@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 
 const Dailyservicepasscode = ({ props }) => {
-console.log(props)
+
 
   const [flats, setFlats] = useState([])
   const [staff, setStaff] = useState({})
