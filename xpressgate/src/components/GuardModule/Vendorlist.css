@@ -358,3 +358,12 @@ table tr td
   color: rgb(255, 123, 0);
   text-decoration: none;
 }
+
+.inactive{
+  display: none;
+}
+
+.dashboardnotification
+{
+  
+}

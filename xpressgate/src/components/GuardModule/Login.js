@@ -54,7 +54,7 @@ const Login = () => {
             </div>
             <br></br>
             <Button type="button" className="btnlogin" onClick={()=>{loginGuard()}}>Login</Button>
-            <div className='forgotpassword'><a href='https://gitlab.com/users/password/new' style={{color:"#FD6B22"}}>Forgot Password?</a></div>
+            <div className='forgotpassword'><a href='/forgotpassword' style={{color:"#FD6B22"}}>Forgot Password?</a></div>
           </div>
         </Form>
       </div>

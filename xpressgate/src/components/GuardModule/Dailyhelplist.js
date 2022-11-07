@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './Dailyhelplist.css';
 import { Button } from 'react-bootstrap';
-import HeaderSection from './Utils/HeaderSection';
-import GuardSideSection from './Utils/GuardSideSection';
 import axios from 'axios';
 import LogOut from './Utils/LogOut';
 import { Link, useNavigate } from 'react-router-dom'
+import './otp.css';
 
 const Dailyhelplist = () => {
   const [dailyhelpdata, setDailyhelpdata] = useState([])
@@ -53,92 +52,29 @@ const Dailyhelplist = () => {
             <label>Daily Help List</label>
           </div>
           <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
-
             {dailyhelpdata.map(dailydata => {
 
-              const dailyservicedata = () => {
-                console.log('oi')
-               
-                // navigate('/dailyservice', { state: { dailydata } });
-              }
               return (
-                <div className="col">
-                  
-                  <Link to='/dailyservice' state={{
-                      dailydata:dailydata._id,
-                      helpername:dailydata.helper_name
-                    
-                    }}>
-                  <div className="dailyhelpminicard" onClick={() => dailyservicedata()}>
-                    <img className="card-img-top" src={"http://143.110.187.80:5050" + dailydata.helper_image} alt="profile"></img><br></br>
-                    <label className='dhcard-titlename'>{dailydata.helper_name}</label><br></br>
-                    <label className='dhcard-profession'>{dailydata.service}</label><br></br>
-                    <label className='dhcard-allowedhouses'>Allowed in {dailydata.booking_id.length} Houses</label>
+                <Link to='/dailyservice' state={{
+                  dailyid: dailydata._id,
+                  helpername: dailydata.helper_name,
+                  servicetype: dailydata.service,
+                  bookinglength: dailydata.booking_id,
+                  flats: dailydata.flats,
+                  blocks: dailydata.block
+                }}>
+                  <div className="col">
+                    <div className="dailyhelpminicard"><br></br>
+                      <img className="card-img-top" src={"http://143.110.187.80:5050" + dailydata.helper_image} alt="profile"></img><br></br>
+                      <label className='dhcard-titlename'>{dailydata.helper_name}</label><br></br>
+                      <label className='dhcard-profession'>{dailydata.service}</label><br></br>
+                      <label className='dhcard-allowedhouses'>Allowed in {dailydata.booking_id.length} Houses</label><br></br><br></br>
+                    </div>
+
                   </div>
-                  </Link>
-                </div>)
+               </Link>)
             })}
 
-
-
-
-
-            {/* <div className="col">
-              <div className="dailyhelpminicard">
-              <img className="card-img-top" src="/images/dailyhelplistprofile.svg"  alt="guest card"></img>
-                <label className='card-titlename'>Rita Kumari</label>
-                <label className='card-profession'>Laundary</label>
-                <label className='card-allowedhouses'>Allowed in 2 Houses</label>
-              </div>
-            </div>
-            <div className="col">
-              <div className="dailyhelpminicard">
-              <img className="card-img-top" src="/images/dailyhelplistprofile.svg"  alt="guest card"></img>
-                <label className='card-titlename'>Rita Kumari</label>
-                <label className='card-profession'>Maid</label>
-                <label className='card-allowedhouses'>Allowed in 5 Houses</label>
-              </div>
-            </div>
-            <div className="col">
-              <div className="dailyhelpminicard">
-              <img className="card-img-top" src="/images/dailyhelplistprofile.svg"  alt="guest card"></img>
-                <label className='card-titlename'>Rita Kumari</label>
-                <label className='card-profession'>Cleaner</label>
-                <label className='card-allowedhouses'>Allowed in 2 Houses</label>
-              </div>
-            </div>
-            <div className="col">
-              <div className="dailyhelpminicard">
-              <img className="card-img-top" src="/images/dailyhelplistprofile.svg"  alt="guest card"></img>
-                <label className='card-titlename'>Rita Kumari</label>
-                <label className='card-profession'>Laundary</label>
-                <label className='card-allowedhouses'>Allowed in 2 Houses</label>
-              </div>
-            </div>
-            <div className="col">
-              <div className="dailyhelpminicard">
-              <img className="card-img-top" src="/images/dailyhelplistprofile.svg"  alt="guest card"></img>
-                <label className='card-titlename'>Rita Kumari</label>
-                <label className='card-profession'>Maid</label>
-                <label className='card-allowedhouses'>Allowed in 5 Houses</label>
-              </div>
-            </div>
-            <div className="col">
-              <div className="dailyhelpminicard">
-              <img className="card-img-top" src="/images/dailyhelplistprofile.svg"  alt="guest card"></img>
-                <label className='card-titlename'>Rita Kumari</label>
-                <label className='card-profession'>Cleaner</label>
-                <label className='card-allowedhouses'>Allowed in 2 Houses</label>
-              </div>
-            </div>
-            <div className="col">
-              <div className="dailyhelpminicard">
-              <img className="card-img-top" src="/images/dailyhelplistprofile.svg"  alt="guest card"></img>
-                <label className='card-titlename'>Rita Kumari</label>
-                <label className='card-profession'>Laundary</label>
-                <label className='card-allowedhouses'>Allowed in 2 Houses</label>
-              </div> 
-            </div>*/}
           </div>
         </div>
       </div>
