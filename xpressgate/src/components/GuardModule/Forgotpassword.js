@@ -17,7 +17,7 @@ const Forgotpassword = () => {
       //  var mobilenumber = {
       //   mobileno: mobile,
       // }
-      let { data } = await axios.post(`api/auth/guardforgotpass`, { mobileno: document.getElementById('mobileno').value})
+      let { data } = await axios.post(`${process.env.REACT_APP_SERVER_PATH}api/auth/guardforgotpass`, { mobileno: document.getElementById('mobileno').value})
      // window.open('/otp', '_blank').focus();
      navigate('/otp',{state:{mobile:document.getElementById('mobileno').value}})
      

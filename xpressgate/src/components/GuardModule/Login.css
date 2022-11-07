@@ -12,13 +12,11 @@ html{
 }
 
 #logoid {
-    /* background-color: aquamarine;    */
-  /* margin-top: 10%; */
+ 
   grid-area: logoid;
 }
 
 #loginimgid {
-    /* background-color: blueviolet;    */
   grid-area: loginimgid;
 }
 
@@ -27,17 +25,16 @@ html{
 }
 
 #loginformid {
-  /* background-color: blue;   */
+ 
   grid-area: loginformid;
   position: relative;
 }
 
 .signin {
-  /* position: absolute; */
+ 
   width: 400px;
   height: 76px;
- /* left: 148px;
-  top: 340px; */
+
   background-color: #14335D;
    margin-left: 28%; 
   margin-top: 6%;
@@ -162,7 +159,6 @@ html{
 }
 }
 
-/* Media query for mobile */
 @media only screen  and (min-device-width : 320px) and (max-device-width : 425px) {
 
   #loginimgid{

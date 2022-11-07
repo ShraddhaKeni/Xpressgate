@@ -13,14 +13,14 @@ const Dashboard = () => {
 
   const [entryData, setEntryData] = useState({})
   const [message, setMessage] = useState({})
-
+  const [stat,setStat] = useState(false)
   useEffect(()=>{
     const config = {
       headers:{
         'x-access-token':localStorage.getItem('accesstoken')
       }
     }
-    axios.get(`/api/guard/checkLogin`,config)
+   axios.get(`/api/guard/checkLogin`,config)
           .then(({data})=>{   
           })
           .catch(err=>{
@@ -45,7 +45,7 @@ const Dashboard = () => {
         code: code,
         community_id: "632970d054edb049bcd0f0b4"
       }
-      let { data } = await axios.post(`api/inoutentires/getdata`, codeData)
+      let { data } = await axios.post(`${process.env.REACT_APP_SERVER_PATH}api/inoutentires/getdata`, codeData)
       setEntryData(data.data.bookingdetails)
       setMessage(data.message)
   
@@ -76,7 +76,8 @@ const Dashboard = () => {
           <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
           <div id="dashboardguard"><label>Guard</label></div>
           <div id="dashboardspace"></div>
-          <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+          <div id="dashboardnotification" onClick={()=>{setStat(!stat)}}><img src="/images/notification.svg" className='bellicon' alt="notificationicon" /></div>
+          {stat?<div className='notification_section'><HeaderSection/></div>:''}
           <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
           <div id="dashboardlogoutbutton"><LogOut/></div>
         </div>
@@ -106,7 +107,7 @@ const Dashboard = () => {
             <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
               <div className="col">
                 <div className="dashboardcard">
-                  <a href='abc'><img src="/images/guestcard.svg" className="dbcard-img-top" alt="guest card"></img></a>
+                 <img src="/images/guestcard.svg" onClick={()=>{window.location.href='/guestlist'}} className="dbcard-img-top" alt="guest card"></img>
                 </div>
               </div>
               <div className="col">

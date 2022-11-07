@@ -4,13 +4,17 @@ import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import PaginationCalculate from './Utils/paginationCalculate';
 import LogOut from './Utils/LogOut';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useLocation,useNavigate } from 'react-router-dom';
+import HeaderSection from './Utils/HeaderSection';
 
 const Vendorlist = () => {
 
   const [vendorData,setData]= useState([])
   const [vendorBooking,setBookingData] = useState()
-
+  const [inout,setInOut] = useState([])
+  const location = useLocation()
+  const navigate = useNavigate()
+  const [stat,setStat] = useState(false)
   //pagination states 
 
   const [currentPage, setCurrentpage] = useState(1)
@@ -18,20 +22,23 @@ const Vendorlist = () => {
   const [currentPosts,setCurrentPosts] = useState([])
   const [pageCount,setpageCount] = useState(0)
 
+
   useEffect(()=>{
     getAllVendorData()
-   
-  },[currentPage])
+    
+  },[currentPage,currentPosts])
 
   const getAllVendorData=async()=>{
     try
     {
-      const {data} = await axios.get(`/api/vendor/list`)
-      
-      setData(data.data.list)
+      const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/vendor/list`)
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_PATH}/api/inout/getall/${localStorage.getItem('community_id')}`)
+      setInOut(response.data.data.list)
+      setData(data.data.list.filter(x=>x.bookingstatus==true))
+      checkNavigate()
       const indexoflast = currentPage*postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
-      setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
+      setCurrentPosts(data.data.list.filter(x=>x.bookingstatus==true).slice(indexoffirst,indexoflast))
     }
     catch(err)
     {
@@ -48,13 +55,19 @@ const Vendorlist = () => {
     
   }
 
+  const getTime=(date)=>{
+    var d = new Date(date)
+    return d.getHours()+':'+d.getMinutes()
+    
+  }
+
   async function  paginate(event)
   {
-    const {data} = await axios.get(`/api/vendor/list`)
+    const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/vendor/list`)
     setCurrentpage(event.selected+1)
     const indexoflast = (event.selected+1)*postPerPage  //endoffset
     const indexoffirst = (indexoflast - postPerPage) //startoffset
-    setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
+    setCurrentPosts(data.data.list.filter(x=>x.bookingstatus==true).slice(indexoffirst,indexoflast))
   }
   async function findText(e)
   {
@@ -69,20 +82,32 @@ const Vendorlist = () => {
     }
     
   }
- 
+ function checkNavigate()
+ {
+    try {
+     
+    } catch (error) {
+      
+    }
+ }
+
   var srno = 1 
   return (
+    
     <div className="vendorlistcontainer">
       <div id="headersection">
+
         <div class="firstheadersection">
           <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
           <div id="dashboardguard"><label>Guard</label></div>
           <div id="dashboardspace"></div>
-          <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" className='bellicon' alt="notificationicon" /></a></div>
+          <div id="dashboardnotification" onClick={()=>{setStat(!stat)}}><img src="/images/notification.svg" className='bellicon' alt="notificationicon" /></div>
+          {stat?<div className='notification_section'><HeaderSection/></div>:''}
           <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" className='cogwheel' alt="settingicon" /></a></div>
           <div id="dashboardlogoutbutton"> <LogOut/> </div>
         </div>
       </div>
+     
       <div id="guardnamesection">
         <div className='guardname'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
@@ -115,6 +140,7 @@ const Vendorlist = () => {
               <th class="th-sm">Flat No.</th>
               <th class="th-sm">Date</th>
               <th class="th-sm">In time</th>
+              <th class="th-sm">Time</th>
               <th class="th-sm">Status</th>
             </tr>
           </thead>
@@ -122,13 +148,14 @@ const Vendorlist = () => {
             {currentPosts.map((item,index)=>{
               return(
                 
-                <tr key={item.booking_id} id={item._id}  >
+                <tr key={item.booking_id} id={item.booking_id}  >
                 <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
-                <td><Link className='linkToPage' to='/vendorentry' state={{id:item.booking_id}}>{item.vendor_name}</Link></td>
+                <td id={'td-'+item._id} ><Link className='linkToPage' to='/vendorentry' state={{id:item._id,bookingid:item.booking_id}}>{item.vendor_name}</Link></td>
                 <td>{item.service}</td>
                 <td>{item.block}</td>
                 <td>{item.flats}</td>
                 <td>{dateTimeFormat(item.date)}</td>
+                <td>{getTime(item.date)}</td>
                 <td>-</td>
                 <td>-</td>
                

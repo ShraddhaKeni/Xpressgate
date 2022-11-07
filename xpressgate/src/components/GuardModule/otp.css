@@ -12,13 +12,10 @@ html{
 }
 
 #otplogoid {
-    /* background-color: aquamarine;    */
-  /* margin-top: 10%; */
   grid-area: otplogoid;
 }
 
 #otpimgid {
-    /* background-color: blueviolet;    */
   grid-area: otpimgid;
 }
 
@@ -27,17 +24,14 @@ html{
 }
 
 #otpformid {
-  /* background-color: blue;   */
   grid-area: otpformid;
   position: relative;
 }
 
 .otp {
-  /* position: absolute; */
   width: 360px;
   height: 76px;
- /* left: 148px;
-  top: 340px; */
+
   background-color: #14335D;
    margin-left: 28%; 
   margin-top: 6%;
@@ -162,7 +156,6 @@ html{
 }
 }
 
-/* Media query for mobile */
 @media only screen  and (min-device-width : 320px) and (max-device-width : 425px) {
 
   #otpimgid{

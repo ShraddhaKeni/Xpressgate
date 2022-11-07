@@ -12,21 +12,20 @@ html {
 }
 
 #headersection {
-  /* background-color: aquamarine; */
-  /* margin-top: 10%; */
+
   grid-area: headersection;
   background-color: #F9F9FF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #guardnamesection {
-  /* background-color: blueviolet; */
+
   grid-area: guardnamesection;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #cardsection {
-  /* background-color: blue; */
+
   grid-area: cardsection;
   position: relative;
 
@@ -179,7 +178,7 @@ html {
   margin-left: 25%;
 }
 
-/* Media query for laptop */
+
 @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
   .guardname label{
     margin-left: 7%;

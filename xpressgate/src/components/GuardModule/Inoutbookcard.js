@@ -2,13 +2,33 @@ import React, { useState, useEffect } from 'react';
 import './Inoutbookcard.css';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import HeaderSection from './Utils/HeaderSection';
+import LogOut from './Utils/LogOut';
 
 const Inoutbookcard = () => {
   
-
+  const [listData, setInOutData] = useState({})
+  const [flats,setFlats] = useState([])
+  const location = useLocation()
   useEffect(() => {
-   
+    getData()
   }, [])
+
+  const getData =async()=>{  
+    let id = {
+      booking_id:location.state.id,
+      type:"1"
+    } 
+    try {
+      const {data} = await axios.post(`${process.env.REACT_APP_SERVER_PATH}/api/inout/getone`,id);
+      console.log(data);
+      setInOutData(data.data)
+      setFlats(data.data.flat_details)
+    } catch (error) {
+      console.log(error);  
+    }
+  }
 
  
   return (
@@ -38,19 +58,21 @@ const Inoutbookcard = () => {
         <div className="col">
           <div className="inoutbookcard">
             <br></br>
-            <label className="namelabel">Ramesh Keni</label>
-            <div className='profclass'>Cab Driver</div>
+            <label className="namelabel">{listData.FirstName}</label>
+            <div className='profclass'>{listData.type}</div>
             <br></br>
             <div className='flatclass'>
               <label>Flat No</label>
-              <div className='flatnodisplay'>3010, Block B</div>
+              {flats.map((items)=>{
+                    return <div className='flatnodisplay'>{items.flat_no}, {items.block_name}</div>
+              })}
             </div>
             <br></br>
-            <div><label className='allowedclass'>Allowed by guard Somnath</label></div>
+            <div><label className='allowedclass'>Allowed by {listData.allowed_by}</label></div>
             <br></br>
             <div className='detailsclass'>
-              <div><label className='date'>Date:12/02/2022</label></div>
-              <div><label className='intine'>In-Time: 15:22 pm</label></div>
+              <div><label className='date'>Date:{listData.intime}</label></div>
+              <div><label className='intine'>In-Time: {listData.intime}</label></div>
               <div><label className='outtime'>Out-Time: </label></div>
               <div><label className='noofpeople'>No of People: 1</label></div>
               <div><label className='vehicleno'>Vehicle No: MH-29-2901</label></div>
@@ -67,4 +89,3 @@ const Inoutbookcard = () => {
 }
 
 export default Inoutbookcard
-
