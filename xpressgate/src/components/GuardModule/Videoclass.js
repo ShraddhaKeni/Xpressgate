@@ -17,7 +17,7 @@ const Videoclass = () => {
   }, [])
 
   const getData = async () => {
-    let data = await axios.get('api/videolist/getAll')
+    let data = await axios.get(process.env.REACT_APP_SERVER_PATH+'api/videolist/getAll')
       setVideodata(data.data.data.videolist)
       const indexoflast = currentPage*postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
@@ -27,7 +27,7 @@ const Videoclass = () => {
   
   async function  paginate(event)
   {
-    const {data} = await axios.get(`api/videolist/getAll`)
+    const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/videolist/getAll`)
     setCurrentpage(event.selected+1)
     const indexoflast = (event.selected+1)*postPerPage  //endoffset
     const indexoffirst = (indexoflast - postPerPage) //startoffset

@@ -17,7 +17,7 @@ const Dailyhelplist = () => {
   const getData = async () => {
     try {
 
-      const data = await axios.get('/api/helperlist/getAll')
+      const data = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/helperlist/getAll`)
       setDailyhelpdata(data.data.data.list)
       //setFlatdata(data.data.data.list[0].booking_id)
       //console.log(data.data.data.list[0].booking_id);

@@ -17,7 +17,7 @@ const GuestEntry = () => {
     const getGuestData=async(id)=>{
         try {
             console.log(id)
-            const {data} = await axios.get(`/api/resident/guest/getSingleGuest/${id}`)
+            const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}/api/resident/guest/getSingleGuest/${id}`)
             setDetails(data.data.guests[0])
         } catch (error) {
             

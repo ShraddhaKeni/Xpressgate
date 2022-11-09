@@ -21,7 +21,7 @@ const Inoutbookcard = () => {
       type:"1"
     } 
     try {
-      const {data} = await axios.post(`/api/inout/getone`,id);
+      const {data} = await axios.post(`${process.env.REACT_APP_SERVER_PATH}/api/inout/getone`,id);
       console.log(data);
       setInOutData(data.data)
       setFlats(data.data.flat_details)

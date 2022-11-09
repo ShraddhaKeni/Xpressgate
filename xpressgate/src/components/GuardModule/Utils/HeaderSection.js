@@ -13,7 +13,7 @@ const HeaderSection = () => {
 
   const getData=async()=>{
     try {
-      const {data} = await axios.get(`/api/guard/notifications/getAll/${localStorage.getItem('guard_id')}`)
+      const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/guard/notifications/getAll/${localStorage.getItem('guard_id')}`)
       setNotifications(data.data)
     } catch (error) {
       console.log(error)

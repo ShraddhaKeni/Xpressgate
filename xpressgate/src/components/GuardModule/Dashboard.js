@@ -45,7 +45,7 @@ const Dashboard = () => {
         code: code,
         community_id: "632970d054edb049bcd0f0b4"
       }
-      let { data } = await axios.post(`api/inoutentires/getdata`, codeData)
+      let { data } = await axios.post(`${process.env.REACT_APP_SERVER_PATH}api/inoutentires/getdata`, codeData)
       setEntryData(data.data.bookingdetails)
       setMessage(data.message)
   

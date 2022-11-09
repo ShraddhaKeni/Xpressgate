@@ -21,7 +21,7 @@ const GuestList = () => {
 
     const getData=async()=>{
         try {
-            const {data}= await axios.post(`/api/guard/getallguest`,{community_id:localStorage.getItem('community_id')})
+            const {data}= await axios.post(`${process.env.REACT_APP_SERVER_PATH}/api/guard/getallguest`,{community_id:localStorage.getItem('community_id')})
             setGuests(data.data.guests_list)
             const indexoflast = currentPage*postPerPage  //endoffset
             const indexoffirst = indexoflast - postPerPage //startoffset
@@ -39,7 +39,7 @@ const GuestList = () => {
     }
 async function  paginate(event)
   {
-    const {data}= await axios.post(`/api/guard/getallguest`,{community_id:localStorage.getItem('community_id')})
+    const {data}= await axios.post(`${process.env.REACT_APP_SERVER_PATH}/api/guard/getallguest`,{community_id:localStorage.getItem('community_id')})
     setCurrentpage(event.selected+1)
     const indexoflast = (event.selected+1)*postPerPage  //endoffset
     const indexoffirst = (indexoflast - postPerPage) //startoffset

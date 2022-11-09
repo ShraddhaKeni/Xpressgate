@@ -19,7 +19,9 @@ import GuestList from './components/GuardModule/GuestList';
 import Forgotpassword from './components/GuardModule/Forgotpassword';
 import OTPscreen from './components/GuardModule/otp';
 import Newpassword from './components/GuardModule/Newpassword';
+import SocietyDashboard from './components/SocietyModule/Societydashboard'
 import GuestEntry from './components/GuardModule/GuestEntry';
+import Flatlist from './components/SocietyModule/Flatlist'
 
 
 function App() {
@@ -48,6 +50,8 @@ function App() {
                   <Route path="/otp" element={<OTPscreen/>} exact></Route>
                   <Route path="/newpassword" element={<Newpassword/>} exact></Route>
                   <Route path="/guestentry" element={<GuestEntry/>} exact></Route>
+                  <Route path="/societydashboard" element={<SocietyDashboard/>} exact></Route>
+                  <Route path="/flatlist" element={<Flatlist/>} exact></Route>
                 </Route>
                 <Route path="/" element={<Login/>} exact></Route> 
              

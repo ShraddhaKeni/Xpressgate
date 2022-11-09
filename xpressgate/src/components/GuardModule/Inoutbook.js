@@ -30,7 +30,7 @@ const Inoutbook = () => {
 
       
 
-      const { data } = await axios.get(`api/inout/getall/` + community_id)
+      const { data } = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/inout/getall/` + community_id)
       setInoutdata(data.data.list)
       const indexoflast = currentPage*postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
@@ -46,7 +46,7 @@ const Inoutbook = () => {
  
 
   const paginate = async(event)=>{
-    const { data } = await axios.get(`api/inout/getall/` + community_id)
+    const { data } = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/inout/getall/` + community_id)
     setCurrentpage(event.selected+1)
     const indexoflast = currentPage*postPerPage  //endoffset
     const indexoffirst = indexoflast - postPerPage //startoffset
