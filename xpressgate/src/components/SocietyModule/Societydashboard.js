@@ -19,7 +19,7 @@ const Societydashboard = () => {
       </div>
       <div id="guardnamesection">
         <div className='guardname'>
-          <img src="/images/guardnameicon.svg" alt="guard name" />
+          <img src="/images/societyicon.svg" alt="society name" />
           <label>Society Name</label>
         </div>
         <div className='sideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
