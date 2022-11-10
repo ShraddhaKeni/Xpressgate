@@ -178,12 +178,12 @@ html {
 }
 
 .dailyhelpminicard {
-  margin-left: 24%;
+  margin-left: 50%;
   margin-bottom: 10%;
   border: none;
   background-color: #0A8996;
-  width: 80%;
-  height: 90%;
+  width: 60%;
+  height: 95%;
   border-radius: 20px;
 }
 

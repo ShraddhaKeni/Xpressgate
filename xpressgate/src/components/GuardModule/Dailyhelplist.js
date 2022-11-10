@@ -17,7 +17,7 @@ const Dailyhelplist = () => {
   const getData = async () => {
     try {
 
-      const data = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/helperlist/getAll`)
+      const data = await axios.get(`${window.env_var}api/helperlist/getAll`)
       setDailyhelpdata(data.data.data.list)
       //setFlatdata(data.data.data.list[0].booking_id)
       //console.log(data.data.data.list[0].booking_id);
@@ -63,7 +63,7 @@ const Dailyhelplist = () => {
                
                   <div className="col" onClick={()=>routeChange(dailydata._id)}>
                     <div className="dailyhelpminicard"><br></br>
-                      <img className="card-img-top" src={"http://143.110.187.80:5050" + dailydata.helper_image} alt="profile"></img><br></br>
+                      <img className="card-img-top" src={"http://143.110.187.80:5050/" + dailydata.helper_image} alt="profile"></img><br></br>
                       <label className='dhcard-titlename'>{dailydata.helper_name}</label><br></br>
                       <label className='dhcard-profession'>{dailydata.service}</label><br></br>
                       <label className='dhcard-allowedhouses'>Allowed in {dailydata.booking_id.length} Houses</label><br></br><br></br>

@@ -33,7 +33,7 @@ const Dailyservicepasscode = ({ props }) => {
 
   const getdailyhelp = async () => {
     try {
-      const dailyhelpdata = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/helperlist/getHelper/${location.state.id}`)
+      const dailyhelpdata = await axios.get(`${window.env_var}api/helperlist/getHelper/${location.state.id}`)
       setDailyhelp(dailyhelpdata.data.data.list)
       setDetails(dailyhelpdata.data.data.list[0])
       //console.log(dailyhelpdata.data.data.list)
@@ -45,10 +45,10 @@ const Dailyservicepasscode = ({ props }) => {
 
   const getAll = async () => {
     try {
-      const { data } = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/resident/helperstaff/getOne/${props.booked_id}`)
+      const { data } = await axios.get(`${window.env_var}api/resident/helperstaff/getOne/${props.booked_id}`)
       setFlats(props.flatID)
       setStaff(data.data.staff[0])
-      const serviceType = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/admin/dailyhelp/getStafftype/${data.data.staff[0].serviceType}`)
+      const serviceType = await axios.get(`${window.env_var}api/admin/dailyhelp/getStafftype/${data.data.staff[0].serviceType}`)
       setService(serviceType.data.data.dailyhelp.serviceType)
     } catch (error) {
       console.log('Try again after sometime')
@@ -71,7 +71,7 @@ const Dailyservicepasscode = ({ props }) => {
         status:2,
         allowed_by:localStorage.getItem('guard_id')
     }
-    const saveData = await axios.post(`/api/inout/add`,submitData)
+    const saveData = await axios.post(`${window.env_var}api/inout/add`,submitData)
     console.log(saveData.data.data)
     window.location.href="/dailyhelp"
      })
