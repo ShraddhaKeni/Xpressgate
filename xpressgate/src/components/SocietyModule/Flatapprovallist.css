@@ -162,13 +162,13 @@ html {
 .guardname label {
   color: #000;
   margin-left: 8%;
-  margin-top: 12%;
+  margin-top: 10%;
   font-size: 20px;
 }
 
 .sideimage img {
   display: flex;
-  margin-top: 125%;
+  margin-top: 70%;
   width: 100%;
   height: auto;
 }
@@ -325,11 +325,14 @@ html {
   color: #14335D;
 }
 
+.frequentvisitordisplay label{
+  padding-top: 14px;
+}
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   .guardname label {
-    margin-left: 7%;
-    margin-top: 18%;
+    margin-left: 3%;
+    margin-top: 17%;
     font-size: 15px;
   }
 
@@ -406,8 +409,46 @@ html {
     height: 50px;
     font-size: 20px;
     font-weight: 500;
-    margin-top: -13%;
+    margin-top: -18%;
     padding-top: 0%;
-    margin-left: 60%;
+    margin-left: 38%;
   }
+
+  .frequentvisitordisplay label {
+    padding-top: 0px;
+}
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
+  #dashboardlogo img {
+    margin-top: 26%;
+    margin-left: 20%;
+    margin-bottom: 5%;
+    width: 114%;
+
+}
+
+.frequentvisitordisplay {
+  width: 150px;
+  height: 56px;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  font-size: 20px;
+  padding-top: 11px;
+  margin-left: 84%;
+  margin-top: 4%;
+}
+
+.frequentvisitordisplay label {
+  padding-top: 2px;
+}
+
+.frequentvisitorcard {
+  width: 283%;
+  margin-top: 5%;
+  background-color: #fff;
+  border: 2px solid #14335D;
+  border-radius: 20px;
+  margin-left: 16%;
+}
 }

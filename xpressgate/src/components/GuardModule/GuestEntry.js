@@ -17,7 +17,7 @@ const GuestEntry = () => {
     const getGuestData=async(id)=>{
         try {
             console.log(id)
-            const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}/api/resident/guest/getSingleGuest/${id}`)
+            const {data} = await axios.get(`${window.env_var}api/resident/guest/getSingleGuest/${id}`)
             setDetails(data.data.guests[0])
         } catch (error) {
             
@@ -38,8 +38,8 @@ const GuestEntry = () => {
                 status:2,
                 allowed_by:localStorage.getItem('guard_id')
             }
-            const {data} = await axios.post(`/api/inout/add`,submitData);
-            const bookingUpdate = await axios.get(`/api/resident/guest/deleteGuest/${guestDetails._id}`)
+            const {data} = await axios.post(`${window.env_var}api/inout/add`,submitData);
+            const bookingUpdate = await axios.get(`${window.env_var}api/resident/guest/deleteGuest/${guestDetails._id}`)
             navigate('/guestlist')
         } catch (error) {
             console.log(error)
