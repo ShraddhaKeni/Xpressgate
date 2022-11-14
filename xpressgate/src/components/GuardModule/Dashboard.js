@@ -8,27 +8,29 @@ import Frequentvisitor from './Frequentvisitor';
 import Dailyservicepasscode from './Dailyservicepasscode';
 import HeaderSection from './Utils/HeaderSection';
 import GuardSideSection from './Utils/GuardSideSection';
+import { checkGuard } from '../auth/Auth';
 
 const Dashboard = () => {
   const [entryData, setEntryData] = useState({})
   const [message, setMessage] = useState({})
   const [stat,setStat] = useState(false)
   useEffect(()=>{
-    const config = {
-      headers:{
-        'x-access-token':localStorage.getItem('accesstoken')
+    if (checkGuard()) {
+      const config = {
+        headers:{
+          'x-access-token':localStorage.getItem('accesstoken')
+        }
       }
-    }
-   axios.get(`${window.env_var}api/guard/checkLogin`,config)
-          .then(({data})=>{   
-          })
-          .catch(err=>{
-            localStorage.clear();
-            window.location.href='/'
-          })
-          
-          
-          
+     axios.get(`${process.env.REACT_APP_SERVER_PATH}api/guard/checkLogin`,config)
+            .then(({data})=>{   
+            })
+            .catch(err=>{
+              localStorage.clear();
+              window.location.href='/guardLogin'
+            })  
+    } else {
+      window.location.href='/'
+    }  
   },[]) 
   const checkInputs = async () => {
     let a = document.getElementById('1').value

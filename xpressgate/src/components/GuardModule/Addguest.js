@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Addguest.css';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import LogOut from './Utils/LogOut';
+import { checkGuard } from '../auth/Auth';
 
 const Addguest = () => {
+  useEffect(()=>{
+    if(checkGuard())
+    {
+
+    }
+    else
+    {
+      window.location.href='/'
+    }
+  },[])
   return (
     <div className="addguestcontainer">
       <div id="headersection">

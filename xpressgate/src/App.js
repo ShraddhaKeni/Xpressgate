@@ -28,6 +28,7 @@ import Addflat from './components/SocietyModule/Addflat'
 import Addnotice from './components/SocietyModule/Addnotice'
 import Noticelist from './components/SocietyModule/Noticelist'
 import Addvehicle from './components/SocietyModule/Addvehicle'
+import SelectMode from './components/auth/SelectMode';
 
 function App() {
 
@@ -39,8 +40,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-
-          {/* <Route element={<PrivateRoutes />}> */}
+          <Route path='/' element={<SelectMode/>} exact></Route>
             <Route path="/dashboard" element={<Dashboard />} exact></Route>
             <Route path="/addvendor" element={<Addvendor />} exact></Route>
             <Route path="/addguest" element={<Addguest />} exact></Route>
@@ -65,10 +65,9 @@ function App() {
             <Route path="/addnotice" element={<Addnotice />} exact></Route>
             <Route path="/noticelist" element={<Noticelist />} exact></Route>
             <Route path="/addvehicle" element={<Addvehicle />} exact></Route>
-
-          {/* </Route> */}
-          <Route path="/" element={<Login />} exact></Route>
-
+            <Route path="/guardLogin" element={<Login />} exact></Route>
+            <Route path="/addFlat" element={<Addflat/>} exact></Route>
+            <Route path="/blockList" element={<Blocklist/>} exact></Route>
         </Routes>
       </Router>
     </div>
