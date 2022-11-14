@@ -10,7 +10,6 @@ import HeaderSection from './Utils/HeaderSection';
 import GuardSideSection from './Utils/GuardSideSection';
 
 const Dashboard = () => {
-
   const [entryData, setEntryData] = useState({})
   const [message, setMessage] = useState({})
   const [stat,setStat] = useState(false)
@@ -20,7 +19,7 @@ const Dashboard = () => {
         'x-access-token':localStorage.getItem('accesstoken')
       }
     }
-   axios.get(`/api/guard/checkLogin`,config)
+   axios.get(`${window.env_var}api/guard/checkLogin`,config)
           .then(({data})=>{   
           })
           .catch(err=>{
@@ -45,7 +44,7 @@ const Dashboard = () => {
         code: code,
         community_id: "632970d054edb049bcd0f0b4"
       }
-      let { data } = await axios.post(`api/inoutentires/getdata`, codeData)
+      let { data } = await axios.post(`${window.env_var}api/inoutentires/getdata`, codeData)
       setEntryData(data.data.bookingdetails)
       setMessage(data.message)
   
@@ -94,12 +93,12 @@ const Dashboard = () => {
             <div className='enterpasscodesearch'>
               <label>ENTER PASSCODE</label>
               <div className='code'>
-                <input type='text' className='dashboard_passcode' onKeyUp={e=>{shiftFocus(e)}}  maxlength="1" id='1'></input>
-                <input type='text' className='dashboard_passcode' onKeyUp={e=>{shiftFocus(e)}}  maxlength="1" id='2'></input>
-                <input type='text' className='dashboard_passcode' onKeyUp={e=>{shiftFocus(e)}}  maxlength="1" id='3'></input>
-                <input type='text' className='dashboard_passcode' onKeyUp={e=>{shiftFocus(e)}}  maxlength="1" id='4'></input>
-                <input type='text' className='dashboard_passcode' onKeyUp={e=>{shiftFocus(e)}}  maxlength="1" id='5'></input>
-                <input type='text' className='dashboard_passcode' onKeyUp={e=>{shiftFocus(e)}}  maxlength="1" id='6'></input>
+                <input type='text' className='dashboard_passcode' onKeyUp={e=>{shiftFocus(e)}}  maxLength="1" id='1'></input>
+                <input type='text' className='dashboard_passcode' onKeyUp={e=>{shiftFocus(e)}}  maxLength="1" id='2'></input>
+                <input type='text' className='dashboard_passcode' onKeyUp={e=>{shiftFocus(e)}}  maxLength="1" id='3'></input>
+                <input type='text' className='dashboard_passcode' onKeyUp={e=>{shiftFocus(e)}}  maxLength="1" id='4'></input>
+                <input type='text' className='dashboard_passcode' onKeyUp={e=>{shiftFocus(e)}}  maxLength="1" id='5'></input>
+                <input type='text' className='dashboard_passcode' onKeyUp={e=>{shiftFocus(e)}}  maxLength="1" id='6'></input>
               </div>
 
               <img src="/images/searchicon.svg" onClick={() => { checkInputs() }} alt="search" />

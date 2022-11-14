@@ -19,38 +19,56 @@ import GuestList from './components/GuardModule/GuestList';
 import Forgotpassword from './components/GuardModule/Forgotpassword';
 import OTPscreen from './components/GuardModule/otp';
 import Newpassword from './components/GuardModule/Newpassword';
+import SocietyDashboard from './components/SocietyModule/Societydashboard'
 import GuestEntry from './components/GuardModule/GuestEntry';
-
+import Flatlist from './components/SocietyModule/Flatlist'
+import Flatapprovallist from './components/SocietyModule/Flatapprovallist'
+import Blocklist from './components/SocietyModule/Blocklist'
+import Addflat from './components/SocietyModule/Addflat'
+import Addnotice from './components/SocietyModule/Addnotice'
+import Noticelist from './components/SocietyModule/Noticelist'
+import Addvehicle from './components/SocietyModule/Addvehicle'
 
 function App() {
- useEffect(()=>{
-  
- },[])
+
+  window.env_var = "http://143.110.187.80:5050/"
+  useEffect(() => {
+
+  }, [])
   return (
     <div className="App">
       <Router>
         <Routes>
-            
-                <Route element={<PrivateRoutes/>}>
-                  <Route path="/dashboard" element={<Dashboard />} exact></Route>
-                  <Route path="/addvendor" element={<Addvendor />} exact></Route>   
-                  <Route path="/addguest" element={<Addguest />} exact></Route>   
-                  <Route path="/dailyhelp" element={<Dailyhelplist />} exact></Route>   
-                  <Route path="/videoclass" element={<Videoclass />} exact></Route> 
-                  <Route path="/inoutbook" element={<Inoutbook />} exact></Route> 
-                  <Route path="/vendorlist" element={<Vendorlist />} exact></Route>  
-                  <Route path="/inoutbookcard" element={<Inoutbookcard />} exact></Route>   
-                  <Route path="/frequent" element={<Frequentvisitor/>} exact></Route>   
-                  <Route path="/dailyservice" element={<Dailyservicepasscode />} exact></Route> 
-                  <Route path="/vendorentry" element={<VendorEntryDetails/>} exact></Route>
-                  <Route path="/guestlist" element={<GuestList/>} exact></Route>
-                  <Route path="/forgotpassword" element={<Forgotpassword/>} exact></Route>
-                  <Route path="/otp" element={<OTPscreen/>} exact></Route>
-                  <Route path="/newpassword" element={<Newpassword/>} exact></Route>
-                  <Route path="/guestentry" element={<GuestEntry/>} exact></Route>
-                </Route>
-                <Route path="/" element={<Login/>} exact></Route> 
-             
+
+          {/* <Route element={<PrivateRoutes />}> */}
+            <Route path="/dashboard" element={<Dashboard />} exact></Route>
+            <Route path="/addvendor" element={<Addvendor />} exact></Route>
+            <Route path="/addguest" element={<Addguest />} exact></Route>
+            <Route path="/dailyhelp" element={<Dailyhelplist />} exact></Route>
+            <Route path="/videoclass" element={<Videoclass />} exact></Route>
+            <Route path="/inoutbook" element={<Inoutbook />} exact></Route>
+            <Route path="/vendorlist" element={<Vendorlist />} exact></Route>
+            <Route path="/inoutbookcard" element={<Inoutbookcard />} exact></Route>
+            <Route path="/frequent" element={<Frequentvisitor />} exact></Route>
+            <Route path="/dailyservice" element={<Dailyservicepasscode />} exact></Route>
+            <Route path="/vendorentry" element={<VendorEntryDetails />} exact></Route>
+            <Route path="/guestlist" element={<GuestList />} exact></Route>
+            <Route path="/forgotpassword" element={<Forgotpassword />} exact></Route>
+            <Route path="/otp" element={<OTPscreen />} exact></Route>
+            <Route path="/newpassword" element={<Newpassword />} exact></Route>
+            <Route path="/guestentry" element={<GuestEntry />} exact></Route>
+            <Route path="/societydashboard" element={<SocietyDashboard />} exact></Route>
+            <Route path="/flatlist" element={<Flatlist />} exact></Route>
+            <Route path="/flatapprovallist" element={<Flatapprovallist />} exact></Route>
+            <Route path="/blocklist" element={<Blocklist />} exact></Route>
+            <Route path="/addflat" element={<Addflat />} exact></Route>
+            <Route path="/addnotice" element={<Addnotice />} exact></Route>
+            <Route path="/noticelist" element={<Noticelist />} exact></Route>
+            <Route path="/addvehicle" element={<Addvehicle />} exact></Route>
+
+          {/* </Route> */}
+          <Route path="/" element={<Login />} exact></Route>
+
         </Routes>
       </Router>
     </div>

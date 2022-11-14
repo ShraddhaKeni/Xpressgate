@@ -31,8 +31,8 @@ const Vendorlist = () => {
   const getAllVendorData=async()=>{
     try
     {
-      const {data} = await axios.get(`http://localhost:5050/api/vendor/list`)
-      const response = await axios.get(`/api/inout/getall/${localStorage.getItem('community_id')}`)
+      const {data} = await axios.get(`${window.env_var}api/vendor/list`)
+      const response = await axios.get(`${window.env_var}api/inout/getall/${localStorage.getItem('community_id')}`)
       setInOut(response.data.data.list)
       setData(data.data.list.filter(x=>x.bookingstatus==true))
       checkNavigate()
@@ -63,7 +63,7 @@ const Vendorlist = () => {
 
   async function  paginate(event)
   {
-    const {data} = await axios.get(`/api/vendor/list`)
+    const {data} = await axios.get(`${window.env_var}api/vendor/list`)
     setCurrentpage(event.selected+1)
     const indexoflast = (event.selected+1)*postPerPage  //endoffset
     const indexoffirst = (indexoflast - postPerPage) //startoffset

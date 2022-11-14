@@ -19,7 +19,7 @@ const Newpassword = () => {
         guard_id: location.state.guardid
       }
 
-      let { data } = await axios.post(`api/auth/guardupdatepass`, cpassworddata)
+      let { data } = await axios.post(`${window.env_var}api/auth/guardupdatepass`, cpassworddata)
       navigate('/')
       console.log(data)
     }

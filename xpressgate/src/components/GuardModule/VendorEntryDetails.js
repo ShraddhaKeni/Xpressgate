@@ -20,7 +20,7 @@ const VendorEntryDetails = () => {
     const getData =async()=>{
      
         try {
-            const {data} = await axios.get(`/api/vendorlist/getOne/${location.state.id}`)
+            const {data} = await axios.get(`${window.env_var}api/vendorlist/getOne/${location.state.id}`)
             setVendorData(data.data.list[0])
             setFlats(data.data.list)
             setBookings(data.data.list)
@@ -48,9 +48,9 @@ const VendorEntryDetails = () => {
                 status:2,
                 allowed_by:localStorage.getItem('guard_id')
             }
-              const {data} = await axios.post(`/api/inout/add`,submitData)
+              const {data} = await axios.post(`${window.env_var}api/inout/add`,submitData)
               console.log(data)
-              const bookingUpdate = await axios.get(`/api/bookvendor/removeBooking/${items.booking_id}`)
+              const bookingUpdate = await axios.get(`${window.env_var}api/bookvendor/removeBooking/${items.booking_id}`)
 
             } catch (error) {
               console.log(error)
