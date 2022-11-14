@@ -15,6 +15,7 @@ const Login = () => {
           username:username.current.value,
           password:password.current.value
         }
+        console.log(process.env.REACT_APP_SERVER_PATH)
         const {data} = await axios.post(`api/auth/guardlogin`,loginCreds)
         localStorage.clear()
         localStorage.setItem('accesstoken',data.data.accessToken)
