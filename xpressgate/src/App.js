@@ -27,6 +27,7 @@ import Blocklist from './components/SocietyModule/Blocklist'
 import Addflat from './components/SocietyModule/Addflat'
 import Addnotice from './components/SocietyModule/Addnotice'
 import Noticelist from './components/SocietyModule/Noticelist'
+import Addvehicle from './components/SocietyModule/Addvehicle'
 
 function App() {
 
@@ -63,6 +64,8 @@ function App() {
             <Route path="/addflat" element={<Addflat />} exact></Route>
             <Route path="/addnotice" element={<Addnotice />} exact></Route>
             <Route path="/noticelist" element={<Noticelist />} exact></Route>
+            <Route path="/addvehicle" element={<Addvehicle />} exact></Route>
+
           {/* </Route> */}
           <Route path="/" element={<Login />} exact></Route>
 

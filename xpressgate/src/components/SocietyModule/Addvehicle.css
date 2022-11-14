@@ -2,29 +2,36 @@ html {
   height: 100vh;
 }
 
-.ancontainer {
+.addflatcontainer {
   display: grid;
   height: 100vh;
   grid-template-columns: 0.5fr 2fr;
   grid-template-rows: 0.2fr 2fr;
-  grid-template-areas: "ansection ansection"
-    "ansocietysection cardsection"
+  grid-template-areas: "addflatsection addflatsection"
+    "afsocietysection cardsection"
 }
 
-#ansection {
+#addflatsection {
 
-  grid-area: ansection;
+  grid-area: addflatsection;
   background-color: #F9F9FF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-#ansocietysection {
+#afsocietysection {
 
-  grid-area: ansocietysection;
+  grid-area: afsocietysection;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.anbackgroundimg {
+#cardsection {
+
+  grid-area: cardsection;
+  position: relative;
+
+}
+
+.afbackgroundimg {
   background-image: url("../../../public/images/dashboardbackground.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -33,28 +40,28 @@ html {
   margin-top: 0.5%;
 }
 
-.anheadersection {
+.addflatheadersection {
   display: grid;
   grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
-  grid-template-areas: "anlogo ansociety anspace annotification ansetting anlogoutbutton";
+  grid-template-areas: "aflogo afsociety afspace afnotification afsetting aflogoutbutton";
 }
 
-#anlogo {
-  grid-area: anlogo;
+#aflogo {
+  grid-area: aflogo;
 }
 
-#anlogo img {
+#aflogo img {
   margin-top: 5%;
   margin-left: 1%;
   margin-bottom: 5%;
   width: 40%;
 }
 
-#ansociety {
-  grid-area: ansociety;
+#afsociety {
+  grid-area: afsociety;
 }
 
-#ansociety label {
+#afsociety label {
   margin-top: 20%;
   margin-left: -88%;
   width: 136px;
@@ -66,31 +73,31 @@ html {
   font-size: 20px;
 }
 
-#anspace {
-  grid-area: anspace;
+#afspace {
+  grid-area: afspace;
 }
 
-#annotification {
-  grid-area: annotification;
+#afnotification {
+  grid-area: afnotification;
 }
 
-#annotification img {
+#afnotification img {
   margin-top: 100%;
 }
 
-#ansetting {
-  grid-area: ansetting;
+#afsetting {
+  grid-area: afsetting;
 }
 
-#ansetting img {
+#afsetting img {
   margin-top: 100%;
 }
 
-#anlogoutbutton {
-  grid-area: anlogoutbutton;
+#aflogoutbutton {
+  grid-area: aflogoutbutton;
 }
 
-#anlogoutbutton img {
+#aflogoutbutton img {
   padding-left: 10%;
   padding-bottom: 5%;
 }
@@ -107,7 +114,7 @@ html {
   padding-top: 2%;
 }
 
-.ansocietyname {
+.afsocietyname {
   display: flex;
   width: 80%;
   height: 12%;
@@ -117,28 +124,28 @@ html {
   border-radius: 24px;
 }
 
-.ansocietyname img {
+.afsocietyname img {
   margin-left: 10%;
   width: 25%;
   height: 70%;
   margin-top: 4%;
 }
 
-.ansocietyname label {
+.afsocietyname label {
   color: #000;
   margin-left: 8%;
   margin-top: 10%;
   font-size: 20px;
 }
 
-.ansideimage img {
+.afsideimage img {
   display: flex;
   margin-top: 80%;
   width: 100%;
   height: auto;
 }
 
-.addnoticedisplay {
+.Addflatdisplay {
   width: 300px;
   height: 64px;
   background-color: #AED8DC;
@@ -153,7 +160,7 @@ html {
   font-size: 20px;
 }
 
-.btnAddNotice {
+.btnAdd {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
@@ -162,18 +169,18 @@ html {
   font-size: 151%;
   font-weight: 500;
   margin-top: 4%;
-  margin-right: 18%;
+  margin-right: 34%;
 }
 
-.anformclass {
+.formclass {
   margin-top: 5%;
-  margin-left: 15%;
+  margin-left: 25%;
 }
 
 
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  .ansocietyname {
+  .afsocietyname {
     display: flex;
     width: 80%;
     height: 10%;
@@ -183,20 +190,20 @@ html {
     border-radius: 24px;
   }
 
-  .ansocietyname label {
+  .afsocietyname label {
     margin-left: 7%;
     margin-top: 15%;
     font-size: 15px;
   }
 
-  .ansideimage img {
+  .afsideimage img {
     display: flex;
     margin-top: 216%;
     width: 100%;
     height: auto;
   }
 
-  .anbackgroundimg {
+  .afbackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -209,7 +216,7 @@ html {
     font-size: 12px;
   }
 
-  .btnAddNotice {
+  .btnAdd {
     background-color: #0A8996;
     color: #fff;
     border-radius: 14px;
@@ -218,11 +225,11 @@ html {
     font-size: 151%;
     font-weight: 500;
     margin-top: 4%;
-    margin-right: 18%;
+    margin-right: 35%;
     padding-top: 0%;
   }
 
-  #ansociety label {
+  #afsociety label {
     margin-top: 14%;
     margin-left: -68%;
     width: 108px;
@@ -234,7 +241,7 @@ html {
     font-size: 20px;
   }
 
-  .addnoticedisplay {
+  .Addflatdisplay {
     width: 190px;
     height: 64px;
     background-color: #AED8DC;
@@ -245,7 +252,7 @@ html {
     margin-top: -16%;
   }
 
-  .ansocietyname img {
+  .afsocietyname img {
     margin-left: 5%;
     width: 25%;
     height: 70%;
@@ -255,26 +262,26 @@ html {
 
 /* Media query for mobile */
 @media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
-  .ansideimage {
+  .afsideimage {
     display: none;
   }
 
-  #ansocietysection {
+  #afsocietysection {
     display: none;
   }
 
-  #ansociety {
+  #afsociety {
     display: none;
   }
 
-  #anlogo img {
+  #aflogo img {
     margin-top: 5%;
     margin-left: 20%;
     margin-bottom: 5%;
     width: 140%;
   }
 
-  .anbackgroundimg {
+  .afbackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -283,32 +290,28 @@ html {
     margin-top: 10.5%;
   }
 
-  .addnoticedisplay {
+  .Addflatdisplay {
     width: 160px;
     height: 64px;
     background-color: #AED8DC;
     border-radius: 30px;
     font-size: 20px;
     padding-top: 14px;
-    margin-left: 55%;
+    margin-left: 78%;
 }
 
-.btnAddNotice {
+.btnAdd {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  width: 250px;
-  height: 60px;
-  font-size: 151%;
-  font-weight: 500;
-  margin-top: 4%;
-  margin-right: 0%;
+  width: 140px;
+  margin-right: auto;
 }
 
-.anformclass {
+.formclass {
   margin-top: 5%;
-  margin-left: 22%;
-  width: 125%;
+  margin-left: 42%;
+  width: 170%;
 }
 
 }

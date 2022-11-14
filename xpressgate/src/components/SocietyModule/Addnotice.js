@@ -6,29 +6,29 @@ import LogOut from './Utils/LogOut';
 
 const Addnotice = () => {
   return (
-    <div className="addflatcontainer">
-      <div id="addflatsection">
-        <div className="addflatheadersection">
-          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="afsociety"><label>Society</label></div>
-          <div id="afspace"></div>
-          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="aflogoutbutton"><LogOut /></div>
+    <div className="ancontainer">
+      <div id="ansection">
+        <div className="anheadersection">
+          <div id="anlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+          <div id="ansociety"><label>Society</label></div>
+          <div id="anspace"></div>
+          <div id="annotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+          <div id="ansetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="anlogoutbutton"><LogOut /></div>
         </div>
       </div>
-      <div id="afsocietysection">
-        <div className='afsocietyname'>
+      <div id="ansocietysection">
+        <div className='ansocietyname'>
           <img src="/images/societyicon.svg" alt="society name" />
           <label>Society Name</label>
         </div>
-        <div className='afsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
+        <div className='ansideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
-      <div className='afbackgroundimg'>
-        <div className='Addflatdisplay'>
+      <div className='anbackgroundimg'>
+        <div className='addnoticedisplay'>
           <label>Add Notice</label>
         </div>
-        <Form className='formclass'>
+        <Form className='anformclass'>
           <div class="form-group row">
             <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label labelsize">Title</label>
             <div class="col-sm-6 col-md-6 col-lg-6">
@@ -57,7 +57,7 @@ const Addnotice = () => {
               <input type="number" class="form-control input-lg" name="attachments" placeholder="Upload from computer"></input>
             </div>
           </div>
-          <Button type="submit" className="btnAdd">Add Notice</Button>
+          <Button type="submit" className="btnAddNotice">Add Notice</Button>
         </Form>
 
       </div>
