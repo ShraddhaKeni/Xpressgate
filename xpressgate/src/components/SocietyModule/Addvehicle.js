@@ -1,31 +1,36 @@
 import React from 'react';
-import './Addflat.css';
+import './Addvehicle.css';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import LogOut from './Utils/LogOut';
+import { Link } from 'react-router-dom';
 
 const Addvehicle = () => {
   return (
-    <div className="addflatcontainer">
-      <div id="addflatsection">
-        <div className="addflatheadersection">
-          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="afsociety"><label>Society</label></div>
-          <div id="afspace"></div>
-          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="aflogoutbutton"><LogOut /></div>
+    <div className="addvehiclecontainer">
+      <div id="addvehiclesection">
+        <div className="addvehheadersection">
+          <div id="avlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+          <div id="avsociety"><label>Society</label></div>
+          <div id="avspace"></div>
+          <div id="avnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+          <div id="avsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="avlogoutbutton"><LogOut /></div>
         </div>
       </div>
-      <div id="afsocietysection">
-        <div className='afsocietyname'>
+      <div id="avsocietysection">
+        <div className='avsocietyname'>
           <img src="/images/societyicon.svg" alt="society name" />
           <label>Society Name</label>
         </div>
-        <div className='afsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
+        <div className='avsidelinks'>
+          <Link>Vehicle List</Link><br></br><br></br>
+          <Link>Add Vehicle</Link>
+        </div>
+        <div className='avsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
-      <div className='afbackgroundimg'>
-        <div className='Addflatdisplay'>
+      <div className='avbackgroundimg'>
+        <div className='Addvehicledisplay'>
           <label>Allot Vehicle</label>
         </div>
         <Form className='formclass'>
@@ -59,7 +64,7 @@ const Addvehicle = () => {
               <select class="form-control input-lg" id="status" placeholder="Parking section"></select>
             </div>
           </div>
-          <Button type="submit" className="btnAdd">Allot Vehicle</Button>
+          <Button type="submit" className="btnAddVeh">Allot Vehicle</Button>
         </Form>
 
       </div>
