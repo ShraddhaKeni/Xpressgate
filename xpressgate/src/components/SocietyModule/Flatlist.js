@@ -1,8 +1,59 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Flatlist.css';
 import { Button } from 'react-bootstrap';
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
+import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 
 const Flatlist = () => {
+
+  const [flats,setFlats] = useState([])
+  const [currentPage, setCurrentpage] = useState(1)
+  const [postPerPage, setPostPerPage] = useState(12)
+  const [currentPosts,setCurrentPosts] = useState([])
+  const [pageCount,setpageCount] = useState(0)
+  const location = useLocation()
+  useEffect(()=>{
+    getFlats()
+  },[])
+
+  const getFlats=async()=>{
+    try {
+      const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/flats/getList/${location.state.id}`)
+      setFlats(data.data.list)
+      const indexoflast = currentPage*postPerPage  //endoffset
+      const indexoffirst = indexoflast - postPerPage //startoffset
+      setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  async function  paginate(event)
+  {
+    const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/flats/getList/${location.state.id}`)
+    setCurrentpage(event.selected+1)
+    const indexoflast = (event.selected+1)*postPerPage  //endoffset
+    const indexoffirst = (indexoflast - postPerPage) //startoffset
+    setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
+  }
+
+  async function findText(e)
+  {
+    let text = flats.filter(x=>x.lastname.toLowerCase().includes(e.target.value.toLowerCase()))
+    
+    if(text)
+    {
+      setCurrentPosts(text)
+    }
+    else
+    {
+      paginate(0)
+    }
+    
+  }
+
+
   return (
     <div className="inoutbookcontainer">
       <div id="headersection">
@@ -29,7 +80,7 @@ const Flatlist = () => {
         <div className='row'>
           <div className='searchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-            <span><label className='searchlabel'>Search</label><input className='search_input'></input></span>
+            <span><label className='searchlabel'>Search</label><input className='search_input' onChange={(e)=>findText(e)} ></input></span>
           </div>
         </div>
         <table id="inoutbooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
@@ -42,14 +93,21 @@ const Flatlist = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>12345</td>
-              <td >Neha Sharma</td>
-              <td>3</td>
-              <td>2</td>
-            </tr>
+
+            {currentPosts.map(item=>{
+              return(
+                <tr>
+                  <td>{item.flat_number}</td>
+                  <td >{item.firstname} {item.lastname}</td>
+                  <td>{item.family}</td>
+                  <td>{item.vehical}</td>
+              </tr>
+              )
+            })}
+           
           </tbody>
         </table>
+        <PaginationCalculate totalPages={flats.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
       </div>
     </div>
   )

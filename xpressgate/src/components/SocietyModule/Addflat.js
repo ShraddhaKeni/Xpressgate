@@ -46,7 +46,8 @@ const Addflat = () => {
         description:document.getElementById('description').value,
         status:document.getElementById('status').value
       }
-      const {data} = await axios.post(`${process.env.REACT_APP_SERVER_PATH}api/flat/add`)
+      const {data} = await axios.post(`${process.env.REACT_APP_SERVER_PATH}api/flat/add`,sendData)
+      window.location.href='/blockList'
     } catch (error) {
       console.log(error)
     }

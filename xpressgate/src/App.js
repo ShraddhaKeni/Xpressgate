@@ -68,6 +68,7 @@ function App() {
             <Route path="/guardLogin" element={<Login />} exact></Route>
             <Route path="/addFlat" element={<Addflat/>} exact></Route>
             <Route path="/blockList" element={<Blocklist/>} exact></Route>
+            <Route path="/flatList" element={<Flatlist/>} exact></Route>
         </Routes>
       </Router>
     </div>
