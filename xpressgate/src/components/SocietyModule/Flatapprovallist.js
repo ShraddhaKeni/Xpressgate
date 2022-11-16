@@ -1,10 +1,50 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Flatapprovallist.css';
 import { Button } from 'react-bootstrap';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 const Flatapprovallist = () => {
+  const [flat,setFlat] = useState({})
+const location = useLocation()
+const navigate = useNavigate()
 
+console.log(location.state)
+useEffect(()=>{
+  if(location.state)
+  {
+    getFlatDetails()
+  }
+  else
+  {
+    window.location.href = '/flatList'
+  }
+},[])
+
+const getFlatDetails=async()=>{
+  try {
+    const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/flats/single/${location.state.id}`)
+    setFlat(data.data.list[0])
+    
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const approveFlat=async(id)=>{
+  try {
+    let sendData = {
+      resident_id:flat.resident_id,
+      flat_id:id,
+      community_id:'632970d054edb049bcd0f0b4'
+    }
+    const {data} = await axios.post(`${process.env.REACT_APP_SERVER_PATH}api/approveresidents/approve`,sendData)
+    window.location.href='/flatList'
+  } catch (error) {
+    console.log(error)
+  }
+}
 
   return (
     <div className="frequentvisitorcontainer">
@@ -33,23 +73,23 @@ const Flatapprovallist = () => {
         <div className="col">
           <div className="frequentvisitorcard">
             <br></br>
-            <label className="namelabel">Ramesh Desai</label>
+            <label className="namelabel">{flat.firstname} {flat.lastname}</label>
             <div className='profclass'>Owner</div>
             <br></br>
             <div className='flatclass'>
               <label>Flat No</label>
-              <div className='flatnodisplay'>Block B, 1011</div>
+              <div className='flatnodisplay'>Block {flat.block}, {flat.flat_number}</div>
             </div>
             <br></br>
             <div><label className='allowedclass'>Other Details</label></div>
 
             <div className='detailsclass'>
-              <div><label className='date text-right'>No of Family Members:</label></div>
-              <div><label className='intime'>No of Vehicle: </label></div>
+              <div><label className='date text-right'>No of Family Members: {flat.family} </label></div>
+              <div><label className='intime'>No of Vehicle: {flat.vehical}</label></div>
             </div>
             <br></br>
-            <Button type="submit" className="btnApprove">APPROVE</Button>
-            <Button type="submit" className="btnDeny">DENY</Button>
+            <Button type="button" onClick={()=>approveFlat(flat._id)} className="btnApprove">APPROVE</Button>
+            <Button type="button" className="btnDeny">DENY</Button>
             <br></br>
           </div>
         </div>

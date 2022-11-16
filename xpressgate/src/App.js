@@ -29,6 +29,7 @@ import Addnotice from './components/SocietyModule/Addnotice'
 import Noticelist from './components/SocietyModule/Noticelist'
 import Addvehicle from './components/SocietyModule/Addvehicle'
 import SelectMode from './components/auth/SelectMode';
+import FlatListNA from './components/SocietyModule/FlatListNA';
 
 function App() {
 
@@ -69,6 +70,10 @@ function App() {
             <Route path="/addFlat" element={<Addflat/>} exact></Route>
             <Route path="/blockList" element={<Blocklist/>} exact></Route>
             <Route path="/flatList" element={<Flatlist/>} exact></Route>
+            <Route path="/naFlatList" element={<FlatListNA/>} exact></Route>
+            <Route path="/approveFlat" element={<Flatapprovallist/>} exact></Route>
+            <Route path="/noticeList" element={<Noticelist/>} exact></Route>
+            <Route path="/addNotice" element={<Addnotice/>} exact></Route>
         </Routes>
       </Router>
     </div>

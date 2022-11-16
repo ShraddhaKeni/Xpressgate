@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Flatlist.css';
 import { Button } from 'react-bootstrap';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 
@@ -13,8 +13,17 @@ const Flatlist = () => {
   const [currentPosts,setCurrentPosts] = useState([])
   const [pageCount,setpageCount] = useState(0)
   const location = useLocation()
+  const navigate = useNavigate()
   useEffect(()=>{
-    getFlats()
+    if(location.state)
+    {
+      getFlats()
+    }
+    else
+    {
+      window.location.href='/blockList'
+    }
+    
   },[])
 
   const getFlats=async()=>{
@@ -51,6 +60,10 @@ const Flatlist = () => {
       paginate(0)
     }
     
+  }
+
+  const aprroveFlatScreen=(id)=>{
+    navigate('/approveFlat',{state:{id:id}})
   }
 
 
@@ -90,19 +103,21 @@ const Flatlist = () => {
               <th class="th-sm">Owner Name</th>
               <th class="th-sm">Family Members</th>
               <th class="th-sm">No. of Vehicles</th>
+              <th class="th-sm">Status</th>
             </tr>
           </thead>
           <tbody>
 
             {currentPosts.map(item=>{
               return(
-                <tr>
-                  <td>{item.flat_number}</td>
-                  <td >{item.firstname} {item.lastname}</td>
-                  <td>{item.family}</td>
-                  <td>{item.vehical}</td>
+              <tr style={item.status==false?{backgroundColor:'#AED8DC'}:{backgroundColor:'white'}} onClick={()=>{item.status==false?aprroveFlatScreen(item._id):getFlats()}}>
+                <td>{item.flat_number}</td>
+                <td >{item.firstname} {item.lastname}</td>
+                <td>{item.family}</td>
+                <td>{item.vehical}</td>
+                <td>{item.status==false?'Unoccupied':'Occupied'}</td>
               </tr>
-              )
+          )
             })}
            
           </tbody>

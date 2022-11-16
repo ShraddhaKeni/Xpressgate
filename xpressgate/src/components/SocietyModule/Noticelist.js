@@ -1,10 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Noticelist.css';
 import { Button } from 'react-bootstrap';
 import LogOut from './Utils/LogOut';
 import { Link } from 'react-router-dom';
+import axios from 'axios'
+import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
+import { getAllByPlaceholderText } from '@testing-library/react';
 
 const Noticelist = () => {
+  const [notice,setNotice] = useState([])
+  const [currentPage, setCurrentpage] = useState(1)
+  const [postPerPage, setPostPerPage] = useState(12)
+  const [currentPosts,setCurrentPosts] = useState([])
+  const [pageCount,setpageCount] = useState(0)
+  useEffect(()=>{
+    getNotices()
+  },[])
+
+  const getNotices=async()=>{
+      try {
+        const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/notices/getAll/632970d054edb049bcd0f0b4`) //will update with localstorage
+        setNotice(data.data.notice)
+        const indexoflast = currentPage*postPerPage  //endoffset
+        const indexoffirst = indexoflast - postPerPage //startoffset
+        setCurrentPosts(data.data.notice.slice(indexoffirst,indexoflast))
+      } catch (error) {
+        console.log(error)
+      }
+  }
+  async function  paginate(event)
+  {
+    const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/notices/getAll/632970d054edb049bcd0f0b4`) //will update with localstorage
+    setCurrentpage(event.selected+1)
+    const indexoflast = (event.selected+1)*postPerPage  //endoffset
+    const indexoffirst = (indexoflast - postPerPage) //startoffset
+    setCurrentPosts(data.data.notice.slice(indexoffirst,indexoflast))
+  }
+
+  function getDate(value)
+  {
+    let date = new Date(value)
+    return date.getDay() + '/' +date.getMonth()+ '/' +date.getFullYear()
+  }
+
   return (
     <div className="nlcontainer">
       <div id="nlheadersection">
@@ -24,7 +62,7 @@ const Noticelist = () => {
         </div>
         <div className='nlsidelinks'>
           <Link>Notice List</Link><br></br><br></br>
-          <Link>Add Notice</Link>
+          <Link to='/addNotice'>Add Notice</Link>
         </div>
         <div className='nlsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
@@ -48,13 +86,19 @@ const Noticelist = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td >Meeting</td>
-              <td>03/11/2022</td>
-            </tr>
+
+            {currentPosts.map((item,index)=>{
+              return(
+                <tr>
+                  <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
+                  <td >{item.noticeTitle}</td>
+                  <td>{getDate(item.eventDate)}</td>
+                </tr>
+              )
+            })}
           </tbody>
         </table>
+        <PaginationCalculate totalPages={notice.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
       </div>
     </div>
   )
