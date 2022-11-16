@@ -1,0 +1,263 @@
+html {
+  height: 100vh;
+}
+
+.logincontainer5 {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1.8fr 2fr;
+  grid-template-rows: 2.4fr 2fr;
+  grid-template-areas:
+    "logoid5 loginimgid5"
+    "loginformid5 loginimgid5";
+}
+/* #logoid5{
+    margin-top: 2rem;
+    margin-left: 9rem;
+    margin-bottom: -60rem;
+    position: relative;
+  }
+  #logoid5 img{
+    max-width:40% ;
+    height: auto;
+  } */
+#logoid5 {
+  margin-top: -37rem;
+  margin-left: 1rem;
+  margin-bottom: -3rem;
+  position: relative;
+}
+#logoid5 img {
+  max-width: 60%;
+  height: auto;
+}
+
+#loginimgid5 {
+  /* background-color: blueviolet;    */
+  grid-area: loginimgid5;
+}
+
+#loginimgid5 img {
+  height: 100vh;
+  width: 63vw;
+}
+
+#loginformid5 {
+  grid-area: loginformid5;
+  position: relative;
+  margin-left: -4rem;
+  /* margin-top: -35rem; */
+}
+
+.req {
+  color: red;
+}
+
+.btlogin6 {
+  background-color: #0a8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 15vw;
+  height: 4rem;
+  font-size: 1.3vw;
+  font-weight: 500;
+}
+.btsign {
+  background-color: #0b2447;
+  color: #fff;
+  width: 25vw;
+  height: 6rem;
+  font-size: 2vw;
+  font-weight: 500;
+  padding: 1rem;
+}
+
+.input_fields5 {
+  position: relative;
+  width: 25vw;
+  height: 50%;
+  left: 25.5%;
+}
+
+.currentpswd {
+  position: relative;
+  margin-left: -57%;
+  font-family: "Rubik", sans-serif;
+  font-size: 1.2vw;
+}
+
+.password2 {
+  position: relative;
+  margin-left: -64%;
+  /* margin-right: 0rem; */
+  font-family: "Rubik", sans-serif;
+  font-size: 1.2vw;
+  position: relative;
+}
+.password3 {
+  position: relative;
+  margin-left: -55%;
+  /* margin-right: 0rem; */
+  font-family: "Rubik", sans-serif;
+  font-size: 1.2vw;
+  position: relative;
+}
+.forgotpassword {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.emailtextbox {
+  width: 25vw;
+}
+
+.passwordtextbox {
+  width: 25vw;
+}
+.forgotpassword a {
+  font-size: 1vw;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  #loginformid5 {
+    grid-area: loginformid5;
+    position: relative;
+    margin-left: -2rem;
+    /* margin-top: -7rem; */
+  }
+  #logoid5 {
+    margin-top: -24rem;
+    margin-left: -3rem;
+    margin-bottom: -2rem;
+    position: relative;
+  }
+  #logoid5 img {
+    max-width: 44%;
+    height: auto;
+  }
+
+  .logincontainer5 {
+    overflow-y: hidden;
+  }
+  #loginimgid5 img {
+    width: auto;
+    height: 100vh;
+  }
+  .btlogin6 {
+    background-color: #0a8996;
+    color: #fff;
+    border-radius: 14px;
+    width: 12vw;
+    height: 3rem;
+    font-size: 1vw;
+    font-weight: 400;
+    margin-left: -3rem;
+    margin-bottom: -1rem;
+  }
+
+  .btsign {
+    background-color: #0b2447;
+    color: #fff;
+    width: 22vw;
+    height: 3rem;
+    font-size: 1.5;
+    font-weight: 400;
+    padding: 0.2rem;
+    margin-bottom: -1.5rem;
+  }
+
+  .currentpswd {
+    position: relative;
+    margin-left: -50%;
+    font-family: "Rubik", sans-serif;
+    font-size: 1.4vw;
+    margin-bottom: 0rem;
+  }
+
+  .emailtextbox {
+    width: 22vw;
+    height: 5.5vh;
+    margin-bottom: -1.5rem;
+  }
+
+  .password2 {
+    position: relative;
+    margin-left: -58%;
+    font-family: "Rubik", sans-serif;
+    font-size: 1.4vw;
+    margin-bottom: 0rem;
+  }
+  .password3 {
+    position: relative;
+    margin-left: -49%;
+    font-family: "Rubik", sans-serif;
+    font-size: 1.4vw;
+    margin-bottom: 0rem;
+  }
+
+  .passwordtextbox {
+    width: 22vw;
+    height: 5.5vh;
+    margin-bottom: -1.5rem;
+  }
+  .forgotpassword {
+    margin-left: -2rem;
+  }
+  .forgotpassword a {
+    font-size: 1.1vw;
+  }
+}
+
+/* Media query for mobile */
+@media only screen and (min-device-width: 320px) and (max-device-width: 425px) {
+  #loginimgid5 {
+    display: none;
+  }
+
+  .signin {
+    width: 270px;
+    height: 76px;
+    background-color: #14335d;
+    margin-left: 28%;
+    margin-top: 6%;
+    font-size: 36px;
+  }
+
+  #logoid5 img {
+    margin-top: 10%;
+    margin-left: 36%;
+  }
+
+  .input_fields5 {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    left: 27.5%;
+  }
+
+  .email {
+    position: relative;
+    right: 37%;
+    font-family: "Rubik", sans-serif;
+    font-size: 15px;
+  }
+
+  .password {
+    position: relative;
+    right: 37%;
+    font-family: "Rubik", sans-serif;
+    font-size: 15px;
+  }
+
+  .btnlogin {
+    background-color: #0a8996;
+    color: #fff;
+    border-radius: 14px;
+    width: 200px;
+    height: 60px;
+    font-size: 151%;
+    font-weight: 500;
+    margin-top: 4%;
+    padding-bottom: 4%;
+  }
+}
