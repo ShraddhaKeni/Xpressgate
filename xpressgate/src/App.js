@@ -23,6 +23,12 @@ import SocietyDashboard from './components/SocietyModule/Societydashboard'
 import GuestEntry from './components/GuardModule/GuestEntry';
 import Flatlist from './components/SocietyModule/Flatlist'
 import Flatapprovallist from './components/SocietyModule/Flatapprovallist'
+import Blocklist from './components/SocietyModule/Blocklist'
+import Addflat from './components/SocietyModule/Addflat'
+import Addnotice from './components/SocietyModule/Addnotice'
+import Noticelist from './components/SocietyModule/Noticelist'
+import Addvehicle from './components/SocietyModule/Addvehicle'
+import Vehiclemanagement from './components/SocietyModule/Vehiclemanagement'
 
 function App() {
 
@@ -35,7 +41,7 @@ function App() {
       <Router>
         <Routes>
 
-          <Route element={<PrivateRoutes />}>
+         <Route element={<PrivateRoutes />}>
             <Route path="/dashboard" element={<Dashboard />} exact></Route>
             <Route path="/addvendor" element={<Addvendor />} exact></Route>
             <Route path="/addguest" element={<Addguest />} exact></Route>
@@ -55,6 +61,13 @@ function App() {
             <Route path="/societydashboard" element={<SocietyDashboard />} exact></Route>
             <Route path="/flatlist" element={<Flatlist />} exact></Route>
             <Route path="/flatapprovallist" element={<Flatapprovallist />} exact></Route>
+            <Route path="/blocklist" element={<Blocklist />} exact></Route>
+            <Route path="/addflat" element={<Addflat />} exact></Route>
+            <Route path="/addnotice" element={<Addnotice />} exact></Route>
+            <Route path="/noticelist" element={<Noticelist />} exact></Route>
+            <Route path="/addvehicle" element={<Addvehicle />} exact></Route>
+            <Route path="/vehiclemanagement" element={<Vehiclemanagement />} exact></Route>
+
           </Route>
           <Route path="/" element={<Login />} exact></Route>
 
