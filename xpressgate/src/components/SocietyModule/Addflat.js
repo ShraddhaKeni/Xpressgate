@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import LogOut from './Utils/LogOut';
 import axios from 'axios';
+import Societyheader from './Utils/Societyheader';
 
 const Addflat = () => {
   const [community,setCommunity] = useState([])
@@ -56,14 +57,7 @@ const Addflat = () => {
   return (
     <div className="addflatcontainer">
       <div id="addflatsection">
-        <div className="addflatheadersection">
-          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="afsociety"><label>Society</label></div>
-          <div id="afspace"></div>
-          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="aflogoutbutton"><LogOut /></div>
-        </div>
+        <Societyheader/>
       </div>
       <div id="afsocietysection">
         <div className='afsocietyname'>
