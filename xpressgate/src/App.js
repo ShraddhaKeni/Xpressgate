@@ -74,6 +74,7 @@ function App() {
             <Route path="/approveFlat" element={<Flatapprovallist/>} exact></Route>
             <Route path="/noticeList" element={<Noticelist/>} exact></Route>
             <Route path="/addNotice" element={<Addnotice/>} exact></Route>
+            <Route path="/addVehical" element={<Addvehicle/>} exact></Route>
         </Routes>
       </Router>
     </div>

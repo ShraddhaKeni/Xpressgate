@@ -5,6 +5,8 @@ import { Form } from 'react-bootstrap';
 import LogOut from './Utils/LogOut';
 
 const Addvehicle = () => {
+
+
   return (
     <div className="addflatcontainer">
       <div id="addflatsection">
@@ -32,25 +34,25 @@ const Addvehicle = () => {
           <div class="form-group row">
             <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label labelsize">Resident name</label>
             <div class="col-sm-4 col-md-4 col-lg-4">
-              <input type="number" class="form-control input-lg" name="community" placeholder="Resident name" value></input>
+              <input type="text" class="form-control input-lg" name="community" placeholder="Resident name"></input>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Vehicle Name</label>
             <div class="col-lg-4">
-              <input type="number" class="form-control input-lg" name="inputnoofpeople" placeholder="Vehicle Name"></input>
+              <input type="text" class="form-control input-lg" name="inputnoofpeople" placeholder="Vehicle Name"></input>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Vehicle Make</label>
             <div class="col-lg-4">
-              <input type="number" class="form-control input-lg" name="flatNo" placeholder="Vehicle Make" value></input>
+              <input type="text" class="form-control input-lg" name="flatNo" placeholder="Vehicle Make"></input>
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-2 col-form-label labelsize">Vehicle Model</label>
+            <label class="col-lg-2 col-form-label labelsize">Vehicle Number</label>
             <div class="col-lg-4">
-              <input type="number" class="form-control input-lg" name="inputnoofpeople" placeholder="Vehicle Model"></input>
+              <input type="text" class="form-control input-lg" name="inputnoofpeople" placeholder="Vehicle Model"></input>
             </div>
           </div>
           <div class="form-group row">
