@@ -2,36 +2,29 @@ html {
   height: 100vh;
 }
 
-.addflatcontainer {
+.addvehiclecontainer {
   display: grid;
   height: 100vh;
   grid-template-columns: 0.5fr 2fr;
   grid-template-rows: 0.2fr 2fr;
-  grid-template-areas: "addflatsection addflatsection"
-    "afsocietysection cardsection"
+  grid-template-areas: "addvehiclesection addvehiclesection"
+    "avsocietysection cardsection"
 }
 
-#addflatsection {
+#addvehiclesection {
 
-  grid-area: addflatsection;
+  grid-area: addvehiclesection;
   background-color: #F9F9FF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-#afsocietysection {
+#avsocietysection {
 
-  grid-area: afsocietysection;
+  grid-area: avsocietysection;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-#cardsection {
-
-  grid-area: cardsection;
-  position: relative;
-
-}
-
-.afbackgroundimg {
+.avbackgroundimg {
   background-image: url("../../../public/images/dashboardbackground.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -40,28 +33,28 @@ html {
   margin-top: 0.5%;
 }
 
-.addflatheadersection {
+.addvehheadersection {
   display: grid;
   grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
-  grid-template-areas: "aflogo afsociety afspace afnotification afsetting aflogoutbutton";
+  grid-template-areas: "avlogo avsociety avspace avnotification avsetting avlogoutbutton";
 }
 
-#aflogo {
-  grid-area: aflogo;
+#avlogo {
+  grid-area: avlogo;
 }
 
-#aflogo img {
+#avlogo img {
   margin-top: 5%;
   margin-left: 1%;
   margin-bottom: 5%;
   width: 40%;
 }
 
-#afsociety {
-  grid-area: afsociety;
+#avsociety {
+  grid-area: avsociety;
 }
 
-#afsociety label {
+#avsociety label {
   margin-top: 20%;
   margin-left: -88%;
   width: 136px;
@@ -73,31 +66,31 @@ html {
   font-size: 20px;
 }
 
-#afspace {
-  grid-area: afspace;
+#avspace {
+  grid-area: avspace;
 }
 
-#afnotification {
-  grid-area: afnotification;
+#avnotification {
+  grid-area: avnotification;
 }
 
-#afnotification img {
+#avnotification img {
   margin-top: 100%;
 }
 
-#afsetting {
-  grid-area: afsetting;
+#avsetting {
+  grid-area: avsetting;
 }
 
-#afsetting img {
+#avsetting img {
   margin-top: 100%;
 }
 
-#aflogoutbutton {
-  grid-area: aflogoutbutton;
+#avlogoutbutton {
+  grid-area: avlogoutbutton;
 }
 
-#aflogoutbutton img {
+#avlogoutbutton img {
   padding-left: 10%;
   padding-bottom: 5%;
 }
@@ -114,7 +107,7 @@ html {
   padding-top: 2%;
 }
 
-.afsocietyname {
+.avsocietyname {
   display: flex;
   width: 80%;
   height: 12%;
@@ -124,28 +117,28 @@ html {
   border-radius: 24px;
 }
 
-.afsocietyname img {
+.avsocietyname img {
   margin-left: 10%;
   width: 25%;
   height: 70%;
   margin-top: 4%;
 }
 
-.afsocietyname label {
+.avsocietyname label {
   color: #000;
   margin-left: 8%;
   margin-top: 10%;
   font-size: 20px;
 }
 
-.afsideimage img {
+.avsideimage img {
   display: flex;
   margin-top: 80%;
   width: 100%;
   height: auto;
 }
 
-.Addflatdisplay {
+.Addvehicledisplay {
   width: 300px;
   height: 64px;
   background-color: #AED8DC;
@@ -160,7 +153,7 @@ html {
   font-size: 20px;
 }
 
-.btnAdd {
+.btnAddVeh {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
@@ -177,10 +170,14 @@ html {
   margin-left: 25%;
 }
 
-
+.avsidelinks{
+  margin-right: 60%;
+  margin-top: 10%;
+  }
+  
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  .afsocietyname {
+  .avsocietyname {
     display: flex;
     width: 80%;
     height: 10%;
@@ -190,20 +187,20 @@ html {
     border-radius: 24px;
   }
 
-  .afsocietyname label {
+  .avsocietyname label {
     margin-left: 7%;
     margin-top: 15%;
     font-size: 15px;
   }
 
-  .afsideimage img {
+  .avsideimage img {
     display: flex;
     margin-top: 216%;
     width: 100%;
     height: auto;
   }
 
-  .afbackgroundimg {
+  .avbackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -216,7 +213,7 @@ html {
     font-size: 12px;
   }
 
-  .btnAdd {
+  .btnAddVeh {
     background-color: #0A8996;
     color: #fff;
     border-radius: 14px;
@@ -229,7 +226,7 @@ html {
     padding-top: 0%;
   }
 
-  #afsociety label {
+  #avsociety label {
     margin-top: 14%;
     margin-left: -68%;
     width: 108px;
@@ -241,7 +238,7 @@ html {
     font-size: 20px;
   }
 
-  .Addflatdisplay {
+  .Addvehicledisplay {
     width: 190px;
     height: 64px;
     background-color: #AED8DC;
@@ -252,36 +249,42 @@ html {
     margin-top: -16%;
   }
 
-  .afsocietyname img {
+  .avsocietyname img {
     margin-left: 5%;
     width: 25%;
     height: 70%;
     margin-top: 7%;
 }
+
+.avsidelinks {
+  margin-right: 38%;
+  margin-top: 10%;
+}
+
 }
 
 /* Media query for mobile */
 @media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
-  .afsideimage {
+  .avsideimage {
     display: none;
   }
 
-  #afsocietysection {
+  #avsocietysection {
     display: none;
   }
 
-  #afsociety {
+  #avsociety {
     display: none;
   }
 
-  #aflogo img {
+  #avlogo img {
     margin-top: 5%;
     margin-left: 20%;
     margin-bottom: 5%;
     width: 140%;
   }
 
-  .afbackgroundimg {
+  .avbackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -290,7 +293,7 @@ html {
     margin-top: 10.5%;
   }
 
-  .Addflatdisplay {
+  .Addvehicledisplay {
     width: 160px;
     height: 64px;
     background-color: #AED8DC;
@@ -300,7 +303,7 @@ html {
     margin-left: 78%;
 }
 
-.btnAdd {
+.btnAddVeh {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;

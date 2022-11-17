@@ -28,8 +28,12 @@ import Addflat from './components/SocietyModule/Addflat'
 import Addnotice from './components/SocietyModule/Addnotice'
 import Noticelist from './components/SocietyModule/Noticelist'
 import Addvehicle from './components/SocietyModule/Addvehicle'
+<<<<<<< HEAD
 import SelectMode from './components/auth/SelectMode';
 import FlatListNA from './components/SocietyModule/FlatListNA';
+=======
+import Vehiclemanagement from './components/SocietyModule/Vehiclemanagement'
+>>>>>>> main
 
 function App() {
 
@@ -41,7 +45,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path='/' element={<SelectMode/>} exact></Route>
+            <Route path='/' element={<SelectMode/>} exact></Route>
             <Route path="/dashboard" element={<Dashboard />} exact></Route>
             <Route path="/addvendor" element={<Addvendor />} exact></Route>
             <Route path="/addguest" element={<Addguest />} exact></Route>
