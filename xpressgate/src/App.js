@@ -29,6 +29,13 @@ import Addnotice from './components/SocietyModule/Addnotice'
 import Noticelist from './components/SocietyModule/Noticelist'
 import Addvehicle from './components/SocietyModule/Addvehicle'
 import Vehiclemanagement from './components/SocietyModule/Vehiclemanagement'
+import GuestManagement from './components/SocietyModule/GuestManagement'
+import Ticketlist from './components/SocietyModule/Ticketlist'
+import Ticket from './components/SocietyModule/Ticket'
+import Amenities from './components/SocietyModule/Amenities'
+import Amenitylist from './components/SocietyModule/Amenitylist'
+import Approvallistamenity from './components/SocietyModule/Approvallistamenity'
+import Addeditamenity from './components/SocietyModule/Addeditamenity'
 
 function App() {
 
@@ -67,10 +74,15 @@ function App() {
             <Route path="/noticelist" element={<Noticelist />} exact></Route>
             <Route path="/addvehicle" element={<Addvehicle />} exact></Route>
             <Route path="/vehiclemanagement" element={<Vehiclemanagement />} exact></Route>
-
+            <Route path="/guestManagement" element={<GuestManagement />} exact></Route>
+            <Route path="/ticketlist" element={<Ticketlist />} exact></Route>
+            <Route path="/ticket" element={<Ticket />} exact></Route>
+            <Route path="/amenities" element={<Amenities />} exact></Route>
+            <Route path="/amenitylist" element={<Amenitylist />} exact></Route>
+            <Route path="/approvallistamenity" element={<Approvallistamenity />} exact></Route>
+            <Route path="/addeditamenity" element={<Addeditamenity />} exact></Route>
           </Route>
           <Route path="/" element={<Login />} exact></Route>
-
         </Routes>
       </Router>
     </div>

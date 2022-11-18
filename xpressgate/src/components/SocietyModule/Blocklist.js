@@ -14,7 +14,7 @@ const Blocklist = () => {
             <div id="blspace"></div>
             <div id="blnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
             <div id="blsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-            <div id="bllogoutbutton"><LogOut/></div>
+            <div id="bllogoutbutton"><LogOut /></div>
           </div>
         </div>
         <div id="societynamesection">
@@ -30,15 +30,12 @@ const Blocklist = () => {
           </div>
           <div id="blcardsection">
             <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
-
-
               <div className="col">
                 <div className="blminicard"><br></br>
                   <label className='blblock'>Block A</label><br></br>
                   <label className='blflat'>Flats - 20</label><br></br><br></br>
                   <Button type="submit" className="btnView">View</Button><br></br>
                 </div>
-
               </div>
               <div className="col">
                 <div className="blminicard"><br></br>
@@ -46,10 +43,7 @@ const Blocklist = () => {
                   <label className='blflat'>Flats - 20</label><br></br><br></br>
                   <Button type="submit" className="btnView">View</Button><br></br>
                 </div>
-
               </div>
-
-
             </div>
           </div>
         </div>
