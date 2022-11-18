@@ -17,7 +17,7 @@ const Vehiclemanagement = () => {
 
     const getVehicleParkDetails=async()=>{
       try {
-        const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/assign/getAll/632970d054edb049bcd0f0b4`) //will replace community with localstorage
+        const {data} = await axios.get(`${window.env_var}api/assign/getAll/632970d054edb049bcd0f0b4`) //will replace community with localstorage
         setEntry(data.data.vehicle)
         const indexoflast = currentPage*postPerPage  //endoffset
         const indexoffirst = indexoflast - postPerPage //startoffset
@@ -29,7 +29,7 @@ const Vehiclemanagement = () => {
 
   async function  paginate(event)
   {
-    const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/assign/getAll/632970d054edb049bcd0f0b4`) //will replace community with localstorage
+    const {data} = await axios.get(`${window.env_var}api/assign/getAll/632970d054edb049bcd0f0b4`) //will replace community with localstorage
         setCurrentpage(event.selected+1)
         const indexoflast = (event.selected+1)*postPerPage  //endoffset
         const indexoffirst = (indexoflast - postPerPage) //startof

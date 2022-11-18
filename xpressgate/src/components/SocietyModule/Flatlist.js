@@ -28,7 +28,7 @@ const Flatlist = () => {
 
   const getFlats=async()=>{
     try {
-      const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/flats/getList/${location.state.id}`)
+      const {data} = await axios.get(`${window.env_var}api/flats/getList/${location.state.id}`)
       setFlats(data.data.list)
       const indexoflast = currentPage*postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
@@ -40,7 +40,7 @@ const Flatlist = () => {
 
   async function  paginate(event)
   {
-    const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/flats/getList/${location.state.id}`)
+    const {data} = await axios.get(`${window.env_var}api/flats/getList/${location.state.id}`)
     setCurrentpage(event.selected+1)
     const indexoflast = (event.selected+1)*postPerPage  //endoffset
     const indexoffirst = (indexoflast - postPerPage) //startoffset

@@ -32,10 +32,13 @@ import SelectMode from './components/auth/SelectMode';
 import FlatListNA from './components/SocietyModule/FlatListNA';
 import Vehiclemanagement from './components/SocietyModule/Vehiclemanagement';
 import Editguard from './components/SocietyModule/Editguard';
+import Addguard from './components/SocietyModule/Addguard';
+import Guardlist from './components/SocietyModule/Guardlist';
+import GuardProfile from './components/SocietyModule/GuardProfile';
 
 function App() {
 
-  window.env_var = "http://143.110.187.80:5050/"
+  window.env_var = "http://127.0.0.1:5050/"
   useEffect(() => {
 
   }, [])
@@ -80,6 +83,9 @@ function App() {
             <Route path="/manageVehicle" element={<Vehiclemanagement/>} exact></Route>
             <Route path="/editGuard" element={<Editguard/>} exact></Route>
             <Route path="/scDashboard" element={<SocietyDashboard/>} exact></Route>
+            <Route path="/addGuard" element={<Addguard/>} exact></Route>
+            <Route path="/guardList" element={<Guardlist/>} exact></Route>
+            <Route path="/guardDetails" element={<GuardProfile/>} exact></Route>
         </Routes>
       </Router>
     </div>

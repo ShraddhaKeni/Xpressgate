@@ -21,7 +21,7 @@ const Addnotice = () => {
         community_id:'632970d054edb049bcd0f0b4'  //will be from localstorage
       }
 
-      const {data} = await axios.post(`${process.env.REACT_APP_SERVER_PATH}api/notices/addNotice`,sendData)
+      const {data} = await axios.post(`${window.env_var}api/notices/addNotice`,sendData)
       window.location.href='/noticeList'
     } catch (error) {
       console.log(error)

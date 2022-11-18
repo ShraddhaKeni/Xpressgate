@@ -24,7 +24,7 @@ useEffect(()=>{
 
 const getFlatDetails=async()=>{
   try {
-    const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/flats/single/${location.state.id}`)
+    const {data} = await axios.get(`${window.env_var}api/flats/single/${location.state.id}`)
     setFlat(data.data.list[0])
     
   } catch (error) {
@@ -39,7 +39,7 @@ const approveFlat=async(id)=>{
       flat_id:id,
       community_id:'632970d054edb049bcd0f0b4'
     }
-    const {data} = await axios.post(`${process.env.REACT_APP_SERVER_PATH}api/approveresidents/approve`,sendData)
+    const {data} = await axios.post(`${window.env_var}api/approveresidents/approve`,sendData)
     window.location.href='/flatList'
   } catch (error) {
     console.log(error)

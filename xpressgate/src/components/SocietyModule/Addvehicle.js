@@ -19,7 +19,7 @@ const Addvehicle = () => {
   },[])
   const getBlocks = async()=>{
     try {
-      const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/block/blockList`)
+      const {data} = await axios.get(`${window.env_var}api/block/blockList`)
       setBlocks(data.data.block)
     } catch (error) {
       console.log(error)
@@ -30,7 +30,7 @@ const Addvehicle = () => {
       document.getElementById('vehicle_id').selectedIndex='0'
       document.getElementById('flat_id').selectedIndex='0'
       document.getElementById('resident_name').value=null
-      const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/flats/getList/${e.target.value}`)
+      const {data} = await axios.get(`${window.env_var}api/flats/getList/${e.target.value}`)
       setFlats(data.data.list)
     } catch (error) {
       console.log(error)
@@ -39,7 +39,7 @@ const Addvehicle = () => {
 
   const getSections = async(e)=>{
     try {
-      const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/parkingsection/getAll/${e.target.value}`)
+      const {data} = await axios.get(`${window.env_var}api/parkingsection/getAll/${e.target.value}`)
       setSections(data.data)
     } catch (error) {
       console.log(error)
@@ -47,11 +47,11 @@ const Addvehicle = () => {
   }
   const getResident = async(e)=>{
     try {
-      const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/flats/single/${e.target.value}`)  
+      const {data} = await axios.get(`${window.env_var}api/flats/single/${e.target.value}`)  
       setResident(data.data.list[0])
       document.getElementById('resident_name').value = data.data.list[0].firstname+' '+data.data.list[0].lastname
 
-      const vehicle = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/resident/vehicle/getResidentVehicle/${data.data.list[0].resident_id}`)
+      const vehicle = await axios.get(`${window.env_var}api/resident/vehicle/getResidentVehicle/${data.data.list[0].resident_id}`)
       setVehicles(vehicle.data.data.vehical)
     } catch (error) {
       console.log(error)
@@ -66,7 +66,7 @@ const Addvehicle = () => {
         flat_id:document.getElementById('flat_id').value,
         vehicle_id:document.getElementById('vehicle_id').value
       }
-      const data = await axios.post(`${process.env.REACT_APP_SERVER_PATH}api/assigns/post`,sendData)
+      const data = await axios.post(`${window.env_var}api/assigns/post`,sendData)
       console.log(data)
     } catch (error) {
       console.log(resident)

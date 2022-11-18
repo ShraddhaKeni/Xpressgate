@@ -14,7 +14,7 @@ const Blocklist = () => {
 
   const getBlocks = async()=>{
     try {
-      const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/block/blockList`)
+      const {data} = await axios.get(`${window.env_var}api/block/blockList`)
       setBlocks(data.data.block)
     } catch (error) {
       console.log(error)

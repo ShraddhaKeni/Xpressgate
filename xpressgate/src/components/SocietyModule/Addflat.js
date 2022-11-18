@@ -16,7 +16,7 @@ const Addflat = () => {
 
   const getDetails = async()=>{
     try {
-        const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/community/get`)
+        const {data} = await axios.get(`${window.env_var}api/community/get`)
         setCommunity(data.data.community)
     } catch (error) {
       console.log(error)
@@ -28,7 +28,7 @@ const Addflat = () => {
       const param = {
         community_id:e.target.value
       }
-      const {data} = await axios.post(`${process.env.REACT_APP_SERVER_PATH}api/block/get`,{
+      const {data} = await axios.post(`${window.env_var}api/block/get`,{
         community_id:e.target.value
       })
       setBlock(data.data.block)
@@ -47,7 +47,7 @@ const Addflat = () => {
         description:document.getElementById('description').value,
         status:document.getElementById('status').value
       }
-      const {data} = await axios.post(`${process.env.REACT_APP_SERVER_PATH}api/flat/add`,sendData)
+      const {data} = await axios.post(`${window.env_var}api/flat/add`,sendData)
       window.location.href='/blockList'
     } catch (error) {
       console.log(error)

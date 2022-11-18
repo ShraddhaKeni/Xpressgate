@@ -195,3 +195,51 @@ html {
  
   
   }
+
+  .guarddetailscard{
+    border: 5px solid #14335D;
+    width: 30vw;
+    height: 65vh;
+    margin-left: 31%;
+    margin-top: 3%;
+    border-radius: 25px;
+    background: #F9FAFF;;
+}
+
+.cardimage img
+{
+  border-radius: 50%;
+  transform: scale(0.5);
+}
+
+.cardimage
+{
+  position: relative;
+  height: 20%;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+  /* .guarddetailscard
+  {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 50%;
+    height: 50%;
+    top:20%;
+    left:40%;
+    border: 5px solid #14335D;
+    border-radius: 10px;
+   
+  } */
+
+  .cardimage
+  {
+    position: relative;
+
+  }

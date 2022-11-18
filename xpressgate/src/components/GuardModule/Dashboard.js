@@ -21,7 +21,7 @@ const Dashboard = () => {
           'x-access-token':localStorage.getItem('accesstoken')
         }
       }
-     axios.get(`${process.env.REACT_APP_SERVER_PATH}api/guard/checkLogin`,config)
+     axios.get(`${window.env_var}api/guard/checkLogin`,config)
             .then(({data})=>{   
             })
             .catch(err=>{

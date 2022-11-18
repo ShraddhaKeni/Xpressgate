@@ -6,9 +6,7 @@ import LogOut from './Utils/LogOut'
 
 
 const Editguard = () => {
-   
-
-
+  
   return (
     <div className="addguestcontainer3">
       <div id="headersection3">
@@ -40,31 +38,31 @@ const Editguard = () => {
         </div>
         <Form className='formclass'>
          
-         <div class="form-group6 row">
+         <div class="form-group row">
            <label class="col-lg-2 col-form-label labelsize">First name</label>
            <div class="col-lg-4">
              <input type="text" class="form-control input-lg" name="First name" placeholder=""></input>
            </div>
          </div>
-         <div class="form-group6 row">
+         <div class="form-group row">
            <label class="col-lg-2 col-form-label labelsize">Last name</label>
            <div class="col-lg-4">
              <input type="text" class="form-control input-lg" name="Last name" placeholder=""></input>
            </div>
          </div>
-         <div class="form-group6 row">
+         <div class="form-group row">
            <label class="col-lg-2 col-form-label labelsize">Phone No</label>
            <div class="col-lg-4">
              <input type="number" class="form-control input-lg" name="Phone No" placeholder=""></input>
            </div>
          </div>
-         <div class="form-group6 row">
+         <div class="form-group row">
            <label class="col-lg-2 col-form-label labelsize">Email </label>
            <div class="col-lg-4">
              <input type="email" class="form-control input-lg" name="Email " placeholder=""></input>
            </div>
          </div>
-         <div class="form-group6 row">
+         <div class="form-group row">
            <label class="col-lg-2 col-form-label labelsize">Add Profile Picture</label>
            <div class="col-lg-4">
              <input type="file" class="form-control input-lg" name="Add Profile Picture" placeholder=""></input>

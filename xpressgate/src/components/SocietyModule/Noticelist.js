@@ -19,7 +19,7 @@ const Noticelist = () => {
 
   const getNotices=async()=>{
       try {
-        const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/notices/getAll/632970d054edb049bcd0f0b4`) //will update with localstorage
+        const {data} = await axios.get(`${window.env_var}api/notices/getAll/632970d054edb049bcd0f0b4`) //will update with localstorage
         setNotice(data.data.notice)
         const indexoflast = currentPage*postPerPage  //endoffset
         const indexoffirst = indexoflast - postPerPage //startoffset
@@ -30,7 +30,7 @@ const Noticelist = () => {
   }
   async function  paginate(event)
   {
-    const {data} = await axios.get(`${process.env.REACT_APP_SERVER_PATH}api/notices/getAll/632970d054edb049bcd0f0b4`) //will update with localstorage
+    const {data} = await axios.get(`${window.env_var}api/notices/getAll/632970d054edb049bcd0f0b4`) //will update with localstorage
     setCurrentpage(event.selected+1)
     const indexoflast = (event.selected+1)*postPerPage  //endoffset
     const indexoffirst = (indexoflast - postPerPage) //startoffset
