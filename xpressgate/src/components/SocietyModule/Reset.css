@@ -10,16 +10,7 @@ html{
     grid-template-areas: "logoid44 loginimgid4"
       "loginformid4 loginimgid4"
   }
-  /* #logoid4{
-    margin-top: 2rem;
-    margin-left: 9rem;
-    margin-bottom: -60rem;
-    position: relative;
-  }
-  #logoid4 img{
-    max-width:40% ;
-    height: auto;
-  } */
+ 
   #logoid4{
     margin-top: -37rem;
     margin-left: 1rem;

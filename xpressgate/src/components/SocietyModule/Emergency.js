@@ -1,6 +1,6 @@
 import React from "react";
-import "../Screens/Emergency.css";
-import LogOut9 from "../Screens/LogOut9";
+import "../SocietyModule/Emergency.css";
+import LogOut9 from "../SocietyModule/LogOut9";
 // import { Button } from 'react-bootstrap';
 import ReactPaginate from "react-paginate";
 import { useState, useEffect } from "react";

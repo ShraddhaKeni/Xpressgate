@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import "./Login.css";
+import "../SocietyModule/Login.css";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 
@@ -26,11 +26,8 @@ const Login_society = () => {
   };
   return (
     <div className="logincontainer1">
-      
-        
-
       <div id="loginimgid1">
-        <img src="/images/societylogin.svg" alt="" />
+        <img src="./images/societylogin.svg" alt="" />
       </div>
       <div id="loginformid1">
         <Form>

@@ -51,14 +51,14 @@ html {
   .firstheadersection3 {
     display: grid;
     grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
-    grid-template-areas: "dashboardlogo dashboardguard3 dashboardspace dashboardnotification3 dashboardsetting3 dashboardlogoutbutton";
+    grid-template-areas: "dashboardlogo3 dashboardguard3 dashboardspace dashboardnotification3 dashboardsetting3 dashboardlogoutbutton";
   }
   
-  #dashboardlogo {
-    grid-area: dashboardlogo;
+  #dashboardlogo3 {
+    grid-area: dashboardlogo3;
   }
   
-  #dashboardlogo img {
+  #dashboardlogo3 img {
     margin-top: 5%;
     margin-left: 1%;
     margin-bottom: 5%;
@@ -91,7 +91,7 @@ html {
   }
   
   #dashboardlogoutbutton {
-    grid-area: dashboardlogoutbutton;
+    grid-area: dashboardlogo3utbutton;
   }
   
   #dashboardlogoutbutton img {
@@ -198,7 +198,7 @@ html {
   }
   /* Media query for laptop */
   @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
-    #dashboardlogo img {
+    #dashboardlogo3 img {
       margin-top: 9%;
       margin-left: -38%;
       margin-bottom: 3%;
@@ -206,7 +206,7 @@ html {
   }
     .sideimage3 img {
       display: flex;
-      margin-top: 109%;
+      margin-top: 100%;
       max-width: 95%;
       height: auto;
       margin-left: 2%;

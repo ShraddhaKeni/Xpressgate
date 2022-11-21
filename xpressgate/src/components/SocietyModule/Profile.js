@@ -2,21 +2,21 @@ import React from 'react';
 import './Profile.css';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
-import LogOutt from '../Screens/LogOutt';
+import LogOutt from '../SocietyModule/LogOutt';
 
 const Profile = () => {
   return (
     <div className="addguestcontainer5">
-      <div id="headersection5">
-        <div className="firstheadersection5">
-          <div id="dashboardlogo1"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="dashboardguard5"><label>Society</label></div>
-          <div id="dashboardspace5"></div>
-          <div id="dashboardnotification5"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="dashboardsetting5"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="dashboardlogoutbutton5"><LogOutt/></div>
-        </div>
+    <div id="headersection5">
+      <div className="firstheadersection5">
+        <div id="dashboardlogo1"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+        <div id="dashboardguard5"><label>Society</label></div>
+        <div id="dashboardspace5"></div>
+        <div id="dashboardnotification5"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+        <div id="dashboardsetting5"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+        <div id="dashboardlogoutbutton5"><LogOutt/></div>
       </div>
+    </div>
       <div id="guardnamesection5">
         <div className='guardname5'>
           <img src="/images/profileicon.svg" alt="guard name" />

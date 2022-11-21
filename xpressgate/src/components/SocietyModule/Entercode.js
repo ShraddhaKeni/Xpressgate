@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import "./Entercode.css";
+import "../SocietyModule/Entercode.css";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 
@@ -26,11 +26,6 @@ const Entercode= () => {
   };
   return (
     <div className="logincontainer3">
-      {/* <div id="logoid">
-        <img src="/images/loginlogo.svg" alt="" />
-        </div> */}
-        
-
       <div id="loginimgid3">
         <img src="/images/societylogin.svg" alt="" />
       </div>
@@ -60,17 +55,6 @@ const Entercode= () => {
             </div>
             <br></br>
             <div className="email_input">
-              {/* <label className="password">Confirm Password</label>
-              <input
-                ref={password}
-                type="password"
-                className="form-control passwordtextbox"
-                onKeyPress={(e) => {
-                  document.getElementById(e.target.id).style.border = "none";
-                }}
-                id="loginpassword"
-                placeholder="Confirm Password"
-              ></input> */}
               <br />
               <Button
                 type="button"
@@ -82,24 +66,6 @@ const Entercode= () => {
                 Verify
               </Button>
             </div>
-
-            {/* <Button
-              type="button"
-              className="btnlogin"
-              onClick={() => {
-                loginGuard();
-              }}
-            >
-              Login
-            </Button> */}
-            {/* <div className="forgotpassword">
-              <a
-                href="https://gitlab.com/users/password/new"
-                style={{ color: "#FD6B22" }}
-              >
-                Forgot Password?
-              </a>
-            </div> */}
           </div>
         </Form>
       </div>

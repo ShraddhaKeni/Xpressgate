@@ -1,6 +1,6 @@
 import React from "react";
-import "../Screens/Local_service.css";
-import LogOut4 from "../Screens/LogOut4";
+import "../SocietyModule/Local_service.css";
+import LogOut4 from "../SocietyModule/LogOut4";
 
 const Local_service = () => {
   return (

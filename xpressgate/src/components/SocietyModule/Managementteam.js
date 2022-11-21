@@ -1,6 +1,6 @@
 import React from "react";
-import "../Screens/Managementteam.css";
-import LogOut10 from "./LogOut10";
+import "../SocietyModule/Managementteam.css";
+import LogOut10 from "../SocietyModule/LogOut10";
 // import { Button } from 'react-bootstrap';
 import ReactPaginate from "react-paginate";
 import { useState, useEffect } from "react";

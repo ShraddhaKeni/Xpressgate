@@ -104,40 +104,7 @@ html {
     padding: 4%;
     font-size: 1.3vw;
   }
-  .Addguestdisplay3 {
-    width: 27vw;
-    height: 9vh;
-    background-color: #AED8DC;
-    border-radius: 30px;
-    font-size: 1.5vw;
-    margin: auto;
-    margin-top: -4%;
-    padding-top: 2%;
-}
-.Addguestdisplay3 label{
-   
-        display: inline-block;
-       
-        margin-bottom: -19%;
-        font-weight: 700;
-    
-}
-.societyname {
-    display: flex;
-    width: 14vw;
-    height: 8vh;
-    background-color: rgba(10, 137, 150, 0.33);
-    margin-left: 16%;
-    margin-top: 12%;
-    border-radius: 20px;
-}
   
-  .societyname img {
-    margin-left: -15%;
-    width: 10vw;
-    height: 6vh;
-    margin-top: 4%;
-  }
   
 .fullcardscss {
     margin-top: 6%;
@@ -149,22 +116,8 @@ html {
   .dashboardcard img{
     width:20vw;
   } 
-  .btnAdd4{
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 15vw;
-    height: 6vh;
-    font-size: 2vw;
-    font-weight: 500;
-    margin-top: 5%;
-    margin-right: 25%;
-    padding-top: 0%;
-}
-.form-group5 {
-    margin-bottom: 3.5%;
-}
-  
+
+
   /* Media query for laptop */
   @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
     #dashboardlogo1 img {
@@ -180,38 +133,11 @@ html {
         line-height: 1;
         border-radius: 6px;
     }
-    .societyname label {
-        color: #000;
-        margin-left: -19%;
-        margin-top: 12.5%;
-        font-size: 1.5;
-        padding-top: 0.5%;
-        font-size: 1.2vw;
-    }
-    
-  /* .sideimage img {
-      display: flex;
-      margin-top: 216%;
-      width: 100%;
-      height: auto;
-  } */
-  
+ 
   .labelsize {
     font-size:1.5vw;
   }
-  .btnAdd4 {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 18vw;
-    height: 6vh;
-    font-size: 2.2vw;
-    font-weight: 400;
-    margin-top: 4%;
-    margin-right: 25%;
-    padding-top: 0%;
-}
-  
+
   #dashboardguard1 label {
     margin-top: 17%;
     margin-left: -125%;
@@ -224,30 +150,14 @@ html {
     padding-bottom: -124%;
     font-size: 1.8vw;
 }
-.form-group5 {
-    margin-bottom: 3.5%;
-}
+
 #dashboardnotification1 img {
     margin-top: 106%;
     width: 2.5vw;
     height: auto;
     margin-right: 100%;
 }
-.societyname {
-    display: flex;
-    width: 14.5vw;
-    height: 9vh;
-    background-color: rgba(10, 137, 150, 0.33);
-    margin-left: 15%;
-    margin-top: 13%;
-    border-radius: 20px;
-}
-.societyname img {
-    margin-left: -14%;
-    width: 10vw;
-    height: 6vh;
-    margin-top: 6%;
-}
+
 #dashboardsetting1 img {
     margin-top: 106%;
     width: 2.3vw;
@@ -270,16 +180,6 @@ html {
     border-radius: 9px;
     padding: 3%;
     font-size: 1.3vw;
-}
-.Addguestdisplay3 {
-    width: 24vw;
-    height: 10vh;
-    background-color: #AED8DC;
-    border-radius: 30px;
-    font-size: 1.6vw;
-    padding-top: 2.2%;
-    margin: auto;
-    margin-top: -17%;
 }
 
 .col-lg-4 {

@@ -1,6 +1,6 @@
 import React from 'react'
 import {Button} from 'react-bootstrap'
-import '../Screens/LogOut11.css';
+import '../SocietyModule/LogOut11.css';
 
 const LogOut11= () => {
     const guardLogout=()=>{

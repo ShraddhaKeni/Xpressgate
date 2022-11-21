@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import "./Enter_new_pswd.css";
+import "../SocietyModule/Enter_new_pswd.css";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 

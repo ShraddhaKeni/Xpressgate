@@ -1,6 +1,6 @@
 import React from "react";
-import "../Screens/Addmanagementteam.css";
-import LogOut7 from "../Screens/LogOut7";
+import "../SocietyModule/Addmanagementteam.css";
+import LogOut7 from "../SocietyModule/LogOut7";
 import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 const Addmanagementteam = () => {

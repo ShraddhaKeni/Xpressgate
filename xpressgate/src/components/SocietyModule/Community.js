@@ -1,6 +1,6 @@
 import React from "react";
-import "../Screens/Community.css";
-import LogOut3 from "../Screens/LogOut3";
+import "../SocietyModule/Community.css";
+import LogOut3 from "../SocietyModule/LogOut3";
 
 const Community = () => {
   return (

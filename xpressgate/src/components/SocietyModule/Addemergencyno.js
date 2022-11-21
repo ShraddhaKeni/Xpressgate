@@ -1,6 +1,6 @@
 import React from "react";
-import "../Screens/Addemergencyno.css";
-import LogOut6 from "../Screens/LogOut6";
+import "../SocietyModule/Addemergencyno.css";
+import LogOut6 from "../SocietyModule/LogOut6";
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 const Addemergencyno = () => {

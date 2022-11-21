@@ -1,6 +1,6 @@
 import React from "react";
-import "../Screens/Addlocalservice.css";
-import LogOut5 from "./LogOut5";
+import "../SocietyModule/Addlocalservice.css";
+import LogOut5 from "../SocietyModule/LogOut5";
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 const Addlocalservice = () => {
@@ -46,7 +46,7 @@ const Addlocalservice = () => {
       </div>
       <div className="addguestbackgroundimg">
         <div className="Addguestdisplay3">
-          <label>Add Local Service</label>
+          <label>Local Service</label>
         </div>
         <Form className='formclass'>
          
@@ -65,7 +65,7 @@ const Addlocalservice = () => {
             <div class="form-group5 row">
               <label class="col-lg-2 col-form-label labelsize">Added by</label>
               <div class="col-lg-4">
-                <select  class="form-control input-lg" name="Add by" placeholder="">
+                <select  class="form-control input-lg" name="Alllocalservice.css by" placeholder="">
                     <option value=" "></option>
                     <option value=" "></option>
                     <option value=" "></option>
@@ -84,7 +84,7 @@ const Addlocalservice = () => {
                 </select>
               </div>
             </div>
-            <Button type="submit" className="btnAdd4">Add Vendor</Button>
+            <Button type="submit" className="btnAdd4">Add  Vendor</Button>
             </Form>
        
        

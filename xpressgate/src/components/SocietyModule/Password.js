@@ -1,8 +1,8 @@
 import React from 'react';
-import '../Screens/Password.css';
+import '../SocietyModule/Password.css';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
-import LogOut2 from '../Screens/LogOut2'
+import LogOut2 from '../SocietyModule/LogOut2'
 
 const Password = () => {
   return (

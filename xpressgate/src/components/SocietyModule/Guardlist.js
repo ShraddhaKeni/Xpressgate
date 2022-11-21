@@ -1,6 +1,6 @@
 import React from "react";
-import "../Screens/Guardlist.css";
-import LogOut11 from "../Screens/LogOut11";
+import "../SocietyModule/Guardlist.css";
+import LogOut11 from "../SocietyModule/LogOut11";
 
 
 

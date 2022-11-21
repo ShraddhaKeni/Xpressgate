@@ -1,6 +1,6 @@
 import React from "react";
-import "../Screens/Plumber.css";
-import LogOut8 from "../Screens/LogOut8";
+import "../SocietyModule/Plumber.css";
+import LogOut8 from "../SocietyModule/LogOut8";
 import ReactPaginate from "react-paginate";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -63,7 +63,11 @@ const Plumber = () => {
           <img src="/images/profileicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
-
+        <div class="noticelist">
+          <h4><b>Notice List</b></h4>
+          <a href="abcd" class="Notice">Plumber</a><br/>
+          <a href="abcd" class="Notice">Electrician</a>
+          </div>
         <div className="sideimage5">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
