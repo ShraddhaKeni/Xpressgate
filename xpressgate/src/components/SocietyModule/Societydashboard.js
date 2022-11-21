@@ -2,9 +2,33 @@ import './Societydashboard.css';
 import { Button } from 'react-bootstrap';
 import LogOut from './Utils/LogOut';
 import Societyheader from './Utils/Societyheader';
+import { useEffect } from 'react';
+import {checkSociety} from '../auth/Auth'
 
+import axios from 'axios'
 const Societydashboard = () => {
- 
+  
+    useEffect(()=>{
+     if(checkSociety())
+     {
+      const config = {
+        headers:{
+          'x-access-token':localStorage.getItem('accesstoken')
+        }
+      }
+     axios.get(`${window.env_var}api/society/checkLogin`,config)
+            .then(({data})=>{   
+            })
+            .catch(err=>{
+              localStorage.clear();
+              window.location.href='/societylogin'
+            }) 
+     }
+     else
+     {
+      window.location.href='/'
+     }
+    },[])
   return (
     <>
       <div className="dashboardcontainer">

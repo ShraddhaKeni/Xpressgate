@@ -7,18 +7,11 @@ html {
     height: 100vh;
     grid-template-columns: 0.5fr 2fr;
     grid-template-rows: 0.2fr 2fr;
-    grid-template-areas: "headersection1 headersection1"
+    grid-template-areas: "headersection headersection"
       "societynamesection cardsection"
   }
-  .societyname label {
-    color: #000;
-    margin-left: -19%;
-    margin-top: 12.5%;
-    font-size: 1.5;
-    padding-top: 0.5%;
-    font-size: 1.2vw;
-}
-  #headersection1 {
+
+  #headersection {
     /* background-color: aquamarine; */
     /* margin-top: 10%; */
     grid-area: headersection1;
@@ -48,7 +41,7 @@ html {
     margin-top: 0.5%;
   }
   
-  .firstheadersection1 {
+  .firstheadersection {
     display: grid;
     grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
     grid-template-areas: "dashboardlogo dashboardguard1 dashboardspace dashboardnotification1 dashboardsetting1 dashboardlogoutbutton";
@@ -64,8 +57,8 @@ html {
     margin-bottom: 5%;
     width: 40%;
   }
-  
-  #dashboardguard1 {
+
+  #dashboardguard {
     grid-area: dashboardguard1;
   }
  
@@ -74,19 +67,19 @@ html {
     grid-area: dashboardspace;
   }
   
-  #dashboardnotification1 {
+  #dashboardnotification {
     grid-area: dashboardnotification1;
   }
   
-  #dashboardnotification1 img {
+  #dashboardnotification img {
     margin-top: 100%;
   }
   
-  #dashboardsetting1 {
+  #dashboardsetting {
     grid-area: dashboardsetting1;
   }
   
-  #dashboardsetting1 img {
+  #dashboardsetting img {
     margin-top: 100%;
   }
   
@@ -110,21 +103,20 @@ html {
     margin-top: 18%;
     padding-top: 2%;
   }
-  
   .societyname {
     display: flex;
-    width: 80%;
-    height: 12%;
+    width: 14vw;
+    height: 8vh;
     background-color: rgba(10, 137, 150, 0.33);
-    margin-left: 10%;
+    margin-left: 16%;
     margin-top: 12%;
-    border-radius: 24px;
-  }
+    border-radius: 20px;
+}
   
   .societyname img {
-    margin-left: 10%;
-    width: 25%;
-    height: 70%;
+    margin-left: -15%;
+    width: 10vw;
+    height: 6vh;
     margin-top: 4%;
   }
   .societyname label {
@@ -144,22 +136,43 @@ html {
     margin-bottom: 5%;
     
   }
-/*   
-  .Addguestdisplay3{
-    width: 300px;
-    height: 64px;
+  .btnAdd{
+    background-color: #0A8996;
+    color: #fff;
+    border-radius: 14px;
+    width: 15vw;
+    height: 6vh;
+    font-size: 2vw;
+    font-weight: 500;
+    margin-top: 5%;
+    margin-right: 25%;
+    padding-top: 0%;
+}
+  .Addguestdisplay {
+    width: 27vw;
+    height: 9vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 20px;
-    padding-top: 14px;
+    font-size: 1.5vw;
     margin: auto;
-    margin-top: -2%;
-  } */
-  
+    margin-top: -4%;
+    padding-top: 2%;
+}
+.Addguestdisplay label{
+   
+        display: inline-block;
+       
+        margin-bottom: -19%;
+        font-weight: 700;
+    
+}
   .labelsize{
     font-size: 1vw;
   }
   
+  .form-group {
+    margin-bottom: 3.5%;
+}
   
   .input-lg {
     height: 5vh;
@@ -182,13 +195,76 @@ html {
       margin-bottom: 3%;
       width: 5vw;
   }
-    .sideimage2 img {
+    .sideimage img {
       display: flex;
     margin-top: 102%;
     max-width: 95%;
     height: auto;
     margin-left: 2%;
   }
+  .input-lg {
+    height: 5vh;
+    padding: 3px 18px;
+    font-size: 1.3vw;
+    line-height: 1;
+    border-radius: 6px;
+} .btnAdd {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 18vw;
+  height: 6vh;
+  font-size: 2.2vw;
+  font-weight: 400;
+  margin-top: 4%;
+  margin-right: 25%;
+  padding-top: 0%;
+}
+
+  .Addguestdisplay {
+    width: 24vw;
+    height: 10vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 1.6vw;
+    padding-top: 2.2%;
+    margin: auto;
+    margin-top: -17%;
+}
+.form-group {
+  margin-bottom: 3.5%;
+}
+  .societyname label {
+    color: #000;
+    margin-left: -19%;
+    margin-top: 12.5%;
+    font-size: 1.5;
+    padding-top: 0.5%;
+    font-size: 1.2vw;
+}
+.col-lg-4 {
+  position: relative;
+  height: 4vh;
+  padding-right: 4%;
+  padding-left: 0%;
+  display: flex;
+  width: 36%;
+}
+.societyname {
+  display: flex;
+  width: 14.5vw;
+  height: 9vh;
+  background-color: rgba(10, 137, 150, 0.33);
+  margin-left: 15%;
+  margin-top: 13%;
+  border-radius: 20px;
+}
+.societyname img {
+  margin-left: -14%;
+  width: 10vw;
+  height: 6vh;
+  margin-top: 6%;
+}
     .addguestbackgroundimg {
     /* background-image: url("../../../public/images/dashboardbackground.svg"); */
     background-repeat: no-repeat;
@@ -198,8 +274,9 @@ html {
     margin-top: 12.5%;
   }
   
+  
   .labelsize {
-    font-size: 12px;
+    font-size:1.5vw;
   }
   
  

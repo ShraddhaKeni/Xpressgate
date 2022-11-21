@@ -39,6 +39,11 @@ import Profile from './components/SocietyModule/Profile';
 import Managementteam from './components/SocietyModule/Managementteam';
 import Local_service from './components/SocietyModule/Local_service';
 import Addmanagementteam from './components/SocietyModule/Addmanagementteam';
+import Plumber from './components/SocietyModule/Plumber';
+import Login_society from './components/SocietyModule/Login';
+import Entercode from './components/SocietyModule/Entercode';
+import Reset from './components/SocietyModule/Reset';
+// import Addlocalservice from './components/SocietyModule/Addlocalservice';
 
 function App() {
 
@@ -94,6 +99,12 @@ function App() {
             <Route path="/management" element={<Managementteam/>} exact></Route>
             <Route path="/localservices" element={<Local_service/>} exact></Route>
             <Route path='/addManagement' element={<Addmanagementteam/>} exact></Route>
+            <Route path='/servicevendors' element={<Plumber/>} exact></Route>
+            <Route path='/societylogin' element={<Login_society/>} exact></Route>
+            <Route path='/scotp' element={<Entercode/>} exact></Route>
+            <Route path='/screset' element={<Reset/>} exact></Route>
+            {/* <Route path='/addlocalservice' element={<Addlocalservice/>} exact></Route> */}
+           
         </Routes>
       </Router>
     </div>
