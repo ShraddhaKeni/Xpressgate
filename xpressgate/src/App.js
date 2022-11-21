@@ -35,6 +35,10 @@ import Editguard from './components/SocietyModule/Editguard';
 import Addguard from './components/SocietyModule/Addguard';
 import Guardlist from './components/SocietyModule/Guardlist';
 import GuardProfile from './components/SocietyModule/GuardProfile';
+import Profile from './components/SocietyModule/Profile';
+import Managementteam from './components/SocietyModule/Managementteam';
+import Local_service from './components/SocietyModule/Local_service';
+import Addmanagementteam from './components/SocietyModule/Addmanagementteam';
 
 function App() {
 
@@ -86,6 +90,10 @@ function App() {
             <Route path="/addGuard" element={<Addguard/>} exact></Route>
             <Route path="/guardList" element={<Guardlist/>} exact></Route>
             <Route path="/guardDetails" element={<GuardProfile/>} exact></Route>
+            <Route path="/profile" element={<Profile/>} exact></Route>
+            <Route path="/management" element={<Managementteam/>} exact></Route>
+            <Route path="/localservices" element={<Local_service/>} exact></Route>
+            <Route path='/addManagement' element={<Addmanagementteam/>} exact></Route>
         </Routes>
       </Router>
     </div>
