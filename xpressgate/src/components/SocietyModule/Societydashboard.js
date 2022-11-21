@@ -1,5 +1,7 @@
 import './Societydashboard.css';
 import { Button } from 'react-bootstrap';
+import LogOut from './Utils/LogOut';
+import Societyheader from './Utils/Societyheader';
 
 const Societydashboard = () => {
  
@@ -8,13 +10,8 @@ const Societydashboard = () => {
       <div className="dashboardcontainer">
         
       <div id="headersection">
-        <div className="firstheadersection">
-          <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="dashboardguard"><label>Society</label></div>
-          <div id="dashboardspace"></div>
-          <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="dashboardlogoutbutton">Logout</div>
+        <div id="addflatsection">
+        <Societyheader/>
         </div>
       </div>
       <div id="guardnamesection">

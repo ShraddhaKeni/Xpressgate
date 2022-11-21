@@ -28,11 +28,21 @@ import Addflat from './components/SocietyModule/Addflat'
 import Addnotice from './components/SocietyModule/Addnotice'
 import Noticelist from './components/SocietyModule/Noticelist'
 import Addvehicle from './components/SocietyModule/Addvehicle'
-import Vehiclemanagement from './components/SocietyModule/Vehiclemanagement'
+import SelectMode from './components/auth/SelectMode';
+import FlatListNA from './components/SocietyModule/FlatListNA';
+import Vehiclemanagement from './components/SocietyModule/Vehiclemanagement';
+import Editguard from './components/SocietyModule/Editguard';
+import Addguard from './components/SocietyModule/Addguard';
+import Guardlist from './components/SocietyModule/Guardlist';
+import GuardProfile from './components/SocietyModule/GuardProfile';
+import Profile from './components/SocietyModule/Profile';
+import Managementteam from './components/SocietyModule/Managementteam';
+import Local_service from './components/SocietyModule/Local_service';
+import Addmanagementteam from './components/SocietyModule/Addmanagementteam';
 
 function App() {
 
-  window.env_var = "http://143.110.187.80:5050/"
+  window.env_var = "http://127.0.0.1:5050/"
   useEffect(() => {
 
   }, [])
@@ -40,8 +50,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-
-         <Route element={<PrivateRoutes />}>
+            <Route path='/' element={<SelectMode/>} exact></Route>
             <Route path="/dashboard" element={<Dashboard />} exact></Route>
             <Route path="/addvendor" element={<Addvendor />} exact></Route>
             <Route path="/addguest" element={<Addguest />} exact></Route>
@@ -66,11 +75,25 @@ function App() {
             <Route path="/addnotice" element={<Addnotice />} exact></Route>
             <Route path="/noticelist" element={<Noticelist />} exact></Route>
             <Route path="/addvehicle" element={<Addvehicle />} exact></Route>
-            <Route path="/vehiclemanagement" element={<Vehiclemanagement />} exact></Route>
-
-          </Route>
-          <Route path="/" element={<Login />} exact></Route>
-
+            <Route path="/guardLogin" element={<Login />} exact></Route>
+            <Route path="/addFlat" element={<Addflat/>} exact></Route>
+            <Route path="/blockList" element={<Blocklist/>} exact></Route>
+            <Route path="/flatList" element={<Flatlist/>} exact></Route>
+            <Route path="/naFlatList" element={<FlatListNA/>} exact></Route>
+            <Route path="/approveFlat" element={<Flatapprovallist/>} exact></Route>
+            <Route path="/noticeList" element={<Noticelist/>} exact></Route>
+            <Route path="/addNotice" element={<Addnotice/>} exact></Route>
+            <Route path="/addVehical" element={<Addvehicle/>} exact></Route>
+            <Route path="/manageVehicle" element={<Vehiclemanagement/>} exact></Route>
+            <Route path="/editGuard" element={<Editguard/>} exact></Route>
+            <Route path="/scDashboard" element={<SocietyDashboard/>} exact></Route>
+            <Route path="/addGuard" element={<Addguard/>} exact></Route>
+            <Route path="/guardList" element={<Guardlist/>} exact></Route>
+            <Route path="/guardDetails" element={<GuardProfile/>} exact></Route>
+            <Route path="/profile" element={<Profile/>} exact></Route>
+            <Route path="/management" element={<Managementteam/>} exact></Route>
+            <Route path="/localservices" element={<Local_service/>} exact></Route>
+            <Route path='/addManagement' element={<Addmanagementteam/>} exact></Route>
         </Routes>
       </Router>
     </div>
