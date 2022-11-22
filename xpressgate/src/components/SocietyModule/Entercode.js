@@ -2,16 +2,16 @@ import React, { useRef } from "react";
 import "../SocietyModule/Entercode.css";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Entercode= () => {
   let username = useRef([]);
-  let password = useRef([]);
   const location = useLocation()
+  const navigate = useNavigate()
   const sendOTP = async()=>{
     try {
       const {data} = await axios.post(`${window.env_var}api/society/societyresetpass`,{mobileno:location.state.mobileno,otp:username.current.value})
-      
+      navigate('/newpass',{state:{mem_id:data.data.mem_id,mobileno:data.data.mobileno}})
     } catch (error) {
       
     }
@@ -51,7 +51,7 @@ const Entercode= () => {
               <Button
                 type="button"
                 className="btlogin3"
-                
+                onClick={()=>{sendOTP()}}
               >
                 Verify
               </Button>
