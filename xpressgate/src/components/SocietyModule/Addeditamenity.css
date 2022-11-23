@@ -2,34 +2,29 @@ html {
   height: 100vh;
 }
 
-.flcontainer {
+.aeacontainer {
   display: grid;
   height: 100vh;
   grid-template-columns: 0.5fr 2fr;
   grid-template-rows: 0.2fr 2fr;
-  grid-template-areas: "flheadersection flheadersection"
-    "flsection cardsection"
+  grid-template-areas: "aeasection aeasection"
+    "aeasocietysection cardsection"
 }
 
-#flheadersection {
+#aeasection {
 
-  grid-area: flheadersection;
+  grid-area: aeasection;
   background-color: #F9F9FF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-#flsection {
-  grid-area: flsection;
+#aeasocietysection {
+
+  grid-area: aeasocietysection;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-#cardsection {
-  grid-area: cardsection;
-  position: relative;
-
-}
-
-.flbackgroundimg {
+.aeabackgroundimg {
   background-image: url("../../../public/images/dashboardbackground.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -38,28 +33,28 @@ html {
   margin-top: 0.5%;
 }
 
-.flfirstheadersection {
+.aeaheadersection {
   display: grid;
   grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
-  grid-template-areas: "fldashboardlogo flsociety sldashboardspace flnotification flsetting fllogoutbutton";
+  grid-template-areas: "aealogo aeasociety aeaspace aeanotification aeasetting aealogoutbutton";
 }
 
-#fldashboardlogo {
-  grid-area: fldashboardlogo;
+#aealogo {
+  grid-area: aealogo;
 }
 
-#fldashboardlogo img {
+#aealogo img {
   margin-top: 5%;
   margin-left: 1%;
   margin-bottom: 5%;
   width: 40%;
 }
 
-#flsociety {
-  grid-area: flsociety;
+#aeasociety {
+  grid-area: aeasociety;
 }
 
-#flsociety label {
+#aeasociety label {
   margin-top: 20%;
   margin-left: -88%;
   width: 136px;
@@ -71,79 +66,67 @@ html {
   font-size: 20px;
 }
 
-#sldashboardspace {
-  grid-area: sldashboardspace;
+#aeaspace {
+  grid-area: aeaspace;
 }
 
-#flnotification {
-  grid-area: flnotification;
+#aeanotification {
+  grid-area: aeanotification;
 }
 
-#flnotification img {
+#aeanotification img {
   margin-top: 100%;
 }
 
-#flsetting {
-  grid-area: flsetting;
+#aeasetting {
+  grid-area: aeasetting;
 }
 
-#flsetting img {
+#aeasetting img {
   margin-top: 100%;
 }
 
-#fllogoutbutton {
-  grid-area: fllogoutbutton;
+#aealogoutbutton {
+  grid-area: aealogoutbutton;
 }
 
-#fllogoutbutton img {
+#aealogoutbutton img {
   padding-left: 10%;
   padding-bottom: 5%;
 }
 
-.btnlogout {
-  background-color: #0A8996;
-  color: #fff;
-  border-radius: 14px;
-  width: 142px;
-  height: 52px;
-  font-size: 20px;
-  font-weight: 500;
-  margin-top: 18%;
-  padding-top: 2%;
-}
-
-.flname {
+.aeasocietyname {
   display: flex;
   width: 80%;
-  height: 14%;
+  height: 12%;
   background-color: rgba(10, 137, 150, 0.33);
   margin-left: 10%;
   margin-top: 12%;
   border-radius: 24px;
 }
 
-.flname img {
-  margin-left: 6%;
-  width: 30%;
+.aeasocietyname img {
+  margin-left: 10%;
+  width: 25%;
   height: 70%;
-  margin-top: 6%;
+  margin-top: 4%;
 }
 
-.flname label {
+.aeasocietyname label {
   color: #000;
   margin-left: 8%;
-  margin-top: 13%;
+  margin-top: 10%;
   font-size: 20px;
 }
 
-.flsideimage img {
+.aeasideimage img {
   display: flex;
   margin-top: 80%;
   width: 100%;
   height: auto;
 }
 
-.fldisplay {
+.aeadisplay {
   width: 300px;
   height: 64px;
   background-color: #AED8DC;
@@ -158,7 +141,7 @@ html {
   font-size: 20px;
 }
 
-.btnAdd {
+.btnAddAmenity {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
@@ -170,60 +153,36 @@ html {
   margin-right: 34%;
 }
 
-.formclass {
+.aeaclass {
   margin-top: 5%;
   margin-left: 25%;
 }
 
-#fltable {
-  margin-Left: 10%;
-  margin-Top: 2%;
-  max-Width: 80%;
-  background-color: #F9FAFF;
- 
-  border-radius: 14px;
-  border-collapse: separate;
-  font-family: 'Rubik', sans-serif;
-}
-
-#fltable thead {
-  background-color: #14335D;
-  color: #fff;
-}
-
-table th {
-  text-align: center;
-}
-
-#fltable td:hover{
-  color: #0A8996;
-}
-
-.flsearchbox{
-  width: 15%;
-  height: 5%;
-  border: 2px solid #000;
-  border-radius: 15px;
-  margin-left: 70%;
-  margin-top: 2%;
-  
-}
-
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  .flname label {
-    margin-left: 2%;
-    margin-top: 16%;
+  .aeasocietyname {
+    display: flex;
+    width: 80%;
+    height: 10%;
+    background-color: rgba(10, 137, 150, 0.33);
+    margin-left: 10%;
+    margin-top: 12%;
+    border-radius: 24px;
+  }
+
+  .aeasocietyname label {
+    margin-left: 7%;
+    margin-top: 15%;
     font-size: 15px;
   }
 
-  .flsideimage img {
+  .aeasideimage img {
     display: flex;
     margin-top: 216%;
     width: 100%;
     height: auto;
   }
 
-  .flbackgroundimg {
+  .aeabackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -236,12 +195,12 @@ table th {
     font-size: 12px;
   }
 
-  .btnAdd {
+  .btnAddAmenity {
     background-color: #0A8996;
     color: #fff;
     border-radius: 14px;
     width: 155px;
-    height: 36px;
+    height: 44px;
     font-size: 151%;
     font-weight: 500;
     margin-top: 4%;
@@ -249,7 +208,7 @@ table th {
     padding-top: 0%;
   }
 
-  #flsociety label {
+  #aeasociety label {
     margin-top: 14%;
     margin-left: -68%;
     width: 108px;
@@ -261,8 +220,8 @@ table th {
     font-size: 20px;
   }
 
-  .fldisplay {
-    width: 300px;
+  .aeadisplay {
+    width: 190px;
     height: 64px;
     background-color: #AED8DC;
     border-radius: 30px;
@@ -272,39 +231,37 @@ table th {
     margin-top: -16%;
   }
 
-  .flsearchbox {
-    width: 28%;
-    height: 5%;
-    border: 2px solid #000;
-    border-radius: 15px;
-    margin-top: 2%;
-    margin-left: 60%;
-}
-.flname {
-  display: flex;
-  width: 80%;
-  height: 10%;
-  background-color: rgba(10, 137, 150, 0.33);
-  margin-left: 10%;
-  margin-top: 12%;
-  border-radius: 24px;
-}
+  .aeasocietyname img {
+    margin-left: 5%;
+    width: 25%;
+    height: 70%;
+    margin-top: 7%;
 }
 
+}
+
+/* Media query for mobile */
 @media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
-  .flsideimage {
+  .aeasideimage {
     display: none;
   }
 
-  #flsection {
+  #aeasocietysection {
     display: none;
   }
 
-  #flsociety {
+  #aeasociety {
     display: none;
   }
 
-  .flbackgroundimg {
+  #aealogo img {
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-bottom: 5%;
+    width: 140%;
+  }
+
+  .aeabackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -313,50 +270,28 @@ table th {
     margin-top: 10.5%;
   }
 
-  .fldisplay {
-    width: 280px;
+  .aeadisplay {
+    width: 160px;
     height: 64px;
     background-color: #AED8DC;
     border-radius: 30px;
     font-size: 20px;
     padding-top: 14px;
-    /* margin: auto; */
-    /* margin-top: -2%; */
-    margin-left: 26%;
+    margin-left: 78%;
 }
 
-.flsearchbox {
-  width: 70%;
-  height: 5%;
-  border: 2px solid #000;
-  border-radius: 15px;
-  margin-left: 70%;
-  margin-top: 2%;
-}
-
-.search_input {
-  outline: none;
-  border: none;
-  height: 18px;
-  width: 145px;
-  border-radius: 5px;
-  margin-left: 9px;
-}
-
-#fltable {
-  margin-Left: 24%;
-  margin-Top: 2%;
-  max-Width: 100%;
-  background-color: #F9FAFF;
+.btnAddAmenity {
+  background-color: #0A8996;
+  color: #fff;
   border-radius: 14px;
-  border-collapse: separate;
-  font-family: 'Rubik', sans-serif;
+  width: 158px;
+  margin-right: auto;
 }
 
-#fldashboardlogo img {
+.aeaclass {
   margin-top: 5%;
-  margin-left: 20%;
-  margin-bottom: 5%;
-  width: 140%;
+  margin-left: 42%;
+  width: 170%;
 }
+
 }

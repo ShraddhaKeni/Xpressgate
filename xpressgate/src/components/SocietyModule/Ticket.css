@@ -1,0 +1,486 @@
+html {
+  height: 100vh;
+}
+
+.ticketcontainer {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 0.5fr 2fr;
+  grid-template-rows: 0.2fr 2fr;
+  grid-template-areas: "tktheadersection tktheadersection"
+    "tktsection cardsection"
+}
+
+#tktheadersection {
+
+  grid-area: tktheadersection;
+  background-color: #F9F9FF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#tktsection {
+  grid-area: tktsection;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+.tktbackgroundimg {
+  background-image: url("../../../public/images/dashboardbackground.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  margin-top: 0.5%;
+}
+
+.tktfirstheadersection {
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
+  grid-template-areas: "tktlogo tktsociety tktspace tktnotification tktsetting tktlogoutbutton";
+}
+
+#tktlogo {
+  grid-area: tktlogo;
+}
+
+#tktlogo img {
+  margin-top: 5%;
+  margin-left: 1%;
+  margin-bottom: 5%;
+  width: 40%;
+}
+
+#tktsociety {
+  grid-area: tktsociety;
+}
+
+#tktsociety label {
+  margin-top: 20%;
+  margin-left: -88%;
+  width: 136px;
+  height: 58px;
+  background-color: black;
+  color: #fff;
+  border-radius: 18px;
+  padding-top: 4%;
+  font-size: 20px;
+}
+
+#tktspace {
+  grid-area: tktspace;
+}
+
+#tktnotification {
+  grid-area: tktnotification;
+}
+
+#tktnotification img {
+  margin-top: 100%;
+}
+
+#tktsetting {
+  grid-area: tktsetting;
+}
+
+#tktsetting img {
+  margin-top: 100%;
+}
+
+#tktlogoutbutton {
+  grid-area: tktlogoutbutton;
+}
+
+#tktlogoutbutton img {
+  padding-left: 10%;
+  padding-bottom: 5%;
+}
+
+.btnApprove {
+  background-color: #017069;
+  color: #fff;
+  border-radius: 14px;
+  width: 120px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 500;
+  padding-top: 0%;
+ 
+  margin-right: 34%;
+}
+
+.btnApprove:hover {
+  background-color: #017069;
+}
+
+.btnDeny {
+  background-color: #96230A;
+  color: #fff;
+  border-radius: 14px;
+  width: 120px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: -20%;
+  padding-top: 0%;
+  margin-left: 40%;
+}
+
+.btnDeny:hover {
+  background-color: #96230A;
+}
+
+.btnlogout {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 142px;
+  height: 52px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 18%;
+  padding-top: 2%;
+}
+
+
+.tktname {
+  display: flex;
+  width: 80%;
+  height: 12%;
+  background-color: rgba(10, 137, 150, 0.33);
+  margin-left: 10%;
+  margin-top: 12%;
+  border-radius: 24px;
+}
+
+.tktname img {
+  margin-left: 10%;
+  width: 25%;
+  height: 70%;
+  margin-top: 4%;
+}
+
+.tktname label {
+  color: #000;
+  margin-left: 8%;
+  margin-top: 12%;
+  font-size: 20px;
+}
+
+.tktsideimage img {
+  display: flex;
+  margin-top: 125%;
+  width: 100%;
+  height: auto;
+}
+
+.tktdisplay {
+  width: 300px;
+  height: 64px;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  font-size: 30px;
+  margin: auto;
+  margin-top: -3%;
+  color:#14335D;
+  padding-top: 6px;
+}
+
+.labelsize {
+  font-size: 20px;
+}
+
+.btnAdd {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 250px;
+  height: 60px;
+  font-size: 151%;
+  font-weight: 500;
+  margin-top: 4%;
+  margin-right: 34%;
+}
+
+.formclass {
+  margin-top: 5%;
+  margin-left: 25%;
+}
+
+.inoutbookname {
+  color: #14335D;
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+}
+
+.tktcard {
+  width: 25%;
+  margin: auto;
+  margin-top: 5%;
+  background-color: #fff;
+  border: 2px solid #14335D;
+  border-radius: 20px;
+}
+
+.tktclass {
+  background-color: #304B71;
+  width: 50%;
+  line-height:2;
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  border-radius: 8px;
+  margin: auto;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.tktclass {
+  background-color: #AED8DC;
+  width: 80%;
+  height: fit-content;
+  color: #000;
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  border-radius: 8px;
+  margin: auto;
+  padding-left: 4%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+}
+
+.detailsclass {
+  background-color: #AED8DC;
+  width: 80%;
+  height: fit-content;
+  color: #000;
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  border-radius: 8px;
+  margin: auto;
+  padding-left: 4%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  text-align: left;
+}
+
+.flatnodisplay {
+  color: #1A1717;
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+
+}
+
+.inoutclass {
+  background-color: #AED8DC;
+  width: 25%;
+  height: fit-content;
+  color: #000;
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  border-radius: 8px;
+  margin: auto;
+  font-weight: 100;
+}
+
+.tktIssuelabels {
+  font-weight: 600;
+  font-size: 22px;
+  font-family: 'Rubik', sans-serif;
+  color: #14335D;
+  margin-right: 64%;
+}
+
+.tktdesclabels {
+  font-weight: 600;
+  font-size: 22px;
+  font-family: 'Rubik', sans-serif;
+  color: #14335D;
+  margin-right: 46%;
+}
+
+.date {
+  font-size: 20px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 100;
+  text-align: left;
+}
+
+.intime {
+  font-size: 20px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 100;
+}
+
+.outtime {
+  font-size: 20px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 100;
+}
+
+.noofpeople {
+  font-size: 20px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 100;
+}
+
+.vehicleno {
+  font-size: 20px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 100;
+}
+
+.tktlabel {
+  font-weight: 600;
+  font-size: 22px;
+  font-family: 'Rubik', sans-serif;
+  color: #14335D;
+}
+
+.name {
+  display: flex;
+  width: 38%;
+  line-height: 150%;
+  background-color: #304B71;
+  margin-left: 30%;
+  margin-top: 2%;
+  border-radius: 24px;
+  color: white;
+  font-weight: 700;
+  font-size: 30px;
+  padding-left: 8%;
+}
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  .tktname label {
+    margin-left: 3%;
+    margin-top: 18%;
+    font-size: 15px;
+  }
+
+  .tktsideimage img {
+    display: flex;
+    margin-top: 216%;
+    width: 100%;
+    height: auto;
+  }
+
+  .tktbackgroundimg {
+    background-image: url("../../../public/images/dashboardbackground.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    margin-top: 12.5%;
+  }
+
+  .labelsize {
+    font-size: 12px;
+  }
+
+  #tktsociety label {
+    margin-top: 14%;
+    margin-left: -68%;
+    width: 108px;
+    height: 45px;
+    background-color: black;
+    color: #fff;
+    border-radius: 18px;
+    padding-top: 3%;
+    font-size: 20px;
+  }
+
+  .tktdisplay {
+    width: 300px;
+    height: 64px;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-top: 14px;
+    margin: auto;
+    margin-top: -16%;
+  }
+
+  .tktcard {
+    width: 50%;
+    margin: auto;
+    margin-top: 5%;
+    background-color: #fff;
+    border: 2px solid #14335D;
+    border-radius: 20px;
+  }
+
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
+  .tktsideimage {
+    display: none;
+  }
+
+  #tktsection {
+    display: none;
+  }
+
+  #tktsociety {
+    display: none;
+  }
+
+  .tktbackgroundimg {
+    background-image: url("../../../public/images/dashboardbackground.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    margin-top: 10.5%;
+  }
+
+  .tktdisplay {
+    width: 280px;
+    height: 64px;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-top: 14px;
+    margin-left: 26%;
+}
+
+.tktsearchbox {
+  width: 70%;
+  height: 5%;
+  border: 2px solid #000;
+  border-radius: 15px;
+  margin-left: 70%;
+  margin-top: 2%;
+}
+
+#tktlogo img {
+  margin-top: 5%;
+  margin-left: 20%;
+  margin-bottom: 5%;
+  width: 140%;
+}
+
+.tktcard {
+  width: 138%;
+  margin: auto;
+  margin-top: 5%;
+  background-color: #fff;
+  border: 2px solid #14335D;
+  border-radius: 20px;
+  margin-left: 10%;
+}
+
+.name {
+  display: flex;
+  width: 38%;
+  line-height: 150%;
+  background-color: #304B71;
+  margin-left: 30%;
+  margin-top: 2%;
+  border-radius: 24px;
+  color: white;
+  font-weight: 700;
+  font-size: 30px;
+  padding-left: 7%;
+}
+}

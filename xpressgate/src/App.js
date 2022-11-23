@@ -28,6 +28,7 @@ import Addflat from './components/SocietyModule/Addflat'
 import Addnotice from './components/SocietyModule/Addnotice'
 import Noticelist from './components/SocietyModule/Noticelist'
 import Addvehicle from './components/SocietyModule/Addvehicle'
+<<<<<<< HEAD
 import SelectMode from './components/auth/SelectMode';
 import FlatListNA from './components/SocietyModule/FlatListNA';
 import Vehiclemanagement from './components/SocietyModule/Vehiclemanagement';
@@ -50,6 +51,16 @@ import Emergency from './components/SocietyModule/Emergency';
 import Vendor_Payment from './components/SocietyModule/Vendor_Payment'
 import Payment from './components/SocietyModule/Payment'
 // import Addlocalservice from './components/SocietyModule/Addlocalservice';
+=======
+import Vehiclemanagement from './components/SocietyModule/Vehiclemanagement'
+import GuestManagement from './components/SocietyModule/GuestManagement'
+import Ticketlist from './components/SocietyModule/Ticketlist'
+import Ticket from './components/SocietyModule/Ticket'
+import Amenities from './components/SocietyModule/Amenities'
+import Amenitylist from './components/SocietyModule/Amenitylist'
+import Approvallistamenity from './components/SocietyModule/Approvallistamenity'
+import Addeditamenity from './components/SocietyModule/Addeditamenity'
+>>>>>>> uiux_screendesigns
 
 function App() {
 
@@ -117,6 +128,16 @@ function App() {
             <Route path='/payment' element={<Payment/>} exact></Route>
             {/* <Route path='/addlocalservice' element={<Addlocalservice/>} exact></Route> */}
            
+            <Route path="/vehiclemanagement" element={<Vehiclemanagement />} exact></Route>
+            <Route path="/guestManagement" element={<GuestManagement />} exact></Route>
+            <Route path="/ticketlist" element={<Ticketlist />} exact></Route>
+            <Route path="/ticket" element={<Ticket />} exact></Route>
+            <Route path="/amenities" element={<Amenities />} exact></Route>
+            <Route path="/amenitylist" element={<Amenitylist />} exact></Route>
+            <Route path="/approvallistamenity" element={<Approvallistamenity />} exact></Route>
+            <Route path="/addeditamenity" element={<Addeditamenity />} exact></Route>
+          </Route>
+          <Route path="/" element={<Login />} exact></Route>
         </Routes>
       </Router>
     </div>
