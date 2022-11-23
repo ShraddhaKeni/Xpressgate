@@ -204,3 +204,9 @@ html {
   
   
   }
+
+
+  input:focus:required:invalid
+  {
+    border: 1px solid red;
+  }

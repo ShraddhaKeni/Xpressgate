@@ -45,6 +45,8 @@ import Entercode from './components/SocietyModule/Entercode';
 import Reset from './components/SocietyModule/Reset';
 import Enter_new_pswd from './components/SocietyModule/Enter_new_pswd';
 import Password from './components/SocietyModule/Password'
+import Addemergencyno from './components/SocietyModule/Addemergencyno';
+import Emergency from './components/SocietyModule/Emergency';
 // import Addlocalservice from './components/SocietyModule/Addlocalservice';
 
 function App() {
@@ -107,6 +109,8 @@ function App() {
             <Route path='/screset' element={<Reset/>} exact></Route>
             <Route path='/newpass' element={<Enter_new_pswd/>} exact></Route>
             <Route path='/resetpassword' element={<Password/>} exact></Route>
+            <Route path='/addemergency' element={<Addemergencyno/>} exact></Route>
+            <Route path='/emergencyList' element={<Emergency/>} exact></Route>
             {/* <Route path='/addlocalservice' element={<Addlocalservice/>} exact></Route> */}
            
         </Routes>
