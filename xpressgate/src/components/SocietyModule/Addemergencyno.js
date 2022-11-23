@@ -4,6 +4,7 @@ import LogOut from './Utils/LogOut'
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import axios from "axios";
+import Societyheader from "./Utils/Societyheader";
 const Addemergencyno = () => {
 
   const [contactTypes, setTypes] = useState([])
@@ -60,14 +61,7 @@ const Addemergencyno = () => {
     <div className="addguestcontainer1">
       <div id="headersection1">
       <div id="addflatsection">
-        <div className="addflatheadersection">
-          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="afsociety"><label>Society</label></div>
-          <div id="afspace"></div>
-          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="aflogoutbutton"><LogOut /></div>
-        </div>
+        <Societyheader/>
       </div>
       </div>
       <div id="societynamesection">

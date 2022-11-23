@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import LogOut from './Utils/LogOut';
 import axios from 'axios';
+import Societyheader from './Utils/Societyheader';
 
 const Profile = () => {
 
@@ -56,14 +57,7 @@ useEffect(()=>{
     <div className="addguestcontainer5">
       <div id="headersection5">
         <div id="addflatsection">
-          <div className="addflatheadersection">
-            <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-            <div id="afsociety"><label>Society</label></div>
-            <div id="afspace"></div>
-            <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-            <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-            <div id="aflogoutbutton"><LogOut/></div>
-          </div>
+         <Societyheader/>
       </div>
       </div>
       <div id="guardnamesection5">
@@ -112,7 +106,14 @@ useEffect(()=>{
               <label class="col-lg-2 col-form-label labelsize">Mobile Number</label>
               <div class="col-lg-4">
                 <input type="number" class="form-control input-lg" id='mobileno' name="Mobile Number" placeholder="" disabled value={details.mobileno}></input>
-              </div>
+              </div> <div className="addflatheadersection">
+            <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+            <div id="afsociety"><label>Society</label></div>
+            <div id="afspace"></div>
+            <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+            <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+            <div id="aflogoutbutton"><LogOut/></div>
+          </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-2 col-form-label labelsize">User Name</label>

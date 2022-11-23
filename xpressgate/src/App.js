@@ -47,6 +47,8 @@ import Enter_new_pswd from './components/SocietyModule/Enter_new_pswd';
 import Password from './components/SocietyModule/Password'
 import Addemergencyno from './components/SocietyModule/Addemergencyno';
 import Emergency from './components/SocietyModule/Emergency';
+import Vendor_Payment from './components/SocietyModule/Vendor_Payment'
+import Payment from './components/SocietyModule/Payment'
 // import Addlocalservice from './components/SocietyModule/Addlocalservice';
 
 function App() {
@@ -111,6 +113,8 @@ function App() {
             <Route path='/resetpassword' element={<Password/>} exact></Route>
             <Route path='/addemergency' element={<Addemergencyno/>} exact></Route>
             <Route path='/emergencyList' element={<Emergency/>} exact></Route>
+            <Route path='/vendorpayment' element={<Vendor_Payment/>} exact></Route>
+            <Route path='/payment' element={<Payment/>} exact></Route>
             {/* <Route path='/addlocalservice' element={<Addlocalservice/>} exact></Route> */}
            
         </Routes>

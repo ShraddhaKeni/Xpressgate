@@ -6,6 +6,7 @@ import ReactPaginate from "react-paginate";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
+import Societyheader from "./Utils/Societyheader";
 
 const Emergency = () => {
  
@@ -42,14 +43,7 @@ useEffect(()=>{
     <div className="addguestcontainer1">
       <div id="headersection1">
       <div id="addflatsection">
-        <div className="addflatheadersection">
-          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="afsociety"><label>Society</label></div>
-          <div id="afspace"></div>
-          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="aflogoutbutton"><LogOut /></div>
-        </div>
+       <Societyheader/>
       </div>
       </div>
       <div id="societynamesection">
