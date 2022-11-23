@@ -33,3 +33,30 @@ export const getResidents=async()=>{
       
     }
 }
+
+export const getGuestList=async()=>{
+    try {
+        const {data}= await axios.post(`${window.env_var}api/guard/getallguest`,{community_id:localStorage.getItem('community_id')})
+        return (data.data.guests_list)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getAmenitiesBooked = async(id)=>{
+  try {
+    const {data} = await axios.get(`${window.env_var}api/resident/booking/byEmenity/${id}`)
+    return (data.data.amenities)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const getAmenities=async()=>{
+  try {
+    const {data} = await axios.get(`${window.env_var}api/society/amenities/getAll`)
+    return(data.data.amenities)
+  } catch (error) {
+    console.log(error)
+  }
+}
