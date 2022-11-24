@@ -1,0 +1,320 @@
+html {
+  height: 100vh;
+}
+
+.addvehiclecontainer {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 0.5fr 2fr;
+  grid-template-rows: 0.2fr 2fr;
+  grid-template-areas: "addvehiclesection addvehiclesection"
+    "avsocietysection cardsection"
+}
+
+#addvehiclesection {
+
+  grid-area: addvehiclesection;
+  background-color: #F9F9FF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#avsocietysection {
+
+  grid-area: avsocietysection;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.avbackgroundimg {
+  background-image: url("../../../public/images/dashboardbackground.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  margin-top: 0.5%;
+}
+
+.addvehheadersection {
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
+  grid-template-areas: "avlogo avsociety avspace avnotification avsetting avlogoutbutton";
+}
+
+#avlogo {
+  grid-area: avlogo;
+}
+
+#avlogo img {
+  margin-top: 5%;
+  margin-left: 1%;
+  margin-bottom: 5%;
+  width: 40%;
+}
+
+#avsociety {
+  grid-area: avsociety;
+}
+
+#avsociety label {
+  margin-top: 20%;
+  margin-left: -88%;
+  width: 136px;
+  height: 58px;
+  background-color: black;
+  color: #fff;
+  border-radius: 18px;
+  padding-top: 4%;
+  font-size: 20px;
+}
+
+#avspace {
+  grid-area: avspace;
+}
+
+#avnotification {
+  grid-area: avnotification;
+}
+
+#avnotification img {
+  margin-top: 100%;
+}
+
+#avsetting {
+  grid-area: avsetting;
+}
+
+#avsetting img {
+  margin-top: 100%;
+}
+
+#avlogoutbutton {
+  grid-area: avlogoutbutton;
+}
+
+#avlogoutbutton img {
+  padding-left: 10%;
+  padding-bottom: 5%;
+}
+
+.btnlogout {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 142px;
+  height: 52px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 18%;
+  padding-top: 2%;
+}
+
+.avsocietyname {
+  display: flex;
+  width: 80%;
+  height: 12%;
+  background-color: rgba(10, 137, 150, 0.33);
+  margin-left: 10%;
+  margin-top: 12%;
+  border-radius: 24px;
+}
+
+.avsocietyname img {
+  margin-left: 10%;
+  width: 25%;
+  height: 70%;
+  margin-top: 4%;
+}
+
+.avsocietyname label {
+  color: #000;
+  margin-left: 8%;
+  margin-top: 10%;
+  font-size: 20px;
+}
+
+.avsideimage img {
+  display: flex;
+  margin-top: 80%;
+  width: 100%;
+  height: auto;
+}
+
+.Addvehicledisplay {
+  width: 300px;
+  height: 64px;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  font-size: 20px;
+  padding-top: 14px;
+  margin: auto;
+  margin-top: -2%;
+}
+
+.labelsize {
+  font-size: 20px;
+}
+
+.btnAddVeh {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 250px;
+  height: 60px;
+  font-size: 151%;
+  font-weight: 500;
+  margin-top: 4%;
+  margin-right: 34%;
+}
+
+.formclass {
+  margin-top: 5%;
+  margin-left: 25%;
+}
+
+.avsidelinks{
+  margin-right: 60%;
+  margin-top: 10%;
+  }
+  
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  .avsocietyname {
+    display: flex;
+    width: 80%;
+    height: 10%;
+    background-color: rgba(10, 137, 150, 0.33);
+    margin-left: 10%;
+    margin-top: 12%;
+    border-radius: 24px;
+  }
+
+  .avsocietyname label {
+    margin-left: 7%;
+    margin-top: 15%;
+    font-size: 15px;
+  }
+
+  .avsideimage img {
+    display: flex;
+    margin-top: 216%;
+    width: 100%;
+    height: auto;
+  }
+
+  .avbackgroundimg {
+    background-image: url("../../../public/images/dashboardbackground.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    margin-top: 12.5%;
+  }
+
+  .labelsize {
+    font-size: 12px;
+  }
+
+  .btnAddVeh {
+    background-color: #0A8996;
+    color: #fff;
+    border-radius: 14px;
+    width: 155px;
+    height: 44px;
+    font-size: 151%;
+    font-weight: 500;
+    margin-top: 4%;
+    margin-right: 35%;
+    padding-top: 0%;
+  }
+
+  #avsociety label {
+    margin-top: 14%;
+    margin-left: -68%;
+    width: 108px;
+    height: 45px;
+    background-color: black;
+    color: #fff;
+    border-radius: 18px;
+    padding-top: 3%;
+    font-size: 20px;
+  }
+
+  .Addvehicledisplay {
+    width: 190px;
+    height: 64px;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-top: 14px;
+    margin: auto;
+    margin-top: -16%;
+  }
+
+  .avsocietyname img {
+    margin-left: 5%;
+    width: 25%;
+    height: 70%;
+    margin-top: 7%;
+}
+
+.avsidelinks {
+  margin-right: 38%;
+  margin-top: 10%;
+}
+
+}
+
+/* Media query for mobile */
+@media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
+  .avsideimage {
+    display: none;
+  }
+
+  #avsocietysection {
+    display: none;
+  }
+
+  #avsociety {
+    display: none;
+  }
+
+  #avlogo img {
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-bottom: 5%;
+    width: 140%;
+  }
+
+  .avbackgroundimg {
+    background-image: url("../../../public/images/dashboardbackground.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    margin-top: 10.5%;
+  }
+
+  .Addvehicledisplay {
+    width: 160px;
+    height: 64px;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-top: 14px;
+    margin-left: 78%;
+}
+
+.btnAddVeh {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 140px;
+  margin-right: auto;
+}
+
+.formclass {
+  margin-top: 5%;
+  margin-left: 42%;
+  width: 170%;
+}
+
+}

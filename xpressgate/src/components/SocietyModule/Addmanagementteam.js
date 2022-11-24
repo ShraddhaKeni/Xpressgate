@@ -1,34 +1,68 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../SocietyModule/Addmanagementteam.css";
-import LogOut7 from "../SocietyModule/LogOut7";
+import LogOut from './Utils/LogOut'
 import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
+import axios from "axios";
+import { useLocation } from "react-router-dom";
 const Addmanagementteam = () => {
+
+  const [residents,setResidents] =useState([])
+
+
+  useEffect(()=>{
+    getResidents()
+  },[])
+
+    const getResidents=async()=>{
+      try {
+        const {data} = await axios.get(`${window.env_var}api/resident/getall`)
+        setResidents(data.data.Resident)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+  const handleSubmit =async(e)=>{
+    e.preventDefault()
+    try {
+
+      if(document.getElementById('management_title').value!==""&&document.getElementById('from').value!=""&&document.getElementById('to').value!=="")
+      {
+        const sendData = {
+          community_id:'632970d054edb049bcd0f0b4',
+          managementTitle:document.getElementById('management_title').value,
+          resident_id:document.getElementById('resident_id').value,
+          from:document.getElementById('from').value,
+          to:document.getElementById('to').value
+        }
+        const {data} = await axios.post(`${window.env_var}api/management/add`,sendData)
+        window.location.href='/management'
+      }
+      else
+      {
+        console.log('error')
+      }
+
+     
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <div className="addguestcontainer1">
       <div id="headersection1">
-        <div className="firstheadersection1">
-          <div id="dashboardlogo1">
-            <img src="/images/loginlogo.svg" alt="header logo" />
-          </div>
-          <div id="dashboardguard1">
-            <label>Society</label>
-          </div>
-          <div id="dashboardspace"></div>
-          <div id="dashboardnotification1">
-            <a href="abc">
-              <img src="/images/notification.svg" alt="notificationicon" />
-            </a>
-          </div>
-          <div id="dashboardsetting1">
-            <a href="abc">
-              <img src="/images/setting.svg" alt="settingicon" />
-            </a>
-          </div>
-          <div id="dashboardlogoutbutton">
-            <LogOut7 />
-          </div>
+      <div id="addflatsection">
+        <div className="addflatheadersection">
+          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+          <div id="afsociety"><label>Society</label></div>
+          <div id="afspace"></div>
+          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="aflogoutbutton"><LogOut /></div>
         </div>
+      </div>
       </div>
       <div id="societynamesection">
         <div className="societyname">
@@ -48,15 +82,15 @@ const Addmanagementteam = () => {
           <div class="form-group5 row">
             <label class="col-lg-2 col-form-label labelsize">Resident</label>
             <div class="col-lg-4">
-              <input
-                type="text"
-                class="form-control input-lg"
-                name="Resident"
-                placeholder=""
-              ></input>
+             <select className="form-control input-lg" id='resident_id'>
+                <option value={null} selected disabled>Select resident</option>
+                {residents.map(item=>{
+                  return <option value={item.id}>{item.firstname} {item.lastname}</option>
+                })}
+             </select>
             </div>
           </div>
-          <div class="form-group5 row">
+          <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">
               {" "}
               Designation
@@ -67,10 +101,23 @@ const Addmanagementteam = () => {
                 class="form-control input-lg"
                 name="Designation"
                 placeholder=""
+                id='management_title'
               ></input>
             </div>
           </div>
+
           <div className="date row g-2">
+          <div class="col-md-3">
+              <label for="inputPassword4" class="form-label dateto">
+                From
+              </label>
+              <input
+                type="date"
+                class="form-control"
+                id="from"
+                name="From"
+              />
+            </div>
             <div class="col-md-3">
               <label for="inputEmail4" class="form-label dateto">
                 To
@@ -78,24 +125,14 @@ const Addmanagementteam = () => {
               <input
                 type="date"
                 class="form-control"
-                id="inputEmail4"
+                id="to"
                 name="to"
               />
             </div>
-            <div class="col-md-3">
-              <label for="inputPassword4" class="form-label dateto">
-                From
-              </label>
-              <input
-                type="date"
-                class="form-control"
-                id="inputPassword4"
-                name="From"
-              />
-            </div>
+            
           </div>
 
-          <Button type="submit" className="btnAdd4">
+          <Button type="submit" onClick={(e)=>handleSubmit(e)} className="btnAdd4">
             Add
           </Button>
         </Form>

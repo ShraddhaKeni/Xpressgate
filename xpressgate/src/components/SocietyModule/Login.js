@@ -26,6 +26,9 @@ const Login_society = () => {
   };
   return (
     <div className="logincontainer1">
+      
+        
+
       <div id="loginimgid1">
         <img src="./images/societylogin.svg" alt="" />
       </div>

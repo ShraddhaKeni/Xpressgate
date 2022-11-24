@@ -10,7 +10,14 @@ html {
     grid-template-areas: "headersection1 headersection1"
       "societynamesection cardsection"
   }
-
+  .societyname label {
+    color: #000;
+    margin-left: -19%;
+    margin-top: 12.5%;
+    font-size: 1.5;
+    padding-top: 0.5%;
+    font-size: 1.2vw;
+}
   #headersection1 {
     /* background-color: aquamarine; */
     /* margin-top: 10%; */
@@ -103,23 +110,23 @@ html {
     margin-top: 18%;
     padding-top: 2%;
   }
+  
   .societyname {
     display: flex;
-    width: 14vw;
-    height: 8vh;
+    width: 80%;
+    height: 12%;
     background-color: rgba(10, 137, 150, 0.33);
-    margin-left: 16%;
+    margin-left: 10%;
     margin-top: 12%;
-    border-radius: 20px;
-}
-  
-  .societyname img {
-    margin-left: -15%;
-    width: 10vw;
-    height: 6vh;
-    margin-top: 4%;
+    border-radius: 24px;
   }
   
+  .societyname img {
+    margin-left: 10%;
+    width: 25%;
+    height: 70%;
+    margin-top: 4%;
+  }
   .societyname label {
     color: #000;
     margin-left: -14%;
@@ -137,24 +144,55 @@ html {
     margin-bottom: 5%;
     
   }
-  .Addguestdisplay2 {
-    width: 27vw;
-    height: 9vh;
+
+  .dashboardcard_services{
+    width: fit-content;
+    margin-left: 24%;
+    margin-bottom: 10%;
+    border: none;
+    cursor: pointer;
+    background-color: #0A8996;
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    align-items: center;
+  }
+  .dashboardcard_services img
+  {
+    background-color: white;
+    margin-top: 20px;
+    transform: scale(1.2);
+  }
+
+  .dashboardcard_services h1{
+    position: relative;
+    top:10%;
+    color: white;
+    font-size: 25px;
+  }
+  .image_div
+  {
+    position: relative;
+    left: 30%;
+    top:10%;
+    width: 110px;
+    height: 110px;
+    background: white;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    
+  }
+  .Addguestdisplay2{
+    width: 300px;
+    height: 64px;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 1.5vw;
+    font-size: 20px;
+    padding-top: 14px;
     margin: auto;
-    margin-top: -4%;
-    padding-top: 2%;
-}
-.Addguestdisplay2 label{
-   
-        display: inline-block;
-       
-        margin-bottom: -19%;
-        font-weight: 700;
-    
-}
+    margin-top: -2%;
+  }
   
   .labelsize{
     font-size: 1vw;
@@ -195,17 +233,6 @@ html {
   .AddLS:hover{
     background-color:rgb(155, 201, 212);
   }
-     
-  .dashboardcard img{
-    width:20vw;
-  }
-  
-.fullcardscss {
-  margin-top: 6%;
-  padding-left:0%;
-  margin-left: 1%;
-  width: 100%;
-}
   .noticelist a{
     color: #5C5C5C;
   }
@@ -232,39 +259,6 @@ html {
     position: relative;
     margin-top: 12.5%;
   }
-  .societyname label {
-    color: #000;
-    margin-left: -19%;
-    margin-top: 12.5%;
-    font-size: 1.5;
-    padding-top: 0.5%;
-    font-size: 1.2vw;
-}
-.Addguestdisplay2 {
-  width: 24vw;
-  height: 10vh;
-  background-color: #AED8DC;
-  border-radius: 30px;
-  font-size: 1.5vw;
-  padding-top: 2.2%;
-  margin: auto;
-  margin-top: -16%;
-}
-.societyname {
-  display: flex;
-  width: 14.5vw;
-  height: 9vh;
-  background-color: rgba(10, 137, 150, 0.33);
-  margin-left: 15%;
-  margin-top: 13%;
-  border-radius: 20px;
-}
-.societyname img {
-  margin-left: -14%;
-  width: 10vw;
-  height: 6vh;
-  margin-top: 6%;
-}
   
   .labelsize {
     font-size: 12px;

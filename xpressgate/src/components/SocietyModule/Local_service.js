@@ -1,33 +1,38 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import "../SocietyModule/Local_service.css";
-import LogOut4 from "../SocietyModule/LogOut4";
+import LogOut from './Utils/LogOut'
+
 
 const Local_service = () => {
+
+  const [services,setServices] = useState([])
+
+  useEffect(()=>{
+    getServices()
+  },[])
+
+  const getServices=async()=>{
+    try {
+      const {data} = await axios.get(`${window.env_var}api/admin/localservices/getAll`)
+      setServices(data.data.localservices)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <div className="addguestcontainer1">
       <div id="headersection1">
-        <div className="firstheadersection1">
-          <div id="dashboardlogo1">
-            <img src="/images/loginlogo.svg" alt="header logo" />
-          </div>
-          <div id="dashboardguard1">
-            <label>Society</label>
-          </div>
-          <div id="dashboardspace"></div>
-          <div id="dashboardnotification1">
-            <a href="abc">
-              <img src="/images/notification.svg" alt="notificationicon" />
-            </a>
-          </div>
-          <div id="dashboardsetting1">
-            <a href="abc">
-              <img src="/images/setting.svg" alt="settingicon" />
-            </a>
-          </div>
-          <div id="dashboardlogoutbutton">
-            <LogOut4 />
-          </div>
+      <div id="addflatsection">
+        <div className="addflatheadersection">
+          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+          <div id="afsociety"><label>Society</label></div>
+          <div id="afspace"></div>
+          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="aflogoutbutton"><LogOut /></div>
         </div>
+      </div>
       </div>
       <div id="societynamesection">
         <div className="societyname">
@@ -47,57 +52,23 @@ const Local_service = () => {
         <div className="Addguestdisplay2">
           <label>Local Services</label>
         </div>
-        <button type="button" className="AddLS" onClick={() => {
-                window.location.href = "abc";
-              }}>&#10011; Add Local Services</button>
+        <button type="button" className="AddLS"> Add Local Services</button>
         <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
-          <div className="col">
-            <div className="dashboardcard">
-              <a href="abc">
-                <img
-                  src="/images/plumber.svg"
-                  className="dbcard-img-top"
-                  alt="Plumber"
-                ></img>
-              </a>
-            </div>
-          </div>
-          <div className="col">
-            <div className="dashboardcard">
-              <img
-                src="/images/electrician.svg"
-                className="dbcard-img-top"
-                onClick={() => {
-                  window.location.href = "abc";
-                }}
-                alt="Electrician"
-              ></img>
-            </div>
-          </div>
-          <div className="col">
-            <div className="dashboardcard">
-              <img
-                src="/images/laundary.svg"
-                className="dbcard-img-top"
-                onClick={() => {
-                  window.location.href = "abc";
-                }}
-                alt="Laundary"
-              ></img>
-            </div>
-          </div>
-          <div className="col">
-            <div className="dashboardcard">
-              <img
-                src="/images/carpenter.svg"
-                className="dbcard-img-top"
-                onClick={() => {
-                  window.location.href = "abc";
-                }}
-                alt="Carpenter"
-              ></img>
-            </div>
-          </div>
+          
+            
+
+            {services.map(items=>{
+              return(
+                <div className="col">
+                  <div className="dashboardcard_services">
+                    <div className="image_div">
+                      <img src={window.env_var+items.icons} />
+                    </div>
+                    <h1>{items.serviceName}</h1>
+                </div>
+              </div>
+              )
+            })}
         </div>
       </div>
     </div>

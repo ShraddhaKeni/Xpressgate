@@ -105,9 +105,47 @@ html {
     padding: 4%;
     font-size: 1.3vw;
   }
- 
-
-
+  .Addguestdisplay2 {
+    width: 27vw;
+    height: 9vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 1.5vw;
+    margin: auto;
+    margin-top: -4%;
+    padding-top: 2%;
+}
+.Addguestdisplay2 label{
+   
+        display: inline-block;
+       
+        margin-bottom: -19%;
+        font-weight: 700;
+    
+}
+.societyname {
+    display: flex;
+    width: 14vw;
+    height: 8vh;
+    background-color: rgba(10, 137, 150, 0.33);
+    margin-left: 16%;
+    margin-top: 12%;
+    border-radius: 20px;
+}
+  
+  .societyname img {
+    margin-left: -15%;
+    width: 10vw;
+    height: 6vh;
+    margin-top: 4%;
+  }
+  
+.fullcardscss {
+    margin-top: 6%;
+    padding-left:0%;
+    margin-left: 1%;
+    width: 100%;
+}
   
   .dashboardcard img{
     width:20vw;
@@ -130,7 +168,15 @@ html {
         line-height: 1;
         border-radius: 6px;
     }
-   
+    .societyname label {
+        color: #000;
+        margin-left: -19%;
+        margin-top: 12.5%;
+        font-size: 1.5;
+        padding-top: 0.5%;
+        font-size: 1.2vw;
+    }
+    
  
   
   .labelsize {
@@ -167,7 +213,21 @@ html {
     height: auto;
     margin-right: 100%;
 }
-
+.societyname {
+    display: flex;
+    width: 14.5vw;
+    height: 9vh;
+    background-color: rgba(10, 137, 150, 0.33);
+    margin-left: 15%;
+    margin-top: 13%;
+    border-radius: 20px;
+}
+.societyname img {
+    margin-left: -14%;
+    width: 10vw;
+    height: 6vh;
+    margin-top: 6%;
+}
 #dashboardsetting1 img {
     margin-top: 106%;
     width: 2.3vw;
@@ -191,7 +251,16 @@ html {
     padding: 3%;
     font-size: 1.3vw;
 }
-
+.Addguestdisplay2 {
+    width: 24vw;
+    height: 10vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 1.5vw;
+    padding-top: 2.2%;
+    margin: auto;
+    margin-top: -16%;
+}
 
 .col-lg-4 {
     position: relative;
@@ -201,7 +270,13 @@ html {
     display: flex;
     width: 36%;
 }
-
+.sideimage1 img {
+  display: flex;
+  margin-top: 103%;
+  max-width: 93%;
+  height: auto;
+  margin-left: 9%;
+}
   }
   .pagination_ul
   {

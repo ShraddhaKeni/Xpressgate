@@ -10,7 +10,14 @@ html {
     grid-template-areas: "headersection3 headersection3"
       "societynamesection cardsection"
   }
-
+  .societyname label {
+    color: #000;
+    margin-left: -19%;
+    margin-top: 12.5%;
+    font-size: 1.5;
+    padding-top: 0.5%;
+    font-size: 1.2vw;
+}
   #headersection3 {
     /* background-color: aquamarine; */
     /* margin-top: 10%; */
@@ -91,21 +98,33 @@ html {
     padding-left: 10%;
     padding-bottom: 5%;
   }
+  
+  .btnlogout {
+    background-color: #0A8996;
+    color: #fff;
+    border-radius: 14px;
+    width: 142px;
+    height: 52px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 18%;
+    padding-top: 2%;
+  }
  
   .societyname {
     display: flex;
-    width: 14vw;
-    height: 8vh;
+    width: 80%;
+    height: 12%;
     background-color: rgba(10, 137, 150, 0.33);
-    margin-left: 16%;
+    margin-left: 10%;
     margin-top: 12%;
-    border-radius: 20px;
-}
-  
+    border-radius: 24px;
+  }
+ 
   .societyname img {
-    margin-left: -15%;
-    width: 10vw;
-    height: 6vh;
+    margin-left: 10%;
+    width: 25%;
+    height: 70%;
     margin-top: 4%;
   }
   .societyname label {
@@ -151,81 +170,13 @@ html {
 }
 .vendordetials{
     margin-right: 5%;
-    margin-left: -12%;
+    margin-left: -25%;
     font-size: 1.5vw;
-    color: #14335D;
-    
 }
 .vendorinput{
-    width: 35vw;
-    height: 5vh;
-    padding: 1%;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-    border: 2px solid #14335D;
-    border-radius: 8px;
-    margin-top: 0%;
-}
-.Blockdetials{
-    margin-right: 5.5%;
-    margin-left: -11%;
-    font-size: 1.5vw;
-    color: #14335D;
+    width: 30vw;
 }
 
-.flatnodetials{
-    margin-right: 5%;
-    margin-left: -12%;
-    font-size: 1.5vw;
-    color: #14335D;
-    
-}
-.Residentnames{
-    margin-right: 5%;
-    margin-left: -19%;
-    font-size: 1.5vw;
-    color: #14335D;
-}
-.Amountdetails{
-    margin-right: 5%;
-    margin-left: -12.5%;
-    font-size: 1.5vw;
-    color: #14335D;
-}
-.ButtonsContainer1{
-    max-width: 100%;
-    margin-top: 14%;
-    justify-content: center;
-}
-.AddButn{
-    width: 15vw;
-    height: 6vh;
-    font-size: 1.5vw;
-    font-weight: 700;
-    padding: 0%;
-    border-radius: 9px;
-    background: #0A8996;
-    border: none;
-    color: #FFFFFF;
-
-}
-.Addguestdisplay4 {
-  width: 27vw;
-  height: 9vh;
-  background-color: #AED8DC;
-  border-radius: 30px;
-  font-size: 1.5vw;
-  margin: auto;
-  margin-top: -4%;
-  padding-top: 2%;
-}
-.Addguestdisplay4 label{
- 
-      display: inline-block;
-     
-      margin-bottom: -19%;
-      font-weight: 700;
-  
-}
 
 
   /* Media query for laptop */
@@ -243,18 +194,8 @@ html {
       height: auto;
       margin-left: 2%;
   }
-  .Addguestdisplay4 {
-    width: 24vw;
-    height: 10vh;
-    background-color: #AED8DC;
-    border-radius: 30px;
-    font-size: 1.6vw;
-    padding-top: 2.2%;
-    margin: auto;
-    margin-top: -17%;
-}
-
     .addguestbackgroundimg {
+    /* background-image: url("../../../public/images/dashboardbackground.svg"); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -263,31 +204,9 @@ html {
   }
   
   .labelsize {
-    font-size:1.5vw;
+    font-size: 12px;
   }
-  .societyname {
-    display: flex;
-    width: 14.5vw;
-    height: 9vh;
-    background-color: rgba(10, 137, 150, 0.33);
-    margin-left: 15%;
-    margin-top: 13%;
-    border-radius: 20px;
-}
-.societyname img {
-    margin-left: -14%;
-    width: 10vw;
-    height: 6vh;
-    margin-top: 6%;
-}
-.societyname label {
-  color: #000;
-  margin-left: -19%;
-  margin-top: 12.5%;
-  font-size: 1.5;
-  padding-top: 0.5%;
-  font-size: 1.2vw;
-}
-
+  
+ 
   
   }

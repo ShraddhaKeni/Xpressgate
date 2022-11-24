@@ -1,34 +1,22 @@
 import React from "react";
 import "../SocietyModule/Addemergencyno.css";
-import LogOut6 from "../SocietyModule/LogOut6";
+import LogOut from './Utils/LogOut'
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 const Addemergencyno = () => {
   return (
     <div className="addguestcontainer1">
       <div id="headersection1">
-        <div className="firstheadersection1">
-          <div id="dashboardlogo1">
-            <img src="/images/loginlogo.svg" alt="header logo" />
-          </div>
-          <div id="dashboardguard1">
-            <label>Society</label>
-          </div>
-          <div id="dashboardspace"></div>
-          <div id="dashboardnotification1">
-            <a href="abc">
-              <img src="/images/notification.svg" alt="notificationicon" />
-            </a>
-          </div>
-          <div id="dashboardsetting1">
-            <a href="abc">
-              <img src="/images/setting.svg" alt="settingicon" />
-            </a>
-          </div>
-          <div id="dashboardlogoutbutton">
-            <LogOut6/>
-          </div>
+      <div id="addflatsection">
+        <div className="addflatheadersection">
+          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+          <div id="afsociety"><label>Society</label></div>
+          <div id="afspace"></div>
+          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="aflogoutbutton"><LogOut /></div>
         </div>
+      </div>
       </div>
       <div id="societynamesection">
         <div className="societyname">

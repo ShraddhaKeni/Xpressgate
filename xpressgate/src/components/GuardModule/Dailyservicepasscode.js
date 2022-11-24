@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import LogOut from './Utils/LogOut';
+import { checkGuard } from '../auth/Auth';
 
 const Dailyservicepasscode = ({ props }) => {
 
@@ -17,17 +18,25 @@ const Dailyservicepasscode = ({ props }) => {
   //console.log(location);
 
   useEffect(() => {
-    if (location.state) {
-      console.log(location.state)
-      //setFlats(location.state.flats)
-
-      //console.log(location.state.flats)
-      getdailyhelp()
-
+    if(checkGuard())
+    {
+      if (location.state) {
+        console.log(location.state)
+        //setFlats(location.state.flats)
+  
+        //console.log(location.state.flats)
+        getdailyhelp()
+  
+      }
+      else {
+        getAll()
+      }
     }
-    else {
-      getAll()
+    else
+    {
+      window.location.href='/'
     }
+    
 
   }, [])
 

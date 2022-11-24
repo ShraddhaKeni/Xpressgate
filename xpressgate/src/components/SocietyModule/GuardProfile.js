@@ -1,39 +1,62 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../SocietyModule/GuardProfile.css";
 import { Button } from 'react-bootstrap';
-
-import GuardProfile_LogOut from "./GuardProfile_LogOut";
+import "./GuardProfile_LogOut.css"
+import LogOut from "./Utils/LogOut";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 const GuardProfile = () => {
-   
 
+    const [guard,setGuard]=useState({})
+   const location = useLocation()
+   const naviagate = useNavigate()
+  useEffect(()=>{
+    if(location.state)
+    {
+      getGuardDetails()
+    }
+    else
+    {
+      window.location.href='/guardList'
+    }
+  },[])
+
+  const getGuardDetails=async()=>{
+    try {
+      
+      const {data} = await axios.get(`${window.env_var}api/guard/getone/${location.state.id}`)
+      setGuard(data.data)
+    } catch (error) {
+      
+    }
+  }
+
+  const editGuard=(id)=>{
+    naviagate('/addGuard',{state:{id:id,type:'edit'}})
+  }
+  const removeGuard=async(id)=>{
+    try {
+      
+    } catch (error) {
+      
+    }
+  }
 
   return (
     <div className="addguestcontainer3">
       <div id="headersection3">
-        <div className="firstheadersection3">
-          <div id="dashboardlogo3">
-            <img src="/images/loginlogo.svg" alt="header logo" />
-          </div>
-          <div id="dashboardguard3">
-            <label>Society</label>
-          </div>
-          <div id="dashboardspace"></div>
-          <div id="dashboardnotification3">
-            <a href="abc">
-              <img src="/images/notification.svg" alt="notificationicon" />
-            </a>
-          </div>
-          <div id="dashboardsetting3">
-            <a href="abc">
-              <img src="/images/setting.svg" alt="settingicon" />
-            </a>
-          </div>
-          <div id="dashboardlogoutbutton">
-            <GuardProfile_LogOut/>
-          </div>
+      <div id="addflatsection">
+        <div className="addflatheadersection">
+          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+          <div id="afsociety"><label>Society</label></div>
+          <div id="afspace"></div>
+          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="aflogoutbutton"><LogOut /></div>
         </div>
+      </div>
       </div>
       <div id="societynamesection">
         <div className="societyname">
@@ -47,22 +70,22 @@ const GuardProfile = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="Addguestdisplay4">
-          <label>Guard Name</label>
+        <div className="Addguestdisplay">
+          <label>{guard.firstname} {guard.lastname}</label>
         </div>
         <div className="guarddetailscard">
             <div className="cardimage">
-                <img src="/images/mteam.svg " alt="Guard Image"></img>
-                <h4>Guard Name</h4>
+                <img src={window.env_var+guard.profile_pic} alt="Guard Image"></img>
+                <h4>{guard.firstname} {guard.lastname}</h4>
             </div>
             <div className="guardcontainerbox">
-               <label for="Mobileno" className="mobileno">Mobile No</label>
+               <label for="Mobileno" className="mobileno">Mobile No : {guard.mobileno}</label>
                <br/><br/>
-               <label for="Guard_name" className="Guard_Name">Username</label>
+               <label for="Guard_name" className="Guard_Name">Username : {guard.username}</label>
             </div>
             <div className="buttonContainer">
-              <button type="button" class="editbtn">Edit</button>
-              <button type="button" class="removebtn">Remove</button>
+              <Button type="button" onClick={()=>editGuard(guard._id)} class="editbtn">Edit</Button>
+              <Button type="button" onClick={()=>removeGuard(guard._id)} class="removebtn">Remove</Button>
             </div>
 
         </div>

@@ -10,7 +10,14 @@ html {
     grid-template-areas: "headersection1 headersection1"
       "societynamesection cardsection"
   }
- 
+  .societyname label {
+    color: #000;
+    margin-left: -19%;
+    margin-top: 12.5%;
+    font-size: 1.5;
+    padding-top: 0.5%;
+    font-size: 1.2vw;
+}
   #headersection1 {
     /* background-color: aquamarine; */
     /* margin-top: 10%; */
@@ -106,21 +113,20 @@ html {
   
   .societyname {
     display: flex;
-    width: 14vw;
-    height: 8vh;
+    width: 80%;
+    height: 12%;
     background-color: rgba(10, 137, 150, 0.33);
-    margin-left: 16%;
+    margin-left: 10%;
     margin-top: 12%;
-    border-radius: 20px;
-}
-  
-  .societyname img {
-    margin-left: -15%;
-    width: 10vw;
-    height: 6vh;
-    margin-top: 4%;
+    border-radius: 24px;
   }
   
+  .societyname img {
+    margin-left: 10%;
+    width: 25%;
+    height: 70%;
+    margin-top: 4%;
+  }
   .societyname label {
     color: #000;
     margin-left: -14%;
@@ -138,25 +144,7 @@ html {
     margin-bottom: 5%;
     
   }
-  .Addguestdisplay3 {
-    width: 27vw;
-    height: 9vh;
-    background-color: #AED8DC;
-    border-radius: 30px;
-    font-size: 1.5vw;
-    margin: auto;
-    margin-top: -4%;
-    padding-top: 2%;
-}
-.Addguestdisplay3 label{
-   
-        display: inline-block;
-       
-        margin-bottom: -19%;
-        font-weight: 700;
-    
-}
-
+  
   
   .labelsize{
     font-size: 1vw;
@@ -221,39 +209,6 @@ table thead {
       /* max-height: min-content; */
       
   }
-  .Addguestdisplay3 {
-    width: 24vw;
-    height: 10vh;
-    background-color: #AED8DC;
-    border-radius: 30px;
-    font-size: 1.6vw;
-    padding-top: 2.2%;
-    margin: auto;
-    margin-top: -17%;
-}
-  .societyname {
-    display: flex;
-    width: 14.5vw;
-    height: 9vh;
-    background-color: rgba(10, 137, 150, 0.33);
-    margin-left: 15%;
-    margin-top: 13%;
-    border-radius: 20px;
-}
-.societyname img {
-    margin-left: -14%;
-    width: 10vw;
-    height: 6vh;
-    margin-top: 6%;
-}
-  .societyname label {
-    color: #000;
-    margin-left: -19%;
-    margin-top: 12.5%;
-    font-size: 1.5;
-    padding-top: 0.5%;
-    font-size: 1.2vw;
-}
   table thead {
     background: #14335D;
     border-radius: 33px 33px 0px 0px;

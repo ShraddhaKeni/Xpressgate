@@ -12,13 +12,15 @@ html {
   }
   
   #headersection5 {
-   
+    /* background-color: aquamarine; */
+    /* margin-top: 10%; */
     grid-area: headersection5;
     background-color: #F9F9FF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
   
   #guardnamesection5 {
+    /* background-color: blueviolet; */
     grid-area: guardnamesection5;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
@@ -55,8 +57,13 @@ html {
     padding: 5%;
     font-size: 1.3vw;
 }
-
-
+.form-group {
+    margin-bottom: 2%;
+}
+.row {
+    margin-right: -50%;
+    margin-left: -7%;
+}
   #dashboardspace5 {
     grid-area: dashboardspace5;
   }
@@ -103,7 +110,53 @@ html {
     padding: 4%;
     font-size: 1.3vw;
   }
- /* Media query for laptop */
+  .Addguestdisplay5 {
+    width: 27vw;
+    height: 9vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 2vw;
+    margin: auto;
+    margin-top: -4%;
+    padding-bottom: 1.5%;
+}
+.Addguestdisplay5 label{
+   
+        display: inline-block;
+       
+        margin-bottom: 2%;
+        font-weight: 700;
+    
+}
+.guardname5 {
+    display: flex;
+    width: 14vw;
+    height: 8vh;
+    background-color: rgba(10, 137, 150, 0.33);
+    margin-left: 16%;
+    margin-top: 12%;
+    border-radius: 20px;
+}
+  
+  .guardname5 img {
+    margin-left: -15%;
+    width: 10vw;
+    height: 6vh;
+    margin-top: 4%;
+  }
+  .row label {
+    display: flex;
+    max-width: 30%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+  
+  
+  
+  
+  
+  
+  /* Media query for laptop */
   @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
     #dashboardlogo1 img {
         margin-top: 9%;
@@ -111,7 +164,39 @@ html {
         margin-bottom: 3%;
         width: 5vw;
     }
+    .input-lg {
+        height: 5vh;
+        padding: 3px 18px;
+        font-size: 1.3vw;
+        line-height: 1;
+        border-radius: 6px;
+    }
+    .guardname5 label {
+        color: #000;
+        margin-left: -19%;
+        margin-top: 12.5%;
+        font-size: 1.5;
+        padding-top: 0.5%;
+        font-size: 1.2vw;
+    }
     
+  
+  
+  .labelsize {
+    font-size:1.5vw;
+  }
+  .btnAdd {
+    background-color: #0A8996;
+    color: #fff;
+    border-radius: 14px;
+    width: 18vw;
+    height: 6vh;
+    font-size: 2.2vw;
+    font-weight: 400;
+    margin-top: 4%;
+    margin-right: 19%;
+    padding-top: 0%;
+}
   
   #dashboardguard5 label {
     margin-top: 17%;
@@ -131,7 +216,21 @@ html {
     height: auto;
     margin-right: 100%;
 }
-
+.guardname5 {
+    display: flex;
+    width: 14.5vw;
+    height: 9vh;
+    background-color: rgba(10, 137, 150, 0.33);
+    margin-left: 15%;
+    margin-top: 13%;
+    border-radius: 20px;
+}
+.guardname5 img {
+    margin-left: -14%;
+    width: 10vw;
+    height: 6vh;
+    margin-top: 6%;
+}
 #dashboardsetting5 img {
     margin-top: 106%;
     width: 2.3vw;
@@ -155,8 +254,30 @@ html {
     padding: 3%;
     font-size: 1.3vw;
 }
-
-
+.Addguestdisplay5 {
+    width: 24vw;
+    height: 10vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 2.5vw;
+    padding-top: 8px;
+    margin: auto;
+    margin-top: -16%;
+}
+.row label {
+    display: flex;
+    max-width: 22%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+.col-lg-4 {
+    position: relative;
+    height: 4vh;
+    padding-right: 4%;
+    padding-left: 0%;
+    display: flex;
+    width: 36%;
+}
   }
   .pagination_ul
   {

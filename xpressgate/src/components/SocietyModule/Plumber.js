@@ -1,6 +1,6 @@
 import React from "react";
 import "../SocietyModule/Plumber.css";
-import LogOut8 from "../SocietyModule/LogOut8";
+import LogOut from "../Utils/LogOut";
 import ReactPaginate from "react-paginate";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -35,28 +35,16 @@ const Plumber = () => {
   return (
     <div className="addguestcontainer1">
       <div id="headersection1">
-        <div className="firstheadersection1">
-          <div id="dashboardlogo1">
-            <img src="/images/loginlogo.svg" alt="header logo" />
-          </div>
-          <div id="dashboardguard1">
-            <label>Society</label>
-          </div>
-          <div id="dashboardspace"></div>
-          <div id="dashboardnotification1">
-            <a href="abc">
-              <img src="/images/notification.svg" alt="notificationicon" />
-            </a>
-          </div>
-          <div id="dashboardsetting1">
-            <a href="abc">
-              <img src="/images/setting.svg" alt="settingicon" />
-            </a>
-          </div>
-          <div id="dashboardlogoutbutton">
-            <LogOut8/>
-          </div>
+      <div id="addflatsection">
+        <div className="addflatheadersection">
+          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+          <div id="afsociety"><label>Society</label></div>
+          <div id="afspace"></div>
+          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="aflogoutbutton"><LogOut /></div>
         </div>
+      </div>
       </div>
       <div id="societynamesection">
         <div className="societyname">
