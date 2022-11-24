@@ -1,8 +1,57 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import './Ticketlist.css';
 import LogOut from './Utils/LogOut';
 
 const Ticketlist = () => {
+
+  const [tickets,setTicket] = useState([])
+
+  //pagination
+  const [currentPage, setCurrentpage] = useState(1)
+  const [postPerPage, setPostPerPage] = useState(12)
+  const [currentPosts,setCurrentPosts] = useState([])
+
+  const navigate = useNavigate()
+
+  useEffect(()=>{
+    getTickets()
+  },[])
+
+  const getTickets=async()=>{
+    try {
+        const {data}= await axios.get(`${window.env_var}api/tickets/getAll`)
+        setTicket(data.data.tickets)
+        const indexoflast = currentPage*postPerPage  //endoffset
+        const indexoffirst = indexoflast - postPerPage //startoffset
+        setCurrentPosts(data.data.tickets.slice(indexoffirst,indexoflast))
+    } catch (error) {
+      
+    }
+  }
+
+  async function  paginate(event)
+  {
+    setCurrentpage(event.selected+1)
+    const indexoflast = (event.selected+1)*postPerPage  //endoffset
+    const indexoffirst = (indexoflast - postPerPage) //startoffset
+    setCurrentPosts(tickets.slice(indexoffirst,indexoflast))
+  }
+
+  const  dateTimeFormat=(date)=>
+  {
+    var d = new Date(date)
+    return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()
+    
+  }
+
+  const navigateToTicket=(id)=>{
+    navigate('/ticket',{state:{id:id}})
+  }
+
+
   return (
     <div className="tlcontainer">
       <div id="tlheadersection">
@@ -42,14 +91,21 @@ const Ticketlist = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>abcd</td>
-              <td >121</td>
-              <td>09-9-2022</td>
-              <td>2232</td>
-            </tr>
+            {currentPosts.map((items,index)=>{
+              return(
+                <tr onClick={()=>{navigateToTicket(items._id)}}>
+                  <td>{items.ticketNo}</td>
+                  <td >{items.ticketRaisedBy.firstname} {items.ticketRaisedBy.lastname}</td>
+                  <td>{items.tickettype}</td>
+                  <td>{dateTimeFormat(items.date)}</td>
+              </tr>
+              )
+            })}
+           
           </tbody>
         </table>
+        <PaginationCalculate totalPages={tickets.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+
       </div>
     </div>
   )
