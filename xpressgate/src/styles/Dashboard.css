@@ -1,0 +1,330 @@
+html {
+  height: 100vh;
+}
+
+.dashboardcontainer {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 0.5fr 2fr;
+  grid-template-rows: 0.2fr 2fr;
+  grid-template-areas: "headersection headersection"
+    "guardnamesection cardsection"
+}
+
+
+.code {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard_passcode {
+  position: relative;
+  top: 30px;
+  border: none;
+  outline: none;
+  background-color: #CFDBEB;
+  text-align: center;
+  width: 40px;
+  border-bottom: 5px solid #000000;
+
+}
+
+#headersection {
+  
+  grid-area: headersection;
+  background-color: #F9F9FF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#guardnamesection {
+ 
+  grid-area: guardnamesection;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#cardsection {
+ 
+  grid-area: cardsection;
+  position: relative;
+
+}
+
+.dashboardbackgroundimg {
+  background-image: url("../../public/images/dashboardbackground.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  margin-top: 0.5%;
+}
+
+.firstheadersection {
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
+  grid-template-areas: "dashboardlogo dashboardguard dashboardspace dashboardnotification dashboardsetting dashboardlogoutbutton";
+}
+
+#dashboardlogo {
+  grid-area: dashboardlogo;
+}
+
+#dashboardlogo img {
+  margin-top: 5%;
+  margin-left: 1%;
+  margin-bottom: 5%;
+  width: 40%;
+}
+
+#dashboardguard {
+  grid-area: dashboardguard;
+}
+
+#dashboardguard label {
+  margin-top: 20%;
+  margin-left: -88%;
+  width: 136px;
+  height: 58px;
+  background-color: black;
+  color: #fff;
+  border-radius: 18px;
+  padding-top: 4%;
+  font-size: 20px;
+}
+
+#dashboardspace {
+  grid-area: dashboardspace;
+}
+
+#dashboardnotification {
+  grid-area: dashboardnotification;
+}
+
+#dashboardnotification img {
+  margin-top: 100%;
+}
+
+#dashboardsetting {
+  grid-area: dashboardsetting;
+}
+
+#dashboardsetting img {
+  margin-top: 100%;
+}
+
+#dashboardlogoutbutton {
+  grid-area: dashboardlogoutbutton;
+}
+
+#dashboardlogoutbutton img {
+  padding-left: 10%;
+  padding-bottom: 5%;
+}
+
+.btnlogout {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 142px;
+  height: 52px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 18%;
+  padding-top: 2%;
+}
+
+.guardname {
+  display: flex;
+  width: 80%;
+  height: 12%;
+  background-color: rgba(10, 137, 150, 0.33);
+  margin-left: 10%;
+  margin-top: 12%;
+  border-radius: 24px;
+}
+
+.guardname img {
+  margin-left: 10%;
+  width: 25%;
+  height: 70%;
+  margin-top: 4%;
+}
+
+.guardname label {
+  color: #000;
+  margin-left: 8%;
+  margin-top: 10%;
+  font-size: 20px;
+}
+
+.sideimage img {
+  display: flex;
+  margin-top: 80%;
+  width: 100%;
+  height: auto;
+}
+
+.enterpasscodesearch {
+  width: 25%;
+  height: 10%;
+  background-color: #CFDBEB;
+  border-radius: 25px;
+  border-color: #0A8996;
+  border-style: solid;
+  margin: auto;
+  margin-top: 5%;
+  font-size: 20px;
+  font-weight: 600;
+  color: #0A8996;
+}
+
+.enterpasscodesearch img {
+  margin-left: 105%;
+  margin-top: -8%;
+}
+
+.dashboardcard {
+  width: fit-content;
+  margin-left: 24%;
+  margin-bottom: 10%;
+  border: none;
+  cursor: pointer;
+}
+
+.fullcardscss {
+  margin-top: 5%;
+  padding-left: 25px;
+  margin-right: 125px;
+  width: 100%;
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  #dashboardguard label {
+    margin-top: 14%;
+    margin-left: -68%;
+    width: 108px;
+    height: 45px;
+    background-color: black;
+    color: #fff;
+    border-radius: 18px;
+    padding-top: 3%;
+    font-size: 20px;
+  }
+
+  .guardname label {
+    margin-left: 7%;
+    margin-top: 18%;
+    font-size: 15px;
+  }
+
+  .dashboardbackgroundimg {
+    background-image: url("../../public/images/dashboardbackground.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    margin-top: 10.5%;
+  }
+
+  .sideimage img {
+    display: flex;
+    margin-top: 216%;
+    width: 100%;
+    height: auto;
+  }
+
+  .fullcardscss {
+    margin-top: 5%;
+    margin-right: 4%;
+  }
+
+  .dbcard-img-top {
+    width: 150%;
+  }
+
+  .dashboard_passcode {
+    position: relative;
+    top: 36px;
+    border: none;
+    outline: none;
+    background-color: #CFDBEB;
+    text-align: center;
+    width: 14px;
+    border-bottom: 5px solid #000000;
+  }
+
+  .enterpasscodesearch {
+    width: 35%;
+    height: 10%;
+    background-color: #CFDBEB;
+    border-radius: 25px;
+    border-color: #0A8996;
+    border-style: solid;
+    margin: auto;
+    margin-top: 5%;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0A8996;
+  }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
+  .sideimage {
+    display: none;
+  }
+
+  #guardnamesection {
+    display: none;
+  }
+
+  #dashboardguard {
+    display: none;
+  }
+
+  #dashboardlogo img {
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-bottom: 5%;
+    width: 114%;
+  }
+
+  .code {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .enterpasscodesearch {
+    width: 58%;
+    height: 10%;
+    background-color: #CFDBEB;
+    border-radius: 25px;
+    border-color: #0A8996;
+    border-style: solid;
+    margin: auto;
+    margin-top: 5%;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0A8996;
+  }
+
+  .dashboardcard {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-left: 6%;
+    margin-bottom: 10%;
+    border: none;
+  }
+
+  .dashboardbackgroundimg {
+    background-image: url("../../public/images/dashboardbackground.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    margin-top: 10.5%;
+  }
+
+}
