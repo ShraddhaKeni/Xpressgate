@@ -1,8 +1,59 @@
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import './Amenitylist.css';
+import { getAmenitiesBooked } from './common/common';
 import LogOut from './Utils/LogOut';
 
 const Amenitylist = () => {
 
+  const [bookedAmenities,setBookedAmenities] = useState([])
+  const [currentPage, setCurrentpage] = useState(1)
+  const [postPerPage, setPostPerPage] = useState(12)
+  const [currentPosts,setCurrentPosts] = useState([])
+  const location = useLocation()
+  useEffect(()=>{
+    if(location.state)
+    {
+      getData()
+    }
+    else
+    {
+      window.location.href='/amenities'
+    }
+    
+  },[])
+
+  const getData=async()=>{
+    setBookedAmenities(await getAmenitiesBooked(location.state.id))
+    setPaginate(await getAmenitiesBooked(location.state.id))
+  }
+ const setPaginate= async(list)=>{
+    const indexoflast = currentPage*postPerPage  //endoffset
+    const indexoffirst = indexoflast - postPerPage //startoffset
+    setCurrentPosts(list.sort().reverse().slice(indexoffirst,indexoflast))
+  }
+
+  async function  paginate(event)
+  {
+    setCurrentpage(event.selected+1)
+    const indexoflast = (event.selected+1)*postPerPage  //endoffset
+    const indexoffirst = (indexoflast - postPerPage) //startoffset
+    setCurrentPosts(bookedAmenities.sort().reverse().slice(indexoffirst,indexoflast))
+  }
+
+  const  dateTimeFormat=(date)=>
+  {
+    var d = new Date(date)
+    return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()
+    
+  }
+
+  const getTime=(date)=>{
+    var d = new Date(date)
+    return d.getHours()+':'+d.getMinutes()
+    
+  }
   return (
     <div className="alcontainer">
       <div id="alheadersection">
@@ -24,7 +75,7 @@ const Amenitylist = () => {
       </div>
       <div className='albackgroundimg'>
         <div className='aldisplay'>
-          <label>Swimming pool</label>
+          <label>{location.state.type}</label>
         </div>
         <div className='row'>
           <div className='alsearchbox'>
@@ -44,16 +95,23 @@ const Amenitylist = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td >Neha Sharma</td>
-              <td>Swimming Pool</td>
-              <td>3/12/201</td>
-              <td>3</td>
-              <td>2</td>
-            </tr>
+
+            {currentPosts.map((item,index)=>{
+              return(
+                <tr>
+                  <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1)*12+(index+1)}</td>
+                  <td>{item.firstname} {item.lastname}</td>
+                  <td>{item.aminety}</td>
+                  <td>{dateTimeFormat(item.date)}</td>
+                  <td>{getTime(item.date)}</td>
+                  <td>{item.status==true?'Approved':'Unapproved'}</td>
+              </tr>
+              )
+            })}
+            
           </tbody>
         </table>
+        <PaginationCalculate totalPages={bookedAmenities.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
       </div>
     </div>
   )

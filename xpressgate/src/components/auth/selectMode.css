@@ -1,0 +1,8 @@
+.mainscreen_buttons
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50vh;
+    gap: 20px;
+}
