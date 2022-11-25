@@ -39,6 +39,7 @@ import Profile from './components/SocietyModule/Profile';
 import Managementteam from './components/SocietyModule/Managementteam';
 import Local_service from './components/SocietyModule/Local_service';
 import Addmanagementteam from './components/SocietyModule/Addmanagementteam';
+import AdminModuleComponent from './pages/admin';
 
 function App() {
 
@@ -50,50 +51,51 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-            <Route path='/' element={<SelectMode/>} exact></Route>
-            <Route path="/dashboard" element={<Dashboard />} exact></Route>
-            <Route path="/addvendor" element={<Addvendor />} exact></Route>
-            <Route path="/addguest" element={<Addguest />} exact></Route>
-            <Route path="/dailyhelp" element={<Dailyhelplist />} exact></Route>
-            <Route path="/videoclass" element={<Videoclass />} exact></Route>
-            <Route path="/inoutbook" element={<Inoutbook />} exact></Route>
-            <Route path="/vendorlist" element={<Vendorlist />} exact></Route>
-            <Route path="/inoutbookcard" element={<Inoutbookcard />} exact></Route>
-            <Route path="/frequent" element={<Frequentvisitor />} exact></Route>
-            <Route path="/dailyservice" element={<Dailyservicepasscode />} exact></Route>
-            <Route path="/vendorentry" element={<VendorEntryDetails />} exact></Route>
-            <Route path="/guestlist" element={<GuestList />} exact></Route>
-            <Route path="/forgotpassword" element={<Forgotpassword />} exact></Route>
-            <Route path="/otp" element={<OTPscreen />} exact></Route>
-            <Route path="/newpassword" element={<Newpassword />} exact></Route>
-            <Route path="/guestentry" element={<GuestEntry />} exact></Route>
-            <Route path="/societydashboard" element={<SocietyDashboard />} exact></Route>
-            <Route path="/flatlist" element={<Flatlist />} exact></Route>
-            <Route path="/flatapprovallist" element={<Flatapprovallist />} exact></Route>
-            <Route path="/blocklist" element={<Blocklist />} exact></Route>
-            <Route path="/addflat" element={<Addflat />} exact></Route>
-            <Route path="/addnotice" element={<Addnotice />} exact></Route>
-            <Route path="/noticelist" element={<Noticelist />} exact></Route>
-            <Route path="/addvehicle" element={<Addvehicle />} exact></Route>
-            <Route path="/guardLogin" element={<Login />} exact></Route>
-            <Route path="/addFlat" element={<Addflat/>} exact></Route>
-            <Route path="/blockList" element={<Blocklist/>} exact></Route>
-            <Route path="/flatList" element={<Flatlist/>} exact></Route>
-            <Route path="/naFlatList" element={<FlatListNA/>} exact></Route>
-            <Route path="/approveFlat" element={<Flatapprovallist/>} exact></Route>
-            <Route path="/noticeList" element={<Noticelist/>} exact></Route>
-            <Route path="/addNotice" element={<Addnotice/>} exact></Route>
-            <Route path="/addVehical" element={<Addvehicle/>} exact></Route>
-            <Route path="/manageVehicle" element={<Vehiclemanagement/>} exact></Route>
-            <Route path="/editGuard" element={<Editguard/>} exact></Route>
-            <Route path="/scDashboard" element={<SocietyDashboard/>} exact></Route>
-            <Route path="/addGuard" element={<Addguard/>} exact></Route>
-            <Route path="/guardList" element={<Guardlist/>} exact></Route>
-            <Route path="/guardDetails" element={<GuardProfile/>} exact></Route>
-            <Route path="/profile" element={<Profile/>} exact></Route>
-            <Route path="/management" element={<Managementteam/>} exact></Route>
-            <Route path="/localservices" element={<Local_service/>} exact></Route>
-            <Route path='/addManagement' element={<Addmanagementteam/>} exact></Route>
+          <Route path='/' element={<SelectMode />} exact></Route>
+          <Route path="/dashboard" element={<Dashboard />} exact></Route>
+          <Route path="/addvendor" element={<Addvendor />} exact></Route>
+          <Route path="/addguest" element={<Addguest />} exact></Route>
+          <Route path="/dailyhelp" element={<Dailyhelplist />} exact></Route>
+          <Route path="/videoclass" element={<Videoclass />} exact></Route>
+          <Route path="/inoutbook" element={<Inoutbook />} exact></Route>
+          <Route path="/vendorlist" element={<Vendorlist />} exact></Route>
+          <Route path="/inoutbookcard" element={<Inoutbookcard />} exact></Route>
+          <Route path="/frequent" element={<Frequentvisitor />} exact></Route>
+          <Route path="/dailyservice" element={<Dailyservicepasscode />} exact></Route>
+          <Route path="/vendorentry" element={<VendorEntryDetails />} exact></Route>
+          <Route path="/guestlist" element={<GuestList />} exact></Route>
+          <Route path="/forgotpassword" element={<Forgotpassword />} exact></Route>
+          <Route path="/otp" element={<OTPscreen />} exact></Route>
+          <Route path="/newpassword" element={<Newpassword />} exact></Route>
+          <Route path="/guestentry" element={<GuestEntry />} exact></Route>
+          <Route path="/societydashboard" element={<SocietyDashboard />} exact></Route>
+          <Route path="/flatlist" element={<Flatlist />} exact></Route>
+          <Route path="/flatapprovallist" element={<Flatapprovallist />} exact></Route>
+          <Route path="/blocklist" element={<Blocklist />} exact></Route>
+          <Route path="/addflat" element={<Addflat />} exact></Route>
+          <Route path="/addnotice" element={<Addnotice />} exact></Route>
+          <Route path="/noticelist" element={<Noticelist />} exact></Route>
+          <Route path="/addvehicle" element={<Addvehicle />} exact></Route>
+          <Route path="/guardLogin" element={<Login />} exact></Route>
+          <Route path="/addFlat" element={<Addflat />} exact></Route>
+          <Route path="/blockList" element={<Blocklist />} exact></Route>
+          <Route path="/flatList" element={<Flatlist />} exact></Route>
+          <Route path="/naFlatList" element={<FlatListNA />} exact></Route>
+          <Route path="/approveFlat" element={<Flatapprovallist />} exact></Route>
+          <Route path="/noticeList" element={<Noticelist />} exact></Route>
+          <Route path="/addNotice" element={<Addnotice />} exact></Route>
+          <Route path="/addVehical" element={<Addvehicle />} exact></Route>
+          <Route path="/manageVehicle" element={<Vehiclemanagement />} exact></Route>
+          <Route path="/editGuard" element={<Editguard />} exact></Route>
+          <Route path="/scDashboard" element={<SocietyDashboard />} exact></Route>
+          <Route path="/addGuard" element={<Addguard />} exact></Route>
+          <Route path="/guardList" element={<Guardlist />} exact></Route>
+          <Route path="/guardDetails" element={<GuardProfile />} exact></Route>
+          <Route path="/profile" element={<Profile />} exact></Route>
+          <Route path="/management" element={<Managementteam />} exact></Route>
+          <Route path="/localservices" element={<Local_service />} exact></Route>
+          <Route path='/addManagement' element={<Addmanagementteam />} exact></Route>
+          <Route path='/admin' element={<AdminModuleComponent />}></Route>
         </Routes>
       </Router>
     </div>
