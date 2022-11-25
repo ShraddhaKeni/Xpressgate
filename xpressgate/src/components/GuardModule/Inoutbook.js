@@ -1,11 +1,11 @@
 import React from 'react';
 import './Inoutbook.css';
-import { Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import ReactPaginate from 'react-paginate';
 import {useNavigate} from 'react-router-dom'
 import PaginationCalculate from './Utils/paginationCalculate';
+import LogOut from './Utils/LogOut';
 
 const Inoutbook = () => {
   const [inoutdata, setInoutdata] = useState([])
@@ -14,6 +14,9 @@ const Inoutbook = () => {
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts,setCurrentPosts] = useState([])
   const [community_id, setID] = useState("632970d054edb049bcd0f0b4")
+
+  const current = new Date();
+  const[date, setDate] = useState(`${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`);
  
   const  dateTimeFormat=(timestamp)=>
   {
@@ -27,15 +30,12 @@ const Inoutbook = () => {
 
   const getInOutBookData = async () => {
     try {
-
-      
-
       const { data } = await axios.get(`${window.env_var}api/inout/getall/` + community_id)
       setInoutdata(data.data.list)
       const indexoflast = currentPage*postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
-      //console.log(data.data.list)
+      console.log(data.data.list)
     } catch (err) {
       console.log(err)
     }
@@ -61,7 +61,7 @@ const Inoutbook = () => {
           <div id="dashboardspace"></div>
           <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
           <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="dashboardlogoutbutton"> <Button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
+          <div id="inoutbooklogoutbutton"> <LogOut/></div>
         </div>
       </div>
       <div id="guardnamesection">
@@ -95,12 +95,12 @@ const Inoutbook = () => {
                 <tr onClick={()=>routeNavigate(iodata.booking_id)}>
                   <td>1</td>
                   <td >{iodata.guestFirstName} {iodata.guestLastName}</td>
-                  <td>{iodata.type=='2'? iodata.type=='1' ? 'Guest' : 'Vendor' : 'Daily Helper'}</td>
+                  <td>{iodata.type == '1' ? 'Guest' : iodata.type == '2' ? 'Vendor' : 'Daily Helper'}</td>
                   <td>{iodata.block_name}</td>
                   <td>{iodata.flat_number}</td>
-                  <td>{iodata.guestFirstName}</td>
+                  <td>{date}</td>
                   <td>{dateTimeFormat(iodata.intime)}</td>
-                  <td>{iodata.guestFirstName}</td>
+                  <td>{iodata.status == '1' ? 'In' : 'Out'}</td>
                 </tr>)
             })}
           </tbody>

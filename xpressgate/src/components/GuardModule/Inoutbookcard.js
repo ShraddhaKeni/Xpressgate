@@ -7,30 +7,30 @@ import HeaderSection from './Utils/HeaderSection';
 import LogOut from './Utils/LogOut';
 
 const Inoutbookcard = () => {
-  
+
   const [listData, setInOutData] = useState({})
-  const [flats,setFlats] = useState([])
+  const [flats, setFlats] = useState([])
   const location = useLocation()
   useEffect(() => {
     getData()
   }, [])
 
-  const getData =async()=>{  
+  const getData = async () => {
     let id = {
-      booking_id:location.state.id,
-      type:"1"
-    } 
+      booking_id: location.state.id,
+      
+    }
     try {
-      const {data} = await axios.post(`${window.env_var}api/inout/getone`,id);
-      console.log(data);
+      const { data } = await axios.post(`${window.env_var}api/inout/getone`, id);
+      console.log(id);
       setInOutData(data.data)
       setFlats(data.data.flat_details)
     } catch (error) {
-      console.log(error);  
+      console.log(error);
     }
   }
 
- 
+
   return (
     <div className="inoutbookcardcontainer">
       <div id="headersection">
@@ -40,7 +40,7 @@ const Inoutbookcard = () => {
           <div id="dashboardspace"></div>
           <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
           <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="dashboardlogoutbutton"> <Button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
+          <div id="dashboardlogoutbutton"> <LogOut /></div>
         </div>
       </div>
       <div id="guardnamesection">
@@ -59,12 +59,13 @@ const Inoutbookcard = () => {
           <div className="inoutbookcard">
             <br></br>
             <label className="namelabel">{listData.FirstName}</label>
-            <div className='profclass'>{listData.type}</div>
+            <div className='profclass'>
+              {listData.type == '1' ? 'Guest' : listData.type == '2' ? 'Vendor' : 'Daily Helper'}</div>
             <br></br>
             <div className='flatclass'>
               <label>Flat No</label>
-              {flats.map((items)=>{
-                    return <div className='flatnodisplay'>{items.flat_no}, {items.block_name}</div>
+              {flats.map((items) => {
+                return <div className='flatnodisplay'>{items.flat_no}, {items.block_name}</div>
               })}
             </div>
             <br></br>
