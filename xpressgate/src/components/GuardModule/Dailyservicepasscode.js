@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import LogOut from './Utils/LogOut';
 import { checkGuard } from '../auth/Auth';
-
+import GuardHeader from './Utils/GuardHeader';
 const Dailyservicepasscode = ({ props }) => {
 
 
@@ -17,25 +17,41 @@ const Dailyservicepasscode = ({ props }) => {
   const location = useLocation();
   //console.log(location);
 
+
+
   useEffect(() => {
-    if(checkGuard())
-    {
-      if (location.state) {
-        console.log(location.state)
-        //setFlats(location.state.flats)
-  
-        //console.log(location.state.flats)
-        getdailyhelp()
-  
-      }
-      else {
-        getAll()
+   
+  if(checkGuard())
+  {
+    const config = {
+      headers:{
+        'x-access-token':localStorage.getItem('accesstoken')
       }
     }
-    else
-    {
-      window.location.href='/'
-    }
+   axios.get(`${window.env_var}api/guard/checkLogin`,config)
+          .then(({data})=>{  
+            
+          })
+          .catch(err=>{
+            localStorage.clear();
+            window.location.href='/guardLogin'
+          })
+          if (location.state) {
+            console.log(location.state)
+            //setFlats(location.state.flats)
+      
+            //console.log(location.state.flats)
+            getdailyhelp()
+      
+          }
+          else {
+            getAll()
+          }  
+  }
+  else
+  {
+    window.location.href='/'
+  }
     
 
   }, [])
@@ -93,14 +109,7 @@ const Dailyservicepasscode = ({ props }) => {
     <div className="dailyservicepasscodecontainer">
 
       <div id="dspheadersection">
-        <div class="dspfirstheadersection">
-          <div id="dspdashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="dspdashboardguard"><label>Guard</label></div>
-          <div id="dspdashboardspace"></div>
-          <div id="dspdashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="dspdashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="dspdashboardlogoutbutton"><LogOut /></div>
-        </div>
+        <GuardHeader/>
       </div>
       <div id="dspguardnamesection">
         <div className='dspguardname'>
