@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../SocietyModule/Local_service.css";
 import LogOut from './Utils/LogOut'
 
@@ -8,6 +9,7 @@ const Local_service = () => {
 
   const [services,setServices] = useState([])
 
+  const navigate = useNavigate()
   useEffect(()=>{
     getServices()
   },[])
@@ -20,6 +22,11 @@ const Local_service = () => {
       console.log(error)
     }
   }
+
+  const navigateToList=(id)=>{
+    navigate('/servicevendors',{state:{id:id}})
+  }
+
   return (
     <div className="addguestcontainer1">
       <div id="headersection1">
@@ -52,7 +59,7 @@ const Local_service = () => {
         <div className="Addguestdisplay2">
           <label>Local Services</label>
         </div>
-        <button type="button" className="AddLS"> Add Local Services</button>
+        <button type="button" onClick={()=>{window.location.href='/addvendor'}} className="AddLS"> Add Local Services</button>
         <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
           
             
@@ -60,7 +67,7 @@ const Local_service = () => {
             {services.map(items=>{
               return(
                 <div className="col">
-                  <div className="dashboardcard_services">
+                  <div className="dashboardcard_services" onClick={()=>{navigateToList(items.id)}}>
                     <div className="image_div">
                       <img src={window.env_var+items.icons} />
                     </div>

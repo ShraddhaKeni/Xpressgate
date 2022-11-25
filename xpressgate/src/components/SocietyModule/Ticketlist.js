@@ -1,0 +1,115 @@
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
+import './Ticketlist.css';
+import LogOut from './Utils/LogOut';
+
+const Ticketlist = () => {
+
+  const [tickets,setTicket] = useState([])
+
+  //pagination
+  const [currentPage, setCurrentpage] = useState(1)
+  const [postPerPage, setPostPerPage] = useState(12)
+  const [currentPosts,setCurrentPosts] = useState([])
+
+  const navigate = useNavigate()
+
+  useEffect(()=>{
+    getTickets()
+  },[])
+
+  const getTickets=async()=>{
+    try {
+        const {data}= await axios.get(`${window.env_var}api/tickets/getAll`)
+        setTicket(data.data.tickets)
+        const indexoflast = currentPage*postPerPage  //endoffset
+        const indexoffirst = indexoflast - postPerPage //startoffset
+        setCurrentPosts(data.data.tickets.slice(indexoffirst,indexoflast))
+    } catch (error) {
+      
+    }
+  }
+
+  async function  paginate(event)
+  {
+    setCurrentpage(event.selected+1)
+    const indexoflast = (event.selected+1)*postPerPage  //endoffset
+    const indexoffirst = (indexoflast - postPerPage) //startoffset
+    setCurrentPosts(tickets.slice(indexoffirst,indexoflast))
+  }
+
+  const  dateTimeFormat=(date)=>
+  {
+    var d = new Date(date)
+    return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()
+    
+  }
+
+  const navigateToTicket=(id)=>{
+    navigate('/ticket',{state:{id:id}})
+  }
+
+
+  return (
+    <div className="tlcontainer">
+      <div id="tlheadersection">
+        <div class="tlfirstheadersection">
+          <div id="tllogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+          <div id="tlsociety"><label>Society</label></div>
+          <div id="tldashboardspace"></div>
+          <div id="tldashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+          <div id="tldashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="tllogoutbutton"> <LogOut /></div>
+        </div>
+      </div>
+      <div id="tlsection">
+        <div className='tlname'>
+        <img src="/images/societyicon.svg" alt="society name" />
+          <label>Society Name</label>
+        </div>
+        <div className='tlsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
+      </div>
+      <div className='tlbackgroundimg'>
+        <div className='tldisplay'>
+          <label>Ticket Management</label>
+        </div>
+        <div className='row'>
+          <div className='tlsearchbox'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
+            <span><label className='tlsearchlabel'>Search</label><input className='search_input'></input></span>
+          </div>
+        </div>
+        <table id="tltable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
+          <thead>
+            <tr>
+              <th class="th-sm">Ticket No.</th>
+              <th class="th-sm">Created By</th>
+              <th class="th-sm">Issue</th>
+              <th class="th-sm">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {currentPosts.map((items,index)=>{
+              return(
+                <tr onClick={()=>{navigateToTicket(items._id)}}>
+                  <td>{items.ticketNo}</td>
+                  <td >{items.ticketRaisedBy.firstname} {items.ticketRaisedBy.lastname}</td>
+                  <td>{items.tickettype}</td>
+                  <td>{dateTimeFormat(items.date)}</td>
+              </tr>
+              )
+            })}
+           
+          </tbody>
+        </table>
+        <PaginationCalculate totalPages={tickets.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+
+      </div>
+    </div>
+  )
+}
+
+export default Ticketlist
+

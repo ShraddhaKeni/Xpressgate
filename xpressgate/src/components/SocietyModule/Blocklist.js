@@ -33,7 +33,7 @@ const navigateToList = (id)=>{
             <div id="blspace"></div>
             <div id="blnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
             <div id="blsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-            <div id="bllogoutbutton"><LogOut/></div>
+            <div id="bllogoutbutton"><LogOut /></div>
           </div>
         </div>
         <div id="societynamesection">

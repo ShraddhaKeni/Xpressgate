@@ -26,7 +26,7 @@ const Vendorlist = () => {
   useEffect(()=>{
     getAllVendorData()
     
-  },[currentPage,currentPosts])
+  },[])
 
   const getAllVendorData=async()=>{
     try

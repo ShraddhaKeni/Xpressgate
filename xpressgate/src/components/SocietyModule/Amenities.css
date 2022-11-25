@@ -1,0 +1,426 @@
+html {
+  height: 100vh;
+}
+
+.amenitiescontainer {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 0.5fr 2fr;
+  grid-template-rows: 0.2fr 2fr;
+  grid-template-areas: "amntsheadersection amntsheadersection"
+    "amntsnamesection amntscard"
+}
+
+#amntsheadersection {
+
+  grid-area: amntsheadersection;
+  background-color: #F9F9FF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#amntsnamesection {
+
+  grid-area: amntsnamesection;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#amntscard {
+
+  grid-area: amntscard;
+  position: relative;
+
+}
+
+.amntsbackgroundimg {
+  background-image: url("../../../public/images/dashboardbackground.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  margin-top: 0.5%;
+}
+
+.amntsfirstheadersection {
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
+  grid-template-areas: "amntsdashboardlogo amntsdashboardguard amntsspace amntsnotification amntssetting amntslogoutbutton";
+}
+
+#amntsdashboardlogo {
+  grid-area: amntsdashboardlogo;
+}
+
+#amntsdashboardlogo img {
+  margin-top: 5%;
+  margin-left: 1%;
+  margin-bottom: 5%;
+  width: 40%;
+}
+
+#amntsdashboardguard {
+  grid-area: amntsdashboardguard;
+}
+
+#amntsdashboardguard label {
+  margin-top: 20%;
+  margin-left: -88%;
+  width: 136px;
+  height: 58px;
+  background-color: black;
+  color: #fff;
+  border-radius: 18px;
+  padding-top: 4%;
+  font-size: 20px;
+}
+
+#amntsspace {
+  grid-area: amntsspace;
+}
+
+#amntsnotification {
+  grid-area: amntsnotification;
+}
+
+#amntsnotification img {
+  margin-top: 100%;
+}
+
+#amntssetting {
+  grid-area: amntssetting;
+}
+
+#amntssetting img {
+  margin-top: 100%;
+}
+
+#amntslogoutbutton {
+  grid-area: amntslogoutbutton;
+}
+
+#amntslogoutbutton img {
+  padding-left: 10%;
+  padding-bottom: 5%;
+}
+
+.btnlogout {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 142px;
+  height: 52px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 18%;
+  padding-top: 2%;
+}
+
+.amntsname {
+  display: flex;
+  width: 80%;
+  height: 12%;
+  background-color: rgba(10, 137, 150, 0.33);
+  margin-left: 10%;
+  margin-top: 12%;
+  border-radius: 24px;
+}
+
+.amntsname img {
+  margin-left: 10%;
+  width: 25%;
+  height: 70%;
+  margin-top: 4%;
+}
+
+.amntsname label {
+  color: #000;
+  margin-left: 8%;
+  margin-top: 10%;
+  font-size: 20px;
+}
+
+.amntssideimage img {
+  display: flex;
+  margin-top: 80%;
+  width: 100%;
+  height: auto;
+}
+
+.amntsdisplay {
+  width: 300px;
+  height: 64px;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  font-size: 20px;
+  padding-top: 14px;
+  margin: auto;
+  margin-top: -2%;
+}
+
+.labelsize {
+  font-size: 20px;
+}
+
+.btnAdd {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 250px;
+  height: 60px;
+  font-size: 151%;
+  font-weight: 500;
+  margin-top: 4%;
+  margin-right: 34%;
+}
+
+.formclass {
+  margin-top: 5%;
+  margin-left: 25%;
+}
+
+.amntsminicard {
+  margin-left: 50%;
+  margin-bottom: 10%;
+  border: none;
+  background-color: #0A8996;
+  width: 75%;
+  height: 50%;
+  border-radius: 20px;
+}
+
+.dhcard-titlename {
+  font-size: 18px;
+  font-family: 'Rubik', sans-serif;
+  color: #fff;
+  font-weight: 600;
+}
+
+.dhcard-profession {
+  width: 40%;
+  height: fit-content;
+  background-color: #AED8DC;
+  border-radius: 8px;
+  margin: auto;
+  font-family: 'Rubik', sans-serif;
+  color: #14335D;
+}
+
+.amntstitle {
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.amnts_img_top {
+  width: 100%;
+  height: 50%;
+  margin: auto;
+  border-radius: 50px;
+}
+
+.amntscss{
+  margin-top: 5%;
+    padding-left: 10%;
+    padding-right: 16%;
+}
+
+.amntsminicard:hover{
+  color: #000;
+  background-color: #fff;
+  border: 2px solid #000;
+}
+
+.amntsminicard:hover label{
+  color: #000;
+}
+
+
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  .amntsname label {
+    margin-left: 3%;
+    margin-top: 18%;
+    font-size: 15px;
+  }
+
+  .amntssideimage img {
+    display: flex;
+    margin-top: 216%;
+    width: 100%;
+    height: auto;
+  }
+
+  .amntsbackgroundimg {
+    background-image: url("../../../public/images/dashboardbackground.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    margin-top: 12.5%;
+  }
+
+  .labelsize {
+    font-size: 12px;
+  }
+
+  #amntsdashboardguard label {
+    margin-top: 14%;
+    margin-left: -68%;
+    width: 108px;
+    height: 45px;
+    background-color: black;
+    color: #fff;
+    border-radius: 18px;
+    padding-top: 3%;
+    font-size: 20px;
+  }
+
+  .amntsdisplay {
+    width: 300px;
+    height: 64px;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-top: 14px;
+    margin: auto;
+    margin-top: -16%;
+  }
+  .amntsminicard {
+    margin-left: 24%;
+    margin-bottom: 10%;
+    border: none;
+    background-color: #0A8996;
+    width: 90%;
+    height: 90%;
+    border-radius: 20px;
+  }
+  
+  .amntstitle {
+    color: #fff;
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+    font-weight: 100;
+  }
+  
+  .dhcard-img-top {
+    width: 30%;
+    height: 30%;
+    margin: auto;
+  }
+  
+  .amntscss{
+    margin-top: 5%;
+      padding-left: 10%;
+      padding-right: 16%;
+  }
+  
+  .amntsminicard:hover{
+    color: #000;
+    background-color: #fff;
+    border: #000;
+    border: 2px solid #000;
+  }
+  
+  .amntsminicard:hover label{
+    color: #000;
+  }
+
+  .amnts_img_top {
+    width: 76%;
+    height: 50%;
+    margin: auto;
+    border-radius: 50px;
+}
+
+
+  
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
+  .amntssideimage {
+    display: none;
+  }
+
+  #amntsnamesection {
+    display: none;
+  }
+
+  #amntsdashboardguard {
+    display: none;
+  }
+
+  #dashboardlogo img {
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-bottom: 5%;
+    width: 114%;
+  }
+
+  .code {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .enterpasscodesearch {
+    width: 58%;
+    height: 10%;
+    background-color: #CFDBEB;
+    border-radius: 25px;
+    border-color: #0A8996;
+    border-style: solid;
+    margin: auto;
+    margin-top: 5%;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0A8996;
+  }
+
+  .dashboardcard {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-left: 6%;
+    margin-bottom: 10%;
+    border: none;
+  }
+
+  .dashboardbackgroundimg {
+    background-image: url("../../../public/images/dashboardbackground.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    margin-top: 10.5%;
+  }
+
+  .amntsdisplay {
+    width: 170px;
+    height: 64px;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-top: 14px;
+    margin: auto;
+    margin-top: 14%;
+    margin-left: 70%;
+}
+
+#amntsdashboardlogo img {
+  margin-top: 5%;
+  margin-left: 1%;
+  margin-bottom: 5%;
+  width: 168%;
+}
+.amntsminicard {
+  margin-left: 65%;
+  margin-bottom: 10%;
+  border: none;
+  background-color: #0A8996;
+  width: 166%;
+  height: 50%;
+  border-radius: 20px;
+}
+
+}

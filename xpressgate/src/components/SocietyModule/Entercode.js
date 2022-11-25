@@ -2,28 +2,20 @@ import React, { useRef } from "react";
 import "../SocietyModule/Entercode.css";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Entercode= () => {
   let username = useRef([]);
-  let password = useRef([]);
-
-  const loginGuard = async () => {
+  const location = useLocation()
+  const navigate = useNavigate()
+  const sendOTP = async()=>{
     try {
-      const loginCreds = {
-        username: username.current.value,
-        password: password.current.value,
-      };
-      const { data } = await axios.post(`api/auth/guardlogin`, loginCreds);
-      localStorage.clear();
-      localStorage.setItem("accesstoken", data.data.accessToken);
-      localStorage.setItem("community_id", data.data.community_id);
-      localStorage.setItem("guard_id", data.data.id);
-      window.location.href = "/dashboard";
-    } catch (err) {
-      document.getElementById("loginemailid").style.border = "2px solid red";
-      document.getElementById("loginpassword").style.border = "2px solid red";
+      const {data} = await axios.post(`${window.env_var}api/society/societyresetpass`,{mobileno:location.state.mobileno,otp:username.current.value})
+      navigate('/newpass',{state:{mem_id:data.data.mem_id,mobileno:data.data.mobileno}})
+    } catch (error) {
+      
     }
-  };
+  }
   return (
     <div className="logincontainer3">
       <div id="loginimgid3">
@@ -59,9 +51,7 @@ const Entercode= () => {
               <Button
                 type="button"
                 className="btlogin3"
-                onClick={() => {
-                  loginGuard();
-                }}
+                onClick={()=>{sendOTP()}}
               >
                 Verify
               </Button>

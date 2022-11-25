@@ -39,6 +39,25 @@ import Profile from './components/SocietyModule/Profile';
 import Managementteam from './components/SocietyModule/Managementteam';
 import Local_service from './components/SocietyModule/Local_service';
 import Addmanagementteam from './components/SocietyModule/Addmanagementteam';
+import Plumber from './components/SocietyModule/Plumber';
+import Login_society from './components/SocietyModule/Login';
+import Entercode from './components/SocietyModule/Entercode';
+import Reset from './components/SocietyModule/Reset';
+import Enter_new_pswd from './components/SocietyModule/Enter_new_pswd';
+import Password from './components/SocietyModule/Password'
+import Addemergencyno from './components/SocietyModule/Addemergencyno';
+import Emergency from './components/SocietyModule/Emergency';
+import Vendor_Payment from './components/SocietyModule/Vendor_Payment'
+import Payment from './components/SocietyModule/Payment'
+// import Addlocalservice from './components/SocietyModule/Addlocalservice';
+
+import GuestManagement from './components/SocietyModule/GuestManagement'
+import Ticketlist from './components/SocietyModule/Ticketlist'
+import Ticket from './components/SocietyModule/Ticket'
+import Amenities from './components/SocietyModule/Amenities'
+import Amenitylist from './components/SocietyModule/Amenitylist'
+import Approvallistamenity from './components/SocietyModule/Approvallistamenity'
+import Addeditamenity from './components/SocietyModule/Addeditamenity'
 
 function App() {
 
@@ -94,6 +113,28 @@ function App() {
             <Route path="/management" element={<Managementteam/>} exact></Route>
             <Route path="/localservices" element={<Local_service/>} exact></Route>
             <Route path='/addManagement' element={<Addmanagementteam/>} exact></Route>
+            <Route path='/servicevendors' element={<Plumber/>} exact></Route>
+            <Route path='/societylogin' element={<Login_society/>} exact></Route>
+            <Route path='/scotp' element={<Entercode/>} exact></Route>
+            <Route path='/screset' element={<Reset/>} exact></Route>
+            <Route path='/newpass' element={<Enter_new_pswd/>} exact></Route>
+            <Route path='/resetpassword' element={<Password/>} exact></Route>
+            <Route path='/addemergency' element={<Addemergencyno/>} exact></Route>
+            <Route path='/emergencyList' element={<Emergency/>} exact></Route>
+            <Route path='/vendorpayment' element={<Vendor_Payment/>} exact></Route>
+            <Route path='/payment' element={<Payment/>} exact></Route>
+            {/* <Route path='/addlocalservice' element={<Addlocalservice/>} exact></Route> */}
+           
+            <Route path="/vehiclemanagement" element={<Vehiclemanagement />} exact></Route>
+            <Route path="/guestManagement" element={<GuestManagement />} exact></Route>
+            <Route path="/ticketlist" element={<Ticketlist />} exact></Route>
+            <Route path="/ticket" element={<Ticket />} exact></Route>
+            <Route path="/amenities" element={<Amenities />} exact></Route>
+            <Route path="/amenitylist" element={<Amenitylist />} exact></Route>
+            <Route path="/approvallistamenity" element={<Approvallistamenity />} exact></Route>
+            <Route path="/addeditamenity" element={<Addeditamenity />} exact></Route>
+          
+         
         </Routes>
       </Router>
     </div>

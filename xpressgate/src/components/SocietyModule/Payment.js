@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../SocietyModule/Payment.css";
-import LogOut from '../Utils/LogOut'
+import LogOut from './Utils/LogOut'
 
 
 const Payment = () => {
@@ -43,7 +44,7 @@ const Payment = () => {
         </div>
         <div className="ButtonsContainer">
             <div className="button1">
-                <button type="button" className="societydues_btn">Vendor Payment</button>
+                <button type="button" onClick={()=>window.location.href='/vendorpayment'} className="societydues_btn">Vendor Payment</button>
             </div>
         </div>
         <div className="ButtonsContainer">
