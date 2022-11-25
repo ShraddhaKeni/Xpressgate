@@ -39,11 +39,10 @@ const GuestList = () => {
     }
 async function  paginate(event)
   {
-    const {data}= await axios.post(`${window.env_var}api/guard/getallguest`,{community_id:localStorage.getItem('community_id')})
     setCurrentpage(event.selected+1)
     const indexoflast = (event.selected+1)*postPerPage  //endoffset
     const indexoffirst = (indexoflast - postPerPage) //startoffset
-    setCurrentPosts(data.data.guests_list.filter(x=>x.status==true).slice(indexoffirst,indexoflast))
+    setCurrentPosts(guests.filter(x=>x.status==true).slice(indexoffirst,indexoflast))
 }
 const guestEntry=async(id)=>{
     navigate('/guestentry',{state:{id:id}})
@@ -76,7 +75,7 @@ const guestEntry=async(id)=>{
         <table id="inoutbooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>
-              <th class="th-sm"></th>
+              <th class="th-sm">Sr No</th>
               <th class="th-sm">Name</th>
               <th class="th-sm">Visitor type</th>
               <th class="th-sm">Block</th>
@@ -88,16 +87,18 @@ const guestEntry=async(id)=>{
           </thead>
           <tbody>
             {currentPosts.map((items,index)=>{
-           return( <tr key={items._id}>
-                <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
-                <td onClick={()=>{guestEntry(items.Guest_id)}}>{items.guestFirstName} {items.guestLastName}</td>
-                <td>Guest</td>
-                <td>{items.block_name}</td>
-                <td>{items.flat_number}</td>
-                <td>Today</td>
-                <td>{dateTimeFormat(items.time)}</td>
-                <td>-</td>
-            </tr>)
+              console.log(currentPosts)
+              return( 
+              <tr>
+                    <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1)*12+(index+1)}</td>
+                    <td onClick={()=>{guestEntry(items.Guest_id)}}>{items.guestFirstName} {items.guestLastName}</td>
+                    <td>Guest</td>
+                    <td>{items.block_name}</td>
+                    <td>{items.flat_number}</td>
+                    <td>Today</td>
+                    <td>{dateTimeFormat(items.time)}</td>
+                    <td>-</td>
+                </tr>)
             })}
             
           </tbody>

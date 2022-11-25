@@ -1,9 +1,38 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Ticket.css';
 import { Button } from 'react-bootstrap';
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
 
 
 const Ticket = () => {
+  const location= useLocation()
+  const [ticket,setTicket] = useState({})
+  const [firstname,setFname] = useState()
+  const [lastname,setLname] = useState()
+  useEffect(()=>{
+    if(location.state)
+    {
+      getTicket()
+    }
+    else
+    {
+      window.location.href='/ticketlist'
+    }
+  })
+
+  const getTicket=async()=>{
+    try {
+      const {data} = await axios.get(`${window.env_var}api/tickets/findTicket/${location.state.id}`)
+      setTicket(data.data.tickets[0])
+      setFname(data.data.tickets[0].ticketRaisedBy.firstname)
+      setLname(data.data.tickets[0].ticketRaisedBy.lastname)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
 
   return (
     <div className="ticketcontainer">
@@ -27,23 +56,23 @@ const Ticket = () => {
       </div>
       <div className='tktbackgroundimg'>
         <div className='tktdisplay'>
-          <label>Ticket No.</label>
+          <label>{ticket.ticketNo}</label>
         </div>
         <div className="col">
           <div className="tktcard">
             <br></br>
-            <label className="tktlabel">Ticket No.</label>
+            <label className="tktlabel">{ticket.ticketNo}</label>
             
-            <div className="name">Name</div>
+            <div className="name ticket_name">{firstname} {lastname}</div>
             <div><label className='tktIssuelabels'>Issue</label></div>
             <div className='tktclass'>
-              <label></label>
+              <label>{ticket.tickettype}</label>
               <div className='flatnodisplay'></div>
             </div>
             <br></br>
             <div><label className='tktdesclabels'>Description</label></div>
             <div className='detailsclass'>
-              <div><label className='date text-right'></label></div>
+              <div><label className='date text-right'>{ticket.ticketDescription}</label></div>
               <div><label className='intime'></label></div>
               <div><label className='outtime'></label></div>
               <div><label className='noofpeople'></label></div>

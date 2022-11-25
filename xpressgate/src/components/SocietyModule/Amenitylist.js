@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+import { useLocation,useNavigate } from 'react-router-dom';
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import './Amenitylist.css';
 import { getAmenitiesBooked } from './common/common';
@@ -12,6 +13,7 @@ const Amenitylist = () => {
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts,setCurrentPosts] = useState([])
   const location = useLocation()
+  const navigate = useNavigate()
   useEffect(()=>{
     if(location.state)
     {
@@ -54,6 +56,10 @@ const Amenitylist = () => {
     return d.getHours()+':'+d.getMinutes()
     
   }
+  const navigateToApprove=(id)=>{
+      navigate('/approvallistamenity',{state:{id:id}})
+  }
+
   return (
     <div className="alcontainer">
       <div id="alheadersection">
@@ -71,12 +77,19 @@ const Amenitylist = () => {
         <img src="/images/societyicon.svg" alt="society name" />
           <label>Society Name</label>
         </div>
+        <Button onClick={()=>{navigate('/addeditamenity',{state:{id:location.state.id,type:'edit'}})}} className='btnAdd' style={{marginLeft:'65px'}}>Edit Amenity</Button>
         <div className='alsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
+        
       </div>
       <div className='albackgroundimg'>
         <div className='aldisplay'>
-          <label>{location.state.type}</label>
+          <label>Amenitiy Bookings</label>
         </div>
+       
+         
+          
+         
+       
         <div className='row'>
           <div className='alsearchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
@@ -98,7 +111,7 @@ const Amenitylist = () => {
 
             {currentPosts.map((item,index)=>{
               return(
-                <tr>
+                <tr onClick={()=>{navigateToApprove(item._id)}}>
                   <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1)*12+(index+1)}</td>
                   <td>{item.firstname} {item.lastname}</td>
                   <td>{item.aminety}</td>

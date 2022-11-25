@@ -1,9 +1,64 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Approvallistamenity.css';
 import { Button } from 'react-bootstrap';
+import { useLocation } from 'react-router-dom';
+import { getDefaultNormalizer } from '@testing-library/react';
+import axios from 'axios';
 
 
 const Approvallistamenity = () => {
+  const [booking,setBooking] = useState({})
+  const location = useLocation()
+  useEffect(()=>{
+    if(location.state)
+    {
+      getBookedEmenity(location.state.id)
+    }
+    else
+    {
+      window.location.href='/amenitylist'
+    }
+  },[])
+
+  const getBookedEmenity=async(id)=>{
+    try {
+      const {data} = await axios.get(`${window.env_var}api/resident/booking/getSingle/${id}`)
+      setBooking(data.data.amenities[0])
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const  dateTimeFormat=(date)=>
+  {
+    var d = new Date(date)
+    return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()
+    
+  }
+
+  const getTime=(date)=>{
+    var d = new Date(date)
+    return d.getHours()+':'+d.getMinutes()
+    
+  }
+
+  const approveBooking= async(id,value)=>{
+    try {
+      if(value=='accept')
+      {
+        const {data} = await axios.get(`${window.env_var}api/resident/booking/approveBooking/${id}`)
+        window.location.href='/amenitylist'
+      }
+      else if(value=='reject')
+      {
+        const {data} = await axios.get(`${window.env_var}api/resident/booking/removeBooking/${id}`)
+        window.location.href='/amenitylist'
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div className="alacontainer">
@@ -30,24 +85,25 @@ const Approvallistamenity = () => {
         </div>
         <div className="col">
           <div className="alacard">
-            <br></br>
-            <label className="alalabel">Ramesh Desai</label>
+            <br></br>   
+            <label className="alalabel">{booking.firstname} {booking.lastname}</label>
             
             <div className="alaowner">Owner</div><br></br>
             <div className='alaclass'>
               <label>Flat No</label>
-              <div className='alablockdisplay'>Block B, 1011</div>
+              <div className='alablockdisplay'>Block {booking.block}, {booking.flat_number}</div>
             </div>
             <br></br>
-            <div><label className='alalabels'>Other Details</label></div>
+            <div><label className='alalabels'>{booking.aminety}</label></div>
             <div className='alaclass'>
-              <div><label className='aladate'>Date:20/09/2011</label></div>
-              <div><label className='alatime'>Time: 5:30 PM</label></div>
+              <div><label className='aladate'>Date:{dateTimeFormat(booking.date)}</label></div>
+              <div><label className='alatime'>Time: {getTime(booking.time)}</label></div>
             </div>
             <br></br>
             <br></br>
-            <Button type="submit" className="alabtnApprove">APPROVE</Button>
-            <Button type="submit" className="alabtnDeny">DENY</Button>
+            {booking.status==false?<> <Button type="button" onClick={()=>{approveBooking(booking._id,'accept')}} className="alabtnApprove">APPROVE</Button>
+            <Button type="button" onClick={()=>{approveBooking(booking._id,'reject')}} className="alabtnDeny">DENY</Button></>: <Button type="button" onClick={()=>{approveBooking(booking._id,'reject')}} className="alabtnDeny">DENY</Button>}
+           
             <br></br>
           </div>
         </div>
