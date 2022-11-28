@@ -1,220 +1,191 @@
 html {
-    height: 100vh;
-  }
-  
-  .addguestcontainer5 {
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 0.5fr 2fr;
-    grid-template-rows: 0.2fr 2fr;
-    grid-template-areas: "headersection5 headersection5"
-      "guardnamesection5 cardsection"
-  }
-  
-  #headersection5 {
-    /* background-color: aquamarine; */
-    /* margin-top: 10%; */
-    grid-area: headersection5;
-    background-color: #F9F9FF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-  
-  #guardnamesection5 {
-    /* background-color: blueviolet; */
-    grid-area: guardnamesection5;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-  
-  #cardsection {
-    /* background-color: blue; */
-    grid-area: cardsection;
-    position: relative;
-  
-  }
-  
-  .addguestbackgroundimg {
-    /* background-image: url("../../../public/images/dashboardbackground.svg"); */
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    position: relative;
-    margin-top: 0.5%;
-  }
-  
-  .firstheadersection5 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
-    grid-template-areas: "dashboardlogo1 dashboardguard5 dashboardspace5 dashboardnotification5 dashboardsetting5 dashboardlogoutbutton5";
-  }
-  
-  #dashboardlogo1 {
-    grid-area: dashboardlogo;
-  }
-  
-  #dashboardlogo1 img {
-    margin-top: 5%;
-    margin-left: 1%;
-    margin-bottom: 5%;
-    width: 40%;
-  }
-  
-  #dashboardguard5 {
-    grid-area: dashboardguard5;
-  }
-  
-  #dashboardguard5 label {
-    margin-top: 18%;
-    margin-left: -128%;
-    width: 9vw;
-    height: 6vh;
-    background-color: black;
-    color: #fff;
-    border-radius: 11px;
-    padding: 5%;
-    font-size: 1.3vw;
-  }
-  
-  #dashboardspace5 {
-    grid-area: dashboardspace5;
-  }
-  
-  #dashboardnotification5 {
-    grid-area: dashboardnotification5;
-  }
-  
-  #dashboardnotification5 img {
-    margin-top: 100%;
-  }
-  
-  #dashboardsetting5 {
-    grid-area: dashboardsetting5;
-  }
-  
-  #dashboardsetting5 img {
-    margin-top: 100%;
-  }
-  
-  #dashboardlogoutbutton5 {
-    grid-area: dashboardlogoutbutton5;
-  }
-  
-  #dashboardlogoutbutton5 img {
-    padding-left: 10%;
-    padding-bottom: 5%;
-  }
-  
-  .btnlogout {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 142px;
-    height: 52px;
-    font-size: 20px;
-    font-weight: 500;
-    margin-top: 18%;
-    padding-top: 2%;
-  }
-  
-  .guardname5 {
-    display: flex;
-    width: 80%;
-    height: 12%;
-    background-color: rgba(10, 137, 150, 0.33);
-    margin-left: 10%;
-    margin-top: 12%;
-    border-radius: 24px;
-  }
-  
-  .guardname5 img {
-    margin-left: 10%;
-    width: 25%;
-    height: 70%;
-    margin-top: 4%;
-  }
-  
-  .guardname5 label {
-    color: #000;
-    margin-left: -14%;
-    margin-top: 13%;
-    font-size: 1vw;
-    padding-top: 0.5%;
+  height: 100vh;
 }
-   .Addguestdisplay5{
-    width: 300px;
-    height: 64px;
-    background-color: #AED8DC;
-    border-radius: 30px;
-    font-size: 20px;
-    padding-top: 14px;
-    margin: auto;
-    margin-top: -2%;
-  }
-  
-  .labelsize{
-    font-size: 1vw;
-  }
-  
-  .btnAdd {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 15vw;
-    height: 6vh;
-    font-size: 2vw;
-    font-weight: 500;
-    margin-top: 5%;
-    margin-right: 25%;
-    padding-top: 0%;
+
+.addguestcontainer5 {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 0.5fr 2fr;
+  grid-template-rows: 0.2fr 2fr;
+  grid-template-areas: "addflatsection addflatsection"
+    "guardnamesection5 cardsection"
 }
-  .input-lg {
-    height: 5vh;
-    padding: 5px 18px;
-    font-size: 1.3vw;
-    line-height: 1.333333;
-    border-radius: 6px;
+
+
+#guardnamesection5 {
+  grid-area: guardnamesection5;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-  .formclass {
-    margin-top: 5%;
-    margin-left: 20%;
+
+#cardsection {
+  /* background-color: blue; */
+  grid-area: cardsection;
+  position: relative;
+
 }
-  
-  
-  /* Media query for laptop */
-  @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
-    
-    .row {
-        margin-right: -50%;
-        margin-left: -7%;
-    }
-    .form-group {
-        margin-bottom: 2%;
-    }
- 
-  
-  .addguestbackgroundimg {
-    /* background-image: url("../../../public/images/dashboardbackground.svg"); */
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    position: relative;
-    margin-top: 12.5%;
+
+.addguestbackgroundimg {
+  /* background-image: url("../../../public/images/dashboardbackground.svg"); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  margin-top: 0.5%;
+}
+
+
+.guardname5 {
+  display: flex;
+  width: 14vw;
+  height: 8vh;
+  background-color: rgba(10, 137, 150, 0.33);
+  margin-left: 16%;
+  margin-top: 12%;
+  border-radius: 20px;
+}
+
+.guardname5 img {
+  margin-left: -15%;
+  width: 10vw;
+  height: 6vh;
+  margin-top: 4%;
+}
+.guardname5 label {
+  color: #000;
+  margin-left: -14%;
+  margin-top: 13%;
+  font-size: 1vw;
+  padding-top: 0.5%;
+}
+.Addguestdisplay5 {
+width: 27vw;
+height: 9vh;
+background-color: #AED8DC;
+border-radius: 30px;
+font-size: 2vw;
+margin: auto;
+margin-top: -4%;
+padding-bottom: 1.5%;
+}
+.Addguestdisplay5 label{
+
+    display: inline-block;
+    padding: 3%;
+    margin-bottom: 2%;
+    font-weight: 700;
+
+}
+.labelsize1{
+  font-size: 1vw;
+  max-width: 20%;
+}
+
+.BtnAddd {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 15vw;
+  height: 6vh;
+  font-size: 2vw;
+  font-weight: 500;
+  margin-top: 5%;
+  margin-right: 25%;
+  padding-top: 0%;
+}
+.input-lg1 {
+  height: 5vh;
+  padding: 5px 18px;
+  font-size: 1.3vw;
+  line-height: 1.333333;
+  border-radius: 6px;
+}
+.form1 {
+  margin-top: 5%;
+  margin-left: 20%;
+}
+.row1 {
+margin-right: -50%;
+margin-left: -7%;
+}
+
+/* Media query for laptop */
+@media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
+  .labelsize1 {
+    font-size:1.5vw;
+    max-width: 20%;
   }
-  
-  .labelsize {
-    font-size: 12px;
+  .row1 {
+      margin-right: -50%;
+      margin-left: -7%;
   }
-  
-  
-  
-  
-  .Addguestdisplay5 {
-    width: 300px;
-    height: 64px;
-    background-color: #AED8DC;
-    border-radius: 30px;
-    font-size: 20px;
-    padding-top: 14px;
-    margin: auto;
-    margin-top: -16%;
+  .form-group1 {
+      margin-bottom: 2%;
   }
-  }
+
+.Addguestdisplay5 label{
+
+display: inline-block;
+padding: 0.5%;
+margin-bottom: 2%;
+font-weight: 700;
+font-size: 2vw;
+
+}
+.BtnAddd {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 15vw;
+  height: 6vh;
+  font-size: 2.2vw;
+  font-weight: 400;
+  margin-top: 3%;
+  margin-right: 19%;
+  padding-top: 0%;
+}
+
+
+.input-lg1 {
+height: 5vh;
+padding: 3px 18px;
+font-size: 1.3vw;
+line-height: 1;
+border-radius: 6px;
+}
+
+
+.guardname5 {
+display: flex;
+width: 14.5vw;
+height: 9vh;
+background-color: rgba(10, 137, 150, 0.33);
+margin-left: 15%;
+margin-top: 13%;
+border-radius: 20px;
+}
+.guardname5 img {
+margin-left: -14%;
+width: 10vw;
+height: 6vh;
+margin-top: 6%;
+}
+.addguestbackgroundimg {
+  /* background-image: url("../../../public/images/dashboardbackground.svg"); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  margin-top: 12.5%;
+}
+
+.Addguestdisplay5 {
+  width: 24vw;
+  height: 10vh;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  font-size: 2.5vw;
+  padding-top: 8px;
+  margin: auto;
+  margin-top: -16%;
+}
+}

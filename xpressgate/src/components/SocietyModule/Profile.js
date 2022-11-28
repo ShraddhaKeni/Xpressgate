@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './Profile.css';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
-import LogOut from './Utils/LogOut';
 import axios from 'axios';
-import Societyheader from './Utils/Societyheader';
+import LogOut from '../SocietyModule/Utils/LogOut';
 
 const Profile = () => {
 
@@ -55,10 +54,16 @@ useEffect(()=>{
 
   return (
     <div className="addguestcontainer5">
-      <div id="headersection5">
-        <div id="addflatsection">
-         <Societyheader/>
-      </div>
+      <div id="addflatsection">
+          <div className="addflatheadersection">
+            <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+            <div id="afsociety"><label>Society</label></div>
+            <div id="afspace"></div>
+            <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+            <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+            <div id="aflogoutbutton"><LogOut/></div>
+          </div>
+      
       </div>
       <div id="guardnamesection5">
         <div className='guardname5'>
@@ -71,12 +76,12 @@ useEffect(()=>{
         <div className='Addguestdisplay5'>
           <label>Profile</label>
         </div>
-        <Form className='formclass'>
+        <Form className='formclass form1'>
           
-        <div class="form-group row">
-              <label class="col-lg-2 col-form-label labelsize">Resident</label>
+        <div class="form-group form-group1 row row1">
+              <label class="col-lg-2 col-form-label  labelsize1">Resident</label>
               <div class="col-lg-4">
-                <select type="text" class="form-control input-lg" id='resident_id' onChange={(e)=>getDetails(e)} name="First name" >
+                <select type="text" class="form-control input-lg input-lg1" id='resident_id' onChange={(e)=>getDetails(e)} name="First name" >
                   <option  disabled value={null} selected>Select Resident</option>
                     {residents.map((item)=>{
                       return <option value={item.id}>{item.firstname} {item.lastname}</option>
@@ -84,57 +89,50 @@ useEffect(()=>{
                 </select>
               </div>
             </div>
-            <div class="form-group row">
-              <label class="col-lg-2 col-form-label labelsize">First Name</label>
+            <div class="form-group form-group1 row row1">
+              <label class="col-lg-2 col-form-label labelsize1">First Name</label>
               <div class="col-lg-4">
-                <input type="text" class="form-control input-lg" id='firstname' name="First name" placeholder="" disabled value={details.firstname}></input>
+                <input type="text" class="form-control input-lg input-lg1" id='firstname' name="First name" placeholder="" disabled value={details.firstname}></input>
               </div>
             </div>
-            <div class="form-group row">
-              <label class="col-lg-2 col-form-label labelsize">Last Name</label>
+            <div class="form-group form-group1 row row1">
+              <label class="col-lg-2 col-form-label labelsize1">Last Name</label>
               <div class="col-lg-4">
-                <input type="text" class="form-control input-lg" id='lastname' name="Last Name" placeholder="" disabled value={details.lastname}></input>
+                <input type="text" class="form-control input-lg input-lg1" id='lastname' name="Last Name" placeholder="" disabled value={details.lastname}></input>
               </div>
             </div>
-            <div class="form-group row">
-              <label class="col-lg-2 col-form-label labelsize">Email</label>
+            <div class="form-group form-group1 row row1">
+              <label class="col-lg-2 col-form-label labelsize1">Email</label>
               <div class="col-lg-4">
-                <input type="text" class="form-control input-lg" id='email' name="Email" placeholder="" disabled value={details.email}></input>
+                <input type="text" class="form-control input-lg input-lg1" id='email' name="Email" placeholder="" disabled value={details.email}></input>
               </div>
             </div>
-            <div class="form-group row">
-              <label class="col-lg-2 col-form-label labelsize">Mobile Number</label>
+            <div class="form-group form-group1 row row1">
+              <label class="col-lg-2 col-form-label labelsize1">Mobile Number</label>
               <div class="col-lg-4">
-                <input type="number" class="form-control input-lg" id='mobileno' name="Mobile Number" placeholder="" disabled value={details.mobileno}></input>
-              </div> <div className="addflatheadersection">
-            <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-            <div id="afsociety"><label>Society</label></div>
-            <div id="afspace"></div>
-            <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-            <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-            <div id="aflogoutbutton"><LogOut/></div>
-          </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-2 col-form-label labelsize">User Name</label>
+                <input type="number" class="form-control input-lg input-lg1" id='mobileno' name="Mobile Number" placeholder="" disabled value={details.mobileno}></input>
+              </div> 
+              </div>
+            <div class="form-group form-group1 row row1">
+              <label class="col-lg-2 col-form-label labelsize1">User Name</label>
               <div class="col-lg-4">
-                <input type="text" class="form-control input-lg" id='username' name="User Name" placeholder="" disabled value={details.username}></input>
+                <input type="text" class="form-control input-lg input-lg1" id='username' name="User Name" placeholder="" disabled value={details.username}></input>
               </div>
             </div>
-            <div class="form-group row">
-              <label class="col-lg-2 col-form-label labelsize">Password</label>
+            <div class="form-group form-group1 row row1">
+              <label class="col-lg-2 col-form-label labelsize1">Password</label>
               <div class="col-lg-4">
-                <input type="text" class="form-control input-lg" id='password' name="User Name" placeholder="Password"></input>
+                <input type="text" class="form-control input-lg input-lg1" id='password' name="User Name" placeholder="Password"></input>
               </div>
             </div>
-            <div class="form-group row">
-              <label class="col-lg-2 col-form-label labelsize">Profile Picture</label>
+            <div class="form-group form-group1 row row1">
+              <label class="col-lg-2 col-form-label labelsize1">Profile Picture</label>
               <div class="col-lg-4">
                 <img src={window.env_var+details.profile_pic}></img>
               </div>
             </div>
            
-            <Button type="submit" onClick={(e)=>handleSubmit(e)} className="btnAdd">Save</Button>
+            <Button type="submit" onClick={(e)=>handleSubmit(e)} className="BtnAddd">Save</Button>
         </Form>
 
       </div>  

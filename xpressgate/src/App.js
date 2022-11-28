@@ -51,6 +51,8 @@ import Vendor_Payment from './components/SocietyModule/Vendor_Payment'
 import Payment from './components/SocietyModule/Payment'
 // import Addlocalservice from './components/SocietyModule/Addlocalservice';
 
+import Addlocalservice from './components/SocietyModule/Addlocalservice'
+import Community from './components/SocietyModule/Community'
 import GuestManagement from './components/SocietyModule/GuestManagement'
 import Ticketlist from './components/SocietyModule/Ticketlist'
 import Ticket from './components/SocietyModule/Ticket'
@@ -58,6 +60,10 @@ import Amenities from './components/SocietyModule/Amenities'
 import Amenitylist from './components/SocietyModule/Amenitylist'
 import Approvallistamenity from './components/SocietyModule/Approvallistamenity'
 import Addeditamenity from './components/SocietyModule/Addeditamenity'
+import SocietyDues from './components/SocietyModule/SocietyDues'
+import UtilityPayment from './components/SocietyModule/UtilityPayment'
+import Package from './components/SocietyModule/Package'
+import ApprovalList from './components/SocietyModule/ApprovalList'
 
 function App() {
 
@@ -123,8 +129,10 @@ function App() {
             <Route path='/emergencyList' element={<Emergency/>} exact></Route>
             <Route path='/vendorpayment' element={<Vendor_Payment/>} exact></Route>
             <Route path='/payment' element={<Payment/>} exact></Route>
+            <Route path='/community' element={<Community/>} exact></Route>
             {/* <Route path='/addlocalservice' element={<Addlocalservice/>} exact></Route> */}
            
+            <Route path="/addlocalservice" element={<Addlocalservice/>} exact></Route>
             <Route path="/vehiclemanagement" element={<Vehiclemanagement />} exact></Route>
             <Route path="/guestManagement" element={<GuestManagement />} exact></Route>
             <Route path="/ticketlist" element={<Ticketlist />} exact></Route>
@@ -133,6 +141,10 @@ function App() {
             <Route path="/amenitylist" element={<Amenitylist />} exact></Route>
             <Route path="/approvallistamenity" element={<Approvallistamenity />} exact></Route>
             <Route path="/addeditamenity" element={<Addeditamenity />} exact></Route>
+            <Route path="/societydues" element={<SocietyDues/>} exact></Route>
+            <Route path="/utilitypayment" element={<UtilityPayment/>} exact></Route>
+            <Route path="/package" element={<Package />} exact></Route>
+            <Route path="/Approvallist" element={<ApprovalList />} exact></Route>
           
          
         </Routes>

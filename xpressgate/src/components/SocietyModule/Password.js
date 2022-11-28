@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import '../SocietyModule/Password.css';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
-import Logout from './Utils/LogOut'
+import LogOut from '../SocietyModule/Utils/LogOut'
 import axios from 'axios';
 import { validatePassword } from '../auth/validation';
 
@@ -68,15 +68,15 @@ const Password = () => {
 
   return (
     <div className="addguestcontainer1">
-      <div id="headersection1">
-        <div className="firstheadersection1">
-          <div id="dashboardlogo1"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="dashboardguard1"><label>Society</label></div>
-          <div id="dashboardspace"></div>
-          <div id="dashboardnotification1"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="dashboardsetting1"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="dashboardlogoutbutton"><Logout/></div>
-        </div>
+      <div id="addflatsection">
+          <div className="addflatheadersection">
+            <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+            <div id="afsociety"><label>Society</label></div>
+            <div id="afspace"></div>
+            <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+            <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+            <div id="aflogoutbutton"><LogOut/></div>
+          </div>
       </div>
       <div id="societynamesection">
         <div className='societyname'>
@@ -89,7 +89,7 @@ const Password = () => {
         <div className='Addguestdisplay1'>
           <label>Change Password</label>
         </div>
-        <Form className='formclass'>
+        <Form className='formclass form1'>
         <div className="input_fields1">
             <div className="email_input">
               <label className="CurrentPass">Current Password</label>
