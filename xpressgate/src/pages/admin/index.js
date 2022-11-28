@@ -6,15 +6,37 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '../../components/base/Layout/Header';
 import AdminDashboard from './Dashboard';
 import '../../styles/global.css'
+import AddPremise from './PremiseManagement/new';
+import EditPremise from './PremiseManagement/edit';
+import PremisesList from './PremiseManagement';
+import { CouponsList } from './PaymentManagement/coupons';
+import { AddCoupon } from './PaymentManagement/new';
 
 const AdminModuleComponent = () => {
 
     const router = useLocation()
+    let children = <></>;
 
-    const [children, setChildren] = useState(<AdminDashboard />)
+    if (router.pathname.includes('dashboard')) {
+        children = (<AdminDashboard />)
+    }
+    if (router.pathname.includes('premises/add')) {
+        children = (<AddPremise />)
+    }
+    if (router.pathname.includes('premises/edit')) {
+        children = (<EditPremise />)
+    }
 
-    if (router.pathname.includes('Dashboard')) {
-        setChildren(<AdminDashboard />)
+    if (router.pathname.endsWith('premises')) {
+        children = (<PremisesList />)
+    }
+
+    if (router.pathname == '/admin/coupons') {
+        children = (<CouponsList />)
+    }
+
+    if (router.pathname == '/admin/coupons/add') {
+        children = (<AddCoupon />)
     }
 
 
@@ -46,8 +68,8 @@ const AdminModuleComponent = () => {
 
             </aside >
 
-            <main className="flex-1 h-screen md:h-screen overflow-auto  bg-[#F9FBFF] p-8">
-                <div className="flex space-x-4">
+            <main style={{ width: "100vw" }}>
+                <div>
                     {children}
                 </div>
             </main>
