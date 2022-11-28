@@ -96,6 +96,14 @@ function App() {
           <Route path="/localservices" element={<Local_service />} exact></Route>
           <Route path='/addManagement' element={<Addmanagementteam />} exact></Route>
           <Route path='/admin' element={<AdminModuleComponent />}></Route>
+
+          <Route path='/admin/premises/add' element={<AdminModuleComponent />}></Route>
+          <Route path='/admin/premises/edit' element={<AdminModuleComponent />}></Route>
+          <Route path='/admin/premises' element={<AdminModuleComponent />}></Route>
+
+          <Route path='/admin/coupons' element={<AdminModuleComponent />}></Route>
+          <Route path='/admin/coupons/add' element={<AdminModuleComponent />}></Route>
+
         </Routes>
       </Router>
     </div>
