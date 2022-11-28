@@ -9,6 +9,7 @@ import Dailyservicepasscode from './Dailyservicepasscode';
 import HeaderSection from './Utils/HeaderSection';
 import GuardSideSection from './Utils/GuardSideSection';
 import { checkGuard } from '../auth/Auth';
+import GuardHeader from './Utils/GuardHeader';
 
 const Dashboard = () => {
   const [entryData, setEntryData] = useState({})
@@ -73,7 +74,8 @@ const Dashboard = () => {
       {entryData.booked ?message=='Vendor'?<Frequentvisitor freqvisitordata={entryData}/>:<Dailyservicepasscode props={entryData}/> : <div className="dashboardcontainer">
         
       <div id="headersection">
-        <div className="firstheadersection">
+        <GuardHeader/>
+        {/* <div className="firstheadersection">
           <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
           <div id="dashboardguard"><label>Guard</label></div>
           <div id="dashboardspace"></div>
@@ -81,7 +83,7 @@ const Dashboard = () => {
           {stat?<div className='notification_section'><HeaderSection/></div>:''}
           <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
           <div id="dashboardlogoutbutton"><LogOut/></div>
-        </div>
+        </div> */}
       </div>
       <div id="guardnamesection">
         <div className='guardname'>
@@ -103,7 +105,7 @@ const Dashboard = () => {
                 <input type='text' className='dashboard_passcode' onKeyUp={e=>{shiftFocus(e)}}  maxLength="1" id='6'></input>
               </div>
 
-              <img src="/images/searchicon.svg" onClick={() => { checkInputs() }} alt="search" />
+              <img src="/images/searchicon.svg" className='search_icon' onClick={() => { checkInputs() }} alt="search" />
             </div>
             <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
               <div className="col">

@@ -94,7 +94,7 @@ const Inoutbook = () => {
                   <td>{iodata.flat_number}</td>
                   <td>{iodata.guestFirstName}</td>
                   <td>{dateTimeFormat(iodata.intime)}</td>
-                  <td>{iodata.guestFirstName}</td>
+                  <td>{iodata.status==1?'In':'Out'}</td>
                 </tr>)
             })}
           </tbody>

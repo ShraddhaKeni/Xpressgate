@@ -1,20 +1,49 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Frequentvisitor.css';
 import { Button } from 'react-bootstrap';
+import { getDefaultNormalizer } from '@testing-library/react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 const Frequentvisitor = ({freqvisitordata}) => {
 
+  const [freq,setFreq] = useState()
+  const navigate = useNavigate()
   const current = new Date();
   const[date, setDate] = useState(`${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`);
-  
+  useEffect(()=>{
+    getData()
+  },[])
+
+  const getData= async()=>{
+    try {
+      const codeData = {
+        code: freqvisitordata.code,
+        community_id: "632970d054edb049bcd0f0b4"
+      }
+      let { data } = await axios.post(`${window.env_var}api/inoutentires/getdata`, codeData)
+      if(data.message=='Vendor')
+      {
+        navigate('/vendorentry',{state:{id:data.data.bookingdetails.booked_id,code:freqvisitordata.code}})
+      }
+      else
+      {
+        console.log(data)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
   // const date = ;
 
   return (
     <div className="frequentvisitorcontainer">
       <div id="headersection">
         <div class="firstheadersection">
-          {console.log(freqvisitordata)}
+         
           <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
           <div id="dashboardguard"><label>Guard</label></div>
           <div id="dashboardspace"></div>
@@ -56,7 +85,7 @@ const Frequentvisitor = ({freqvisitordata}) => {
               <div><label className='vehicleno'>Vehicle No: <input type='text'></input></label></div>
             </div>
             <br></br>
-            <Button type="submit" className="btnApprove">APPROVE</Button>
+            <Button type="button" onClick={()=>console.log(freqvisitordata)} className="btnApprove">APPROVE</Button>
             <Button type="submit" className="btnDeny">DENY</Button>
             <br></br>
           </div>

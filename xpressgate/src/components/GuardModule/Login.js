@@ -20,7 +20,7 @@ const Login = () => {
         localStorage.setItem('accesstoken',data.data.accessToken)
         localStorage.setItem('community_id',data.data.community_id)
         localStorage.setItem('guard_id',data.data.id)
-        localStorage.setItem('mode','guard')
+        localStorage.setItem('mode','guard')  
         window.location.href='/dashboard'
     }
     catch(err)
@@ -54,7 +54,7 @@ const Login = () => {
               <input ref={password} type="password" className="form-control passwordtextbox" onKeyPress={(e)=>{document.getElementById(e.target.id).style.border='none'}} id="loginpassword" placeholder='Password'></input>
             </div>
             <br></br>
-            <Button type="button" className="btnlogin" onClick={()=>{loginGuard()}}>Login</Button>
+            <Button type="button" className="btnlogin" id='login' onClick={()=>{loginGuard()}}>Login</Button>
             <div className='forgotpassword'><a href='/forgotpassword' style={{color:"#FD6B22"}}>Forgot Password?</a></div>
           </div>
         </Form>

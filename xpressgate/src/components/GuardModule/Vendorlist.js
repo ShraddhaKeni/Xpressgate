@@ -32,14 +32,14 @@ const Vendorlist = () => {
           'x-access-token':localStorage.getItem('accesstoken')
         }
       }
-     axios.get(`${window.env_var}api/guard/checkLogin`,config)
-            .then(({data})=>{  
+    //  axios.get(`${window.env_var}api/guard/checkLogin`,config)
+    //         .then(({data})=>{  
               
-            })
-            .catch(err=>{
-              localStorage.clear();
-              window.location.href='/guardLogin'
-            })
+    //         })
+    //         .catch(err=>{
+    //           localStorage.clear();
+    //           window.location.href='/guardLogin'
+    //         })
             getAllVendorData()   
     }
     else
@@ -58,7 +58,7 @@ const Vendorlist = () => {
     try
     {
       const {data} = await axios.get(`${window.env_var}api/vendor/list`)
-      const response = await axios.get(`${window.env_var}api/inout/getall/${localStorage.getItem('community_id')}`)
+      const response = await axios.get(`${window.env_var}api/inout/getall/${'632970d054edb049bcd0f0b4'}`)
       setInOut(response.data.data.list)
       setData(data.data.list.filter(x=>x.bookingstatus==true))
       checkNavigate()
