@@ -40,6 +40,10 @@ import Managementteam from './components/SocietyModule/Managementteam';
 import Local_service from './components/SocietyModule/Local_service';
 import Addmanagementteam from './components/SocietyModule/Addmanagementteam';
 import AdminModuleComponent from './pages/admin';
+import SuperAdminLogin from './pages/admin/LoginScreens/SuperAdminLogin';
+import AdminEnterNewPass from './pages/admin/LoginScreens/AdminEnterNewPass';
+import AdminEnterCode from './pages/admin/LoginScreens/AdminEnterCode';
+import AdminReset from './pages/admin/LoginScreens/AdminReset';
 
 function App() {
 
@@ -96,6 +100,10 @@ function App() {
           <Route path="/localservices" element={<Local_service />} exact></Route>
           <Route path='/addManagement' element={<Addmanagementteam />} exact></Route>
           <Route path='/admin' element={<AdminModuleComponent />}></Route>
+          <Route path='/superadminlogin' element={<SuperAdminLogin/>}></Route>
+          <Route path='/enternewpass' element={<AdminEnterNewPass/>}></Route>
+          <Route path='/adminentercode' element={<AdminEnterCode/>}></Route>
+          <Route path='/adminreset' element={<AdminReset/>}></Route>
         </Routes>
       </Router>
     </div>

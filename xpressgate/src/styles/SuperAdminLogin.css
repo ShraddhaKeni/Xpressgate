@@ -1,0 +1,265 @@
+html{
+    height: 100vh;
+  }
+  
+  .superadmincontainer {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1.8fr 2fr;
+    grid-template-rows: 2.4fr 2fr;
+    grid-template-areas: "Superadminlogo superadminloginimg"
+      "Superadminloginform superadminloginimg"
+  }
+  /* #Superadminlogo{
+    margin-top: 2rem;
+    margin-left: 9rem;
+    margin-bottom: -60rem;
+    position: relative;
+  }
+  #Superadminlogo img{
+    max-width:40% ;
+    height: auto;
+  } */
+  #Superadminlogo{
+    margin-top: -90%;
+    margin-left: 2%;
+    margin-bottom: -15%;
+    position: relative;
+  }
+  #Superadminlogo img {
+    height: auto;
+    width: 15vw;
+}
+  
+  #superadminloginimg {
+    /* background-color: blueviolet;    */
+    grid-area: superadminloginimg;
+  }
+  
+  #superadminloginimg img{
+    height: 100vh;
+    width: 63vw;
+  }
+  
+  #Superadminloginform {
+   
+    grid-area: Superadminloginform;
+    position: relative;
+    margin-left: -4rem;
+    /* margin-top: -35rem; */
+  }
+  
+  .req{
+    color: red;
+  }
+  
+  .adminloginbtn{
+    background-color: #0A8996;
+    color: #fff;
+    border-radius: 14px;
+    width: 12vw;
+    height: 5vh;
+    font-size: 1.4vw;
+    font-weight: 500;
+    margin-left: 0%;
+    margin-bottom: -1%;
+    padding: 1%;
+    
+  }
+  .signinlabel{
+    background-color: #0b2447;
+    color: #fff;
+    width: 25vw;
+    height: 5.5vh;
+    font-size: 1.5;
+    font-weight: 500;
+    padding-top: 1.8%;
+    margin-bottom: 2%;
+    font-size: 2vw;
+    margin-top: 8%;
+  }
+  
+  .Superadmininputfield
+  {
+    position:relative;
+    width: 25vw;
+    height: 50%;
+    left: 25.5%;
+  }
+  
+  .adminemail{
+    position: relative;
+    margin-left: -80%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.4vw;
+    margin-bottom: 0%;
+    margin-top: 3%;
+  }
+
+  .adminpassword
+  {
+    position: relative;
+    margin-left: -70%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.4vw;
+    margin-bottom: 0rem;
+  }
+  
+  .adminforgotpassword {
+    margin-left: 2%;
+    margin-top: 1%;
+}
+.adminforgotpassword a {
+    font-size: 1.1vw;
+}
+  .adminemailtextbox{
+    width: 25vw;
+  }
+  
+  .adminpasswordbox{
+    width: 25vw;
+  }
+  
+  
+  @media only screen  and (min-device-width : 768px) and (max-device-width : 1024px) {
+    #Superadminloginform {
+      grid-area: Superadminloginform;
+      position: relative;
+      margin-left: -2rem;
+      /* margin-top: -7rem; */
+  }
+  #Superadminlogo {
+    margin-top: -104%;
+    margin-left: 2%;
+    margin-bottom: -15%;
+    position: relative;
+}
+#Superadminlogo img {
+    height: auto;
+    width: 15vw;
+}
+    .superadmincontainer {
+      overflow-y: hidden;
+    }
+    #superadminloginimg img {
+      width: auto;
+      height: 100vh;
+  }
+  .adminloginbtn {
+    background-color: #0A8996;
+    color: #fff;
+    border-radius: 14px;
+    width: 12vw;
+    height: 5vh;
+    font-size: 1.4vw;
+    font-weight: 500;
+    margin-left: 0%;
+    margin-bottom: -1%;
+    padding: 1%;
+}
+  
+.signinlabel {
+    background-color: #0b2447;
+    color: #fff;
+    width: 22vw;
+    height: 5.5vh;
+    font-size: 1.5;
+    font-weight: 500;
+    padding-top: 1.8%;
+    margin-bottom: 2%;
+    font-size: 2vw;
+}
+
+.adminemail {
+    position: relative;
+    margin-left: -71%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.4vw;
+    margin-bottom: 1%;
+    margin-top: 3%;
+}
+
+.adminemailtextbox {
+    width: 22vw;
+    height: 5vh;
+    margin-bottom: -4%;
+    margin-left: 6%;
+}
+  
+.adminpassword {
+    position: relative;
+    margin-left: -60%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.4vw;
+    margin-bottom: 0rem;
+}
+.adminpasswordbox {
+    width: 22vw;
+    height: 5vh;
+    margin-bottom: 1%;
+    margin-left: 6%;
+}
+.adminforgotpassword {
+    margin-left: 2%;
+    margin-top: 1%;
+}
+.adminforgotpassword a {
+    font-size: 1.1vw;
+}
+} 
+  
+  
+  /* Media query for mobile */
+  @media only screen  and (min-device-width : 320px) and (max-device-width : 425px) {
+  
+    #superadminloginimg{
+      display: none;
+    }
+  
+    .signin {
+      width: 270px;
+      height: 76px;
+      background-color: #14335D;
+      margin-left: 28%;
+      margin-top: 6%;
+      font-size: 36px;
+    }
+  
+    #Superadminlogo img {
+      margin-top: 10%;
+      margin-left: 36%;
+  }
+  
+  .Superadmininputfield {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    left: 27.5%;
+  }
+  
+  .email {
+    position: relative;
+    right: 37%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+  }
+  
+  .password {
+    position: relative;
+    right: 37%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+  }
+  
+  .btnlogin {
+    background-color: #0A8996;
+    color: #fff;
+    border-radius: 14px;
+    width: 200px;
+    height: 60px;
+    font-size: 151%;
+    font-weight: 500;
+    margin-top: 4%;
+    padding-bottom: 4%;
+  }
+  }
