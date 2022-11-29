@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios'
-
+import { otpValidation } from '../auth/validation';
 const Otp = () => {
   const location = useLocation()
   const navigate = useNavigate()
@@ -11,14 +11,30 @@ const Otp = () => {
     let otp = document.getElementById('otp').value
     let num = location.state.mobile
     try {
-      const dataverify = {
-        mobileno: num,
-        otp: otp
+      if(otpValidation(otp))
+      {
+        const dataverify = {
+          mobileno: num,
+          otp: otp
+        }
+       
+        const { data } = await axios.post(`${window.env_var}api/auth/guardresetpass`, dataverify)
+        if(data.status_code==200)
+           navigate('/newpassword', { state: { guardid: data.data.guard_id } })
+        else
+        {
+          alert('Enter valid OTP')
+          document.getElementById('otp').style.border='1px solid red'
+        }
+          
+        console.log(data)
       }
+      else
+      {
+        document.getElementById('otp').style.border='1px solid red'
+      }
+
      
-      let { data } = await axios.post(`${window.env_var}api/auth/guardresetpass`, dataverify)
-      navigate('/newpassword', { state: { guardid: data.data.guard_id } })
-      console.log(data)
     } 
     catch (error) {
       console.log(error);

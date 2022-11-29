@@ -169,13 +169,6 @@ html {
   margin-left: 36%;
 }
 
-.allowedclass {
-  font-weight: 600;
-  font-size: 22px;
-  font-family: 'Rubik', sans-serif;
-  color: #222433;
-}
-
 .dailyhelpnamelabel {
   font-weight: 600;
   font-size: 22px;
@@ -223,6 +216,19 @@ html {
   text-align: left;
   padding-left: 5%;
   font-size: 16px;
+}
+
+.dspDeny {
+  background-color: #96230A;
+  color: #fff;
+  border-radius: 14px;
+  width: 120px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: -5%;
+  padding-top: 0%;
+  margin-left: 48%;
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {

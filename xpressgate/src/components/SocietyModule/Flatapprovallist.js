@@ -81,7 +81,7 @@ const approveFlat=async(id)=>{
               <div className='flatnodisplay'>Block {flat.block}, {flat.flat_number}</div>
             </div>
             <br></br>
-            <div><label className='allowedclass'>Other Details</label></div>
+            <div><label className='falallowedclass'>Other Details</label></div>
 
             <div className='detailsclass'>
               <div><label className='date text-right'>No of Family Members: {flat.family} </label></div>
@@ -89,7 +89,7 @@ const approveFlat=async(id)=>{
             </div>
             <br></br>
             <Button type="button" onClick={()=>approveFlat(flat._id)} className="btnApprove">APPROVE</Button>
-            <Button type="button" className="btnDeny">DENY</Button>
+            <Button type="button" className="btnDenyFlat">DENY</Button>
             <br></br>
           </div>
         </div>

@@ -69,7 +69,7 @@ const guestEntry=async(id)=>{
       </div>
       <div className='iobbackgroundimg'>
         <div className='inoutbookdisplay'>
-          <label>In-out Book</label>
+          <label>Guest List</label>
         </div>
         {/* <div class="table-responsive"> */}
         <table id="inoutbooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>

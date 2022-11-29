@@ -138,7 +138,7 @@ const Dailyservicepasscode = ({ props }) => {
             })}
           </div>}
           <Button type="button" onClick={()=> handleclick()} className="btnApprove approvebtn">APPROVE</Button>
-            <Button type="button" onClick={()=>window.location.href="/dailyhelp"} className="btnDeny denybtn">DENY</Button>
+            <Button type="button" onClick={()=>window.location.href="/dailyhelp"} className="btnDeny denybtn dspDeny">DENY</Button>
       </div>
     </div>
   )

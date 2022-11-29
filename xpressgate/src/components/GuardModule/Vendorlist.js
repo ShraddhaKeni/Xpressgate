@@ -121,8 +121,9 @@ const Vendorlist = () => {
         </div>
         <div className='row'>
           <div className='searchbox'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-            <span><label className='searchlabel'>Search</label><input className='search_input' onChange={(e)=>{findText(e)}}></input></span>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+          {/* <label className='searchlabel'>Search</label> */}
+          <input className='vlsearch_input' placeholder='Search' onChange={(e)=>{findText(e)}}></input></span>
           </div>
           {/* <div className='addvendor'>
             <span><img src="/images/addvendor.svg" alt='addvendor icon'></img></span>

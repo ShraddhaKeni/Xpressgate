@@ -208,19 +208,19 @@ table th {
   
 }
 
-.search_input
+.vlsearch_input
 {
   outline: none;
   border: none;
   height: 40px;
-  width: 210px;
+  width: 120px;
   border-radius: 5px;
   margin-left: 10px;
 }
 
 .searchbox img{
  
-  margin-left: -42%;
+  margin-left: -14%;
 }
 
 .searchlabel{

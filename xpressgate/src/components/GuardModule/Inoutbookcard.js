@@ -30,6 +30,19 @@ const Inoutbookcard = () => {
     }
   }
 
+  const outEntry=async()=>{
+    try {
+      const sendData = {
+        outtime:Date.now(),
+        status:3,
+        booking_id:location.state.id
+      }
+      const {data} = await axios.post(`${window.env_var}api/inout/addout`,sendData)
+      console.log(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div className="inoutbookcardcontainer">
@@ -69,7 +82,7 @@ const Inoutbookcard = () => {
               })}
             </div>
             <br></br>
-            <div><label className='allowedclass'>Allowed by {listData.allowed_by}</label></div>
+            <div><label className='inbcallowedclass'>Allowed by {listData.allowed_by}</label></div>
             <br></br>
             <div className='detailsclass'>
               <div><label className='date'>Date:{listData.intime}</label></div>
@@ -79,7 +92,7 @@ const Inoutbookcard = () => {
               <div><label className='vehicleno'>Vehicle No: MH-29-2901</label></div>
             </div>
             <br></br>
-            <Button type="submit" className="btnOut">Out</Button>
+            <Button type="submit" onClick={()=>outEntry()} className="btnOut">Out</Button>
             <br></br>
           </div>
         </div>
