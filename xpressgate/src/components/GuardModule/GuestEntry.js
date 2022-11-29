@@ -16,7 +16,6 @@ const GuestEntry = () => {
 
     const getGuestData=async(id)=>{
         try {
-            console.log(id)
             const {data} = await axios.get(`${window.env_var}api/resident/guest/getSingleGuest/${id}`)
             setDetails(data.data.guests[0])
         } catch (error) {
@@ -67,7 +66,7 @@ const GuestEntry = () => {
     </div>
     <div className='fvbackgroundimg'>
       <div className='frequentvisitordisplay'>
-        <label></label>
+        <label>Guest Details</label>
       </div>
       {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}
       <div className="col">

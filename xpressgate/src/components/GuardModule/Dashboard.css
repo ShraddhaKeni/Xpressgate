@@ -328,3 +328,17 @@ html {
   }
 
 }
+
+.search_icon
+{
+  cursor: pointer;
+  position: relative !important;
+  bottom:9px !important;
+  transition: .2s ease all;
+}
+
+.search_icon:hover{
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 0.75rem #0a3696)
+}
+

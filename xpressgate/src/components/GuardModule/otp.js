@@ -44,7 +44,7 @@ const Otp = () => {
               <label className='otpemail'>Enter OTP</label>
               <input type="text" className="form-control emailtextbox" id="otp" placeholder='Enter OTP' ></input>
             </div>
-            <Button type="button" className="btnsendotp" onClick={() => { verifyotp() }}>Verify OTP</Button>
+            <Button type="button" className="btnsendotp" id='sendotp' onClick={() => { verifyotp() }}>Verify OTP</Button>
 
           </div>
         </Form>
