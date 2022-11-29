@@ -322,3 +322,25 @@ html {
   }  
 
 }
+
+.buttons_dailyservice{
+  
+  position: relative;
+  left: -42%;
+  top: 50%;
+}
+
+.buttons_dailyservice div{
+  display: flex;
+  gap: 20px;
+}
+
+.btnAdd:hover{
+  background-color: #14335D;
+}
+
+#deny_entry:hover
+{
+  width: 300px !important;
+  background-color: #14335D;
+}

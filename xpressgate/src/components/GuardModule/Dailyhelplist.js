@@ -5,12 +5,33 @@ import axios from 'axios';
 import LogOut from './Utils/LogOut';
 import { Link, useNavigate } from 'react-router-dom'
 import './otp.css';
-
+import { checkGuard } from '../auth/Auth';
 const Dailyhelplist = () => {
   const [dailyhelpdata, setDailyhelpdata] = useState([])
   //const [flatdata, setFlatdata] = useState([])
   useEffect(() => {
-    getData()
+    if(checkGuard())
+    {
+      const config = {
+        headers:{
+          'x-access-token':localStorage.getItem('accesstoken')
+        }
+      }
+     axios.get(`${window.env_var}api/guard/checkLogin`,config)
+            .then(({data})=>{  
+              
+            })
+            .catch(err=>{
+              localStorage.clear();
+              window.location.href='/guardLogin'
+            })
+            getData()   
+    }
+    else
+    {
+      window.location.href='/'
+    }
+   
   }, [])
 
 

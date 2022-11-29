@@ -1,37 +1,44 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Frequentvisitor.css';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
+import { getDefaultNormalizer } from '@testing-library/react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 const Frequentvisitor = ({freqvisitordata}) => {
 
+  const [freq,setFreq] = useState()
+  const navigate = useNavigate()
   const current = new Date();
   const[date, setDate] = useState(`${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`);
-  
-  const handleclick =async()=>{
+  useEffect(()=>{
+    getData()
+  },[])
+
+  const getData= async()=>{
     try {
-   
-      let submitData = {
-        firstname:freqvisitordata.booked,
-        lastname:'',
-        mobileno:'',
-        intime:Date.now(),
-        outtime:"",
-        community_id:"632970d054edb049bcd0f0b4",
-        flat_id:freqvisitordata.flatID[0].Flat_number,
-        type:3,
-        bookedID:'',
-        status:2,
-        allowed_by:localStorage.getItem('guard_id')
-    }
-    const saveData = await axios.post(`${window.env_var}api/inout/add`,submitData)
-    console.log(saveData.data.data)
-    window.location.href="/dashboard"
-    
+      const codeData = {
+        code: freqvisitordata.code,
+        community_id: "632970d054edb049bcd0f0b4"
+      }
+      let { data } = await axios.post(`${window.env_var}api/inoutentires/getdata`, codeData)
+      if(data.message=='Vendor')
+      {
+        navigate('/vendorentry',{state:{id:data.data.bookingdetails.booked_id,code:freqvisitordata.code}})
+      }
+      else
+      {
+        console.log(data)
+      }
     } catch (error) {
-      
+      console.log(error)
     }
   }
+
+
+  // const date = ;
 
   return (
     <div className="frequentvisitorcontainer">

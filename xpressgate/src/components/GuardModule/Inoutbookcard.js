@@ -11,6 +11,7 @@ const Inoutbookcard = () => {
   const [listData, setInOutData] = useState({})
   const [flats, setFlats] = useState([])
   const location = useLocation()
+  const navigate = useNavigate()
   useEffect(() => {
     getData()
   }, [])
@@ -39,6 +40,31 @@ const Inoutbookcard = () => {
       }
       const {data} = await axios.post(`${window.env_var}api/inout/addout`,sendData)
       console.log(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const dateConvert =(date)=>{
+    const d = new Date(date)
+    return d.getDay()+'/'+d.getMonth()+'/'+d.getFullYear()
+  } 
+  const timeConvert =(date)=>{
+    const d = new Date(date)
+    return d.getHours()+':'+d.getMinutes()
+  } 
+ 
+  const handleSubmit = async(e,id)=>{
+    e.preventDefault()
+    try {
+      const sendData = {
+        outtime:Date.now(),
+        status:2,
+        booking_id:id
+      }
+
+      const {data} = await axios.post(`${window.env_var}api/inout/addout`,sendData)
+      navigate('/inoutbook')
     } catch (error) {
       console.log(error)
     }
@@ -85,14 +111,17 @@ const Inoutbookcard = () => {
             <div><label className='inbcallowedclass'>Allowed by {listData.allowed_by}</label></div>
             <br></br>
             <div className='detailsclass'>
-              <div><label className='date'>Date:{listData.intime}</label></div>
-              <div><label className='intine'>In-Time: {listData.intime}</label></div>
-              <div><label className='outtime'>Out-Time: </label></div>
+              <div><label className='date'>Date:{dateConvert(listData.intime)}</label></div>
+              <div><label className='intine'>In-Time: {timeConvert(listData.intime)}</label></div>
+              <div><label className='outtime'>Out-Time: {dateConvert(listData.outtime)}</label></div>
               <div><label className='noofpeople'>No of People: 1</label></div>
               <div><label className='vehicleno'>Vehicle No: MH-29-2901</label></div>
             </div>
             <br></br>
-            <Button type="submit" onClick={()=>outEntry()} className="btnOut">Out</Button>
+            {listData.status==1? <Button type="submit" onClick={(e)=>{handleSubmit(e,listData.booking_id)}} id='inout'  className="btnOut">Out</Button>
+              : <Button type="button" onClick={()=>navigate('/inoutbook')} id='inout' className="btnOut">Back</Button>
+            }
+           
             <br></br>
           </div>
         </div>

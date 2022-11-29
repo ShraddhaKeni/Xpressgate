@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "../SocietyModule/Addemergencyno.css";
+import "./Addemergencyno.css";
 import LogOut from './Utils/LogOut'
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';

@@ -56,7 +56,7 @@ const Videoclass = () => {
       <div className='vcbackgroundimg'>
         <div id="cardsection">
           <div className='Dailyhelplistdisplay'>
-            <label>Daily Help List</label>
+            <label>Video class List</label>
           </div>
           <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
             {currentPosts.map(vdata => {

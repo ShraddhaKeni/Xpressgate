@@ -6,6 +6,7 @@ import ReactPaginate from 'react-paginate';
 import {useNavigate} from 'react-router-dom'
 import PaginationCalculate from './Utils/paginationCalculate';
 import LogOut from './Utils/LogOut';
+import GuardHeader from './Utils/GuardHeader';
 
 const Inoutbook = () => {
   const [inoutdata, setInoutdata] = useState([])
@@ -55,14 +56,7 @@ const Inoutbook = () => {
   return (
     <div className="inoutbookcontainer">
       <div id="headersection">
-        <div class="firstheadersection">
-          <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="dashboardguard"><label>Guard</label></div>
-          <div id="dashboardspace"></div>
-          <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="inoutbooklogoutbutton"> <LogOut/></div>
-        </div>
+        <GuardHeader/>
       </div>
       <div id="guardnamesection">
         <div className='guardname'>
