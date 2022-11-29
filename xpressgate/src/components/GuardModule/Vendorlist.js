@@ -6,6 +6,7 @@ import PaginationCalculate from './Utils/paginationCalculate';
 import LogOut from './Utils/LogOut';
 import { Link, Navigate, useLocation,useNavigate } from 'react-router-dom';
 import HeaderSection from './Utils/HeaderSection';
+import { checkGuard } from '../auth/Auth';
 
 const Vendorlist = () => {
 
@@ -24,7 +25,32 @@ const Vendorlist = () => {
 
 
   useEffect(()=>{
-    getAllVendorData()
+    if(checkGuard())
+    {
+      const config = {
+        headers:{
+          'x-access-token':localStorage.getItem('accesstoken')
+        }
+      }
+    //  axios.get(`${window.env_var}api/guard/checkLogin`,config)
+    //         .then(({data})=>{  
+              
+    //         })
+    //         .catch(err=>{
+    //           localStorage.clear();
+    //           window.location.href='/guardLogin'
+    //         })
+            getAllVendorData()   
+    }
+    else
+    {
+      window.location.href='/'
+    }
+
+
+
+
+    
     
   },[])
 
@@ -32,7 +58,7 @@ const Vendorlist = () => {
     try
     {
       const {data} = await axios.get(`${window.env_var}api/vendor/list`)
-      const response = await axios.get(`${window.env_var}api/inout/getall/${localStorage.getItem('community_id')}`)
+      const response = await axios.get(`${window.env_var}api/inout/getall/${'632970d054edb049bcd0f0b4'}`)
       setInOut(response.data.data.list)
       setData(data.data.list.filter(x=>x.bookingstatus==true))
       checkNavigate()
@@ -133,7 +159,7 @@ const Vendorlist = () => {
         <table id="inoutbooktable" class="table vendorList table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>
-              <th class="th-sm"></th>
+              <th class="th-sm">Sr no</th>
               <th class="th-sm">Name</th>
               <th class="th-sm">Vendor type</th>
               <th class="th-sm">Block</th>
@@ -149,7 +175,7 @@ const Vendorlist = () => {
               return(
                 
                 <tr key={item.booking_id} id={item.booking_id}  >
-                <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
+                <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1)*12+(index+1)}</td>
                 <td id={'td-'+item._id} ><Link className='linkToPage' to='/vendorentry' state={{id:item._id,bookingid:item.booking_id}}>{item.vendor_name}</Link></td>
                 <td>{item.service}</td>
                 <td>{item.block}</td>

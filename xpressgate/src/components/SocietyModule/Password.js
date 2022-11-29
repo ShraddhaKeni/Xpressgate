@@ -41,7 +41,6 @@ const Password = () => {
           }
           const sendData = {
             username:details.username,
-           
             password:oldpass.current.value,
             newpassword:password.current.value,
             confirmpassword:confirmPass.current.value,

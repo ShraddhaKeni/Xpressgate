@@ -2,6 +2,7 @@ import axios from 'axios';
 import React,{useEffect, useState} from 'react'
 import { Button } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import GuardHeader from './Utils/GuardHeader';
 import HeaderSection from './Utils/HeaderSection';
 import LogOut from './Utils/LogOut';
 const VendorEntryDetails = () => {
@@ -18,13 +19,13 @@ const VendorEntryDetails = () => {
     },[])
 
     const getData =async()=>{
-     
+      
         try {
             const {data} = await axios.get(`${window.env_var}api/vendorlist/getOne/${location.state.id}`)
             setVendorData(data.data.list[0])
             setFlats(data.data.list)
             setBookings(data.data.list)
-            
+            console.log(data)
         } catch (error) {
             
         }
@@ -33,6 +34,7 @@ const VendorEntryDetails = () => {
     const submitData=async()=>{
         
         try {
+          console.log(bookings)
           bookings.map(async(items)=>{
             try {
               let submitData = {
@@ -48,17 +50,19 @@ const VendorEntryDetails = () => {
                 status:2,
                 allowed_by:localStorage.getItem('guard_id')
             }
-              const {data} = await axios.post(`${window.env_var}api/inout/add`,submitData)
+            
+
+               const {data} = await axios.post(`${window.env_var}api/inout/add`,submitData)
               console.log(data)
               const bookingUpdate = await axios.get(`${window.env_var}api/bookvendor/removeBooking/${items.booking_id}`)
-
+             navigate('/vendorlist')
             } catch (error) {
               console.log(error)
             }
             
           })
             
-            navigate('/vendorlist')
+            
             
         } catch (error) {
             console.log(error)
@@ -69,15 +73,7 @@ const VendorEntryDetails = () => {
       
         <div className="frequentvisitorcontainer">
           <div id="headersection">
-            <div class="firstheadersection">
-             {console.log()}
-              <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-              <div id="dashboardguard"><label>Guard</label></div>
-              <div id="dashboardspace"></div>
-              <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-              <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-              <div id="dashboardlogoutbutton"> <LogOut/></div>
-            </div>
+            <GuardHeader/>
           </div>
           <div id="guardnamesection"> 
             <div className='guardname'>
@@ -88,7 +84,7 @@ const VendorEntryDetails = () => {
           </div>
           <div className='fvbackgroundimg'>
             <div className='frequentvisitordisplay'>
-              <label>Details</label>
+              <label>{location.state.code?location.state.code:'Details'}</label>
             </div>
             {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}
             <div className="col">
