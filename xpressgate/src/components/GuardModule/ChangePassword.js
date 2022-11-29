@@ -27,18 +27,39 @@ const ChangePassword = () => {
         }
     }
 
-    const handleSubmit=async()=>{
+    const handleSubmit=async(e)=>{
+      e.preventDefault()
         try {
-            const sendData={
+          if(await validatePassword(password.current.value))
+          {
+            if((password.current.value===confirmPass.current.value)&&(password.current.value!==""&&confirmPass.current.value!==""))
+            {
+              const config = {
+                headers:{
+                  'x-access-token':localStorage.getItem('accesstoken')
+                }
+              }
+              const sendData={
                 username:guard.username,
                 password:oldpass.current.value,
                 newpassword:password.current.value,
                 confirmpassword:confirmPass.current.value,
                 id:localStorage.getItem('member_id')
             }
-            console.log(sendData)
-        } catch (error) {
+              const {data} = await axios.post(`${window.env_var}api/guard/changepassword`,sendData,config)
+
+              console.log(data)
+            }
+          }
+          else  
+          {
+            alert('Wrong password')
+            document.querySelector('input').style.border = '1px solid red'
+          }
+           
             
+        } catch (error) {
+          document.querySelector('input').style.border = '1px solid red'
         }
     }
   return (
