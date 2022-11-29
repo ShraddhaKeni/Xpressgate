@@ -3,7 +3,6 @@ import './Frequentvisitor.css';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import { getDefaultNormalizer } from '@testing-library/react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -87,8 +86,8 @@ const Frequentvisitor = ({freqvisitordata}) => {
               <div><label className='vehicleno'>Vehicle No: <input type='text'></input></label></div>
             </div>
             <br></br>
-            <Button type="submit" onClick={()=> handleclick()} className="btnApprove">APPROVE</Button>
-            <Button type="submit" onClick={()=>window.location.href="/dashboard"} className="btnDeny">DENY</Button>
+            {/* <Button type="submit" onClick={()=> handleclick()} className="btnApprove">APPROVE</Button>
+            <Button type="submit" onClick={()=>window.location.href="/dashboard"} className="btnDeny">DENY</Button> */}
             <br></br>
           </div>
         </div>
