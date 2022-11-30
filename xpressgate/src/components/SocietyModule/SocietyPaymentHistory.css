@@ -121,3 +121,15 @@ padding: 2%;
   
   
   }
+
+
+
+  .send_reminder
+  {
+    background-color: #0A8996;
+    color: white;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-weight: 500;
+  }

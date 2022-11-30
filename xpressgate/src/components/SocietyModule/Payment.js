@@ -53,7 +53,7 @@ const Payment = () => {
         </div>
         <div className="ButtonsContainer">
             <div className="button1">
-                <button type="button" className="societydues_btn">Payment History</button>
+                <button type="button" onClick={()=>window.location.href='/paymenthistory'} className="societydues_btn">Payment History</button>
             </div>
         </div>
         <div className="ButtonsContainer">
