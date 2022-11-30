@@ -8,7 +8,7 @@ const LogOut = () => {
         window.location.href='/'
     }
   return (
-    <Button type="button" onClick={()=>guardLogout()} className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button>
+    <Button type="button" onClick={()=>guardLogout()} className="adminLogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button>
   )
 }
 

@@ -14,14 +14,14 @@ function Header() {
 
     return (
         <div id="headersection">
-            <div className="firstheadersection">
-                <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-                <div id="dashboardguard"><label>Super Admin</label></div>
-                <div id="dashboardspace"></div>
-                <div id="dashboardnotification" onClick={() => { setStat(!stat) }}><img src="/images/notification.svg" className='bellicon' alt="notificationicon" /></div>
+            <div className="adminheadersection">
+                <div id="adminlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+                <div id="adminguard"><label>Super Admin</label></div>
+                <div id="adminspace"></div>
+                <div id="adminnotification" onClick={() => { setStat(!stat) }}><img src="/images/notification.svg" className='bellicon' alt="notificationicon" /></div>
                 {stat ? <div className='notification_section'><HeaderSection /></div> : ''}
-                <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-                <div id="dashboardlogoutbutton"><LogOut className='bg-[#0A8996]' /></div>
+                <div id="adminsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+                <div id="adminlogout"><LogOut className='bg-[#0A8996]' /></div>
             </div>
         </div>
     )

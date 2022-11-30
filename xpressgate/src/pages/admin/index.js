@@ -12,6 +12,15 @@ import PremisesList from './PremiseManagement';
 import { CouponsList } from './PaymentManagement/coupons';
 import { AddCoupon } from './PaymentManagement/new';
 
+// import AdminProfile from '../admin/LoginScreens/AdminProfile';
+// import Terms from "../admin/LoginScreens/Terms"
+// import PrivacyPolicy from "../admin/LoginScreens/PrivacyPolicy"
+// import AddVideo from "../admin/VideoClass/AddVideo"
+// import EditVideo from "../admin/VideoClass/EditVideo"
+import Reports from "../admin/Reports/Reports"
+
+
+
 const AdminModuleComponent = () => {
 
     const router = useLocation()
@@ -37,6 +46,9 @@ const AdminModuleComponent = () => {
 
     if (router.pathname == '/admin/coupons/add') {
         children = (<AddCoupon />)
+    }
+    if (router.pathname == '/admin') {
+        children = (<Reports/>)
     }
 
 

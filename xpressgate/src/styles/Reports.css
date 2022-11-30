@@ -1,0 +1,119 @@
+html{
+    width: 100vw;
+    height: 100vh;
+}
+.Reportscontainer {
+    /* background-image: url("../../public/images/AdminBgImg.svg"); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    margin-top: 0.5%;
+    box-sizing: border-box;
+    border-radius: 35px;
+    max-width: 70%;
+    height: 75vh;
+    margin-right: 5%;
+    margin-left: 24%;
+    margin-top: 2%;
+   
+}
+.Reportsdisplay {
+    position: absolute;
+    width: 27vw;
+    height: 9vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 2vw;
+    margin: auto;
+    margin-top: -7%;
+    margin-left: 27%;
+    padding: 1%;
+}
+
+    .Reportsdisplay label{
+    
+        display: inline-block;
+        padding: 3%;
+        margin-bottom: 2%;
+        font-weight: 700;
+    
+    }
+    .Reportsbgimg{
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        position: absolute;
+        background-image: url("../../public/images/AdminBgImg.svg"); 
+        max-width: 100%;
+        height: 80vh;
+        margin-left: -49%;
+       border-radius: 45px;
+    }
+    .AdminSearch {
+        position: absolute;
+        margin-top: 3%;
+        margin-left: 67%;
+    }
+    .searchinput{
+background: #FFFFFF;
+box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+border-radius: 8px;
+border: none;
+width: 15vw;
+height: 3vh;
+padding: 3%;
+    }
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    
+    .Reportscontainer {
+        /* background-image: url(../../../public/images/dashboardbackground.svg); */
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        position: relative;
+        margin-top: 0.5%;
+        box-sizing: border-box;
+        text-align: center;
+         border-radius: 35px;
+        max-width: 70%;
+        height: 80vh;
+        margin-right: 5%;
+        margin-left: 24%;
+        margin-top: 2%;
+    }
+    .Reportsdisplay {
+        position: absolute;
+        width: 27vw;
+        height: 9vh;
+        background-color: #AED8DC;
+        border-radius: 30px;
+        font-size: 2vw;
+        margin: auto;
+        margin-top: -7%;
+        margin-left: 27%;
+        padding: 1%;
+    }
+    .Reportsdisplay label {
+        display: inline-block;
+        padding: 2%;
+        margin-bottom: 2%;
+        font-weight: 700;
+        font-size: 2vw;
+    }
+    .Reportsbgimg {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        position: absolute;
+        background-image: url(http://localhost:3000/static/media/AdminBgImg.0d5973b….svg);
+        max-width: auto;
+        height: 77vh;
+        margin-left: -46%;
+        border-radius: 30px;
+        margin-top: 7%;
+    }
+
+
+
+}
