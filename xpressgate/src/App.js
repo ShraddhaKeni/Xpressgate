@@ -106,7 +106,13 @@ function App() {
           <Route path='/admin/premises' element={<AdminModuleComponent />}></Route>
 
           <Route path='/admin/coupons' element={<AdminModuleComponent />}></Route>
+          <Route path='/admin/coupons/details' element={<AdminModuleComponent />}></Route>
           <Route path='/admin/coupons/add' element={<AdminModuleComponent />}></Route>
+
+          <Route path='/admin/plans' element={<AdminModuleComponent />}></Route>
+          <Route path='/admin/plans/add' element={<AdminModuleComponent />}></Route>
+          <Route path='/admin/plans/edit' element={<AdminModuleComponent />}></Route>
+          <Route path='/admin/payments' element={<AdminModuleComponent />}></Route>
 
           <Route path='/superadminlogin' element={<SuperAdminLogin />}></Route>
           <Route path='/enternewpass' element={<AdminEnterNewPass />}></Route>

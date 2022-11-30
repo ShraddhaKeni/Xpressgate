@@ -25,9 +25,9 @@ const PremiseList = () => {
     }
 
     return (
-        <div className="addvehiclecontainer">
+        <div className="container pb-5">
 
-            <div className='avbackgroundimg center-vertical'>
+            <div className='main-container mt-5'>
 
                 <div className='table-top-right-content'>
                     <div className='table-search'>
@@ -39,10 +39,10 @@ const PremiseList = () => {
                     </div>
                 </div>
 
-                <table id="table-header" class="table table-striped " cellspacing="0">
+                <table id="table-header" class="table table-striped overflow-auto" cellspacing="0">
                     <thead className='table-th'>
                         <tr>
-                            <th class="th-sm">ID No.</th>
+                            <th class="th-sm" >ID No.</th>
                             <th class="th-sm">Premise Name</th>
                             <th class="th-sm">No of Blocks</th>
                             <th class="th-sm">Status</th>
@@ -112,8 +112,10 @@ const PremiseList = () => {
                         </tr>
                     </tbody>
                 </table>
-                <PaginationCalculate totalPages={10} postperPage={20} currentPage={2} paginate={10} />
-
+                <div className='flex space-between'>
+                    <p>Showing 6 of 20</p>
+                    <PaginationCalculate totalPages={10} postperPage={20} currentPage={2} paginate={10} />
+                </div>
             </div >
         </div >
     )

@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import '../../../styles/addPremise.css';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import axios from 'axios'
-import { SimpleDropDownComponent, SimpleInputComponent } from '../components/input';
+import { SimpleInputComponent } from '../../components/input';
 
-export const AddCoupon = () => {
+export const AddPlan = () => {
 
     const handleSubmit = async (e) => {
 
@@ -18,20 +15,19 @@ export const AddCoupon = () => {
 
             <div className='avbackgroundimg center-vertical'>
                 <div className='Addvehicledisplay'>
-                    <label>Create Coupon</label>
+                    <label>Add new Subscription Plan</label>
                 </div>
                 <Form className='formclass'>
 
-                    <SimpleInputComponent label={'Coupon Name'} />
-                    <SimpleInputComponent label={'Validity'} />
-                    <SimpleInputComponent label={'Pincode'} />
-                    <SimpleInputComponent label={'Type'} />
+                    <SimpleInputComponent label={'Plan Name'} />
+                    <SimpleInputComponent label={'Plan code'} />
                     <SimpleInputComponent label={'Amount'} />
+                    <SimpleInputComponent label={'Type'} />
                     <SimpleInputComponent label={'Description'} type={'textarea'} />
 
 
 
-                    <Button type="submit" onClick={(e) => handleSubmit(e)} className="btnAddVeh">Generate</Button>
+                    <Button type="submit" onClick={(e) => handleSubmit(e)} className="btnAddVeh">Add</Button>
 
                 </Form>
 
