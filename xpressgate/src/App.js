@@ -60,14 +60,12 @@ import Amenities from './components/SocietyModule/Amenities'
 import Amenitylist from './components/SocietyModule/Amenitylist'
 import Approvallistamenity from './components/SocietyModule/Approvallistamenity'
 import Addeditamenity from './components/SocietyModule/Addeditamenity'
-<<<<<<< HEAD
-import SocietyDues from './components/SocietyModule/SocietyDues'
-import UtilityPayment from './components/SocietyModule/UtilityPayment'
-import Package from './components/SocietyModule/Package'
-import ApprovalList from './components/SocietyModule/ApprovalList'
-=======
 import ChangePassword from './components/GuardModule/ChangePassword';
->>>>>>> hrishi_dev
+import SocietyDues from './components/SocietyModule/SocietyDues';
+import UtilityPayment from './components/SocietyModule/UtilityPayment';
+import Package from './components/SocietyModule/Package';
+import ApprovalList from './components/SocietyModule/ApprovalList'
+import SocietyPaymentHistory from './components/SocietyModule/SocietyPaymentHistory';
 
 function App() {
 
@@ -134,7 +132,7 @@ function App() {
             <Route path='/vendorpayment' element={<Vendor_Payment/>} exact></Route>
             <Route path='/payment' element={<Payment/>} exact></Route>
             <Route path='/community' element={<Community/>} exact></Route>
-            {/* <Route path='/addlocalservice' element={<Addlocalservice/>} exact></Route> */}
+            <Route path='/addlocalservice' element={<Addlocalservice/>} exact></Route>
             <Route path="/changeguardpass" element={<ChangePassword />} exact></Route>
             <Route path="/vehiclemanagement" element={<Vehiclemanagement />} exact></Route>
             <Route path="/guestManagement" element={<GuestManagement />} exact></Route>
@@ -147,7 +145,7 @@ function App() {
             <Route path="/societydues" element={<SocietyDues/>} exact></Route>
             <Route path="/utilitypayment" element={<UtilityPayment/>} exact></Route>
             <Route path="/package" element={<Package />} exact></Route>
-            <Route path="/Approvallist" element={<ApprovalList />} exact></Route>
+            <Route path="/paymenthistory" element={<SocietyPaymentHistory />} exact></Route>
           
          
         </Routes>

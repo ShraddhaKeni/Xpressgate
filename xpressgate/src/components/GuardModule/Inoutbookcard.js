@@ -103,6 +103,7 @@ const Inoutbookcard = () => {
               <div><label className='vehicleno'>Vehicle No: MH-29-2901</label></div>
             </div>
             <br></br>
+            {console.log(listData.status)}
             {listData.status==1? <Button type="submit" onClick={(e)=>{handleSubmit(e,listData.booking_id)}} id='inout'  className="btnOut">Out</Button>
               : <Button type="button" onClick={()=>navigate('/inoutbook')} id='inout' className="btnOut">Back</Button>
             }

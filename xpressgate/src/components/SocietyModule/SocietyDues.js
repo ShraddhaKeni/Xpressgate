@@ -1,23 +1,77 @@
-import React from "react";
+import React,{useState,useEffect,useRef} from "react";
 import "../SocietyModule/SocietyDues.css";
 import LogOut from "../SocietyModule/Utils/LogOut";
-
+import { getBlocks } from "./common/common";
+import axios from "axios";
+import Societyheader from "./Utils/Societyheader";
 
 const SocietyDues = () => {
    
+  const [block,setBlock] = useState([])
+  const [flats,setFlats] = useState([])
+  const [resident,setResident] =useState({})
+
+  const payment_due = useRef([])
+  const payment_date = useRef([])
+  const amount = useRef([])
+  const flat_id = useRef([])
+  const payment = useRef([])
+
+
+  useEffect(()=>{
+    getData()
+
+  },[])
+
+  const getData=async()=>{
+    try {
+      setBlock(await getBlocks())
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  
+  const getFlats=async(e)=>{
+    try {
+      const {data} = await axios.get(`${window.env_var}api/flats/getList/${e.target.value}`)
+      setFlats(data.data.list)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  const getResident=async(e)=>{
+    try {
+      const {data} = await axios.get(`${window.env_var}api/flats/single/${e.target.value}`)
+      setResident(data.data.list[0])
+    } catch (error) {
+      
+    }
+  }
+
+  const handleSubmit=async(e)=>{
+    e.preventDefault()
+    try {
+      const sendData={
+        payment_type:payment.current.value=='1'?1:2,
+        resident_id:resident.resident_id,
+        flat_id:flat_id.current.value,
+        paymentDue:payment_date.current.value,
+        dueDate:payment_due.current.value,
+        paymentAmount:amount.current.value,
+      }
+
+      const {data} = await axios.post(`${window.env_var}api/maintenancepayment/addBill`,sendData)
+      console.log(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
 
   return (
     <div className="addguestcontainer4">
     <div id="addflatsection">
-        <div className="addflatheadersection">
-          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="afsociety"><label>Society</label></div>
-          <div id="afspace"></div>
-          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="aflogoutbutton"><LogOut/></div>
-        </div>
+        <Societyheader/>
     
     </div>
       <div id="societynamesection">
@@ -38,63 +92,64 @@ const SocietyDues = () => {
         <div className="Payment_form">
             <div className="inboxes">
                 <label for="Type" className="Typedetails">Type</label>
-                <select  id="Type" value="" className="vendorinput">
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    </select> 
+                <select  id="Type" ref={payment} className="vendorinput">
+                    <option value={null}>Select Type</option>
+                    <option value="1">Maintenance</option>
+                    <option value="2">Rent</option>
+                </select> 
             </div>
         </div>
         <div className="Payment_form">
             <div className="inboxes">
                 <label for="Blockk " className="Society_Block ">Block </label>
-                <select  id="Blockk" value="" className="vendorinput">
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
+                <select  id="Blockkk"  onChange={(e)=>getFlats(e)}  className="vendorinput">
+                <option value="" selected disabled>Select Block</option>
+                      {block.map(item=>{
+                        return <option value={item.id}>{item.name}</option>
+                      })}
                     </select> 
             </div>
         </div>
         <div className="Payment_form">
             <div className="inboxes">
                 <label for="SocietyFlatNum" className="SocietyFlatNo">Flat No</label>
-                <select  id="SocietyFlatNum" value="" className="vendorinput">
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    </select> 
+                <select  id="UtilityFlatNo" ref={flat_id} onChange={(e)=>{getResident(e)}} className="vendorinput">
+                <option value="" selected disabled>Select Flat</option>
+                      {flats.map(item=>{
+                        return <option value={item._id}>{item.flat_number}</option>
+                      })}
+                    </select>
             </div>
         </div>
         <div className="Payment_form">
             <div className="inboxes">
                 <label for="SocietyResidentname" className="Society_Residentnames">Resident Name</label>
-                <input type="text"  id="SocietyResidentname" value="" className="vendorinput"></input> 
+                
+                {resident.firstname?<input type="text"  id="UtilityResidentname" className="vendorinput" disabled name="First name" placeholder="Resident name" value={resident.firstname+' '+resident.lastname}/>:
+                <input type="text"  id="UtilityResidentname" className="vendorinput" disabled name="First name" placeholder="Resident name" />}
             </div>
         </div>
         <div className="Payment_form">
             <div className="inboxes">
                 <label for="SocietyAmount" className="Society_Amount">Amount</label>
-                <input type="text"  id="SocietyAmount" value="" className="vendorinput"></input> 
+                <input type="text" ref={amount}  id="SocietyAmount"  className="vendorinput"></input> 
             </div>
         </div>
         <div className="Payment_form">
             <div className="inboxes">
                 <span>
                 <label for="Paydate" class="paymentdate">Payment Date</label>
-                <input type="number" id="Paydate" value=" " className="Paymentdateinput"></input>
+                <input type="date" ref={payment_date} id="Paydate" className="Paymentdateinput"></input>
                 </span>
                 <span>
                 <label for="Duedate" class="Duedate">Due Date</label>
-                <input type="number" id="Duedate" value=" " className="Duedateinput"></input>
+                <input type="date" ref={payment_due} id="Duedate" className="Duedateinput"></input>
                 </span>
             </div>
         </div>
         <div className="ButtonsContainer2">
             <div className="button1">
-                <button type="button" className="AddButnn">Add</button>
+                <button type="button" onClick={(e)=>{handleSubmit(e)}} className="AddButnn">Add</button>
             </div>
         </div>
       </div>

@@ -37,7 +37,7 @@ const approveFlat=async(id)=>{
     let sendData = {
       resident_id:flat.resident_id,
       flat_id:id,
-      community_id:'632970d054edb049bcd0f0b4'
+      community_id:localStorage.getItem('community_id')
     }
     const {data} = await axios.post(`${window.env_var}api/approveresidents/approve`,sendData)
     window.location.href='/flatList'

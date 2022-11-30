@@ -23,8 +23,8 @@ const Local_service = () => {
     }
   }
 
-  const navigateToList=(id)=>{
-    navigate('/servicevendors',{state:{id:id}})
+  const navigateToList=(id,serviceName)=>{
+    navigate('/servicevendors',{state:{id:id,serviceName}})
   }
 
   return (
@@ -58,7 +58,7 @@ const Local_service = () => {
         <div className="Addguestdisplay2">
           <label>Local Services</label>
         </div>
-        <button type="button" onClick={()=>{window.location.href='/addvendor'}} className="AddLS"> Add Local Services</button>
+        <button type="button"  className="AddLS"> Add Local Services</button>
         <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
           
             
@@ -66,7 +66,7 @@ const Local_service = () => {
             {services.map(items=>{
               return(
                 <div className="col">
-                  <div className="dashboardcard_services" onClick={()=>{navigateToList(items.id)}}>
+                  <div className="dashboardcard_services" onClick={()=>{navigateToList(items.id,items.serviceName)}}>
                     <div className="image_div">
                       <img src={window.env_var+items.icons} />
                     </div>
