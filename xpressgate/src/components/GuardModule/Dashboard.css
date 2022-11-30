@@ -194,6 +194,8 @@ html {
   margin-bottom: 10%;
   border: none;
   cursor: pointer;
+  /* transition all : .5s ease-out; */
+  
 }
 
 .fullcardscss {
@@ -202,6 +204,10 @@ html {
   margin-right: 125px;
   width: 100%;
 }
+
+/* .dashboardcard:hover{
+  transition: .5s ease all;
+} */
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   #dashboardguard label {
