@@ -17,6 +17,15 @@ import { PlansList } from './PaymentManagement/Plans/plans';
 import { AddPlan } from './PaymentManagement/Plans/new';
 import { PaymentsHistory } from './PaymentManagement/PaymentHistory';
 
+// import AdminProfile from '../admin/LoginScreens/AdminProfile';
+// import Terms from "../admin/LoginScreens/Terms"
+// import PrivacyPolicy from "../admin/LoginScreens/PrivacyPolicy"
+// import AddVideo from "../admin/VideoClass/AddVideo"
+// import EditVideo from "../admin/VideoClass/EditVideo"
+import Reports from "../admin/Reports/Reports"
+
+
+
 const AdminModuleComponent = () => {
 
     const router = useLocation()
@@ -42,6 +51,9 @@ const AdminModuleComponent = () => {
 
     if (router.pathname == '/admin/coupons/add') {
         children = (<AddCoupon />)
+    }
+    if (router.pathname == '/admin') {
+        children = (<Reports/>)
     }
 
     if (router.pathname == '/admin/coupons/details') {

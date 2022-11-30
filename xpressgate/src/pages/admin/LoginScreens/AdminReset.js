@@ -53,7 +53,7 @@ const AdminReset = () => {
                   document.getElementById(e.target.id).style.border = "none";
                 }}
                 id="loginemailid"
-                placeholder="Enter Code"
+                placeholder="Enter Mobile"
               ></input>
             </div>
             <br></br>

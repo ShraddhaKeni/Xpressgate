@@ -45,6 +45,7 @@ import AdminEnterNewPass from './pages/admin/LoginScreens/AdminEnterNewPass';
 import AdminEnterCode from './pages/admin/LoginScreens/AdminEnterCode';
 import AdminReset from './pages/admin/LoginScreens/AdminReset';
 
+
 function App() {
 
   window.env_var = "http://127.0.0.1:5050/"
@@ -118,6 +119,7 @@ function App() {
           <Route path='/enternewpass' element={<AdminEnterNewPass />}></Route>
           <Route path='/adminentercode' element={<AdminEnterCode />}></Route>
           <Route path='/adminreset' element={<AdminReset />}></Route>
+         
         </Routes>
       </Router>
     </div>
