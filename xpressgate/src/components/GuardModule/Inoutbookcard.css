@@ -111,7 +111,7 @@ html {
   background-color: #96230A
 }
 
-.btnlogout {
+/* .btnlogout {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
@@ -121,7 +121,7 @@ html {
   font-weight: 500;
   margin-top: 18%;
   padding-top: 2%;
-}
+} */
 
 
 .guardname {
@@ -259,7 +259,7 @@ html {
   font-weight: 100;
 }
 
-.allowedclass {
+.inbcallowedclass {
   font-weight: 600;
   font-size: 22px;
   font-family: 'Rubik', sans-serif;

@@ -22,10 +22,14 @@ const Addeditamenity = () => {
   const status = useRef([])
 
   useEffect(()=>{
-    if(location.state.id)
+    if(location.state)
     {
       getDetails(location.state.id)
       setType(location.state.type)
+    }
+    else
+    {
+
     }
   },[])
 
@@ -94,20 +98,20 @@ const Addeditamenity = () => {
       </div>
       <div className='aeabackgroundimg'>
         <div className='aeadisplay'>
-          <label>{location.state.type=='edit'?'Edit Amenity':'New Amenity'}</label>
+          <label>{type=='edit'?'Edit Amenity':'New Amenity'}</label>
         </div>
         <Form className='aeaclass'>
           <div class="form-group row">
             <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label labelsize">Name</label>
             <div class="col-sm-4 col-md-4 col-lg-4">
-              {location.state.type=='edit'? <input type="text" class="form-control input-lg" ref={amenityType} defaultValue={amenity.amenityType} name="community" placeholder="Name" />:
+              {type=='edit'? <input type="text" class="form-control input-lg" ref={amenityType} defaultValue={amenity.amenityType} name="community" placeholder="Name" />:
                <input type="text" class="form-control input-lg" ref={amenityType} name="community" placeholder="Name" />}
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Rule for Booking</label>
             <div class="col-lg-4">
-              {location.state.type=='edit'?<textarea type="text" class="form-control input-lg" ref={rule} defaultValue={amenity.rule} name="inputnoofpeople" placeholder="Rule for Booking" />
+              {type=='edit'?<textarea type="text" class="form-control input-lg" ref={rule} defaultValue={amenity.rule} name="inputnoofpeople" placeholder="Rule for Booking" />
               :<textarea type="text" class="form-control input-lg" ref={rule} name="inputnoofpeople" placeholder="Rule for Booking" />}
               
             </div>
@@ -116,7 +120,7 @@ const Addeditamenity = () => {
             <label class="col-lg-2 col-form-label labelsize">Status</label>
             <div class="col-lg-4">
               <select class="form-control input-lg" ref={status} name="flatNo" placeholder="Status" value>
-                {location.state.type=='edit'?(amenity.status==false?<> <option value={true} >Active</option>
+                {type=='edit'?(amenity.status==false?<> <option value={true} >Active</option>
                 <option value={false} selected>Inactive</option></>:<> <option value={true} selected>Active</option>
                 <option value={false} >Inactive</option></>):<> <option value={true} >Active</option>
                 <option value={false} >Inactive</option></>}
@@ -127,7 +131,7 @@ const Addeditamenity = () => {
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Rent</label>
             <div class="col-lg-4">
-              {location.state.type=='edit'?<input type="number" class="form-control input-lg" defaultValue={amenity.rent} ref={rent} name="inputnoofpeople" placeholder="Rent"></input>:
+              {type=='edit'?<input type="number" class="form-control input-lg" defaultValue={amenity.rent} ref={rent} name="inputnoofpeople" placeholder="Rent"></input>:
               <input type="number" class="form-control input-lg" ref={rent} name="inputnoofpeople" placeholder="Rent"></input>}
               
             </div>
@@ -138,7 +142,7 @@ const Addeditamenity = () => {
               <input type="file" accept='.jpg ,.jpeg ,.png' class="form-control input-lg" id='amenity_image' ref={image} name="inputnoofpeople"></input>
             </div>
           </div>
-          <Button type="submit" onClick={(e)=>{handleSubmit(e)}} className="btnAddAmenity">{location.state.type=='edit'?'Edit':'Add'}  Amenity</Button>
+          <Button type="submit" onClick={(e)=>{handleSubmit(e)}} className="btnAddAmenity">{type=='edit'?'Edit':'Add'}  Amenity</Button>
         </Form>
 
       </div>

@@ -79,6 +79,8 @@ const Ticket = () => {
               <div><label className='vehicleno'></label></div>
             </div>
             <br></br>
+            <div><label className='tktailabels'>Attached images</label></div>
+            <br></br>
             <br></br>
           </div>
         </div>

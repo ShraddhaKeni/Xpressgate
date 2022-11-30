@@ -77,17 +77,17 @@ const Dailyhelplist = () => {
           <div className='Dailyhelplistdisplay'>
             <label>Daily Help List</label>
           </div>
-          <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
+          <div className="row row-cols-1 row-cols-md-3 g-4 dhfullcardscss">
             {dailyhelpdata.map((dailydata) => {
 
               return (
                
                   <div className="col" onClick={()=>routeChange(dailydata._id)}>
                     <div className="dailyhelpminicard"><br></br>
-                      <img className="card-img-top" src={"http://143.110.187.80:5050/" + dailydata.helper_image} alt="profile"></img><br></br>
+                      <img className="dhcard-img-top" src={`${window.env_var}` +dailydata.helper_image} alt="profile"></img><br></br>
                       <label className='dhcard-titlename'>{dailydata.helper_name}</label><br></br>
-                      <label className='dhcard-profession'>{dailydata.service}</label><br></br>
-                      <label className='dhcard-allowedhouses'>Allowed in {dailydata.booking_id.length} Houses</label><br></br><br></br>
+                      <label className='dhcard-profession'>{dailydata.service}</label><br></br><br></br>
+                      <label className='dhcard-allowedhouses'>Allowed in {dailydata.booking_id.length} Houses</label><br></br>
                     </div>
 
                   </div>

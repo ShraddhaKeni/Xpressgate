@@ -16,10 +16,11 @@ const Enter_new_pswd = () => {
 
   const handleSubmit =async()=>{
     try {
-      if(validatePassword(password.current.value))
+      if( await validatePassword(password.current.value))
       {
+        console.log(validatePassword(password.current.value))
           if((password.current.value===confirmpassword.current.value)&&(password.current.value!==""&&confirmpassword.current.value!==""))
-        {
+          {
           const sendData={
             password:confirmpassword.current.value,
             mem_id:location.state.mem_id

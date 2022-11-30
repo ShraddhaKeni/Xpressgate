@@ -298,6 +298,14 @@ html {
   margin-right: 46%;
 }
 
+.tktailabels {
+  font-weight: 600;
+  font-size: 22px;
+  font-family: 'Rubik', sans-serif;
+  color: #14335D;
+  margin-right: 32%;
+}
+
 .date {
   font-size: 20px;
   font-family: 'Rubik', sans-serif;

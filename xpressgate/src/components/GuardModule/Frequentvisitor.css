@@ -280,11 +280,11 @@ html {
   font-weight: 100;
 }
 
-.allowedclass {
+.fvallowedclass {
   font-weight: 600;
   font-size: 22px;
   font-family: 'Rubik', sans-serif;
-  color: #222433;
+  color: #14335D;
 }
 
 .date {
@@ -325,6 +325,10 @@ html {
   color: #14335D;
 }
 
+.backbutton{
+  margin-right: 58%;
+  font-size : 24px;
+}
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   .guardname label {

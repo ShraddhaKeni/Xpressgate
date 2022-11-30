@@ -179,6 +179,10 @@ html {
   color: #0A8996;
 }
 
+.enterpasscodesearch label{
+  margin-top: 18px;
+}
+
 .enterpasscodesearch img {
   margin-left: 105%;
   margin-top: -8%;
