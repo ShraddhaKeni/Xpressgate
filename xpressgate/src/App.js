@@ -62,7 +62,8 @@ import ChangePassword from './components/GuardModule/ChangePassword';
 
 function App() {
 
-  window.env_var = "http://127.0.0.1:5050/"
+  window.env_var = "http://143.110.187.80:5050/"
+  //window.env_var = "http://localhost:3000/"
   useEffect(() => {
 
   }, [])

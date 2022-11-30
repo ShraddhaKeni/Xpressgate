@@ -114,7 +114,7 @@ html {
     .AddNN:hover{
       background-color:rgb(155, 201, 212);
     }
-  .btnlogout {
+  /* .btnlogout {
     background-color: #0A8996;
     color: #fff;
     border-radius: 14px;
@@ -124,7 +124,7 @@ html {
     font-weight: 500;
     margin-top: 18%;
     padding-top: 2%;
-  }
+  } */
   /* .smallcontainer{
     display: block;
   } */

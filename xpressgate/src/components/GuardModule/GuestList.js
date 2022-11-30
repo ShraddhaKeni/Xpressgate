@@ -1,5 +1,5 @@
 import React from 'react'
-
+import LogOut from './Utils/LogOut';
 import './Inoutbook.css';
 import { Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react'
@@ -57,7 +57,7 @@ const guestEntry=async(id)=>{
           <div id="dashboardspace"></div>
           <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
           <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="dashboardlogoutbutton"> <Button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
+          <div id="dashboardlogoutbutton"> <LogOut/></div>
         </div>
       </div>
       <div id="guardnamesection">
@@ -69,7 +69,7 @@ const guestEntry=async(id)=>{
       </div>
       <div className='iobbackgroundimg'>
         <div className='inoutbookdisplay'>
-          <label>In-out Book</label>
+          <label>Guest List</label>
         </div>
         {/* <div class="table-responsive"> */}
         <table id="inoutbooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>

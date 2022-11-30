@@ -178,12 +178,12 @@ html {
 }
 
 .dailyhelpminicard {
-  margin-left: 50%;
+  margin-left: 42%;
   margin-bottom: 10%;
   border: none;
   background-color: #0A8996;
-  width: 60%;
-  height: 95%;
+  width: 75%;
+  height: 98%;
   border-radius: 20px;
 }
 
@@ -211,26 +211,26 @@ html {
   font-weight: 100;
 }
 
-.card-img-top {
+.dhcard-img-top {
   width: 30%;
-  height: 30%;
+  height: 40%;
   margin: auto;
   border-radius: 50px;
 }
 
-.fullcardscss{
+.dhfullcardscss {
   margin-top: 5%;
-    padding-left: 10%;
-    padding-right: 16%;
+  padding-left: 0%;
+  padding-right: 16%;
 }
 
-.dailyhelpminicard:hover{
+.dailyhelpminicard:hover {
   color: #000;
   background-color: #fff;
   border: 2px solid #000;
 }
 
-.dailyhelpminicard:hover label{
+.dailyhelpminicard:hover label {
   color: #000;
 }
 
@@ -299,6 +299,7 @@ html {
     margin: auto;
     margin-top: -16%;
   }
+
   .dailyhelpminicard {
     margin-left: 24%;
     margin-bottom: 10%;
@@ -308,14 +309,14 @@ html {
     height: 90%;
     border-radius: 20px;
   }
-  
+
   .dhcard-titlename {
     font-size: 18px;
     font-family: 'Rubik', sans-serif;
     color: #fff;
     font-weight: 600;
   }
-  
+
   .dhcard-profession {
     width: 50%;
     height: fit-content;
@@ -325,37 +326,37 @@ html {
     font-family: 'Rubik', sans-serif;
     color: #14335D;
   }
-  
+
   .dhcard-allowedhouses {
     color: #fff;
     font-family: 'Rubik', sans-serif;
     font-size: 15px;
     font-weight: 100;
   }
-  
+
   .dhcard-img-top {
     width: 30%;
     height: 30%;
     margin: auto;
   }
-  
-  .fullcardscss{
+
+  .dhfullcardscss {
     margin-top: 5%;
-      padding-left: 10%;
-      padding-right: 16%;
+    padding-left: 10%;
+    padding-right: 16%;
   }
-  
-  .dailyhelpminicard:hover{
+
+  .dailyhelpminicard:hover {
     color: #000;
     background-color: #fff;
     border: #000;
     border: 2px solid #000;
   }
-  
-  .dailyhelpminicard:hover label{
+
+  .dailyhelpminicard:hover label {
     color: #000;
   }
-  
+
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 425px) {

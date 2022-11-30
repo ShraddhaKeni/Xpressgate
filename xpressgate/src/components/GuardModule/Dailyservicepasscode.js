@@ -169,7 +169,6 @@ const navigate = useNavigate()
               return <label className="detailslabel">Flat {ft.flats}, Block {ft.block} </label>
             })}
           </div>}
-
           <div className='buttons_dailyservice'>
             <div>
               <Button type="button" onClick={()=> handleclick()} id='deny_entry'  className="btnAdd  ">APPROVE</Button>

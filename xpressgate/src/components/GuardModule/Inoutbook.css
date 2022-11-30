@@ -41,7 +41,7 @@ html {
 .firstheadersection {
   display: grid;
   grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
-  grid-template-areas: "dashboardlogo dashboardguard dashboardspace dashboardnotification dashboardsetting dashboardlogoutbutton";
+  grid-template-areas: "dashboardlogo dashboardguard dashboardspace dashboardnotification dashboardsetting inoutbooklogoutbutton";
 }
 
 #dashboardlogo {
@@ -91,11 +91,11 @@ html {
   margin-top: 100%;
 }
 
-#dashboardlogoutbutton {
-  grid-area: dashboardlogoutbutton;
+#inoutbooklogoutbutton {
+  grid-area: inoutbooklogoutbutton;
 }
 
-#dashboardlogoutbutton img {
+#inoutbooklogoutbutton img {
   padding-left: 10%;
   padding-bottom: 5%;
 }
