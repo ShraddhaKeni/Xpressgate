@@ -56,7 +56,24 @@ html{
         margin-left: 67%;
     }
     .VideoAddBtn{
-
+        background: #E8F5E9;
+        border-radius: 18px;
+        border: none;
+        width: 12vw;
+        height: 4vh;
+        font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #0D960A;
+font-size: 1.2vw;
+    }
+    .VideoAddBtn:hover{
+        background: #bbcebd;
+    }
+    .paginate{
+        position: absolute;
+        margin-top: 65%;
+        margin-left: 78%;
     }
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
     
@@ -107,7 +124,23 @@ html{
         border-radius: 30px;
         margin-top: 7%;
     }
-
+    .VideoButton {
+        position: absolute;
+        margin-top: 3%;
+        margin-left: 67%;
+    }
+    .VideoAddBtn{
+        background: #E8F5E9;
+        border-radius: 18px;
+        border: none;
+        width: 12vw;
+        height: 4vh;
+        font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #0D960A;
+font-size: 1.2vw;
+    }
 
 
 }
