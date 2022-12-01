@@ -72,8 +72,8 @@ font-size: 1.2vw;
     }
     .paginate{
         position: absolute;
-        margin-top: 65%;
-        margin-left: 78%;
+        margin-top: 50%;
+        margin-left: 70%;
     }
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
     
