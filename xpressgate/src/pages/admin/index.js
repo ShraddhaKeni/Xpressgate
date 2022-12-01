@@ -23,6 +23,8 @@ import { PaymentsHistory } from './PaymentManagement/PaymentHistory';
 // import AddVideo from "../admin/VideoClass/AddVideo"
 // import EditVideo from "../admin/VideoClass/EditVideo"
 import Reports from "../admin/Reports/Reports"
+import SideLayOut from '../../components/base/Layout/SideLayOut';
+import RouterPath from '../../common/constants/path/routerPath';
 
 
 
@@ -31,45 +33,45 @@ const AdminModuleComponent = () => {
     const router = useLocation()
     let children = <></>;
 
-    if (router.pathname.includes('dashboard')) {
+    if (router.pathname.includes(RouterPath.ADMIN_DASHBOARD)) {
         children = (<AdminDashboard />)
     }
-    if (router.pathname.includes('premises/add')) {
+    if (router.pathname === RouterPath.ADD_PREMISE) {
         children = (<AddPremise />)
     }
-    if (router.pathname.includes('premises/edit')) {
+    if (router.pathname === RouterPath.EDIT_PREMISE) {
         children = (<EditPremise />)
     }
 
-    if (router.pathname.endsWith('premises')) {
+    if (router.pathname === RouterPath.PREMISES_LIST) {
         children = (<PremisesList />)
     }
 
-    if (router.pathname == '/admin/coupons') {
+    if (router.pathname === RouterPath.COUPONS_LIST) {
         children = (<CouponsList />)
     }
 
-    if (router.pathname == '/admin/coupons/add') {
+    if (router.pathname === RouterPath.ADD_COUPON) {
         children = (<AddCoupon />)
     }
-    if (router.pathname == '/admin') {
-        children = (<Reports/>)
+    if (router.pathname === RouterPath.REPORTS) {
+        children = (<Reports />)
     }
 
-    if (router.pathname == '/admin/coupons/details') {
+    if (router.pathname === RouterPath.COUPON_DETAILS) {
         children = (<CouponDetails />)
     }
 
-    if (router.pathname == '/admin/plans') {
+    if (router.pathname === RouterPath.PRLANS_LIST) {
         children = (<PlansList />)
     }
-    if (router.pathname == '/admin/plans/add') {
+    if (router.pathname === RouterPath.ADD_PLAN) {
         children = (<AddPlan />)
     }
-    if (router.pathname == '/admin/plans/edit') {
+    if (router.pathname === RouterPath.EDITP_PLAN) {
         children = (<PlansList />)
     }
-    if (router.pathname == '/admin/payments') {
+    if (router.pathname === RouterPath.PAYMENT_HISTORY) {
         children = (<PaymentsHistory />)
     }
 
@@ -77,35 +79,16 @@ const AdminModuleComponent = () => {
         <div className='flex flex-col'>
 
             <Header />
+            <div className='flex'>
+                <SideLayOut />
+                <main style={{ width: "100vw" }}>
+                    <div>
+                        {children}
+                    </div>
+                </main>
+            </div>
 
-            <aside style={{ color: '#475569' }} className='hidden md:block cursor - pointer'>
 
-                < ul className='pl-8 pr-8 font-bold color-secondary p-2 focus-within:hover:bg-black' >
-                    Main
-                </ul >
-                <a href="/home">
-                    <ul className={`pl-8 p-2 pr-8 font-bold hover:bg-green-50 ${router.pathname.includes("/home") && 'text-green-500'}`}>
-
-                    </ul>
-                </a>
-                <a href="/rooms">
-                    <ul className={`pl-8 p-2 pr-8 font-bold hover:bg-green-50 ${router.pathname.includes("/rooms") && 'text-green-500'}`}>
-
-                    </ul>
-                </a>
-                <a href="/bookings">
-                    <ul className={`pl-8 p-2 pr-8 font-bold hover:bg-green-50 ${router.pathname?.includes("/bookings") && 'text-green-500'}`}>
-
-                    </ul>
-                </a>
-
-            </aside >
-
-            <main style={{ width: "100vw" }}>
-                <div>
-                    {children}
-                </div>
-            </main>
 
 
         </div >
