@@ -17,7 +17,8 @@ import { AddCoupon } from './PaymentManagement/new';
 // import PrivacyPolicy from "../admin/LoginScreens/PrivacyPolicy"
 // import AddVideo from "../admin/VideoClass/AddVideo"
 // import EditVideo from "../admin/VideoClass/EditVideo"
-import Reports from "../admin/Reports/Reports"
+import VideoClass from "../admin/VideoClass/VideoClass"
+// import Reports from "../admin/Reports/Reports"
 
 
 
@@ -48,7 +49,7 @@ const AdminModuleComponent = () => {
         children = (<AddCoupon />)
     }
     if (router.pathname == '/admin') {
-        children = (<Reports/>)
+        children = (<VideoClass/>)
     }
 
 
