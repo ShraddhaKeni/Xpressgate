@@ -4,7 +4,7 @@ import LogOut from './Utils/LogOut'
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import axios from "axios";
-import Societyheader from "./Utils/Societyheader";
+
 const Addemergencyno = () => {
 
   const [contactTypes, setTypes] = useState([])
@@ -58,12 +58,18 @@ const Addemergencyno = () => {
     }
   }
   return (
-    <div className="addguestcontainer1">
-      <div id="headersection1">
-      <div id="addflatsection">
-        <Societyheader/>
-      </div>
-      </div>
+    <div className="addguestcontainer4">
+    <div id="addflatsection">
+        <div className="addflatheadersection">
+          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+          <div id="afsociety"><label>Society</label></div>
+          <div id="afspace"></div>
+          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="aflogoutbutton"><LogOut/></div>
+        </div>
+    
+    </div>
       <div id="societynamesection">
         <div className="societyname">
           <img src="/images/profileicon.svg" alt="Society image" />
@@ -75,27 +81,27 @@ const Addemergencyno = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="Addguestdisplay3">
+        <div className="Addguestdisplay5">
           <label>Add Emergency Number</label>
         </div>
         <Form className='formclass'>
          
-            <div class="form-group row">
-              <label class="col-lg-2 col-form-label labelsize">Name</label>
+            <div class="form-group form-group5 row">
+              <label class="col-lg-2 col-form-label  labelsize2">Name</label>
               <div class="col-lg-4">
-                <input type="text" class="form-control input-lg" id="contact_name" ref={name} name="Name" placeholder="Name"></input>
+                <input type="text" class="form-control input-lg input-lg1" id="contact_name" ref={name} name="Name" placeholder="Name"></input>
               </div>
             </div>
-            <div class="form-group row">
-              <label class="col-lg-2 col-form-label labelsize">Phone Number</label>
+            <div class="form-group form-group5 row">
+              <label class="col-lg-2 col-form-label  labelsize2">Phone Number</label>
               <div class="col-lg-4">
-                <input type="number" class="form-control input-lg" id="contact_number" ref={contact} name="Phone Number" placeholder="Contact"></input>
+                <input type="number" class="form-control input-lg input-lg1" id="contact_number" ref={contact} name="Phone Number" placeholder="Contact"></input>
               </div>
             </div>
-            <div class="form-group row">
-              <label class="col-lg-2 col-form-label labelsize">Type</label>
+            <div class="form-group  form-group5 row">
+              <label class="col-lg-2 col-form-label  labelsize2">Type</label>
               <div class="col-lg-4">
-                <select  class="form-control input-lg" ref={type} name="Type">
+                <select  class="form-control input-lg input-lg1" ref={type} name="Type">
                     <option value={null} selected disabled>Select Type</option>
                     {contactTypes.map((items)=> {
                       return <option value={items.id}>{items.emgContactType}</option>

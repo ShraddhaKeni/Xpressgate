@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import HeaderSection from './Utils/HeaderSection';
 import LogOut from './Utils/LogOut';
+import { checkGuard } from '../auth/Auth';
 
 const Inoutbookcard = () => {
 
@@ -13,7 +14,28 @@ const Inoutbookcard = () => {
   const location = useLocation()
   const navigate = useNavigate()
   useEffect(() => {
-    getData()
+    if (checkGuard()) {
+      const config = {
+        headers: {
+          'x-access-token': localStorage.getItem('accesstoken')
+        }
+      }
+      axios.get(`${window.env_var}api/guard/checkLogin`, config)
+        .then(({ data }) => {
+          getData()
+        })
+        .catch(err => {
+          localStorage.clear();
+          window.location.href = '/guardLogin'
+        })
+    } else {
+      window.location.href = '/'
+    }  
+
+
+
+
+   
   }, [])
 
   const getData = async () => {
@@ -118,6 +140,7 @@ const Inoutbookcard = () => {
               <div><label className='vehicleno'>Vehicle No: MH-29-2901</label></div>
             </div>
             <br></br>
+            {console.log(listData.status)}
             {listData.status==1? <Button type="submit" onClick={(e)=>{handleSubmit(e,listData.booking_id)}} id='inout'  className="btnOut">Out</Button>
               : <Button type="button" onClick={()=>navigate('/inoutbook')} id='inout' className="btnOut">Back</Button>
             }

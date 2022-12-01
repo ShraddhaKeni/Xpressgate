@@ -77,19 +77,18 @@ const Addguard = () => {
   }
 
   return (
-    <div className="addguestcontainer3">
-      <div id="headersection3">
-      <div id="addflatsection">
+    <div className="addguestcontainer4">
+    <div id="addflatsection">
         <div className="addflatheadersection">
           <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
           <div id="afsociety"><label>Society</label></div>
           <div id="afspace"></div>
           <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
           <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="aflogoutbutton"><LogOut /></div>
+          <div id="aflogoutbutton"><LogOut/></div>
         </div>
-      </div>
-      </div>
+    
+    </div>
       <div id="societynamesection">
         <div className="societyname">
           <img src="/images/profileicon.svg" alt="Society image" />
@@ -107,60 +106,60 @@ const Addguard = () => {
         </div>
         <Form className='formclass'>
          
-         <div class="form-group row">
-           <label class="col-lg-2 col-form-label labelsize">First name</label>
+         <div class="form-group form-group6 row">
+           <label class="col-lg-2 col-form-label labelsize1">First name</label>
            <div class="col-lg-4">
             {type=='edit'?<input type="text" class="form-control input-lg" name="First name" id='firstname' placeholder="First Name" defaultValue={guard.firstname}/>:
-            <input type="text" class="form-control input-lg" name="First name" id='firstname' placeholder="First Name"/>}
+            <input type="text" class="form-control input-lg input-lg1" name="First name" id='firstname' placeholder="First Name"/>}
            </div>
          </div>
-         <div class="form-group row">
-           <label class="col-lg-2 col-form-label labelsize">Last name</label>
+         <div class="form-group form-group6 row">
+           <label class="col-lg-2 col-form-label labelsize1">Last name</label>
            <div class="col-lg-4">
             {type=='edit'?<input type="text" class="form-control input-lg" name="Last name" id='lastname' defaultValue={guard.lastname} placeholder="Last name" />:
-            <input type="text" class="form-control input-lg" name="Last name" id='lastname' placeholder="Last name" />}
+            <input type="text" class="form-control input-lg input-lg1" name="Last name" id='lastname' placeholder="Last name" />}
              
            </div>
          </div>
-         <div class="form-group row">
-           <label class="col-lg-2 col-form-label labelsize">Username</label>
+         <div class="form-group form-group6 row">
+           <label class="col-lg-2 col-form-label labelsize1">Username</label>
            <div class="col-lg-4">
               {type=='edit'?<input type="text" class="form-control input-lg" name="Last name" id="username" defaultValue={guard.username} placeholder="Username" />
-              :<input type="text" class="form-control input-lg" name="Last name" id="username" placeholder="Username" />}
+              :<input type="text" class="form-control input-lg input-lg1" name="Last name" id="username" placeholder="Username" />}
              
            </div>
          </div>
          {type!=='edit'?
-          <div class="form-group row">
-          <label class="col-lg-2 col-form-label labelsize">Password</label>
+          <div class="form-group form-group6 row">
+          <label class="col-lg-2 col-form-label labelsize1">Password</label>
           <div class="col-lg-4">
-            <input type="text" class="form-control input-lg" name="Last name" id="password" placeholder="Password"></input>
+            <input type="text" class="form-control input-lg input-lg1" name="Last name" id="password" placeholder="Password"></input>
           </div>
         </div>
         :''
           }
-         <div class="form-group row">
-           <label class="col-lg-2 col-form-label labelsize">Phone No</label>
+         <div class="form-group form-group6 row">
+           <label class="col-lg-2 col-form-label labelsize1">Phone No</label>
            <div class="col-lg-4">
              {type=='edit'?<input type="text" class="form-control input-lg" name="Phone No" id="phone" defaultValue={guard.mobileno} placeholder="Phone No" />:
-             <input type="text" class="form-control input-lg" name="Phone No" id="phone" placeholder="Phone No" />}
+             <input type="text" class="form-control input-lg input-lg1" name="Phone No" id="phone" placeholder="Phone No" />}
            </div>
          </div>
-         <div class="form-group row">
-           <label class="col-lg-2 col-form-label labelsize">Email </label>
+         <div class="form-group form-group6 row">
+           <label class="col-lg-2 col-form-label labelsize1">Email </label>
            <div class="col-lg-4">
              {type=='edit'?<input type="email" class="form-control input-lg" name="Email" id='email' defaultValue={guard.email} placeholder="Email" />:
-             <input type="email" class="form-control input-lg" name="Email" id='email' placeholder="Email" />}
+             <input type="email" class="form-control input-lg input-lg1" name="Email" id='email' placeholder="Email" />}
            </div>
          </div>
-         <div class="form-group row">
-           <label class="col-lg-2 col-form-label labelsize">Add Profile Picture</label>
+         <div class="form-group form-group6 row">
+           <label class="col-lg-2 col-form-label labelsize1">Add Profile Picture</label>
            <div class="col-lg-4">
-             <input type="file" class="form-control input-lg" name="Add Profile Picture" id="profilePic" placeholder=""></input>
+             <input type="file" class="form-control input-lg input-lg1" name="Add Profile Picture" id="profilePic" placeholder=""></input>
            </div>
          </div>
 
-         <Button type="submit" onClick={(e)=>handleSubmit(e)} className="btnAdd">{type=='edit'?'Edit Guard':'Add Guard'}</Button>
+         <Button type="submit" onClick={(e)=>handleSubmit(e)} className="btnAdd5">{type=='edit'?'Edit Guard':'Add Guard'}</Button>
          </Form>
 
       </div>

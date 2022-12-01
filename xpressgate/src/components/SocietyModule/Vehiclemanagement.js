@@ -4,6 +4,7 @@ import LogOut from './Utils/LogOut';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
+import Societyheader from './Utils/Societyheader';
 
 const Vehiclemanagement = () => {
 
@@ -54,14 +55,7 @@ const Vehiclemanagement = () => {
   return (
     <div className="vmcontainer">
       <div id="vmheadersection">
-        <div class="vmfirstsection">
-          <div id="vmlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="vmsociety"><label>Society</label></div>
-          <div id="vmspace"></div>
-          <div id="vmnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="vmsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="vmlogoutbutton"> <LogOut /></div>
-        </div>
+        <Societyheader/>
       </div>
       <div id="vmsection">
         <div className='vmsocietyname'>

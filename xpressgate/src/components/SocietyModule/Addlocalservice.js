@@ -8,19 +8,18 @@ import { Form } from 'react-bootstrap';
 
 const Addlocalservice = () => {
   return (
-    <div className="addguestcontainer1">
-      <div id="headersection1">
-      <div id="addflatsection">
+    <div className="addguestcontainer4">
+    <div id="addflatsection">
         <div className="addflatheadersection">
           <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
           <div id="afsociety"><label>Society</label></div>
           <div id="afspace"></div>
           <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
           <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="aflogoutbutton"><LogOut /></div>
+          <div id="aflogoutbutton"><LogOut/></div>
         </div>
-      </div>
-      </div>
+    
+    </div>
       <div id="societynamesection">
         <div className="societyname">
           <img src="/images/profileicon.svg" alt="Society image" />
@@ -32,14 +31,14 @@ const Addlocalservice = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="Addguestdisplay3">
+        <div className="Addguestdisplay5">
           <label>Add Management Team</label>
         </div>
         <Form className="formclass">
-          <div class="form-group5 row">
-            <label class="col-lg-2 col-form-label labelsize">Resident</label>
+          <div class="form-group form-group5 row">
+            <label class="col-lg-2 col-form-label labelsize labelsize2">Resident</label>
             <div class="col-lg-4">
-             <select className="form-control input-lg" id='resident_id'>
+             <select className="form-control input-lg input-lg1" id='resident_id'>
                 <option value={null} selected disabled>Select resident</option>
                 {/* {residents.map(item=>{
                   return <option value={item.id}>{item.firstname} {item.lastname}</option>
@@ -47,15 +46,15 @@ const Addlocalservice = () => {
              </select>
             </div>
           </div>
-          <div class="form-group row">
-            <label class="col-lg-2 col-form-label labelsize">
+          <div class="form-group form-group5 row">
+            <label class="col-lg-2 col-form-label labelsize labelsize2">
               {" "}
               Designation
             </label>
             <div class="col-lg-4">
               <input
                 type="text"
-                class="form-control input-lg"
+                class="form-control input-lg input-lg1"
                 name="Designation"
                 placeholder=""
                 id='management_title'

@@ -7,6 +7,7 @@ import {useNavigate} from 'react-router-dom'
 import PaginationCalculate from './Utils/paginationCalculate';
 import LogOut from './Utils/LogOut';
 import GuardHeader from './Utils/GuardHeader';
+import { checkGuard } from '../auth/Auth';
 
 const Inoutbook = () => {
   const [inoutdata, setInoutdata] = useState([])
@@ -26,7 +27,24 @@ const Inoutbook = () => {
   }
 
   useEffect(() => {
-    getInOutBookData()
+    if (checkGuard()) {
+      const config = {
+        headers: {
+          'x-access-token': localStorage.getItem('accesstoken')
+        }
+      }
+      axios.get(`${window.env_var}api/guard/checkLogin`, config)
+        .then(({ data }) => {
+          getInOutBookData()
+        })
+        .catch(err => {
+          localStorage.clear();
+          window.location.href = '/guardLogin'
+        })
+    } else {
+      window.location.href = '/'
+    }  
+
   }, [])
 
   const getInOutBookData = async () => {

@@ -8,19 +8,18 @@ import LogOut from './Utils/LogOut'
 const Editguard = () => {
   
   return (
-    <div className="addguestcontainer3">
-      <div id="headersection3">
-      <div id="addflatsection">
+    <div className="addguestcontainer4">
+    <div id="addflatsection">
         <div className="addflatheadersection">
           <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
           <div id="afsociety"><label>Society</label></div>
           <div id="afspace"></div>
           <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
           <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="aflogoutbutton"><LogOut /></div>
+          <div id="aflogoutbutton"><LogOut/></div>
         </div>
-      </div>
-      </div>
+    
+    </div>
       <div id="societynamesection">
         <div className="societyname">
           <img src="/images/profileicon.svg" alt="Society image" />
@@ -38,32 +37,32 @@ const Editguard = () => {
         </div>
         <Form className='formclass'>
          
-         <div class="form-group row">
-           <label class="col-lg-2 col-form-label labelsize">First name</label>
+         <div class="form-group form-group6 row">
+           <label class="col-lg-2 col-form-label labelsize1">First name</label>
            <div class="col-lg-4">
              <input type="text" class="form-control input-lg" name="First name" placeholder=""></input>
            </div>
          </div>
-         <div class="form-group row">
-           <label class="col-lg-2 col-form-label labelsize">Last name</label>
+         <div class="form-group form-group6 row">
+           <label class="col-lg-2 col-form-label labelsize1">Last name</label>
            <div class="col-lg-4">
              <input type="text" class="form-control input-lg" name="Last name" placeholder=""></input>
            </div>
          </div>
-         <div class="form-group row">
-           <label class="col-lg-2 col-form-label labelsize">Phone No</label>
+         <div class="form-group form-group6 row">
+           <label class="col-lg-2 col-form-label labelsize1">Phone No</label>
            <div class="col-lg-4">
              <input type="number" class="form-control input-lg" name="Phone No" placeholder=""></input>
            </div>
          </div>
-         <div class="form-group row">
-           <label class="col-lg-2 col-form-label labelsize">Email </label>
+         <div class="form-group form-group6 row">
+           <label class="col-lg-2 col-form-label labelsize1">Email </label>
            <div class="col-lg-4">
              <input type="email" class="form-control input-lg" name="Email " placeholder=""></input>
            </div>
          </div>
-         <div class="form-group row">
-           <label class="col-lg-2 col-form-label labelsize">Add Profile Picture</label>
+         <div class="form-group form-group6 row">
+           <label class="col-lg-2 col-form-label labelsize1">Add Profile Picture</label>
            <div class="col-lg-4">
              <input type="file" class="form-control input-lg" name="Add Profile Picture" placeholder=""></input>
            </div>

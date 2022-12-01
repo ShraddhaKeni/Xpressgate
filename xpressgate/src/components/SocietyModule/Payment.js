@@ -9,19 +9,18 @@ const Payment = () => {
 
 
   return (
-    <div className="addguestcontainer3">
-      <div id="headersection3">
-      <div id="addflatsection">
+    <div className="addguestcontainer4">
+    <div id="addflatsection">
         <div className="addflatheadersection">
           <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
           <div id="afsociety"><label>Society</label></div>
           <div id="afspace"></div>
           <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
           <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="aflogoutbutton"><LogOut /></div>
+          <div id="aflogoutbutton"><LogOut/></div>
         </div>
-      </div>
-      </div>
+    
+    </div>
       <div id="societynamesection">
         <div className="societyname">
           <img src="/images/profileicon.svg" alt="Society image" />
@@ -49,12 +48,12 @@ const Payment = () => {
         </div>
         <div className="ButtonsContainer">
             <div className="button1">
-                <button type="button" className="societydues_btn">Utility Payment</button>
+                <button type="button" onClick={()=>window.location.href='/utilitypayment'} className="societydues_btn" >Utility Payment</button>
             </div>
         </div>
         <div className="ButtonsContainer">
             <div className="button1">
-                <button type="button" className="societydues_btn">Payment History</button>
+                <button type="button" onClick={()=>window.location.href='/paymenthistory'} className="societydues_btn">Payment History</button>
             </div>
         </div>
         <div className="ButtonsContainer">
