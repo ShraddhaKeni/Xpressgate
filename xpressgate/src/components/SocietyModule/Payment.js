@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../SocietyModule/Payment.css";
 import LogOut from './Utils/LogOut'
 
 
 const Payment = () => {
    
-
+  const navigate = useNavigate()
 
   return (
     <div className="addguestcontainer4">
@@ -36,24 +36,25 @@ const Payment = () => {
         <div className="Addguestdisplay4">
           <label>Payment</label>
         </div>
+        <div className="all_payment_buttons">
        <div className="ButtonsContainer">
             <div className="button1">
-                <button type="button" className="societydues_btn">Society Dues</button>
+                <button type="button" onClick={()=>navigate('/societydues')} className="societydues_btn">Society Dues</button>
             </div>
         </div>
         <div className="ButtonsContainer">
             <div className="button1">
-                <button type="button" onClick={()=>window.location.href='/vendorpayment'} className="societydues_btn">Vendor Payment</button>
+                <button type="button" onClick={()=>navigate('/vendorpayment')} className="societydues_btn">Vendor Payment</button>
             </div>
         </div>
         <div className="ButtonsContainer">
             <div className="button1">
-                <button type="button" onClick={()=>window.location.href='/utilitypayment'} className="societydues_btn" >Utility Payment</button>
+                <button type="button" onClick={()=>navigate('/utilitypayment')} className="societydues_btn" >Utility Payment</button>
             </div>
         </div>
         <div className="ButtonsContainer">
             <div className="button1">
-                <button type="button" onClick={()=>window.location.href='/paymenthistory'} className="societydues_btn">Payment History</button>
+                <button type="button" onClick={()=>navigate('/paymenthistory')} className="societydues_btn">Payment History</button>
             </div>
         </div>
         <div className="ButtonsContainer">
@@ -61,7 +62,7 @@ const Payment = () => {
                 <button type="button" className="societydues_btn">Package Details</button>
             </div>
         </div>
-
+        </div>
       </div>
     </div>
        

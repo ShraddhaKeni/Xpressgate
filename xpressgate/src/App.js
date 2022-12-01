@@ -66,6 +66,7 @@ import UtilityPayment from './components/SocietyModule/UtilityPayment';
 import Package from './components/SocietyModule/Package';
 import ApprovalList from './components/SocietyModule/ApprovalList'
 import SocietyPaymentHistory from './components/SocietyModule/SocietyPaymentHistory';
+import PackageList from './components/SocietyModule/PackageList';
 
 function App() {
 
@@ -146,6 +147,7 @@ function App() {
             <Route path="/societydues" element={<SocietyDues/>} exact></Route>
             <Route path="/utilitypayment" element={<UtilityPayment/>} exact></Route>
             <Route path="/package" element={<Package />} exact></Route>
+            <Route path="/packagelist" element={<PackageList />} exact></Route>
             <Route path="/paymenthistory" element={<SocietyPaymentHistory />} exact></Route>
           
          
