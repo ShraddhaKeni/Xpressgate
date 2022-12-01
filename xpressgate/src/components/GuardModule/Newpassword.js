@@ -4,12 +4,21 @@ import axios from 'axios'
 import { useLocation } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { validatePassword } from '../auth/validation';
-
+import { useEffect } from 'react';
+import { checkGuard } from '../auth/Auth';
 const Newpassword = () => {
 
   const location = useLocation()
   const navigate = useNavigate()
   //console.log(location.state.guardid)
+
+  useEffect(()=>{
+    if (checkGuard()) {
+     
+    } else {
+      window.location.href = '/'
+    }  
+  },[])
 
   const confirmPasword = async () => {
     let cp = document.getElementById('confirmpassword').value
