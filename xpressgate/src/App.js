@@ -97,7 +97,6 @@ function App() {
             <Route path="/blocklist" element={<Blocklist />} exact></Route>
             <Route path="/addflat" element={<Addflat />} exact></Route>
             <Route path="/addnotice" element={<Addnotice />} exact></Route>
-            <Route path="/noticelist" element={<Noticelist />} exact></Route>
             <Route path="/addvehicle" element={<Addvehicle />} exact></Route>
             <Route path="/guardLogin" element={<Login />} exact></Route>
             <Route path="/addFlat" element={<Addflat/>} exact></Route>
@@ -142,7 +141,7 @@ function App() {
             <Route path="/societydues" element={<SocietyDues/>} exact></Route>
             <Route path="/utilitypayment" element={<UtilityPayment/>} exact></Route>
             <Route path="/package" element={<Package />} exact></Route>
-            <Route path="/Approvallist" element={<ApprovalList />} exact></Route>
+            <Route path="/Approvallist" element={<ApprovalList />} exact></Route> 
           
          
         </Routes>
