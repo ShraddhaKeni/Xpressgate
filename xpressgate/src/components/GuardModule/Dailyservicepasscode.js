@@ -171,8 +171,8 @@ const navigate = useNavigate()
           </div>}
           <div className='buttons_dailyservice'>
             <div>
-              <Button type="button" onClick={()=> handleclick()} id='deny_entry'  className="btnAdd  ">APPROVE</Button>
-              <Button type="button" onClick={()=>window.location.href="/dailyhelp"} id='deny_entry' className="btnAdd ">DENY</Button>
+              <Button type="button" onClick={()=> handleclick()} id='approve_entry'  className="btnAddDSP">APPROVE</Button>
+              <Button type="button" onClick={()=>window.location.href="/dailyhelp"} id='deny_entry' className="btnDenyDSP ">DENY</Button>
             </div>
           </div>
       </div>

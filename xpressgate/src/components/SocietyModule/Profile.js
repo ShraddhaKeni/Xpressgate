@@ -134,7 +134,7 @@ useEffect(()=>{
               </div>
             </div>
            
-            <Button type="submit" onClick={(e)=>handleSubmit(e)} className="btnAdd">Save</Button>
+            <Button type="submit" onClick={(e)=>handleSubmit(e)} className="btnAddprofile">Save</Button>
         </Form>
 
       </div>  

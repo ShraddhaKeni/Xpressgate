@@ -87,7 +87,7 @@ const Addguest = () => {
                 <input type="number" class="form-control input-lg" name="inputnoofpeople" placeholder="No of people"></input>
               </div>
             </div>
-            <Button type="submit" className="btnAdd">Add</Button>
+            <Button type="submit" className="btnAddguest">Add</Button>
         </Form>
 
       </div>  

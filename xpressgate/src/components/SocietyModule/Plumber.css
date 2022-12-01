@@ -158,7 +158,7 @@ html {
     margin-left: 60%;
     margin-top: -1%;
   }
-  #inoutbooktable1 {
+  #plumbertable {
     margin-Left: 22%;
     margin-Top: 1.5%;
     width: 40vw;
@@ -194,7 +194,7 @@ table thead {
   }
   /* Media query for laptop */
   @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
-    #inoutbooktable1 {
+    #plumbertable {
       margin-Left: 24%;
       margin-Top: 0.5%;
       width: 40vw;

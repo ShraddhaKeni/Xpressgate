@@ -161,7 +161,7 @@ html {
   font-family: 'Rubik', sans-serif;
 }
 
-.btnAdd{
+.btnAddVendor{
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
@@ -205,7 +205,7 @@ html {
 .labelsize {
   font-size: 12px;
 }
-.btnAdd {
+.btnAddVendor {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;

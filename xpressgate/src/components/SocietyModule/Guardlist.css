@@ -196,6 +196,30 @@ html {
  .noticelist a{
    color: #757575;
   }
+
+  #guardlisttable {
+    margin-Left: 10%;
+    margin-Top: 2%;
+    max-Width: 80%;
+    background-color: #F9FAFF;
+    border-radius: 14px;
+    border-collapse: separate;
+    font-family: 'Rubik', sans-serif;
+  }
+  
+  #guardlisttable thead {
+    background-color: #14335D;
+    color: #fff;
+  }
+  
+  #guardlisttable td:hover{
+    color: #0A8996;
+  }
+  
+  
+  table th {
+    text-align: center;
+  }
   /* Media query for laptop */
   @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
     #dashboardlogo3 img {

@@ -158,24 +158,12 @@ html {
   font-size: 20px;
 }
 
-.btnAdd {
-  background-color: #0A8996;
-  color: #fff;
-  border-radius: 14px;
-  width: 250px;
-  height: 60px;
-  font-size: 151%;
-  font-weight: 500;
-  margin-top: 4%;
-  margin-right: 34%;
-}
-
 .formclass {
   margin-top: 5%;
   margin-left: 25%;
 }
 
-#inoutbooktable {
+#vendortable {
   margin-Left: 10%;
   margin-Top: 2%;
   max-Width: 80%;
@@ -185,7 +173,7 @@ html {
   font-family: 'Rubik', sans-serif;
 }
 
-#inoutbooktable thead {
+#vendortable thead {
   background-color: #14335D;
   color: #fff;
 }
@@ -194,7 +182,7 @@ table th {
   text-align: center;
 }
 
-#inoutbooktable td:hover{
+#vendortable td:hover{
   color: #FD6B22;
 }
 
@@ -203,7 +191,7 @@ table th {
   height: 5%;
   border: 2px solid #000;
   border-radius: 15px;
-  margin-left: 20%;
+  margin-left: 72%;
   margin-top: 2%;
   
 }
@@ -274,19 +262,6 @@ table th {
 
   .labelsize {
     font-size: 12px;
-  }
-
-  .btnAdd {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 155px;
-    height: 36px;
-    font-size: 151%;
-    font-weight: 500;
-    margin-top: 4%;
-    margin-right: 35%;
-    padding-top: 0%;
   }
 
   #dashboardguard label {

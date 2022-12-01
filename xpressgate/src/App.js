@@ -59,10 +59,10 @@ import Amenitylist from './components/SocietyModule/Amenitylist'
 import Approvallistamenity from './components/SocietyModule/Approvallistamenity'
 import Addeditamenity from './components/SocietyModule/Addeditamenity'
 import ChangePassword from './components/GuardModule/ChangePassword';
-import SocietyDues from './components/SocietyModule/SocietyDues';
-import UtilityPayment from './components/SocietyModule/UtilityPayment';
-import Package from './components/SocietyModule/Package';
-import ApprovalList from './components/SocietyModule/ApprovalList'
+// import SocietyDues from './components/SocietyModule/SocietyDues';
+// import UtilityPayment from './components/SocietyModule/UtilityPayment';
+// import Package from './components/SocietyModule/Package';
+// import ApprovalList from './components/SocietyModule/ApprovalList'
 
 function App() {
 
@@ -138,11 +138,11 @@ function App() {
             <Route path="/amenitylist" element={<Amenitylist />} exact></Route>
             <Route path="/approvallistamenity" element={<Approvallistamenity />} exact></Route>
             <Route path="/addeditamenity" element={<Addeditamenity />} exact></Route>
-            <Route path="/societydues" element={<SocietyDues/>} exact></Route>
+            {/* <Route path="/societydues" element={<SocietyDues/>} exact></Route>
             <Route path="/utilitypayment" element={<UtilityPayment/>} exact></Route>
             <Route path="/package" element={<Package />} exact></Route>
             <Route path="/Approvallist" element={<ApprovalList />} exact></Route> 
-          
+           */}
          
         </Routes>
       </Router>

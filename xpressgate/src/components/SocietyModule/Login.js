@@ -85,7 +85,7 @@ const Login_society = () => {
             <div className="forgotpassword1">
               <a
                 href="/screset"
-                style={{ color: "#FD6B22" }}
+                style={{ color: "#FD6B22",fontSize: "15px" }}
               >
                 Forgot Password?
               </a>
