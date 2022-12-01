@@ -156,8 +156,9 @@ const Vendor_Payment = () => {
               <div class="form-group row">
                 <label class="col-lg-2 col-form-label labelsize">Resident</label>
                 <div class="col-lg-4">
-                  <input type="text" class="form-control input-lg" id='resident_id' disabled name="First name" placeholder="Resident name" value={resident.firstname+' '+resident.lastname} > 
-                  </input>
+                  {resident.firstname?<input type="text" class="form-control input-lg" id='resident_id' disabled name="First name" placeholder="Resident name" value={resident.firstname+' '+resident.lastname} > 
+                  </input>:<input type="text" class="form-control input-lg" id='resident_id' disabled name="First name" placeholder="Resident name" ></input>}
+                  
                 </div>
               </div>
               <div class="form-group row">
