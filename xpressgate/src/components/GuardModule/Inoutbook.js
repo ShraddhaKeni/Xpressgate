@@ -102,10 +102,10 @@ const Inoutbook = () => {
             </tr>
           </thead>
           <tbody>
-            {inoutdata.map(iodata => {
+            {inoutdata.map((iodata,index) => {
               return (
                 <tr onClick={()=>routeNavigate(iodata.booking_id)}>
-                  <td>1</td>
+                  <td>{(currentPage-1)*12+(index+1)}</td>
                   <td >{iodata.guestFirstName} {iodata.guestLastName}</td>
                   <td>{iodata.type == '1' ? 'Guest' : iodata.type == '2' ? 'Vendor' : 'Daily Helper'}</td>
                   <td>{iodata.block_name}</td>

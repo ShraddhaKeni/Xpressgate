@@ -170,7 +170,7 @@ const Vendorlist = () => {
                 <tr key={item.booking_id} id={item.booking_id}  >
                 <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1)*12+(index+1)}</td>
                 <td id={'td-'+item._id} >
-                  {item.bookingstatus==true?<Link className='linkToPage' to='/vendorentry' state={{id:item._id,bookingid:item.booking_id}}>{item.vendor_name}</Link>:item.vendor_name}
+                  {item.bookingstatus==true?<Link className='linkToPage' to='/vendorentry' state={{id:item._id,bookingid:item.booking_id,code:item.code}}>{item.vendor_name}</Link>:item.vendor_name}
                   
                   
                   </td>
@@ -179,7 +179,7 @@ const Vendorlist = () => {
                 <td>{item.flats}</td>
                 <td>{dateTimeFormat(item.date)}</td>
                 <td>{getTime(item.date)}</td>
-                <td>-</td>
+                <td>{item.bookingstatus==true?'Unapproved':'Approved'}</td>
                
               </tr>
              

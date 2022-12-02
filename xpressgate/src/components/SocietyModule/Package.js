@@ -5,10 +5,12 @@ import { Button } from "react-bootstrap";
 import LogOut from "../SocietyModule/Utils/LogOut";
 import Societyheader from "./Utils/Societyheader";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Package = () => {
 
   const [booked,setPackage] = useState({})
+  const navigate = useNavigate()
 
   useEffect(()=>{
     getData()
@@ -31,9 +33,14 @@ const Package = () => {
     }
   }
 
+  function navigateToEdit(){
+    navigate('/packagelist',{state:{id:booked._id,edit:true}})
+  }
+
   const ChangeDate=(d)=>{
     const date = new Date(d)
-    return((date.getDate()-1)+'/'+date.getMonth()+'/'+(date.getFullYear()+1))
+    
+    return(`${date.getDate()-1}/${date.getUTCMonth()+1}/${date.getFullYear()+1}`)
   }
 
   return (
@@ -57,7 +64,7 @@ const Package = () => {
         <div className="Addguestdisplay4">
           <label>{booked.plan_name}</label>
         </div>
-        <Button style={{marginLeft:'50%',backgroundColor:'#0A8996'}}>Edit package</Button>
+        <Button style={{marginLeft:'50%',backgroundColor:'#0A8996'}} onClick={()=>{navigateToEdit()}}>Edit package</Button>
         <div className="packagedetailscard">
        
           <div className="cardimage">
