@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import './otp.css';
 import { checkGuard } from '../auth/Auth';
 import PaginationCalculate from './Utils/paginationCalculate';
+import GuardHeader from './Utils/GuardHeader';
 
 
 const Dailyhelplist = () => {
@@ -75,14 +76,7 @@ const Dailyhelplist = () => {
   return (
     <div className="dailyhelplistcontainer">
       <div id="dhlheadersection">
-        <div className="dhlfirstheadersection">
-          <div id="dhldashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="dhldashboardguard"><label>Guard</label></div>
-          <div id="dhldashboardspace"></div>
-          <div id="dhldashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="dhldashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="dhldashboardlogoutbutton"><LogOut /></div>
-        </div>
+       <GuardHeader/>
       </div>
       <div id="dhlguardnamesection">
         <div className='dhlguardname'>

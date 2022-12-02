@@ -15,19 +15,32 @@ const VendorEntryDetails = () => {
     const navigate = useNavigate()
 
     useEffect(()=>{
+      if(location.state)
+      {
         getData()
+      }
+      else
+      {
+        navigate('/dashboard')
+      }
+        
     },[])
 
     const getData =async()=>{
-      
+        // console.log(location.state)
         try {
             const {data} = await axios.get(`${window.env_var}api/vendorlist/getOne/${location.state.id}`)
+            if(data.data.list[0]==null)
+            {
+              alert('This is invalid code.')
+              navigate('/dashboard')
+            }
             setVendorData(data.data.list[0])
             setFlats(data.data.list)
             setBookings(data.data.list)
-            console.log(data)
+            // console.log(data)
         } catch (error) {
-            
+          navigate('/dashboard')
         }
     } 
 
