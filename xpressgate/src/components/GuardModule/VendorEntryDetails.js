@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import GuardHeader from './Utils/GuardHeader';
 import HeaderSection from './Utils/HeaderSection';
 import LogOut from './Utils/LogOut';
+import { checkGuard } from '../auth/Auth';
 const VendorEntryDetails = () => {
     const current = new Date();
     const [date, setDate] = useState(`${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`);
@@ -12,17 +13,43 @@ const VendorEntryDetails = () => {
     const [flats,setFlats] = useState([])
     const [bookings,setBookings] = useState([])
     const location = useLocation()
+    const [code,setCode] = useState()
     const navigate = useNavigate()
 
     useEffect(()=>{
-      if(location.state)
-      {
-        getData()
-      }
-      else
-      {
-        navigate('/dashboard')
-      }
+
+      if(checkGuard())
+        {
+          const config = {
+            headers:{
+              'x-access-token':localStorage.getItem('accesstoken')
+            }
+          }
+        axios.get(`${window.env_var}api/guard/checkLogin`,config)
+                .then(({data})=>{  
+                  if(location.state)
+                      {
+                        getData()
+                      }
+                      else
+                      {
+                        navigate('/dashboard')
+                      }
+                })
+                .catch(err=>{
+                  localStorage.clear();
+                  window.location.href='/guardLogin'
+                })
+              
+        }
+        else
+        {
+          window.location.href='/'
+        }
+
+
+
+      
         
     },[])
 
@@ -38,6 +65,7 @@ const VendorEntryDetails = () => {
             setVendorData(data.data.list[0])
             setFlats(data.data.list)
             setBookings(data.data.list)
+            setCode(location.state.code)
             // console.log(data)
         } catch (error) {
           navigate('/dashboard')
@@ -47,7 +75,9 @@ const VendorEntryDetails = () => {
     const submitData=async()=>{
         
         try {
-          console.log(bookings)
+          const sendRequest = await axios.get(`${window.env_var}api/inoutentires/update/${location.state.code}`)
+
+          console.log(location.state.code)
           bookings.map(async(items)=>{
             try {
               let submitData = {
@@ -67,7 +97,7 @@ const VendorEntryDetails = () => {
 
                const {data} = await axios.post(`${window.env_var}api/inout/add`,submitData)
               console.log(data)
-              const bookingUpdate = await axios.get(`${window.env_var}api/bookvendor/removeBooking/${items.booking_id}`)
+              const bookingUpdate = await axios.get(`${window.env_var}api/bookvendor/removeBooking/${items.booking_id}`) 
              navigate('/vendorlist')
             } catch (error) {
               console.log(error)
@@ -97,7 +127,7 @@ const VendorEntryDetails = () => {
           </div>
           <div className='fvbackgroundimg'>
             <div className='frequentvisitordisplay'>
-              <label>{location.state.code?location.state.code:'Details'}</label>
+              <label>{code?code:'Details'}</label>
             </div>
             {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}
             <div className="col">

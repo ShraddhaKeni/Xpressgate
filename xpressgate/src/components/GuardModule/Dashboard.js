@@ -52,6 +52,11 @@ const Dashboard = () => {
           community_id: "632970d054edb049bcd0f0b4"
         }
         let { data } = await axios.post(`${window.env_var}api/inoutentires/getdata`, codeData)
+        if(data.data.bookingdetails.status===false)
+        {
+          alert('Expired Entry Code.')
+          return
+        }
         setEntryData(data.data.bookingdetails)
         setMessage(data.message)
       }else{

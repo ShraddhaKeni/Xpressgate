@@ -127,7 +127,7 @@ const Inoutbookcard = () => {
             <div className='detailsclass'>
               <div><label className='date'>Date:{dateConvert(listData.intime)}</label></div>
               <div><label className='intine'>In-Time: {timeConvert(listData.intime)}</label></div>
-              <div><label className='outtime'>Out-Time: {dateConvert(listData.outtime)}</label></div>
+              <div><label className='outtime'>Out-Time: {listData.outtime?dateConvert(listData.outtime):'N/A'}</label></div>
               <div><label className='noofpeople'>No of People: 1</label></div>
               <div><label className='vehicleno'>Vehicle No: MH-29-2901</label></div>
             </div>

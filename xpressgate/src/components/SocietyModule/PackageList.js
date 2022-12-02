@@ -4,20 +4,59 @@ import { Button, Form } from "react-bootstrap";
 import React, { useEffect, useRef, useState } from 'react'
 
 import SocietyHeader from './Utils/Societyheader'
+import { useLocation } from 'react-router-dom';
 
 const PackageList = () => {
 
   const [plan,setPlan] = useState([])
   const [members,setMembers] = useState([])
-
+  const location = useLocation()
   const plan_id = useRef([])
   const booked_by = useRef([])
   const purchase_date = useRef([])
   const payment_due = useRef([])
+  const [edit,setEdit] = useState(false)
+  const [booked,setBooked] = useState({})
 
   useEffect(()=>{
-    getData()
+    if(location.state)
+    {
+      setEdit(location.state.edit)
+      getBookedPlan()
+    }
+    else
+    {
+      getData()
+    }
   },[])
+
+  const getBookedPlan= async()=>{
+    try {
+      const {data} = await axios.get(`${window.env_var}api/packagebook/get/${localStorage.getItem('community_id')}`)
+      setBooked(data.data.booked[0])
+      await getData()
+
+      //setting html data
+      const select_plan = document.getElementById("plan_id")
+      const plan_options = Array.from(select_plan.options)
+      const selected = plan_options.find(x=>x.text===data.data.booked[0].plan_name)
+      selected.selected=true
+
+      //Member
+
+      document.getElementById('block_id').value=data.data.booked[0].member_id
+      document.getElementById('payment_date').value=new Date(data.data.booked[0].purchased_date).toISOString().split('T')[0]
+      ChangeDate(data.data.booked[0].purchased_date)
+      
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+
+
 
   const getData=async()=>{
     try {
@@ -38,23 +77,41 @@ const PackageList = () => {
   const handleSubmit =async(e)=>{
     try {
       e.preventDefault()
-      const sendData={
-        plan_id:plan_id.current.value,
-        booked_by:booked_by.current.value,
-        community_id:localStorage.getItem('community_id'),
-        purchased_date:purchase_date.current.value,
+
+      if(edit)
+      {
+        const sendData={
+          plan_id:plan_id.current.value,
+          booked_by:booked_by.current.value,
+          community_id:localStorage.getItem('community_id'),
+          purchased_date:purchase_date.current.value,
+          id:booked._id
+        }
+        console.log(sendData)
+        const {data} = await axios.post(`${window.env_var}api/packagebook/update`,sendData)
+        window.location.href='/package'
       }
-      const {data} = await axios.post(`${window.env_var}api/packagebook/post`,sendData)
-      window.location.href='/package'
+      else
+      {
+        const sendData={
+          plan_id:plan_id.current.value,
+          booked_by:booked_by.current.value,
+          community_id:localStorage.getItem('community_id'),
+          purchased_date:purchase_date.current.value,
+        }
+        const {data} = await axios.post(`${window.env_var}api/packagebook/post`,sendData)
+        window.location.href='/package'
+      }
+     
     } catch (error) {
       console.log(error)
     }
   }
 
-  const ChangeDate=(e)=>{
-    console.log(e.target.value)
-    const date = new Date(e.target.value)
-    payment_due.current.value=((date.getDate()-1)+'/'+date.getMonth()+'/'+(date.getFullYear()+1))
+  const ChangeDate=(d)=>{
+   
+    const date = new Date(d)
+    payment_due.current.value=(`${date.getDate()-1}/${date.getUTCMonth()+1}/${date.getFullYear()+1}`)
   }
 
 
@@ -82,7 +139,7 @@ const PackageList = () => {
           <div class="form-group row">
                 <label class="col-lg-2 col-form-label labelsize">Package</label>
                 <div class="col-lg-4">
-                  <select type="text" class="form-control input-lg" ref={plan_id} id='vendor_id' name="First name" >
+                  <select type="text" class="form-control input-lg" ref={plan_id} id='plan_id' name="First name" >
                     <option  disabled value={null} selected>Select Plan</option>
                       {plan.map(item=>{
                         return <option value={item.id}>{item.name}</option>
@@ -105,7 +162,7 @@ const PackageList = () => {
               <div class="form-group row">
                 <label class="col-lg-2 col-form-label labelsize">Payment Date</label>
                 <div class="col-lg-4">
-                  <input type="date" class="form-control input-lg" onChange={(e)=>ChangeDate(e)} ref={purchase_date} id='payment_date' name="First name" />
+                  <input type="date" class="form-control input-lg" onChange={()=>ChangeDate(purchase_date.current.value)} ref={purchase_date} id='payment_date' name="First name" />
                 </div>
               </div>
               <div class="form-group row">

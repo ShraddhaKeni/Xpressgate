@@ -92,8 +92,12 @@ const Dailyhelplist = () => {
           </div>
           <div className="row row-cols-1 row-cols-md-3 g-4 dhfullcardscss">
             {currentPosts.map((dailydata) => {
-
-              return (
+              if(dailydata.booking_id.length<1)
+              {
+                return null
+              }
+              else
+                return (
                
                   <div className="col" onClick={()=>routeChange(dailydata._id)}>
                     <div className="dailyhelpminicard"><br></br>
@@ -111,7 +115,7 @@ const Dailyhelplist = () => {
         </div>
         <div style={{marginTop:'10%'}}>
 
-        <PaginationCalculate totalPages={dailyhelpdata.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+          <PaginationCalculate totalPages={dailyhelpdata.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
         </div>
       </div>
       

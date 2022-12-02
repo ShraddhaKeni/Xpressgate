@@ -55,6 +55,15 @@ const GuestList = () => {
       return d.getHours()+':'+d.getMinutes()
       
     }
+
+
+  const  dateFormat=(date)=>
+  {
+    var d = new Date(date)
+    return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()
+    
+  }
+
 async function  paginate(event)
   {
     setCurrentpage(event.selected+1)
@@ -105,7 +114,7 @@ const guestEntry=async(id)=>{
                     <td>Guest</td>
                     <td>{items.block_name}</td>
                     <td>{items.flat_number}</td>
-                    <td>Today</td>
+                    <td>{dateFormat(items.time)}</td>
                     <td>{dateTimeFormat(items.time)}</td>
                     <td>-</td>
                 </tr>)
