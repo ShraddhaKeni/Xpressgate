@@ -82,6 +82,7 @@ const navigate = useNavigate()
         const { data } = await axios.get(`${window.env_var}api/resident/helperstaff/getOne/${props.booked_id}`)
         setFlats(props.flatID)
         setStaff(data.data.staff[0])
+        console.log(data.data.staff)
         const serviceType = await axios.get(`${window.env_var}api/admin/dailyhelp/getStafftype/${data.data.staff[0].serviceType}`)
         setService(serviceType.data.data.dailyhelp.serviceType)
       }
