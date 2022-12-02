@@ -111,19 +111,6 @@ html {
   background-color: #96230A
 }
 
-/* .btnlogout {
-  background-color: #0A8996;
-  color: #fff;
-  border-radius: 14px;
-  width: 142px;
-  height: 52px;
-  font-size: 20px;
-  font-weight: 500;
-  margin-top: 18%;
-  padding-top: 2%;
-} */
-
-
 .guardname {
   display: flex;
   width: 80%;
@@ -168,18 +155,6 @@ html {
 
 .labelsize {
   font-size: 20px;
-}
-
-.btnAdd {
-  background-color: #0A8996;
-  color: #fff;
-  border-radius: 14px;
-  width: 250px;
-  height: 60px;
-  font-size: 151%;
-  font-weight: 500;
-  margin-top: 4%;
-  margin-right: 34%;
 }
 
 .formclass {
@@ -328,19 +303,6 @@ html {
 
   .labelsize {
     font-size: 12px;
-  }
-
-  .btnAdd {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 155px;
-    height: 36px;
-    font-size: 151%;
-    font-weight: 500;
-    margin-top: 4%;
-    margin-right: 35%;
-    padding-top: 0%;
   }
 
   #dashboardguard label {

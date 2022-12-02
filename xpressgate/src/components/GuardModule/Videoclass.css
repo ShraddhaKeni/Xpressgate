@@ -143,7 +143,7 @@ html {
   height: auto;
 }
 
-.Dailyhelplistdisplay {
+.videolistdisplay {
   width: 300px;
   height: 64px;
   background-color: #AED8DC;
@@ -156,18 +156,6 @@ html {
 
 .labelsize {
   font-size: 20px;
-}
-
-.btnAdd {
-  background-color: #0A8996;
-  color: #fff;
-  border-radius: 14px;
-  width: 250px;
-  height: 60px;
-  font-size: 151%;
-  font-weight: 500;
-  margin-top: 4%;
-  margin-right: 34%;
 }
 
 .formclass {
@@ -258,19 +246,6 @@ html {
     font-size: 12px;
   }
 
-  .btnAdd {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 155px;
-    height: 36px;
-    font-size: 151%;
-    font-weight: 500;
-    margin-top: 4%;
-    margin-right: 35%;
-    padding-top: 0%;
-  }
-
   #videodashboardguard label {
     margin-top: 14%;
     margin-left: -68%;
@@ -283,7 +258,7 @@ html {
     font-size: 20px;
   }
 
-  .Dailyhelplistdisplay {
+  .videolistdisplay {
     width: 300px;
     height: 64px;
     background-color: #AED8DC;
@@ -397,7 +372,7 @@ html {
   margin-top: 10%;
   padding-top: 2%;
 }
-.Dailyhelplistdisplay {
+.videolistdisplay {
   width: 216px;
   height: 64px;
   background-color: #AED8DC;

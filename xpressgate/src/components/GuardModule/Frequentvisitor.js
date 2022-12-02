@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import { getDefaultNormalizer } from '@testing-library/react';
 import { useNavigate } from 'react-router-dom';
-
+import LogOut from './Utils/LogOut';
 
 const Frequentvisitor = ({freqvisitordata}) => {
 
@@ -49,7 +49,7 @@ const Frequentvisitor = ({freqvisitordata}) => {
           <div id="dashboardspace"></div>
           <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
           <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="dashboardlogoutbutton"> <Button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
+          <div id="dashboardlogoutbutton"> <LogOut /></div>
         </div>
       </div>
       <div id="guardnamesection"> 

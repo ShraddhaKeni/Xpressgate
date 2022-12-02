@@ -55,16 +55,16 @@ const Login = () => {
           <div className='input_fields'>
             <div className='email_input'>
               <label className='email'>Username</label>
-              <input ref={username} type="text" className="form-control emailtextbox" onKeyPress={(e)=>{document.getElementById(e.target.id).style.border='none'}} id="loginemailid" placeholder='Username' ></input>
+              <input ref={username} type="text" className="form-control emailtextboxguard" onKeyPress={(e)=>{document.getElementById(e.target.id).style.border='none'}} id="loginemailid" placeholder='Username' ></input>
             </div>
             <br></br><br></br>
             <div className='email_input'>
               <label className='password'>Password</label>
-              <input ref={password} type="password" className="form-control passwordtextbox" onKeyPress={(e)=>{document.getElementById(e.target.id).style.border='none'}} id="loginpassword" placeholder='Password'></input>
+              <input ref={password} type="password" className="form-control passwordtextboxguard" onKeyPress={(e)=>{document.getElementById(e.target.id).style.border='none'}} id="loginpassword" placeholder='Password'></input>
             </div>
             <br></br>
             <Button type="button" className="btnlogin" id='login' onClick={()=>{loginGuard()}}>Login</Button>
-            <div className='forgotpassword'><a href='/forgotpassword' style={{color:"#FD6B22"}}>Forgot Password?</a></div>
+            <div className='forgotpassword'><a href='/forgotpassword' style={{color:"#FD6B22",fontSize: "15px"}}>Forgot Password?</a></div>
           </div>
         </Form>
       </div>

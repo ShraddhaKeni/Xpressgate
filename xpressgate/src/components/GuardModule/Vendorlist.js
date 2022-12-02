@@ -149,7 +149,7 @@ const Vendorlist = () => {
           </div> */}
         </div>
         {/* <div class="table-responsive"> */}
-        <table id="inoutbooktable" class="table vendorList table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
+        <table id="vendortable" class="table vendorList table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>
               <th class="th-sm">Sr no</th>

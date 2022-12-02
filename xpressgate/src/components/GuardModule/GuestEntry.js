@@ -104,7 +104,7 @@ const GuestEntry = () => {
           </div>
           <br></br>
           <Button type="button" onClick={()=>{handleSubmit()}} className="btnApprove">APPROVE</Button>
-          <Button type="submit" className="btnDeny">DENY</Button>
+          <Button type="submit" className="btnDeny" onClick={()=>window.location.href="/dashboard"}>DENY</Button>
           <br></br>
         </div>
       </div>

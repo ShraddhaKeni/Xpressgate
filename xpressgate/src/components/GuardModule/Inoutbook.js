@@ -91,7 +91,7 @@ const Inoutbook = () => {
         <table id="inoutbooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>
-              <th class="th-sm"></th>
+              <th class="th-sm">Sr No	</th>
               <th class="th-sm">Name</th>
               <th class="th-sm">Visitor type</th>
               <th class="th-sm">Block</th>

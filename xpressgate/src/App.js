@@ -49,8 +49,6 @@ import Addemergencyno from './components/SocietyModule/Addemergencyno';
 import Emergency from './components/SocietyModule/Emergency';
 import Vendor_Payment from './components/SocietyModule/Vendor_Payment'
 import Payment from './components/SocietyModule/Payment'
-// import Addlocalservice from './components/SocietyModule/Addlocalservice';
-
 import Addlocalservice from './components/SocietyModule/Addlocalservice'
 import Community from './components/SocietyModule/Community'
 import GuestManagement from './components/SocietyModule/GuestManagement'
@@ -102,7 +100,6 @@ function App() {
             <Route path="/blocklist" element={<Blocklist />} exact></Route>
             <Route path="/addflat" element={<Addflat />} exact></Route>
             <Route path="/addnotice" element={<Addnotice />} exact></Route>
-            <Route path="/noticelist" element={<Noticelist />} exact></Route>
             <Route path="/addvehicle" element={<Addvehicle />} exact></Route>
             <Route path="/guardLogin" element={<Login />} exact></Route>
             <Route path="/addFlat" element={<Addflat/>} exact></Route>
@@ -137,7 +134,7 @@ function App() {
             <Route path='/vendorpayment' element={<Vendor_Payment/>} exact></Route>
             <Route path='/payment' element={<Payment/>} exact></Route>
             <Route path='/community' element={<Community/>} exact></Route>
-            <Route path='/addlocalservice' element={<Addlocalservice/>} exact></Route>
+            <Route path='/addlocalservice' element={<Addlocalservice/>} exact></Route> 
             <Route path="/changeguardpass" element={<ChangePassword />} exact></Route>
             <Route path="/vehiclemanagement" element={<Vehiclemanagement />} exact></Route>
             <Route path="/guestManagement" element={<GuestManagement />} exact></Route>
@@ -152,8 +149,6 @@ function App() {
             <Route path="/package" element={<Package />} exact></Route>
             <Route path="/packagelist" element={<PackageList />} exact></Route>
             <Route path="/paymenthistory" element={<SocietyPaymentHistory />} exact></Route>
-          
-         
         </Routes>
       </Router>
     </div>

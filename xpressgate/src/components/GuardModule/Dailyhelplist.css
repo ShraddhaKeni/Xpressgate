@@ -102,18 +102,6 @@ html {
   padding-bottom: 5%;
 }
 
-.btnlogout {
-  background-color: #0A8996;
-  color: #fff;
-  border-radius: 14px;
-  width: 142px;
-  height: 52px;
-  font-size: 20px;
-  font-weight: 500;
-  margin-top: 18%;
-  padding-top: 2%;
-}
-
 .dhlguardname {
   display: flex;
   width: 80%;
@@ -160,30 +148,18 @@ html {
   font-size: 20px;
 }
 
-.btnAdd {
-  background-color: #0A8996;
-  color: #fff;
-  border-radius: 14px;
-  width: 250px;
-  height: 60px;
-  font-size: 151%;
-  font-weight: 500;
-  margin-top: 4%;
-  margin-right: 34%;
-}
-
 .formclass {
   margin-top: 5%;
   margin-left: 25%;
 }
 
-.dailyhelpminicard {
+.dailyhelpminicard{
   margin-left: 42%;
   margin-bottom: 10%;
   border: none;
   background-color: #0A8996;
   width: 75%;
-  height: 98%;
+  height: 94%;
   border-radius: 20px;
 }
 
@@ -213,13 +189,13 @@ html {
 
 .dhcard-img-top {
   width: 30%;
-  height: 40%;
+  height: 37%;
   margin: auto;
   border-radius: 50px;
 }
 
 .dhfullcardscss {
-  margin-top: 5%;
+  margin-top: 2%;
   padding-left: 0%;
   padding-right: 16%;
 }
@@ -264,19 +240,6 @@ html {
     font-size: 12px;
   }
 
-  .btnAdd {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 155px;
-    height: 36px;
-    font-size: 151%;
-    font-weight: 500;
-    margin-top: 4%;
-    margin-right: 35%;
-    padding-top: 0%;
-  }
-
   #dhldashboardguard label {
     margin-top: 14%;
     margin-left: -68%;
@@ -300,7 +263,7 @@ html {
     margin-top: -16%;
   }
 
-  .dailyhelpminicard {
+  .dailyhelpminicard{
     margin-left: 24%;
     margin-bottom: 10%;
     border: none;
@@ -372,11 +335,11 @@ html {
     display: none;
   }
 
-  #dashboardlogo img {
+  #dhldashboardlogo img {
     margin-top: 5%;
-    margin-left: 20%;
+    margin-left: 1%;
     margin-bottom: 5%;
-    width: 114%;
+    width: 144%;
   }
 
   .code {
@@ -417,4 +380,36 @@ html {
     margin-top: 10.5%;
   }
 
+  .Dailyhelplistdisplay {
+    width: 300px;
+    height: 64px;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-top: 14px;
+    margin-top: 12%;
+    margin-left: 22%;
+  }
+
+  .dailyhelpminicard{
+    margin-left: 54%;
+    margin-top: 10%;
+    border: none;
+    background-color: #0A8996;
+    width: 114%;
+    height: 94%;
+    border-radius: 20px;
+  }
+
+  .dhcard-img-top {
+    width: 28%;
+    height: 30%;
+    margin: auto;
+  }
+
+  .dhfullcardscss {
+    margin-top: 2%;
+    padding-left: 0%;
+    padding-right: 34%;
+}
 }

@@ -78,7 +78,7 @@ const Plumber = () => {
         ></input>
 
         <table
-          id="inoutbooktable1"
+          id="plumbertable"
           class="table table-striped table-bordered table-sm "
           cellspacing="0"
           // style={{ border: '2px solid #14335D;;'}}
