@@ -97,11 +97,11 @@ html{
   font-weight: bold;
 }
 
-.emailtextbox{
+.emailtextboxguard{
   width: 97%;
 }
 
-.passwordtextbox{
+.passwordtextboxguard{
   width: 97%
 }
 

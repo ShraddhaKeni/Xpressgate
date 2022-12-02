@@ -114,18 +114,18 @@ const VendorEntryDetails = () => {
                   
                 </div>
                 <br></br>
-                <div><label className='allowedclass'>Allowed by</label></div>
+                <div><label className='allowedclass' style={{color:'#14335D', fontSize:'24px'}}>Allowed by</label></div>
     
                 <div className='detailsclass'>
                   <div><label className='date text-right'>Date:{date}</label></div>
                   <div><label className='intime'>In-Time: </label></div>
                   <div><label className='outtime'>Out-Time: </label></div>
                   <div><label className='noofpeople'>No of People: 1</label></div>
-                  <div><label className='vehicleno'>Vehicle No: <input type='text' placeholder='Vehical Number'></input></label></div>
+                  <div><label className='vehicleno'>Vehicle No: <input type='text' placeholder='Vehicle Number'></input></label></div>
                 </div>
                 <br></br>
                 <Button type="button" onClick={()=>{submitData()}} className="btnApprove">APPROVE</Button>
-                <Button type="submit" className="btnDeny">DENY</Button>
+                <Button type="submit" className="btnDeny" onClick={()=>window.location.href="/dashboard"}>DENY</Button>
                 <br></br>
                 
               </div>

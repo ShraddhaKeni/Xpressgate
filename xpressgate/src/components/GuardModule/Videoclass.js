@@ -55,7 +55,7 @@ const Videoclass = () => {
       </div>
       <div className='vcbackgroundimg'>
         <div id="cardsection">
-          <div className='Dailyhelplistdisplay'>
+          <div className='videolistdisplay'>
             <label>Video class List</label>
           </div>
           <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">

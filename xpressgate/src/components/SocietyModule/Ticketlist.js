@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import './Ticketlist.css';
-import LogOut from './Utils/LogOut';
 import Societyheader from './Utils/Societyheader';
 
 const Ticketlist = () => {

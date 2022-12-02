@@ -100,18 +100,6 @@ html {
   padding-bottom: 5%;
 }
 
-.btnlogout {
-  background-color: #0A8996;
-  color: #fff;
-  border-radius: 14px;
-  width: 142px;
-  height: 52px;
-  font-size: 20px;
-  font-weight: 500;
-  margin-top: 18%;
-  padding-top: 2%;
-}
-
 .guardname {
   display: flex;
   width: 80%;
@@ -158,18 +146,6 @@ html {
   font-size: 20px;
 }
 
-.btnAdd {
-  background-color: #0A8996;
-  color: #fff;
-  border-radius: 14px;
-  width: 250px;
-  height: 60px;
-  font-size: 151%;
-  font-weight: 500;
-  margin-top: 4%;
-  margin-right: 34%;
-}
-
 .formclass {
   margin-top: 5%;
   margin-left: 25%;
@@ -180,8 +156,7 @@ html {
   margin-Top: 2%;
   max-Width: 80%;
   background-color: #F9FAFF;
- 
-  border-radius: 14px;
+  border-radius: 14px 14px 14px 14px;
   border-collapse: separate;
   font-family: 'Rubik', sans-serif;
 }
@@ -191,15 +166,20 @@ html {
   color: #fff;
 }
 
-table th {
-  text-align: center;
-}
-
 #inoutbooktable td:hover{
   color: #0A8996;
 }
 
+table th:first-child{
+  border-radius:10px 0 0 0;
+}
 
+table th:last-child{
+  border-radius:0 10px 0 0;
+}
+
+tr:last-child td:last-child { border-bottom-right-radius: 10px; }
+tr:last-child td:first-child { border-bottom-left-radius: 10px; }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   .guardname label {
@@ -226,19 +206,6 @@ table th {
 
   .labelsize {
     font-size: 12px;
-  }
-
-  .btnAdd {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 155px;
-    height: 36px;
-    font-size: 151%;
-    font-weight: 500;
-    margin-top: 4%;
-    margin-right: 35%;
-    padding-top: 0%;
   }
 
   #dashboardguard label {
