@@ -65,7 +65,7 @@ const Vendorlist = () => {
       checkNavigate()
       const indexoflast = currentPage*postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
-      setCurrentPosts(data.data.list.filter(x=>x.bookingstatus==true).slice(indexoffirst,indexoflast))
+      setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
     }
     catch(err)
     {
@@ -94,7 +94,7 @@ const Vendorlist = () => {
     setCurrentpage(event.selected+1)
     const indexoflast = (event.selected+1)*postPerPage  //endoffset
     const indexoffirst = (indexoflast - postPerPage) //startoffset
-    setCurrentPosts(data.data.list.filter(x=>x.bookingstatus==true).slice(indexoffirst,indexoflast))
+    setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
   }
   async function findText(e)
   {
@@ -164,11 +164,16 @@ const Vendorlist = () => {
           </thead>
           <tbody>
             {currentPosts.map((item,index)=>{
+              
               return(
                 
                 <tr key={item.booking_id} id={item.booking_id}  >
                 <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1)*12+(index+1)}</td>
-                <td id={'td-'+item._id} ><Link className='linkToPage' to='/vendorentry' state={{id:item._id,bookingid:item.booking_id}}>{item.vendor_name}</Link></td>
+                <td id={'td-'+item._id} >
+                  {item.bookingstatus==true?<Link className='linkToPage' to='/vendorentry' state={{id:item._id,bookingid:item.booking_id}}>{item.vendor_name}</Link>:item.vendor_name}
+                  
+                  
+                  </td>
                 <td>{item.service}</td>
                 <td>{item.block}</td>
                 <td>{item.flats}</td>
