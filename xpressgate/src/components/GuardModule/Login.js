@@ -1,9 +1,18 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Login.css';
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios'
-
+import {checkGuard} from '../auth/Auth'
 const Login = () => {
+
+
+  useEffect(()=>{
+    if (checkGuard()) {
+     
+    } else {
+      window.location.href = '/'
+    }  
+  },[])
 
   let username= useRef([])
   let password= useRef([])

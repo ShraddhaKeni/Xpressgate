@@ -139,7 +139,7 @@ const navigate = useNavigate()
           <img src="/images/guardnameicon.svg" alt="guard name" />
           <label>Guard Name</label>
         </div>
-        <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
+        {/* <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div> */}
       </div>
       <div className='dsepbackgroundimg'>
         {props ? <div className='dailyservicepasscodedisplay'><label>{props.code} </label> </div> : " "}

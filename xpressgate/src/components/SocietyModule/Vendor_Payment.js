@@ -92,20 +92,18 @@ const Vendor_Payment = () => {
 
 
   return (
-    <div className="addguestcontainer3">
-      <div id="headersection3">
-      <div id="addflatsection">
-        
-          <div className="addflatheadersection">
-            <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-            <div id="afsociety"><label>Society</label></div>
-            <div id="afspace"></div>
-            <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-            <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-            <div id="aflogoutbutton"><LogOut /></div>
-          </div>
-      </div>
-      </div>
+    <div className="addguestcontainer4">
+    <div id="addflatsection">
+        <div className="addflatheadersection">
+          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+          <div id="afsociety"><label>Society</label></div>
+          <div id="afspace"></div>
+          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="aflogoutbutton"><LogOut/></div>
+        </div>
+    
+    </div>
       <div id="societynamesection">
         <div className="societyname">
           <img src="/images/profileicon.svg" alt="Society image" />
@@ -158,8 +156,9 @@ const Vendor_Payment = () => {
               <div class="form-group row">
                 <label class="col-lg-2 col-form-label labelsize">Resident</label>
                 <div class="col-lg-4">
-                  <input type="text" class="form-control input-lg" id='resident_id' disabled name="First name" placeholder="Resident name" value={resident.firstname+' '+resident.lastname} > 
-                  </input>
+                  {resident.firstname?<input type="text" class="form-control input-lg" id='resident_id' disabled name="First name" placeholder="Resident name" value={resident.firstname+' '+resident.lastname} > 
+                  </input>:<input type="text" class="form-control input-lg" id='resident_id' disabled name="First name" placeholder="Resident name" ></input>}
+                  
                 </div>
               </div>
               <div class="form-group row">

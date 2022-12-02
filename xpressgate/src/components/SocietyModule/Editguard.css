@@ -1,199 +1,31 @@
 html {
-    height: 100vh;
-  }
-  
-  .addguestcontainer3 {
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 0.5fr 2fr;
-    grid-template-rows: 0.2fr 2fr;
-    grid-template-areas: "headersection3 headersection3"
-      "societynamesection cardsection"
-  }
-  .societyname label {
-    color: #000;
-    margin-left: -19%;
-    margin-top: 12.5%;
-    font-size: 1.5;
-    padding-top: 0.5%;
-    font-size: 1.2vw;
+  height: 100vh;
 }
-  #headersection3 {
-    /* background-color: aquamarine; */
-    /* margin-top: 10%; */
-    grid-area: headersection3;
-    background-color: #F9F9FF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-  
-  #societynamesection {
-    /* background-color: blueviolet; */
-    grid-area: societynamesection;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-  
-  #cardsection {
-    /* background-color: blue; */
-    grid-area: cardsection;
-    position: relative;
-  
-  }
-  
-  .addguestbackgroundimg {
-    /* background-image: url("../../../public/images/dashboardbackground.svg"); */
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    position: relative;
-    margin-top: 0.5%;
-  }
-  
-  .firstheadersection3 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
-    grid-template-areas: "dashboardlogo3 dashboardguard3 dashboardspace dashboardnotification3 dashboardsetting3 dashboardlogoutbutton";
-  }
-  
-  #dashboardlogo3 {
-    grid-area: dashboardlogo3;
-  }
-  
-  #dashboardlogo3 img {
-    margin-top: 5%;
-    margin-left: 1%;
-    margin-bottom: 5%;
-    width: 40%;
-  }
-  
-  #dashboardguard3 {
-    grid-area: dashboardguard3;
-  }
- 
-  
-  #dashboardspace {
-    grid-area: dashboardspace;
-  }
-  
-  #dashboardnotification3 {
-    grid-area: dashboardnotification3;
-  }
-  
-  #dashboardnotification3 img {
-    margin-top: 100%;
-  }
-  
-  #dashboardsetting3 {
-    grid-area: dashboardsetting3;
-  }
-  
-  #dashboardsetting3 img {
-    margin-top: 100%;
-  }
-  
-  #dashboardlogoutbutton {
-    grid-area: dashboardlogo3utbutton;
-  }
-  
-  #dashboardlogoutbutton img {
-    padding-left: 10%;
-    padding-bottom: 5%;
-  }
-  
-  /* .btnlogout {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 142px;
-    height: 52px;
-    font-size: 20px;
-    font-weight: 500;
-    margin-top: 18%;
-    padding-top: 2%;
-  } */
-  /* .smallcontainer{
-    display: block;
-  } */
-  .societyname {
-    display: flex;
-    width: 80%;
-    height: 12%;
-    background-color: rgba(10, 137, 150, 0.33);
-    margin-left: 10%;
-    margin-top: 12%;
-    border-radius: 24px;
-  }
- 
-  .societyname img {
-    margin-left: 10%;
-    width: 25%;
-    height: 70%;
-    margin-top: 4%;
-  }
-  .societyname label {
-    color: #000;
-    margin-left: -14%;
-    margin-top: 13%;
-    font-size: 1vw;
-    padding-top: 0.5%;
-}
-  
-  .addguard_sideimg img {
-    display: flex;
-    margin-top: 100%;
-    max-width: 90%;
-    height: auto;
-    margin-left: 13%;
-    margin-bottom: 5%;
-    
-  }
 
-  
-  .labelsize{
-    font-size: 1vw;
-  }
-  
-  
-  .input-lg {
-    height: 5vh;
-    padding: 5px 18px;
-    font-size: 1.3vw;
-    line-height: 1.333333;
-    border-radius: 6px;
+.noticelist h4{
+  color: #434242;
 }
- .noticelist h4{
-    color: #434242;
- }
- .noticelist a{
-   color: #757575;
-  }
-  /* Media query for laptop */
-  @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
-    #dashboardlogo3 img {
-      margin-top: 9%;
-      margin-left: -38%;
-      margin-bottom: 3%;
-      width: 5vw;
-  }
-    .addguard_sideimg img {
-      display: flex;
-      margin-top: 125%;
-      max-width: 95%;
-      height: auto;
-      margin-left: 2%;
-  }
-    .addguestbackgroundimg {
-    /* background-image: url("../../../public/images/dashboardbackground.svg"); */
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    position: relative;
-    margin-top: 12.5%;
-  }
+.noticelist a{
+ color: #757575;
+}
+/* Media query for laptop */
+@media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
   
-  .labelsize {
-    font-size: 12px;
-  }
-  
- 
-  
-  }
+}
+.pagination_ul li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#0A899654;
+  color: black;
+  width: 30px;
+  height: 30px;
+  font-weight: 999;
+  border-radius: 5px;
+}
+
+.pagination_ul .selected
+{
+  background: #0A8996;
+  color: white;
+}

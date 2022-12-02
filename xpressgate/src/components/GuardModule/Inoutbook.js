@@ -7,6 +7,7 @@ import {useNavigate} from 'react-router-dom'
 import PaginationCalculate from './Utils/paginationCalculate';
 import LogOut from './Utils/LogOut';
 import GuardHeader from './Utils/GuardHeader';
+import { checkGuard } from '../auth/Auth';
 
 const Inoutbook = () => {
   const [inoutdata, setInoutdata] = useState([])
@@ -26,7 +27,24 @@ const Inoutbook = () => {
   }
 
   useEffect(() => {
-    getInOutBookData()
+    if (checkGuard()) {
+      const config = {
+        headers: {
+          'x-access-token': localStorage.getItem('accesstoken')
+        }
+      }
+      axios.get(`${window.env_var}api/guard/checkLogin`, config)
+        .then(({ data }) => {
+          getInOutBookData()
+        })
+        .catch(err => {
+          localStorage.clear();
+          window.location.href = '/guardLogin'
+        })
+    } else {
+      window.location.href = '/'
+    }  
+
   }, [])
 
   const getInOutBookData = async () => {
@@ -73,7 +91,7 @@ const Inoutbook = () => {
         <table id="inoutbooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>
-              <th class="th-sm"></th>
+              <th class="th-sm">Sr No	</th>
               <th class="th-sm">Name</th>
               <th class="th-sm">Visitor type</th>
               <th class="th-sm">Block</th>
@@ -84,10 +102,10 @@ const Inoutbook = () => {
             </tr>
           </thead>
           <tbody>
-            {inoutdata.map(iodata => {
+            {inoutdata.map((iodata,index) => {
               return (
                 <tr onClick={()=>routeNavigate(iodata.booking_id)}>
-                  <td>1</td>
+                  <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1)*12+(index+1)}</td>
                   <td >{iodata.guestFirstName} {iodata.guestLastName}</td>
                   <td>{iodata.type == '1' ? 'Guest' : iodata.type == '2' ? 'Vendor' : 'Daily Helper'}</td>
                   <td>{iodata.block_name}</td>

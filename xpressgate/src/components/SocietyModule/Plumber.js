@@ -5,6 +5,7 @@ import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import Societyheader from "./Utils/Societyheader";
 
 const Plumber = () => {
  
@@ -46,19 +47,10 @@ const Plumber = () => {
   }
 
   return (
-    <div className="addguestcontainer1">
-      <div id="headersection1">
-      <div id="addflatsection">
-        <div className="addflatheadersection">
-          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="afsociety"><label>Society</label></div>
-          <div id="afspace"></div>
-          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="aflogoutbutton"><LogOut /></div>
-        </div>
-      </div>
-      </div>
+    <div className="addguestcontainer4">
+    <div id="addflatsection">
+        <Societyheader/>
+    </div>
       <div id="societynamesection">
         <div className="societyname">
           <img src="/images/profileicon.svg" alt="Society image" />
@@ -75,7 +67,7 @@ const Plumber = () => {
       </div>
       <div className="addguestbackgroundimg">
         <div className="Addguestdisplay3">
-          <label>Plumber</label>
+          <label>{location.state.serviceName}</label>
         </div>
 
         <input

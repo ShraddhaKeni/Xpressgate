@@ -47,7 +47,7 @@ const VendorEntryDetails = () => {
                 flat_id:items.flat_id,
                 type:2,
                 bookedID:location.state.id,
-                status:2,
+                status:1,
                 allowed_by:localStorage.getItem('guard_id')
             }
             

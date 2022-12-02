@@ -3,8 +3,8 @@ import './Inoutbookcard.css';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import HeaderSection from './Utils/HeaderSection';
-import LogOut from './Utils/LogOut';
+import { checkGuard } from '../auth/Auth';
+import GuardHeader from './Utils/GuardHeader';
 
 const Inoutbookcard = () => {
 
@@ -13,7 +13,28 @@ const Inoutbookcard = () => {
   const location = useLocation()
   const navigate = useNavigate()
   useEffect(() => {
-    getData()
+    if (checkGuard()) {
+      const config = {
+        headers: {
+          'x-access-token': localStorage.getItem('accesstoken')
+        }
+      }
+      axios.get(`${window.env_var}api/guard/checkLogin`, config)
+        .then(({ data }) => {
+          getData()
+        })
+        .catch(err => {
+          localStorage.clear();
+          window.location.href = '/guardLogin'
+        })
+    } else {
+      window.location.href = '/'
+    }  
+
+
+
+
+   
   }, [])
 
   const getData = async () => {
@@ -73,14 +94,7 @@ const Inoutbookcard = () => {
   return (
     <div className="inoutbookcardcontainer">
       <div id="headersection">
-        <div class="firstheadersection">
-          <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="dashboardguard"><label>Guard</label></div>
-          <div id="dashboardspace"></div>
-          <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="dashboardlogoutbutton"> <LogOut /></div>
-        </div>
+      <GuardHeader/>
       </div>
       <div id="guardnamesection">
         <div className='guardname'>
@@ -118,6 +132,7 @@ const Inoutbookcard = () => {
               <div><label className='vehicleno'>Vehicle No: MH-29-2901</label></div>
             </div>
             <br></br>
+            {console.log(listData.status)}
             {listData.status==1? <Button type="submit" onClick={(e)=>{handleSubmit(e,listData.booking_id)}} id='inout'  className="btnOut">Out</Button>
               : <Button type="button" onClick={()=>navigate('/inoutbook')} id='inout' className="btnOut">Back</Button>
             }

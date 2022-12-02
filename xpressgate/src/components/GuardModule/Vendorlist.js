@@ -7,6 +7,7 @@ import LogOut from './Utils/LogOut';
 import { Link, Navigate, useLocation,useNavigate } from 'react-router-dom';
 import HeaderSection from './Utils/HeaderSection';
 import { checkGuard } from '../auth/Auth';
+import GuardHeader from './Utils/GuardHeader';
 
 const Vendorlist = () => {
 
@@ -32,15 +33,15 @@ const Vendorlist = () => {
           'x-access-token':localStorage.getItem('accesstoken')
         }
       }
-    //  axios.get(`${window.env_var}api/guard/checkLogin`,config)
-    //         .then(({data})=>{  
-              
-    //         })
-    //         .catch(err=>{
-    //           localStorage.clear();
-    //           window.location.href='/guardLogin'
-    //         })
-            getAllVendorData()   
+     axios.get(`${window.env_var}api/guard/checkLogin`,config)
+            .then(({data})=>{  
+              getAllVendorData()   
+            })
+            .catch(err=>{
+              localStorage.clear();
+              window.location.href='/guardLogin'
+            })
+           
     }
     else
     {
@@ -122,16 +123,7 @@ const Vendorlist = () => {
     
     <div className="vendorlistcontainer">
       <div id="headersection">
-
-        <div class="firstheadersection">
-          <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="dashboardguard"><label>Guard</label></div>
-          <div id="dashboardspace"></div>
-          <div id="dashboardnotification" onClick={()=>{setStat(!stat)}}><img src="/images/notification.svg" className='bellicon' alt="notificationicon" /></div>
-          {stat?<div className='notification_section'><HeaderSection/></div>:''}
-          <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" className='cogwheel' alt="settingicon" /></a></div>
-          <div id="dashboardlogoutbutton"> <LogOut/> </div>
-        </div>
+        <GuardHeader/>
       </div>
      
       <div id="guardnamesection">
@@ -167,7 +159,6 @@ const Vendorlist = () => {
               <th class="th-sm">Flat No.</th>
               <th class="th-sm">Date</th>
               <th class="th-sm">In time</th>
-              <th class="th-sm">Time</th>
               <th class="th-sm">Status</th>
             </tr>
           </thead>
@@ -183,7 +174,6 @@ const Vendorlist = () => {
                 <td>{item.flats}</td>
                 <td>{dateTimeFormat(item.date)}</td>
                 <td>{getTime(item.date)}</td>
-                <td>-</td>
                 <td>-</td>
                
               </tr>

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import './Ticketlist.css';
-import LogOut from './Utils/LogOut';
+import Societyheader from './Utils/Societyheader';
 
 const Ticketlist = () => {
 
@@ -55,14 +55,7 @@ const Ticketlist = () => {
   return (
     <div className="tlcontainer">
       <div id="tlheadersection">
-        <div class="tlfirstheadersection">
-          <div id="tllogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="tlsociety"><label>Society</label></div>
-          <div id="tldashboardspace"></div>
-          <div id="tldashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="tldashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="tllogoutbutton"> <LogOut /></div>
-        </div>
+        <Societyheader/>
       </div>
       <div id="tlsection">
         <div className='tlname'>

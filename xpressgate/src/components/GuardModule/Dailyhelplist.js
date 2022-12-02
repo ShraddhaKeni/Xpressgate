@@ -6,8 +6,16 @@ import LogOut from './Utils/LogOut';
 import { Link, useNavigate } from 'react-router-dom'
 import './otp.css';
 import { checkGuard } from '../auth/Auth';
+import PaginationCalculate from './Utils/paginationCalculate';
+
+
 const Dailyhelplist = () => {
   const [dailyhelpdata, setDailyhelpdata] = useState([])
+  const [currentPage, setCurrentpage] = useState(1)
+  const [postPerPage, setPostPerPage] = useState(6)
+  const [currentPosts,setCurrentPosts] = useState([])
+
+
   //const [flatdata, setFlatdata] = useState([])
   useEffect(() => {
     if(checkGuard())
@@ -19,13 +27,13 @@ const Dailyhelplist = () => {
       }
      axios.get(`${window.env_var}api/guard/checkLogin`,config)
             .then(({data})=>{  
-              
+              getData() 
             })
             .catch(err=>{
               localStorage.clear();
               window.location.href='/guardLogin'
             })
-            getData()   
+              
     }
     else
     {
@@ -38,14 +46,25 @@ const Dailyhelplist = () => {
   const getData = async () => {
     try {
 
-      const data = await axios.get(`${window.env_var}api/helperlist/getAll`)
-      setDailyhelpdata(data.data.data.list)
+      const {data} = await axios.get(`${window.env_var}api/helperlist/getAll`)
+      setDailyhelpdata(data.data.list)
+      const indexoflast = currentPage*postPerPage  //endoffset
+      const indexoffirst = indexoflast - postPerPage //startoffset
+      setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
       //setFlatdata(data.data.data.list[0].booking_id)
       //console.log(data.data.data.list[0].booking_id);
     } catch {
       console.log('Please try again');
     }
 
+  }
+
+  async function  paginate(event)
+  {
+    setCurrentpage(event.selected+1)
+    const indexoflast = (event.selected+1)*postPerPage  //endoffset
+    const indexoffirst = (indexoflast - postPerPage) //startoffset
+    setCurrentPosts(dailyhelpdata.slice(indexoffirst,indexoflast))
   }
 
   const navigate = useNavigate();
@@ -78,7 +97,7 @@ const Dailyhelplist = () => {
             <label>Daily Help List</label>
           </div>
           <div className="row row-cols-1 row-cols-md-3 g-4 dhfullcardscss">
-            {dailyhelpdata.map((dailydata) => {
+            {currentPosts.map((dailydata) => {
 
               return (
                
@@ -93,10 +112,15 @@ const Dailyhelplist = () => {
                   </div>
               )
             })}
-
           </div>
+          
+        </div>
+        <div style={{marginTop:'10%'}}>
+
+        <PaginationCalculate totalPages={dailyhelpdata.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
         </div>
       </div>
+      
     </div>
   )
 }
