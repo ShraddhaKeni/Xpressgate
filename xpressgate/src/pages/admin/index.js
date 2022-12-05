@@ -100,6 +100,5 @@ const AdminModuleComponent = () => {
     )
 }
 
-}
 
 export default AdminModuleComponent

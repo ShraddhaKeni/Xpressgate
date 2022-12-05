@@ -1,6 +1,11 @@
 import React from 'react'
+import { DatePicker } from '@mui/x-date-pickers';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { TextField } from '@mui/material';
 
-export const SimpleInputComponent = ({ name, id, label, onChange, type = 'text' }) => {
+
+export const SimpleInputComponent = ({ name, id, label, onChange, type = 'text', text = '', required = false, placeholder = '', value = '' }) => {
     return (
         <div class="form-group row">
             <label class="col-lg-2 col-form-label float-left">
@@ -8,23 +13,46 @@ export const SimpleInputComponent = ({ name, id, label, onChange, type = 'text' 
                 {label}
             </label>
             <div class="col-lg-4">
-                {type === 'text' && <input
+                {(type == 'text' || type == 'number') && <TextField
                     type={type}
-                    class="form-control input-lg"
                     name={name}
-                    placeholder=""
+                    placeholder={placeholder}
                     onChange={onChange}
+                    text
                     id={id}
-                ></input>}
+                    size={'small'}
+                    fullWidth
+                    required={required}
+                ></TextField>}
                 {type === 'textarea' && <textarea
                     type={type}
                     class="form-control input-lg"
                     name={name}
-                    placeholder=""
+                    placeholder={placeholder}
                     rows="4"
+                    text
                     onChange={onChange}
                     id={id}
+                    required={required}
                 ></textarea>}
+                {type === 'datepicker' &&
+                    <TextField
+                        type={'date'}
+                        name={name}
+                        placeholder={placeholder}
+                        onChange={onChange}
+                        text={value}
+                        defaultValue={new Date().toISOString().slice(0, 10)}
+                        id={id}
+                        size={'small'}
+                        fullWidth
+                        required={required}
+                        inputProps={{
+                            min: new Date().toISOString().slice(0, 16),
+                        }}
+                    ></TextField>
+
+                }
             </div>
         </div>
     )

@@ -109,7 +109,7 @@ function App() {
           <Route path={RouterPath.PREMISES_LIST} element={<AdminModuleComponent />}></Route>
 
           <Route path={RouterPath.COUPONS_LIST} element={<AdminModuleComponent />}></Route>
-          <Route path={RouterPath.EDIT_COUPON} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.COUPON_DETAILS} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.ADD_COUPON} element={<AdminModuleComponent />}></Route>
 
           <Route path={RouterPath.PRLANS_LIST} element={<AdminModuleComponent />}></Route>
