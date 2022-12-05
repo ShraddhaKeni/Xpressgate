@@ -107,14 +107,59 @@ table thead {
   margin: auto;
   margin-top: -17%;
 }
-  .sideimage5 img {
-    display: flex;
-  margin-top: 117%;
-  max-width: 92%;
-  height: auto;
-  margin-left: 4%;
-}
-
-
-
+ .noticelist h4{
+    color: #434242;
+ }
+ .noticelist a{
+    color: #000
+  }
+  /* Media query for laptop */
+  @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
+    #plumbertable {
+      margin-Left: 24%;
+      margin-Top: 0.5%;
+      width: 40vw;
+      /* max-Width: 80%; */
+      background-color: #F9FAFF;
+      /* -webkit-border-radius: 14px; */
+      /* border-radius: 18px; */
+      border-radius: 33px 33px 0px 0px;
+      border-collapse: collapse;
+      font-family: 'Rubik', sans-serif;
+      border: 2px solid #14335D;
+      /* max-height: min-content; */
+      
+  }
+  table thead {
+    background: #14335D;
+    border-radius: 33px 33px 0px 0px;
+    color: #F9F9FF;
+   
+  }
+    #dashboardlogo img {
+      margin-top: 9%;
+      margin-left: -38%;
+      margin-bottom: 3%;
+      width: 5vw;
+  }
+    .sideimage5 img {
+      display: flex;
+    margin-top: 117%;
+    max-width: 92%;
+    height: auto;
+    margin-left: 4%;
+  }
+    .addguestbackgroundimg {
+    /* background-image: url("../../../public/images/dashboardbackground.svg"); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    margin-top: 12.5%;
+  }
+  
+  .labelsize {
+    font-size: 12px;
+  }
+  }
 }

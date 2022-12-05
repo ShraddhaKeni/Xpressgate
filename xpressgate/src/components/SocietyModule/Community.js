@@ -39,7 +39,7 @@ const Community = () => {
         <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
           <div className="col">
             <div className="dashboardcard">
-              <a href="/manage">
+              <a href="/management">
                 <img
                   src="/images/Mteam.svg"
                   className="dbcard-img-top"
@@ -55,7 +55,7 @@ const Community = () => {
                 className="dbcard-img-top"
                 alt="Local Services"
                 onClick={() => {
-                  window.location.href = "/lservice";
+                  window.location.href = "/localservices";
                 }}
               ></img>
             </div>
@@ -66,7 +66,7 @@ const Community = () => {
                 src="/images/emergency.svg"
                 className="dbcard-img-top"
                 onClick={() => {
-                  window.location.href = "/emer";
+                  window.location.href = "/emergencyList";
                 }}
                 alt="Emergency"
               ></img>

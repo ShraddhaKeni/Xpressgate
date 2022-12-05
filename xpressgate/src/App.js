@@ -49,8 +49,6 @@ import Addemergencyno from './components/SocietyModule/Addemergencyno';
 import Emergency from './components/SocietyModule/Emergency';
 import Vendor_Payment from './components/SocietyModule/Vendor_Payment'
 import Payment from './components/SocietyModule/Payment'
-// import Addlocalservice from './components/SocietyModule/Addlocalservice';
-
 import Addlocalservice from './components/SocietyModule/Addlocalservice'
 import Community from './components/SocietyModule/Community'
 import GuestManagement from './components/SocietyModule/GuestManagement'
@@ -60,9 +58,10 @@ import Amenities from './components/SocietyModule/Amenities'
 import Amenitylist from './components/SocietyModule/Amenitylist'
 import Approvallistamenity from './components/SocietyModule/Approvallistamenity'
 import Addeditamenity from './components/SocietyModule/Addeditamenity'
-import SocietyDues from './components/SocietyModule/SocietyDues'
-import UtilityPayment from './components/SocietyModule/UtilityPayment'
-import Package from './components/SocietyModule/Package'
+import ChangePassword from './components/GuardModule/ChangePassword';
+import SocietyDues from './components/SocietyModule/SocietyDues';
+import UtilityPayment from './components/SocietyModule/UtilityPayment';
+import Package from './components/SocietyModule/Package';
 import ApprovalList from './components/SocietyModule/ApprovalList'
 import SocietyPaymentHistory from './components/SocietyModule/SocietyPaymentHstory';
 import AdminModuleComponent from './pages/admin';
@@ -72,10 +71,13 @@ import AdminEnterCode from './pages/admin/LoginScreens/AdminEnterCode';
 import AdminReset from './pages/admin/LoginScreens/AdminReset';
 import RouterPath from './common/constants/path/routerPath';
 
+import SocietyPaymentHistory from './components/SocietyModule/SocietyPaymentHistory';
+import PackageList from './components/SocietyModule/PackageList';
 
 function App() {
 
-  window.env_var = "http://127.0.0.1:5050/"
+  window.env_var = "http://143.110.187.80:5050/"
+  // window.env_var = "http://localhost:5050/"
   useEffect(() => {
 
   }, [])
@@ -106,10 +108,12 @@ function App() {
             <Route path="/blocklist" element={<Blocklist />} exact></Route>
             <Route path="/addflat" element={<Addflat />} exact></Route>
             <Route path="/addnotice" element={<Addnotice />} exact></Route>
-            <Route path="/noticelist" element={<Noticelist />} exact></Route>
             <Route path="/addvehicle" element={<Addvehicle />} exact></Route>
             <Route path="/guardLogin" element={<Login />} exact></Route>
             <Route path="/addFlat" element={<Addflat/>} exact></Route>
+
+
+            
             <Route path="/blockList" element={<Blocklist/>} exact></Route>
             <Route path="/flatList" element={<Flatlist/>} exact></Route>
             <Route path="/naFlatList" element={<FlatListNA/>} exact></Route>
@@ -138,9 +142,8 @@ function App() {
             <Route path='/vendorpayment' element={<Vendor_Payment/>} exact></Route>
             <Route path='/payment' element={<Payment/>} exact></Route>
             <Route path='/community' element={<Community/>} exact></Route>
-            {/* <Route path='/addlocalservice' element={<Addlocalservice/>} exact></Route> */}
-           
-            <Route path="/addlocalservice" element={<Addlocalservice/>} exact></Route>
+            <Route path='/addlocalservice' element={<Addlocalservice/>} exact></Route> 
+            <Route path="/changeguardpass" element={<ChangePassword />} exact></Route>
             <Route path="/vehiclemanagement" element={<Vehiclemanagement />} exact></Route>
             <Route path="/guestManagement" element={<GuestManagement />} exact></Route>
             <Route path="/ticketlist" element={<Ticketlist />} exact></Route>
@@ -184,6 +187,8 @@ function App() {
            
           
          
+            <Route path="/packagelist" element={<PackageList />} exact></Route>
+            <Route path="/paymenthistory" element={<SocietyPaymentHistory />} exact></Route>
         </Routes>
       </Router>
     </div>

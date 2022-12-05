@@ -94,13 +94,14 @@ html{
 
 .forgotpassword{
   margin-top: 3%;
+  font-weight: bold;
 }
 
-.emailtextbox{
+.emailtextboxguard{
   width: 97%;
 }
 
-.passwordtextbox{
+.passwordtextboxguard{
   width: 97%
 }
 
@@ -211,4 +212,9 @@ html{
   margin-top: 4%;
   padding-bottom: 4%;
 }
+}
+
+#login:hover
+{
+  background-color: #14335D;
 }

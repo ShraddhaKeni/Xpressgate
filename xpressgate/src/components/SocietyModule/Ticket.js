@@ -3,7 +3,7 @@ import './Ticket.css';
 import { Button } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-
+import LogOut from './Utils/LogOut';
 
 const Ticket = () => {
   const location= useLocation()
@@ -44,7 +44,7 @@ const Ticket = () => {
           <div id="tktspace"></div>
           <div id="tktnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
           <div id="tktsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="tktlogoutbutton"> <Button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
+          <div id="tktlogoutbutton"> <LogOut/></div>
         </div>
       </div>
       <div id="tktsection">
@@ -78,6 +78,8 @@ const Ticket = () => {
               <div><label className='noofpeople'></label></div>
               <div><label className='vehicleno'></label></div>
             </div>
+            <br></br>
+            <div><label className='tktailabels'>Attached images</label></div>
             <br></br>
             <br></br>
           </div>

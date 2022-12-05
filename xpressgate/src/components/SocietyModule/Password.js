@@ -32,6 +32,7 @@ const Password = () => {
       console.log(details)
       if(validatePassword(password.current.value))
       {
+       
         if((password.current.value===confirmPass.current.value)&&(password.current.value!==""&&confirmPass.current.value!==""))
         {
           const config = {
@@ -41,14 +42,13 @@ const Password = () => {
           }
           const sendData = {
             username:details.username,
-           
             password:oldpass.current.value,
             newpassword:password.current.value,
             confirmpassword:confirmPass.current.value,
             id:localStorage.getItem('member_id')
           }
           const {data} = await axios.post(`${window.env_var}api/society/changepassword`,sendData,config)
-         window.location.href='/scDashboard'
+           window.location.href='/scDashboard'
 
         }
         else

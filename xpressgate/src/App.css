@@ -90,3 +90,8 @@ textarea.input-lg{
     transform: rotate(0deg);
   }
 }
+
+#logout:hover
+{
+  background-color: #14335D;;
+}

@@ -4,6 +4,7 @@ import LogOut from '../../components/SocietyModule/Utils/LogOut';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { getData } from './common/axios_main';
 
 const Blocklist = () => {
   const [blocks,setBlocks] = useState([])

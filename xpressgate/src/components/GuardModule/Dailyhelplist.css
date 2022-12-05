@@ -102,18 +102,6 @@ html {
   padding-bottom: 5%;
 }
 
-.btnlogout {
-  background-color: #0A8996;
-  color: #fff;
-  border-radius: 14px;
-  width: 142px;
-  height: 52px;
-  font-size: 20px;
-  font-weight: 500;
-  margin-top: 18%;
-  padding-top: 2%;
-}
-
 .dhlguardname {
   display: flex;
   width: 80%;
@@ -160,30 +148,18 @@ html {
   font-size: 20px;
 }
 
-.btnAdd {
-  background-color: #0A8996;
-  color: #fff;
-  border-radius: 14px;
-  width: 250px;
-  height: 60px;
-  font-size: 151%;
-  font-weight: 500;
-  margin-top: 4%;
-  margin-right: 34%;
-}
-
 .formclass {
   margin-top: 5%;
   margin-left: 25%;
 }
 
-.dailyhelpminicard {
-  margin-left: 50%;
+.dailyhelpminicard{
+  margin-left: 42%;
   margin-bottom: 10%;
   border: none;
   background-color: #0A8996;
-  width: 60%;
-  height: 95%;
+  width: 75%;
+  height: 94%;
   border-radius: 20px;
 }
 
@@ -211,26 +187,26 @@ html {
   font-weight: 100;
 }
 
-.card-img-top {
+.dhcard-img-top {
   width: 30%;
-  height: 30%;
+  height: 37%;
   margin: auto;
   border-radius: 50px;
 }
 
-.fullcardscss{
-  margin-top: 5%;
-    padding-left: 10%;
-    padding-right: 16%;
+.dhfullcardscss {
+  margin-top: 2%;
+  padding-left: 0%;
+  padding-right: 16%;
 }
 
-.dailyhelpminicard:hover{
+.dailyhelpminicard:hover {
   color: #000;
   background-color: #fff;
   border: 2px solid #000;
 }
 
-.dailyhelpminicard:hover label{
+.dailyhelpminicard:hover label {
   color: #000;
 }
 
@@ -264,19 +240,6 @@ html {
     font-size: 12px;
   }
 
-  .btnAdd {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 155px;
-    height: 36px;
-    font-size: 151%;
-    font-weight: 500;
-    margin-top: 4%;
-    margin-right: 35%;
-    padding-top: 0%;
-  }
-
   #dhldashboardguard label {
     margin-top: 14%;
     margin-left: -68%;
@@ -299,7 +262,8 @@ html {
     margin: auto;
     margin-top: -16%;
   }
-  .dailyhelpminicard {
+
+  .dailyhelpminicard{
     margin-left: 24%;
     margin-bottom: 10%;
     border: none;
@@ -308,14 +272,14 @@ html {
     height: 90%;
     border-radius: 20px;
   }
-  
+
   .dhcard-titlename {
     font-size: 18px;
     font-family: 'Rubik', sans-serif;
     color: #fff;
     font-weight: 600;
   }
-  
+
   .dhcard-profession {
     width: 50%;
     height: fit-content;
@@ -325,37 +289,37 @@ html {
     font-family: 'Rubik', sans-serif;
     color: #14335D;
   }
-  
+
   .dhcard-allowedhouses {
     color: #fff;
     font-family: 'Rubik', sans-serif;
     font-size: 15px;
     font-weight: 100;
   }
-  
+
   .dhcard-img-top {
     width: 30%;
     height: 30%;
     margin: auto;
   }
-  
-  .fullcardscss{
+
+  .dhfullcardscss {
     margin-top: 5%;
-      padding-left: 10%;
-      padding-right: 16%;
+    padding-left: 10%;
+    padding-right: 16%;
   }
-  
-  .dailyhelpminicard:hover{
+
+  .dailyhelpminicard:hover {
     color: #000;
     background-color: #fff;
     border: #000;
     border: 2px solid #000;
   }
-  
-  .dailyhelpminicard:hover label{
+
+  .dailyhelpminicard:hover label {
     color: #000;
   }
-  
+
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
@@ -371,11 +335,11 @@ html {
     display: none;
   }
 
-  #dashboardlogo img {
+  #dhldashboardlogo img {
     margin-top: 5%;
-    margin-left: 20%;
+    margin-left: 1%;
     margin-bottom: 5%;
-    width: 114%;
+    width: 144%;
   }
 
   .code {
@@ -416,4 +380,36 @@ html {
     margin-top: 10.5%;
   }
 
+  .Dailyhelplistdisplay {
+    width: 300px;
+    height: 64px;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-top: 14px;
+    margin-top: 12%;
+    margin-left: 22%;
+  }
+
+  .dailyhelpminicard{
+    margin-left: 54%;
+    margin-top: 10%;
+    border: none;
+    background-color: #0A8996;
+    width: 114%;
+    height: 94%;
+    border-radius: 20px;
+  }
+
+  .dhcard-img-top {
+    width: 28%;
+    height: 30%;
+    margin: auto;
+  }
+
+  .dhfullcardscss {
+    margin-top: 2%;
+    padding-left: 0%;
+    padding-right: 34%;
+}
 }

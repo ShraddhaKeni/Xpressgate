@@ -122,18 +122,6 @@ html {
   padding-bottom: 5%;
 }
 
-.btnlogout {
-  background-color: #0A8996;
-  color: #fff;
-  border-radius: 14px;
-  width: 142px;
-  height: 52px;
-  font-size: 20px;
-  font-weight: 500;
-  margin-top: 18%;
-  padding-top: 2%;
-}
-
 .guardname {
   display: flex;
   width: 80%;
@@ -179,6 +167,10 @@ html {
   color: #0A8996;
 }
 
+.enterpasscodesearch label{
+  margin-top: 18px;
+}
+
 .enterpasscodesearch img {
   margin-left: 105%;
   margin-top: -8%;
@@ -190,6 +182,8 @@ html {
   margin-bottom: 10%;
   border: none;
   cursor: pointer;
+  /* transition all : .5s ease-out; */
+  
 }
 
 .fullcardscss {
@@ -198,6 +192,10 @@ html {
   margin-right: 125px;
   width: 100%;
 }
+
+/* .dashboardcard:hover{
+  transition: .5s ease all;
+} */
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   #dashboardguard label {
@@ -328,3 +326,17 @@ html {
   }
 
 }
+
+.search_icon
+{
+  cursor: pointer;
+  position: relative !important;
+  bottom:9px !important;
+  transition: .2s ease all;
+}
+
+.search_icon:hover{
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 0.75rem #0a3696)
+}
+

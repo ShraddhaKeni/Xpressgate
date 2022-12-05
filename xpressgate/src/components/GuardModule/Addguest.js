@@ -4,12 +4,23 @@ import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import LogOut from './Utils/LogOut';
 import { checkGuard } from '../auth/Auth';
-
+import axios from 'axios';
 const Addguest = () => {
   useEffect(()=>{
     if(checkGuard())
     {
-
+      const config = {
+        headers:{
+          'x-access-token':localStorage.getItem('accesstoken')
+        }
+      }
+     axios.get(`${window.env_var}api/guard/checkLogin`,config)
+            .then(({data})=>{   
+            })
+            .catch(err=>{
+              localStorage.clear();
+              window.location.href='/guardLogin'
+            })  
     }
     else
     {
@@ -76,7 +87,7 @@ const Addguest = () => {
                 <input type="number" class="form-control input-lg" name="inputnoofpeople" placeholder="No of people"></input>
               </div>
             </div>
-            <Button type="submit" className="btnAdd">Add</Button>
+            <Button type="submit" className="btnAddguest">Add</Button>
         </Form>
 
       </div>  

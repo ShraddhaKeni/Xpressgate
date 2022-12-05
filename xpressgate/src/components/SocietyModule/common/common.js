@@ -7,7 +7,7 @@ export const getBlocks=async()=>{
     try {
         
         const {data} = await axios.post(`${window.env_var}api/block/get`,{   //will be changed
-          community_id:'632970d054edb049bcd0f0b4'
+          community_id:localStorage.getItem('community_id')
         })
 
         return (data.data.block)

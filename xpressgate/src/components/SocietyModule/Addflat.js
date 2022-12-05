@@ -127,7 +127,7 @@ const Addflat = () => {
               <input type='file' class="form-control input-lg" name="inputnoofpeople" placeholder="Images"></input>
             </div>
           </div>
-          <Button type="submit" onClick={(e)=>{handleSubmit(e)}} className="btnAdd">Add Flat</Button>
+          <Button type="submit" onClick={(e)=>{handleSubmit(e)}} className="btnAddflat">Add Flat</Button>
         </Form>
 
       </div>

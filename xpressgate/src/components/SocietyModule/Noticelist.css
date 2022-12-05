@@ -100,18 +100,6 @@ html {
   padding-bottom: 5%;
 }
 
- 
-.btnlogout {
-  background-color: #0A8996;
-  color: #fff;
-  margin-top: 18%;
-  margin-right: 20%;
-  width: 9vw;
-  height: 6vh;
-  border-radius: 11px;
-  padding: 4%;
-  font-size: 1.3vw;
-}
 .nlsocietyname {
   display: flex;
   width: 80%;
@@ -156,18 +144,6 @@ html {
 
 .labelsize {
   font-size: 20px;
-}
-
-.btnAdd {
-  background-color: #0A8996;
-  color: #fff;
-  border-radius: 14px;
-  width: 250px;
-  height: 60px;
-  font-size: 151%;
-  font-weight: 500;
-  margin-top: 4%;
-  margin-right: 34%;
 }
 
 .formclass {
@@ -271,19 +247,6 @@ margin-top: 10%;
 
   .labelsize {
     font-size: 12px;
-  }
-
-  .btnAdd {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 155px;
-    height: 36px;
-    font-size: 151%;
-    font-weight: 500;
-    margin-top: 4%;
-    margin-right: 35%;
-    padding-top: 0%;
   }
 
   #nlsociety label {

@@ -138,7 +138,7 @@ input::-webkit-inner-spin-button {
   padding-bottom: 5%;
 }
 
-.btnlogout {
+/* .btnlogout {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
@@ -148,7 +148,7 @@ input::-webkit-inner-spin-button {
   font-weight: 500;
   margin-top: 18%;
   padding-top: 2%;
-}
+} */
 
 .guardname {
   display: flex;

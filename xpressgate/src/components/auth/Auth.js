@@ -1,3 +1,5 @@
+import axios from "axios"
+
 export const checkAdmin = ()=>{
     if (localStorage.getItem('mode')=='admin') {
         return true
@@ -6,9 +8,9 @@ export const checkAdmin = ()=>{
     }
 }
 
-export const checkSociety = ()=>{
+export const checkSociety = async()=>{
     if (localStorage.getItem('mode')=='society') {
-        return true
+       return true
     } else {
         return false
     }
@@ -20,4 +22,9 @@ export const checkGuard = ()=>{
     } else {
         return false
     }
+}
+
+
+export const checkGuardLogin = ()=>{
+    
 }
