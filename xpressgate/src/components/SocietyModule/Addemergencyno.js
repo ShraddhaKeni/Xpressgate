@@ -4,7 +4,8 @@ import LogOut from './Utils/LogOut'
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import axios from "axios";
-
+import {checkSociety} from '../auth/Auth'
+import SocietyHeader from './Utils/Societyheader'
 const Addemergencyno = () => {
 
   const [contactTypes, setTypes] = useState([])
@@ -13,7 +14,28 @@ const Addemergencyno = () => {
   const contact = useRef([])
 
   useEffect(()=>{
-    getTypes()
+    if(checkSociety())
+    {
+     const config = {
+       headers:{
+         'x-access-token':localStorage.getItem('accesstoken')
+       }
+     }
+    axios.get(`${window.env_var}api/society/checkLogin`,config)
+           .then(({data})=>{   
+            console.log(data)
+            getTypes()
+           })
+           .catch(err=>{
+             localStorage.clear();
+             window.location.href='/societylogin'
+           }) 
+    }
+    else
+    {
+     window.location.href='/'
+    }
+
   },[])
 
   const getTypes=async()=>{
@@ -60,15 +82,7 @@ const Addemergencyno = () => {
   return (
     <div className="addguestcontainer4">
     <div id="addflatsection">
-        <div className="addflatheadersection">
-          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="afsociety"><label>Society</label></div>
-          <div id="afspace"></div>
-          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="aflogoutbutton"><LogOut/></div>
-        </div>
-    
+      <SocietyHeader/>
     </div>
       <div id="societynamesection">
         <div className="societyname">

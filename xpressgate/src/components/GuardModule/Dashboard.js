@@ -6,8 +6,6 @@ import { Link, Navigate } from 'react-router-dom'
 import LogOut from './Utils/LogOut';
 import Frequentvisitor from './Frequentvisitor';
 import Dailyservicepasscode from './Dailyservicepasscode';
-import HeaderSection from './Utils/HeaderSection';
-import GuardSideSection from './Utils/GuardSideSection';
 import { checkGuard } from '../auth/Auth';
 import { passcodeValidation } from '../auth/validation';
 import GuardHeader from './Utils/GuardHeader';
@@ -52,7 +50,8 @@ const Dashboard = () => {
           community_id: "632970d054edb049bcd0f0b4"
         }
         let { data } = await axios.post(`${window.env_var}api/inoutentires/getdata`, codeData)
-        if(data.data.bookingdetails.status===false)
+        console.log(data.data)
+        if(data.data.bookingdetails.status===false || dateTimeFormat(data.data.bookingdetails.date)!=dateTimeFormat(Date.now()))
         {
           alert('Expired Entry Code.')
           return
@@ -75,6 +74,13 @@ const Dashboard = () => {
     else {
       document.getElementById(id + 1).focus()
     }
+  }
+
+  const  dateTimeFormat=(date)=>
+  {
+    var d = new Date(date)
+    return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()
+    
   }
 
 
