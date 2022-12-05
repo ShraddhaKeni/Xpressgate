@@ -18,7 +18,7 @@ const Login_society = () => {
       localStorage.setItem("accesstoken", data.data.accessToken);
       localStorage.setItem("community_id", data.data.community_id);
       localStorage.setItem("member_id", data.data.id);
-      localStorage.setItem('mode','society')
+      localStorage.setItem('mode', 'society')
       window.location.href = "/scDashboard";
     } catch (err) {
       document.getElementById("loginemailid").style.border = "2px solid red";
@@ -27,43 +27,43 @@ const Login_society = () => {
   };
   return (
     <div className="logincontainer1">
-      
-        
+
+
 
       <div id="loginimgid1">
         <img src="./images/societylogin.svg" alt="" />
       </div>
       <div id="loginformid1">
         <Form>
-          <div className="input_fields1">
-          <div id="logoid1">
-            <img src="/images/loginlogo.svg" alt="" />
-          </div>
-         <br/><br/>
-            <div className="btsign" disabled>
-              SIGN IN
+          <div className="socinputfields">
+            <div id="soclogoid">
+              <img src="/images/loginlogo.svg" alt="" />
+            </div>
+            <br /><br />
+            <div className="socbtnsign">
+              <label className="signinsociety">SIGN IN</label>
             </div>
             <br />
-            <div className="email_input">
-              <label className="name">User Name</label>
+            <div className="socemail_input">
+              <label className="socname">User Name</label>
               <input
                 ref={username}
                 type="text"
-                className="form-control emailtextbox"
+                className="form-control socemailtextbox"
                 onKeyPress={(e) => {
                   document.getElementById(e.target.id).style.border = "none";
                 }}
-                id="loginemailid"
+                id="socloginemailid"
                 placeholder="Username"
               ></input>
             </div>
             <br></br>
-            <div className="email_input">
-              <label className="password1">Password</label>
+            <div className="socemail_input">
+              <label className="socpassword">Password</label>
               <input
                 ref={password}
                 type="password"
-                className="form-control passwordtextbox"
+                className="form-control socpasswordtextbox"
                 onKeyPress={(e) => {
                   document.getElementById(e.target.id).style.border = "none";
                 }}
@@ -73,7 +73,7 @@ const Login_society = () => {
               <br />
               <Button
                 type="button"
-                className="btlogin1"
+                className="socbtnlogin"
                 onClick={() => {
                   loginGuard();
                 }}
@@ -82,14 +82,7 @@ const Login_society = () => {
               </Button>
             </div>
 
-            <div className="forgotpassword1">
-              <a
-                href="/screset"
-                style={{ color: "#FD6B22",fontSize: "15px" }}
-              >
-                Forgot Password?
-              </a>
-            </div>
+            <div className="socforgotpassword"><a href="/screset" style={{color:"#FD6B22",fontSize: "15px", marginRight:"5%"}}>Forgot Password?</a></div>
           </div>
         </Form>
       </div>
