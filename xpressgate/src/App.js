@@ -63,7 +63,7 @@ import SocietyDues from './components/SocietyModule/SocietyDues';
 import UtilityPayment from './components/SocietyModule/UtilityPayment';
 import Package from './components/SocietyModule/Package';
 import ApprovalList from './components/SocietyModule/ApprovalList'
-import SocietyPaymentHistory from './components/SocietyModule/SocietyPaymentHstory';
+import SocietyPaymentHistory from './components/SocietyModule/SocietyPaymentHistory';
 import AdminModuleComponent from './pages/admin';
 import SuperAdminLogin from './pages/admin/LoginScreens/SuperAdminLogin';
 import AdminEnterNewPass from './pages/admin/LoginScreens/AdminEnterNewPass';
@@ -71,7 +71,7 @@ import AdminEnterCode from './pages/admin/LoginScreens/AdminEnterCode';
 import AdminReset from './pages/admin/LoginScreens/AdminReset';
 import RouterPath from './common/constants/path/routerPath';
 
-import SocietyPaymentHistory from './components/SocietyModule/SocietyPaymentHistory';
+
 import PackageList from './components/SocietyModule/PackageList';
 
 function App() {
