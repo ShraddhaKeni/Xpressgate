@@ -1,12 +1,12 @@
 import React from "react";
 import "../../../styles/Terms.css";
-import SideLayOut from '../../../components/base/Layout/SideLayOut'
 
 const Terms = () => {
   return (
     <>
-    <SideLayOut/>
-    <div className="AdminSideImg"><img src="./images/AdminSideImage.svg"  alt="Admin side image"></img></div>
+    
+   
+    <div className="AdminSideImg"><img src="/images/AdminSideImage.svg"  alt="Admin side image"></img></div> 
     <div className="Termscontainer">
       <div className="Admindisplay">
         <label>Terms & Conditions</label>

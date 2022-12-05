@@ -51,7 +51,7 @@ const Addvendor = () => {
                 <input type="number" class="form-control input-lg" id="inputnoofpeople"></input>
               </div>
             </div>
-            <Button type="submit" className="btnAdd">Add</Button>
+            <Button type="submit" className="btnAddVendor">Add</Button>
         </Form>
 
       </div>

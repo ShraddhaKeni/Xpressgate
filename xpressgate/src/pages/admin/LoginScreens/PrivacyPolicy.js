@@ -1,11 +1,12 @@
 import React from "react";
 import "../../../styles/PrivacyPolicy.css";
-import SideLayOut from '../../../components/base/Layout/SideLayOut'
+
 const PrivacyPolicy = () => {
   return (
     <>
-    <SideLayOut/>
-    <div className="AdminSideImg"><img src="./images/AdminSideImage.svg"  alt="Admin side image"></img></div>
+    
+   
+    <div className="AdminSideImg"><img src="/images/AdminSideImage.svg"  alt="Admin side image"></img></div>
     <div className="Policycontainer">
       <div className="Adminpolicydisplay">
         <label>Privacy Policy</label>

@@ -1,29 +1,52 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../SocietyModule/Enter_new_pswd.css";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
+import { validatePassword } from "../auth/validation";
 
 const Enter_new_pswd = () => {
-  let username = useRef([]);
   let password = useRef([]);
+  let confirmpassword = useRef([]);
 
-  const loginGuard = async () => {
+  const [member,setMember] = useState({})
+
+  const location = useLocation()
+
+
+  const handleSubmit =async()=>{
     try {
-      const loginCreds = {
-        username: username.current.value,
-        password: password.current.value,
-      };
-      const { data } = await axios.post(`api/auth/guardlogin`, loginCreds);
-      localStorage.clear();
-      localStorage.setItem("accesstoken", data.data.accessToken);
-      localStorage.setItem("community_id", data.data.community_id);
-      localStorage.setItem("guard_id", data.data.id);
-      window.location.href = "/dashboard";
-    } catch (err) {
-      document.getElementById("loginemailid").style.border = "2px solid red";
-      document.getElementById("loginpassword").style.border = "2px solid red";
+      if( await validatePassword(password.current.value))
+      {
+        console.log(validatePassword(password.current.value))
+          if((password.current.value===confirmpassword.current.value)&&(password.current.value!==""&&confirmpassword.current.value!==""))
+          {
+          const sendData={
+            password:confirmpassword.current.value,
+            mem_id:location.state.mem_id
+          }
+          const {data} = await axios.post(`${window.env_var}api/society/societyupdatepass`,sendData)
+          window.location.href = '/societylogin'
+        }
+        else
+        {
+          document.getElementById('loginemailid').style.border='2px solid red'
+          document.getElementById('loginpassword').style.border='2px solid red'
+        }
+      }
+      else
+      {
+        document.getElementById('loginemailid').style.border='2px solid red'
+        document.getElementById('loginpassword').style.border='2px solid red'
+      }
+      
+    } catch (error) {
+      document.getElementById('loginemailid').style.border='2px solid red'
+      document.getElementById('loginpassword').style.border='2px solid red'
+      console.log(error)
     }
-  };
+  }
+  
   return (
     <div className="logincontainer2">
       
@@ -46,7 +69,7 @@ const Enter_new_pswd = () => {
             <div className="email_input">
               <label className="newpswd">New password</label>
               <input
-                ref={username}
+                ref={password}
                 type="text"
                 className="form-control emailtextbox"
                 onKeyPress={(e) => {
@@ -60,7 +83,7 @@ const Enter_new_pswd = () => {
             <div className="email_input">
               <label className="cnfpswd">Confirm Password</label>
               <input
-                ref={password}
+                ref={confirmpassword}
                 type="password"
                 className="form-control passwordtextbox"
                 onKeyPress={(e) => {
@@ -74,7 +97,7 @@ const Enter_new_pswd = () => {
                 type="button"
                 className="btlogin2"
                 onClick={() => {
-                  loginGuard();
+                  handleSubmit();
                 }}
               >
                 Change Password

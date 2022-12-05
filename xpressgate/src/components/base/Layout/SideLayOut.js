@@ -7,6 +7,10 @@ import RequestQuoteOutlinedIcon from '@mui/icons-material/RequestQuoteOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import RouterPath from '../../../common/constants/path/routerPath';
 import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
+import DescriptionIcon from '@mui/icons-material/Description';
+import SmartDisplayIcon from '@mui/icons-material/SmartDisplay';
+import PaymentsIcon from '@mui/icons-material/Payments';
+import ApartmentIcon from '@mui/icons-material/Apartment';
 
 const SideLayOut = () => {
 
@@ -24,21 +28,21 @@ const SideLayOut = () => {
       <Link to={RouterPath.ADMIN_DASHBOARD} style={{ textDecoration: 'none' }} >
         <div className={`nav-item ${router.pathname.includes("dashboard") && 'font-weight-bold'}`}>
           <HomeOutlinedIcon className='side-nav-icon' fontSize='large' />
-          <span className='ml-3'>Dashboard</span>
+          <span className='ml-3 Labelfont'>Dashboard</span>
         </div>
       </Link>
 
       <Link to={RouterPath.PREMISES_LIST} style={{ textDecoration: 'none' }} >
         <div className={`nav-item ${router.pathname.includes("premises") && 'font-weight-bold'}`}>
-          <VillaOutlinedIcon className='side-nav-icon' fontSize='large' />
-          <span className='ml-3'>Premises Management</span>
+          <ApartmentIcon className='side-nav-icon' fontSize='large' />
+          <span className='ml-3 Labelfont'>Premises Management</span>
         </div>
       </Link>
 
       <Link to={RouterPath.COUPONS_LIST} style={{ textDecoration: 'none' }} >
         <div className={`nav-item ${router.pathname.includes("payments") && 'font-weight-bold'}`}>
-          <VillaOutlinedIcon className='side-nav-icon' fontSize='large' />
-          <span className='ml-3'>Payment Management</span>
+          <PaymentsIcon className='side-nav-icon' fontSize='large' />
+          <span className='ml-3 Labelfont'>Payment Management</span>
         </div>
         {router.pathname.includes('payments') &&
           <div className='px-5'>
@@ -61,7 +65,7 @@ const SideLayOut = () => {
             <Link to={RouterPath.PAYMENT_HISTORY} style={{ textDecoration: 'none' }} >
               <div className={`nav-inner-item ${router.pathname.includes("history") && 'font-weight-bold'}`}>
                 <ChevronRightOutlinedIcon className={router.pathname.includes("history") ? '' : 'd-none'} />
-                <span className={router.pathname.includes("history") ? '' : 'ml-4'}>Payment History</span>
+                <span className={router.pathname.includes("history") ? '' : 'ml-4' }>Payment History</span>
               </div>
             </Link>
           </div>
@@ -70,16 +74,16 @@ const SideLayOut = () => {
 
       <Link to={RouterPath.VIDEO_CLASS} style={{ textDecoration: 'none' }} >
         <div className={`nav-item ${router.pathname.includes("video") && 'font-weight-bold'}`}>
-          <VillaOutlinedIcon className='side-nav-icon' fontSize='large' />
-          <span className='ml-3'>Video Class</span>
+          <SmartDisplayIcon className='side-nav-icon' fontSize='large' />
+          <span className='ml-3 Labelfont'>Video Class</span>
         </div>
 
       </Link>
 
       <Link to={RouterPath.REPORTS} style={{ textDecoration: 'none' }} >
         <div className={`nav-item ${router.pathname.includes("reports") && 'font-weight-bold'}`}>
-          <VillaOutlinedIcon className='side-nav-icon' fontSize='large' />
-          <span className='ml-3'>Reports</span>
+          <DescriptionIcon className='side-nav-icon' fontSize='large' />
+          <span className='ml-3 Labelfont'>Reports</span>
         </div>
       </Link>
 

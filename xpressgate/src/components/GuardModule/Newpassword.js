@@ -3,25 +3,48 @@ import { Form, Button } from 'react-bootstrap';
 import axios from 'axios'
 import { useLocation } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-
+import { validatePassword } from '../auth/validation';
+import { useEffect } from 'react';
+import { checkGuard } from '../auth/Auth';
 const Newpassword = () => {
 
   const location = useLocation()
   const navigate = useNavigate()
   //console.log(location.state.guardid)
 
+  useEffect(()=>{
+    if (checkGuard()) {
+     
+    } else {
+      window.location.href = '/'
+    }  
+  },[])
+
   const confirmPasword = async () => {
     let cp = document.getElementById('confirmpassword').value
 
     try {
-      const cpassworddata = {
-        password: cp,
-        guard_id: location.state.guardid
+      if(await validatePassword(cp))
+      {
+        const cpassworddata = {
+          password: cp,
+          guard_id: location.state.guardid
+        }
+        const { data } = await axios.post(`${window.env_var}api/auth/guardupdatepass`, cpassworddata)
+        if(data.status_code==200)
+        {
+          navigate('/guardLogin')
+        }
+        else
+        {
+          alert('Check password')
+        }
+        
       }
-
-      let { data } = await axios.post(`${window.env_var}api/auth/guardupdatepass`, cpassworddata)
-      navigate('/')
-      console.log(data)
+      else
+      {
+        alert('Password must contain atleast 8 alphabets, atleast 1 lowercase ,atleast 1 uppercase, atleast 1 number and 1 special character')
+      }
     }
     catch (error) {
       console.log(error);

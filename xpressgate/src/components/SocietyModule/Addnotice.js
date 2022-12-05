@@ -18,7 +18,7 @@ const Addnotice = () => {
         eventDate:date,
         fromTime:date,
         toTime:date,
-        community_id:'632970d054edb049bcd0f0b4'  //will be from localstorage
+        community_id:localStorage.getItem('community_id')  //will be from localstorage
       }
 
       const {data} = await axios.post(`${window.env_var}api/notices/addNotice`,sendData)

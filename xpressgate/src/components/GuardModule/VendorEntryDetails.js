@@ -2,8 +2,10 @@ import axios from 'axios';
 import React,{useEffect, useState} from 'react'
 import { Button } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import GuardHeader from './Utils/GuardHeader';
 import HeaderSection from './Utils/HeaderSection';
 import LogOut from './Utils/LogOut';
+import { checkGuard } from '../auth/Auth';
 const VendorEntryDetails = () => {
     const current = new Date();
     const [date, setDate] = useState(`${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`);
@@ -11,28 +13,71 @@ const VendorEntryDetails = () => {
     const [flats,setFlats] = useState([])
     const [bookings,setBookings] = useState([])
     const location = useLocation()
+    const [code,setCode] = useState()
     const navigate = useNavigate()
 
     useEffect(()=>{
-        getData()
+
+      if(checkGuard())
+        {
+          const config = {
+            headers:{
+              'x-access-token':localStorage.getItem('accesstoken')
+            }
+          }
+        axios.get(`${window.env_var}api/guard/checkLogin`,config)
+                .then(({data})=>{  
+                  if(location.state)
+                      {
+                        getData()
+                      }
+                      else
+                      {
+                        navigate('/dashboard')
+                      }
+                })
+                .catch(err=>{
+                  localStorage.clear();
+                  window.location.href='/guardLogin'
+                })
+              
+        }
+        else
+        {
+          window.location.href='/'
+        }
+
+
+
+      
+        
     },[])
 
     const getData =async()=>{
-     
+        // console.log(location.state)
         try {
             const {data} = await axios.get(`${window.env_var}api/vendorlist/getOne/${location.state.id}`)
+            if(data.data.list[0]==null)
+            {
+              alert('This is invalid code.')
+              navigate('/dashboard')
+            }
             setVendorData(data.data.list[0])
             setFlats(data.data.list)
             setBookings(data.data.list)
-            
+            setCode(location.state.code)
+            // console.log(data)
         } catch (error) {
-            
+          navigate('/dashboard')
         }
     } 
 
     const submitData=async()=>{
         
         try {
+          const sendRequest = await axios.get(`${window.env_var}api/inoutentires/update/${location.state.code}`)
+
+          console.log(location.state.code)
           bookings.map(async(items)=>{
             try {
               let submitData = {
@@ -45,20 +90,22 @@ const VendorEntryDetails = () => {
                 flat_id:items.flat_id,
                 type:2,
                 bookedID:location.state.id,
-                status:2,
+                status:1,
                 allowed_by:localStorage.getItem('guard_id')
             }
-              const {data} = await axios.post(`${window.env_var}api/inout/add`,submitData)
-              console.log(data)
-              const bookingUpdate = await axios.get(`${window.env_var}api/bookvendor/removeBooking/${items.booking_id}`)
+            
 
+               const {data} = await axios.post(`${window.env_var}api/inout/add`,submitData)
+              console.log(data)
+              const bookingUpdate = await axios.get(`${window.env_var}api/bookvendor/removeBooking/${items.booking_id}`) 
+             navigate('/vendorlist')
             } catch (error) {
               console.log(error)
             }
             
           })
             
-            navigate('/vendorlist')
+            
             
         } catch (error) {
             console.log(error)
@@ -69,15 +116,7 @@ const VendorEntryDetails = () => {
       
         <div className="frequentvisitorcontainer">
           <div id="headersection">
-            <div class="firstheadersection">
-             {console.log()}
-              <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-              <div id="dashboardguard"><label>Guard</label></div>
-              <div id="dashboardspace"></div>
-              <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-              <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-              <div id="dashboardlogoutbutton"> <LogOut/></div>
-            </div>
+            <GuardHeader/>
           </div>
           <div id="guardnamesection"> 
             <div className='guardname'>
@@ -88,7 +127,7 @@ const VendorEntryDetails = () => {
           </div>
           <div className='fvbackgroundimg'>
             <div className='frequentvisitordisplay'>
-              <label>Details</label>
+              <label>{code?code:'Details'}</label>
             </div>
             {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}
             <div className="col">
@@ -105,18 +144,18 @@ const VendorEntryDetails = () => {
                   
                 </div>
                 <br></br>
-                <div><label className='allowedclass'>Allowed by</label></div>
+                <div><label className='allowedclass' style={{color:'#14335D', fontSize:'24px'}}>Allowed by</label></div>
     
                 <div className='detailsclass'>
                   <div><label className='date text-right'>Date:{date}</label></div>
                   <div><label className='intime'>In-Time: </label></div>
                   <div><label className='outtime'>Out-Time: </label></div>
                   <div><label className='noofpeople'>No of People: 1</label></div>
-                  <div><label className='vehicleno'>Vehicle No: <input type='text' placeholder='Vehical Number'></input></label></div>
+                  <div><label className='vehicleno'>Vehicle No: <input type='text' placeholder='Vehicle Number'></input></label></div>
                 </div>
                 <br></br>
                 <Button type="button" onClick={()=>{submitData()}} className="btnApprove">APPROVE</Button>
-                <Button type="submit" className="btnDeny">DENY</Button>
+                <Button type="submit" className="btnDeny" onClick={()=>window.location.href="/dashboard"}>DENY</Button>
                 <br></br>
                 
               </div>

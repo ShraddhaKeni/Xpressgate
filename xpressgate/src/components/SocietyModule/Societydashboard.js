@@ -2,9 +2,33 @@ import './Societydashboard.css';
 import { Button } from 'react-bootstrap';
 import LogOut from './Utils/LogOut';
 import Societyheader from './Utils/Societyheader';
+import { useEffect } from 'react';
+import {checkSociety} from '../auth/Auth'
 
+import axios from 'axios'
 const Societydashboard = () => {
- 
+  
+    useEffect(()=>{
+     if(checkSociety())
+     {
+      const config = {
+        headers:{
+          'x-access-token':localStorage.getItem('accesstoken')
+        }
+      }
+     axios.get(`${window.env_var}api/society/checkLogin`,config)
+            .then(({data})=>{   
+            })
+            .catch(err=>{
+              localStorage.clear();
+              window.location.href='/societylogin'
+            }) 
+     }
+     else
+     {
+      window.location.href='/'
+     }
+    },[])
   return (
     <>
       <div className="dashboardcontainer">
@@ -29,37 +53,37 @@ const Societydashboard = () => {
             <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
               <div className="col">
                 <div className="sdcard">
-                  <a href='abc'><img src="/images/managenoticeboard.svg" className="dbcard-img-top" alt="guest card"></img></a>
+                 <img src="/images/managenoticeboard.svg" className="dbcard-img-top" alt="notice list" onClick={() => { window.location.href = '/noticeList' }}></img>
                 </div>
               </div>
               <div className="col">
                 <div className="dashboardcard">
-                  <img src="/images/managecommunity.svg" className="dbcard-img-top" alt="vendor card"></img>
+                  <img src="/images/managecommunity.svg" className="dbcard-img-top" alt="community" onClick={() => { window.location.href = '/community' }}></img>
                 </div>
               </div>
               <div className="col">
                 <div className="dashboardcard">
-                  <img src="/images/manageflat.svg" className="dbcard-img-top" alt="dailyhelp card"></img>
+                  <img src="/images/manageflat.svg" className="dbcard-img-top" alt="flat list" onClick={() => { window.location.href = '/flatlist' }}></img>
                 </div>
               </div>
               <div className="col">
                 <div className="dashboardcard">
-                 <img src="/images/managevehicles.svg" className="dbcard-img-top" alt="inout book card"></img>
+                 <img src="/images/managevehicles.svg" className="dbcard-img-top" alt="manage vehicle" onClick={() => { window.location.href = '/manageVehicle' }}></img>
                 </div>
               </div>
               <div className="col">
                 <div className="dashboardcard">
-                  <img src="/images/paymentmanagement.svg" className="dbcard-img-top" alt="video class"></img>
+                  <img src="/images/paymentmanagement.svg" className="dbcard-img-top" alt="payment" onClick={() => { window.location.href = '/payment' }}></img>
                 </div>
               </div>
               <div className="col">
                 <div className="dashboardcard">
-                  <img src="/images/guardmanagement.svg" className="dbcard-img-top" alt="video class"></img>
+                  <img src="/images/guardmanagement.svg" className="dbcard-img-top" alt="guard list" onClick={() => { window.location.href = '/guardList' }}></img>
                 </div>
               </div>
               <div className="col">
                 <div className="dashboardcard">
-                  <img src="/images/managecomplains.svg" className="dbcard-img-top" alt="video class"></img>
+                  <img src="/images/managecomplains.svg" className="dbcard-img-top" alt="ticket list" onClick={() => { window.location.href = '/ticketlist' }}></img>
                 </div>
               </div>
             </div>

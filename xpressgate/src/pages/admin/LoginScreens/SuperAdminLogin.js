@@ -13,12 +13,13 @@ const SuperAdminLogin = () => {
         username: username.current.value,
         password: password.current.value,
       };
-      const { data } = await axios.post(`api/auth/guardlogin`, loginCreds);
+      const { data } = await axios.post(`api/auth/adminlogin`, loginCreds);
       localStorage.clear();
       localStorage.setItem("accesstoken", data.data.accessToken);
       localStorage.setItem("community_id", data.data.community_id);
-      localStorage.setItem("guard_id", data.data.id);
-      window.location.href = "/dashboard";
+      localStorage.setItem("admin_id", data.data.id);
+      localStorage.setItem('mode','admin')
+      window.location.href = "/scDashboard";
     } catch (err) {
       document.getElementById("loginemailid").style.border = "2px solid red";
       document.getElementById("loginpassword").style.border = "2px solid red";
@@ -83,7 +84,7 @@ const SuperAdminLogin = () => {
 
             <div className="adminforgotpassword">
               <a
-                href="https://gitlab.com/users/password/new"
+                href="/adminreset"
                 style={{ color: "#FD6B22" }}
               >
                 Forgot Password?

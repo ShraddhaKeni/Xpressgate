@@ -100,7 +100,7 @@ html {
   padding-bottom: 5%;
 }
 
-.btnlogout {
+/* .btnlogout {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
@@ -110,7 +110,7 @@ html {
   font-weight: 500;
   margin-top: 18%;
   padding-top: 2%;
-}
+} */
 
 .guardname {
   display: flex;
@@ -158,24 +158,12 @@ html {
   font-size: 20px;
 }
 
-.btnAdd {
-  background-color: #0A8996;
-  color: #fff;
-  border-radius: 14px;
-  width: 250px;
-  height: 60px;
-  font-size: 151%;
-  font-weight: 500;
-  margin-top: 4%;
-  margin-right: 34%;
-}
-
 .formclass {
   margin-top: 5%;
   margin-left: 25%;
 }
 
-#inoutbooktable {
+#vendortable {
   margin-Left: 10%;
   margin-Top: 2%;
   max-Width: 80%;
@@ -185,7 +173,7 @@ html {
   font-family: 'Rubik', sans-serif;
 }
 
-#inoutbooktable thead {
+#vendortable thead {
   background-color: #14335D;
   color: #fff;
 }
@@ -194,7 +182,7 @@ table th {
   text-align: center;
 }
 
-#inoutbooktable td:hover{
+#vendortable td:hover{
   color: #FD6B22;
 }
 
@@ -203,24 +191,24 @@ table th {
   height: 5%;
   border: 2px solid #000;
   border-radius: 15px;
-  margin-left: 20%;
+  margin-left: 72%;
   margin-top: 2%;
   
 }
 
-.search_input
+.vlsearch_input
 {
   outline: none;
   border: none;
   height: 40px;
-  width: 210px;
+  width: 120px;
   border-radius: 5px;
   margin-left: 10px;
 }
 
 .searchbox img{
  
-  margin-left: -42%;
+  margin-left: -14%;
 }
 
 .searchlabel{
@@ -274,19 +262,6 @@ table th {
 
   .labelsize {
     font-size: 12px;
-  }
-
-  .btnAdd {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 155px;
-    height: 36px;
-    font-size: 151%;
-    font-weight: 500;
-    margin-top: 4%;
-    margin-right: 35%;
-    padding-top: 0%;
   }
 
   #dashboardguard label {

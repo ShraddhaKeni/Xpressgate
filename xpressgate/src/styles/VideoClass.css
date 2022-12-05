@@ -11,10 +11,10 @@ html{
     margin-top: 0.5%;
     box-sizing: border-box;
     border-radius: 35px;
-    max-width: 70%;
+    max-width: 80%;
     height: 75vh;
     margin-right: 5%;
-    margin-left: 24%;
+    margin-left: 11%;
     margin-top: 2%;
    
 }
@@ -56,6 +56,7 @@ html{
         margin-left: 67%;
     }
     .VideoAddBtn{
+       
         background: #E8F5E9;
         border-radius: 18px;
         border: none;
@@ -66,13 +67,14 @@ font-style: normal;
 font-weight: 500;
 color: #0D960A;
 font-size: 1.2vw;
+
     }
     .VideoAddBtn:hover{
         background: #bbcebd;
     }
     .paginate{
         position: absolute;
-        margin-top: 50%;
+        margin-top: 56%;
         margin-left: 70%;
     }
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
@@ -93,18 +95,20 @@ font-size: 1.2vw;
         margin-left: 24%;
         margin-top: 2%;
     }
-    .videodisplay {
-        position: absolute;
-        width: 27vw;
-        height: 9vh;
-        background-color: #AED8DC;
-        border-radius: 30px;
-        font-size: 2vw;
-        margin: auto;
-        margin-top: -7%;
-        margin-left: 27%;
-        padding: 1%;
-    }
+  
+
+.videodisplay {
+    position: absolute;
+    width: 27vw;
+    height: 9vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 2vw;
+    margin: auto;
+    margin-top: -7%;
+    margin-left: 11%;
+    padding: 1%;
+}
     .videodisplay label {
         display: inline-block;
         padding: 2%;
@@ -119,28 +123,35 @@ font-size: 1.2vw;
         position: absolute;
         background-image: url(http://localhost:3000/static/media/AdminBgImg.0d5973b….svg);
         max-width: auto;
-        height: 77vh;
-        margin-left: -46%;
+        height: 90vh;
+        margin-left: -63%;
         border-radius: 30px;
-        margin-top: 7%;
+        margin-top: 1%;
+        width: 56vw
+    vw
+    ;
     }
     .VideoButton {
         position: absolute;
         margin-top: 3%;
         margin-left: 67%;
     }
-    .VideoAddBtn{
+    .VideoAddBtn {
         background: #E8F5E9;
         border-radius: 18px;
         border: none;
         width: 12vw;
         height: 4vh;
         font-family: 'Rubik';
-font-style: normal;
-font-weight: 500;
-color: #0D960A;
-font-size: 1.2vw;
+        font-style: normal;
+        font-weight: 500;
+        color: #0D960A;
+        font-size: 1.2vw;
+        margin-left: -43%;
     }
-
-
+    .paginate {
+        position: absolute;
+        margin-top: 67%;
+        margin-left: 52%;
+    }
 }

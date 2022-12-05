@@ -9,6 +9,10 @@ const SelectMode = () => {
     {
         window.location.href='/guardLogin'
     }
+    else if (value=='society')
+    {
+      window.location.href='/societylogin'
+    }
     else
     {
         window.location.href='/'    

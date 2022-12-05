@@ -2,31 +2,35 @@ html {
   height: 100vh;
 }
 
-.logincontainer5 {
+.changePwdContainer {
   display: grid;
   height: 100vh;
-  grid-template-columns: 1.8fr 2fr;
-  grid-template-rows: 2.4fr 2fr;
+  grid-template-columns: 0.5fr 2fr;
+  grid-template-rows: 0.2fr 2fr;
   grid-template-areas:
-    "logoid5 loginimgid5"
-    "loginformid5 loginimgid5";
+    "changePwdsection changePwdsection"
+    "cpnamesection loginimgid5";
 }
-/* #logoid5{
-    margin-top: 2rem;
-    margin-left: 9rem;
-    margin-bottom: -60rem;
-    position: relative;
-  }
-  #logoid5 img{
-    max-width:40% ;
-    height: auto;
-  } */
+
+#changePwdsection {
+  grid-area: changePwdsection;
+  background-color: #F9F9FF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#cpnamesection {
+
+  grid-area: cpnamesection;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 #logoid5 {
   margin-top: -37rem;
   margin-left: 1rem;
   margin-bottom: -3rem;
   position: relative;
 }
+
 #logoid5 img {
   max-width: 60%;
   height: auto;
@@ -62,6 +66,7 @@ html {
   font-size: 1.3vw;
   font-weight: 500;
 }
+
 .btsign {
   background-color: #0b2447;
   color: #fff;
@@ -94,6 +99,7 @@ html {
   font-size: 1.2vw;
   position: relative;
 }
+
 .password3 {
   position: relative;
   margin-left: -55%;
@@ -102,6 +108,7 @@ html {
   font-size: 1.2vw;
   position: relative;
 }
+
 .forgotpassword {
   margin-top: 1rem;
   margin-left: 1rem;
@@ -114,9 +121,89 @@ html {
 .passwordtextbox {
   width: 25vw;
 }
+
 .forgotpassword a {
   font-size: 1vw;
 }
+
+.cpassword {
+  position: relative;
+  right: 35%;
+  font-family: 'Rubik', sans-serif;
+  font-size: 15px;
+}
+
+.npassword {
+  position: relative;
+  right: 38%;
+  font-family: 'Rubik', sans-serif;
+  font-size: 15px;
+}
+
+.cppassword {
+  position: relative;
+  right: 35%;
+  font-family: 'Rubik', sans-serif;
+  font-size: 15px;
+}
+
+.maintitle {
+  width: 300px;
+  height: 64px;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  font-size: 20px;
+  padding-top: 14px;
+  margin: auto;
+  margin-top: -2%;
+}
+
+.changepasswordclass {
+  margin-left: 36%;
+  margin-top: 4%;
+}
+
+.btnUpdatecp {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 180px;
+  height: 60px;
+  font-size: 151%;
+  font-weight: 500;
+  margin-top: 4%;
+  margin-right: 56%;
+}
+
+.btnUpdatecp:hover{
+  background-color: #14335D;
+}
+
+.cpguardname {
+  display: flex;
+  width: 80%;
+  height: 12%;
+  background-color: rgba(10, 137, 150, 0.33);
+  margin-left: 10%;
+  margin-top: 12%;
+  border-radius: 24px;
+}
+
+.cpguardname img {
+  margin-left: 10%;
+  width: 25%;
+  height: 70%;
+  margin-top: 4%;
+}
+
+.cpguardname label {
+  color: #000;
+  margin-left: 8%;
+  margin-top: 10%;
+  font-size: 20px;
+}
+
+
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   #loginformid5 {
@@ -125,12 +212,14 @@ html {
     margin-left: -2rem;
     /* margin-top: -7rem; */
   }
+
   #logoid5 {
     margin-top: -24rem;
     margin-left: -3rem;
     margin-bottom: -2rem;
     position: relative;
   }
+
   #logoid5 img {
     max-width: 44%;
     height: auto;
@@ -139,10 +228,24 @@ html {
   .logincontainer5 {
     overflow-y: hidden;
   }
+
   #loginimgid5 img {
     width: auto;
     height: 100vh;
   }
+
+  .btnUpdatecp {
+    background-color: #0A8996;
+    color: #fff;
+    border-radius: 14px;
+    width: 150px;
+    height: 60px;
+    font-size: 151%;
+    font-weight: 500;
+    margin-top: 4%;
+    margin-right: 50%;
+  }
+
   .btlogin6 {
     background-color: #0a8996;
     color: #fff;
@@ -187,6 +290,7 @@ html {
     font-size: 1.4vw;
     margin-bottom: 0rem;
   }
+
   .password3 {
     position: relative;
     margin-left: -49%;
@@ -200,11 +304,34 @@ html {
     height: 5.5vh;
     margin-bottom: -1.5rem;
   }
+
   .forgotpassword {
     margin-left: -2rem;
   }
+
   .forgotpassword a {
     font-size: 1.1vw;
+  }
+
+  .cpassword {
+    position: relative;
+    right: 24%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+  }
+  
+  .npassword {
+    position: relative;
+    right: 27%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+  }
+  
+  .cppassword {
+    position: relative;
+    right: 23%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
   }
 }
 

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './Videoclass.css';
-import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import ReactPlayer from 'react-player'
 import PaginationCalculate from './Utils/paginationCalculate';
+import LogOut from './Utils/LogOut';
 
 const Videoclass = () => {
   const [videodata, setVideodata] = useState([])
@@ -43,7 +43,7 @@ const Videoclass = () => {
           <div id="videodashboardspace"></div>
           <div id="videodashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
           <div id="videodashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="videodashboardlogoutbutton"> <Button type="submit" className="videobtnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
+          <div id="videodashboardlogoutbutton"> <LogOut/></div>
         </div>
       </div>
       <div id="videoguardnamesection">
@@ -55,8 +55,8 @@ const Videoclass = () => {
       </div>
       <div className='vcbackgroundimg'>
         <div id="cardsection">
-          <div className='Dailyhelplistdisplay'>
-            <label>Daily Help List</label>
+          <div className='videolistdisplay'>
+            <label>Video class List</label>
           </div>
           <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
             {currentPosts.map(vdata => {

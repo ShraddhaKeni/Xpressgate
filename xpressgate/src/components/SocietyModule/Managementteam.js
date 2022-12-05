@@ -40,19 +40,18 @@ const Managementteam = () => {
   }
 
   return (
-    <div className="addguestcontainer1">
-      <div id="headersection1">
-        <div id="addflatsection">
-          <div className="addflatheadersection">
-            <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-            <div id="afsociety"><label>Society</label></div>
-            <div id="afspace"></div>
-            <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-            <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-            <div id="aflogoutbutton"><LogOut /></div>
-          </div>
+    <div className="addguestcontainer4">
+    <div id="addflatsection">
+        <div className="addflatheadersection">
+          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+          <div id="afsociety"><label>Society</label></div>
+          <div id="afspace"></div>
+          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="aflogoutbutton"><LogOut/></div>
         </div>
-      </div>
+    
+    </div>
       <div id="societynamesection">
         <div className="societyname">
           <img src="/images/profileicon.svg" alt="Society image" />
@@ -68,7 +67,7 @@ const Managementteam = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="Addguestdisplay3">
+        <div className="Addguestdisplay5">
           <label>Management Team</label>
         </div>
         <div >
@@ -81,7 +80,7 @@ const Managementteam = () => {
         ></input>
         </div>
 
-        <table id="inoutbooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
+        <table id="managementtable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>
               <th class="th-sm">Sr No</th>

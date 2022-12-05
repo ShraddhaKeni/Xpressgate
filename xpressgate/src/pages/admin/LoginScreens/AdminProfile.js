@@ -6,12 +6,12 @@ const AdminProfile = () => {
   return (
    <>
    
-    <SideLayOut/>
-    <div className="AdminSideImg"><img src=""  alt="Admin side image"></img></div>
+    
+    
     <div className='maincontainer'>
        <div className='dummycontainer'>
-        <img src="./images/AdminSideicon.svg"></img>
-       {/* <div className='adminprofileform'> */}
+        <img src="/images/AdminSideicon.svg"></img>
+       
           <form className='profileform'>
           <div classname="firstname">
               <input type="text" placeholder='First name' className='firstnameinput'></input>
@@ -32,7 +32,7 @@ const AdminProfile = () => {
               <label for="email" value="email" className='Email'>Email id</label>
               <input type="text" placeholder='admin@' className='emailinput'></input>
             </div>
-          </form>
+        </form>
       
        </div>
       </div>

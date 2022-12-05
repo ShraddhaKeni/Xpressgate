@@ -7,10 +7,10 @@
     margin-top: 0.5%;
     box-sizing: border-box;
     border-radius: 35px;
-    max-width: 70%;
+    max-width: 80%;
     height: 75vh;
     margin-right: 5%;
-    margin-left: 24%;
+    margin-left: 11%;
     margin-top: 2%;
    
 }
@@ -175,7 +175,7 @@
             font-size: 2vw;
             margin: auto;
             margin-top: -7%;
-            margin-left: 27%;
+            margin-left: 12%;
             padding: 1%;
         }
         .EditVideodisplay label {
@@ -193,7 +193,7 @@
             background-image: url(http://localhost:3000/static/media/AdminBgImg.0d5973b….svg);
             max-width: auto;
             height: 77vh;
-            margin-left: -46%;
+            margin-left: -54%;
             border-radius: 30px;
             margin-top: 7%;
         }

@@ -18,7 +18,7 @@ html{
     max-width: 70%;
     height: 75vh;
     margin-right: 5%;
-    margin-left: 24%;
+    margin-left: 16%;
     margin-top: 2%;
 }
 .dummycontainer{
@@ -72,7 +72,7 @@ margin-bottom: 7%;
             }
         
     .Changeicon{
-        margin-left: 225%;
+        margin-left: 211%;
         font-size: 0.8vw;
     }
     .password{
@@ -110,24 +110,23 @@ margin-bottom: 7%;
 
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-.maincontainer {
-    /* background-image: url(../../../public/images/dashboardbackground.svg); */
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    position: relative;
-    margin-top: 0.5%;
-    box-sizing: border-box;
-    text-align: center;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-    border-radius: 35px;
-    max-width: 70%;
-    height: 80vh;
-    margin-right: 5%;
-    margin-left: 24%;
-    margin-top: 2%;
-}
+    .maincontainer {
+        /* background-image: url(../../../public/images/dashboardbackground.svg); */
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        position: relative;
+        box-sizing: border-box;
+        text-align: center;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+        border-radius: 35px;
+        max-width: 70%;
+        height: 80vh;
+        margin-right: 5%;
+        margin-left: 13%;
+        margin-top: 2%;
+    }
 .Changeicon{
     margin-left: 105%;
     font-size: 1.3vw;

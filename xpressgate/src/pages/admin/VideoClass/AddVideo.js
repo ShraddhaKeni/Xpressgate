@@ -1,15 +1,15 @@
 import React from "react";
 import "../../../styles/AddVideo.css";
 
-import SideLayOut from "../../../components/base/Layout/SideLayOut";
+
 
 const AddVideo = () => {
   return (
     <>
-    <SideLayOut/>
-    <div className="AdminSideImg"><img src="./images/AdminSideImage.svg"  alt="Admin side image"></img></div>
+    
+    <div className="AdminSideImg"><img src="/images/AdminSideImage.svg"  alt="Admin side image"></img></div>
     <div className="AddVideocontainer">
-        <img src="./images/AdminBgImg.svg" className="Addbgimg"></img>
+        <img src="/images/AdminBgImg.svg" className="Addbgimg"></img>
       <div className="AddVideodisplay">
         <label>Add Video</label>
       </div>
@@ -32,7 +32,7 @@ const AddVideo = () => {
         </div>
         <br/>
         <div className="VideoAddButton">
-            <button type="button" className="VideoButton">Add</button>
+            <button type="button" className="VideoaddButton">Add</button>
         </div>
      </div>
   

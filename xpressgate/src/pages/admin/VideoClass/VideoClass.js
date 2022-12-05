@@ -1,14 +1,14 @@
 import React from "react";
 import "../../../styles/VideoClass.css";
-import SideLayOut from "../../../components/base/Layout/SideLayOut"; 
 import PaginationCalculate from '../../../components/GuardModule/Utils/paginationCalculate';
+
 const VideoClass = () => {
   return (
     <>
-    <SideLayOut/>
-    <div className="AdminSideImg"><img src="./images/AdminSideImage.svg"  alt="Admin side image"></img></div>
+    
+    <div className="AdminSideImg"><img src="/images/AdminSideImage.svg"  alt="Admin side image"></img></div>
     <div className="Videoocontainer">
-      <img src="./images/AdminBgImg.svg" className="videoclassbgimg"></img>
+      <img src="/images/AdminBgImg.svg" className="videoclassbgimg"></img>
       <div className="videodisplay">
         <label>Video Class</label>
       </div>

@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import './Dailyservicepasscode.css';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import LogOut from './Utils/LogOut';
 import { checkGuard } from '../auth/Auth';
-
+import GuardHeader from './Utils/GuardHeader';
 const Dailyservicepasscode = ({ props }) => {
 
 
@@ -17,25 +17,38 @@ const Dailyservicepasscode = ({ props }) => {
   const location = useLocation();
   //console.log(location);
 
+const navigate = useNavigate()
+
   useEffect(() => {
-    if(checkGuard())
-    {
-      if (location.state) {
-        console.log(location.state)
-        //setFlats(location.state.flats)
-  
-        //console.log(location.state.flats)
-        getdailyhelp()
-  
-      }
-      else {
-        getAll()
+   
+  if(checkGuard())
+  {
+    const config = {
+      headers:{
+        'x-access-token':localStorage.getItem('accesstoken')
       }
     }
-    else
-    {
-      window.location.href='/'
-    }
+   axios.get(`${window.env_var}api/guard/checkLogin`,config)
+          .then(({data})=>{  
+            
+          })
+          .catch(err=>{
+            localStorage.clear();
+            window.location.href='/guardLogin'
+          })
+          if (location.state) {
+            console.log(location.state)
+            getdailyhelp()
+      
+          }
+          else {
+            getData()
+          }  
+  }
+  else
+  {
+    window.location.href='/'
+  }
     
 
   }, [])
@@ -48,7 +61,33 @@ const Dailyservicepasscode = ({ props }) => {
       //console.log(dailyhelpdata.data.data.list)
       //console.log(dailyhelpdata.data.data.list[0])
     } catch (error) {
+      
       console.log('Try again after sometime')
+    }
+  }
+
+  const getData = async()=>{
+    try {
+      const codeData = {
+        code: props.code,
+        community_id: "632970d054edb049bcd0f0b4"
+      }
+      let { data } = await axios.post(`${window.env_var}api/inoutentires/getdata`, codeData)
+      if(data.message=='Guest')
+      {
+        navigate('/guestentry',{state:{id:data.data.bookingdetails.booked_id}})
+      }
+      else
+      {
+        const { data } = await axios.get(`${window.env_var}api/resident/helperstaff/getOne/${props.booked_id}`)
+        setFlats(props.flatID)
+        setStaff(data.data.staff[0])
+        console.log(data.data.staff)
+        const serviceType = await axios.get(`${window.env_var}api/admin/dailyhelp/getStafftype/${data.data.staff[0].serviceType}`)
+        setService(serviceType.data.data.dailyhelp.serviceType)
+      }
+    } catch (error) {
+      
     }
   }
 
@@ -60,6 +99,7 @@ const Dailyservicepasscode = ({ props }) => {
       const serviceType = await axios.get(`${window.env_var}api/admin/dailyhelp/getStafftype/${data.data.staff[0].serviceType}`)
       setService(serviceType.data.data.dailyhelp.serviceType)
     } catch (error) {
+      console.log(props.booked_id)
       console.log('Try again after sometime')
     }
   }
@@ -93,21 +133,14 @@ const Dailyservicepasscode = ({ props }) => {
     <div className="dailyservicepasscodecontainer">
 
       <div id="dspheadersection">
-        <div class="dspfirstheadersection">
-          <div id="dspdashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="dspdashboardguard"><label>Guard</label></div>
-          <div id="dspdashboardspace"></div>
-          <div id="dspdashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="dspdashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="dspdashboardlogoutbutton"><LogOut /></div>
-        </div>
+        <GuardHeader/>
       </div>
       <div id="dspguardnamesection">
         <div className='dspguardname'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
           <label>Guard Name</label>
         </div>
-        <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
+        {/* <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div> */}
       </div>
       <div className='dsepbackgroundimg'>
         {props ? <div className='dailyservicepasscodedisplay'><label>{props.code} </label> </div> : " "}
@@ -137,8 +170,12 @@ const Dailyservicepasscode = ({ props }) => {
               return <label className="detailslabel">Flat {ft.flats}, Block {ft.block} </label>
             })}
           </div>}
-          <Button type="button" onClick={()=> handleclick()} className="btnApprove approvebtn">APPROVE</Button>
-            <Button type="button" onClick={()=>window.location.href="/dailyhelp"} className="btnDeny denybtn">DENY</Button>
+          <div className='buttons_dailyservice'>
+            <div>
+              <Button type="button" onClick={()=> handleclick()} id='approve_entry'  className="btnAddDSP">APPROVE</Button>
+              <Button type="button" onClick={()=>window.location.href="/dailyhelp"} id='deny_entry' className="btnDenyDSP ">DENY</Button>
+            </div>
+          </div>
       </div>
     </div>
   )

@@ -68,35 +68,35 @@ const Flatlist = () => {
 
 
   return (
-    <div className="inoutbookcontainer">
-      <div id="headersection">
-        <div class="firstheadersection">
-          <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="dashboardguard"><label>Society</label></div>
-          <div id="dashboardspace"></div>
-          <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="dashboardlogoutbutton"> <Button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
+    <div className="flcontainer">
+      <div id="flheadersection">
+        <div class="flfirstheadersection">
+          <div id="fldashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+          <div id="flsociety"><label>Society</label></div>
+          <div id="sldashboardspace"></div>
+          <div id="flnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+          <div id="flsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="fllogoutbutton"> <Button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
         </div>
       </div>
-      <div id="guardnamesection">
-        <div className='guardname'>
+      <div id="flsection">
+        <div className='flname'>
         <img src="/images/societyicon.svg" alt="society name" />
           <label>Society Name</label>
         </div>
-        <div className='sideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
+        <div className='flsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
       </div>
-      <div className='iobbackgroundimg'>
-        <div className='inoutbookdisplay'>
+      <div className='flbackgroundimg'>
+        <div className='fldisplay'>
           <label>Block A</label>
         </div>
         <div className='row'>
-          <div className='searchbox'>
+          <div className='flsearchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
             <span><label className='searchlabel'>Search</label><input className='search_input' onChange={(e)=>findText(e)} ></input></span>
           </div>
         </div>
-        <table id="inoutbooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
+        <table id="fltable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>
               <th class="th-sm">Flat No</th>

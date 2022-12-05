@@ -1,11 +1,13 @@
 import React from 'react'
-
+import LogOut from './Utils/LogOut';
 import './Inoutbook.css';
 import { Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import PaginationCalculate from './Utils/paginationCalculate';
 import { useNavigate } from 'react-router-dom';
+import GuardHeader from './Utils/GuardHeader';
+import {checkGuard} from '../auth/Auth'
 
 const GuestList = () => {
 
@@ -16,7 +18,23 @@ const GuestList = () => {
     const [pageCount,setpageCount] = useState(0)
     const navigate = useNavigate()
     useEffect(()=>{
-        getData()
+      if (checkGuard()) {
+        const config = {
+          headers: {
+            'x-access-token': localStorage.getItem('accesstoken')
+          }
+        }
+        axios.get(`${window.env_var}api/guard/checkLogin`, config)
+          .then(({ data }) => {
+            getData()
+          })
+          .catch(err => {
+            localStorage.clear();
+            window.location.href = '/guardLogin'
+          })
+      } else {
+        window.location.href = '/'
+      }  
     },[])
 
     const getData=async()=>{
@@ -25,7 +43,7 @@ const GuestList = () => {
             setGuests(data.data.guests_list)
             const indexoflast = currentPage*postPerPage  //endoffset
             const indexoffirst = indexoflast - postPerPage //startoffset
-            setCurrentPosts(data.data.guests_list.filter(x=>x.status==true).slice(indexoffirst,indexoflast))
+            setCurrentPosts(data.data.guests_list.slice(indexoffirst,indexoflast))
             
         } catch (error) {
             console.log(error)
@@ -37,13 +55,21 @@ const GuestList = () => {
       return d.getHours()+':'+d.getMinutes()
       
     }
+
+
+  const  dateFormat=(date)=>
+  {
+    var d = new Date(date)
+    return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()
+    
+  }
+
 async function  paginate(event)
   {
-    const {data}= await axios.post(`${window.env_var}api/guard/getallguest`,{community_id:localStorage.getItem('community_id')})
     setCurrentpage(event.selected+1)
     const indexoflast = (event.selected+1)*postPerPage  //endoffset
     const indexoffirst = (indexoflast - postPerPage) //startoffset
-    setCurrentPosts(data.data.guests_list.filter(x=>x.status==true).slice(indexoffirst,indexoflast))
+    setCurrentPosts(guests.slice(indexoffirst,indexoflast))
 }
 const guestEntry=async(id)=>{
     navigate('/guestentry',{state:{id:id}})
@@ -52,14 +78,7 @@ const guestEntry=async(id)=>{
   return (
     <div className="inoutbookcontainer">
       <div id="headersection">
-        <div class="firstheadersection">
-          <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="dashboardguard"><label>Guard</label></div>
-          <div id="dashboardspace"></div>
-          <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="dashboardlogoutbutton"> <Button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
-        </div>
+        <GuardHeader/>
       </div>
       <div id="guardnamesection">
         <div className='guardname'>
@@ -70,13 +89,13 @@ const guestEntry=async(id)=>{
       </div>
       <div className='iobbackgroundimg'>
         <div className='inoutbookdisplay'>
-          <label>In-out Book</label>
+          <label>Guest List</label>
         </div>
         {/* <div class="table-responsive"> */}
         <table id="inoutbooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>
-              <th class="th-sm"></th>
+              <th class="th-sm">Sr No</th>
               <th class="th-sm">Name</th>
               <th class="th-sm">Visitor type</th>
               <th class="th-sm">Block</th>
@@ -88,16 +107,17 @@ const guestEntry=async(id)=>{
           </thead>
           <tbody>
             {currentPosts.map((items,index)=>{
-           return( <tr key={items._id}>
-                <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
-                <td onClick={()=>{guestEntry(items.Guest_id)}}>{items.guestFirstName} {items.guestLastName}</td>
-                <td>Guest</td>
-                <td>{items.block_name}</td>
-                <td>{items.flat_number}</td>
-                <td>Today</td>
-                <td>{dateTimeFormat(items.time)}</td>
-                <td>-</td>
-            </tr>)
+              return( 
+              <tr>
+                    <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1)*12+(index+1)}</td>
+                    <td onClick={()=>{guestEntry(items.Guest_id)}}>{items.guestFirstName} {items.guestLastName}</td>
+                    <td>Guest</td>
+                    <td>{items.block_name}</td>
+                    <td>{items.flat_number}</td>
+                    <td>{dateFormat(items.time)}</td>
+                    <td>{dateTimeFormat(items.time)}</td>
+                    <td>-</td>
+                </tr>)
             })}
             
           </tbody>

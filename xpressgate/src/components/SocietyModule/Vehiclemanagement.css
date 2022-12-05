@@ -100,17 +100,12 @@ html {
   padding-bottom: 5%;
 }
 
-.btnlogout {
+/* .btnlogout {
   background-color: #0A8996;
   color: #fff;
-  border-radius: 14px;
-  width: 142px;
-  height: 52px;
-  font-size: 20px;
-  font-weight: 500;
   margin-top: 18%;
   padding-top: 2%;
-}
+} */
 
 .vmsocietyname {
   display: flex;
@@ -156,18 +151,6 @@ html {
 
 .labelsize {
   font-size: 20px;
-}
-
-.btnAdd {
-  background-color: #0A8996;
-  color: #fff;
-  border-radius: 14px;
-  width: 250px;
-  height: 60px;
-  font-size: 151%;
-  font-weight: 500;
-  margin-top: 4%;
-  margin-right: 34%;
 }
 
 .formclass {
@@ -271,19 +254,6 @@ margin-top: 10%;
 
   .labelsize {
     font-size: 12px;
-  }
-
-  .btnAdd {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 155px;
-    height: 36px;
-    font-size: 151%;
-    font-weight: 500;
-    margin-top: 4%;
-    margin-right: 35%;
-    padding-top: 0%;
   }
 
   #vmsociety label {

@@ -1,21 +1,19 @@
 import React from "react";
 import "../../../styles/Reports.css";
-import SideLayOut from "../../../components/base/Layout/SideLayOut";
+
 import PaginationCalculate from '../../../components/GuardModule/Utils/paginationCalculate';
 
 const Reports = () => {
 
   return (
     <>
-      <div className="AdminSideImg"><img src="./images/AdminSideImage.svg" alt="Admin side image"></img></div>
+      <div className="AdminSideImg"><img src="/images/AdminSideImage.svg" alt="Admin side image"></img></div>
       <div className="Reportscontainer">
-        <img src="./images/AdminBgImg.svg" className="Reportsbgimg"></img>
+        <img src="/images/AdminBgImg.svg" className="Reportsbgimg"></img>
         <div className="Reportsdisplay">
           <label>Reports</label>
         </div>
-        <div className="AdminSearch">
-          <input type="search" className="searchinput" placeholder="&#128269; search"></input>
-        </div>
+        
       </div>
       <div className="AdminSearch">
         <input type="search" className="searchinput" placeholder="&#128269; search"></input>
@@ -27,7 +25,7 @@ const Reports = () => {
             <button type="button" className="Viewbtn" >View Report</button>
           </div>
           <div className="reportimage">
-            <img src="./images/report.svg"></img>
+            <img src="/images/report.svg"></img>
           </div>
         </div>
         <div className="reportsecond">
@@ -36,7 +34,7 @@ const Reports = () => {
             <button type="button" className="Viewbtn" >View Report</button>
           </div>
           <div className="reportimage">
-            <img src="./images/report.svg"></img>
+            <img src="/images/report.svg"></img>
           </div>
         </div>
         <br /><br />
@@ -47,7 +45,7 @@ const Reports = () => {
               <button type="button" className="Viewbtn" >View Report</button>
             </div>
             <div className="reportimage">
-              <img src="./images/report.svg"></img>
+              <img src="/images/report.svg"></img>
             </div>
           </div>
           <div className="reportsecond">
@@ -56,7 +54,7 @@ const Reports = () => {
               <button type="button" className="Viewbtn1" >View Report</button>
             </div>
             <div className="reportimage1">
-              <img src="./images/report.svg"></img>
+              <img src="/images/report.svg"></img>
             </div>
           </div>
         </div>
@@ -68,7 +66,7 @@ const Reports = () => {
               <button type="button" className="Viewbtn" >View Report</button>
             </div>
             <div className="reportimage2">
-              <img src="./images/report.svg"></img>
+              <img src="/images/report.svg"></img>
             </div>
           </div>
 

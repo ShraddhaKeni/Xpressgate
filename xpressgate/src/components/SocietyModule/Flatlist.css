@@ -2,24 +2,24 @@ html {
   height: 100vh;
 }
 
-.inoutbookcontainer {
+.flcontainer {
   display: grid;
   height: 100vh;
   grid-template-columns: 0.5fr 2fr;
   grid-template-rows: 0.2fr 2fr;
-  grid-template-areas: "headersection headersection"
-    "guardnamesection cardsection"
+  grid-template-areas: "flheadersection flheadersection"
+    "flsection cardsection"
 }
 
-#headersection {
+#flheadersection {
 
-  grid-area: headersection;
+  grid-area: flheadersection;
   background-color: #F9F9FF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-#guardnamesection {
-  grid-area: guardnamesection;
+#flsection {
+  grid-area: flsection;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -29,7 +29,7 @@ html {
 
 }
 
-.iobbackgroundimg {
+.flbackgroundimg {
   background-image: url("../../../public/images/dashboardbackground.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -38,28 +38,28 @@ html {
   margin-top: 0.5%;
 }
 
-.firstheadersection {
+.flfirstheadersection {
   display: grid;
   grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
-  grid-template-areas: "dashboardlogo dashboardguard dashboardspace dashboardnotification dashboardsetting dashboardlogoutbutton";
+  grid-template-areas: "fldashboardlogo flsociety sldashboardspace flnotification flsetting fllogoutbutton";
 }
 
-#dashboardlogo {
-  grid-area: dashboardlogo;
+#fldashboardlogo {
+  grid-area: fldashboardlogo;
 }
 
-#dashboardlogo img {
+#fldashboardlogo img {
   margin-top: 5%;
   margin-left: 1%;
   margin-bottom: 5%;
   width: 40%;
 }
 
-#dashboardguard {
-  grid-area: dashboardguard;
+#flsociety {
+  grid-area: flsociety;
 }
 
-#dashboardguard label {
+#flsociety label {
   margin-top: 20%;
   margin-left: -88%;
   width: 136px;
@@ -71,48 +71,43 @@ html {
   font-size: 20px;
 }
 
-#dashboardspace {
-  grid-area: dashboardspace;
+#sldashboardspace {
+  grid-area: sldashboardspace;
 }
 
-#dashboardnotification {
-  grid-area: dashboardnotification;
+#flnotification {
+  grid-area: flnotification;
 }
 
-#dashboardnotification img {
+#flnotification img {
   margin-top: 100%;
 }
 
-#dashboardsetting {
-  grid-area: dashboardsetting;
+#flsetting {
+  grid-area: flsetting;
 }
 
-#dashboardsetting img {
+#flsetting img {
   margin-top: 100%;
 }
 
-#dashboardlogoutbutton {
-  grid-area: dashboardlogoutbutton;
+#fllogoutbutton {
+  grid-area: fllogoutbutton;
 }
 
-#dashboardlogoutbutton img {
+#fllogoutbutton img {
   padding-left: 10%;
   padding-bottom: 5%;
 }
 
-.btnlogout {
+/* .btnlogout {
   background-color: #0A8996;
   color: #fff;
-  border-radius: 14px;
-  width: 142px;
-  height: 52px;
-  font-size: 20px;
-  font-weight: 500;
   margin-top: 18%;
   padding-top: 2%;
-}
+} */
 
-.guardname {
+.flname {
   display: flex;
   width: 80%;
   height: 14%;
@@ -122,28 +117,28 @@ html {
   border-radius: 24px;
 }
 
-.guardname img {
+.flname img {
   margin-left: 6%;
   width: 30%;
   height: 70%;
   margin-top: 6%;
 }
 
-.guardname label {
+.flname label {
   color: #000;
   margin-left: 8%;
   margin-top: 13%;
   font-size: 20px;
 }
 
-.sideimage img {
+.flsideimage img {
   display: flex;
   margin-top: 80%;
   width: 100%;
   height: auto;
 }
 
-.inoutbookdisplay {
+.fldisplay {
   width: 300px;
   height: 64px;
   background-color: #AED8DC;
@@ -158,24 +153,12 @@ html {
   font-size: 20px;
 }
 
-.btnAdd {
-  background-color: #0A8996;
-  color: #fff;
-  border-radius: 14px;
-  width: 250px;
-  height: 60px;
-  font-size: 151%;
-  font-weight: 500;
-  margin-top: 4%;
-  margin-right: 34%;
-}
-
 .formclass {
   margin-top: 5%;
   margin-left: 25%;
 }
 
-#inoutbooktable {
+#fltable {
   margin-Left: 10%;
   margin-Top: 2%;
   max-Width: 80%;
@@ -186,7 +169,7 @@ html {
   font-family: 'Rubik', sans-serif;
 }
 
-#inoutbooktable thead {
+#fltable thead {
   background-color: #14335D;
   color: #fff;
 }
@@ -195,11 +178,11 @@ table th {
   text-align: center;
 }
 
-#inoutbooktable td:hover{
+#fltable td:hover{
   color: #0A8996;
 }
 
-.searchbox{
+.flsearchbox{
   width: 15%;
   height: 5%;
   border: 2px solid #000;
@@ -210,20 +193,20 @@ table th {
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  .guardname label {
+  .flname label {
     margin-left: 2%;
     margin-top: 16%;
     font-size: 15px;
   }
 
-  .sideimage img {
+  .flsideimage img {
     display: flex;
     margin-top: 216%;
     width: 100%;
     height: auto;
   }
 
-  .iobbackgroundimg {
+  .flbackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -236,20 +219,7 @@ table th {
     font-size: 12px;
   }
 
-  .btnAdd {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 155px;
-    height: 36px;
-    font-size: 151%;
-    font-weight: 500;
-    margin-top: 4%;
-    margin-right: 35%;
-    padding-top: 0%;
-  }
-
-  #dashboardguard label {
+  #flsociety label {
     margin-top: 14%;
     margin-left: -68%;
     width: 108px;
@@ -261,7 +231,7 @@ table th {
     font-size: 20px;
   }
 
-  .inoutbookdisplay {
+  .fldisplay {
     width: 300px;
     height: 64px;
     background-color: #AED8DC;
@@ -272,7 +242,7 @@ table th {
     margin-top: -16%;
   }
 
-  .searchbox {
+  .flsearchbox {
     width: 28%;
     height: 5%;
     border: 2px solid #000;
@@ -280,7 +250,7 @@ table th {
     margin-top: 2%;
     margin-left: 60%;
 }
-.guardname {
+.flname {
   display: flex;
   width: 80%;
   height: 10%;
@@ -292,40 +262,71 @@ table th {
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
-  #dashboardlogo img {
-    margin-top: 26%;
-    margin-left: 20%;
-    margin-bottom: 5%;
-    width: 114%;
+  .flsideimage {
+    display: none;
+  }
 
-}
-.inoutbookdisplay {
-  width: 140px;
-  height: 56px;
-  background-color: #AED8DC;
-  border-radius: 30px;
-  font-size: 20px;
-  padding-top: 11px;
-  margin-left: 48%;
-  margin-top: 4%;
+  #flsection {
+    display: none;
+  }
+
+  #flsociety {
+    display: none;
+  }
+
+  .flbackgroundimg {
+    background-image: url("../../../public/images/dashboardbackground.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    margin-top: 10.5%;
+  }
+
+  .fldisplay {
+    width: 280px;
+    height: 64px;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-top: 14px;
+    /* margin: auto; */
+    /* margin-top: -2%; */
+    margin-left: 26%;
 }
 
-.searchbox {
-  width: 76%;
+.flsearchbox {
+  width: 70%;
   height: 5%;
   border: 2px solid #000;
   border-radius: 15px;
-  margin-left: 35%;
+  margin-left: 70%;
   margin-top: 2%;
 }
 
-#inoutbooktable {
+.search_input {
+  outline: none;
+  border: none;
+  height: 18px;
+  width: 145px;
+  border-radius: 5px;
+  margin-left: 9px;
+}
+
+#fltable {
   margin-Left: 24%;
   margin-Top: 2%;
-  /* max-width: 96%; */
+  max-Width: 100%;
   background-color: #F9FAFF;
   border-radius: 14px;
   border-collapse: separate;
   font-family: 'Rubik', sans-serif;
+}
+
+#fldashboardlogo img {
+  margin-top: 5%;
+  margin-left: 20%;
+  margin-bottom: 5%;
+  width: 140%;
 }
 }

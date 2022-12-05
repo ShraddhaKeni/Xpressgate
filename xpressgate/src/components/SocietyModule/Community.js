@@ -4,19 +4,18 @@ import LogOut from './Utils/LogOut'
 
 const Community = () => {
   return (
-    <div className="addguestcontainer1">
-      <div id="headersection1">
-      <div id="addflatsection">
+    <div className="addguestcontainer2">
+    <div id="addflatsection">
         <div className="addflatheadersection">
           <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
           <div id="afsociety"><label>Society</label></div>
           <div id="afspace"></div>
           <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
           <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="aflogoutbutton"><LogOut /></div>
+          <div id="aflogoutbutton"><LogOut/></div>
         </div>
-      </div>
-      </div>
+    
+    </div>
       <div id="societynamesection">
         <div className="societyname">
           <img src="/images/profileicon.svg" alt="Society image" />
@@ -40,7 +39,7 @@ const Community = () => {
         <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
           <div className="col">
             <div className="dashboardcard">
-              <a href="/manage">
+              <a href="/management">
                 <img
                   src="/images/Mteam.svg"
                   className="dbcard-img-top"
@@ -56,7 +55,7 @@ const Community = () => {
                 className="dbcard-img-top"
                 alt="Local Services"
                 onClick={() => {
-                  window.location.href = "/lservice";
+                  window.location.href = "/localservices";
                 }}
               ></img>
             </div>
@@ -67,7 +66,7 @@ const Community = () => {
                 src="/images/emergency.svg"
                 className="dbcard-img-top"
                 onClick={() => {
-                  window.location.href = "/emer";
+                  window.location.href = "/emergencyList";
                 }}
                 alt="Emergency"
               ></img>

@@ -7,10 +7,10 @@
     margin-top: 0.5%;
     box-sizing: border-box;
     border-radius: 35px;
-    max-width: 70%;
+    max-width: 80%;
     height: 75vh;
     margin-right: 5%;
-    margin-left: 24%;
+    margin-left: 11%;
     margin-top: 2%;
    
 }
@@ -118,7 +118,7 @@
         margin-top: 30%;
         margin-left: 43%;
     }
-    .VideoButton{
+    .VideoaddButton{
         background: #14335D;
         border-radius: 9px;
         width: 9vw;
@@ -127,7 +127,10 @@
         color: #FFFFFF;
         font-weight: 700;
         font-size: 1.2vw;
-
+        border: none;
+    }
+    .VideoaddButton:hover{
+        background: #4e73a8;
     }
     @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
     
@@ -156,7 +159,7 @@
             font-size: 2vw;
             margin: auto;
             margin-top: -7%;
-            margin-left: 27%;
+            margin-left: 12%;
             padding: 1%;
         }
         .AddVideodisplay label {
@@ -173,17 +176,18 @@
             position: absolute;
             background-image: url(http://localhost:3000/static/media/AdminBgImg.0d5973b….svg);
             max-width: auto;
-            height: 77vh;
-            margin-left: -46%;
+            height: 74vh;
+            margin-left: -55%;
             border-radius: 30px;
             margin-top: 7%;
+            width: 68vw;
         }
         .VideoAddButton {
             position: absolute;
             margin-top: 41%;
             margin-left: 42%;
         }
-        .VideoButton{
+        .VideoaddButton{
             background: #14335D;
             border-radius: 9px;
             width: 9vw;
@@ -251,5 +255,8 @@
                 border: transparent;
                 margin-left: 11%;
            
+        }
+        .VideoaddButton:hover{
+            background: #4e73a8;
         }
     }

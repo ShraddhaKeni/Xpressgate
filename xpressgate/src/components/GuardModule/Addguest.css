@@ -102,18 +102,6 @@ html {
   padding-bottom: 5%;
 }
 
-.btnlogout {
-  background-color: #0A8996;
-  color: #fff;
-  border-radius: 14px;
-  width: 142px;
-  height: 52px;
-  font-size: 20px;
-  font-weight: 500;
-  margin-top: 18%;
-  padding-top: 2%;
-}
-
 .guardname {
   display: flex;
   width: 80%;
@@ -160,7 +148,7 @@ html {
   font-size: 20px;
 }
 
-.btnAdd{
+.btnAddguest{
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
@@ -205,7 +193,7 @@ html {
 .labelsize {
   font-size: 12px;
 }
-.btnAdd {
+.btnAddguest {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;

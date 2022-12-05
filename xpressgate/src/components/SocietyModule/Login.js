@@ -13,12 +13,13 @@ const Login_society = () => {
         username: username.current.value,
         password: password.current.value,
       };
-      const { data } = await axios.post(`api/auth/guardlogin`, loginCreds);
+      const { data } = await axios.post(`${window.env_var}api/auth/societylogin`, loginCreds);
       localStorage.clear();
       localStorage.setItem("accesstoken", data.data.accessToken);
       localStorage.setItem("community_id", data.data.community_id);
-      localStorage.setItem("guard_id", data.data.id);
-      window.location.href = "/dashboard";
+      localStorage.setItem("member_id", data.data.id);
+      localStorage.setItem('mode','society')
+      window.location.href = "/scDashboard";
     } catch (err) {
       document.getElementById("loginemailid").style.border = "2px solid red";
       document.getElementById("loginpassword").style.border = "2px solid red";
@@ -39,12 +40,12 @@ const Login_society = () => {
             <img src="/images/loginlogo.svg" alt="" />
           </div>
          <br/><br/>
-            <div className="btsign" disabled>
+            <div className="societybtsign" disabled>
               SIGN IN
             </div>
             <br />
             <div className="email_input">
-              <label className="name">User Name</label>
+              <label className="societyusername">User Name</label>
               <input
                 ref={username}
                 type="text"
@@ -72,7 +73,7 @@ const Login_society = () => {
               <br />
               <Button
                 type="button"
-                className="btlogin1"
+                className="societybtlogin"
                 onClick={() => {
                   loginGuard();
                 }}
@@ -83,8 +84,8 @@ const Login_society = () => {
 
             <div className="forgotpassword1">
               <a
-                href="https://gitlab.com/users/password/new"
-                style={{ color: "#FD6B22" }}
+                href="/screset"
+                style={{ color: "#FD6B22",fontSize: "15px" }}
               >
                 Forgot Password?
               </a>

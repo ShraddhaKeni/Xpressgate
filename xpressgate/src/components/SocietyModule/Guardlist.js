@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
-import "../SocietyModule/Flatlist.css";
+import "../SocietyModule/Guardlist.css";
 import LogOut from './Utils/LogOut'
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import { useNavigate } from "react-router-dom";
@@ -50,18 +50,17 @@ const Guardlist = () => {
 
 
   return (
-    <div className="addguestcontainer3">
-    <div id="headersection3">
+    <div className="addguestcontainer4">
     <div id="addflatsection">
-      <div className="addflatheadersection">
-        <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-        <div id="afsociety"><label>Society</label></div>
-        <div id="afspace"></div>
-        <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-        <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-        <div id="aflogoutbutton"><LogOut /></div>
-      </div>
-    </div>
+        <div className="addflatheadersection">
+          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+          <div id="afsociety"><label>Society</label></div>
+          <div id="afspace"></div>
+          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="aflogoutbutton"><LogOut/></div>
+        </div>
+    
     </div>
     <div id="societynamesection">
       <div className="societyname">
@@ -69,22 +68,27 @@ const Guardlist = () => {
         <label>Society Name</label>
       </div>
       <br/>
-      
-      <div className="addguard_sideimg">
+      <div class="noticelist">
+          <h4>Guard list</h4>
+          <a href="abcd" class="Notice">
+            Add Guard
+          </a>
+        </div>
+      <div className="sideimage3">
         <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
       </div>
     </div>
     <div className="addguestbackgroundimg">
-    <div className='Addflatdisplay'>
+    <div className='Addguestdisplay4'>
         <label>Guard List</label>
       </div>
       <div className='row'>
-          <div className='searchbox'>
+          <div className='search3'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
             <span><label className='searchlabel'>Search</label><input className='search_input' onChange={(e)=>findText(e)} ></input></span>
           </div>
         </div>
-        <table id="inoutbooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
+        <table id="guardlisttable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>
               <th class="th-sm">Sr</th>

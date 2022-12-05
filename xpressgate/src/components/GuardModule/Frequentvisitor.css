@@ -129,19 +129,6 @@ html {
   background-color: #96230A;
 }
 
-.btnlogout {
-  background-color: #0A8996;
-  color: #fff;
-  border-radius: 14px;
-  width: 142px;
-  height: 52px;
-  font-size: 20px;
-  font-weight: 500;
-  margin-top: 18%;
-  padding-top: 2%;
-}
-
-
 .guardname {
   display: flex;
   width: 80%;
@@ -185,18 +172,6 @@ html {
 
 .labelsize {
   font-size: 20px;
-}
-
-.btnAdd {
-  background-color: #0A8996;
-  color: #fff;
-  border-radius: 14px;
-  width: 250px;
-  height: 60px;
-  font-size: 151%;
-  font-weight: 500;
-  margin-top: 4%;
-  margin-right: 34%;
 }
 
 .formclass {
@@ -280,11 +255,11 @@ html {
   font-weight: 100;
 }
 
-.allowedclass {
+.fvallowedclass {
   font-weight: 600;
   font-size: 22px;
   font-family: 'Rubik', sans-serif;
-  color: #222433;
+  color: #14335D;
 }
 
 .date {
@@ -325,6 +300,10 @@ html {
   color: #14335D;
 }
 
+.backbutton{
+  margin-right: 58%;
+  font-size : 24px;
+}
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   .guardname label {
@@ -351,19 +330,6 @@ html {
 
   .labelsize {
     font-size: 12px;
-  }
-
-  .btnAdd {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 155px;
-    height: 36px;
-    font-size: 151%;
-    font-weight: 500;
-    margin-top: 4%;
-    margin-right: 35%;
-    padding-top: 0%;
   }
 
   #dashboardguard label {

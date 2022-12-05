@@ -4,6 +4,7 @@ import LogOut from '../../components/SocietyModule/Utils/LogOut';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { getData } from './common/axios_main';
 
 const Blocklist = () => {
   const [blocks,setBlocks] = useState([])
@@ -33,7 +34,7 @@ const navigateToList = (id)=>{
             <div id="blspace"></div>
             <div id="blnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
             <div id="blsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-            <div id="bllogoutbutton"><LogOut/></div>
+            <div id="bllogoutbutton"><LogOut /></div>
           </div>
         </div>
         <div id="societynamesection">

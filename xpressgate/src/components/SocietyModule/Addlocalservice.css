@@ -1,207 +1,325 @@
 html {
-    height: 100vh;
-  }
-  
-  .addguestcontainer1 {
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 0.5fr 2fr;
-    grid-template-rows: 0.2fr 2fr;
-    grid-template-areas: "headersection1 headersection1"
-      "societynamesection cardsection"
-  }
-  .societyname label {
-    color: #000;
-    margin-left: -19%;
-    margin-top: 12.5%;
-    font-size: 1.5;
-    padding-top: 0.5%;
-    font-size: 1.2vw;
+  height: 100vh;
 }
-  #headersection1 {
-    /* background-color: aquamarine; */
-    /* margin-top: 10%; */
-    grid-area: headersection1;
-    background-color: #F9F9FF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+.alscontainer {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 0.5fr 2fr;
+  grid-template-rows: 0.2fr 2fr;
+  grid-template-areas: "alssection alssection"
+    "alssocietysection cardsection"
+}
+
+#alssection {
+
+  grid-area: alssection;
+  background-color: #F9F9FF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#alssocietysection {
+
+  grid-area: alssocietysection;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#cardsection {
+
+  grid-area: cardsection;
+  position: relative;
+
+}
+
+.alsbackgroundimg {
+  background-image: url("../../../public/images/dashboardbackground.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  margin-top: 0.5%;
+}
+
+.addflatheadersection {
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
+  grid-template-areas: "aflogo afsociety afspace afnotification afsetting aflogoutbutton";
+}
+
+#aflogo {
+  grid-area: aflogo;
+}
+
+#aflogo img {
+  margin-top: 5%;
+  margin-left: 1%;
+  margin-bottom: 5%;
+  width: 40%;
+}
+
+#afsociety {
+  grid-area: afsociety;
+}
+
+#afsociety label {
+  margin-top: 20%;
+  margin-left: -88%;
+  width: 136px;
+  height: 58px;
+  background-color: black;
+  color: #fff;
+  border-radius: 18px;
+  padding-top: 4%;
+  font-size: 20px;
+}
+
+#afspace {
+  grid-area: afspace;
+}
+
+#afnotification {
+  grid-area: afnotification;
+}
+
+#afnotification img {
+  margin-top: 100%;
+}
+
+#afsetting {
+  grid-area: afsetting;
+}
+
+#afsetting img {
+  margin-top: 100%;
+}
+
+#aflogoutbutton {
+  grid-area: aflogoutbutton;
+}
+
+#aflogoutbutton img {
+  padding-left: 10%;
+  padding-bottom: 5%;
+}
+
+/* .btnlogout {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 142px;
+  height: 52px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 18%;
+  padding-top: 2%;
+} */
+
+.alssocietyname {
+  display: flex;
+  width: 80%;
+  height: 12%;
+  background-color: rgba(10, 137, 150, 0.33);
+  margin-left: 10%;
+  margin-top: 12%;
+  border-radius: 24px;
+}
+
+.alssocietyname img {
+  margin-left: 10%;
+  width: 25%;
+  height: 70%;
+  margin-top: 4%;
+}
+
+.alssocietyname label {
+  color: #000;
+  margin-left: 8%;
+  margin-top: 10%;
+  font-size: 20px;
+}
+
+.alssideimage img {
+  display: flex;
+  margin-top: 80%;
+  width: 100%;
+  height: auto;
+}
+
+.alsdisplay {
+  width: 300px;
+  height: 64px;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  font-size: 20px;
+  padding-top: 14px;
+  margin: auto;
+  margin-top: -2%;
+}
+
+.labelsize {
+  font-size: 20px;
+}
+
+.btnAddV {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 250px;
+  height: 60px;
+  font-size: 151%;
+  font-weight: 500;
+  margin-top: 4%;
+  margin-right: 34%;
+}
+
+.formclass {
+  margin-top: 5%;
+  margin-left: 25%;
+}
+
+.alssidelinks{
+  margin-right: 60%;
+  margin-top: 10%;
   }
-  
-  #societynamesection {
-    /* background-color: blueviolet; */
-    grid-area: societynamesection;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-  
-  #cardsection {
-    /* background-color: blue; */
-    grid-area: cardsection;
-    position: relative;
-  
-  }
-  
-  .addguestbackgroundimg {
-    /* background-image: url("../../../public/images/dashboardbackground.svg"); */
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    position: relative;
-    margin-top: 0.5%;
-  }
-  
-  .firstheadersection1 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
-    grid-template-areas: "dashboardlogo dashboardguard1 dashboardspace dashboardnotification1 dashboardsetting1 dashboardlogoutbutton";
-  }
-  
-  #dashboardlogo {
-    grid-area: dashboardlogo;
-  }
-  
-  #dashboardlogo img {
-    margin-top: 5%;
-    margin-left: 1%;
-    margin-bottom: 5%;
-    width: 40%;
-  }
-  
-  #dashboardguard1 {
-    grid-area: dashboardguard1;
-  }
- 
-  
-  #dashboardspace {
-    grid-area: dashboardspace;
-  }
-  
-  #dashboardnotification1 {
-    grid-area: dashboardnotification1;
-  }
-  
-  #dashboardnotification1 img {
-    margin-top: 100%;
-  }
-  
-  #dashboardsetting1 {
-    grid-area: dashboardsetting1;
-  }
-  
-  #dashboardsetting1 img {
-    margin-top: 100%;
-  }
-  
-  #dashboardlogoutbutton {
-    grid-area: dashboardlogoutbutton;
-  }
-  
-  #dashboardlogoutbutton img {
-    padding-left: 10%;
-    padding-bottom: 5%;
-  }
-  
-  .btnlogout {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 142px;
-    height: 52px;
-    font-size: 20px;
-    font-weight: 500;
-    margin-top: 18%;
-    padding-top: 2%;
-  }
-  
-  .societyname {
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  .alssocietyname {
     display: flex;
     width: 80%;
-    height: 12%;
+    height: 10%;
     background-color: rgba(10, 137, 150, 0.33);
     margin-left: 10%;
     margin-top: 12%;
     border-radius: 24px;
   }
-  
-  .societyname img {
-    margin-left: 10%;
-    width: 25%;
-    height: 70%;
-    margin-top: 4%;
+
+  .alssidelinks {
+    margin-right: 38%;
+    margin-top: 10%;
   }
-  .societyname label {
-    color: #000;
-    margin-left: -14%;
-    margin-top: 13%;
-    font-size: 1vw;
-    padding-top: 0.5%;
-}
-  
-  .sideimage2 img {
+
+  .alssocietyname label {
+    margin-left: 7%;
+    margin-top: 15%;
+    font-size: 15px;
+  }
+
+  .alssideimage img {
     display: flex;
-    margin-top: 85%;
-    max-width: 90%;
+    margin-top: 216%;
+    width: 100%;
     height: auto;
-    margin-left: 13%;
-    margin-bottom: 5%;
-    
   }
-/*   
-  .Addguestdisplay3{
-    width: 300px;
+
+  .alsbackgroundimg {
+    background-image: url("../../../public/images/dashboardbackground.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    margin-top: 12.5%;
+  }
+
+  .labelsize {
+    font-size: 12px;
+  }
+
+  .btnAddV {
+    background-color: #0A8996;
+    color: #fff;
+    border-radius: 14px;
+    width: 155px;
+    height: 44px;
+    font-size: 151%;
+    font-weight: 500;
+    margin-top: 4%;
+    margin-right: 35%;
+    padding-top: 0%;
+  }
+
+  #afsociety label {
+    margin-top: 14%;
+    margin-left: -68%;
+    width: 108px;
+    height: 45px;
+    background-color: black;
+    color: #fff;
+    border-radius: 18px;
+    padding-top: 3%;
+    font-size: 20px;
+  }
+
+  .alsdisplay {
+    width: 190px;
     height: 64px;
     background-color: #AED8DC;
     border-radius: 30px;
     font-size: 20px;
     padding-top: 14px;
     margin: auto;
-    margin-top: -2%;
-  } */
-  
-  .labelsize{
-    font-size: 1vw;
+    margin-top: -16%;
   }
-  
-  
-  .input-lg {
-    height: 5vh;
-    padding: 5px 18px;
-    font-size: 1.3vw;
-    line-height: 1.333333;
-    border-radius: 6px;
+
+  .alssocietyname img {
+    margin-left: 5%;
+    width: 25%;
+    height: 70%;
+    margin-top: 7%;
 }
- .noticelist h4{
-    color: #434242;
- }
- .noticelist a{
-    color: #000
+}
+
+/* Media query for mobile */
+@media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
+  .alssideimage {
+    display: none;
   }
-  /* Media query for laptop */
-  @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
-    #dashboardlogo img {
-      margin-top: 9%;
-      margin-left: -38%;
-      margin-bottom: 3%;
-      width: 5vw;
+
+  #alssocietysection {
+    display: none;
   }
-    .sideimage2 img {
-      display: flex;
-    margin-top: 102%;
-    max-width: 95%;
-    height: auto;
-    margin-left: 2%;
+
+  #afsociety {
+    display: none;
   }
-    .addguestbackgroundimg {
-    /* background-image: url("../../../public/images/dashboardbackground.svg"); */
+
+  #aflogo img {
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-bottom: 5%;
+    width: 140%;
+  }
+
+  .alsbackgroundimg {
+    background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     position: relative;
-    margin-top: 12.5%;
+    margin-top: 10.5%;
   }
-  
-  .labelsize {
-    font-size: 12px;
-  }
-  
- 
-  
-  }
+
+  .alsdisplay {
+    width: 160px;
+    height: 64px;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-top: 14px;
+    margin-left: 78%;
+}
+
+.btnAddV {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 140px;
+  margin-right: auto;
+}
+
+.formclass {
+  margin-top: 5%;
+  margin-left: 42%;
+  width: 170%;
+}
+
+}

@@ -1,13 +1,13 @@
 import React from "react";
 import "../../../styles/EditVideo.css";
-import SideLayOut from "../../../components/base/Layout/SideLayOut"; 
+
 const EditVideo = () => {
   return (
     <>
-    <SideLayOut/>
-    <div className="AdminSideImg"><img src="./images/AdminSideImage.svg"  alt="Admin side image"></img></div>
+    
+    <div className="AdminSideImg"><img src="/images/AdminSideImage.svg"  alt="Admin side image"></img></div>
     <div className="EditVideocontainer">
-        <img src="./images/AdminBgImg.svg" className="Editbgimg"></img>
+        <img src="/images/AdminBgImg.svg" className="Editbgimg"></img>
       <div className="EditVideodisplay">
         <label>Edit Video</label>
       </div>

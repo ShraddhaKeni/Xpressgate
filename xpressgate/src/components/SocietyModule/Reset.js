@@ -2,28 +2,23 @@ import React, { useRef } from "react";
 import "./Reset.css";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Reset= () => {
   let username = useRef([]);
-  let password = useRef([]);
 
-  const loginGuard = async () => {
+  const navigate = useNavigate()
+ 
+  const sendOTP = async()=>{
     try {
-      const loginCreds = {
-        username: username.current.value,
-        password: password.current.value,
-      };
-      const { data } = await axios.post(`api/auth/guardlogin`, loginCreds);
-      localStorage.clear();
-      localStorage.setItem("accesstoken", data.data.accessToken);
-      localStorage.setItem("community_id", data.data.community_id);
-      localStorage.setItem("guard_id", data.data.id);
-      window.location.href = "/dashboard";
-    } catch (err) {
-      document.getElementById("loginemailid").style.border = "2px solid red";
-      document.getElementById("loginpassword").style.border = "2px solid red";
+      const {data} = await axios.post(`${window.env_var}api/society/societyforgotpass`,{mobileno:username.current.value})
+      navigate('/scotp',{state:{mobileno:data.data.mobileno}})
+    } catch (error) {
+      
     }
-  };
+  }
+
+  
   return (
     <div className="logincontainer4">
       {/* <div id="logoid">
@@ -65,9 +60,7 @@ const Reset= () => {
               <Button
                 type="button"
                 className="btlogin4"
-                onClick={() => {
-                  loginGuard();
-                }}
+                onClick={()=>sendOTP()}
               >
                 Send Code
               </Button>

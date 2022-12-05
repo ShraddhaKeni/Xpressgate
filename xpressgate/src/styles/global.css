@@ -47,16 +47,27 @@
     justify-content: center;
   }
 
-  .page-label {
-    width: 300px;
-    height: 60px;
+  /* .page-label {
+    position: absolute;
+    width: 27vw;
+    height: 9vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 20px;
-    padding-top: 14px;
+    font-size: 2vw;
     margin: auto;
-    margin-top: -2%;
-  }
+    margin-top: -2.5%;
+    margin-left: 20%;
+    padding: 1%;
+}
+
+    .page-label label{
+    
+        display: inline-block;
+        padding: 2%;
+        margin-bottom: 2%;
+        font-weight: 700;
+    
+    } */
 
 
 .dashboard-card-row{
@@ -79,6 +90,9 @@
     background-color: #0A8996;
     border-radius: 18px;
     color: white;
+    /* width: 15vw;
+    margin-left: 16%;
+    padding-right: -94%; */
 }
 .card-green-border{
     border: 7px solid rgba(10, 137, 150, 1);
@@ -182,7 +196,7 @@
     cursor: pointer;
   }
   
-.highlight-active{
+  .highlight-active {
     background-color: #E8F5E9;
     border-radius: 150px;
     color: #0D960A;
@@ -191,6 +205,7 @@
     align-items: center;
     border-width: 0;
     font-size: 12px;
+   
 }
 
 .dot {
@@ -230,6 +245,7 @@
     font-family: 'Inter';
     font-weight: 700;
     color: white;
+   
   }
 
   .btn-add-from {
@@ -252,6 +268,7 @@
     border-color: #14335D;
     border-style: dashed;
     margin-top: 4rem;
+    
    
   }
 
@@ -277,7 +294,9 @@
     font-size: 12px;
     background-color: #0A8996;
   }
-
+.Labelfont{
+    font-size: 1vw;
+}
   .status-success{
     font-family: 'Rubik';
     color: #0B8510;
@@ -365,13 +384,13 @@
   }
 
 .adminsidelogo {
-    width: 48px;
-    height: 48px;
+    width: 6vw;
+    height: 4vh;
 }
 .AdminSideImg {
     position: absolute;
-    margin-top: 30%;
-    margin-left: -3%;
+    margin-top: 31%;
+    margin-left: -24%;
     overflow: hidden;
 }
 .AdminSideImg img {
@@ -510,13 +529,13 @@
       border-radius: 38px;
   }
 
-  .adminsidelogo {
+  /* .adminsidelogo {
       position: absolute;
       margin-left: -85%;
       margin-top: 6%;
       width: 20vw;
       height: 6vh;
-  }
+  } */
   .Dashboardside{
       position: absolute;
       margin-top: 50%;
@@ -604,13 +623,30 @@
 .AdminSideImg {
     position: absolute;
     margin-top: 31%;
-    margin-left: -3%;
+    margin-left: -26%;
     overflow: hidden;
 }
 .AdminSideImg img {
     width: 33vw;
     height: 26vh;
 }
+.page-label {
+    width: 300px;
+    height: 60px;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-top: 14px;
+    margin: auto;
+    margin-top: -2%;
+}
+/* .page-label label {
+    display: inline-block;
+    padding: 2%;
+    margin-bottom: 2%;
+    font-weight: 700;
+    font-size: 2vw;
+} */
 }
 
 .admin-profile {
@@ -618,22 +654,24 @@
     background: #AED8DC;
     border-radius: 24px;
     padding-top: 12px;
+    width: 15vw;
+    height: 9vh;
 }
 .admin-profile-username{
     font-weight: 500;
     font-family: 'Rubik';
     font-style: normal;
     color: #14335D;
-    font-size: 2.3rem;
+    font-size: 1.2vw;
 }
 
-.sidelayout{
+.sidelayout {
     width: 25%;
     display: flex;
     flex-direction: column;
     padding: 12px;
-    height: 100vh;
-    box-shadow:  0px 4px 4px rgba(0, 0, 0, 0.25);
+    height: 90vh;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
 .nav-item{
     padding: 12px 12px;

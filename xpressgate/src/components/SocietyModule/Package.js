@@ -1,36 +1,54 @@
-import React from "react";
+import React, { useEffect,useState } from "react";
 import "../SocietyModule/Package.css";
 import { Button } from "react-bootstrap";
 
-import Package_LogOut from "../SocietyModule/Package_LogOut";
+import LogOut from "../SocietyModule/Utils/LogOut";
+import Societyheader from "./Utils/Societyheader";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Package = () => {
+
+  const [booked,setPackage] = useState({})
+  const navigate = useNavigate()
+
+  useEffect(()=>{
+    getData()
+  },[])
+
+  const getData=async()=>{
+    try {
+      const {data} = await axios.get(`${window.env_var}api/packagebook/get/${localStorage.getItem('community_id')}`)
+      
+      if(data.data.booked<1)
+      {
+        window.location.href='/packagelist'
+      }
+      else
+      {
+        setPackage(data.data.booked[0])
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  function navigateToEdit(){
+    navigate('/packagelist',{state:{id:booked._id,edit:true}})
+  }
+
+  const ChangeDate=(d)=>{
+    const date = new Date(d)
+    
+    return(`${date.getDate()-1}/${date.getUTCMonth()+1}/${date.getFullYear()+1}`)
+  }
+
   return (
-    <div className="addguestcontainer3">
-      <div id="headersection3">
-        <div className="firstheadersection3">
-          <div id="dashboardlogo3">
-            <img src="/images/loginlogo.svg" alt="header logo" />
-          </div>
-          <div id="dashboardguard3">
-            <label>Society</label>
-          </div>
-          <div id="dashboardspace"></div>
-          <div id="dashboardnotification3">
-            <a href="abc">
-              <img src="/images/notification.svg" alt="notificationicon" />
-            </a>
-          </div>
-          <div id="dashboardsetting3">
-            <a href="abc">
-              <img src="/images/setting.svg" alt="settingicon" />
-            </a>
-          </div>
-          <div id="dashboardlogoutbutton">
-            <Package_LogOut />
-          </div>
-        </div>
-      </div>
+    <div className="addguestcontainer4">
+    <div id="addflatsection">
+        <Societyheader/>
+    
+    </div>
       <div id="societynamesection">
         <div className="societyname">
           <img src="/images/profileicon.svg" alt="Society image" />
@@ -44,27 +62,25 @@ const Package = () => {
       </div>
       <div className="addguestbackgroundimg">
         <div className="Addguestdisplay4">
-          <label>Package Name</label>
+          <label>{booked.plan_name}</label>
         </div>
+        <Button style={{marginLeft:'50%',backgroundColor:'#0A8996'}} onClick={()=>{navigateToEdit()}}>Edit package</Button>
         <div className="packagedetailscard">
-        
+       
           <div className="cardimage">
             <div className="packagelabel">
-              <label className="packagename">Package Name</label>
+              <label className="packagename">{booked.plan_name}</label>
             </div>
           </div>
           <br/>
           <div className="aboutpackage">
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.
+            {booked.plan_decp}
               </p>
           </div>
           <br/><br/>
           <div className="buttonContainer">
-              <button type="button" class="validbtn"><i class="fa fa-circle circle" ></i> Valid Upto 2022</button>
+              <button type="button" class="validbtn"><i class="fa fa-circle circle" ></i>{ChangeDate(booked.purchased_date)}</button>
              
             </div> 
 
