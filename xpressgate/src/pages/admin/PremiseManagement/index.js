@@ -7,21 +7,39 @@ import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import { ButtonUnstyled } from '@mui/base';
 import { MaterialButton } from '../components/MaterialButton';
+import axios from 'axios';
 
 const PremiseList = () => {
 
     const navigate = useNavigate();
 
+    const [community,setCommunity] = useState([])
+
+    useEffect(()=>{
+        getCommunities()
+    },[])
+
+    const getCommunities=async()=>{
+        try {
+            const {data} = await axios.get(`${window.env_var}api/community/get`)
+            setCommunity(data.data.community)
+        } catch (error) {
+            alert('Data loading failed.')
+        }
+    }
+
+
     const handleSubmit = async (e) => {
 
     }
 
-    const handleAddPremise = (someId) => {
+    const handleAddPremise = () => {
         navigate('/admin/premises/add')
     }
 
-    const handleEditClick = (someId) => {
-        navigate('/admin/premises/edit')
+    const handleEditClick = (id) => {
+        
+        navigate('/admin/premises/edit',{state:{id}})
     }
 
     return (
@@ -50,66 +68,27 @@ const PremiseList = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>!</td>
-                            <td><ButtonUnstyled className='approve-active'>Approve</ButtonUnstyled></td>
-                            <td>
-                                <div>
-                                    <IconButton>
-                                        <img src="/images/icon_edit.svg" />
-                                    </IconButton>
-                                    <IconButton>
-                                        <img src="/images/icon_delete.svg" /></IconButton>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>!</td>
-                            <td><ButtonUnstyled className='approve-inactive' disabled>Approved</ButtonUnstyled></td>
-                            <td>
-                                <div>
-                                    <IconButton>
-                                        <img src="/images/icon_edit.svg" />
-                                    </IconButton>
-                                    <IconButton>
-                                        <img src="/images/icon_delete.svg" /></IconButton>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>
-                                <div>
-                                    <IconButton>
-                                        <img src="/images/icon_edit.svg" />
-                                    </IconButton>
-                                    <IconButton>
-                                        <img src="/images/icon_delete.svg" /></IconButton>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>
-                                <div>
-                                    <IconButton onClick={(e) => { handleEditClick('some_id') }}>
-                                        <img src="/images/icon_edit.svg" />
-                                    </IconButton>
-                                    <IconButton>
-                                        <img src="/images/icon_delete.svg" /></IconButton>
-                                </div>
-                            </td>
-                        </tr>
+                        {community.map((item,index)=>{
+                            return(
+                                <tr>
+                                    <td>!</td>
+                                    <td>{item.name}</td>
+                                    <td>{item.noofblocks}</td>
+                                    <td><ButtonUnstyled className='approve-active'>{item.status==true?'Unapprove':'Approve'}</ButtonUnstyled></td>
+                                    <td>
+                                        <div>
+                                            <IconButton onClick={()=>{handleEditClick(item.id)}}>
+                                                <img src="/images/icon_edit.svg" />
+                                            </IconButton>
+                                            <IconButton>
+                                                <img src="/images/icon_delete.svg" /></IconButton>
+                                        </div>
+                                    </td>
+                                </tr>
+                            )
+                        })}
+                        
+                        
                     </tbody>
                 </table>
                 <div className='flex space-between'>
