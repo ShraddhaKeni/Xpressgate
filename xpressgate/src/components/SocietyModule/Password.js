@@ -90,7 +90,7 @@ const Password = () => {
           <label>Change Password</label>
         </div>
         <Form className='formclass form1'>
-        <div className="input_fields1">
+        <div className="passinput_fields">
             <div className="email_input">
               <label className="CurrentPass">Current Password</label>
               <input

@@ -1,0 +1,123 @@
+html {
+    height: 100vh;
+  }
+ 
+  .paymentlabel {
+    width: 24vw;
+    height: 10vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 2vw;
+    padding-top: 2%;
+    margin: auto;
+    margin-top: -4%;
+}
+  .paymentlabel label{
+     
+    display: inline-block;
+  margin-bottom: 2%;
+  font-weight: 700;
+  
+  }
+  .selectboxes{
+    max-width: 50%;
+  }
+  .selectbox1{
+    background: #0A8996;
+    border-radius: 14px;
+    width: 10%;
+  }
+  .paymentsearch {
+    width: 12vw;
+    height: 5vh;
+    padding: 1.5%;
+    border-radius: 15px;
+    border: 1px solid grey;
+    margin-left: 60%;
+    margin-top: 2%;
+}
+#inoutbooktable4 {
+  margin-Left: 13%;
+  margin-Top: 1.5%;
+  width: 57vw;
+  height: 10vh;
+  /* max-Width: 80%; */
+  background-color: #F9FAFF;
+  /* -webkit-border-radius: 14px; */
+  /* border-radius: 18px; */
+  border-radius: 33px 33px 0px 0px;
+  border-collapse: collapse;
+  font-family: 'Rubik', sans-serif;
+  border: 2px solid #14335D;
+  
+}
+.dropboxes{
+  display: flex;
+  position: absolute;
+  margin-top: 3%;
+  margin-left: 10%;
+}
+.societysideimg1 img {
+  display: flex;
+  margin-top: 99%;
+  max-width: 90%;
+  height: auto;
+  margin-left: 13%;
+  margin-bottom: 5%;
+  }
+  .Bills{
+    width: 12vw;
+    height: 4vh;
+    margin-left: 20%;
+    background: #0A8996;
+border-radius: 14px;
+color: #FEFEFF;
+padding: 2%;
+  }
+.blocks{
+  width: 12vw;
+  height: 4vh;
+  margin-left: 40%;
+  background: #0A8996;
+border-radius: 14px;
+color: #FEFEFF;
+padding: 2%;
+}
+  /* Media query for laptop */
+  @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
+   
+    .societysideimg1 img {
+      display: flex;
+      margin-top: 144%;
+      max-width: 92%;
+      height: auto;
+      margin-left: 4%;
+  }
+  
+  .paymentlabel {
+    width: 24vw;
+    height: 10vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 1.6vw;
+    padding-top: 2.2%;
+    margin: auto;
+    margin-top: -17%;
+  }
+  #inoutbooktable4 {
+    margin-Left: 10%;
+    margin-Top: 1.5%;
+    width: 62vw;
+    /* max-Width: 80%; */
+    background-color: #F9FAFF;
+    /* -webkit-border-radius: 14px; */
+    /* border-radius: 18px; */
+    border-radius: 33px 33px 0px 0px;
+    border-collapse: collapse;
+    font-family: 'Rubik', sans-serif;
+    border: 2px solid #14335D;
+    /* max-height: min-content; */
+} 
+  
+  
+  }

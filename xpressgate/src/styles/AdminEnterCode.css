@@ -1,0 +1,112 @@
+html{
+    height: 100vh;
+  }
+  
+
+ 
+  .req{
+    color: red;
+  }
+  
+  .adminverifybtn{
+    background-color: #0A8996;
+    color: #fff;
+    border-radius: 14px;
+    width: 12vw;
+    height: 5vh;
+    font-size: 1.5vw;
+    font-weight: 500;
+    margin-left: 0%;
+    margin-bottom: -1%;
+    padding: 1%;
+    
+  }
+  
+ 
+  .adminentercode{
+    position: relative;
+    margin-left: -68%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.4vw;
+    margin-bottom: 0%;
+    margin-top: 3%;
+  }
+
+  
+  
+  
+  
+  @media only screen  and (min-device-width : 768px) and (max-device-width : 1024px) {
+
+  
+   
+  .adminverifybtn {
+    background-color: #0A8996;
+    color: #fff;
+    border-radius: 14px;
+    width: 12vw;
+    height: 5vh;
+    font-size: 1.5vw;
+    font-weight: 500;
+    margin-left: 0%;
+    margin-bottom: -1%;
+    padding: 1%;
+}
+
+
+.adminentercode {
+    position: relative;
+    margin-left: -55%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.4vw;
+    margin-bottom: 1%;
+    margin-top: 3%;
+}
+ 
+
+
+} 
+  
+  
+  /* Media query for mobile */
+  @media only screen  and (min-device-width : 320px) and (max-device-width : 425px) {
+  
+   
+    .signin {
+      width: 270px;
+      height: 76px;
+      background-color: #14335D;
+      margin-left: 28%;
+      margin-top: 6%;
+      font-size: 36px;
+    }
+  
+ 
+  
+ 
+  .email {
+    position: relative;
+    right: 37%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+  }
+  
+  .password {
+    position: relative;
+    right: 37%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+  }
+  
+  .btnlogin {
+    background-color: #0A8996;
+    color: #fff;
+    border-radius: 14px;
+    width: 200px;
+    height: 60px;
+    font-size: 151%;
+    font-weight: 500;
+    margin-top: 4%;
+    padding-bottom: 4%;
+  }
+  }

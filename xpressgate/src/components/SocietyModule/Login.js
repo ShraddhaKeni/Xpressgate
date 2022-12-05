@@ -40,12 +40,12 @@ const Login_society = () => {
             <img src="/images/loginlogo.svg" alt="" />
           </div>
          <br/><br/>
-            <div className="btsign" disabled>
+            <div className="societybtsign" disabled>
               SIGN IN
             </div>
             <br />
             <div className="email_input">
-              <label className="name">User Name</label>
+              <label className="societyusername">User Name</label>
               <input
                 ref={username}
                 type="text"
@@ -73,7 +73,7 @@ const Login_society = () => {
               <br />
               <Button
                 type="button"
-                className="btlogin1"
+                className="societybtlogin"
                 onClick={() => {
                   loginGuard();
                 }}

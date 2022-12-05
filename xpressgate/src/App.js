@@ -64,6 +64,14 @@ import SocietyDues from './components/SocietyModule/SocietyDues'
 import UtilityPayment from './components/SocietyModule/UtilityPayment'
 import Package from './components/SocietyModule/Package'
 import ApprovalList from './components/SocietyModule/ApprovalList'
+import SocietyPaymentHistory from './components/SocietyModule/SocietyPaymentHstory';
+import AdminModuleComponent from './pages/admin';
+import SuperAdminLogin from './pages/admin/LoginScreens/SuperAdminLogin';
+import AdminEnterNewPass from './pages/admin/LoginScreens/AdminEnterNewPass';
+import AdminEnterCode from './pages/admin/LoginScreens/AdminEnterCode';
+import AdminReset from './pages/admin/LoginScreens/AdminReset';
+import RouterPath from './common/constants/path/routerPath';
+
 
 function App() {
 
@@ -145,6 +153,35 @@ function App() {
             <Route path="/utilitypayment" element={<UtilityPayment/>} exact></Route>
             <Route path="/package" element={<Package />} exact></Route>
             <Route path="/Approvallist" element={<ApprovalList />} exact></Route>
+            <Route path="/paymenthistory" element={<SocietyPaymentHistory />} exact></Route>
+            
+            <Route path={RouterPath.ADMIN_DASHBOARD} element={<AdminModuleComponent />}></Route>
+
+<Route path={RouterPath.ADD_PREMISE} element={<AdminModuleComponent />}></Route>
+<Route path={RouterPath.EDIT_PREMISE} element={<AdminModuleComponent />}></Route>
+<Route path={RouterPath.PREMISES_LIST} element={<AdminModuleComponent />}></Route>
+
+<Route path={RouterPath.COUPONS_LIST} element={<AdminModuleComponent />}></Route>
+<Route path={RouterPath.EDIT_COUPON} element={<AdminModuleComponent />}></Route>
+<Route path={RouterPath.ADD_COUPON} element={<AdminModuleComponent />}></Route>
+
+<Route path={RouterPath.PRLANS_LIST} element={<AdminModuleComponent />}></Route>
+<Route path={RouterPath.ADD_PLAN} element={<AdminModuleComponent />}></Route>
+<Route path={RouterPath.EDITP_PLAN} element={<AdminModuleComponent />}></Route>
+<Route path={RouterPath.PAYMENT_HISTORY} element={<AdminModuleComponent />}></Route>
+<Route path={RouterPath.ADMIN_PROFILE} element={<AdminModuleComponent />}></Route>
+<Route path={RouterPath.VIDEO_CLASS} element={<AdminModuleComponent />}></Route>
+<Route path={RouterPath.ADD_VIDEO} element={<AdminModuleComponent />}></Route>
+<Route path={RouterPath.EDIT_VIDEO} element={<AdminModuleComponent />}></Route>
+<Route path={RouterPath.REPORTS} element={<AdminModuleComponent />}></Route>
+<Route path={RouterPath.TERMS} element={<AdminModuleComponent />}></Route>
+<Route path={RouterPath.PRIVACY_POLICY} element={<AdminModuleComponent />}></Route>
+
+<Route path='/superadminlogin' element={<SuperAdminLogin />}></Route>
+<Route path='/enternewpass' element={<AdminEnterNewPass />}></Route>
+<Route path='/adminentercode' element={<AdminEnterCode />}></Route>
+<Route path='/adminreset' element={<AdminReset />}></Route>
+           
           
          
         </Routes>
