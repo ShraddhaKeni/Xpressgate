@@ -19,7 +19,7 @@ const SuperAdminLogin = () => {
       localStorage.setItem("community_id", data.data.community_id);
       localStorage.setItem("admin_id", data.data.id);
       localStorage.setItem('mode','admin')
-      // window.location.href = "/scDashboard";
+      
     } catch (err) {
       document.getElementById("loginemailid").style.border = "2px solid red";
       document.getElementById("loginpassword").style.border = "2px solid red";
