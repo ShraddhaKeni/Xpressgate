@@ -62,16 +62,16 @@ const Enter_new_pswd = () => {
             <img src="/images/loginlogo.svg" alt="" />
           </div>
          <br/>
-            <div className="btsign" disabled>
-              FORGOT PASSWORD
-            </div>
+         <div className="socnpsignin">
+          <label className="nplabel">Forgot Password</label>
+        </div>
             <br />
             <div className="email_input">
-              <label className="newpswd">New password</label>
+              <label className="socnp">New password</label>
               <input
                 ref={password}
                 type="text"
-                className="form-control emailtextbox"
+                className="form-control socnpemailtextbox"
                 onKeyPress={(e) => {
                   document.getElementById(e.target.id).style.border = "none";
                 }}
@@ -81,11 +81,11 @@ const Enter_new_pswd = () => {
             </div>
             <br></br>
             <div className="email_input">
-              <label className="cnfpswd">Confirm Password</label>
+              <label className="soccp">Confirm Password</label>
               <input
                 ref={confirmpassword}
                 type="password"
-                className="form-control passwordtextbox"
+                className="form-control socnpinput"
                 onKeyPress={(e) => {
                   document.getElementById(e.target.id).style.border = "none";
                 }}
@@ -95,12 +95,12 @@ const Enter_new_pswd = () => {
               <br />
               <Button
                 type="button"
-                className="btlogin2"
+                className="btnsocconfirm"
                 onClick={() => {
                   handleSubmit();
                 }}
               >
-                Change Password
+                Login
               </Button>
             </div>
 
