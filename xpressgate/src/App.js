@@ -94,7 +94,7 @@ function App() {
             <Route path="/otp" element={<OTPscreen />} exact></Route>
             <Route path="/newpassword" element={<Newpassword />} exact></Route>
             <Route path="/guestentry" element={<GuestEntry />} exact></Route>
-            <Route path="/societydashboard" element={<SocietyDashboard />} exact></Route>
+            <Route path="/scDashboard" element={<SocietyDashboard />} exact></Route>
             <Route path="/flatlist" element={<Flatlist />} exact></Route>
             <Route path="/flatapprovallist" element={<Flatapprovallist />} exact></Route>
             <Route path="/blocklist" element={<Blocklist />} exact></Route>
