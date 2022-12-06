@@ -6,11 +6,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import { SimpleDropDownComponent, SimpleInputComponent } from '../components/input';
 import { getDefaultNormalizer } from '@testing-library/react';
+import { StraightenSharp } from '@mui/icons-material';
 
 const EditPremise = () => {
 
     const location = useLocation()
     const [premise,setPremise] = useState({
+        community_id:'',
         name:'',
         type:'',
         noofblocks:parseInt(0),
@@ -28,22 +30,32 @@ const EditPremise = () => {
     const premise_name = useRef()
 
     useEffect(()=>{
+       
         if(location.state)
         {
-            getCommunity()
-            getDetails()
+            
+            async function getData()
+            {
+                await getDetails()
+                await getCommunity()
+            }
+           
+            getData()
             // getArea()
         }
         else
         {
             window.location.back(-1)
         }
+        
+        
     },[])
 
    const getCommunity=async()=>{
     try {
         const {data} = await axios.get(`${window.env_var}api/community/getone/${location.state.id}`)
-        setPremise({
+        setPremise({...premise,
+        community_id:location.state.id,
         name: data.data.community[0].name,
         type:'',
         noofblocks: data.data.community[0].noofblocks,
@@ -54,22 +66,25 @@ const EditPremise = () => {
         pincode:data.data.community[0].pincode,
         status:true
         })
-        document.getElementById('premises').value = data.data.community[0].name
-        document.getElementById('block').value = data.data.community[0].noofblocks
-        document.getElementById('address').value = data.data.community[0].address
-        document.getElementById('landmark').value = data.data.community[0].landmark
-        const state_select = document.getElementById('state')
-        const state_options = Array.from(state_select.options)
-        const selected = state_options.find(x=>x.text===data.data.community[0].state)
-        selected.selected = true
-
-        document.getElementById('city').value = data.data.community[0].city
-        document.getElementById('pincode').value = data.data.community[0].pincode
+        document.getElementById('premises').defaultValue = data.data.community[0].name
+        document.getElementById('block').defaultValue = data.data.community[0].noofblocks
+        document.getElementById('address').defaultValue = data.data.community[0].address
+        document.getElementById('landmark').defaultValue = data.data.community[0].landmark
+        document.getElementById('state').value = data.data.community[0].state
+        getArea(data.data.community[0].state).then(()=>{
+            document.getElementById('city').value = data.data.community[0].city
+        })
+        
+       
+        
+ 
+        document.getElementById('pincode').defaultValue = data.data.community[0].pincode
     
     } catch (error) {
-        alert('Data loading Failed !')
+        console.log(error)
     }
    }
+
 
     const getDetails = async()=>{
         try {
@@ -107,7 +122,21 @@ const EditPremise = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log()
+        try {
+            if(premise.name!=''&&premise.address!=''&&premise.noofblocks!=0&&premise.state!=''&&premise.landmark!=''&&premise.address!=''&&premise.city!='')
+            {
+                const {data} = await axios.post(`${window.env_var}api/community/update`,premise)
+                navigate('/admin/premises')
+            }
+            else
+            {   
+                alert('Fields Empty !')
+            }
+            
+        } catch (error) {
+            alert('Could not add Community.!')
+        }
+        
     }
 
 

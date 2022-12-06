@@ -22,7 +22,7 @@ const PremiseList = () => {
     const getCommunities=async()=>{
         try {
             const {data} = await axios.get(`${window.env_var}api/community/get`)
-            setCommunity(data.data.community)
+            setCommunity(data.data)
         } catch (error) {
             alert('Data loading failed.')
         }
