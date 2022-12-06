@@ -68,11 +68,14 @@ import AdminModuleComponent from './pages/admin';
 import SuperAdminLogin from './pages/admin/LoginScreens/SuperAdminLogin';
 import AdminEnterNewPass from './pages/admin/LoginScreens/AdminEnterNewPass';
 import AdminEnterCode from './pages/admin/LoginScreens/AdminEnterCode';
-import AdminReset from './pages/admin/LoginScreens/AdminReset';
 import RouterPath from './common/constants/path/routerPath';
 
 
 import PackageList from './components/SocietyModule/PackageList';
+
+
+import AdminChangePass from './pages/admin/LoginScreens/AdminChangePass';
+import AdminReset from './pages/admin/LoginScreens/AdminReset';
 
 function App() {
 
@@ -183,7 +186,8 @@ function App() {
 <Route path='/superadminlogin' element={<SuperAdminLogin />}></Route>
 <Route path='/enternewpass' element={<AdminEnterNewPass />}></Route>
 <Route path='/adminentercode' element={<AdminEnterCode />}></Route>
-<Route path='/adminreset' element={<AdminReset />}></Route>
+<Route path='/adminresetpass' element={<AdminReset />}></Route>
+<Route path='/adminchangepass' element={<AdminChangePass />}></Route>
            
           
          
