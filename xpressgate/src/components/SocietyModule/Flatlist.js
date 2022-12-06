@@ -90,10 +90,16 @@ const Flatlist = () => {
         <div className='fldisplay'>
           <label>Block A</label>
         </div>
-        <div className='row'>
+        {/* <div className='row'>
           <div className='flsearchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
             <span><label className='searchlabel'>Search</label><input className='search_input' onChange={(e)=>findText(e)} ></input></span>
+          </div>
+        </div> */}
+        <div className='row'>
+          <div className='flsearchbox'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+          <input className='flsearch_input' placeholder='Search' onChange={(e)=>{findText(e)}}></input></span>
           </div>
         </div>
         <table id="fltable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
