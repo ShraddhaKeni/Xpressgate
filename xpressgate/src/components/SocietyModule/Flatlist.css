@@ -133,9 +133,23 @@ html {
 
 .flsideimage img {
   display: flex;
-  margin-top: 80%;
+  margin-top: 68%;
   width: 100%;
   height: auto;
+}
+
+.flsearch_input
+{
+  outline: none;
+  border: none;
+  height: 40px;
+  width: 120px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.flsearchbox img{
+  margin-left: -14%;
 }
 
 .fldisplay {
