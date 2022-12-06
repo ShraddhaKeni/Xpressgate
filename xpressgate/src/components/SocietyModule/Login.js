@@ -35,19 +35,6 @@ const Login_society = () => {
       </div>
       <div id="loginformid1">
         <Form>
-<<<<<<< HEAD
-          <div className="input_fields1">
-          <div id="logoid1">
-            <img src="/images/loginlogo.svg" alt="" />
-          </div>
-         <br/><br/>
-            <div className="societybtsign" disabled>
-              SIGN IN
-            </div>
-            <br />
-            <div className="email_input">
-              <label className="societyusername">User Name</label>
-=======
           <div className="socinputfields">
             <div id="soclogoid">
               <img src="/images/loginlogo.svg" alt="" />
@@ -59,7 +46,6 @@ const Login_society = () => {
             <br />
             <div className="socemail_input">
               <label className="socname">User Name</label>
->>>>>>> origin/main
               <input
                 ref={username}
                 type="text"
@@ -87,11 +73,7 @@ const Login_society = () => {
               <br />
               <Button
                 type="button"
-<<<<<<< HEAD
-                className="societybtlogin"
-=======
                 className="socbtnlogin"
->>>>>>> origin/main
                 onClick={() => {
                   loginGuard();
                 }}

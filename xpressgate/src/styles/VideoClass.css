@@ -72,10 +72,9 @@ font-size: 1.2vw;
     .VideoAddBtn:hover{
         background: #bbcebd;
     }
-    .paginate{
-        position: absolute;
-        margin-top: 56%;
-        margin-left: 70%;
+    .paginate {
+        position: relative;
+        top: 17%;
     }
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
     
@@ -150,8 +149,13 @@ font-size: 1.2vw;
         margin-left: -43%;
     }
     .paginate {
-        position: absolute;
-        margin-top: 67%;
-        margin-left: 52%;
+        position: relative;
+        top: 17%;
     }
+}
+
+.fullcardscss
+{
+    position: relative;
+    top:14%;
 }
