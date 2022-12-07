@@ -112,9 +112,8 @@ function App() {
             <Route path="/approveFlat" element={<Flatapprovallist/>} exact></Route>
             <Route path="/noticeList" element={<Noticelist/>} exact></Route>
             <Route path="/addNotice" element={<Addnotice/>} exact></Route>
-            <Route path="/addVehical" element={<Addvehicle/>} exact></Route>
-            <Route path="/manageVehicle" element={<Vehiclemanagement/>} exact></Route>
-            <Route path="/editGuard" element={<Editguard/>} exact></Route>
+            {/* <Route path="/manageVehicle" element={<Vehiclemanagement/>} exact></Route> */}
+            {/* <Route path="/editGuard" element={<Editguard/>} exact></Route> */}
             <Route path="/addGuard" element={<Addguard/>} exact></Route>
             <Route path="/guardList" element={<Guardlist/>} exact></Route>
             <Route path="/guardDetails" element={<GuardProfile/>} exact></Route>

@@ -41,7 +41,7 @@ const Amenities = () => {
       <div className='amntsbackgroundimg'>
         <div id="amntscard">
           <div className='amntsdisplay'>
-            <label>Amemities</label>
+            <label>Amenities</label>
           </div>
           <div className="row row-cols-1 row-cols-md-3 g-4 amntscss">
             {amenities.map(items=>{
