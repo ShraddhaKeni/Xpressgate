@@ -14,6 +14,9 @@ const PremiseList = () => {
     const navigate = useNavigate();
 
     const [community,setCommunity] = useState([])
+    const [currentPage, setCurrentpage] = useState(1)
+    const [postPerPage, setPostPerPage] = useState(12)
+    const [currentPosts,setCurrentPosts] = useState([])
 
     useEffect(()=>{
         getCommunities()
@@ -23,11 +26,21 @@ const PremiseList = () => {
         try {
             const {data} = await axios.get(`${window.env_var}api/community/get`)
             setCommunity(data.data)
+            const indexoflast = (currentPage)*postPerPage  //endoffset
+            const indexoffirst = (indexoflast - postPerPage) //startoffset
+            setCurrentPosts(data.data.slice(indexoffirst,indexoflast))
         } catch (error) {
             alert('Data loading failed.')
         }
     }
-
+    async function  paginate(event)
+    {
+    
+      setCurrentpage(event.selected+1)
+      const indexoflast = (event.selected+1)*postPerPage  //endoffset
+      const indexoffirst = (indexoflast - postPerPage) //startoffset
+      setCurrentPosts(community.slice(indexoffirst,indexoflast))
+    }
 
     const handleSubmit = async (e) => {
 
@@ -71,7 +84,7 @@ const PremiseList = () => {
                         {community.map((item,index)=>{
                             return(
                                 <tr>
-                                    <td>!</td>
+                                    <td>{(currentPage-1)*12+(index+1)}</td>
                                     <td>{item.name}</td>
                                     <td>{item.noofblocks}</td>
                                     <td><ButtonUnstyled className='approve-active'>{item.status==true?'Unapprove':'Approve'}</ButtonUnstyled></td>
@@ -92,8 +105,8 @@ const PremiseList = () => {
                     </tbody>
                 </table>
                 <div className='flex space-between'>
-                    <p>Showing 6 of 20</p>
-                    <PaginationCalculate totalPages={10} postperPage={20} currentPage={2} paginate={10} />
+                    <p>Showing {currentPosts.length} of {community.length}</p>
+                    <PaginationCalculate totalPages={community.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
                 </div>
             </div >
         </div >
