@@ -128,7 +128,7 @@ html {
 
 .avsideimage img {
   display: flex;
-  margin-top: 80%;
+  margin-top: 65%;
   width: 100%;
   height: auto;
 }
@@ -165,10 +165,10 @@ html {
   margin-left: 25%;
 }
 
-.avsidelinks{
+/* .avsidelinks{
   margin-right: 60%;
   margin-top: 10%;
-  }
+  } */
   
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
@@ -251,10 +251,10 @@ html {
     margin-top: 7%;
 }
 
-.avsidelinks {
+/* .avsidelinks {
   margin-right: 38%;
   margin-top: 10%;
-}
+} */
 
 }
 

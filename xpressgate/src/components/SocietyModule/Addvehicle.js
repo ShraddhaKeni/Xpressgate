@@ -92,10 +92,10 @@ const Addvehicle = () => {
           <img src="/images/societyicon.svg" alt="society name" />
           <label>Society Name</label>
         </div>
-        <div className='avsidelinks'>
+        {/* <div className='avsidelinks'>
           <Link>Vehicle List</Link><br></br><br></br>
           <Link>Add Vehicle</Link>
-        </div>
+        </div> */}
         <div className='avsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
       <div className='avbackgroundimg'>
@@ -106,7 +106,7 @@ const Addvehicle = () => {
           <div class="form-group row">
             <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label labelsize">Block</label>
             <div class="col-sm-4 col-md-4 col-lg-4">
-              <select type="text" class="form-control input-lg" name="community" id='block_id' onChange={(e)=>{getFlats(e);getSections(e)}}>
+              <select type="text" class="form-control input-lg" name="community" style={{border: "1px solid #000000"}} id='block_id' onChange={(e)=>{getFlats(e);getSections(e)}}>
                   <option disabled selected value={null}>Select Block</option>
                   {blocks.map((item)=>{
                     return(
@@ -119,7 +119,7 @@ const Addvehicle = () => {
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Flat</label>
             <div class="col-lg-4">
-              <select type="text" class="form-control input-lg" id='flat_id' name="community" onChange={(e)=>getResident(e)}>
+              <select style={{border: "1px solid #000000"}} type="text" class="form-control input-lg" id='flat_id' name="community" onChange={(e)=>getResident(e)}>
                     <option disabled selected value={null}>Select Flat</option>
                     {flats.map((item)=>{
                       return(
@@ -132,7 +132,7 @@ const Addvehicle = () => {
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Vehicle</label>
             <div class="col-lg-4">
-              <select type="text" class="form-control input-lg" id='vehicle_id' name="community" onChange={(e)=>getResident(e)}>
+              <select style={{border: "1px solid #000000"}} type="text" class="form-control input-lg" id='vehicle_id' name="community" onChange={(e)=>getResident(e)}>
                     <option disabled selected value={null}>Select Vehicle</option>
                     {vehicles.map((item)=>{
                       return(
@@ -145,13 +145,13 @@ const Addvehicle = () => {
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Resident Name</label>
             <div class="col-lg-4">
-              <input type="text" class="form-control input-lg" name="flatNo" id='resident_name' placeholder="Resident Name" disabled></input>
+              <input style={{border: "1px solid #000000"}} type="text" class="form-control input-lg" name="flatNo" id='resident_name' placeholder="Resident Name" disabled></input>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Parking section</label>
             <div class="col-lg-4">
-              <select class="form-control input-lg" id="section" placeholder="Parking section">
+              <select style={{border: "1px solid #000000"}} class="form-control input-lg" id="section" placeholder="Parking section">
                 <option disabled selected value={null}>Select Section</option>
                   {sections.map((item)=>{
                         return(

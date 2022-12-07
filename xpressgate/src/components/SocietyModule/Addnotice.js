@@ -54,29 +54,29 @@ const Addnotice = () => {
           <div class="form-group row">
             <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label labelsize">Title</label>
             <div class="col-sm-6 col-md-6 col-lg-6">
-              <input type="text" id='notice_title' class="form-control input-lg" name="title" placeholder="Title" ></input>
+              <input type="text" id='notice_title' class="form-control input-lg" name="title" placeholder="Title" style={{border: "1px solid #000000"}}></input>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Date</label>
             <div class="col-lg-2">
-              <input type="date" id='notice_date' class="form-control input-lg" name="date" placeholder="Date" ></input>
+              <input type="date" id='notice_date' class="form-control input-lg" name="date" placeholder="Date" style={{border: "1px solid #000000"}}></input>
             </div>
             <label class="col-lg-2 col-form-label labelsize">Time</label>
             <div class="col-lg-2">
-              <input type="time" id='notice_time' class="form-control input-lg" name="time" placeholder="Time" ></input>
+              <input type="time" id='notice_time' class="form-control input-lg" name="time" placeholder="Time" style={{border: "1px solid #000000"}} ></input>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Description</label>
             <div class="col-lg-6">
-              <textarea  type="number" id='notice_description' class="form-control input-lg" name="description" placeholder="Description"></textarea >
+              <textarea  type="number" id='notice_description' class="form-control input-lg" name="description" placeholder="Description" style={{border: "1px solid #000000"}}></textarea >
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Attachments</label>
             <div class="col-lg-6">
-              <input type="file" class="form-control input-lg" name="attachments" placeholder="Upload from computer"></input>
+              <input type="file" class="form-control input-lg" name="attachments" placeholder="Upload from computer" style={{border: "1px solid #000000"}}></input>
             </div>
           </div>
           <Button type="submit" onClick={(e)=>handleSubmit(e)} className="btnAddNotice">Add Notice</Button>
