@@ -5,6 +5,7 @@ import { Form } from 'react-bootstrap';
 import axios from 'axios';
 import Societyheader from './Utils/Societyheader';
 import { Link } from 'react-router-dom';
+import {checkSociety} from '../auth/Auth'
 
 const Addlocalservice = () => {
   const [addeddata, setAddedData] = useState([])
@@ -12,8 +13,30 @@ const Addlocalservice = () => {
 
   // const navigate = useNavigate()
   useEffect(()=>{
-    getAddedByData()
-    getServiceData()
+    if(checkSociety())
+    {
+     const config = {
+       headers:{
+         'x-access-token':localStorage.getItem('accesstoken')
+       }
+     }
+    axios.get(`${window.env_var}api/society/checkLogin`,config)
+           .then(({data})=>{   
+            getAddedByData()
+            getServiceData()
+           })
+           .catch(err=>{
+             localStorage.clear();
+             window.location.href='/societylogin'
+           }) 
+    }
+    else
+    {
+     window.location.href='/'
+    }
+
+
+    
   },[])
 
   const getAddedByData=async()=>{

@@ -5,13 +5,34 @@ import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import { checkSociety } from "../auth/Auth";
+
 const Addmanagementteam = () => {
 
   const [residents,setResidents] =useState([])
 
 
   useEffect(()=>{
-    getResidents()
+    if(checkSociety())
+    {
+     const config = {
+       headers:{
+         'x-access-token':localStorage.getItem('accesstoken')
+       }
+     }
+    axios.get(`${window.env_var}api/society/checkLogin`,config)
+           .then(({data})=>{   
+            getResidents()
+           })
+           .catch(err=>{
+             localStorage.clear();
+             window.location.href='/societylogin'
+           }) 
+    }
+    else
+    {
+     window.location.href='/'
+    } 
   },[])
 
     const getResidents=async()=>{

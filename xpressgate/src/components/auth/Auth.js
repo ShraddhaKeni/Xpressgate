@@ -8,7 +8,7 @@ export const checkAdmin = ()=>{
     }
 }
 
-export const checkSociety = async()=>{
+export const checkSociety =()=>{
     if (localStorage.getItem('mode')=='society') {
        return true
     } else {
