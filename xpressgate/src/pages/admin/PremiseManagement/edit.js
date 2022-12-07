@@ -25,28 +25,19 @@ const EditPremise = () => {
     })
     const [states,setState] = useState([])
     const [area,setArea] = useState([])
+    const [re_render,setRender] = useState(false)
     const navigate = useNavigate()
 
-    const premise_name = useRef()
+    const city = useRef()
 
     useEffect(()=>{
        
-        if(location.state)
-        {
+                getDetails().then(async()=>{
+                    const id = await getCommunity()
+                    await getArea(id)
+                    await getCommunity()                
+                })
             
-            async function getData()
-            {
-                await getDetails()
-                await getCommunity()
-            }
-           
-            getData()
-            // getArea()
-        }
-        else
-        {
-            window.location.back(-1)
-        }
         
         
     },[])
@@ -71,15 +62,12 @@ const EditPremise = () => {
         document.getElementById('address').defaultValue = data.data.community[0].address
         document.getElementById('landmark').defaultValue = data.data.community[0].landmark
         document.getElementById('state').value = data.data.community[0].state
-        getArea(data.data.community[0].state).then(()=>{
-            document.getElementById('city').value = data.data.community[0].city
-        })
-        
        
-        
+        // await getArea(data.data.community[0].state)
+        document.getElementById('city').value = data.data.community[0].city
  
         document.getElementById('pincode').defaultValue = data.data.community[0].pincode
-    
+        return data.data.community[0].state
     } catch (error) {
         console.log(error)
     }
@@ -114,7 +102,8 @@ const EditPremise = () => {
                     pincode:item.pincode
                 }
             })
-            setArea(array)
+            
+            await setArea(array)
         } catch (error) {
             alert('Data loading Failed')
         }
@@ -141,7 +130,9 @@ const EditPremise = () => {
 
 
     return (
-        <div className="addvehiclecontainer">
+        
+        <>
+        {location.state?<div className="addvehiclecontainer">
             <div className='avbackgroundimg center-vertical'>
                 <div className='Addvehicledisplay'>
                     <label>Premises Name</label>
@@ -153,14 +144,29 @@ const EditPremise = () => {
                     <SimpleInputComponent label={'Address'} name={'address_line'} id={'address'} onChange={(e) =>{setPremise({...premise,address:e.target.value})}}/>
                     <SimpleInputComponent label={'Landmark'} name={'landmark_name'} id={'landmark'} onChange={(e) =>{setPremise({...premise,landmark:e.target.value})}}/>
                     <SimpleDropDownComponent items={states} label={'State'} name={'state_name'} id={'state'}  onChange={(e) =>{setPremise({...premise,state:e.target.value});getArea(e.target.value)}}/>
-                    <SimpleDropDownComponent items ={area} label={'City'} name={'city_name'} id={'city'} onChange={(e) =>{setPremise({...premise,city:e.target.value})}}/>
+
+                    <div class="form-group row">
+                        <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label float-left">{'City'}</label>
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                            <select ref={city} type="text" class="form-control input-lg" name={'city_name'} id={'city'} onChange={(e) =>{setPremise({...premise,city:e.target.value})}}>
+                                <option disabled selected value={null}>Select City</option>
+                                {area.map((item) => {
+                                    return (
+                                        <option value={item._id}>{item.option}</option>
+                                    )
+                                })}
+                            </select>
+                        </div>
+                    </div>
                     <SimpleInputComponent label={'Pincode'} name={'pincode'} id={'pincode'} onChange={(e) =>{setPremise({...premise,pincode:e.target.value})}}/>
 
                     <Button type="submit" onClick={(e) => handleSubmit(e)} className="btnAddVeh">Update Premise</Button>
                 </Form>
 
             </div>
-        </div>
+        </div>:window.history.back(-1)}
+        
+        </>
     )
 }
 

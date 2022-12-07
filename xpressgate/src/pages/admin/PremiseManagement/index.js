@@ -42,8 +42,8 @@ const PremiseList = () => {
       setCurrentPosts(community.slice(indexoffirst,indexoflast))
     }
 
-    const handleSubmit = async (e) => {
-
+    const removePremise = async (id) => {
+        
     }
 
     const handleAddPremise = () => {
@@ -55,6 +55,20 @@ const PremiseList = () => {
         navigate('/admin/premises/edit',{state:{id}})
     }
 
+    async function findText(e)
+  {
+    let text = community.filter(x=>x.name.toLowerCase().includes(e.target.value.toLowerCase()))
+    if(text)
+    {
+      setCurrentPosts(text)
+    }
+    else
+    {
+      await paginate(0)
+    }
+    
+  }
+
     return (
         <div className="container pb-5">
 
@@ -63,7 +77,7 @@ const PremiseList = () => {
                 <div className='table-top-right-content'>
                     <div className='table-search'>
                         <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-                        <span><input className='search_input' placeholder='Search' onChange={(e) => { }} /></span>
+                        <span><input className='search_input' placeholder='Search' onChange={(e) => {findText(e) }} /></span>
                     </div>
                     <div className="table-add-new-button" onClick={handleAddPremise}>
                         <img src="/images/ic_plus.svg" /> Add new Premise
@@ -81,7 +95,7 @@ const PremiseList = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {community.map((item,index)=>{
+                        {currentPosts.map((item,index)=>{
                             return(
                                 <tr>
                                     <td>{(currentPage-1)*12+(index+1)}</td>
@@ -93,8 +107,11 @@ const PremiseList = () => {
                                             <IconButton onClick={()=>{handleEditClick(item.id)}}>
                                                 <img src="/images/icon_edit.svg" />
                                             </IconButton>
-                                            <IconButton>
-                                                <img src="/images/icon_delete.svg" /></IconButton>
+
+                                            {item.status===false?<IconButton onClick={()=>removePremise(item._id)}>
+                                                <img src="/images/icon_delete.svg" />
+                                            </IconButton>:''}
+                                           
                                         </div>
                                     </td>
                                 </tr>
