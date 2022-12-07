@@ -7,21 +7,52 @@ import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import { ButtonUnstyled } from '@mui/base';
 import { MaterialButton } from '../components/MaterialButton';
+import axios from 'axios';
 
 const PremiseList = () => {
 
     const navigate = useNavigate();
 
+    const [community,setCommunity] = useState([])
+    const [currentPage, setCurrentpage] = useState(1)
+    const [postPerPage, setPostPerPage] = useState(12)
+    const [currentPosts,setCurrentPosts] = useState([])
+
+    useEffect(()=>{
+        getCommunities()
+    },[])
+
+    const getCommunities=async()=>{
+        try {
+            const {data} = await axios.get(`${window.env_var}api/community/get`)
+            setCommunity(data.data)
+            const indexoflast = (currentPage)*postPerPage  //endoffset
+            const indexoffirst = (indexoflast - postPerPage) //startoffset
+            setCurrentPosts(data.data.slice(indexoffirst,indexoflast))
+        } catch (error) {
+            alert('Data loading failed.')
+        }
+    }
+    async function  paginate(event)
+    {
+    
+      setCurrentpage(event.selected+1)
+      const indexoflast = (event.selected+1)*postPerPage  //endoffset
+      const indexoffirst = (indexoflast - postPerPage) //startoffset
+      setCurrentPosts(community.slice(indexoffirst,indexoflast))
+    }
+
     const handleSubmit = async (e) => {
 
     }
 
-    const handleAddPremise = (someId) => {
+    const handleAddPremise = () => {
         navigate('/admin/premises/add')
     }
 
-    const handleEditClick = (someId) => {
-        navigate('/admin/premises/edit')
+    const handleEditClick = (id) => {
+        
+        navigate('/admin/premises/edit',{state:{id}})
     }
 
     return (
@@ -50,71 +81,32 @@ const PremiseList = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>!</td>
-                            <td><ButtonUnstyled className='approve-active'>Approve</ButtonUnstyled></td>
-                            <td>
-                                <div>
-                                    <IconButton>
-                                        <img src="/images/icon_edit.svg" />
-                                    </IconButton>
-                                    <IconButton>
-                                        <img src="/images/icon_delete.svg" /></IconButton>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>!</td>
-                            <td><ButtonUnstyled className='approve-inactive' disabled>Approved</ButtonUnstyled></td>
-                            <td>
-                                <div>
-                                    <IconButton>
-                                        <img src="/images/icon_edit.svg" />
-                                    </IconButton>
-                                    <IconButton>
-                                        <img src="/images/icon_delete.svg" /></IconButton>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>
-                                <div>
-                                    <IconButton>
-                                        <img src="/images/icon_edit.svg" />
-                                    </IconButton>
-                                    <IconButton>
-                                        <img src="/images/icon_delete.svg" /></IconButton>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>
-                                <div>
-                                    <IconButton onClick={(e) => { handleEditClick('some_id') }}>
-                                        <img src="/images/icon_edit.svg" />
-                                    </IconButton>
-                                    <IconButton>
-                                        <img src="/images/icon_delete.svg" /></IconButton>
-                                </div>
-                            </td>
-                        </tr>
+                        {community.map((item,index)=>{
+                            return(
+                                <tr>
+                                    <td>{(currentPage-1)*12+(index+1)}</td>
+                                    <td>{item.name}</td>
+                                    <td>{item.noofblocks}</td>
+                                    <td><ButtonUnstyled className='approve-active'>{item.status==true?'Unapprove':'Approve'}</ButtonUnstyled></td>
+                                    <td>
+                                        <div>
+                                            <IconButton onClick={()=>{handleEditClick(item.id)}}>
+                                                <img src="/images/icon_edit.svg" />
+                                            </IconButton>
+                                            <IconButton>
+                                                <img src="/images/icon_delete.svg" /></IconButton>
+                                        </div>
+                                    </td>
+                                </tr>
+                            )
+                        })}
+                        
+                        
                     </tbody>
                 </table>
                 <div className='flex space-between'>
-                    <p>Showing 6 of 20</p>
-                    <PaginationCalculate totalPages={10} postperPage={20} currentPage={2} paginate={10} />
+                    <p>Showing {currentPosts.length} of {community.length}</p>
+                    <PaginationCalculate totalPages={community.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
                 </div>
             </div >
         </div >

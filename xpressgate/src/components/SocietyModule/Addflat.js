@@ -5,14 +5,36 @@ import { Form } from 'react-bootstrap';
 import LogOut from './Utils/LogOut';
 import axios from 'axios';
 import Societyheader from './Utils/Societyheader';
+import { checkSociety } from '../auth/Auth';
 
 const Addflat = () => {
   const [community,setCommunity] = useState([])
   const [block,setBlock] = useState([])
   
   useEffect(()=>{
-    getDetails()
-  },[block])
+
+    if(checkSociety())
+    {
+     const config = {
+       headers:{
+         'x-access-token':localStorage.getItem('accesstoken')
+       }
+     }
+    axios.get(`${window.env_var}api/society/checkLogin`,config)
+           .then(({data})=>{   
+            getDetails()
+           })
+           .catch(err=>{
+             localStorage.clear();
+             window.location.href='/societylogin'
+           }) 
+    }
+    else
+    {
+     window.location.href='/'
+    }
+
+  },[])
 
   const getDetails = async()=>{
     try {

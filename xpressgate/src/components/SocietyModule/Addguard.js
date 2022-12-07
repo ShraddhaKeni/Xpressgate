@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import axios from "axios";
 import { useLocation } from "react-router-dom";
-
+import {checkSociety} from '../auth/Auth'
 
 const Addguard = () => {
   const [guard,setGuard] = useState({})
@@ -56,15 +56,38 @@ const Addguard = () => {
   }
 
   useEffect(()=>{
-    if(location.state)
+
+    if(checkSociety())
     {
-      getGuardDetails()
-      setType(location.state.type)
+     const config = {
+       headers:{
+         'x-access-token':localStorage.getItem('accesstoken')
+       }
+     }
+    axios.get(`${window.env_var}api/society/checkLogin`,config)
+           .then(({data})=>{   
+            if(location.state)
+            {
+              getGuardDetails()
+              setType(location.state.type)
+            }
+            else
+            {
+              window.history.back(-1)
+            }
+           })
+           .catch(err=>{
+             localStorage.clear();
+             window.location.href='/societylogin'
+           }) 
     }
     else
     {
-
+     window.location.href='/'
     }
+
+
+   
   },[])
 
   const getGuardDetails=async()=>{

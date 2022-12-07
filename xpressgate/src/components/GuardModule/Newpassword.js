@@ -67,12 +67,12 @@ const Newpassword = () => {
           <div className='npinput_fields'>
             <div className='npemail_input'>
               <label className='npnewpassword'>New password</label>
-              <input type="text" className="form-control emailtextbox" id="newpassword" placeholder='New Password' ></input>
+              <input type="text" className="form-control gfpemailtextbox" id="newpassword" placeholder='New Password' ></input>
             </div>
             <br></br><br></br>
             <div className='npemail_input'>
               <label className='npconfirmpassword'>Confirm Password</label>
-              <input type="password" className="form-control passwordtextbox" id="confirmpassword" placeholder='Confirm password'></input>
+              <input type="password" className="form-control gfppasswordtextbox" id="confirmpassword" placeholder='Confirm password'></input>
             </div>
             <br></br>
             <Button type="button" className="btnconfirm" onClick={() => { confirmPasword() }}>Login</Button>

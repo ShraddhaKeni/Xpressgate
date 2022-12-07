@@ -4,7 +4,7 @@ import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 //require('dotenv').config()
 import Login from './components/GuardModule/Login';
 import Dashboard from './components/GuardModule/Dashboard';
-import Addvendor from './components/GuardModule/Addvendor';
+import Addinout from './components/GuardModule/Addinout';
 import Addguest from './components/GuardModule/Addguest';
 import Dailyhelplist from './components/GuardModule/Dailyhelplist';
 import Videoclass from './components/GuardModule/Videoclass';
@@ -70,7 +70,6 @@ import AdminEnterNewPass from './pages/admin/LoginScreens/AdminEnterNewPass';
 import AdminEnterCode from './pages/admin/LoginScreens/AdminEnterCode';
 import RouterPath from './common/constants/path/routerPath';
 
-
 import PackageList from './components/SocietyModule/PackageList';
 
 
@@ -79,8 +78,8 @@ import AdminReset from './pages/admin/LoginScreens/AdminReset';
 
 function App() {
 
-  window.env_var = "http://143.110.187.80:5050/"
-  // window.env_var = "http://localhost:5050/"
+  // window.env_var = "http://143.110.187.80:5050/"
+  window.env_var = "http://localhost:5050/"
   useEffect(() => {
 
   }, [])
@@ -90,7 +89,7 @@ function App() {
         <Routes>
             <Route path='/' element={<SelectMode/>} exact></Route>
             <Route path="/dashboard" element={<Dashboard />} exact></Route>
-            <Route path="/addvendor" element={<Addvendor />} exact></Route>
+            <Route path="/addinout" element={<Addinout />} exact></Route>
             <Route path="/addguest" element={<Addguest />} exact></Route>
             <Route path="/dailyhelp" element={<Dailyhelplist />} exact></Route>
             <Route path="/videoclass" element={<Videoclass />} exact></Route>
@@ -105,7 +104,7 @@ function App() {
             <Route path="/otp" element={<OTPscreen />} exact></Route>
             <Route path="/newpassword" element={<Newpassword />} exact></Route>
             <Route path="/guestentry" element={<GuestEntry />} exact></Route>
-            <Route path="/societydashboard" element={<SocietyDashboard />} exact></Route>
+            <Route path="/scDashboard" element={<SocietyDashboard />} exact></Route>
             <Route path="/flatlist" element={<Flatlist />} exact></Route>
             <Route path="/flatapprovallist" element={<Flatapprovallist />} exact></Route>
             <Route path="/blocklist" element={<Blocklist />} exact></Route>
@@ -126,7 +125,6 @@ function App() {
             <Route path="/addVehical" element={<Addvehicle/>} exact></Route>
             <Route path="/manageVehicle" element={<Vehiclemanagement/>} exact></Route>
             <Route path="/editGuard" element={<Editguard/>} exact></Route>
-            <Route path="/scDashboard" element={<SocietyDashboard/>} exact></Route>
             <Route path="/addGuard" element={<Addguard/>} exact></Route>
             <Route path="/guardList" element={<Guardlist/>} exact></Route>
             <Route path="/guardDetails" element={<GuardProfile/>} exact></Route>
@@ -163,25 +161,25 @@ function App() {
             
             <Route path={RouterPath.ADMIN_DASHBOARD} element={<AdminModuleComponent />}></Route>
 
-<Route path={RouterPath.ADD_PREMISE} element={<AdminModuleComponent />}></Route>
-<Route path={RouterPath.EDIT_PREMISE} element={<AdminModuleComponent />}></Route>
-<Route path={RouterPath.PREMISES_LIST} element={<AdminModuleComponent />}></Route>
+            <Route path={RouterPath.ADD_PREMISE} element={<AdminModuleComponent />}></Route>
+            <Route path={RouterPath.EDIT_PREMISE} element={<AdminModuleComponent />}></Route>
+            <Route path={RouterPath.PREMISES_LIST} element={<AdminModuleComponent />}></Route>
 
-<Route path={RouterPath.COUPONS_LIST} element={<AdminModuleComponent />}></Route>
-<Route path={RouterPath.EDIT_COUPON} element={<AdminModuleComponent />}></Route>
-<Route path={RouterPath.ADD_COUPON} element={<AdminModuleComponent />}></Route>
+            <Route path={RouterPath.COUPONS_LIST} element={<AdminModuleComponent />}></Route>
+            <Route path={RouterPath.EDIT_COUPON} element={<AdminModuleComponent />}></Route>
+            <Route path={RouterPath.ADD_COUPON} element={<AdminModuleComponent />}></Route>
 
-<Route path={RouterPath.PRLANS_LIST} element={<AdminModuleComponent />}></Route>
-<Route path={RouterPath.ADD_PLAN} element={<AdminModuleComponent />}></Route>
-<Route path={RouterPath.EDITP_PLAN} element={<AdminModuleComponent />}></Route>
-<Route path={RouterPath.PAYMENT_HISTORY} element={<AdminModuleComponent />}></Route>
-<Route path={RouterPath.ADMIN_PROFILE} element={<AdminModuleComponent />}></Route>
-<Route path={RouterPath.VIDEO_CLASS} element={<AdminModuleComponent />}></Route>
-<Route path={RouterPath.ADD_VIDEO} element={<AdminModuleComponent />}></Route>
-<Route path={RouterPath.EDIT_VIDEO} element={<AdminModuleComponent />}></Route>
-<Route path={RouterPath.REPORTS} element={<AdminModuleComponent />}></Route>
-<Route path={RouterPath.TERMS} element={<AdminModuleComponent />}></Route>
-<Route path={RouterPath.PRIVACY_POLICY} element={<AdminModuleComponent />}></Route>
+            <Route path={RouterPath.PRLANS_LIST} element={<AdminModuleComponent />}></Route>
+            <Route path={RouterPath.ADD_PLAN} element={<AdminModuleComponent />}></Route>
+            <Route path={RouterPath.EDITP_PLAN} element={<AdminModuleComponent />}></Route>
+            <Route path={RouterPath.PAYMENT_HISTORY} element={<AdminModuleComponent />}></Route>
+            <Route path={RouterPath.ADMIN_PROFILE} element={<AdminModuleComponent />}></Route>
+            <Route path={RouterPath.VIDEO_CLASS} element={<AdminModuleComponent />}></Route>
+            <Route path={RouterPath.ADD_VIDEO} element={<AdminModuleComponent />}></Route>
+            <Route path={RouterPath.EDIT_VIDEO} element={<AdminModuleComponent />}></Route>
+            <Route path={RouterPath.REPORTS} element={<AdminModuleComponent />}></Route>
+            <Route path={RouterPath.TERMS} element={<AdminModuleComponent />}></Route>
+            <Route path={RouterPath.PRIVACY_POLICY} element={<AdminModuleComponent />}></Route>
 
 <Route path='/superadminlogin' element={<SuperAdminLogin />}></Route>
 <Route path='/enternewpass' element={<AdminEnterNewPass />}></Route>

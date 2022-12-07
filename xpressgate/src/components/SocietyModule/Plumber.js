@@ -15,7 +15,7 @@ const Plumber = () => {
   const [currentPosts,setCurrentPosts] = useState([])
   const location = useLocation()
   useEffect(()=>{
-    if(location.state)
+    if(location.state.id)
     {
       getVendors()
     }
