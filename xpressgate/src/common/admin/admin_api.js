@@ -48,6 +48,14 @@ export async function getPlanById(id) {
     }
 }
 
+export async function getPaymentHistory() {
+    try {
+        return await getRequest('paymenthistory/getall');
+    } catch (error) {
+        return error
+    }
+}
+
 
 
 /// COUPONS ////
