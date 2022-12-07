@@ -63,12 +63,11 @@ export const SimpleDropDownComponent = ({ name, id, label, onChange, items = [] 
         <div class="form-group row">
             <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label float-left">{label}</label>
             <div class="col-sm-4 col-md-4 col-lg-4">
-                <select type="text" class="form-control input-lg" name={name} id={id} onChange={onChange}>
+                <select type="text" class="form-control" name={name} id={id} onChange={onChange}>
                     <option disabled selected value={null}>Select {label}</option>
                     {items.map((item) => {
-                        return (
-                            <option value={item._id}>{item.option}</option>
-                        )
+                        console.log(item);
+                        return <option value={item["id"]}>{item.option}</option>
                     })}
                 </select>
             </div>

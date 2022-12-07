@@ -7,6 +7,47 @@ import { getRequest, postRequest } from "../axios_client";
 
 
 /// PAYMENT ///
+export async function addPlan(data) {
+    try {
+        return await postRequest('plan/add', data);
+    } catch (error) {
+        return error
+    }
+}
+
+
+export async function getAllPlans() {
+    try {
+        return await getRequest('plan/getall');
+    } catch (error) {
+        return error
+    }
+}
+
+export async function deletePlan(id) {
+    try {
+        return await postRequest('plan/delete', { "plan_id": id });
+    } catch (error) {
+        return error
+    }
+}
+
+export async function updatePlan(data) {
+    try {
+        return await postRequest('plan/update', data);
+    } catch (error) {
+        return error
+    }
+}
+
+export async function getPlanById(id) {
+    try {
+        return await postRequest('plan/delete', id);
+    } catch (error) {
+        return error
+    }
+}
+
 
 
 /// COUPONS ////

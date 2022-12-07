@@ -10,7 +10,8 @@ const RouterPath = {
 
     PRLANS_LIST: "/admin/payments/plans",
     ADD_PLAN: "/admin/payments/plans/add",
-    EDITP_PLAN: "/admin/payments/plans/edit",
+    EDIT_PLAN: "/admin/payments/plans/edit",
+    PLAN_DETAILS: "/admin/payments/plans/details",
 
 
 

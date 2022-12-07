@@ -4,7 +4,7 @@ const axiosClient = axios.create({ baseURL: 'http://143.110.187.80:5050/api/' })
 
 axiosClient.defaults.headers = {
     Accept: 'application/json',
-    'x-access-token': localStorage.getItem('accesstoken') || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzAyMTcxODUsImV4cCI6MTY3MDMwMzU4NX0.-K-Ln3AhRW3i67mRsQ3Pzj_m9DqNBl4jnHskb-2QEmk'
+    'x-access-token': localStorage.getItem('accesstoken') || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzAzODU3OTUsImV4cCI6MTY3MDQ3MjE5NX0.xUVyHED5x-ndeVxL2R34gR_IJuIVwye3a3vHL__6nUg'
 };
 
 axiosClient.defaults.timeout = 5000;
