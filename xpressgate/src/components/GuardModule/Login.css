@@ -31,12 +31,10 @@ html{
 }
 
 .signin {
- 
   width: 400px;
   height: 76px;
-
   background-color: #14335D;
-   margin-left: 28%; 
+  margin-left: 28%; 
   margin-top: 6%;
   font-size: 36px;
   

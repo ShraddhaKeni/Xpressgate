@@ -3,7 +3,7 @@ import './Flatapprovallist.css';
 import { Button } from 'react-bootstrap';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import LogOut from './Utils/LogOut'
 
 const Flatapprovallist = () => {
   const [flat,setFlat] = useState({})
@@ -47,15 +47,15 @@ const approveFlat=async(id)=>{
 }
 
   return (
-    <div className="frequentvisitorcontainer">
-      <div id="headersection">
-        <div class="firstheadersection">
-          <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="dashboardguard"><label>Society</label></div>
-          <div id="dashboardspace"></div>
-          <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="dashboardlogoutbutton"> <Button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
+    <div className="falcontainer">
+      <div id="falheadersection">
+        <div class="falfirstheadersection">
+          <div id="faldashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+          <div id="faldashboardguard"><label>Society</label></div>
+          <div id="faldashboardspace"></div>
+          <div id="faldashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+          <div id="faldashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="fallogoutbutton"> <LogOut/></div>
         </div>
       </div>
       <div id="guardnamesection"> 
