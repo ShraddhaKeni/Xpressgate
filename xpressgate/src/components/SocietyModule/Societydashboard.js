@@ -43,46 +43,46 @@ const Societydashboard = () => {
           <img src="/images/societyicon.svg" alt="society name" />
           <label>Society Name</label>
         </div>
-        <div className='sideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
+        <div className='sdsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
       </div>
         <div className='dashboardbackgroundimg'>
-        <div className='societydisplay'>
+        <div className='sdsocietydisplay'>
           <label>Society Dashboard</label>
         </div>
           <div id="cardsection">
-            <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
+            <div className="row row-cols-1 row-cols-md-3 g-4 sdfullcardscss">
               <div className="col">
-                <div className="sdcard">
+                <div className="sddashboardcard">
                  <img src="/images/managenoticeboard.svg" className="dbcard-img-top" alt="notice list" onClick={() => { window.location.href = '/noticeList' }}></img>
                 </div>
               </div>
               <div className="col">
-                <div className="dashboardcard">
+                <div className="sddashboardcard">
                   <img src="/images/managecommunity.svg" className="dbcard-img-top" alt="community" onClick={() => { window.location.href = '/community' }}></img>
                 </div>
               </div>
               <div className="col">
-                <div className="dashboardcard">
+                <div className="sddashboardcard">
                   <img src="/images/manageflat.svg" className="dbcard-img-top" alt="flat list" onClick={() => { window.location.href = '/flatlist' }}></img>
                 </div>
               </div>
               <div className="col">
-                <div className="dashboardcard">
+                <div className="sddashboardcard">
                  <img src="/images/managevehicles.svg" className="dbcard-img-top" alt="manage vehicle" onClick={() => { window.location.href = '/manageVehicle' }}></img>
                 </div>
               </div>
               <div className="col">
-                <div className="dashboardcard">
+                <div className="sddashboardcard">
                   <img src="/images/paymentmanagement.svg" className="dbcard-img-top" alt="payment" onClick={() => { window.location.href = '/payment' }}></img>
                 </div>
               </div>
               <div className="col">
-                <div className="dashboardcard">
+                <div className="sddashboardcard">
                   <img src="/images/guardmanagement.svg" className="dbcard-img-top" alt="guard list" onClick={() => { window.location.href = '/guardList' }}></img>
                 </div>
               </div>
               <div className="col">
-                <div className="dashboardcard">
+                <div className="sddashboardcard">
                   <img src="/images/managecomplains.svg" className="dbcard-img-top" alt="ticket list" onClick={() => { window.location.href = '/ticketlist' }}></img>
                 </div>
               </div>
