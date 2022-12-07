@@ -27,9 +27,7 @@ export const PlanDetails = () => {
     const toggleActive = async () => {
         let updatedPlan = plan;
         updatedPlan.status = updatedPlan.status == 1 ? 0 : 1;
-        updatedPlan["plan_id"] = updatedPlan.id;
         setplans(updatedPlan);
-        delete updatedPlan.id;
         const res = await updatePlan(updatedPlan)
         console.log(updatedPlan)
         if (res && res.data?.status_code == 200) {

@@ -16,7 +16,7 @@ export const PaymentsHistory = () => {
 
     const openInNewTab = (url) => {
 
-        window.open("https://www.africau.edu/images/default/sample.pdf", '_blank', 'noopener,noreferrer');
+        window.open(url, '_blank', 'noopener,noreferrer');
     };
 
 
@@ -33,7 +33,7 @@ export const PaymentsHistory = () => {
         async function getPayments() {
             const res = await getPaymentHistory();
             if (res && res.data.status_code == 200) {
-                setHistory(getCurrentHistory(res.data.data.PaymentHistory))
+                setHistory(getCurrentHistory(res.data.data))
             }
         }
 
@@ -89,7 +89,7 @@ export const PaymentsHistory = () => {
                                 <td>{item.payment_type}</td>
                                 <td>{item.payment_date || "n/a"}</td>
                                 <td>{item.amount}</td>
-                                <td> <p className='status-pending'>Pending</p></td>
+                                <td> <p className={`status-${item.status_name.toLowerCase()}`}>{item.status_name}</p></td>
                                 <td>
                                     <ButtonUnstyled className='download-invoice' onClick={() => openInNewTab(item.invoice_url)}>Download Invoice</ButtonUnstyled>
                                 </td>

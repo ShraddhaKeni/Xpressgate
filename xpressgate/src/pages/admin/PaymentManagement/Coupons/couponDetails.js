@@ -39,8 +39,6 @@ export const CouponDetails = () => {
 
     const toggleActive = async () => {
         coupon.status = coupon.status == 1 ? 0 : 1;
-        coupon["coupon_id"] = coupon.id;
-        delete coupon.id;
         setCoupons(coupon);
         const res = await updateCoupon(coupon)
         console.log(coupon)
