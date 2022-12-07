@@ -59,7 +59,7 @@ const Payment = () => {
         </div>
         <div className="ButtonsContainer">
             <div className="button1">
-                <button type="button" className="societydues_btn">Package Details</button>
+                <button type="button" onClick={()=>navigate('/package')} className="societydues_btn">Package Details</button>
             </div>
         </div>
         </div>

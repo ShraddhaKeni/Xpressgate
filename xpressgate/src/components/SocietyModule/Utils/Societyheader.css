@@ -88,3 +88,48 @@ input::-webkit-inner-spin-button {
   margin-top: 18%;
   padding-top: 2%;
 } */
+
+
+
+.cog_wheel{
+  transition: .5s ease all;
+}
+
+
+.cog_wheel:hover
+{
+  transform: rotate(-90deg);
+}
+
+
+.bell_icon
+{
+  transition: .5s ease all;
+}
+
+.bell_icon:hover{
+  animation: move_bell .5s ease-out;
+}
+
+@keyframes move_bell {
+
+  0%{
+      transform: rotate(10deg);
+  }
+  25%
+  {
+      transform: rotate(-10deg);
+  }
+  50%
+  {
+      transform: rotate(10deg);
+  }
+  75%
+  {
+      transform: rotate(-10deg);
+  }
+  100%{
+      transform: rotate(0deg);
+  }
+  
+}
