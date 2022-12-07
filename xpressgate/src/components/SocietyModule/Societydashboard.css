@@ -24,6 +24,12 @@ input::-webkit-inner-spin-button {
   align-items: center;
 }
 
+.sddashboardcard img {
+  width: 18vw;
+  padding-right: 2%;
+  margin-bottom: 4%;
+}
+
 .dashboard_passcode {
   position: relative;
   top: 30px;
@@ -66,7 +72,7 @@ input::-webkit-inner-spin-button {
   margin-top: 0.5%;
 }
 
-.societydisplay{
+.sdsocietydisplay {
   width: 300px;
   height: 64px;
   background-color: #AED8DC;
@@ -74,7 +80,8 @@ input::-webkit-inner-spin-button {
   font-size: 20px;
   padding-top: 14px;
   margin: auto;
-  margin-top: -2%;
+  margin-top: -37px;
+  margin-right: 42%;
 }
 
 .firstheadersection {
@@ -109,6 +116,7 @@ input::-webkit-inner-spin-button {
   padding-top: 4%;
   font-size: 20px;
 }
+
 #dashboardspace {
   grid-area: dashboardspace;
 }
@@ -174,9 +182,9 @@ input::-webkit-inner-spin-button {
   font-size: 20px;
 }
 
-.sideimage img {
+.sdsideimage img {
   display: flex;
-  margin-top: 100%;
+  margin-top: 71%;
   width: 100%;
   height: auto;
 }
@@ -208,11 +216,11 @@ input::-webkit-inner-spin-button {
   cursor: pointer;
 }
 
-.fullcardscss {
-  margin-top: 5%;
+.sdfullcardscss {
+  margin-top: 1%;
   padding-left: 25px;
-  margin-right: 125px;
-  width: 100%;
+  width: 76%;
+  margin-left: 10%;
 }
 
 /* Media query for laptop */
@@ -244,14 +252,14 @@ input::-webkit-inner-spin-button {
     margin-top: 10.5%;
   }
 
-  .sideimage img {
+  .sdsideimage img {
     display: flex;
     margin-top: 216%;
     width: 100%;
     height: auto;
   }
 
-  .fullcardscss {
+  .sdfullcardscss {
     margin-top: 5%;
     margin-right: 4%;
   }
@@ -288,7 +296,7 @@ input::-webkit-inner-spin-button {
 
 /* Media query for mobile */
 @media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
-  .sideimage {
+  .sdsideimage {
     display: none;
   }
 

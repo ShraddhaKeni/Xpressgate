@@ -8,39 +8,37 @@ import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import { getAllByPlaceholderText } from '@testing-library/react';
 
 const Noticelist = () => {
-  const [notice,setNotice] = useState([])
+  const [notice, setNotice] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
-  const [currentPosts,setCurrentPosts] = useState([])
-  const [pageCount,setpageCount] = useState(0)
-  useEffect(()=>{
+  const [currentPosts, setCurrentPosts] = useState([])
+  const [pageCount, setpageCount] = useState(0)
+  useEffect(() => {
     getNotices()
-  },[])
+  }, [])
 
-  const getNotices=async()=>{
-      try {
-        const {data} = await axios.get(`${window.env_var}api/notices/getAll/632970d054edb049bcd0f0b4`) //will update with localstorage
-        setNotice(data.data.notice)
-        const indexoflast = currentPage*postPerPage  //endoffset
-        const indexoffirst = indexoflast - postPerPage //startoffset
-        setCurrentPosts(data.data.notice.slice(indexoffirst,indexoflast))
-      } catch (error) {
-        console.log(error)
-      }
+  const getNotices = async () => {
+    try {
+      const { data } = await axios.get(`${window.env_var}api/notices/getAll/632970d054edb049bcd0f0b4`) //will update with localstorage
+      setNotice(data.data.notice)
+      const indexoflast = currentPage * postPerPage  //endoffset
+      const indexoffirst = indexoflast - postPerPage //startoffset
+      setCurrentPosts(data.data.notice.slice(indexoffirst, indexoflast))
+    } catch (error) {
+      console.log(error)
+    }
   }
-  async function  paginate(event)
-  {
-    const {data} = await axios.get(`${window.env_var}api/notices/getAll/632970d054edb049bcd0f0b4`) //will update with localstorage
-    setCurrentpage(event.selected+1)
-    const indexoflast = (event.selected+1)*postPerPage  //endoffset
+  async function paginate(event) {
+    const { data } = await axios.get(`${window.env_var}api/notices/getAll/632970d054edb049bcd0f0b4`) //will update with localstorage
+    setCurrentpage(event.selected + 1)
+    const indexoflast = (event.selected + 1) * postPerPage  //endoffset
     const indexoffirst = (indexoflast - postPerPage) //startoffset
-    setCurrentPosts(data.data.notice.slice(indexoffirst,indexoflast))
+    setCurrentPosts(data.data.notice.slice(indexoffirst, indexoflast))
   }
 
-  function getDate(value)
-  {
+  function getDate(value) {
     let date = new Date(value)
-    return date.getDay() + '/' +date.getMonth()+ '/' +date.getFullYear()
+    return date.getDay() + '/' + date.getMonth() + '/' + date.getFullYear()
   }
 
   return (
@@ -61,8 +59,8 @@ const Noticelist = () => {
           <label>Society Name</label>
         </div>
         <div className='nlsidelinks'>
-          <Link>Notice List</Link><br></br><br></br>
-          <Link to='/addNotice'>Add Notice</Link>
+          <a className='sidelinks' href="/noticelist">Notice List</a><br></br><br></br>
+          <a className='sidelinks' href="/addNotice">Add Notice</a>
         </div>
         <div className='nlsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
@@ -71,10 +69,12 @@ const Noticelist = () => {
           <label>Notice List</label>
         </div>
         <div> <Button type="submit" className="btnAddnotice"><img src="/images/plus.svg" alt="header logo" />&nbsp;Add New Notice</Button></div>
-        <div className='nlsearchbox'>
-          <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-          {/* <span><label className='searchlabel'>Search</label><input className='search_input'></input></span> */}
-          <span><label className='nlsearchlabel'>Search</label></span>
+      
+        <div className='row'>
+          <div className='nlsearchbox'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+              <input className='vlsearch_input' placeholder='Search'></input></span>
+          </div>
         </div>
 
         <table id="nltable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
@@ -87,10 +87,10 @@ const Noticelist = () => {
           </thead>
           <tbody>
 
-            {currentPosts.map((item,index)=>{
-              return(
+            {currentPosts.map((item, index) => {
+              return (
                 <tr>
-                  <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
+                  <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1 + 1) + (index + 1)}</td>
                   <td >{item.noticeTitle}</td>
                   <td>{getDate(item.eventDate)}</td>
                 </tr>
@@ -98,7 +98,7 @@ const Noticelist = () => {
             })}
           </tbody>
         </table>
-        <PaginationCalculate totalPages={notice.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+        <PaginationCalculate totalPages={notice.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
       </div>
     </div>
   )
