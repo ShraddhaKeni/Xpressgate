@@ -1,0 +1,217 @@
+html {
+  height: 100vh;
+}
+  #headersection1 {
+    /* background-color: aquamarine; */
+    /* margin-top: 10%; */
+    grid-area: headersection1;
+    background-color: #F9F9FF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  #societynamesection {
+    /* background-color: blueviolet; */
+    grid-area: societynamesection;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  #cardsection {
+    /* background-color: blue; */
+    grid-area: cardsection;
+    position: relative;
+  
+  }
+  
+  .addguestbackgroundimg {
+    /* background-image: url("../../../public/images/dashboardbackground.svg"); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    margin-top: 0.5%;
+  }
+  
+  .firstheadersection1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
+    grid-template-areas: "dashboardlogo dashboardguard1 dashboardspace dashboardnotification1 dashboardsetting1 dashboardlogoutbutton";
+  }
+  
+  #dashboardlogo {
+    grid-area: dashboardlogo;
+  }
+  
+  #dashboardlogo img {
+    margin-top: 5%;
+    margin-left: 1%;
+    margin-bottom: 5%;
+    width: 40%;
+  }
+  
+  #dashboardguard1 {
+    grid-area: dashboardguard1;
+  }
+ 
+  
+  #dashboardspace {
+    grid-area: dashboardspace;
+  }
+  
+  #dashboardnotification1 {
+    grid-area: dashboardnotification1;
+  }
+  
+  #dashboardnotification1 img {
+    margin-top: 100%;
+  }
+  
+  #dashboardsetting1 {
+    grid-area: dashboardsetting1;
+  }
+  
+  #dashboardsetting1 img {
+    margin-top: 100%;
+  }
+  
+  #dashboardlogoutbutton {
+    grid-area: dashboardlogoutbutton;
+  }
+  
+  #dashboardlogoutbutton img {
+    padding-left: 10%;
+    padding-bottom: 5%;
+  }
+ 
+  /* .btnlogout {
+    background-color: #0A8996;
+    color: #fff;
+    border-radius: 14px;
+    width: 142px;
+    height: 52px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 18%;
+    padding-top: 2%;
+  }
+   */
+  .societyname {
+    display: flex;
+    width: 80%;
+    height: 12%;
+    background-color: rgba(10, 137, 150, 0.33);
+    margin-left: 10%;
+    margin-top: 12%;
+    border-radius: 24px;
+  }
+  .search2 {
+    width: 12vw;
+    height: 5vh;
+    padding: 1.5%;
+    border-radius: 14px;
+    border: 1px solid grey;
+    margin-left: 60%;
+    margin-top: 1.5%;
+}
+  .societyname img {
+    margin-left: 10%;
+    width: 25%;
+    height: 70%;
+    margin-top: 4%;
+  }
+  .societyname label {
+    color: #000;
+    margin-left: -14%;
+    margin-top: 13%;
+    font-size: 1vw;
+    padding-top: 0.5%;
+}
+  
+  .sideimage2 img {
+    display: flex;
+    margin-top: 85%;
+    max-width: 90%;
+    height: auto;
+    margin-left: 13%;
+    margin-bottom: 5%;
+    
+  }
+
+.noticelist h4{
+  color: #434242;
+}
+ .noticelist h4{
+    color: #434242;
+ }
+ .noticelist a{
+    color: #000
+  }
+
+  #managementtable {
+    margin-Left: 10%;
+    margin-Top: 2%;
+    max-Width: 80%;
+    background-color: #F9FAFF;
+   
+    border-radius: 14px;
+    border-collapse: separate;
+    font-family: 'Rubik', sans-serif;
+  }
+  
+  #managementtable thead {
+    background-color: #14335D;
+    color: #fff;
+  }
+  
+  #managementtable td:hover{
+    color: #0A8996;
+  }
+  
+  table th {
+    text-align: center;
+  }
+  /* Media query for laptop */
+  @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
+    #dashboardlogo img {
+      margin-top: 9%;
+      margin-left: -38%;
+      margin-bottom: 3%;
+      width: 5vw;
+  }
+    .sideimage2 img {
+      display: flex;
+    margin-top: 102%;
+    max-width: 95%;
+    height: auto;
+    margin-left: 2%;
+  }
+    .addguestbackgroundimg {
+    /* background-image: url("../../../public/images/dashboardbackground.svg"); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    margin-top: 12.5%;
+  }
+  
+  .labelsize {
+    font-size: 12px;
+  }
+  
+ 
+  .Addguestdisplay6 label {
+    display: inline-block;
+    margin-bottom: 2%;
+    font-weight: 700;
+    font-size: 2vw;
+}
+.Addguestdisplay6 {
+  width: 24vw;
+  height: 10vh;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  font-size: 2.5vw;
+  padding-top: 8px;
+  margin: auto;
+  margin-top: -16%;
+}
+}

@@ -1,0 +1,31 @@
+html {
+  height: 100vh;
+}
+
+.noticelist h4{
+  color: #434242;
+}
+.noticelist a{
+ color: #757575;
+}
+/* Media query for laptop */
+@media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
+  
+}
+.pagination_ul li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#0A899654;
+  color: black;
+  width: 30px;
+  height: 30px;
+  font-weight: 999;
+  border-radius: 5px;
+}
+
+.pagination_ul .selected
+{
+  background: #0A8996;
+  color: white;
+}

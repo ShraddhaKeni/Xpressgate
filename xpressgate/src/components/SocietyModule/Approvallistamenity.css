@@ -1,0 +1,398 @@
+html {
+  height: 100vh;
+}
+
+.alacontainer {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 0.5fr 2fr;
+  grid-template-rows: 0.2fr 2fr;
+  grid-template-areas: "alaheadersection alaheadersection"
+    "alasection cardsection"
+}
+
+#alaheadersection {
+
+  grid-area: alaheadersection;
+  background-color: #F9F9FF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#alasection {
+  grid-area: alasection;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+.alabackgroundimg {
+  background-image: url("../../../public/images/dashboardbackground.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  margin-top: 0.5%;
+}
+
+.alafirstheadersection {
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
+  grid-template-areas: "alalogo alasociety alaspace alanotification alasetting alalogoutbutton";
+}
+
+#alalogo {
+  grid-area: alalogo;
+}
+
+#alalogo img {
+  margin-top: 5%;
+  margin-left: 1%;
+  margin-bottom: 5%;
+  width: 40%;
+}
+
+#alasociety {
+  grid-area: alasociety;
+}
+
+#alasociety label {
+  margin-top: 20%;
+  margin-left: -88%;
+  width: 136px;
+  height: 58px;
+  background-color: black;
+  color: #fff;
+  border-radius: 18px;
+  padding-top: 4%;
+  font-size: 20px;
+}
+
+#alaspace {
+  grid-area: alaspace;
+}
+
+#alanotification {
+  grid-area: alanotification;
+}
+
+#alanotification img {
+  margin-top: 100%;
+}
+
+#alasetting {
+  grid-area: alasetting;
+}
+
+#alasetting img {
+  margin-top: 100%;
+}
+
+#alalogoutbutton {
+  grid-area: alalogoutbutton;
+}
+
+#alalogoutbutton img {
+  padding-left: 10%;
+  padding-bottom: 5%;
+}
+
+.alabtnApprove {
+  background-color: #017069;
+  color: #fff;
+  border-radius: 14px;
+  width: 120px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 500;
+  padding-top: 0%;
+ 
+  margin-right: 34%;
+}
+
+.alabtnApprove:hover {
+  background-color: #017069;
+}
+
+.alabtnDeny {
+  background-color: #96230A;
+  color: #fff;
+  border-radius: 14px;
+  width: 120px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: -20%;
+  padding-top: 0%;
+  margin-left: 40%;
+}
+
+.alabtnDeny:hover {
+  background-color: #96230A;
+}
+
+.alaname {
+  display: flex;
+  width: 80%;
+  height: 12%;
+  background-color: rgba(10, 137, 150, 0.33);
+  margin-left: 10%;
+  margin-top: 12%;
+  border-radius: 24px;
+}
+
+.alaname img {
+  margin-left: 10%;
+  width: 25%;
+  height: 70%;
+  margin-top: 4%;
+}
+
+.alaname label {
+  color: #000;
+  margin-left: 8%;
+  margin-top: 12%;
+  font-size: 20px;
+}
+
+.alasideimage img {
+  display: flex;
+  margin-top: 125%;
+  width: 100%;
+  height: auto;
+}
+
+.aladisplay {
+  width: 435px;
+  height: 64px;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  font-size: 30px;
+  margin: auto;
+  margin-top: -3%;
+  color:#14335D;
+  padding-top: 6px;
+}
+
+.alacard {
+  width: 25%;
+  margin: auto;
+  margin-top: 5%;
+  background-color: #fff;
+  border: 2px solid #14335D;
+  border-radius: 20px;
+}
+
+.alaclass {
+  background-color: #AED8DC;
+  width: 80%;
+  height: fit-content;
+  color: #000;
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  border-radius: 8px;
+  margin: auto;
+  padding-left: 0%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  text-align: center;
+}
+
+.alaclass label{
+  font-weight: 200;
+}
+.alablockdisplay{
+  font-weight: 600;
+}
+
+.alablockdisplay {
+  color: #1A1717;
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+
+}
+
+.alalabels {
+  font-weight: 600;
+  font-size: 22px;
+  font-family: 'Rubik', sans-serif;
+  color: #14335D;
+}
+
+.aladate {
+  font-size: 20px;
+  font-family: 'Rubik', sans-serif;
+  color: #14335D;
+}
+
+.alatime {
+  font-size: 20px;
+  font-family: 'Rubik', sans-serif;
+  color: #14335D;
+}
+
+.outtime {
+  font-size: 20px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 100;
+}
+
+.noofpeople {
+  font-size: 20px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 100;
+}
+
+.alalabel {
+  font-weight: 600;
+  font-size: 22px;
+  font-family: 'Rubik', sans-serif;
+  color: #14335D;
+}
+
+.alaowner {
+  display: flex;
+  width: 38%;
+  line-height: 150%;
+  background-color: #304B71;
+  margin-left: 30%;
+  margin-top: 2%;
+  border-radius: 24px;
+  color: white;
+  font-weight: 700;
+  font-size: 30px;
+  padding-left: 7%;
+}
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  .alaname label {
+    margin-left: 3%;
+    margin-top: 18%;
+    font-size: 15px;
+  }
+
+  .alasideimage img {
+    display: flex;
+    margin-top: 216%;
+    width: 100%;
+    height: auto;
+  }
+
+  .alabackgroundimg {
+    background-image: url("../../../public/images/dashboardbackground.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    margin-top: 12.5%;
+  }
+
+  #alasociety label {
+    margin-top: 14%;
+    margin-left: -68%;
+    width: 108px;
+    height: 45px;
+    background-color: black;
+    color: #fff;
+    border-radius: 18px;
+    padding-top: 3%;
+    font-size: 20px;
+  }
+
+  .aladisplay {
+    width: 300px;
+    height: 64px;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-top: 14px;
+    margin: auto;
+    margin-top: -16%;
+  }
+
+  .alacard {
+    width: 50%;
+    margin: auto;
+    margin-top: 5%;
+    background-color: #fff;
+    border: 2px solid #14335D;
+    border-radius: 20px;
+  }
+
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
+  .alasideimage {
+    display: none;
+  }
+
+  #alasection {
+    display: none;
+  }
+
+  #alasociety {
+    display: none;
+  }
+
+  .alabackgroundimg {
+    background-image: url("../../../public/images/dashboardbackground.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    margin-top: 10.5%;
+  }
+
+  .aladisplay {
+    width: 280px;
+    height: 64px;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-top: 14px;
+    margin-left: 26%;
+}
+
+#alalogo img {
+  margin-top: 5%;
+  margin-left: 20%;
+  margin-bottom: 5%;
+  width: 140%;
+}
+
+.alacard {
+  width: 138%;
+  margin: auto;
+  margin-top: 5%;
+  background-color: #fff;
+  border: 2px solid #14335D;
+  border-radius: 20px;
+  margin-left: 10%;
+}
+
+.alaowner {
+  display: flex;
+  width: 38%;
+  line-height: 150%;
+  background-color: #304B71;
+  margin-left: 30%;
+  margin-top: 2%;
+  border-radius: 24px;
+  color: white;
+  font-weight: 700;
+  font-size: 30px;
+  padding-left: 7%;
+}
+
+.alabtnDeny {
+  background-color: #96230A;
+  color: #fff;
+  border-radius: 14px;
+  width: 120px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: -22%;
+  padding-top: 0%;
+  margin-left: 40%;
+}
+}

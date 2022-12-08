@@ -1,0 +1,206 @@
+html {
+  height: 100vh;
+}
+  #headersection3 {
+    /* background-color: aquamarine; */
+    /* margin-top: 10%; */
+    grid-area: headersection3;
+    background-color: #F9F9FF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  #societynamesection {
+    /* background-color: blueviolet; */
+    grid-area: societynamesection;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  #cardsection {
+    /* background-color: blue; */
+    grid-area: cardsection;
+    position: relative;
+  
+  }
+  
+  .addguestbackgroundimg {
+    /* background-image: url("../../../public/images/dashboardbackground.svg"); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    margin-top: 0.5%;
+  }
+  
+  .firstheadersection3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
+    grid-template-areas: "dashboardlogo3 dashboardguard3 dashboardspace dashboardnotification3 dashboardsetting3 dashboardlogoutbutton";
+  }
+  
+  #dashboardlogo3 {
+    grid-area: dashboardlogo3;
+  }
+  
+  #dashboardlogo3 img {
+    margin-top: 5%;
+    margin-left: 1%;
+    margin-bottom: 5%;
+    width: 40%;
+  }
+  
+  #dashboardguard3 {
+    grid-area: dashboardguard3;
+  }
+ 
+  
+  #dashboardspace {
+    grid-area: dashboardspace;
+  }
+  
+  #dashboardnotification3 {
+    grid-area: dashboardnotification3;
+  }
+  
+  #dashboardnotification3 img {
+    margin-top: 100%;
+  }
+  
+  #dashboardsetting3 {
+    grid-area: dashboardsetting3;
+  }
+  
+  #dashboardsetting3 img {
+    margin-top: 100%;
+  }
+  
+  #dashboardlogoutbutton {
+    grid-area: dashboardlogo3utbutton;
+  }
+  
+  #dashboardlogoutbutton img {
+    padding-left: 10%;
+    padding-bottom: 5%;
+  }
+  
+  /* .btnlogout {
+    background-color: #0A8996;
+    color: #fff;
+    border-radius: 14px;
+    width: 142px;
+    height: 52px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 18%;
+    padding-top: 2%;
+  }
+  */
+  .societyname {
+    display: flex;
+    width: 80%;
+    height: 12%;
+    background-color: rgba(10, 137, 150, 0.33);
+    margin-left: 10%;
+    margin-top: 12%;
+    border-radius: 24px;
+  }
+ 
+  .societyname img {
+    margin-left: 10%;
+    width: 25%;
+    height: 70%;
+    margin-top: 4%;
+  }
+  .societyname label {
+    color: #000;
+    margin-left: -14%;
+    margin-top: 13%;
+    font-size: 1vw;
+    padding-top: 0.5%;
+}
+  
+  .addguard_sideimg img {
+    display: flex;
+    margin-top: 100%;
+    max-width: 90%;
+    height: auto;
+    margin-left: 13%;
+    margin-bottom: 5%;
+    
+  }
+
+.noticelist h4{
+  color: #434242;
+}
+.noticelist a{
+ color: #757575;
+}
+.Payment_form{
+  max-width: 100%;
+  margin-top: 3%;
+}
+.vendordetials{
+  margin-right: 5%;
+  margin-left: -12%;
+  font-size: 1.5vw;
+  color: #14335D;
+  
+}
+.vendorinput{
+  width: 35vw;
+  height: 5vh;
+  padding: 1%;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border: 2px solid #14335D;
+  border-radius: 8px;
+  margin-top: 0%;
+}
+.Blockdetials{
+  margin-right: 5.5%;
+  margin-left: -11%;
+  font-size: 1.5vw;
+  color: #14335D;
+}
+
+.flatnodetials{
+  margin-right: 5%;
+  margin-left: -12%;
+  font-size: 1.5vw;
+  color: #14335D;
+  
+}
+.Residentnames{
+  margin-right: 5%;
+  margin-left: -19%;
+  font-size: 1.5vw;
+  color: #14335D;
+}
+.Amountdetails{
+  margin-right: 5%;
+  margin-left: -12.5%;
+  font-size: 1.5vw;
+  color: #14335D;
+}
+.ButtonsContainer1{
+  max-width: 100%;
+  margin-top: 14%;
+  justify-content: center;
+}
+.AddButn{
+  width: 15vw;
+  height: 6vh;
+  font-size: 1.5vw;
+  font-weight: 700;
+  padding: 0%;
+  border-radius: 9px;
+  background: #0A8996;
+  border: none;
+  color: #FFFFFF;
+
+}
+
+
+/* Media query for laptop */
+@media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
+
+
+}

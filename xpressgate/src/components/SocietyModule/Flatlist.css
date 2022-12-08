@@ -1,0 +1,346 @@
+html {
+  height: 100vh;
+}
+
+.flcontainer {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 0.5fr 2fr;
+  grid-template-rows: 0.2fr 2fr;
+  grid-template-areas: "flheadersection flheadersection"
+    "flsection cardsection"
+}
+
+#flheadersection {
+
+  grid-area: flheadersection;
+  background-color: #F9F9FF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#flsection {
+  grid-area: flsection;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#cardsection {
+  grid-area: cardsection;
+  position: relative;
+
+}
+
+.flbackgroundimg {
+  background-image: url("../../../public/images/dashboardbackground.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  margin-top: 0.5%;
+}
+
+.flfirstheadersection {
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
+  grid-template-areas: "fldashboardlogo flsociety sldashboardspace flnotification flsetting fllogoutbutton";
+}
+
+#fldashboardlogo {
+  grid-area: fldashboardlogo;
+}
+
+#fldashboardlogo img {
+  margin-top: 5%;
+  margin-left: 1%;
+  margin-bottom: 5%;
+  width: 40%;
+}
+
+#flsociety {
+  grid-area: flsociety;
+}
+
+#flsociety label {
+  margin-top: 20%;
+  margin-left: -88%;
+  width: 136px;
+  height: 58px;
+  background-color: black;
+  color: #fff;
+  border-radius: 18px;
+  padding-top: 4%;
+  font-size: 20px;
+}
+
+#sldashboardspace {
+  grid-area: sldashboardspace;
+}
+
+#flnotification {
+  grid-area: flnotification;
+}
+
+#flnotification img {
+  margin-top: 100%;
+}
+
+#flsetting {
+  grid-area: flsetting;
+}
+
+#flsetting img {
+  margin-top: 100%;
+}
+
+#fllogoutbutton {
+  grid-area: fllogoutbutton;
+}
+
+#fllogoutbutton img {
+  padding-left: 10%;
+  padding-bottom: 5%;
+}
+
+/* .btnlogout {
+  background-color: #0A8996;
+  color: #fff;
+  margin-top: 18%;
+  padding-top: 2%;
+} */
+
+.flname {
+  display: flex;
+  width: 80%;
+  height: 14%;
+  background-color: rgba(10, 137, 150, 0.33);
+  margin-left: 10%;
+  margin-top: 12%;
+  border-radius: 24px;
+}
+
+.flname img {
+  margin-left: 6%;
+  width: 30%;
+  height: 70%;
+  margin-top: 6%;
+}
+
+.flname label {
+  color: #000;
+  margin-left: 8%;
+  margin-top: 13%;
+  font-size: 20px;
+}
+
+.flsideimage img {
+  display: flex;
+  margin-top: 68%;
+  width: 100%;
+  height: auto;
+}
+
+.flsearch_input
+{
+  outline: none;
+  border: none;
+  height: 40px;
+  width: 120px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.flsearchbox img{
+  margin-left: -14%;
+}
+
+.fldisplay {
+  width: 300px;
+  height: 64px;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  font-size: 20px;
+  padding-top: 14px;
+  margin: auto;
+  margin-top: -2%;
+}
+
+.labelsize {
+  font-size: 20px;
+}
+
+.formclass {
+  margin-top: 5%;
+  margin-left: 25%;
+}
+
+#fltable {
+  margin-Left: 10%;
+  margin-Top: 2%;
+  max-Width: 80%;
+  background-color: #F9FAFF;
+ 
+  border-radius: 14px;
+  border-collapse: separate;
+  font-family: 'Rubik', sans-serif;
+}
+
+#fltable thead {
+  background-color: #14335D;
+  color: #fff;
+}
+
+table th {
+  text-align: center;
+}
+
+#fltable td:hover{
+  color: #0A8996;
+}
+
+.flsearchbox{
+  width: 15%;
+  height: 5%;
+  border: 2px solid #000;
+  border-radius: 15px;
+  margin-left: 70%;
+  margin-top: 2%;
+  
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  .flname label {
+    margin-left: 2%;
+    margin-top: 16%;
+    font-size: 15px;
+  }
+
+  .flsideimage img {
+    display: flex;
+    margin-top: 216%;
+    width: 100%;
+    height: auto;
+  }
+
+  .flbackgroundimg {
+    background-image: url("../../../public/images/dashboardbackground.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    margin-top: 12.5%;
+  }
+
+  .labelsize {
+    font-size: 12px;
+  }
+
+  #flsociety label {
+    margin-top: 14%;
+    margin-left: -68%;
+    width: 108px;
+    height: 45px;
+    background-color: black;
+    color: #fff;
+    border-radius: 18px;
+    padding-top: 3%;
+    font-size: 20px;
+  }
+
+  .fldisplay {
+    width: 300px;
+    height: 64px;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-top: 14px;
+    margin: auto;
+    margin-top: -16%;
+  }
+
+  .flsearchbox {
+    width: 28%;
+    height: 5%;
+    border: 2px solid #000;
+    border-radius: 15px;
+    margin-top: 2%;
+    margin-left: 60%;
+}
+.flname {
+  display: flex;
+  width: 80%;
+  height: 10%;
+  background-color: rgba(10, 137, 150, 0.33);
+  margin-left: 10%;
+  margin-top: 12%;
+  border-radius: 24px;
+}
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
+  .flsideimage {
+    display: none;
+  }
+
+  #flsection {
+    display: none;
+  }
+
+  #flsociety {
+    display: none;
+  }
+
+  .flbackgroundimg {
+    background-image: url("../../../public/images/dashboardbackground.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    margin-top: 10.5%;
+  }
+
+  .fldisplay {
+    width: 280px;
+    height: 64px;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-top: 14px;
+    /* margin: auto; */
+    /* margin-top: -2%; */
+    margin-left: 26%;
+}
+
+.flsearchbox {
+  width: 70%;
+  height: 5%;
+  border: 2px solid #000;
+  border-radius: 15px;
+  margin-left: 70%;
+  margin-top: 2%;
+}
+
+.search_input {
+  outline: none;
+  border: none;
+  height: 18px;
+  width: 145px;
+  border-radius: 5px;
+  margin-left: 9px;
+}
+
+#fltable {
+  margin-Left: 24%;
+  margin-Top: 2%;
+  max-Width: 100%;
+  background-color: #F9FAFF;
+  border-radius: 14px;
+  border-collapse: separate;
+  font-family: 'Rubik', sans-serif;
+}
+
+#fldashboardlogo img {
+  margin-top: 5%;
+  margin-left: 20%;
+  margin-bottom: 5%;
+  width: 140%;
+}
+}

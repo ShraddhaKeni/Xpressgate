@@ -59,7 +59,7 @@ const Local_service = () => {
           <label>Local Services</label>
         </div>
         <button type="button" onClick={()=>{window.location.href='/addlocalservice'}} className="AddLS"> Add Local Services</button>
-        <div className="row row-cols-1 row-cols-md-3 g-4 lsfullcardscss">
+        <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
           
             
 

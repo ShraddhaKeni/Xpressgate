@@ -1,0 +1,98 @@
+html {
+  height: 100vh;
+}
+
+.guarddetailscard{
+border: 5px solid #14335D;
+width: 30vw;
+height: 65vh;
+margin-left: 31%;
+margin-top: 3%;
+border-radius: 25px;
+background: #F9FAFF;;
+}
+.cardimage{
+margin-top: 5%;
+margin-left: 0%;
+}
+.cardimage img{
+width: 14vw;
+
+}
+.guardcontainerbox{
+border: hidden;
+width: 20vw;
+height: 20vh;
+border-radius: 21px;
+background:  #AED8DC;;
+margin-left: 15%;   
+padding: 5%;
+}
+.mobileno {
+float: left;
+max-width: 40%;
+font-size: 1vw;
+}
+/* .Addguestdisplay4 label{
+      display: inline-block;
+      margin-bottom: -19%;
+      font-weight: 700;
+  
+} */
+
+
+.editbtn{
+margin-right: 15%;
+width: 7vw;
+height: 5vh;
+border-radius: 23px;
+background: #017069;
+color: #fff;
+font-size: 1vw;
+font-weight: 500;
+padding: 1%;
+border: none;
+cursor: pointer;
+}
+.removebtn{
+margin-right: 0%;
+width: 7vw;
+height: 5vh;
+border-radius: 23px;
+background: #96230A;
+color: #fff;
+font-size: 1vw;
+font-weight: 500;
+padding: 1%;
+border: none;
+cursor: pointer;
+}
+
+.Guard_Name{
+float: left;
+max-width: 40%;
+font-size: 1vw;
+}
+
+
+
+.noticelist h4{
+  color: #434242;
+}
+.noticelist a{
+ color: #757575;
+}
+/* Media query for laptop */
+@media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
+ 
+  .addguard_sideimg img {
+    display: flex;
+    margin-top: 125%;
+    max-width: 95%;
+    height: auto;
+    margin-left: 2%;
+}
+
+
+
+}

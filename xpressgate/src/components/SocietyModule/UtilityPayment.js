@@ -1,0 +1,173 @@
+import axios from "axios";
+import React, { useEffect, useState,useRef } from "react";
+import "../SocietyModule/UtilityPayment.css";
+import LogOut from "../SocietyModule/Utils/LogOut";
+import { getBlocks } from "./common/common";
+import Societyheader from './Utils/Societyheader'
+
+const UtilityPayment = () => {
+  
+  const [utility,setUtility] = useState([])
+  const [block,setBlock] = useState([])
+  const [flats,setFlats] = useState([])
+  const [resident,setResident] =useState({})
+
+
+  const amount = useRef([])
+  const flat_id = useRef([])
+  const payment_due = useRef([])
+  const payment_date = useRef([])
+  const utility_id = useRef([])
+
+  useEffect(()=>{
+    getUtilities()
+  },[])
+
+  const getUtilities=async()=>{
+    try {
+        const {data} = await axios.get(`${window.env_var}api/admin/utilities/getAll`)
+        setUtility(data.data.utilitieslist)
+        setBlock(await getBlocks())
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+
+  const getFlats=async(e)=>{
+    try {
+      const {data} = await axios.get(`${window.env_var}api/flats/getList/${e.target.value}`)
+      setFlats(data.data.list)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getResident=async(e)=>{
+    try {
+      const {data} = await axios.get(`${window.env_var}api/flats/single/${e.target.value}`)
+      setResident(data.data.list[0])
+    } catch (error) {
+      
+    }
+  }
+
+  const handleSubmit=async()=>{
+    try {
+      if(utility_id!==""&&flat_id!==""&&payment_date!==""&&payment_due!==""&amount!=="")
+      {
+        const sendData = {
+          utilityID:utility_id.current.value,
+          flat_id:flat_id.current.value,
+          paymentDue:payment_date.current.value,
+          dueDate:payment_due.current.value,
+          paymentAmount:amount.current.value,
+          residentID:resident.resident_id
+        }
+        const {data} = await axios.post(`${window.env_var}api/admin/utilitypayment/addBill`,sendData)
+        window.location.href='/payment'
+      }
+      else
+      {
+        alert('Fields Empty.')
+      }
+      
+    } catch (error) {
+      alert('Fields Empty.')
+    }
+  }
+  
+
+  return (
+        <div className="addguestcontainer4">
+        <div id="addflatsection">
+            <Societyheader/>
+        
+        </div>
+      <div id="societynamesection">
+        <div className="societyname">
+          <img src="/images/profileicon.svg" alt="Society image" />
+          <label>Society Name</label>
+        </div>
+        <br/>
+        
+        <div className="addguard_sideimg">
+          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+        </div>
+      </div>
+      <div className="addguestbackgroundimg">
+        <div className="Addguestdisplay4">
+          <label>Utility Payment</label>
+        </div>
+        <div className="Payment_form">
+            <div className="inboxes">
+                <label for="Utility_Type" className="UtilityTypesdetails">Utility Type</label>
+                <select  id="Utility_Type" ref={utility_id} className="vendorinput">
+                    <option value="" selected disabled>Select Utitlity</option>
+                      {utility.map(item=>{
+                        return <option value={item._id}>{item.utilityType}</option>
+                      })}
+                    </select> 
+            </div>
+        </div>
+        <div className="Payment_form">
+            <div className="inboxes">
+                <label for="Blockkk " className="Utility_Block ">Block </label>
+                <select  id="Blockkk"  onChange={(e)=>getFlats(e)}  className="vendorinput">
+                <option value="" selected disabled>Select Block</option>
+                      {block.map(item=>{
+                        return <option value={item.id}>{item.name}</option>
+                      })}
+                    </select> 
+            </div>
+        </div>
+        <div className="Payment_form">
+            <div className="inboxes">
+                <label for="UtilityFlatNo"  className="Utility_FlatNo">Flat No</label>
+                <select  id="UtilityFlatNo" ref={flat_id} onChange={(e)=>{getResident(e)}} className="vendorinput">
+                <option value="" selected disabled>Select Flat</option>
+                      {flats.map(item=>{
+                        return <option value={item._id}>{item.flat_number}</option>
+                      })}
+                    </select> 
+            </div>
+        </div>
+        <div className="Payment_form">
+            <div className="inboxes">
+                <label for="UtilityResidentname"  className="Utility_Residentname">Resident Name</label>
+                {resident.firstname?<input type="text"  id="UtilityResidentname" className="vendorinput" disabled name="First name" placeholder="Resident name" value={resident.firstname+' '+resident.lastname}/>:
+                <input type="text"  id="UtilityResidentname" className="vendorinput" disabled name="First name" placeholder="Resident name" />}
+            </div>
+        </div>
+        <div className="Payment_form">
+            <div className="inboxes">
+                <label for="UtilityAmount"  className="Utility_Amount">Amount</label>
+                <input type="text"  id="UtilityAmount" ref={amount} className="vendorinput"></input> 
+            </div>
+        </div>
+        <div className="Payment_form">
+            <div className="inboxes">
+                <span>
+                <label for="UtilityPaydate" class="Utilitypaymentdate">Payment Date</label>
+                <input type="date" id="UtilityPaydate" ref={payment_date} className="Utility_Paymentdateinput"></input>
+                </span>
+                <span>
+                <label for="UtilityDuedate" class="Utility_Duedate">Due Date</label>
+                <input type="date" id="UtilityDuedate" ref={payment_due} className="Utility_Duedateinput"></input>
+                </span>
+            </div>
+        </div>
+        <div className="ButtonsContainer3">
+            <div className="button1">
+                <button type="button" onClick={()=>{handleSubmit()}} className="AddUtilityButnn">Add</button>
+            </div>
+        </div>
+      </div>
+    </div>
+       
+       
+    
+  );
+};
+
+export default UtilityPayment;

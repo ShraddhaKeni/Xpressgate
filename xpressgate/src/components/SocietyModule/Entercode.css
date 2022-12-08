@@ -1,0 +1,244 @@
+html {
+  height: 100vh;
+}
+
+.logincontainer3 {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1.8fr 2fr;
+  grid-template-rows: 2.4fr 2fr;
+  grid-template-areas: "logoid3 loginimgid3"
+    "loginformid3 loginimgid3"
+}
+
+#logoid3 {
+  margin-top: -37rem;
+  margin-left: 1rem;
+  margin-bottom: -3rem;
+  position: relative;
+}
+
+#logoid3 img {
+  max-width: 60%;
+  height: auto;
+}
+
+#loginimgid3 {
+  /* background-color: blueviolet;    */
+  grid-area: loginimgid3;
+}
+
+#loginimgid3 img {
+  height: 100vh;
+  width: 63vw;
+}
+
+#loginformid3 {
+
+  grid-area: loginformid3;
+  position: relative;
+  margin-left: -4rem;
+  /* margin-top: -35rem; */
+}
+
+.req {
+  color: red;
+}
+
+.btnverifyOTP {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 250px;
+  height: 60px;
+  font-size: 151%;
+  font-weight: 500;
+  margin-top: 4%;
+  padding-bottom: 3%;
+}
+
+.btnverifyOTP:hover {
+  background-color: #14335D;
+}
+
+.btsign {
+  background-color: #0b2447;
+  color: #fff;
+  width: 25vw;
+  height: 6rem;
+  font-size: 1.5vw;
+  font-weight: 500;
+  padding: 1rem;
+}
+
+.input_fields3 {
+  position: relative;
+  width: 25vw;
+  height: 50%;
+  left: 25.5%;
+}
+
+.socenterotp {
+  position: relative;
+  right: 34%;
+  font-family: 'Rubik', sans-serif;
+  font-size: 15px;
+}
+
+.socentercode {
+  width: 400px;
+  height: 76px;
+  background-color: #14335D;
+  margin-left: 8%;
+  margin-top: 6%;
+  font-size: 36px;
+}
+
+.soccodelabel {
+  display: inline-block;
+  margin-top: 3%;
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+}
+
+.emailtextbox {
+  width: 25vw;
+  /* margin-bottom: 20rem; */
+}
+
+.socotptextbox {
+  width: 83%;
+  margin-left: 8%;
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+
+  #loginformid3 {
+    grid-area: loginformid3;
+    position: relative;
+    margin-left: -2rem;
+    /* margin-top: -7rem; */
+  }
+
+  #logoid3 {
+    margin-top: -21rem;
+    margin-left: -3rem;
+    margin-bottom: -1rem;
+    position: relative;
+  }
+
+  #logoid3 img {
+    max-width: 45%;
+    height: auto;
+  }
+
+  .logincontainer3 {
+    overflow-y: hidden;
+  }
+
+  #loginimgid3 img {
+    width: auto;
+    height: 100vh;
+  }
+
+  .btlogin3 {
+    background-color: #0A8996;
+    color: #fff;
+    border-radius: 7px;
+    width: 12vw;
+    height: 3rem;
+    font-size: 1.2vw;
+    font-weight: 400;
+    margin-left: -3rem;
+    margin-bottom: -1rem;
+  }
+
+  .btsign {
+    background-color: #0b2447;
+    color: #fff;
+    width: 22vw;
+    height: 3rem;
+    font-size: 1.5;
+    font-weight: 400;
+    padding: 0.5rem;
+    margin-bottom: -0.5rem;
+  }
+
+  .emailtextbox {
+    width: 22vw;
+    height: 5.5vh;
+    margin-bottom: -1.5rem;
+  }
+}
+
+/*   
+.password {
+        position: relative;
+        margin-right: -4.2rem;
+        font-family: 'Rubik', sans-serif;
+        font-size: 1.3vw;
+        margin-bottom: 0rem;
+} */
+
+/* .passwordtextbox {
+    width: 22vw;
+    height: 5.5vh;
+    margin-bottom: -1.5rem;
+} */
+/* .forgotpassword {
+ 
+  margin-left: -2rem;
+}
+.forgotpassword a {
+  font-size: 1.1vw;
+}
+}  */
+
+
+/* Media query for mobile */
+@media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
+
+  #loginimgid3 {
+    display: none;
+  }
+
+  .signin {
+    width: 270px;
+    height: 76px;
+    background-color: #14335D;
+    margin-left: 28%;
+    margin-top: 6%;
+    font-size: 36px;
+  }
+
+  #logoid3 img {
+    margin-top: 10%;
+    margin-left: 36%;
+  }
+
+  .input_fields3 {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    left: 27.5%;
+  }
+
+  .password {
+    position: relative;
+    right: 37%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+  }
+
+  .btnlogin {
+    background-color: #0A8996;
+    color: #fff;
+    border-radius: 14px;
+    width: 200px;
+    height: 60px;
+    font-size: 151%;
+    font-weight: 500;
+    margin-top: 4%;
+    padding-bottom: 4%;
+  }
+}
