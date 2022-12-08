@@ -1,0 +1,460 @@
+html {
+  height: 100vh;
+}
+
+.vmcontainer {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 0.5fr 2fr;
+  grid-template-rows: 0.2fr 2fr;
+  grid-template-areas: "vmheadersection vmheadersection"
+    "vmsection cardsection"
+}
+
+#vmheadersection {
+
+  grid-area: vmheadersection;
+  background-color: #F9F9FF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#vmsection {
+  grid-area: vmsection;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#cardsection {
+  grid-area: cardsection;
+  position: relative;
+
+}
+
+.vmbackgroundimg {
+  background-image: url("../../../public/images/dashboardbackground.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  margin-top: 0.5%;
+}
+
+.vmfirstsection {
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
+  grid-template-areas: "vmlogo vmsociety vmspace vmnotification vmsetting vmlogoutbutton";
+}
+
+#vmlogo {
+  grid-area: vmlogo;
+}
+
+#vmlogo img {
+  margin-top: 5%;
+  margin-left: 1%;
+  margin-bottom: 5%;
+  width: 40%;
+}
+
+#vmsociety {
+  grid-area: vmsociety;
+}
+
+#vmsociety label {
+  margin-top: 20%;
+  margin-left: -88%;
+  width: 136px;
+  height: 58px;
+  background-color: black;
+  color: #fff;
+  border-radius: 18px;
+  padding-top: 4%;
+  font-size: 20px;
+}
+
+#vmspace {
+  grid-area: vmspace;
+}
+
+#vmnotification {
+  grid-area: vmnotification;
+}
+
+#vmnotification img {
+  margin-top: 100%;
+}
+
+#vmsetting {
+  grid-area: vmsetting;
+}
+
+#vmsetting img {
+  margin-top: 100%;
+}
+
+#vmlogoutbutton {
+  grid-area: vmlogoutbutton;
+}
+
+#vmlogoutbutton img {
+  padding-left: 10%;
+  padding-bottom: 5%;
+}
+
+/* .btnlogout {
+  background-color: #0A8996;
+  color: #fff;
+  margin-top: 18%;
+  padding-top: 2%;
+} */
+
+.vmsocietyname {
+  display: flex;
+  width: 80%;
+  height: 14%;
+  background-color: rgba(10, 137, 150, 0.33);
+  margin-left: 10%;
+  margin-top: 12%;
+  border-radius: 24px;
+}
+
+.vmsocietyname img {
+  margin-left: 6%;
+  width: 30%;
+  height: 70%;
+  margin-top: 6%;
+}
+
+.vmsocietyname label {
+  color: #000;
+  margin-left: 8%;
+  margin-top: 13%;
+  font-size: 20px;
+}
+
+.vmsideimage img {
+  display: flex;
+  margin-top: 80%;
+  width: 100%;
+  height: auto;
+}
+
+.vmdisplay {
+  width: 300px;
+  height: 64px;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  font-size: 20px;
+  padding-top: 14px;
+  margin: auto;
+  margin-top: -2%;
+}
+
+.labelsize {
+  font-size: 20px;
+}
+
+.formclass {
+  margin-top: 5%;
+  margin-left: 25%;
+}
+
+#vmtable {
+  margin-Left: 10%;
+  margin-Top: 2%;
+  max-Width: 80%;
+  background-color: #F9FAFF;
+ 
+  border-radius: 14px;
+  border-collapse: separate;
+  font-family: 'Rubik', sans-serif;
+}
+
+#vmtable thead {
+  background-color: #14335D;
+  color: #fff;
+}
+
+table th {
+  text-align: center;
+}
+
+#vmtable td:hover{
+  color: #0A8996;
+}
+
+.vmsearchbox{
+  width: 15%;
+  height: 5%;
+  border: 2px solid #000;
+  border-radius: 15px;
+  margin-left: 75%;
+  margin-top: 4%;
+  
+}
+
+.btnAddVehicle{
+  background-color: #E8F5E9;
+  color: #0D960A;
+  border-radius: 14px;
+  width: 250px;
+  height: 60px; 
+  font-size: 151%;
+  font-weight: 500;
+  margin-top: 3%;
+  padding-bottom: 1%;
+  margin-left: 30%;
+}
+
+.btnAddVehicle:hover{
+  background-color: #000;
+}
+
+.search_input
+{
+  outline: none;
+  border: none;
+  height: 40px;
+  width: 210px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.vmsearchbox img{
+  margin-top: 0%;
+  margin-left: -20%;
+}
+
+.vmsearchbox {
+  width: 15%;
+  height: 5%;
+  border: 2px solid #000;
+  border-radius: 15px;
+  margin-left: 48%;
+  margin-top: 4%;
+}
+
+.vmsidelinks{
+margin-right: 55%;
+margin-top: 10%;
+}
+
+.parkingsection{
+  margin-left: 13%;
+    margin-top: 4%;
+}
+
+.psection{
+  background-color: #0A8996;
+  color: white;
+  border-radius: 15px;
+  font-weight: 400;
+  padding-right: 4px;
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  .vmsocietyname label {
+    margin-left: 2%;
+    margin-top: 16%;
+    font-size: 15px;
+  }
+
+  .vmsideimage img {
+    display: flex;
+    margin-top: 216%;
+    width: 100%;
+    height: auto;
+  }
+
+  .vmbackgroundimg {
+    background-image: url("../../../public/images/dashboardbackground.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    margin-top: 12.5%;
+  }
+
+  .labelsize {
+    font-size: 12px;
+  }
+
+  #vmsociety label {
+    margin-top: 14%;
+    margin-left: -68%;
+    width: 108px;
+    height: 45px;
+    background-color: black;
+    color: #fff;
+    border-radius: 18px;
+    padding-top: 3%;
+    font-size: 20px;
+  }
+
+  .vmdisplay {
+    width: 300px;
+    height: 64px;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-top: 14px;
+    margin: auto;
+    margin-top: -16%;
+  }
+
+  .vmsearchbox {
+    width: 28%;
+    height: 8%;
+    border: 2px solid #000;
+    border-radius: 15px;
+    margin-top: 1%;
+    margin-left: 60%;
+}
+
+.vmsocietyname {
+  display: flex;
+  width: 80%;
+  height: 10%;
+  background-color: rgba(10, 137, 150, 0.33);
+  margin-left: 10%;
+  margin-top: 12%;
+  border-radius: 24px;
+}
+
+.vmsearchlabel{
+  margin-top: 2%;
+  font-family: 'Rubik', sans-serif;
+  margin: 10px;
+  font-size: 14px;
+}
+
+.vmsidelinks {
+  margin-right: 38%;
+  margin-top: 10%;
+}
+
+.btnAddVehicle {
+  background-color: #E8F5E9;
+  color: #0D960A;
+  border-radius: 14px;
+  width: 215px;
+  height: 58px;
+  font-size: 151%;
+  font-weight: 500;
+  margin-top: 3%;
+  padding-bottom: 1%;
+  margin-left: -50%;
+}
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
+  #vmlogo img {
+    margin-top: 26%;
+    margin-left: 20%;
+    margin-bottom: 5%;
+    width: 114%;
+
+}
+.vmdisplay {
+  width: 140px;
+  height: 56px;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  font-size: 20px;
+  padding-top: 11px;
+  margin-left: 48%;
+  margin-top: 4%;
+}
+
+.vmsearchbox {
+  width: 76%;
+  height: 5%;
+  border: 2px solid #000;
+  border-radius: 15px;
+  margin-left: 35%;
+  margin-top: 2%;
+}
+
+#vmtable {
+  margin-Left: 24%;
+  margin-Top: 2%;
+  /* max-width: 96%; */
+  background-color: #F9FAFF;
+  border-radius: 14px;
+  border-collapse: separate;
+  font-family: 'Rubik', sans-serif;
+}
+}
+
+/* Media query for mobile */
+@media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
+  .vmsideimage {
+    display: none;
+  }
+
+  #vmsection {
+    display: none;
+  }
+
+  #vmsociety {
+    display: none;
+  }
+
+  #vmlogo img {
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-bottom: 5%;
+    width: 114%;
+  }
+
+  .vmbackgroundimg {
+    background-image: url("../../../public/images/dashboardbackground.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    margin-top: 10.5%;
+  }
+
+  .vmdisplay {
+    width: 246px;
+    height: 56px;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-top: 11px;
+    margin-left: 26%;
+}
+
+.btnAddVehicle {
+  background-color: #E8F5E9;
+  color: #0D960A;
+  border-radius: 14px;
+  width: 206px;
+  height: 50px;
+  font-size: 151%;
+  font-weight: 500;
+  margin-top: 3%;
+  /* padding-bottom: 1%; */
+  margin-left: 6%;
+}
+
+.vmsearchbox {
+  width: 40%;
+    height: 5%;
+    border: 2px solid #000;
+    border-radius: 15px;
+    margin-left: 70%;
+    margin-top: 14%;
+    margin-bottom: 8%;
+}
+
+#vmtable {
+  margin-Left: 10%;
+  margin-Top: 2%;
+  /* max-width: 96%; */
+  background-color: #F9FAFF;
+  border-radius: 14px;
+  border-collapse: separate;
+  font-family: 'Rubik', sans-serif;
+}
+}

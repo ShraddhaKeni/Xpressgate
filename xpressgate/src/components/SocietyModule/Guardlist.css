@@ -1,0 +1,153 @@
+html {
+  height: 100vh;
+}
+
+.Addguestdisplay4 {
+  width: 27vw;
+  height: 9vh;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  font-size: 1.5vw;
+  margin: auto;
+  margin-top: -4%;
+  padding-top: 2%;
+}
+
+.Addguestdisplay4 label{
+ 
+      display: inline-block;
+     
+      margin-bottom: -19%;
+      font-weight: 700;
+  
+}
+.AddG {
+  border-radius: 18px;
+  background: #E8F5E9;
+  border: none;
+  width: 12vw;
+  height: 5vh;
+  margin-left: 46%;
+  margin-top: 1.5%;
+  margin-bottom: 1%;
+  font-weight: 500;
+  font-size: 1vw;
+  color: #0D960A;
+}
+  .AddG:hover{
+    background-color:rgb(155, 201, 212);
+  }
+
+
+
+.search3 {
+  width: 12vw;
+  height: 5vh;
+  padding: 1.5%;
+  border-radius: 15px;
+  border: 1px solid grey;
+  margin-left: 1%;
+  margin-top: 2.5%;
+}
+
+.sideimage3 img {
+  display: flex;
+  margin-top: 85%;
+  max-width: 90%;
+  height: auto;
+  margin-left: 13%;
+  margin-bottom: 5%;
+  
+}
+.fullcardscss1 {
+  margin-top: 6%;
+  padding-left:0%;
+  margin-left: -5%;
+  width: 100%;
+}
+.noticelist h4{
+  color: #434242;
+}
+.noticelist a{
+ color: #757575;
+}
+/* Media query for laptop */
+@media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
+ 
+  .sideimage3 img {
+    display: flex;
+    margin-top: 100%;
+    max-width: 95%;
+    height: auto;
+    margin-left: 2%;
+}
+.Addguestdisplay4 {
+  width: 24vw;
+  height: 10vh;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  font-size: 1.6vw;
+  padding-top: 2.2%;
+  margin: auto;
+  margin-top: -17%;
+}
+ .noticelist h4{
+    color: #434242;
+ }
+ .noticelist a{
+   color: #757575;
+  }
+
+  #guardlisttable {
+    margin-Left: 10%;
+    margin-Top: 2%;
+    max-Width: 80%;
+    background-color: #F9FAFF;
+    border-radius: 14px;
+    border-collapse: separate;
+    font-family: 'Rubik', sans-serif;
+  }
+  
+  #guardlisttable thead {
+    background-color: #14335D;
+    color: #fff;
+  }
+  
+  #guardlisttable td:hover{
+    color: #0A8996;
+  }
+  
+  
+  table th {
+    text-align: center;
+  }
+  /* Media query for laptop */
+  @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
+    #dashboardlogo3 img {
+      margin-top: 9%;
+      margin-left: -38%;
+      margin-bottom: 3%;
+      width: 5vw;
+  }
+    .sideimage3 img {
+      display: flex;
+      margin-top: 100%;
+      max-width: 95%;
+      height: auto;
+      margin-left: 2%;
+  }
+    .addguestbackgroundimg {
+    /* background-image: url("../../../public/images/dashboardbackground.svg"); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    margin-top: 12.5%;
+  }
+  
+  .labelsize {
+    font-size: 12px;
+  }
+}
+  
+}
