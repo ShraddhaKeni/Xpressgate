@@ -76,7 +76,7 @@ import PackageList from './components/SocietyModule/PackageList';
 function App() {
 
   window.env_var = "http://143.110.187.80:5050/"
-  // window.env_var = "http://localhost:5050/"
+  //window.env_var = "http://localhost:5050/"
   useEffect(() => {
 
   }, [])
@@ -119,9 +119,8 @@ function App() {
             <Route path="/approveFlat" element={<Flatapprovallist/>} exact></Route>
             <Route path="/noticeList" element={<Noticelist/>} exact></Route>
             <Route path="/addNotice" element={<Addnotice/>} exact></Route>
-            <Route path="/addVehical" element={<Addvehicle/>} exact></Route>
-            <Route path="/manageVehicle" element={<Vehiclemanagement/>} exact></Route>
-            <Route path="/editGuard" element={<Editguard/>} exact></Route>
+            {/* <Route path="/manageVehicle" element={<Vehiclemanagement/>} exact></Route> */}
+            {/* <Route path="/editGuard" element={<Editguard/>} exact></Route> */}
             <Route path="/addGuard" element={<Addguard/>} exact></Route>
             <Route path="/guardList" element={<Guardlist/>} exact></Route>
             <Route path="/guardDetails" element={<GuardProfile/>} exact></Route>

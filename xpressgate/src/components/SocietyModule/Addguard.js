@@ -73,7 +73,7 @@ const Addguard = () => {
             }
             else
             {
-              window.history.back(-1)
+              // window.history.back(-1)
             }
            })
            .catch(err=>{
