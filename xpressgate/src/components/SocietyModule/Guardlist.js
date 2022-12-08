@@ -7,6 +7,7 @@ import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import { useNavigate } from "react-router-dom";
 
 
+
 const Guardlist = () => {
    const [guards,setGuards] = useState([])
    const [currentPage, setCurrentpage] = useState(1)
@@ -41,7 +42,7 @@ const Guardlist = () => {
 
   function guardDetails(id)
   {
-    navigate('/guardDetails',{state:{id:id}})
+    navigate('/addGuard',{state:{id:id}})
   }
 
   const findText=()=>{
@@ -63,9 +64,9 @@ const Guardlist = () => {
     
     </div>
     <div id="societynamesection">
-      <div className="societyname">
+      <div className="GL_societyname">
         <img src="/images/profileicon.svg" alt="Society image" />
-        <label>Society Name</label>
+        <label className="societylabel">Society Name</label>
       </div>
       <br/>
       <div class="noticelist">
@@ -84,10 +85,13 @@ const Guardlist = () => {
       </div>
       <div className='row'>
           <div className='search3'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-            <span><label className='searchlabel'>Search</label><input className='search_input' onChange={(e)=>findText(e)} ></input></span>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon' className="SearchIconImg"></img></span>
+            <span><input className='GL_search_input' id="search_input" onChange={(e)=>findText(e)} placeholder="Search" onKeyPress={(e) => {
+                  document.getElementById('search_input').style.border = "none";
+                }}></input></span>
           </div>
         </div>
+        <br/>
         <table id="guardlisttable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>

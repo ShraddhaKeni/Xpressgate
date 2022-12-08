@@ -11,8 +11,8 @@ const AdminReset= () => {
  
   const sendOTP = async()=>{
     try {
-      const {data} = await axios.post(`${window.env_var}api/society/adminforgotpassword`,{mobileno:username.current.value})
-      navigate('/scotp',{state:{mobileno:data.data.mobileno}})
+      const {data} = await axios.post(`${window.env_var}api/admin/adminresetpassword`,{mobileno:username.current.value})
+      navigate('/adotp',{state:{mobileno:data.data.mobileno}})
     } catch (error) {
       
     }

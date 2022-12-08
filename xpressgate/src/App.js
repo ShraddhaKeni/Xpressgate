@@ -4,7 +4,7 @@ import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 //require('dotenv').config()
 import Login from './components/GuardModule/Login';
 import Dashboard from './components/GuardModule/Dashboard';
-import Addvendor from './components/GuardModule/Addvendor';
+import Addinout from './components/GuardModule/Addinout';
 import Addguest from './components/GuardModule/Addguest';
 import Dailyhelplist from './components/GuardModule/Dailyhelplist';
 import Videoclass from './components/GuardModule/Videoclass';
@@ -68,11 +68,13 @@ import AdminModuleComponent from './pages/admin';
 import SuperAdminLogin from './pages/admin/LoginScreens/SuperAdminLogin';
 import AdminEnterNewPass from './pages/admin/LoginScreens/AdminEnterNewPass';
 import AdminEnterCode from './pages/admin/LoginScreens/AdminEnterCode';
-import AdminReset from './pages/admin/LoginScreens/AdminReset';
 import RouterPath from './common/constants/path/routerPath';
 
-
 import PackageList from './components/SocietyModule/PackageList';
+
+
+import AdminChangePass from './pages/admin/LoginScreens/AdminChangePass';
+import AdminReset from './pages/admin/LoginScreens/AdminReset';
 
 function App() {
 
@@ -87,7 +89,7 @@ function App() {
         <Routes>
           <Route path='/' element={<SelectMode />} exact></Route>
           <Route path="/dashboard" element={<Dashboard />} exact></Route>
-          <Route path="/addvendor" element={<Addvendor />} exact></Route>
+          <Route path="/addinout" element={<Addinout />} exact></Route>
           <Route path="/addguest" element={<Addguest />} exact></Route>
           <Route path="/dailyhelp" element={<Dailyhelplist />} exact></Route>
           <Route path="/videoclass" element={<Videoclass />} exact></Route>
@@ -102,7 +104,7 @@ function App() {
           <Route path="/otp" element={<OTPscreen />} exact></Route>
           <Route path="/newpassword" element={<Newpassword />} exact></Route>
           <Route path="/guestentry" element={<GuestEntry />} exact></Route>
-          <Route path="/societydashboard" element={<SocietyDashboard />} exact></Route>
+          <Route path="/scDashboard" element={<SocietyDashboard />} exact></Route>
           <Route path="/flatlist" element={<Flatlist />} exact></Route>
           <Route path="/flatapprovallist" element={<Flatapprovallist />} exact></Route>
           <Route path="/blocklist" element={<Blocklist />} exact></Route>
@@ -113,6 +115,51 @@ function App() {
           <Route path="/addFlat" element={<Addflat />} exact></Route>
 
 
+
+          <Route path="/blockList" element={<Blocklist />} exact></Route>
+          <Route path="/flatList" element={<Flatlist />} exact></Route>
+          <Route path="/naFlatList" element={<FlatListNA />} exact></Route>
+          <Route path="/approveFlat" element={<Flatapprovallist />} exact></Route>
+          <Route path="/noticeList" element={<Noticelist />} exact></Route>
+          <Route path="/addNotice" element={<Addnotice />} exact></Route>
+          <Route path="/addVehical" element={<Addvehicle />} exact></Route>
+          <Route path="/manageVehicle" element={<Vehiclemanagement />} exact></Route>
+          <Route path="/editGuard" element={<Editguard />} exact></Route>
+          <Route path="/addGuard" element={<Addguard />} exact></Route>
+          <Route path="/guardList" element={<Guardlist />} exact></Route>
+          <Route path="/guardDetails" element={<GuardProfile />} exact></Route>
+          <Route path="/profile" element={<Profile />} exact></Route>
+          <Route path="/management" element={<Managementteam />} exact></Route>
+          <Route path="/localservices" element={<Local_service />} exact></Route>
+          <Route path='/addManagement' element={<Addmanagementteam />} exact></Route>
+          <Route path='/servicevendors' element={<Plumber />} exact></Route>
+          <Route path='/societylogin' element={<Login_society />} exact></Route>
+          <Route path='/scotp' element={<Entercode />} exact></Route>
+          <Route path='/screset' element={<Reset />} exact></Route>
+          <Route path='/newpass' element={<Enter_new_pswd />} exact></Route>
+          <Route path='/resetpassword' element={<Password />} exact></Route>
+          <Route path='/addemergency' element={<Addemergencyno />} exact></Route>
+          <Route path='/emergencyList' element={<Emergency />} exact></Route>
+          <Route path='/vendorpayment' element={<Vendor_Payment />} exact></Route>
+          <Route path='/payment' element={<Payment />} exact></Route>
+          <Route path='/community' element={<Community />} exact></Route>
+          <Route path='/addlocalservice' element={<Addlocalservice />} exact></Route>
+          <Route path="/changeguardpass" element={<ChangePassword />} exact></Route>
+          <Route path="/vehiclemanagement" element={<Vehiclemanagement />} exact></Route>
+          <Route path="/guestManagement" element={<GuestManagement />} exact></Route>
+          <Route path="/ticketlist" element={<Ticketlist />} exact></Route>
+          <Route path="/ticket" element={<Ticket />} exact></Route>
+          <Route path="/amenities" element={<Amenities />} exact></Route>
+          <Route path="/amenitylist" element={<Amenitylist />} exact></Route>
+          <Route path="/approvallistamenity" element={<Approvallistamenity />} exact></Route>
+          <Route path="/addeditamenity" element={<Addeditamenity />} exact></Route>
+          <Route path="/societydues" element={<SocietyDues />} exact></Route>
+          <Route path="/utilitypayment" element={<UtilityPayment />} exact></Route>
+          <Route path="/package" element={<Package />} exact></Route>
+          <Route path="/Approvallist" element={<ApprovalList />} exact></Route>
+          <Route path="/paymenthistory" element={<SocietyPaymentHistory />} exact></Route>
+
+          <Route path={RouterPath.ADMIN_DASHBOARD} element={<AdminModuleComponent />}></Route>
 
           <Route path="/blockList" element={<Blocklist />} exact></Route>
           <Route path="/flatList" element={<Flatlist />} exact></Route>

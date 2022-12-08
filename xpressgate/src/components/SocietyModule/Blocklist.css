@@ -139,14 +139,7 @@ input::-webkit-inner-spin-button {
   padding-bottom: 5%;
 }
 
-/* .btnlogout {
-  background-color: #0A8996;
-  color: #fff;
-  margin-top: 18%;
-  padding-top: 2%;
-} */
-
-.societyname {
+.blsocietyname {
   display: flex;
   width: 80%;
   height: 12%;
@@ -156,14 +149,14 @@ input::-webkit-inner-spin-button {
   border-radius: 24px;
 }
 
-.societyname img {
+.blsocietyname img {
   margin-left: 10%;
   width: 25%;
   height: 70%;
   margin-top: 4%;
 }
 
-.societyname label {
+.blsocietyname label {
   color: #000;
   margin-left: 8%;
   margin-top: 10%;
@@ -172,9 +165,14 @@ input::-webkit-inner-spin-button {
 
 .blsideimage img {
   display: flex;
-  margin-top: 100%;
+  margin-top: 40%;
   width: 100%;
   height: auto;
+}
+
+.blsidelinks {
+  margin-right: 60%;
+  margin-top: 10%;
 }
 
 .enterpasscodesearch {
@@ -222,7 +220,7 @@ input::-webkit-inner-spin-button {
 }
 
 .blblock {
-  font-size: 18px;
+  font-size: 19px;
   font-family: 'Rubik', sans-serif;
   color: #fff;
   font-weight: 600;
@@ -241,7 +239,7 @@ input::-webkit-inner-spin-button {
   color: #fff;
   border-radius: 14px;
   width: 100px;
-  height: 40px;
+  height: 50px;
   font-size: 20px;
   font-weight: 500;
   margin-top: 4%;
@@ -261,7 +259,7 @@ input::-webkit-inner-spin-button {
     font-size: 20px;
   }
 
-  .societyname label {
+  .blsocietyname label {
     margin-left: 7%;
     margin-top: 18%;
     font-size: 15px;
@@ -327,14 +325,14 @@ input::-webkit-inner-spin-button {
     border-radius: 20px;
   }
 
-  .societyname img {
+  .blsocietyname img {
     margin-left: 6%;
     width: 30%;
     height: 70%;
     margin-top: 8%;
   }
 
-  .societyname label {
+  .blsocietyname label {
     margin-left: 1%;
     margin-top: 20%;
     font-size: 15px;

@@ -1,268 +1,252 @@
-html{
-    height: 100vh;
-  }
-  
-  .logincontainer1 {
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 1.8fr 2fr;
-    grid-template-rows: 2.4fr 2fr;
-    grid-template-areas: "logoid1 loginimgid1"
-      "loginformid1 loginimgid1"
-  }
-  /* #logoid1{
-    margin-top: 2rem;
-    margin-left: 9rem;
-    margin-bottom: -60rem;
-    position: relative;
-  }
-  #logoid1 img{
-    max-width:40% ;
-    height: auto;
-  } */
-  #logoid1 {
-    margin-top: -112%;
-    margin-left: 5%;
-    margin-bottom: -1%;
-    position: relative;
+html {
+  height: 100vh;
 }
-  #logoid1 img{
-    max-width:60% ;
-    height: auto;
-    margin-top: 5rem;
-  } 
-  
-  #loginimgid1 {
-    /* background-color: blueviolet;    */
-    grid-area: loginimgid1;
-  }
-  
-  #loginimgid1 img {
-    width: 70vw;
-    height: 92vh;
-    margin-left: 8%;
-    margin-top: 6.2%;
+
+.logincontainer1 {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1.8fr 2fr;
+  grid-template-rows: 2.4fr 2fr;
+  grid-template-areas: "soclogoid loginimgid1"
+    "loginformid1 loginimgid1"
 }
-  
+
+#soclogoid {
+  margin-top: -40rem;
+  margin-left: 1rem;
+  margin-bottom: -5rem;
+  position: relative;
+}
+
+#soclogoid img {
+  margin-top: 4%;
+  margin-left: 0%;
+}
+
+#loginimgid1 {
+  /* background-color: blueviolet;    */
+  grid-area: loginimgid1;
+}
+
+#loginimgid1 img {
+  height: 100vh;
+  width: 54vw;
+}
+
+#loginformid1 {
+
+  grid-area: loginformid1;
+  position: relative;
+  margin-left: -4rem;
+  /* margin-top: -35rem; */
+}
+
+.req {
+  color: red;
+}
+
+.socbtnlogin {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 250px;
+  height: 60px;
+  font-size: 151%;
+  font-weight: 500;
+  margin-top: 4%;
+  padding-bottom: 3%;
+}
+
+.socbtnlogin:hover {
+  background-color: #14335D;
+}
+
+.socbtnsign {
+  width: 468px;
+  height: 76px;
+  background-color: #14335D;
+  margin-left: 0%;
+  margin-top: 6%;
+  font-size: 36px;
+}
+
+.socinputfields {
+  position: relative;
+  width: 25vw;
+  height: 50%;
+  left: 25.5%;
+}
+
+.socname {
+  position: relative;
+  right: 41%;
+  font-family: 'Rubik', sans-serif;
+  font-size: 15px;
+}
+
+.socpassword {
+  position: relative;
+  margin-left: -84%;
+  font-family: 'Rubik', sans-serif;
+  font-size: 15px;
+  position: relative;
+}
+
+.forgotsocpassword {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.socemailtextbox {
+  width: 97%;
+}
+
+.socpasswordtextbox {
+  width: 97%;
+}
+
+.forgotsocpassword a {
+  font-size: 1vw;
+}
+
+.signinsociety {
+  display: inline-block;
+  margin-top: 2%;
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+}
+
+.socforgotpassword {
+  margin-top: 3%;
+  font-weight: bold;
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   #loginformid1 {
-   
     grid-area: loginformid1;
     position: relative;
-    margin-left: -4rem;
-    /* margin-top: -35rem; */
-  }
-  
-  .req{
-    color: red;
-  }
-  
-  .societybtlogin {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 12vw;
-    height: 5vh;
-    font-size: 1.5vw;
-    font-weight: 500;
-    margin-left: 0%;
-    margin-bottom: -2%;
-    padding: 1%;
-}
-  .societybtsign {
-    background-color: #0b2447;
-    color: #fff;
-    width: 25vw;
-    height: 6vh;
-    font-size: 2vw;
-    padding: 1.5%;
-    margin-bottom: -1%;
-    font-weight: 500;
-    margin-top: -2%;
-    
-  }
-  
-  .input_fields1
-  {
-    position:relative;
-    width: 25vw;
-    height: 50%;
-    left: 25.5%;
-  }
-  
-  .societyusername{
-    position: relative;
-    margin-left: -75%;
-    font-family: 'Rubik', sans-serif;
-    font-size: 1.2vw;
+    margin-left: -2rem;
+    /* margin-top: -7rem; */
   }
 
-  .password1
-  {
-    position: relative;
-    margin-left: -75%;
-    /* margin-right: 0rem; */
-    font-family: 'Rubik', sans-serif;
-    font-size: 1.2vw;
+  #soclogoid {
+    margin-top: -25rem;
+    margin-left: -3rem;
+    margin-bottom: -2rem;
     position: relative;
   }
-  
-  .forgotpassword1 {
-    margin-top: 1rem;
-    margin-left: 1rem;
-}
-  
-  .emailtextbox{
-    width: 25vw;
-  }
-  
-  .passwordtextbox{
-    width: 25vw;
-  }
-  .forgotpassword1 a{
-    font-size: 1vw;
-    font-weight: 500;
-  }
-  
-  @media only screen  and (min-device-width : 768px) and (max-device-width : 1024px) {
-    #loginformid1 {
-      grid-area: loginformid1;
-      position: relative;
-      margin-left: -2rem;
-      /* margin-top: -7rem; */
-  }
-  #logoid1 {
-    margin-top: -93%;
-    margin-left: -27%;
-    margin-bottom: -1%;
-    position: relative;
-}
-  #logoid1 img {
-    max-width: 34%;
+
+  #soclogoid img {
+    max-width: 44%;
     height: auto;
-}
-  
-    .logincontainer1 {
-      overflow-y: hidden;
-    }
-    #loginimgid1 img {
-      width: 70vw;
-      height: 92vh;
-      margin-left: 1%;
-      margin-top: 12%;
   }
-  .societybtlogin {
+
+  .logincontainer1 {
+    overflow-y: hidden;
+  }
+
+  #loginimgid1 img {
+    width: auto;
+    height: 100vh;
+  }
+
+  .socbtnlogin {
     background-color: #0A8996;
     color: #fff;
     border-radius: 14px;
-    width: 12vw;
-    height: 5vh;
-    font-size: 1.5vw;
+    width: 186px;
+    height: 50px;
+    font-size: 151%;
     font-weight: 500;
-    margin-left: -32%;
-    margin-bottom: -2%;
-    padding: 1%;
-}
-  
-.societybtsign {
-  background-color: #0b2447;
-  color: #fff;
-  width: 22vw;
-  height: 6vh;
-  font-size: 2vw;
-  padding: 1.5%;
-  margin-bottom: -1%;
-  font-weight: 500;
-  margin-top: -2%;
-}
+    margin-top: 4%;
+    padding-bottom: 4%;
+    margin-right: 10%;
+  }
 
-.societyusername{
-  position: relative;
-  margin-left: -75%;
-  font-family: 'Rubik', sans-serif;
-  font-size: 1.4vw;
-  margin-bottom: 0rem;
-}
+  .socbtnsign {
+    width: 230px;
+    height: 62px;
+    background-color: #14335D;
+    margin-left: 0%;
+    margin-top: 6%;
+    font-size: 36px;
 
-  .emailtextbox {
+  }
+
+  .socname {
+    position: relative;
+    right: 35%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+  }
+
+  .socemailtextbox {
     width: 22vw;
     height: 5.5vh;
     margin-bottom: -1.5rem;
-    }
-  
-  
-    .password1 {
-      position: relative;
-      margin-left: -77%;
-      font-family: 'Rubik', sans-serif;
-      font-size: 1.4vw;
-      margin-bottom: 0rem;
   }
-  
-  .passwordtextbox {
+
+
+  .socpassword {
+    position: relative;
+    margin-left: -69%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+    margin-bottom: 0rem;
+
+  }
+
+  .socpasswordtextbox {
     width: 22vw;
     height: 5.5vh;
     margin-bottom: -1.5rem;
-}
-.forgotpassword1 {
-  margin-left: -30%;
-}
-.forgotpassword1 a {
-  font-size: 1vw;
-  font-weight: 500;
-}
-.input_fields1 {
-  position: absolute;
-  width: 100%;
-  height: 50%;
-  left: 27.5%;
+  }
+
+  .forgotsocpassword {
+
+    margin-left: -2rem;
+  }
+
+  .forgotsocpassword a {
+    font-size: 1.1vw;
+  }
 }
 
-} 
-  
-  
-  /* Media query for mobile */
-  /* @media only screen  and (min-device-width : 320px) and (max-device-width : 425px) {
-  
-    #loginimgid1{
-      display: none;
-    }
-  
-    .signin {
-      width: 270px;
-      height: 76px;
-      background-color: #14335D;
-      margin-left: 28%;
-      margin-top: 6%;
-      font-size: 36px;
-    }
-  
-    #logoid1 img {
-      margin-top: 10%;
-      margin-left: 36%;
+
+/* Media query for mobile */
+@media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
+
+  #loginimgid1 {
+    display: none;
   }
-  
-  .input_fields1 {
+
+  #soclogoid img {
+    margin-top: 10%;
+    margin-left: 30%;
+  }
+
+  .socinputfields {
     position: absolute;
     width: 100%;
     height: 50%;
     left: 27.5%;
   }
-  
+
   .email {
     position: relative;
     right: 37%;
     font-family: 'Rubik', sans-serif;
     font-size: 15px;
   }
-  
+
   .password {
     position: relative;
     right: 37%;
     font-family: 'Rubik', sans-serif;
     font-size: 15px;
   }
-  
-  .btnlogin {
+
+  .socbtnlogin {
     background-color: #0A8996;
     color: #fff;
     border-radius: 14px;
@@ -272,5 +256,47 @@ html{
     font-weight: 500;
     margin-top: 4%;
     padding-bottom: 4%;
+    margin-left: 20%;
   }
-  } */
+
+  .socbtnsign {
+    width: 270px;
+    height: 76px;
+    background-color: #14335D;
+    margin-left: 22%;
+    margin-top: 6%;
+    font-size: 36px;
+  }
+
+  .socname {
+    position: relative;
+    right: 28%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+  }
+
+  .socemailtextbox {
+    width: 140%;
+    margin-left: 2%;
+}
+
+.socemail_input{
+  margin-left:22%;
+}
+
+.socpassword {
+  position: relative;
+  margin-left: -58%;
+  font-family: 'Rubik', sans-serif;
+  font-size: 15px;
+  position: relative;
+}
+
+.socpasswordtextbox {
+  width: 140%;
+  margin-left: 2%;
+}
+.socforgotpassword{
+  margin-left: 56%;
+}
+}

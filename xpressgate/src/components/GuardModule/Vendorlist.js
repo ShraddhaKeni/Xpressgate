@@ -47,12 +47,7 @@ const Vendorlist = () => {
     {
       window.location.href='/'
     }
-
-
-
-
-    
-    
+ 
   },[])
 
   const getAllVendorData=async()=>{
@@ -109,6 +104,8 @@ const Vendorlist = () => {
     }
     
   }
+
+
  function checkNavigate()
  {
     try {

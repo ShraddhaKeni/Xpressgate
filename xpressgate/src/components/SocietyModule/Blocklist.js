@@ -4,26 +4,26 @@ import LogOut from '../../components/SocietyModule/Utils/LogOut';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { getData } from './common/axios_main';
+import { Link } from 'react-router-dom';
 
 const Blocklist = () => {
-  const [blocks,setBlocks] = useState([])
+  const [blocks, setBlocks] = useState([])
   const navigate = useNavigate()
-  useEffect(()=>{
+  useEffect(() => {
     getBlocks()
-  },[])
+  }, [])
 
-  const getBlocks = async()=>{
+  const getBlocks = async () => {
     try {
-      const {data} = await axios.get(`${window.env_var}api/block/blockList`)
+      const { data } = await axios.get(`${window.env_var}api/block/blockList`)
       setBlocks(data.data.block)
     } catch (error) {
       console.log(error)
     }
   }
-const navigateToList = (id)=>{
-  navigate('/flatList',{state:{id:id}})
-}
+  const navigateToList = (id) => {
+    navigate('/flatList', { state: { id: id } })
+  }
   return (
     <>
       <div className="blcontainer">
@@ -38,9 +38,13 @@ const navigateToList = (id)=>{
           </div>
         </div>
         <div id="societynamesection">
-          <div className='societyname'>
+          <div className='blsocietyname'>
             <img src="/images/societyicon.svg" alt="society name" />
             <label>Society Name</label>
+          </div>
+          <div className='blsidelinks '>
+            <Link to={{pathname: "/flatlist"}}>Flat List</Link><br></br><br></br>
+            <Link>Add Flat</Link>
           </div>
           <div className='blsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
         </div>
@@ -51,18 +55,18 @@ const navigateToList = (id)=>{
           <div id="blcardsection">
             <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
 
-              {blocks.map(item=>{
-                return(
+              {blocks.map(item => {
+                return (
                   <div className="col">
                     <div className="blminicard"><br></br>
                       <label className='blblock'>Block {item.block}</label><br></br>
-                      <label className='blflat'>Flats - {item.flat!==[]?parseInt(item.flat):0}</label><br></br><br></br>
-                      <Button type="button" className="btnView" onClick={()=>{navigateToList(item._id)}} >View</Button><br></br>
+                      <label className='blflat'>Flats - {item.flat !== [] ? parseInt(item.flat) : 0}</label><br></br><br></br>
+                      <Button type="button" className="btnView" onClick={() => { navigateToList(item._id) }} >View</Button><br></br>
                     </div>
-                </div>
+                  </div>
                 )
               })}
-              
+
             </div>
           </div>
         </div>
