@@ -6,7 +6,7 @@ import axios from 'axios';
 import React, {  useState } from 'react';
 
 const Addinout = () => {
-
+  const [details,setDetails] = useState({})
   const [block,setBlock] = useState([])
   const [visitor_type,setVisitorType] = useState([])
   const [flatno,setFlatNo] = useState([])
@@ -88,7 +88,7 @@ const Addinout = () => {
           <div className="form-group row">
             <label className="col-lg-2 col-form-label aiolabelsize">Name</label>
             <div className="col-lg-4">
-              <input type="text" className="form-control input-lg" id='name' name="flatNo" placeholder="Name"></input>
+              <input type="text" className="form-control input-lg" id='name' name="flatNo" placeholder="Name" value={details.name}></input>
             </div>
           </div>
           <div className="form-group row">
@@ -134,25 +134,25 @@ const Addinout = () => {
           <div className="form-group row">
             <label className="col-lg-2 col-form-label aiolabelsize">Contact No.</label>
             <div className="col-lg-4">
-              <input type="number" className="form-control input-lg" id='contact_no' name="ContactNo" placeholder="Contact No."></input>
+              <input type="number" className="form-control input-lg" id='contact_no' name="ContactNo" placeholder="Contact No." value={details.contact_no}></input>
             </div>
           </div>
           <div className="form-group row">
             <label className="col-lg-2 col-form-label aiolabelsize">Date</label>
             <div className="col-lg-4">
-              <input type="text" className="form-control input-lg" id='date' name="date" placeholder="Date" ></input>
+              <input type="text" className="form-control input-lg" id='date' name="date" placeholder="Date" value={details.date}></input>
             </div>
           </div>
           <div className="form-group row">
             <label className="col-lg-2 col-form-label aiolabelsize">In Time</label>
             <div className="col-lg-4">
-              <input type="text" className="form-control input-lg" id='intime' name="intime" placeholder=" In Time" ></input>
+              <input type="text" className="form-control input-lg" id='intime' name="intime" placeholder=" In Time" value={details.intime} ></input>
             </div>
           </div>
           <div className="form-group row">
             <label className="col-lg-2 col-form-label aiolabelsize">Status</label>
             <div className="col-lg-4">
-              <input type="text" className="form-control input-lg" id='status' name="status" placeholder="Status"  ></input>
+              <input type="text" className="form-control input-lg" id='status' name="status" placeholder="Status" value={details.status} ></input>
             </div>
           </div>
 

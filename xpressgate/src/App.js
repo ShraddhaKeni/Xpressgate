@@ -31,6 +31,7 @@ import Addvehicle from './components/SocietyModule/Addvehicle'
 import SelectMode from './components/auth/SelectMode';
 import FlatListNA from './components/SocietyModule/FlatListNA';
 import Vehiclemanagement from './components/SocietyModule/Vehiclemanagement';
+import AddParkingSec from './components/SocietyModule/AddParkingSec';
 import Editguard from './components/SocietyModule/Editguard';
 import Addguard from './components/SocietyModule/Addguard';
 import Guardlist from './components/SocietyModule/Guardlist';
@@ -75,6 +76,7 @@ import PackageList from './components/SocietyModule/PackageList';
 
 import AdminChangePass from './pages/admin/LoginScreens/AdminChangePass';
 import AdminReset from './pages/admin/LoginScreens/AdminReset';
+import Viewparking from './components/SocietyModule/Viewparking';
 
 function App() {
 
@@ -146,6 +148,8 @@ function App() {
             <Route path='/addlocalservice' element={<Addlocalservice/>} exact></Route> 
             <Route path="/changeguardpass" element={<ChangePassword />} exact></Route>
             <Route path="/vehiclemanagement" element={<Vehiclemanagement />} exact></Route>
+            <Route path="/addparking" element={<AddParkingSec />} exact></Route>
+            <Route path="/viewparking" element={<Viewparking />} exact></Route>
             <Route path="/guestManagement" element={<GuestManagement />} exact></Route>
             <Route path="/ticketlist" element={<Ticketlist />} exact></Route>
             <Route path="/ticket" element={<Ticket />} exact></Route>
