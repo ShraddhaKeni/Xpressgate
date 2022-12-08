@@ -81,7 +81,7 @@ import Viewparking from './components/SocietyModule/Viewparking';
 function App() {
 
   window.env_var = "http://143.110.187.80:5050/"
-  //window.env_var = "http://localhost:5050/"
+  // window.env_var = "http://localhost:5050/"
   useEffect(() => {
 
   }, [])
@@ -148,6 +148,8 @@ function App() {
           <Route path='/addlocalservice' element={<Addlocalservice />} exact></Route>
           <Route path="/changeguardpass" element={<ChangePassword />} exact></Route>
           <Route path="/vehiclemanagement" element={<Vehiclemanagement />} exact></Route>
+          <Route path="/addparking" element={<AddParkingSec />} exact></Route>
+          <Route path="/viewparking" element={<Viewparking />} exact></Route>
           <Route path="/guestManagement" element={<GuestManagement />} exact></Route>
           <Route path="/ticketlist" element={<Ticketlist />} exact></Route>
           <Route path="/ticket" element={<Ticket />} exact></Route>
@@ -170,11 +172,10 @@ function App() {
           <Route path={RouterPath.COUPONS_LIST} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.EDIT_COUPON} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.ADD_COUPON} element={<AdminModuleComponent />}></Route>
-          <Route path={RouterPath.COUPON_DETAILS} element={<AdminModuleComponent />}></Route>
+
           <Route path={RouterPath.PRLANS_LIST} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.ADD_PLAN} element={<AdminModuleComponent />}></Route>
-          <Route path={RouterPath.EDIT_PLAN} element={<AdminModuleComponent />}></Route>
-          <Route path={RouterPath.PLAN_DETAILS} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.EDITP_PLAN} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.PAYMENT_HISTORY} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.ADMIN_PROFILE} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.VIDEO_CLASS} element={<AdminModuleComponent />}></Route>
@@ -187,7 +188,8 @@ function App() {
           <Route path='/superadminlogin' element={<SuperAdminLogin />}></Route>
           <Route path='/enternewpass' element={<AdminEnterNewPass />}></Route>
           <Route path='/adminentercode' element={<AdminEnterCode />}></Route>
-          <Route path='/adminreset' element={<AdminReset />}></Route>
+          <Route path='/adminresetpass' element={<AdminReset />}></Route>
+          <Route path='/adminchangepass' element={<AdminChangePass />}></Route>
 
 
 

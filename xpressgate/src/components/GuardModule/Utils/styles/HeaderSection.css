@@ -1,0 +1,54 @@
+.Headercontainer
+{
+    position: absolute;
+    height: 40vh;
+    width: 30vh;
+    background-color: #0A8996;
+    border-radius: 10px;
+    top:10vh;
+    left:65vw;
+    z-index: 100;
+    transition: .2s ease-in;
+    
+}
+.notification_div
+{
+   background-color: white;
+   position: relative;
+   left:1.6vh;
+   top:3vh;
+   width: 250px;
+   height: 35vh;
+   border-radius: 5px;
+   overflow-x: scroll;
+   scroll-behavior: smooth;
+}
+.notification_div::-webkit-scrollbar{
+    display: none;
+}
+
+.notification_ul li
+{
+    list-style: none;
+    position: relative;
+    left: -30px;
+    background-color: #AED8DC;
+    min-height: auto;
+    width: 25vh;
+    border-radius: 5px;
+}
+
+.notification_ul li h2
+{
+   
+    font-size: 16px;
+    font-weight:600;
+    padding-top: 5px;
+}
+
+.notification_ul li h7
+{
+   position: relative;
+   top:-5px;
+   
+}
