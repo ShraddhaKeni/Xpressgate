@@ -10,11 +10,21 @@ html {
     "societynamesection cardsection"
 }
 
-.fullcardscss {
+.cfullcardscss {
   margin-top: 6%;
-  padding-left:0%;
-  margin-left: 1%;
+  padding-left: 20%;
+  margin-left: -16%;
   width: 100%;
+}
+
+.csidelinks {
+  margin-right: 55%;
+  margin-top: 10%;
+}
+
+.sidelinks{
+  color:#757575;
+  font-weight: 500;
 }
 .sideimage1 img {
   display: flex;
@@ -27,15 +37,16 @@ html {
 }
 
 .Addguestdisplay2 {
-  width: 27vw;
-  height: 9vh;
+  width: 28%;
+  height: 7%;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 1.5vw;
+  font-size: 26px;
   margin: auto;
-  margin-top: -4%;
-  padding-top: 2%;
+  margin-top: -35px;
+  padding-top: 6px;
 }
+
 .Addguestdisplay2 label{
  
       display: inline-block;

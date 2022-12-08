@@ -68,7 +68,7 @@ const Societydashboard = () => {
               </div>
               <div className="col">
                 <div className="sddashboardcard">
-                 <img src="/images/managevehicles.svg" className="dbcard-img-top" alt="manage vehicle" onClick={() => { window.location.href = '/manageVehicle' }}></img>
+                 <img src="/images/managevehicles.svg" className="dbcard-img-top" alt="manage vehicle" onClick={() => { window.location.href = '/vehiclemanagement' }}></img>
                 </div>
               </div>
               <div className="col">
@@ -83,7 +83,17 @@ const Societydashboard = () => {
               </div>
               <div className="col">
                 <div className="sddashboardcard">
-                  <img src="/images/managecomplains.svg" className="dbcard-img-top" alt="ticket list" onClick={() => { window.location.href = '/ticketlist' }}></img>
+                  <img src="/images/managecomplains.svg" className="dbcard-img-top" alt="Manage complains" onClick={() => { window.location.href = '/ticketlist' }}></img>
+                </div>
+              </div>
+              <div className="col">
+                <div className="sddashboardcard">
+                  <img src="/images/guestmanagement.svg" className="dbcard-img-top" alt="Guest Management" onClick={() => { window.location.href = '/guestManagement' }}></img>
+                </div>
+              </div>
+              <div className="col">
+                <div className="sddashboardcard">
+                  <img src="/images/manageamenities.svg" className="dbcard-img-top" alt="Manage amenities" onClick={() => { window.location.href = '/amenities' }}></img>
                 </div>
               </div>
             </div>
