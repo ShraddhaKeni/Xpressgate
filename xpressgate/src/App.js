@@ -31,6 +31,7 @@ import Addvehicle from './components/SocietyModule/Addvehicle'
 import SelectMode from './components/auth/SelectMode';
 import FlatListNA from './components/SocietyModule/FlatListNA';
 import Vehiclemanagement from './components/SocietyModule/Vehiclemanagement';
+import AddParkingSec from './components/SocietyModule/AddParkingSec';
 import Editguard from './components/SocietyModule/Editguard';
 import Addguard from './components/SocietyModule/Addguard';
 import Guardlist from './components/SocietyModule/Guardlist';
@@ -75,6 +76,7 @@ import PackageList from './components/SocietyModule/PackageList';
 
 import AdminChangePass from './pages/admin/LoginScreens/AdminChangePass';
 import AdminReset from './pages/admin/LoginScreens/AdminReset';
+import Viewparking from './components/SocietyModule/Viewparking';
 
 function App() {
 
