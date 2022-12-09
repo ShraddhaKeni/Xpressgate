@@ -17,17 +17,18 @@ import { PlansList } from './PaymentManagement/Plans/plans';
 import { AddPlan } from './PaymentManagement/Plans/new';
 import { PaymentsHistory } from './PaymentManagement/PaymentHistory';
 
-import AdminProfile from '../admin/LoginScreens/AdminProfile';
-import Terms from '../admin/LoginScreens/Terms';
-import PrivacyPolicy from '../admin/LoginScreens/PrivacyPolicy';
-
-import AddVideo from "../admin/VideoClass/AddVideo"
-import EditVideo from "../admin/VideoClass/EditVideo"
+// import AdminProfile from '../admin/LoginScreens/AdminProfile';
+// import Terms from "../admin/LoginScreens/Terms"
+// import PrivacyPolicy from "../admin/LoginScreens/PrivacyPolicy"
+// import AddVideo from "../admin/VideoClass/AddVideo"
+// import EditVideo from "../admin/VideoClass/EditVideo"
 import Reports from "../admin/Reports/Reports"
 import SideLayOut from '../../components/base/Layout/SideLayOut';
 import RouterPath from '../../common/constants/path/routerPath';
 import VideoClass from "../admin/VideoClass/VideoClass"
-
+import { PlanDetails } from './PaymentManagement/Plans/planDetails';
+import { EditPlan } from './PaymentManagement/Plans/edit';
+// import Reports from "../admin/Reports/Reports"
 
 
 
@@ -60,25 +61,10 @@ const AdminModuleComponent = () => {
     if (router.pathname === RouterPath.REPORTS) {
         children = (<Reports />)
     }
-    if (router.pathname == RouterPath.VIDEO_CLASS) {
+    if (router.pathname == '/admin') {
         children = (<VideoClass />)
     }
-    if (router.pathname == RouterPath.ADD_VIDEO) {
-        children = (<AddVideo />)
-    }
-   
-    if (router.pathname == RouterPath.EDIT_VIDEO) {
-        children = (<EditVideo />)
-    }
-    if (router.pathname === RouterPath.ADMIN_PROFILE) {
-        children = (<AdminProfile/>)
-    }
-    if (router.pathname === RouterPath.TERMS) {
-        children = (<Terms/>)
-    }
-    if (router.pathname === RouterPath.PRIVACY_POLICY) {
-        children = (<PrivacyPolicy/>)
-    }
+
     if (router.pathname === RouterPath.COUPON_DETAILS) {
         children = (<CouponDetails />)
     }
@@ -89,8 +75,11 @@ const AdminModuleComponent = () => {
     if (router.pathname === RouterPath.ADD_PLAN) {
         children = (<AddPlan />)
     }
-    if (router.pathname === RouterPath.EDITP_PLAN) {
-        children = (<PlansList />)
+    if (router.pathname === RouterPath.PLAN_DETAILS) {
+        children = (<PlanDetails />)
+    }
+    if (router.pathname === RouterPath.EDIT_PLAN) {
+        children = (<EditPlan />)
     }
     if (router.pathname === RouterPath.PAYMENT_HISTORY) {
         children = (<PaymentsHistory />)
@@ -115,7 +104,6 @@ const AdminModuleComponent = () => {
         </div >
     )
 }
-
 
 
 export default AdminModuleComponent
