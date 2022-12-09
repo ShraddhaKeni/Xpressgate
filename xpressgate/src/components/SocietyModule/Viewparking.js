@@ -28,13 +28,17 @@ const Viewparking = () => {
           <label>Society Name</label>
         </div>
         <br/>
-        
-        <div className="addguard_sideimg">
+        <div className='vmsidelinks'>
+          <label>Vehicle List</label><br></br>
+          <a href='/viewparking'><b>View Parking Section</b></a><br/><br/>
+          <a href='/addparking'>Add Parking Section</a>
+        </div>
+        <div className="viewparking_sideimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
-      <div className='Addflatdisplay'>
+      <div className='VPdisplay'>
           <label>View Parking Section</label>
         </div>
         <div className='row'>
@@ -50,9 +54,9 @@ const Viewparking = () => {
           <thead>
             <tr>
               <th class="th-sm">Sr</th>
-              <th class="th-sm">Guard Name</th>
-              <th class="th-sm">Phone</th>
-              <th class="th-sm">Email</th>
+              <th class="th-sm">Parking Section</th>
+              
+              <th class="th-sm">Block</th>
               <th class="th-sm">Status</th>
             </tr>
           </thead>

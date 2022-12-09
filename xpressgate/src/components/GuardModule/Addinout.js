@@ -1,9 +1,12 @@
-import './Addinout.css';
+import '../GuardModule/Addinout.css';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import GuardHeader from './Utils/GuardHeader';
 import axios from 'axios';
-import React, {  useState } from 'react';
+import React, { useEffect , useState } from 'react';
+import { CompressOutlined } from '@mui/icons-material';
+import { getBlocks } from '../SocietyModule/common/common';
+import { checkGuard } from '../auth/Auth';
 
 const Addinout = () => {
   const [details,setDetails] = useState({})
@@ -11,13 +14,40 @@ const Addinout = () => {
   const [visitor_type,setVisitorType] = useState([])
   const [flatno,setFlatNo] = useState([])
 
-  const getBlock = async(e)=>{
-    try {
-      const {data} = await axios.get(`${window.env_var}api/guard/addblock ${e.target.value}`)
-      setBlock(data.data)
-    } catch (error) {
+  useEffect(() => {
+    if (checkGuard()) {
+      const config = {
+        headers: {
+          'x-access-token': localStorage.getItem('accesstoken')
+        }
+      }
+      axios.get(`${window.env_var}api/guard/checkLogin`, config)
+        .then(({ data }) => {
+          getBlocks()
+        })
+        .catch(err => {
+          localStorage.clear();
+          window.location.href = '/guardLogin'
+        })
+    } else {
+      window.location.href = '/'
+    }  
+  
+  }, [])
+  const getBlock = async async =>{
+    console.log("error",localStorage.getItem('community_id'))
+    const Community_id={
+
+      community_id:localStorage.getItem('community_id')
       
     }
+    // try {
+    //   const {data} = await axios.post(`${window.env_var}api/block/get`,Community_id)
+    //   console.log("hi" + data)
+    //   setBlock(data.data)
+    // } catch (error) {
+      
+    // }
   }
   const getVisitorType = async(e)=>{
     try {
@@ -53,7 +83,7 @@ const Addinout = () => {
       
 
       const {data} = await axios.post(`${window.env_var}api/guard/addinout`,formData)
-      window.location.href='/'
+      window.location.href='/inoutbook'
     } catch (error) {
       console.log(error)
     }

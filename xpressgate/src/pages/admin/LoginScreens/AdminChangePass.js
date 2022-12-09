@@ -26,7 +26,7 @@ const AdminChangePass= () => {
             newpassword:confirmpassword.current.value,
             admin_mem_id:location.state.admin_mem_id
           }
-          const {data} = await axios.post(`${window.env_var}api/admin/adminchangedpass`,sendData)
+          const {data} = await axios.post(`${window.env_var}api/admin/changepassword`,sendData)
           window.location.href = '/adminlogin'
         }
         else

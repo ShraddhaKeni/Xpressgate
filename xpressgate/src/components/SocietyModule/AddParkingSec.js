@@ -28,13 +28,17 @@ const AddParkingSec = () => {
           <label>Society Name</label>
         </div>
         <br/>
-        
-        <div className="addguard_sideimg">
+        <div className='vmsidelinks'>
+          <label>Vehicle List</label><br></br>
+          <a href='/viewparking'>View Parking Section</a><br/><br/>
+          <a href='/addparking'><b>Add Parking Section</b></a>
+        </div>
+        <div className="AP_sideimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
-      <div className='Addflatdisplay'>
+      <div className='APdisplay'>
           <label>Add Parking Section</label>
         </div>
         <Form className='formclass'>
