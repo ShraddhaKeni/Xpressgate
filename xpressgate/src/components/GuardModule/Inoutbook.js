@@ -87,7 +87,9 @@ const Inoutbook = () => {
         <div className='inoutbookdisplay'>
           <label>In-out Book</label>
         </div>
-
+        <div className='InoutBookButton'>
+          <a href="/addinout" className='InoutBookADDButton'>&#43; Add In Out</a>
+        </div>
         <table id="inoutbooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>

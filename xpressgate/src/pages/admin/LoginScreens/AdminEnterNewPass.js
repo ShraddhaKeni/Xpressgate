@@ -1,29 +1,51 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState  } from "react";
 import "../../../styles/AdminEnterNewPass.css";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
+import { validatePassword } from "../../../components/auth/validation";
 
 const AdminEnterNewPass = () => {
-  let username = useRef([]);
   let password = useRef([]);
+  let confirmpassword = useRef([]);
 
-  const loginGuard = async () => {
+  const [member,setMember] = useState({})
+
+  const location = useLocation()
+
+
+  const handleSubmit =async()=>{
     try {
-      const loginCreds = {
-        username: username.current.value,
-        password: password.current.value,
-      };
-      const { data } = await axios.post(`api/auth/guardlogin`, loginCreds);
-      localStorage.clear();
-      localStorage.setItem("accesstoken", data.data.accessToken);
-      localStorage.setItem("community_id", data.data.community_id);
-      localStorage.setItem("guard_id", data.data.id);
-      window.location.href = "/dashboard";
-    } catch (err) {
-      document.getElementById("loginemailid").style.border = "2px solid red";
-      document.getElementById("loginpassword").style.border = "2px solid red";
+      if( await validatePassword(password.current.value))
+      {
+        console.log(validatePassword(password.current.value))
+          if((password.current.value===confirmpassword.current.value)&&(password.current.value!==""&&confirmpassword.current.value!==""))
+          {
+          const sendData={
+            password:confirmpassword.current.value,
+            admin_mem_id:location.state.admin_mem_id
+          }
+          const {data} = await axios.post(`${window.env_var}api/admin/adminupdatepass`,sendData)
+          window.location.href = '/adminlogin'
+        }
+        else
+        {
+          document.getElementById('loginemailid').style.border='2px solid red'
+          document.getElementById('loginpassword').style.border='2px solid red'
+        }
+      }
+      else
+      {
+        document.getElementById('loginemailid').style.border='2px solid red'
+        document.getElementById('loginpassword').style.border='2px solid red'
+      }
+      
+    } catch (error) {
+      document.getElementById('loginemailid').style.border='2px solid red'
+      document.getElementById('loginpassword').style.border='2px solid red'
+      console.log(error)
     }
-  };
+  }
   return (
     <div className="superadmincontainer">
       
@@ -46,7 +68,7 @@ const AdminEnterNewPass = () => {
             <div className="email_input">
               <label className="adminnewpass">New Password</label>
               <input
-                ref={username}
+                ref={password}
                 type="text"
                 className="form-control adminemailtextbox"
                 onKeyPress={(e) => {
@@ -60,7 +82,7 @@ const AdminEnterNewPass = () => {
             <div className="email_input">
               <label className="adminconfirmpass">Confirm  Password</label>
               <input
-                ref={password}
+                ref={confirmpassword}
                 type="password"
                 className="form-control adminpasswordbox"
                 onKeyPress={(e) => {
@@ -74,7 +96,7 @@ const AdminEnterNewPass = () => {
                 type="button"
                 className="adminconfirmpasswordbtn"
                 onClick={() => {
-                  loginGuard();
+                  handleSubmit();
                 }}
               >
                Change Password

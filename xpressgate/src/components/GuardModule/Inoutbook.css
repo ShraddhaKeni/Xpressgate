@@ -29,6 +29,27 @@ html {
 
 }
 
+.InoutBookButton{
+  margin-top: 2%;
+  margin-left: 60%;
+  background: #017069;
+  border-radius: 18px; 
+  width:12vw ;
+  height: 4vh;
+  padding: 0.5%;
+}
+.InoutBookButton:hover{
+  background: #359f98;
+}
+.InoutBookADDButton{
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+font-size: 1.3vw;
+color: #FFFFFF;
+
+}
+
 .iobbackgroundimg {
   background-image: url("../../../public/images/dashboardbackground.svg");
   background-repeat: no-repeat;

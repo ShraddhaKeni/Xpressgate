@@ -10,8 +10,8 @@ const AdminEnterCode = () => {
   const navigate = useNavigate()
   const sendOTP = async()=>{
     try {
-      const {data} = await axios.post(`${window.env_var}api/society/adminresetpass`,{mobileno:location.state.mobileno,otp:username.current.value})
-      navigate('/newpass',{state:{admin_id:data.data.mem_id,mobileno:data.data.mobileno}})
+      const {data} = await axios.post(`${window.env_var}api/admin/adminresetpass`,{mobileno:location.state.mobileno,otp:username.current.value})
+      navigate('/newpass',{state:{admin_mem_id:data.data.mem_id,mobileno:data.data.mobileno}})
     } catch (error) {
       
     }
