@@ -69,7 +69,7 @@ const Guardlist = () => {
         <label className="societylabel">Society Name</label>
       </div>
       <br/>
-      <div class="noticelist">
+      <div class="notice">
           <h4>Guard list</h4>
           <a href="abcd" class="Notice">
             Add Guard

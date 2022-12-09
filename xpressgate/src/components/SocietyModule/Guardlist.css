@@ -1,9 +1,17 @@
 html {
   height: 100vh;
 }
-
+#guardlisttable {
+  margin-Left: 10%;
+  margin-Top: 2%;
+  max-Width: 75%;
+  background-color: #F9FAFF;
+  border-radius: 14px;
+  border-collapse: separate;
+  font-family: 'Rubik', sans-serif;
+}
 .Addguestdisplay4 {
-  width: 27vw;
+  width: 20vw;
   height: 9vh;
   background-color: #AED8DC;
   border-radius: 30px;
@@ -100,18 +108,27 @@ html {
   margin-left: -5%;
   width: 100%;
 }
-.noticelist h4{
-  color: #434242;
+.notice h4{
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+font-size: 1.5vw;
+color: #000000;
 }
-.noticelist a{
+
+.notice a{
  color: #757575;
+ font-size: 1vw;
+}
+.notice a:hover{
+  color: #000000;
 }
 /* Media query for laptop */
 @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
  
   .sideimage3 img {
     display: flex;
-    margin-top: 100%;
+    margin-top: 53%;
     max-width: 95%;
     height: auto;
     margin-left: 2%;
