@@ -1,17 +1,53 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useMemo, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import { getAllCoupons } from '../../../../common/admin/admin_api';
+import RouterPath from '../../../../common/constants/path/routerPath';
 import PaginationCalculate from '../../../../components/GuardModule/Utils/paginationCalculate';
+let PageSize = 6;
 
 export const CouponsList = () => {
 
     const navigate = useNavigate();
 
-    const handleAddPremise = (someId) => {
-        navigate('/admin/coupons/add')
+    const [coupons, setCoupons] = useState();
+    const [allCoupons, setAllCoupons] = useState();
+    const [currentPage, setCurrentPage] = useState(1);
+
+
+
+    useEffect(() => {
+        async function getCoupons() {
+            const res = await getAllCoupons();
+            if (res && res.data.status_code == 200) {
+                setCoupons(getCurrentCoupons(res.data.data.block))
+            }
+        }
+
+        getCoupons();
+    }, [])
+
+    function getCurrentCoupons(data) {
+        console.log(data);
+        const firstPageIndex = (currentPage) * PageSize
+        const lastPageIndex = firstPageIndex + PageSize;
+        setAllCoupons(data);
+        return data?.slice(firstPageIndex, lastPageIndex);
+    }
+
+    const handleAddPremise = () => {
+        navigate(RouterPath.ADD_COUPON)
+    }
+
+    const handlePageChange = (page) => {
+
+        setCurrentPage(page.selected);
+
+        setCoupons(getCurrentCoupons(allCoupons));
+
     }
 
     const handleEditClick = (someId) => {
-        navigate('/admin/coupons/edit')
+        navigate(RouterPath.EDIT_COUPON)
     }
     return (
         <div className="container pb-5">
@@ -26,49 +62,41 @@ export const CouponsList = () => {
                         <span><input className='search' placeholder='Search' onChange={(e) => { }} /></span>
                     </div>
                     <div className="table-add-new-button" onClick={handleAddPremise}>
-                        <img src="/images/ic_plus.svg" /> Add new Premise
+                        <img src="/images/ic_plus.svg" />  Add Coupon
                     </div>
                 </div>
 
                 <div id="cardsection">
                     <div className="row row-cols-1 row-cols-md-3 g-3 mb-5">
-                        <div className="col">
-                            <div className="card-green ">
-                                <div className='d-flex justify-content-end mr-5'><button className='highlight-active p-2 px-3'><span className='dot'></span>Active</button></div>
-                                <div>
-                                    <p className='dash-heading-sm'>SI001</p>
-                                    <p className='dash-heading'>COUPON</p>
-                                    <p className='dash-heading-md'>25% OFF</p>
-                                    <button type="button" className="btn btn-primary blue-bg">View</button>
+
+                        {coupons && coupons.map((coupon) => {
+
+                            return <div className="col" key={coupon.id}>
+                                <div className="card-green ">
+                                    <div className='d-flex justify-content-end mr-5'><button className={`${coupon.status == 1 ? 'highlight-active' : 'highlight-inactive'} p-2 px-3`}><span className={`${coupon.status == 1 ? 'dot' : 'dot-inactive'}`}></span>{coupon.status == 1 ? 'Active' : 'Inactive'}</button></div>
+                                    <div>
+                                        <p className='dash-heading-sm'>{coupon.name || "n/a"}</p>
+                                        <p className='dash-heading'>{coupon.code || "n/a"}</p>
+                                        <p className='dash-heading-md'>{coupon.amount || "n/a"}</p>
+                                        <Link to={`${RouterPath.COUPON_DETAILS}`} state={{ coupon }} type="button" className="btn btn-primary blue-bg">View</Link>
+                                    </div>
                                 </div>
+
                             </div>
 
-                        </div>
-                        <div className="col">
-                            <div className="card-green">
-                                <div className='d-flex justify-content-end mr-5'><button className='highlight-inactive p-2 px-3'><span className='dot-inactive'></span>Inactive</button></div>
-                                <div>
-                                    <p className='dash-heading-sm'>SI001</p>
-                                    <p className='dash-heading'>COUPON</p>
-                                    <p className='dash-heading-md'>25% OFF</p>
-                                    <button type="button" className="btn btn-primary blue-bg">View</button>
-                                </div>
-                            </div>
 
-                        </div>
-                        <div className="col">
-                            <div className="card-green">
-                            </div>
-
-                        </div>
+                        })}
 
                     </div>
                 </div>
 
-                <div className='flex space-between'>
-                    <p>Showing 6 of 20</p>
-                    <PaginationCalculate totalPages={10} postperPage={20} currentPage={2} paginate={10} />
-                </div>
+                {allCoupons && <div className='flex space-between'>
+                    <p>Showing {currentPage} of {`${Math.ceil(allCoupons.length / PageSize)}`}</p>
+
+                    {/* <PaginationCalculate totalPages={Math.ceil(allCoupons.length / PageSize)} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} /> */}
+                    <PaginationCalculate totalPages={Math.ceil(allCoupons.length / PageSize)} postperPage={3} currentPage={currentPage} paginate={handlePageChange} />
+
+                </div>}
 
             </div >
         </div >

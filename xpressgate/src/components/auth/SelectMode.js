@@ -15,7 +15,7 @@ const SelectMode = () => {
     }
     else
     {
-        window.location.href='/'    
+        window.location.href='/superadminlogin'    
     }
   }  
   return (
