@@ -30,8 +30,8 @@ html{
   position: relative;
 }
 
-.signin {
-  width: 400px;
+.guardsignin {
+  width: 402px;
   height: 76px;
   background-color: #14335D;
   margin-left: 28%; 
@@ -40,7 +40,7 @@ html{
   
 }
 
-.signinlabel{
+.guardsigninlabel{
   display:inline-block;
   margin-top: 3%;
   color: #fff;
@@ -75,14 +75,14 @@ html{
   left: 27.5%;
 }
 
-.email{
+.usernameemail{
   position: relative;
   right:41%;
   font-family: 'Rubik', sans-serif;
   font-size: 15px;
 }
 
-.password
+.guardpassword
 {
   position: relative;
   right: 41%;
@@ -114,7 +114,7 @@ html{
     width: 180%
   }
 
-  .signin {
+  .guardsignin {
     width: 230px;
     height: 76px;
     background-color: #14335D;
@@ -135,7 +135,7 @@ html{
     padding-bottom: 4%;
 }
 
-.signinlabel {
+.guardsigninlabel {
   display: inline-block;
   margin-top: 3%;
   color: #fff;
@@ -143,14 +143,14 @@ html{
   padding-top: 2%;
 }
 
-.email {
+.usernameemail {
   position: relative;
   right: 35%;
   font-family: 'Rubik', sans-serif;
   font-size: 15px;
 }
 
-.password {
+.guardpassword {
   position: relative;
   right: 35%;
   font-family: 'Rubik', sans-serif;
@@ -164,7 +164,7 @@ html{
     display: none;
   }
 
-  .signin {
+  .guardsignin {
     width: 270px;
     height: 76px;
     background-color: #14335D;
@@ -185,14 +185,14 @@ html{
   left: 27.5%;
 }
 
-.email {
+.usernameemail {
   position: relative;
   right: 37%;
   font-family: 'Rubik', sans-serif;
   font-size: 15px;
 }
 
-.password {
+.guardpassword {
   position: relative;
   right: 37%;
   font-family: 'Rubik', sans-serif;
