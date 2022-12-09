@@ -221,8 +221,17 @@ table th {
 }
 
 .vmsearchbox img{
+  margin-top: 0%;
+  margin-left: -20%;
+}
+
+.vmsearchbox {
+  width: 15%;
+  height: 5%;
+  border: 2px solid #000;
+  border-radius: 15px;
+  margin-left: 48%;
   margin-top: 4%;
-  margin-left: -42%;
 }
 
 .vmsidelinks{

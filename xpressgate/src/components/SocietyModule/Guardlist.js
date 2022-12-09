@@ -71,7 +71,7 @@ const Guardlist = () => {
       <br/>
       <div class="notice">
           <h4>Guard list</h4>
-          <a href="abcd" class="Notice">
+          <a href="/addGuard" class="Notice">
             Add Guard
           </a>
         </div>

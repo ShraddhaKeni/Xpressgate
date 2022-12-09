@@ -8,54 +8,50 @@ import Societyheader from './Utils/Societyheader';
 
 const Vehiclemanagement = () => {
 
-  const [entry,setEntry] = useState([])
+  const [entry, setEntry] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
-  const [currentPosts,setCurrentPosts] = useState([])
-  useEffect(()=>{
+  const [currentPosts, setCurrentPosts] = useState([])
+  useEffect(() => {
     getVehicleParkDetails()
-  },[])
+  }, [])
 
-    const getVehicleParkDetails=async()=>{
-      try {
-        const {data} = await axios.get(`${window.env_var}api/assign/getAll/632970d054edb049bcd0f0b4`) //will replace community with localstorage
-        setEntry(data.data.vehicle)
-        const indexoflast = currentPage*postPerPage  //endoffset
-        const indexoffirst = indexoflast - postPerPage //startoffset
-        setCurrentPosts(data.data.vehicle.slice(indexoffirst,indexoflast))
-      } catch (error) {
-        console.log(error)
-      }
+  const getVehicleParkDetails = async () => {
+    try {
+      const { data } = await axios.get(`${window.env_var}api/assign/getAll/632970d054edb049bcd0f0b4`) //will replace community with localstorage
+      setEntry(data.data.vehicle)
+      const indexoflast = currentPage * postPerPage  //endoffset
+      const indexoffirst = indexoflast - postPerPage //startoffset
+      setCurrentPosts(data.data.vehicle.slice(indexoffirst, indexoflast))
+    } catch (error) {
+      console.log(error)
     }
-
-  async function  paginate(event)
-  {
-    const {data} = await axios.get(`${window.env_var}api/assign/getAll/632970d054edb049bcd0f0b4`) //will replace community with localstorage
-        setCurrentpage(event.selected+1)
-        const indexoflast = (event.selected+1)*postPerPage  //endoffset
-        const indexoffirst = (indexoflast - postPerPage) //startof
-        setCurrentPosts(data.data.vehicle.slice(indexoffirst,indexoflast))
   }
 
-  async function findText(e)
-  {
-    let text = entry.filter(x=>x.vehicle_number.toLowerCase().includes(e.target.value.toLowerCase()))
-    
-    if(text)
-    {
+  async function paginate(event) {
+    const { data } = await axios.get(`${window.env_var}api/assign/getAll/632970d054edb049bcd0f0b4`) //will replace community with localstorage
+    setCurrentpage(event.selected + 1)
+    const indexoflast = (event.selected + 1) * postPerPage  //endoffset
+    const indexoffirst = (indexoflast - postPerPage) //startof
+    setCurrentPosts(data.data.vehicle.slice(indexoffirst, indexoflast))
+  }
+
+  async function findText(e) {
+    let text = entry.filter(x => x.vehicle_number.toLowerCase().includes(e.target.value.toLowerCase()))
+
+    if (text) {
       setCurrentPosts(text)
     }
-    else
-    {
+    else {
       paginate(0)
     }
-    
+
   }
 
   return (
     <div className="vmcontainer">
       <div id="vmheadersection">
-        <Societyheader/>
+        <Societyheader />
       </div>
       <div id="vmsection">
         <div className='vmsocietyname'>
@@ -74,9 +70,14 @@ const Vehiclemanagement = () => {
           <label>Vehicle Management</label>
         </div>
         <div className='row'>
-          <div className='searchbox'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-            <span><label className='searchlabel'>Search</label><input className='search_input' onChange={(e)=>findText(e)} ></input></span>
+          <div className='parkingsection'>
+            <select className="form-control input-lg psection">
+              <option value={null} disabled selected>Parking Section</option>
+            </select>
+          </div>
+          <div className='vmsearchbox'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+              <input className='flsearch_input' placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
           </div>
         </div>
 
@@ -91,21 +92,21 @@ const Vehiclemanagement = () => {
             </tr>
           </thead>
           <tbody>
-            {entry.map(item=>{
-              return(
+            {entry.map(item => {
+              return (
                 <tr>
-                    <td>{item.firstname} {item.lastname}</td>
-                    <td >{item.vehicle_number}</td>
-                    <td>{item.vehicle_make}</td>
-                    <td >{item.vehicle_model}</td>
-                    <td>{item.section}</td>
+                  <td>{item.firstname} {item.lastname}</td>
+                  <td >{item.vehicle_number}</td>
+                  <td>{item.vehicle_make}</td>
+                  <td >{item.vehicle_model}</td>
+                  <td>{item.section}</td>
                 </tr>
               )
             })}
-           
+
           </tbody>
         </table>
-        <PaginationCalculate totalPages={entry.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+        <PaginationCalculate totalPages={entry.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
       </div>
     </div>
   )
