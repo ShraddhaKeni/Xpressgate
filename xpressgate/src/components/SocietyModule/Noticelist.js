@@ -59,7 +59,7 @@ const Noticelist = () => {
           <label>Society Name</label>
         </div>
         <div className='nlsidelinks'>
-          <a className='sidelinks' href="/noticelist">Notice List</a><br></br><br></br>
+          <a className='sidelinks' href="/noticelist"><b>Notice List</b></a><br></br><br></br>
           <a className='sidelinks' href="/addNotice">Add Notice</a>
         </div>
         <div className='nlsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>

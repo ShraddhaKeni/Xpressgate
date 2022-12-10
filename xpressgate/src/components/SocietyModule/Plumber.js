@@ -52,27 +52,28 @@ const Plumber = () => {
         <Societyheader/>
     </div>
       <div id="societynamesection">
-        <div className="societyname">
+        <div className="P_societyname">
           <img src="/images/profileicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
-        <div class="noticelist">
-          <h4><b>Notice List</b></h4>
-          <a href="abcd" class="Notice">Plumber</a><br/>
-          <a href="abcd" class="Notice">Electrician</a>
+        <br/>
+        <div class="Pnoticelist">
+          <h4><b>Local Services</b></h4>
+          <a href="abcd" class="PNotice">Plumber</a><br/>
+          <a href="abcd" class="ENotice">Electrician</a>
           </div>
-        <div className="sideimage5">
+        <div className="P_sideimage">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="Addguestdisplay3">
+        <div className="P_display">
           <label>{location.state.serviceName}</label>
         </div>
 
         <input
           type=" search"
-          className="search"
+          className="P_search"
           name="Search"
           placeholder="&#128269; Search"
         ></input>

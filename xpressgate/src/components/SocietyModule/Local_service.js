@@ -41,24 +41,24 @@ const Local_service = () => {
     
     </div>
       <div id="societynamesection">
-        <div className="societyname">
-          <img src="/images/profileicon.svg" alt="Society image" />
+        <div className="LS_societyname">
+          <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
-        <br/>
-        <div class="noticelist">
-          <h4><b>Notice List</b></h4>
-          <a href="abcd" class="Notice">Add Notice</a>
+        
+        <div class="nlsidelinks">
+        <a className='Nsidelinks' href="/noticelist"><b>Notice List</b></a><br></br><br></br>
+          <a className='sidelinks' href="/addNotice">Add Notice</a>
           </div>
-        <div className="sideimage2">
+        <div className="LS_sideimage">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="Addguestdisplay2">
+        <div className="LS_display">
           <label>Local Services</label>
         </div>
-        <button type="button" onClick={()=>{window.location.href='/addlocalservice'}} className="AddLS"> Add Local Services</button>
+        <button type="button" onClick={()=>{window.location.href='/addlocalservice'}} className="AddLS">&#10011; Add Local Services</button>
         <div className="row row-cols-1 row-cols-md-3 g-4 lsfullcardscss">
           
             

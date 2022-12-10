@@ -60,7 +60,7 @@ const Addinout = () => {
   }
   const getFlatNo = async(e)=>{
     try {
-      const {data} = await axios.get(`${window.env_var}api/guard/flatno ${e.target.value}`)
+      const {data} = await axios.get(`${window.env_var}api/flat/add ${e.target.value}`)
       setFlatNo(data.data)
     } catch (error) {
       

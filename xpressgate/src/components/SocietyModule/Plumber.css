@@ -10,34 +10,57 @@ html {
   grid-template-areas: "addflatsection addflatsection"
   "societynamesection cardsection"
 }
-
-.Addguestdisplay3 {
-  width: 27vw;
-  height: 9vh;
+.P_societyname label {
+  color: #000;
+  margin-left: 4%;
+  margin-top: 13%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
+}
+.P_societyname {
+  display: flex;
+  width: 80%;
+  height: 12%;
+  background-color: rgba(10, 137, 150, 0.33);
+  margin-left: 10%;
+  margin-top: 12%;
+  border-radius: 24px;
+}
+.P_societyname img {
+  margin-left: 10%;
+  width: 25%;
+  height: 70%;
+  margin-top: 4%;
+}
+.P_display {
+  width: 17vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 2vw;
+  font-size: 1.5vw;
   margin: auto;
-  margin-top: -4%;
-  padding-bottom: 1.5%;
-}
-.Addguestdisplay3 label{
-   
-  display: inline-block;
-margin-bottom: 2%;
-font-weight: 700;
-
+  margin-top: -3%;
+  padding-top: 1%;
 }
 
-.sideimage5 img {
+.P_display label{
+ 
+      display: inline-block;
+     
+      margin-bottom: -19%;
+      font-weight: 700;
+  
+}
+
+.P_sideimage img {
   display: flex;
-  margin-top: 80%;
+  margin-top: 68%;
   max-width: 90%;
   height: auto;
   margin-left: 13%;
-  margin-bottom: 5%;
-  }
-.search{
+  margin-bottom: 5%;  
+}
+.P_search{
   width: 12vw;
   height: 5vh;
   padding: 1.5%;
@@ -67,12 +90,47 @@ border-radius: 33px 33px 0px 0px;
 color: #F9F9FF;
 
 }
-
-.noticelist h4{
-  color: #434242;
+.Pnoticelist{
+  margin-left: -24%;
+  font-family: 'Rubik';
+  font-style: normal;
 }
-.noticelist a{
-  color: #000
+.Pnoticelist h4{
+  color: #434242;
+  font-size: 1.2vw;
+
+font-weight: 500;
+}
+.PNotice {
+  color: #5C5C5C;
+ margin-left: -17%;
+font-weight: 400;
+font-size: 1vw;
+}
+.ENotice {
+  color: #5C5C5C;
+ margin-left: -14%;
+font-weight: 400;
+font-size: 1vw;
+}
+.PNotice:hover{
+  color: #000;
+}
+.ENotice:hover{
+  color: #000;
+}
+#plumbertable{
+  margin-Left: 10%;
+  margin-Top: 2%;
+  max-Width: 80%;
+  background-color: #F9FAFF;
+ 
+  border-radius: 14px;
+  border-collapse: separate;
+  font-family: 'Rubik', sans-serif;
+  background: rgba(249, 250, 255, 0.76);
+border: 2px solid #14335D;
+
 }
 /* Media query for laptop */
 @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
@@ -91,28 +149,41 @@ color: #F9F9FF;
     /* max-height: min-content; */
     
 }
-table thead {
+/* table thead {
   background: #14335D;
   border-radius: 33px 33px 0px 0px;
   color: #F9F9FF;
  
-}
-.Addguestdisplay3 {
-  width: 24vw;
-  height: 10vh;
+} */
+.P_display {
+  width: 18vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 1.6vw;
-  padding-top: 2.2%;
+  font-size: 1.8vw;
+  padding-top: 1%;
   margin: auto;
-  margin-top: -17%;
+  margin-top: -3%;
 }
- .noticelist h4{
-    color: #434242;
- }
- .noticelist a{
-    color: #000
-  }
+.PNotice {
+  color: #5C5C5C;
+ margin-left: -17%;
+font-weight: 400;
+font-size: 1.1vw;
+}
+.ENotice {
+  color: #5C5C5C;
+ margin-left: -14%;
+font-weight: 400;
+font-size: 1.1vw;
+}
+.PNotice:hover{
+  color: #000;
+}
+.ENotice:hover{
+  color: #000;
+}
+ 
   /* Media query for laptop */
   @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
     #plumbertable {
@@ -123,11 +194,12 @@ table thead {
       background-color: #F9FAFF;
       /* -webkit-border-radius: 14px; */
       /* border-radius: 18px; */
-      border-radius: 33px 33px 0px 0px;
+      /* border-radius: 33px 33px 0px 0px; */
       border-collapse: collapse;
       font-family: 'Rubik', sans-serif;
       border: 2px solid #14335D;
       /* max-height: min-content; */
+      border-radius: 30px;
       
   }
   table thead {
@@ -142,12 +214,12 @@ table thead {
       margin-bottom: 3%;
       width: 5vw;
   }
-    .sideimage5 img {
+    .P_sideimage img {
       display: flex;
-    margin-top: 117%;
-    max-width: 92%;
-    height: auto;
-    margin-left: 4%;
+      margin-top: 53%;
+      max-width: 95%;
+      height: auto;
+      margin-left: 2%;
   }
     .addguestbackgroundimg {
     /* background-image: url("../../../public/images/dashboardbackground.svg"); */

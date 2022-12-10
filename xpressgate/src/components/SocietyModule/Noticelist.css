@@ -126,9 +126,11 @@ html {
 
 .nlsideimage img {
   display: flex;
-  margin-top: 45%;
-  width: 100%;
+  margin-top: 68%;
+  max-width: 90%;
   height: auto;
+  margin-left: 13%;
+  margin-bottom: 5%;  
 }
 
 
@@ -209,7 +211,7 @@ table th {
 }
 
 .btnAddnotice:hover {
-  background-color: #000;
+  background-color: #14335D;
 }
 
 .search_input {
@@ -227,7 +229,7 @@ table th {
 }
 
 .nlsidelinks {
-  margin-right: 60%;
+  margin-right: 50%;
   margin-top: 10%;
 }
 
@@ -250,9 +252,10 @@ a:hover {
 
   .nlsideimage img {
     display: flex;
-    margin-top: 216%;
-    width: 100%;
+    margin-top: 53%;
+    max-width: 95%;
     height: auto;
+    margin-left: 2%;
   }
 
   .nlbackgroundimg {
@@ -333,6 +336,9 @@ a:hover {
     margin-top: 3%;
     padding-bottom: 1%;
     margin-left: -50%;
+  }
+  .btnAddnotice:hover {
+    background-color:#14335D;
   }
 }
 

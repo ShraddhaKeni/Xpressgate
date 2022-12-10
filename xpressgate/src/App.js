@@ -132,7 +132,7 @@ function App() {
             <Route path="/profile" element={<Profile/>} exact></Route>
             <Route path="/management" element={<Managementteam/>} exact></Route>
             <Route path="/localservices" element={<Local_service/>} exact></Route>
-            <Route path='/addManagement' element={<Addmanagementteam/>} exact></Route>
+            <Route path='/addmanagement' element={<Addmanagementteam/>} exact></Route>
             <Route path='/servicevendors' element={<Plumber/>} exact></Route>
             <Route path='/societylogin' element={<Login_society/>} exact></Route>
             <Route path='/scotp' element={<Entercode/>} exact></Route>
