@@ -6,6 +6,7 @@ import { Form } from 'react-bootstrap';
 import axios from "axios";
 import {checkSociety} from '../auth/Auth'
 import SocietyHeader from './Utils/Societyheader'
+import { mobileValidation } from "../auth/validation";
 const Addemergencyno = () => {
 
   const [contactTypes, setTypes] = useState([])
@@ -52,15 +53,26 @@ const Addemergencyno = () => {
     try {
       if(name.current.value!==""&&type.current.value!==""&&contact.current.value!=="")
       {
-        document.getElementById('contact_name').style.border='none'
-        document.getElementById('contact_number').style.border='none'
-        const sendData = {
-          contactName:name.current.value,
-          contactType:type.current.value,
-          contactNumber:contact.current.value
+        if(await mobileValidation(contact.current.value))
+        {
+          document.getElementById('contact_name').style.border='none'
+          document.getElementById('contact_number').style.border='none'
+          
+          const sendData = {
+            contactName:name.current.value,
+            contactType:type.current.value,
+            contactNumber:contact.current.value
+          }
+          
+           const {data} = await axios.post(`${window.env_var}api/emergencycontacts/addContact`,sendData)
+           window.location.href='/emergencyList'
         }
-        const {data} = await axios.post(`${window.env_var}api/emergencycontacts/addContact`,sendData)
-        window.location.href='/emergencyList'
+        else
+        {
+         
+          document.getElementById('contact_number').style.border='1px solid red'
+        }
+       
       }
       else
       {

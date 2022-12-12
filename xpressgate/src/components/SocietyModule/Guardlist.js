@@ -41,7 +41,7 @@ const Guardlist = () => {
 
   function guardDetails(id)
   {
-    navigate('/addGuard',{state:{id:id}})
+    navigate('/addGuard',{state:{id:id,type:'edit'}})
   }
 
   const findText=()=>{

@@ -35,7 +35,8 @@ export const otpValidation = async (otp) => {
 export const mobileValidation = async (mob) => {
     try {
         if (validator.isMobilePhone(mob)) {
-            return true;
+            if(validator.isLength(mob,{min:10,max:10}))
+                return true;
         } else {
             return false;
         }

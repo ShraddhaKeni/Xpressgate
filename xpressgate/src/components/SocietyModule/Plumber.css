@@ -2,6 +2,26 @@ html {
   height: 100vh;
 }
 
+.sidebar_classes
+{
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.sidebar_classes h5 {
+  font-size: 16px;
+  
+}
+
+.selected{
+  font-weight: 900;
+  transform: scale(1.01);
+  transition: .1s ease-in all;
+  font-style: italic;
+}
+
+
 .addguestcontainer4 {
   display: grid;
   height: 100vh;

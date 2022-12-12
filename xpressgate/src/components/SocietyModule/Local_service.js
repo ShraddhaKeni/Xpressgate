@@ -47,8 +47,7 @@ const Local_service = () => {
         </div>
         <br/>
         <div class="noticelist">
-          <h4><b>Notice List</b></h4>
-          <a href="abcd" class="Notice">Add Notice</a>
+         
           </div>
         <div className="sideimage2">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
