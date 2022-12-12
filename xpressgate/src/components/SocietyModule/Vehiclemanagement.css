@@ -188,8 +188,8 @@ table th {
   height: 5%;
   border: 2px solid #000;
   border-radius: 15px;
-  margin-left: 75%;
-  margin-top: 4%;
+  margin-left: 74%;
+  margin-top: 0%;
   
 }
 
@@ -210,29 +210,21 @@ table th {
   background-color: #000;
 }
 
-.search_input
-{
+.vmsearchbox input {
   outline: none;
   border: none;
-  height: 40px;
-  width: 210px;
+  height: 5vh;
+  width: 8vw;
   border-radius: 5px;
-  margin-left: 10px;
+  margin-left: 6%;
 }
 
 .vmsearchbox img{
+  position: relative;
   margin-top: 0%;
-  margin-left: -20%;
+  margin-left: -2%;
 }
 
-.vmsearchbox {
-  width: 15%;
-  height: 5%;
-  border: 2px solid #000;
-  border-radius: 15px;
-  margin-left: 48%;
-  margin-top: 4%;
-}
 
 .vmsidelinks{
 margin-right: 40%;
@@ -240,11 +232,11 @@ margin-top: 10%;
 }
 .vmsidelinks label{
   font-family: 'Rubik';
-font-style: normal;
-font-weight: 500;
+  font-style: normal;
+  font-weight: 500;
 text-align: center;
 color: #000000;
-font-size: 1.5vw;
+font-size: 1.3vw;
 }
 .vmsidelinks a{
   font-family: 'Rubik';
@@ -252,11 +244,26 @@ font-style: normal;
 font-weight: 400;
 font-size: 1vw;
 text-align: center;
-margin-left: 16%;
+margin-left: 24%;
 color: #5C5C5C;
 }
 .vmsidelinks a:hover{
-  color: #4ba1e3;
+  color: #000000;
+}
+.parkingsection{
+  position: absolute;
+margin-top: 0%;
+margin-left: 11%;
+}
+.parksection{
+width: 13vw;
+background: #0A8996;
+border-radius: 14px;
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 400;
+color: #FEFEFF;
+font-size: 1.5vw;
 }
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   .vmsocietyname label {
@@ -308,14 +315,15 @@ color: #5C5C5C;
     margin-top: -16%;
   }
 
-  .vmsearchbox {
-    width: 28%;
-    height: 8%;
+  .vmsearchbox{
+    width: 15%;
+    height: 5%;
     border: 2px solid #000;
     border-radius: 15px;
-    margin-top: 1%;
-    margin-left: 60%;
-}
+    margin-left: 73%;
+    margin-top: 0%;
+    
+  }
 
 .vmsocietyname {
   display: flex;
@@ -338,7 +346,14 @@ color: #5C5C5C;
   margin-right: 38%;
   margin-top: 10%;
 }
-
+.vmsidelinks label{
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+text-align: center;
+color: #000000;
+font-size: 1.3vw;
+}
 .btnAddVehicle {
   background-color: #E8F5E9;
   color: #0D960A;

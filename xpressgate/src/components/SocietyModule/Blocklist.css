@@ -67,14 +67,34 @@ input::-webkit-inner-spin-button {
 }
 
 .societydisplay {
-  width: 300px;
-  height: 64px;
+  width: 18vw;
+  height: 8vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 20px;
-  padding-top: 14px;
+  font-size: 1.8vw;
+  padding-top: 1%;
   margin: auto;
-  margin-top: -2%;
+  margin-top: -3%;
+}
+.Flatsidelinks{
+  color:#757575;
+  font-weight: 500;
+  font-size: 1.1vw;
+}
+.Addsidelinks{
+  color:#757575;
+  font-weight: 500;
+  font-size: 1.1vw;
+}
+
+.Addsidelinks:hover {
+  color: #000;
+  text-decoration: none; 
+}
+
+.Flatsidelinks:hover {
+  color: #000;
+  text-decoration: none; 
 }
 
 .firstblsection {
@@ -139,6 +159,13 @@ input::-webkit-inner-spin-button {
   padding-bottom: 5%;
 }
 
+.blsocietyname label {
+  color: #000;
+  margin-left: 4%;
+  margin-top: 13%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
+}
 .blsocietyname {
   display: flex;
   width: 80%;
@@ -148,7 +175,6 @@ input::-webkit-inner-spin-button {
   margin-top: 12%;
   border-radius: 24px;
 }
-
 .blsocietyname img {
   margin-left: 10%;
   width: 25%;
@@ -156,19 +182,14 @@ input::-webkit-inner-spin-button {
   margin-top: 4%;
 }
 
-.blsocietyname label {
-  color: #000;
-  margin-left: 8%;
-  margin-top: 10%;
-  font-size: 20px;
-}
-
 .blsideimage img {
   display: flex;
-  margin-top: 40%;
-  width: 100%;
+  margin-top: 68%;
+  max-width: 90%;
   height: auto;
-}
+  margin-left: 13%;
+  margin-bottom: 5%; }
+
 
 .blsidelinks {
   margin-right: 60%;
@@ -276,9 +297,10 @@ input::-webkit-inner-spin-button {
 
   .blsideimage img {
     display: flex;
-    margin-top: 216%;
-    width: 100%;
+    margin-top: 53%;
+    max-width: 95%;
     height: auto;
+    margin-left: 2%;
   }
 
   .fullcardscss {
@@ -334,8 +356,18 @@ input::-webkit-inner-spin-button {
 
   .blsocietyname label {
     margin-left: 1%;
-    margin-top: 20%;
-    font-size: 15px;
+    margin-top: 13%;
+    font-size: 1.3vw;
+}
+.societydisplay {
+  width: 18vw;
+  height: 8vh;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  font-size: 1.8vw;
+  padding-top: 1%;
+  margin: auto;
+  margin-top: -13%;
 }
 }
 

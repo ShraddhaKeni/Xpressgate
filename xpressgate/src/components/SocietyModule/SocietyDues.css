@@ -10,7 +10,28 @@ html {
     color: #14335D;
     
 }
-
+.SD_societyname label {
+    color: #000;
+    margin-left: 4%;
+    margin-top: 13%;
+    font-size: 1.2vw;
+    padding-top: 0.5%;
+  }
+  .SD_societyname {
+    display: flex;
+    width: 80%;
+    height: 12%;
+    background-color: rgba(10, 137, 150, 0.33);
+    margin-left: 10%;
+    margin-top: 12%;
+    border-radius: 24px;
+  }
+  .SD_societyname img {
+    margin-left: 10%;
+    width: 25%;
+    height: 70%;
+    margin-top: 4%;
+  }
 
 .SocietyFlatNo{
     margin-right: 5%;
@@ -42,9 +63,9 @@ html {
     margin-top: 9%;
     justify-content: center;
 }
-.AddButnn{
-    width: 15vw;
-    height: 6vh;
+.SAddButn{
+    width: 10vw;
+    height: 5vh;
     font-size: 1.5vw;
     font-weight: 700;
     padding: 0%;
@@ -52,7 +73,11 @@ html {
     background: #0A8996;
     border: none;
     color: #FFFFFF;
+    margin-top: -3%;
 
+}
+.SAddButn:hover{
+    background: #14335D;
 }
 .paymentdate{
     margin-right: 4%;
@@ -87,6 +112,8 @@ html {
 }
   /* Media query for laptop */
   @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
-   
+    .SAddButn:hover{
+        background: #14335D;
+    }
   
   }

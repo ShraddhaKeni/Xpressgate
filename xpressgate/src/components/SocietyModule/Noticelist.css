@@ -225,7 +225,7 @@ table th {
 
 .nlsearchbox img {
   margin-top: 0%;
-  margin-left: -26%;
+  margin-left: -18%;
 }
 
 .nlsidelinks {
@@ -245,10 +245,10 @@ a:hover {
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   .nlsocietyname label {
-    margin-left: 2%;
-    margin-top: 16%;
-    font-size: 15px;
-  }
+    margin-left: 1%;
+    margin-top: 11%;
+    font-size: 1.4vw;
+}
 
   .nlsideimage img {
     display: flex;
@@ -266,7 +266,10 @@ a:hover {
     position: relative;
     margin-top: 12.5%;
   }
-
+  .nlsearchbox img {
+    margin-top: 0%;
+    margin-left: -26%;
+}
   .labelsize {
     font-size: 12px;
   }

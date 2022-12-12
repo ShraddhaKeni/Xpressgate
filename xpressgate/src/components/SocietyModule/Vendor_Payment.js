@@ -105,13 +105,13 @@ const Vendor_Payment = () => {
     
     </div>
       <div id="societynamesection">
-        <div className="societyname">
-          <img src="/images/profileicon.svg" alt="Society image" />
+        <div className="VPay_societyname">
+          <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
         <br/>
         
-        <div className="addguard_sideimg">
+        <div className="VPay_sideimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
@@ -180,7 +180,7 @@ const Vendor_Payment = () => {
                   </input>
                 </div>
               </div>
-              <Button type="submit" onClick={(e)=>handleSubmit(e)} className="btnAdd">
+              <Button type="submit" onClick={(e)=>handleSubmit(e)} className="VPay_Add">
                   Add Bill
               </Button>
         </Form>

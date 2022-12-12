@@ -28,10 +28,10 @@ const AddParkingSec = () => {
           <label>Society Name</label>
         </div>
         <br/>
-        <div className='vmsidelinks'>
-          <label>Vehicle List</label><br></br>
-          <a href='/viewparking'>View Parking Section</a><br/><br/>
-          <a href='/addparking'><b>Add Parking Section</b></a>
+        <div className='AddParksidelinks'>
+          <label>Vehicle list</label><br></br>
+          <a href='/viewparking' className='Viewpsec'>View parking section</a><br/><br/>
+          <a href='/addparking' className='Addpsec'><b>Add parking section</b></a>
         </div>
         <div className="AP_sideimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
@@ -59,7 +59,7 @@ const AddParkingSec = () => {
                 </select>
                 </div></div>
          
-         <Button type="submit" className="AP_Button">Add Parking Section</Button>
+         <Button type="submit" className="AP_Button">Add parking section</Button>
          </Form>
 
       </div>
