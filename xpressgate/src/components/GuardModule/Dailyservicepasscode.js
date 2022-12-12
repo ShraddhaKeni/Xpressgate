@@ -140,9 +140,9 @@ const navigate = useNavigate()
           <img src="/images/guardnameicon.svg" alt="guard name" />
           <label>Guard Name</label>
         </div>
-        {/* <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div> */}
+       <div className='dspsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
-      <div className='dsepbackgroundimg'>
+      <div className='dspbackgroundimg'>
         {props ? <div className='dailyservicepasscodedisplay'><label>{props.code} </label> </div> : " "}
         <div className="col-sm-6 col-md-6 col-lg-6">
           <div className="dailycard">

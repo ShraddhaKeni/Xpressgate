@@ -43,8 +43,8 @@ const Login = () => {
     <div className="logincontainer">
       <div id="logoid">
         <img src="/images/loginlogo.svg" alt="" />
-        <div className="signin">
-          <label className="signinlabel">SIGN IN</label>
+        <div className="guardsignin">
+          <label className="guardsigninlabel">SIGN IN</label>
         </div>
       </div>
       <div id="loginimgid">
@@ -54,12 +54,12 @@ const Login = () => {
         <Form>
           <div className='input_fields'>
             <div className='email_input'>
-              <label className='email'>Username</label>
+              <label className='usernameemail'>Username</label>
               <input ref={username} type="text" className="form-control emailtextboxguard" onKeyPress={(e)=>{document.getElementById(e.target.id).style.border='none'}} id="loginemailid" placeholder='Username' ></input>
             </div>
             <br></br><br></br>
             <div className='email_input'>
-              <label className='password'>Password</label>
+              <label className='guardpassword'>Password</label>
               <input ref={password} type="password" className="form-control passwordtextboxguard" onKeyPress={(e)=>{document.getElementById(e.target.id).style.border='none'}} id="loginpassword" placeholder='Password'></input>
             </div>
             <br></br>

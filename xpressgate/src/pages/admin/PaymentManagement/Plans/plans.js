@@ -1,21 +1,58 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import { getAllPlans } from '../../../../common/admin/admin_api';
+import RouterPath from '../../../../common/constants/path/routerPath';
 import PaginationCalculate from '../../../../components/GuardModule/Utils/paginationCalculate';
-
+let PageSize = 6;
 export const PlansList = () => {
 
     const navigate = useNavigate();
 
-    const handleAddPlan = (someId) => {
-        navigate('/admin/plans/add')
+    const [plans, setPlans] = useState();
+
+
+    const [allPlans, setAllPlans] = useState();
+    const [currentPage, setCurrentPage] = useState(1);
+
+    useEffect(() => {
+        async function getCoupons() {
+            const res = await getAllPlans();
+            if (res && res.data.status_code == 200) {
+                console.log(res.data.data.plan);
+                setPlans(getCurrentPlans(res.data.data.plan))
+            }
+        }
+        getCoupons();
+    }, [])
+
+    function getCurrentPlans(data) {
+        if (data.length < PageSize) {
+            return data;
+        }
+        const firstPageIndex = (currentPage) * PageSize
+        const lastPageIndex = firstPageIndex + PageSize;
+        return data?.slice(firstPageIndex, lastPageIndex);
+    }
+    const handlePageChange = (page) => {
+
+        setCurrentPage(page.selected);
+
+        setPlans(getCurrentPlans(allPlans));
+
+    }
+
+
+
+    const handleAddPlan = () => {
+        navigate(RouterPath.ADD_PLAN)
     }
 
     const handleEditClick = (someId) => {
-        navigate('/admin/plans/edit')
+        navigate(RouterPath.PLAN_DETAILS)
     }
     return (
         <div className="container pb-5">
-            <div className='page-label'>
+            <div className='Addvehicledisplay'>
                 <label>Subscription Plans</label>
             </div>
             <div className='main-container'>
@@ -32,38 +69,38 @@ export const PlansList = () => {
 
                 <div id="cardsection">
                     <div className="row row-cols-1 row-cols-md-3 g-3 mb-5">
-                        <div className="col">
-                            <div className="card-green ">
-                                <div className='d-flex justify-content-end mr-5'><button className='highlight-active p-2 px-3'><span className='dot'></span>Active</button></div>
-                                <div>
-                                    <p className='dash-heading-sm'>SI001</p>
-                                    <p className='dash-heading'>PLAN 100</p>
-                                    <p className='dash-heading-md'><b>Master Subscription</b></p>
-                                    <button type="button" className="btn btn-primary blue-bg">View</button>
+
+                        {plans && plans.map((plan) => {
+                            console.log("Main", plan);
+                            return <div className="col" key={plan.id}>
+                                <div className="col">
+                                    <div className="card-green">
+                                        <div className='d-flex justify-content-end mr-5'><button className={`${plan.status == true ? 'highlight-active' : 'highlight-inactive'} p-2 px-3`}><span className={`${plan.status == true ? 'dot' : 'dot-inactive'}`}></span>{plan.status == true ? 'Active' : 'Inactive'}</button></div>
+                                        <div>
+                                            <p className='dash-heading-sm'>{plan.name}</p>
+                                            <p className='dash-heading'>{plan.code}</p>
+                                            <p className='dash-heading-md'><b>{plan.type}</b></p>
+                                            <Link to={`${RouterPath.PLAN_DETAILS}`} state={{ plan }} type="button" className="btn btn-primary blue-bg">View</Link>
+                                        </div>
+                                    </div>
+
                                 </div>
+
                             </div>
-
-                        </div>
-                        <div className="col">
-                            <div className="card-green">
-                                <div className='d-flex justify-content-end mr-5'><button className='highlight-inactive p-2 px-3'><span className='dot-inactive'></span>Inactive</button></div>
-                                <div>
-                                    <p className='dash-heading-sm'>SI001</p>
-                                    <p className='dash-heading'>PLAN 101</p>
-                                    <p className='dash-heading-md'><b>Master Subscription</b></p>
-                                    <button type="button" className="btn btn-primary blue-bg">View</button>
-                                </div>
-                            </div>
-
-                        </div>
-
+                        })}
 
 
 
                     </div>
                 </div>
 
-                <PaginationCalculate totalPages={10} postperPage={20} currentPage={2} paginate={10} />
+                {allPlans && <div className='flex space-between'>
+                    <p>Showing {currentPage} of {`${Math.ceil(allPlans.length / PageSize)}`}</p>
+
+                    {/* <PaginationCalculate totalPages={Math.ceil(allCoupons.length / PageSize)} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} /> */}
+                    <PaginationCalculate totalPages={Math.ceil(allPlans.length / PageSize)} postperPage={3} currentPage={currentPage} paginate={handlePageChange} />
+
+                </div>}
 
             </div >
         </div >

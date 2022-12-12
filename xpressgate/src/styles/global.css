@@ -47,28 +47,6 @@
     justify-content: center;
   }
 
-  /* .page-label {
-    position: absolute;
-    width: 27vw;
-    height: 9vh;
-    background-color: #AED8DC;
-    border-radius: 30px;
-    font-size: 2vw;
-    margin: auto;
-    margin-top: -2.5%;
-    margin-left: 20%;
-    padding: 1%;
-}
-
-    .page-label label{
-    
-        display: inline-block;
-        padding: 2%;
-        margin-bottom: 2%;
-        font-weight: 700;
-    
-    } */
-
 
 .dashboard-card-row{
     width: 100%;
@@ -82,8 +60,9 @@
     width: 40rem;
 }
 .card-green {
-    height: 20rem;
     margin-top: 12px;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

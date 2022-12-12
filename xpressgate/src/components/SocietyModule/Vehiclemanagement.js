@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Vehiclemanagement.css';
 import LogOut from './Utils/LogOut';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import axios from 'axios'
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import Societyheader from './Utils/Societyheader';
@@ -73,8 +73,9 @@ const Vehiclemanagement = () => {
           <label>Society Name</label>
         </div>
         <div className='vmsidelinks'>
-          <a className='sidelinks' href="/vehiclemanagement">Vehicle List</a><br></br><br></br>
-          <a className='sidelinks' href="/addvehicle">Add Vehicle</a>
+          <label>Vehicle List</label><br></br>
+          <a href='/viewparking'>View Parking Section</a><br/><br/>
+          <a href='/addparking'>Add Parking Section</a>
         </div>
         <div className='vmsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>

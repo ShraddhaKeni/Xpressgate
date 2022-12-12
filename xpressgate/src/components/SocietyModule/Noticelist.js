@@ -69,7 +69,18 @@ const Noticelist = () => {
   return (
     <div className="nlcontainer">
       <div id="nlheadersection">
+<<<<<<< HEAD
         <SocietyHeader/>
+=======
+        <div class="nlfirstsection">
+          <div id="nllogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
+          <div id="nlsociety"><label>Society</label></div>
+          <div id="nlspace"></div>
+          <div id="nlnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
+          <div id="nlsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="nllogoutbutton"> <LogOut /></div>
+        </div>
+>>>>>>> origin/main
       </div>
       <div id="nlsection">
         <div className='nlsocietyname'>

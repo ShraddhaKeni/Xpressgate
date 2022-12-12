@@ -76,20 +76,32 @@ const ChangePassword = () => {
           <label>Change Password</label>
         </div>
         <Form className='changepasswordclass'>
-          <div className="input_fields1">
+          <div className="cpinput_fields">
             <div className="password">
-              <label className="cpassword">Current Password</label>
-              <input ref={oldpass} type="text" className="form-control input-lg" id="oldpass" placeholder="Current Password"></input>
+              <div class="form-group row">
+                <div class="col-lg-6">
+                  <label className="cpassword">Current Password</label>
+                  <input ref={oldpass} type="text" className="form-control input-lg" id="oldpass" placeholder="Current Password"></input>
+                </div>
+              </div>
             </div>
             <br></br>
             <div className="password">
-              <label className="npassword">New Password</label>
-              <input ref={password} type="password" className="form-control input-lg" id="loginpassword" placeholder="New Password"></input>
+              <div class="form-group row">
+                <div class="col-lg-6">
+                  <label className="npassword">New Password</label>
+                  <input ref={password} type="password" className="form-control input-lg" id="loginpassword" placeholder="New Password"></input>
+                </div>
+              </div>
             </div>
             <br></br>
             <div className="password">
-              <label className="cppassword">Confirm Password</label>
-              <input ref={confirmPass} type="password" className="form-control input-lg" id="loginpassword" placeholder="Confirm Password"></input>
+              <div class="form-group row">
+                <div class="col-lg-6">
+                  <label className="cppassword">Confirm Password</label>
+                  <input ref={confirmPass} type="password" className="form-control input-lg" id="loginpassword" placeholder="Confirm Password"></input>
+                </div>
+              </div>
             </div>
           </div>
           <Button type="submit" onClick={(e) => handleSubmit(e)} className="btnUpdatecp">Update</Button>

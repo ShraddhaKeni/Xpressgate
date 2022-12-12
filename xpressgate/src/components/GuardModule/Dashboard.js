@@ -96,7 +96,7 @@ const Dashboard = () => {
             <img src="/images/guardnameicon.svg" alt="guard name" />
             <label>Guard Name</label>
           </div>
-          <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
+          <div className='gdsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
         </div>
         <div className='dashboardbackgroundimg'>
           <div id="cardsection">

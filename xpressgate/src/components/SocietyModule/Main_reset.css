@@ -57,6 +57,10 @@ html {
   color: red;
 }
 
+.cpinput_fields{
+  margin-left: 34%;
+}
+
 .btlogin6 {
   background-color: #0a8996;
   color: #fff;
@@ -128,21 +132,21 @@ html {
 
 .cpassword {
   position: relative;
-  right: 35%;
+  right: 30%;
   font-family: 'Rubik', sans-serif;
   font-size: 15px;
 }
 
 .npassword {
   position: relative;
-  right: 38%;
+  right: 33%;
   font-family: 'Rubik', sans-serif;
   font-size: 15px;
 }
 
 .cppassword {
   position: relative;
-  right: 35%;
+  right: 29%;
   font-family: 'Rubik', sans-serif;
   font-size: 15px;
 }
@@ -167,7 +171,7 @@ html {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  width: 180px;
+  width: 164px;
   height: 60px;
   font-size: 151%;
   font-weight: 500;
