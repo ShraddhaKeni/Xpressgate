@@ -49,7 +49,7 @@ const Noticelist = () => {
           <div id="nlsociety"><label>Society</label></div>
           <div id="nlspace"></div>
           <div id="nlnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="nlsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="nlsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
           <div id="nllogoutbutton"> <LogOut /></div>
         </div>
       </div>
