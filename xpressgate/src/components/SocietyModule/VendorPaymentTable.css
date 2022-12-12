@@ -1,0 +1,113 @@
+.VPT_societyname label {
+    color: #000;
+    margin-left: 4%;
+    margin-top: 13%;
+    font-size: 1.2vw;
+    padding-top: 0.5%;
+  }
+  .VPT_societyname {
+    display: flex;
+    width: 80%;
+    height: 12%;
+    background-color: rgba(10, 137, 150, 0.33);
+    margin-left: 10%;
+    margin-top: 12%;
+    border-radius: 24px;
+  }
+  .VPT_societyname img {
+    margin-left: 10%;
+    width: 25%;
+    height: 70%;
+    margin-top: 4%;
+  }
+  .VPT_display {
+    width: 18vw;
+    height: 7vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 1.5vw;
+    margin: auto;
+    margin-top: -3%;
+    padding-top: 1%;
+  }
+  
+  .VPT_display label{
+   
+        display: inline-block;
+       
+        margin-bottom: -19%;
+        font-weight: 700;
+    
+  }
+
+  .VPT_sideimage img {
+    display: flex;
+    margin-top: 95%;
+    max-width: 90%;
+    height: auto;
+    margin-left: 13%;
+    margin-bottom: 5%;  
+  }
+  .VPAddBTN {
+  
+    font-family: 'Rubik';
+    font-style: normal;
+    
+      border-radius: 18px;
+      background: #E8F5E9;
+      border: none;
+      width: 12vw;
+      height: 5vh;
+      margin-left: 54%;
+      margin-top: 1.5%;
+      margin-bottom: 1%;
+      font-weight: 500;
+      font-size: 1vw;
+      color: #0D960A;
+    }
+    .VPAddBTN:hover{
+        background-color: #14335D;
+        color: #E8F5E9;
+      }
+/* Media query for laptop */
+@media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
+
+  .VPT_display {
+    width: 19vw;
+    height: 7vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 1.5vw;
+    padding-top: 1%;
+    margin: auto;
+    margin-top: -3%;
+  }
+  .VPT_sideimage img {
+    display: flex;
+    margin-top: 83%;
+    max-width: 95%;
+    height: auto;
+    margin-left: 2%;
+}
+.VPAddBTN {
+  
+    font-family: 'Rubik';
+    font-style: normal;
+    
+      border-radius: 18px;
+      background: #E8F5E9;
+      border: none;
+      width: 12vw;
+      height: 5vh;
+      margin-left: 53%;
+      margin-top: 1.5%;
+      margin-bottom: 1%;
+      font-weight: 500;
+      font-size: 1vw;
+      color: #0D960A;
+    }
+.VPAddBTN:hover{
+    background-color: #14335D;
+    color: #E8F5E9;
+  }
+}

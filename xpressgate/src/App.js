@@ -77,6 +77,9 @@ import PackageList from './components/SocietyModule/PackageList';
 import AdminChangePass from './pages/admin/LoginScreens/AdminChangePass';
 import AdminReset from './pages/admin/LoginScreens/AdminReset';
 import Viewparking from './components/SocietyModule/Viewparking';
+import SocietyDuesTable from './components/SocietyModule/SocietyDuesTable';
+import VendorPaymentTable from './components/SocietyModule/VendorPaymentTable';
+import UtilityPaymentTable from './components/SocietyModule/UtilityPaymentTable';
 
 function App() {
 
@@ -194,6 +197,9 @@ function App() {
          
             <Route path="/packagelist" element={<PackageList />} exact></Route>
             <Route path="/paymenthistory" element={<SocietyPaymentHistory />} exact></Route>
+            <Route path="/societyduesrecord" element={<SocietyDuesTable />} exact></Route>
+            <Route path="/vendorpaymentrecord" element={<VendorPaymentTable />} exact></Route>
+            <Route path="/utilitypaymentrecord" element={<UtilityPaymentTable />} exact></Route>
         </Routes>
       </Router>
     </div>
