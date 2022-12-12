@@ -58,7 +58,7 @@ const Otp = () => {
           <div className='input_fields'>
             <div className='email_input'>
               <label className='otpemail'>Enter OTP</label>
-              <input type="text" className="form-control gfpemailtextbox" id="otp" placeholder='Enter OTP' ></input>
+              <input type="text" className="form-control gfpemailtextbox" id="otp" maxLength="4" placeholder='Enter OTP' ></input>
             </div>
             <Button type="button" className="btnsendotp" id='sendotp' onClick={() => { verifyotp() }}>Verify OTP</Button>
 
