@@ -4,26 +4,41 @@ import LogOut from "./Utils/LogOut";
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Societyheader from "./Utils/Societyheader";
 
 const Plumber = () => {
  
   const [vendors,setVendors]= useState([])
+  const [services,setServices] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts,setCurrentPosts] = useState([])
   const location = useLocation()
+  const navigate = useNavigate()
+  const [flag,setFlag] = useState(true)
+
   useEffect(()=>{
     if(location.state.id)
     {
       getVendors()
+      getServices()
     }
     else
     {
       window.location.href='/localservices'
     }
-  },[])
+  },[flag])
+
+
+  const getServices=async()=>{
+    try {
+      const {data} = await axios.get(`${window.env_var}api/admin/localservices/getAll`)
+      setServices(data.data.localservices)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const getVendors=async()=>{
     try {
@@ -46,35 +61,92 @@ const Plumber = () => {
     setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
   }
 
+  function findText(e)
+  {
+    let search = e.target.value.toLowerCase()
+    let arr = vendors.filter(x=>{
+      if(x.vendor_name.toLowerCase().includes(search))
+      {
+        return true
+      }
+    })
+    if(arr)
+    {
+      const indexoflast =currentPage*postPerPage  //endoffset
+      const indexoffirst = (indexoflast - postPerPage)
+      setCurrentPosts(arr.slice(indexoffirst,indexoflast))
+    }
+    else
+    {
+      paginate(0)
+    }
+  
+}
+
+
+const autoSelect = ()=>{
+  var tags = document.getElementsByClassName('sidebar_h6')
+  var arr = Array.from(tags).forEach(item=>{
+    document.getElementById(item.id).classList.remove('selected')
+  })
+  document.getElementById(location.state.id).classList.add('selected')
+  setFlag(!flag)
+}
+
+
+const navigateTo =e=>{
+  var tags = document.getElementsByClassName('sidebar_h6')
+  var arr = Array.from(tags).forEach(item=>{
+    document.getElementById(item.id).classList.remove('selected')
+  })
+  document.getElementById(e.target.id).classList.add('selected')
+  setFlag(!flag)
+  navigate('/servicevendors',{state:{id:e.target.id,serviceName: document.getElementById(e.target.id).innerHTML}})
+}
+
   return (
-    <div className="addguestcontainer4">
+    <div className="addguestcontainer4" onLoad={()=>autoSelect()}>
     <div id="addflatsection">
         <Societyheader/>
     </div>
       <div id="societynamesection">
-        <div className="societyname">
+        <div className="P_societyname">
           <img src="/images/profileicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
         <div class="noticelist">
-          <h4><b>Notice List</b></h4>
-          <a href="abcd" class="Notice">Plumber</a><br/>
-          <a href="abcd" class="Notice">Electrician</a>
+        <div className="sidebar_classes">
+          {services.map(item=>{
+
+            if(item.serviceName===location.state.serviceName)
+            {
+              return <h5 id={item.id} onClick={(e)=>{navigateTo(e)}} className="sidebar_h6">{item.serviceName}</h5>
+            }
+            else
+            {
+              return <h5 id={item.id} onClick={(e)=>{navigateTo(e)}} className="sidebar_h6">{item.serviceName}</h5>
+            }
+           
+          
+          })}
+           </div>
+          {/* <a href="abcd" class="Notice">Electrician</a> */}
           </div>
-        <div className="sideimage5">
+        <div className="P_sideimage">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="Addguestdisplay3">
+        <div className="P_display">
           <label>{location.state.serviceName}</label>
         </div>
 
         <input
           type=" search"
-          className="search"
+          className="P_search"
           name="Search"
           placeholder="&#128269; Search"
+          onChange={(e)=>findText(e)}
         ></input>
 
         <table
@@ -92,21 +164,16 @@ const Plumber = () => {
           </thead>
           <tbody>
 
-            {vendors.map(item=>{
+            {currentPosts.map(item=>{
 
               return(
-                <tr key={item._id}>
+                <tr>
                   <td>{item.vendor_name}</td>
                   <td>{item.vendorBy.firstname} {item.vendorBy.lastname}</td>
                   <td>{item.status==true?'Active':'Inactive'} </td>
             </tr>
               )
-              
             })}
-            
-          
-
-            
           </tbody>
         </table>
         <PaginationCalculate totalPages={vendors.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>

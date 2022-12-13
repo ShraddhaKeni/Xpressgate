@@ -18,6 +18,66 @@
     margin-left: 13%;
     margin-bottom: 5%;
 }
+.VP_searchbox{
+    width: 15%;
+    height: 5%;
+    border: 2px solid #000;
+    border-radius: 15px;
+    margin-left: 68.5%;
+    margin-top: 1%;
+    margin-bottom: -2%;
+    
+  }
+  .vpsidelinks{
+    margin-right: 40%;
+    margin-top: 10%;
+    }
+    .vpsidelinks label{
+      font-family: 'Rubik';
+      font-style: normal;
+      font-weight: 500;
+    text-align: center;
+    color: #000000;
+    font-size: 1.3vw;
+    }
+    .Vparksection {
+      font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.9vw;
+    text-align: center;
+    margin-left: 23%;
+    color: #000;
+    }
+    .Aparksection {
+      font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.9vw;
+    text-align: center;
+    margin-left: 21%;
+    color: #5C5C5C;
+    }
+    .Vparksection:hover{
+      color: #000000;
+    }
+    .Aparksection:hover{
+      color: #000000;
+    }
+  .VP_searchbox input {
+    outline: none;
+    border: none;
+    height: 5vh;
+    width: 8vw;
+    border-radius: 5px;
+    margin-left: 6%;
+  }
+  
+  .VP_searchbox img{
+    position: relative;
+    margin-top: 0%;
+    margin-left: -2%;
+  }
 .VPdisplay {
     width: 20vw;
     height: 7vh;
@@ -37,6 +97,27 @@
 
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
+    .vpsidelinks {
+        margin-right: 38%;
+        margin-top: 10%;
+      }
+      .vpsidelinks label{
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: 500;
+      text-align: center;
+      color: #000000;
+      font-size: 1.3vw;
+      }
+    .VP_searchbox{
+        width: 15%;
+        height: 5%;
+        border: 2px solid #000;
+        border-radius: 15px;
+        margin-left: 68%;
+        margin-top: 0%;
+        
+      }
     .viewparking_sideimg img {
         display: flex;
         margin-top: 54%;

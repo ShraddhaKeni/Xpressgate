@@ -230,7 +230,9 @@ table th {
       position: relative;
       margin-top: 12.5%;
     }
-  
+    .btnlogout:hover {
+      background-color: #14335D;
+    }
     .labelsize {
       font-size: 12px;
     }

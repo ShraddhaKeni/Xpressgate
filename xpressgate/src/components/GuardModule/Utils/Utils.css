@@ -95,6 +95,9 @@ html {
   font-size: 20px;
   font-weight: 500;
 }
+.btnlogout:hover {
+  background-color: #14335D;
+}
 .guardname {
   display: flex;
   width: 80%;
@@ -148,7 +151,9 @@ html {
   margin-right: 35%;
   padding-top: 0%;
 } 
-
+.btnlogout:hover {
+  background-color: #14335D;
+}
 #dashboardguard label {
   margin-top: 14%;
   margin-left: -68%;
