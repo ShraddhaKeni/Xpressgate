@@ -21,12 +21,12 @@ const SideLayOut = () => {
 
       <Link to={"/admin"} className='admin-profile' style={{ textDecoration: 'none' }} >
         <img src="/images/AdminSideicon.svg" alt="logo" className='adminsidelogo'></img>
-        <p className='admin-profile-username'>User Name</p>
+        <p className='admin-profile-username font-weight-bold'>User Name</p>
 
       </Link>
 
       <Link to={RouterPath.ADMIN_DASHBOARD} style={{ textDecoration: 'none' }} >
-        <div className={`nav-item ${router.pathname.includes("dashboard") && 'font-weight-bold'}`}>
+        <div className={`nav-item ${router.pathname.includes("dashboard") && 'font-weight-bold'} mt-5`}>
           <HomeOutlinedIcon className='side-nav-icon' fontSize='large' />
           <span className='ml-3 Labelfont'>Dashboard</span>
         </div>
@@ -65,7 +65,7 @@ const SideLayOut = () => {
             <Link to={RouterPath.PAYMENT_HISTORY} style={{ textDecoration: 'none' }} >
               <div className={`nav-inner-item ${router.pathname.includes("history") && 'font-weight-bold'}`}>
                 <ChevronRightOutlinedIcon className={router.pathname.includes("history") ? '' : 'd-none'} />
-                <span className={router.pathname.includes("history") ? '' : 'ml-4' }>Payment History</span>
+                <span className={router.pathname.includes("history") ? '' : 'ml-4'}>Payment History</span>
               </div>
             </Link>
           </div>
@@ -86,8 +86,14 @@ const SideLayOut = () => {
           <span className='ml-3 Labelfont'>Reports</span>
         </div>
       </Link>
+      <Link to={'#'} style={{ textDecoration: 'none' }} >
+        <div className={`nav-item ${router.pathname.includes("reports") && 'font-weight-bold'}`}>
+          <SettingsOutlinedIcon className='side-nav-icon' fontSize='large' />
+          <span className='ml-3 Labelfont'>Configuration</span>
+        </div>
+      </Link>
 
-
+      <img src='/images/side_bar_img.svg' style={{ width: '100%' }} />
 
     </aside>
   )

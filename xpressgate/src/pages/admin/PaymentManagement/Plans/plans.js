@@ -52,18 +52,18 @@ export const PlansList = () => {
     }
     return (
         <div className="container pb-5">
-            <div className='Addvehicledisplay'>
+            <div className='page-label'>
                 <label>Subscription Plans</label>
             </div>
             <div className='main-container'>
 
                 <div className='table-top-right-content'>
-                    <div className='table-search'>
+                    <div className='table-search pl-2'>
                         <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
                         <span><input className='search' placeholder='Search' onChange={(e) => { }} /></span>
                     </div>
                     <div className="table-add-new-button" onClick={handleAddPlan}>
-                        <img src="/images/ic_plus.svg" /> Add new Plan
+                        <img src="/images/ic_plus.svg" /> Add New Plan
                     </div>
                 </div>
 

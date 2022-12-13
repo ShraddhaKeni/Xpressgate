@@ -65,13 +65,13 @@ export const PaymentsHistory = () => {
             <div className='main-container mt-5'>
 
                 <div className='table-top-right-content search-right mb-5'>
-                    <div className='table-search'>
+                    <div className='table-search pl-2'>
                         <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
                         <span><input className='search_input' placeholder='Search' onChange={(e) => { }} /></span>
                     </div>
                 </div>
 
-                <table id="table-header" class="table table-striped " cellspacing="0">
+                <table id="table-header" class="table table-light table-striped" cellspacing="0">
                     <thead className='table-th'>
                         <tr>
                             <th class="th-sm">ID No.</th>
