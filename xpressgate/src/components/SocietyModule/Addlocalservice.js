@@ -93,9 +93,13 @@ const Addlocalservice = () => {
           <img src="/images/societyicon.svg" alt="society name" />
           <label>Society Name</label>
         </div>
-        <div className='alssidelinks'>
+        {/* <div className='alssidelinks'>
           <Link>Local Services</Link><br></br><br></br>
           <Link to='/addlocalservice'>Add Local Services</Link>
+        </div> */}
+          <div className='nlsidelinks'>
+          <a className='LSsidelinks' href="/"><b>Local Service</b></a><br></br><br></br>
+          <a className='ALSsidelinks' href="/addlocalservice">Add Local Services</a>
         </div>
         <div className='alssideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
@@ -107,13 +111,13 @@ const Addlocalservice = () => {
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Vendor Name</label>
             <div class="col-lg-4">
-              <input type="text" class="form-control input-lg" id='vendor_name' name="flatNo" placeholder="Vendor Name"></input>
+              <input type="text" class="form-control input-lg inputborder" id='vendor_name' name="flatNo" placeholder="Vendor Name"></input>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label labelsize">Added By</label>
             <div class="col-sm-4 col-md-4 col-lg-4">
-              <select class="form-control input-lg" id='added_by'>
+              <select class="form-control input-lg inputborder" id='added_by'>
                 <option value={null} disabled selected>Added By</option>
                 {addeddata.map(item => {
                   return <option value={item.resident._id}>{item.resident.firstname + ' ' + item.resident.lastname}</option>
@@ -124,7 +128,7 @@ const Addlocalservice = () => {
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Service</label>
             <div class="col-lg-4">
-              <select class="form-control input-lg" id="service" placeholder="Service">
+              <select class="form-control input-lg inputborder" id="service" placeholder="Service">
                 <option value={null} disabled selected>Service</option>
                 {service.map(item => {
                   return <option value={item.id}>{item.serviceName}</option>
@@ -135,7 +139,7 @@ const Addlocalservice = () => {
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Contact No.</label>
             <div class="col-lg-4">
-              <input type="text" class="form-control input-lg" id='contact_no' name="flatNo" placeholder="Contact No." maxLength="10"></input>
+              <input type="text" class="form-control input-lg inputborder" id='contact_no' name="flatNo" placeholder="Contact No." maxLength="10"></input>
             </div>
           </div>
 

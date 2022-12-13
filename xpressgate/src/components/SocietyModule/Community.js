@@ -17,8 +17,8 @@ const Community = () => {
 
       </div>
       <div id="societynamesection">
-        <div className="societyname">
-          <img src="/images/profileicon.svg" alt="Society image" />
+        <div className="SC_societyname">
+          <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
         <br />
@@ -30,13 +30,13 @@ const Community = () => {
           <a className='sidelinks' href="/noticelist">Notice List</a><br></br><br></br>
           <a className='sidelinks' href="/addNotice">Add Notice</a>
         </div>
-        <div className="sideimage1">
+        <div className="SC_sideimage">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
 
       </div>
       <div className="addguestbackgroundimg">
-        <div className="Addguestdisplay2">
+        <div className="SC_display">
           <label>Community Management</label>
         </div>
 

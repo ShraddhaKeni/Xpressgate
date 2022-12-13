@@ -21,7 +21,25 @@ html {
     position: relative;
   
   }
+  .AEN_display {
+    width: 18vw;
+    height: 7vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 1.3vw;
+    margin: auto;
+    margin-top: -3%;
+    padding-top: 1%;
+  }
   
+  .AEN_display label{
+   
+        display: inline-block;
+       
+        margin-bottom: -19%;
+        font-weight: 700;
+    
+  }
   .addguestbackgroundimg {
     /* background-image: url("../../../public/images/dashboardbackground.svg"); */
     background-repeat: no-repeat;
@@ -31,70 +49,15 @@ html {
     margin-top: 0.5%;
   }
   
-  .firstheadersection1 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
-    grid-template-areas: "dashboardlogo dashboardguard1 dashboardspace dashboardnotification1 dashboardsetting1 dashboardlogoutbutton";
+
+  .AEN_societyname label {
+    color: #000;
+    margin-left: 4%;
+    margin-top: 13%;
+    font-size: 1.2vw;
+    padding-top: 0.5%;
   }
-  
-  #dashboardlogo {
-    grid-area: dashboardlogo;
-  }
-  
-  #dashboardlogo img {
-    margin-top: 5%;
-    margin-left: 1%;
-    margin-bottom: 5%;
-    width: 40%;
-  }
-  
-  #dashboardguard1 {
-    grid-area: dashboardguard11;
-  }
-  
-  
-  #dashboardspace {
-    grid-area: dashboardspace;
-  }
-  
-  #dashboardnotification1 {
-    grid-area: dashboardnotification1;
-  }
-  
-  #dashboardnotification1 img {
-    margin-top: 100%;
-  }
-  
-  #dashboardsetting1 {
-    grid-area: dashboardsetting1;
-  }
-  
-  #dashboardsetting1 img {
-    margin-top: 100%;
-  }
-  
-  #dashboardlogoutbutton {
-    grid-area: dashboardlogoutbutton;
-  }
-  
-  #dashboardlogoutbutton img {
-    padding-left: 10%;
-    padding-bottom: 5%;
-  }
-  
-  /* .btnlogout {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 142px;
-    height: 52px;
-    font-size: 20px;
-    font-weight: 500;
-    margin-top: 18%;
-    padding-top: 2%;
-  } */
-  
-  .societyname {
+  .AEN_societyname {
     display: flex;
     width: 80%;
     height: 12%;
@@ -103,20 +66,12 @@ html {
     margin-top: 12%;
     border-radius: 24px;
   }
-  
-  .societyname img {
+  .AEN_societyname img {
     margin-left: 10%;
     width: 25%;
     height: 70%;
     margin-top: 4%;
   }
-  .societyname label {
-    color: #000;
-    margin-left: -14%;
-    margin-top: 13%;
-    font-size: 1vw;
-    padding-top: 0.5%;
-}
 .Addguestdisplay3 label{
  
       display: inline-block;
@@ -130,41 +85,48 @@ margin-bottom: 3.5%;
 }
 
 
-
-.sideimage4 img {
+.AEN_sideimage img {
   display: flex;
-  margin-top: 100%;
+  margin-top: 90%;
   max-width: 90%;
   height: auto;
   margin-left: 13%;
-  margin-bottom: 5%;
-  
+  margin-bottom: 5%;  
 }
 
-
-
-.noticelist h4{
-  color: #434242;
-}
-.noticelist a{
-  color: #000
-}
-.btnAdd4{
+.AEN_btnAdd{
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  width: 15vw;
-  height: 6vh;
-  font-size: 2vw;
+  width: 9vw;
+  height: 5vh;
+  font-size: 1.1vw;
   font-weight: 500;
-  margin-top: 5%;
-  margin-right: 25%;
+  margin-top: 3%;
+  margin-right: 34%;
   padding-top: 0%;
 }
-
+.AEN_btnAdd:hover{
+  background-color:  #14335D;
+}
+.AEN_border{
+  background: #FFFFFF;
+border: 2px solid #14335D;
+box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+border-radius: 8px;
+}
 /* Media query for laptop */
 @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
- 
+  .AEN_display {
+    width: 19vw;
+    height: 7vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 1.3vw;
+    padding-top: 1%;
+    margin: auto;
+    margin-top: -3%;
+  }
 .form-group5 {
   margin-bottom: 3.5%;
 }
@@ -178,26 +140,27 @@ margin-bottom: 3.5%;
   margin: auto;
   margin-top: -17%;
 }
-.btnAdd4 {
+.AEN_btnAdd {
 background-color: #0A8996;
 color: #fff;
-border-radius: 14px;
-width: 18vw;
-height: 6vh;
-font-size: 2.2vw;
-font-weight: 400;
+border-radius: 12px;
+width: 9vw;
+height: 5vh;
+font-size: 1.1vw;
+font-weight: 500;
 margin-top: 4%;
-margin-right: 25%;
+margin-right: 32%;
 padding-top: 0%;
 }
-
-  .sideimage4 img {
-    display: flex;
-    margin-top: 147%;
-    max-width: 92%;
-    height: auto;
-    margin-left: 4%;
+.AEN_btnAdd:hover{
+  background-color:  #14335D;
 }
-
+.AEN_sideimage img {
+  display: flex;
+  margin-top: 88%;
+  max-width: 95%;
+  height: auto;
+  margin-left: 2%;
+}
 
 }

@@ -73,25 +73,25 @@ useEffect(()=>{
     
     </div>
       <div id="societynamesection">
-        <div className="societyname">
+        <div className="EN_societyname">
           <img src="/images/profileicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
         <br/>
-        <div class="noticelist">
+        <div class="EN_noticelist">
           <h4>Emergency Number list</h4>
           <a href="/addemergency" class="Notice">Add Emergency Number</a>
           </div>
-        <div className="sideimage2">
+        <div className="EN_sideimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="Addguestdisplay5">
+        <div className="EN_display">
           <label>Emergency Numbers</label>
         </div>
         <div >
-        <button type="button" className="AddNN" onClick={() => {
+        <button type="button" className="EN_Add" onClick={() => {
                 window.location.href = "/addemergency";
               }}>&#10011; Add New Number</button>
         <input
@@ -104,7 +104,7 @@ useEffect(()=>{
         </div>
 
         <table
-          id="inoutbooktable1"
+          id="inoutbooktable"
           class="table table-striped table-bordered table-sm "
           cellspacing="0"
           // style={{ border: '2px solid #14335D;;'}}

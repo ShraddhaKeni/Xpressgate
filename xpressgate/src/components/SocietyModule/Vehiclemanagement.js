@@ -73,9 +73,9 @@ const Vehiclemanagement = () => {
           <label>Society Name</label>
         </div>
         <div className='vmsidelinks'>
-          <label>Vehicle List</label><br></br>
-          <a href='/viewparking'>View Parking Section</a><br/><br/>
-          <a href='/addparking'>Add Parking Section</a>
+          <label>Vehicle list</label><br></br>
+          <a href='/viewparking'>View parking section</a><br/><br/>
+          <a href='/addparking'>Add parking section</a>
         </div>
         <div className='vmsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
@@ -85,7 +85,7 @@ const Vehiclemanagement = () => {
         </div>
         <div className='row'>
           <div className='parkingsection'>
-            <select className="form-control input-lg psection">
+            <select className="form-control input-lg psection parksection">
               <option value={null} disabled selected>Parking Section</option>
             </select>
           </div>

@@ -73,21 +73,22 @@ const Managementteam = () => {
     
     </div>
       <div id="societynamesection">
-        <div className="societyname">
-          <img src="/images/profileicon.svg" alt="Society image" />
+        <div className="MM_societyname">
+          <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
+        
         <br/>
-        <div class="noticelist">
+        <div class="MM_notice">
           <h4>Management Team list</h4>
           <a href="/addManagement" class="Notice">Add Management Member</a>
           </div>
-        <div className="sideimage2">
+        <div className="MM_sideimage">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="Addguestdisplay5">
+        <div className="MM_display">
           <label>Management Team</label>
         </div>
         <div >
