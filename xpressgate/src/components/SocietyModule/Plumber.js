@@ -110,7 +110,7 @@ const navigateTo =e=>{
         <Societyheader/>
     </div>
       <div id="societynamesection">
-        <div className="societyname">
+        <div className="P_societyname">
           <img src="/images/profileicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
@@ -132,18 +132,18 @@ const navigateTo =e=>{
            </div>
           {/* <a href="abcd" class="Notice">Electrician</a> */}
           </div>
-        <div className="sideimage5">
+        <div className="P_sideimage">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="Addguestdisplay3">
+        <div className="P_display">
           <label>{location.state.serviceName}</label>
         </div>
 
         <input
           type=" search"
-          className="search"
+          className="P_search"
           name="Search"
           placeholder="&#128269; Search"
           onChange={(e)=>findText(e)}

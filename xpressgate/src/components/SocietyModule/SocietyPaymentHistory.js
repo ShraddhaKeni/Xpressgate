@@ -113,8 +113,8 @@ const SocietyPaymentHistory = () => {
       <Societyheader/>
     </div>
       <div id="societynamesection">
-        <div className="societyname">
-          <img src="/images/profileicon.svg" alt="Society image" />
+        <div className="PH_societyname">
+          <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
         
