@@ -60,7 +60,7 @@ useEffect(()=>{
             <div id="afsociety"><label>Society</label></div>
             <div id="afspace"></div>
             <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-            <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+            <div id="afsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
             <div id="aflogoutbutton"><LogOut/></div>
           </div>
       

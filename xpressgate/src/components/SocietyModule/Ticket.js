@@ -43,7 +43,7 @@ const Ticket = () => {
           <div id="tktsociety"><label>Society</label></div>
           <div id="tktspace"></div>
           <div id="tktnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="tktsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="tktsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
           <div id="tktlogoutbutton"> <LogOut/></div>
         </div>
       </div>
