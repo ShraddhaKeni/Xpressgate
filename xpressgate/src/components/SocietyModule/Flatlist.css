@@ -127,7 +127,10 @@ html {
 } */
 
 .flname label {
-  color: #000;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
   margin-left: 4%;
   margin-top: 13%;
   font-size: 1.2vw;
@@ -172,14 +175,19 @@ html {
 }
 
 .fldisplay {
-  width: 18vw;
-  height: 8vh;
+  width: 17vw;
+  height: 7.5vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 1.8vw;
+  font-size: 1.5vw;
   padding-top: 1%;
   margin: auto;
-  margin-top: -3%;}
+  margin-top: -3%;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
+}
 
 .labelsize {
   font-size: 20px;
@@ -229,6 +237,10 @@ table th {
     margin-left: 2%;
     margin-top: 16%;
     font-size: 15px;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    color: #14335D;
   }
 
   .flsideimage img {
@@ -265,14 +277,18 @@ table th {
   }
 
   .fldisplay {
-    width: 18vw;
-    height: 8vh;
+    width: 17vw;
+    height: 7.5vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 1.8vw;
+    font-size: 1.6vw;
     padding-top: 1%;
     margin: auto;
     margin-top: -15%;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    color: #14335D;
   }
 
   .flsearchbox {

@@ -67,14 +67,18 @@ input::-webkit-inner-spin-button {
 }
 
 .societydisplay {
-  width: 18vw;
-  height: 8vh;
+  width: 17vw;
+  height: 7.5vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 1.8vw;
+  font-size: 1.5vw;
   padding-top: 1%;
   margin: auto;
   margin-top: -3%;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
 }
 .Flatsidelinks{
   color:#757575;
@@ -160,7 +164,10 @@ input::-webkit-inner-spin-button {
 }
 
 .blsocietyname label {
-  color: #000;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
   margin-left: 4%;
   margin-top: 13%;
   font-size: 1.2vw;
@@ -368,6 +375,10 @@ input::-webkit-inner-spin-button {
   padding-top: 1%;
   margin: auto;
   margin-top: -13%;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
 }
 }
 

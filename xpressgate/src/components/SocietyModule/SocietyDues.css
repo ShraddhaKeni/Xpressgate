@@ -3,15 +3,20 @@ html {
   }
   
 
-.Typedetails{
+  .Typedetails {
     margin-right: 5%;
     margin-left: -10%;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     color: #14335D;
-    
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
 }
 .SD_societyname label {
-    color: #000;
+    color: #14335D;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
     margin-left: 4%;
     margin-top: 13%;
     font-size: 1.2vw;
@@ -36,27 +41,39 @@ html {
 .SocietyFlatNo{
     margin-right: 5%;
     margin-left: -12%;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     color: #14335D;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
     
 }
 .Society_Block{
     margin-right: 5%;
     margin-left: -10.5%;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     color: #14335D;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
 }
 .Society_Residentnames{
     margin-right: 5%;
-    margin-left: -19%;
-    font-size: 1.5vw;
+    margin-left: -17%;
+    font-size: 1.2vw;
     color: #14335D;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
 }
 .Society_Amount{
     margin-right: 5%;
     margin-left: -12.5%;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     color: #14335D;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
 }
 .ButtonsContainer2{
     max-width: 100%;
@@ -73,35 +90,60 @@ html {
     background: #0A8996;
     border: none;
     color: #FFFFFF;
-    margin-top: -3%;
+    margin-top: -7%;
 
 }
+.SD_display {
+    width: 20vw;
+    height: 7vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    padding-top: 14px;
+    margin: auto;
+    margin-top: -3%;
+}
+.SD_display label {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;  
+    font-size: 1.5vw;
+    text-align: center;  
+    color: #14335D;
+}
+
 .SAddButn:hover{
     background: #14335D;
 }
 .paymentdate{
-    margin-right: 4%;
+    margin-right: 5.5%;
     margin-left: -10.5%;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     color: #14335D;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    
 }
 .Paymentdateinput{
-    width: 10vw;
+    width: 8vw;
     height: 5vh;
     padding: 1%;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     border: 2px solid #14335D;
     border-radius: 8px;
     margin-top: 0%;
-    margin-right: 6%;
+    margin-right: 1.5%;
 }
 .Duedate{
-    margin-right: 4%;
-    font-size: 1.5vw;
+    margin-right: 2%;
+    font-size: 1.2vw;
     color: #14335D;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
 }
 .Duedateinput{
-    width: 10vw;
+    width: 8vw;
     height: 5vh;
     padding: 1%;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
@@ -115,5 +157,30 @@ html {
     .SAddButn:hover{
         background: #14335D;
     }
-  
+    .Typedetails {
+        margin-right: 5%;
+        margin-left: -10%;
+        font-size: 1.2vw;
+        color: #14335D;
+    }
+    .SD_display {
+        width: 19vw;
+        height: 8vh;
+        background-color: #AED8DC;
+        border-radius: 30px;
+        font-size: 20px;
+        padding: 1%;
+        margin: auto;
+        margin-top: -4%;
+        margin-left: 36%;
+    }
+    .SD_display label {
+      
+        font-size: 1.5vw;
+        text-align: center;
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: 500;
+        color: #14335D;
+ }
   }

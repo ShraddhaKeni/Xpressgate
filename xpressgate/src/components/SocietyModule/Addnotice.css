@@ -113,7 +113,10 @@ html {
 }
 
 .ansocietyname label {
-  color: #000;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
   margin-left: 8%;
   margin-top: 10%;
   font-size: 20px;
@@ -137,24 +140,29 @@ html {
   padding-top: 14px;
   margin: auto;
   margin-top: -2%;
+  color: #14335D;;
+  font-weight: 500;
+  font-family: 'Rubik';
+  font-style: normal;
+
 }
 
 .labelsize {
   font-size: 20px;
 }
 
-.btnAddNotice {
+.AddNoticeButton {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  width: 250px;
-  height: 60px;
-  font-size: 151%;
+  width: 10vw;
+  height: 5vh;
+  font-size: 1.3vw;
   font-weight: 500;
   margin-top: 4%;
   margin-right: 18%;
 }
-.btnAddNotice:hover {
+.AddNoticeButton:hover {
   background-color: #14335D;
 }
 .anformclass {
@@ -162,7 +170,31 @@ html {
   margin-left: 15%;
 }
 
+.NLSLink{
+  color:#757575;
+  font-weight: 400;
+  font-family: 'Rubik';
+  font-style: normal;
 
+  
+}
+.ANSLink{
+  color:#000000;
+  font-weight: 500;
+  font-family: 'Rubik';
+  font-style: normal;
+
+ 
+}
+
+.NLSLink:hover {
+  color: #000;
+  text-decoration: none; 
+}
+.ANSLink:hover {
+  color: #000;
+  text-decoration: none; 
+}
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   .ansocietyname {
@@ -179,6 +211,10 @@ html {
     margin-left: 7%;
     margin-top: 15%;
     font-size: 15px;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    color: #14335D;
   }
 
   .ansideimage img {
@@ -201,20 +237,19 @@ html {
   .labelsize {
     font-size: 12px;
   }
-
-  .btnAddNotice {
+  .AddNoticeButton {
     background-color: #0A8996;
     color: #fff;
     border-radius: 14px;
-    width: 155px;
-    height: 44px;
-    font-size: 151%;
+    width: 10vw;
+    height: 6vh;
+    font-size: 1.5vw;
     font-weight: 500;
     margin-top: 4%;
     margin-right: 18%;
     padding-top: 0%;
-  }
-  .btnAddNotice:hover {
+}
+  .AddNoticeButton:hover {
     background-color: #14335D;
   }
   #ansociety label {
@@ -238,6 +273,10 @@ html {
     padding-top: 14px;
     margin: auto;
     margin-top: -16%;
+    color: #14335D;;
+    font-weight: 500;
+    font-family: 'Rubik';
+    font-style: normal;
   }
 
   .ansocietyname img {
@@ -288,7 +327,7 @@ html {
     margin-left: 55%;
 }
 
-.btnAddNotice {
+.AddNoticeButton {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
@@ -299,7 +338,7 @@ html {
   margin-top: 4%;
   margin-right: 0%;
 }
-.btnAddNotice:hover {
+.AddNoticeButton:hover {
   background-color: #14335D;
 }
 .anformclass {

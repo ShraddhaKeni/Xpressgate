@@ -2,15 +2,51 @@ import { ButtonUnstyled } from '@mui/base';
 import { IconButton } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { getAllPlans, getPaymentHistory } from '../../../../common/admin/admin_api';
 import PaginationCalculate from '../../../../components/GuardModule/Utils/paginationCalculate';
 
-
+const PageSize = 10;
 export const PaymentsHistory = () => {
 
     const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
+    const [history, setHistory] = useState();
+    const [allHistory, setAllHistory] = useState();
+    const [currentPage, setCurrentPage] = useState(1);
 
+    const openInNewTab = (url) => {
+
+        window.open(url, '_blank', 'noopener,noreferrer');
+    };
+
+
+    const handlePageChange = (page) => {
+
+        setCurrentPage(page.selected);
+
+        setHistory(getCurrentHistory(allHistory));
+
+    }
+
+
+    useEffect(() => {
+        async function getPayments() {
+            const res = await getPaymentHistory();
+            if (res && res.data.status_code == 200) {
+                setHistory(getCurrentHistory(res.data.data))
+            }
+        }
+
+        getPayments();
+    }, [])
+
+    function getCurrentHistory(data) {
+        if (data.length < PageSize) {
+            return data;
+        }
+        const firstPageIndex = (currentPage) * PageSize
+        const lastPageIndex = firstPageIndex + PageSize;
+        return data?.slice(firstPageIndex, lastPageIndex);
     }
 
     const handleAddPremise = (someId) => {
@@ -47,58 +83,28 @@ export const PaymentsHistory = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>!</td>
-                            <td> <p className='status-pending'>Pending</p></td>
-                            <td>
-                                <ButtonUnstyled className='download-invoice'>Download Invoice</ButtonUnstyled>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>
-                                <p className='status-success'>Completed</p>
-                            </td>
-                            <td>
-                                <ButtonUnstyled className='download-invoice'>Download Invoice</ButtonUnstyled>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>
-                                <p className='status-failed'>Failed</p>
-                            </td>
-                            <td>
-                                <ButtonUnstyled className='download-invoice'>Download Invoice</ButtonUnstyled>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>!</td>
-                            <td>
-                                <p className='status-pending'>Pending</p>
-                            </td>
-                            <td>
-                                <ButtonUnstyled className='download-invoice'>Download Invoice</ButtonUnstyled>
-                            </td>
-                        </tr>
+                        {history && history.map((item) => {
+                            return <tr>
+                                <td>{item.pg_transection_id}</td>
+                                <td>{item.payment_type}</td>
+                                <td>{item.payment_date || "n/a"}</td>
+                                <td>{item.amount}</td>
+                                <td> <p className={`status-${item.status_name.toLowerCase()}`}>{item.status_name}</p></td>
+                                <td>
+                                    <ButtonUnstyled className='download-invoice' onClick={() => openInNewTab(item.invoice_url)}>Download Invoice</ButtonUnstyled>
+                                </td>
+                            </tr>
+                        })}
+
                     </tbody>
                 </table>
-                <div className='flex space-between'>
-                    <p>Showing 6 of 20</p>
-                    <PaginationCalculate totalPages={10} postperPage={20} currentPage={2} paginate={10} />
-                </div>
+                {allHistory && <div className='flex space-between'>
+                    <p>Showing {currentPage} of {`${Math.ceil(allHistory.length / PageSize)}`}</p>
+
+                    {/* <PaginationCalculate totalPages={Math.ceil(allCoupons.length / PageSize)} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} /> */}
+                    <PaginationCalculate totalPages={Math.ceil(allHistory.length / PageSize)} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} />
+
+                </div>}
 
             </div >
         </div >

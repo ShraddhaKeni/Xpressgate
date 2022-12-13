@@ -30,26 +30,29 @@ html {
 }
 
 .InoutBookButton{
-  margin-top: 2%;
-  margin-left: 60%;
-  background: #017069;
+  margin-top: 1%;
+  margin-left: 75%;
+  background: #0A8996;
   border-radius: 18px; 
-  width:12vw ;
+  width:11vw ;
   height: 4vh;
   padding: 0.5%;
+  
 }
 .InoutBookButton:hover{
-  background: #359f98;
+  background: #14335D;
 }
 .InoutBookADDButton{
   font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;
-font-size: 1.3vw;
-color: #FFFFFF;
-
+font-size: 1.2vw;
+color: white;
 }
-
+.InoutBookADDButton:hover{
+  color: #F9F9FF;
+  
+}
 .iobbackgroundimg {
   background-image: url("../../../public/images/dashboardbackground.svg");
   background-repeat: no-repeat;
@@ -139,15 +142,19 @@ color: #FFFFFF;
 }
 
 .guardname label {
-  color: #000;
+  
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
   margin-left: 8%;
   margin-top: 10%;
   font-size: 20px;
 }
 
-.sideimage img {
+.IOBsideimage img {
   display: flex;
-  margin-top: 80%;
+  margin-top: 90%;
   width: 100%;
   height: auto;
 }
@@ -161,6 +168,10 @@ color: #FFFFFF;
   padding-top: 14px;
   margin: auto;
   margin-top: -2%;
+  color: #14335D;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
 }
 
 .labelsize {
@@ -209,9 +220,9 @@ tr:last-child td:first-child { border-bottom-left-radius: 10px; }
     font-size: 15px;
   }
 
-  .sideimage img {
+  .IOBsideimage img {
     display: flex;
-    margin-top: 216%;
+    margin-top: 130%;
     width: 100%;
     height: auto;
   }
@@ -250,5 +261,18 @@ tr:last-child td:first-child { border-bottom-left-radius: 10px; }
     padding-top: 14px;
     margin: auto;
     margin-top: -16%;
+    color: #14335D;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
   }
+  .InoutBookButton {
+    margin-top: 2%;
+    margin-left: 73%;
+    background: #017069;
+    border-radius: 18px;
+    width: 12vw;
+    height: 5vh;
+    padding: 0.5%;
+}
 }

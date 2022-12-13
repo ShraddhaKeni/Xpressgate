@@ -4,7 +4,7 @@ import axios from 'axios';
 import ReactPlayer from 'react-player'
 import PaginationCalculate from './Utils/paginationCalculate';
 import LogOut from './Utils/LogOut';
-
+import GuardHeader from './Utils/GuardHeader';
 const Videoclass = () => {
   const [videodata, setVideodata] = useState([])
 
@@ -37,14 +37,15 @@ const Videoclass = () => {
   return (
     <div className="videoclasscontainer">
       <div id="videoheadersection">
-        <div class="videofirstheadersection">
+        {/* <div class="videofirstheadersection">
           <div id="videodashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
           <div id="videodashboardguard"><label>Guard</label></div>
           <div id="videodashboardspace"></div>
           <div id="videodashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
           <div id="videodashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
           <div id="videodashboardlogoutbutton"> <LogOut/></div>
-        </div>
+        </div> */}
+        <GuardHeader/>
       </div>
       <div id="videoguardnamesection">
         <div className='videoguardname'>

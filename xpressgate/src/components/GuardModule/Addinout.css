@@ -26,7 +26,7 @@ html {
 
 .aiosideimage img {
   display: flex;
-  margin-top: 53%;
+  margin-top: 99%;
   max-width: 90%;
   height: auto;
   margin-left: 13%;
@@ -60,21 +60,17 @@ html {
 }
 
 .aiosocietyname label {
-  color: #000;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
   margin-left: 8%;
   margin-top: 10%;
   font-size: 20px;
 }
 
-.aiosideimage img {
-  margin-left: 10%;
-  width: 25%;
-  height: 70%;
-  margin-top: 4%;
-}
-
 .aiodisplay {
-  width: 300px;
+  width: 290px;
   height: 64px;
   background-color: #AED8DC;
   border-radius: 30px;
@@ -82,22 +78,33 @@ html {
   padding-top: 14px;
   margin: auto;
   margin-top: -2%;
+  color: #14335D;
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
 }
 
 .aiolabelsize {
   font-size: 20px;
 }
 
-.btnAddInOut {
+.btnInOut {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  width: 250px;
-  height: 60px;
-  font-size: 151%;
+  width: 9vw;
+  height: 5.5vh;
+  font-size: 1.3vw;
   font-weight: 500;
   margin-top: 4%;
   margin-right: 34%;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+border: none;
+}
+.btnInOut:hover{
+  background: #14335D;
 }
 
 .formclass {
@@ -126,7 +133,7 @@ html {
 
   .aiosideimage img {
     display: flex;
-    margin-top: 216%;
+    margin-top: 125%;
     width: 100%;
     height: auto;
   }
@@ -144,7 +151,7 @@ html {
     font-size: 12px;
   }
 
-  .btnAddInOut {
+  .btnInOut {
     background-color: #0A8996;
     color: #fff;
     border-radius: 14px;
@@ -155,8 +162,11 @@ html {
     margin-top: 4%;
     margin-right: 35%;
     padding-top: 0%;
+  border: none;
   }
-
+  .btnInOut:hover{
+    background: #14335D;
+  }
   .aiodisplay {
     width: 190px;
     height: 64px;
@@ -166,6 +176,10 @@ html {
     padding-top: 14px;
     margin: auto;
     margin-top: -16%;
+    color: #14335D; 
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
   }
 
   .aiosocietyname img {
@@ -205,12 +219,13 @@ html {
     margin-left: 78%;
 }
 
-.btnAddInOut {
+.btnInOut {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
   width: 140px;
   margin-right: auto;
+  border: none;
 }
 
 .formclass {

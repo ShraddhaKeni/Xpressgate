@@ -23,8 +23,8 @@ const Viewparking = () => {
     
     </div>
       <div id="societynamesection">
-        <div className="AP_societyname">
-          <img src="/images/profileicon.svg" alt="Society image" />
+        <div className="VP_societyname">
+          <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
         <br/>
@@ -60,7 +60,7 @@ const Viewparking = () => {
         <table id="viewparkingtable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>
-              <th class="th-sm">Sr</th>
+              <th class="th-sm">Sr No.</th>
               <th class="th-sm">Parking Section</th>
               
               <th class="th-sm">Block</th>

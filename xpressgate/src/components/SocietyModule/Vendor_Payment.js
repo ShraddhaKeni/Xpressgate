@@ -116,7 +116,7 @@ const Vendor_Payment = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="Addguestdisplay4">
+        <div className="VPaydisplay">
           <label>Vendor</label>
         </div>
         <Form className="formclass">
