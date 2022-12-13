@@ -68,7 +68,7 @@ const Approvallistamenity = () => {
           <div id="alasociety"><label>Society</label></div>
           <div id="alaspace"></div>
           <div id="alanotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="alasetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="alasetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
           <div id="alalogoutbutton"> <Button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
         </div>
       </div>

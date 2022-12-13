@@ -83,7 +83,7 @@ const Addvehicle = () => {
           <div id="avsociety"><label>Society</label></div>
           <div id="avspace"></div>
           <div id="avnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="avsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="avsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
           <div id="avlogoutbutton"><LogOut /></div>
         </div>
       </div>

@@ -63,7 +63,7 @@ const Societydashboard = () => {
               </div>
               <div className="col">
                 <div className="sddashboardcard">
-                  <img src="/images/manageflat.svg" className="dbcard-img-top" alt="flat list" onClick={() => { window.location.href = '/flatlist' }}></img>
+                  <img src="/images/manageflat.svg" className="dbcard-img-top" alt="flat list" onClick={() => { window.location.href = '/blockList' }}></img>
                 </div>
               </div>
               <div className="col">

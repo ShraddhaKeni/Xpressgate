@@ -61,7 +61,7 @@ const FlatListNA = () => {
             <div id="dashboardguard"><label>Society</label></div>
             <div id="dashboardspace"></div>
             <div id="dashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-            <div id="dashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+            <div id="dashboardsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
             <div id="dashboardlogoutbutton"> <Button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
           </div>
         </div>
