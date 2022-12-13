@@ -14,7 +14,7 @@ html{
     border-radius: 14px;
     width: 12vw;
     height: 5vh;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     font-weight: 500;
     margin-left: 0%;
     margin-bottom: -1%;
@@ -25,10 +25,10 @@ html{
  
   .adminmobile{
     position: relative;
-    margin-left: -64%;
+    float: left;
     font-family: 'Rubik', sans-serif;
-    font-size: 1.4vw;
-    margin-bottom: 0%;
+    font-size: 1.5rem;
+    margin-bottom: 0rem;
     margin-top: 3%;
   }
 
@@ -39,20 +39,6 @@ html{
   @media only screen  and (min-device-width : 768px) and (max-device-width : 1024px) {
 
   
-   
-  .adminsendcodebtn {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 12vw;
-    height: 5vh;
-    font-size: 1.5vw;
-    font-weight: 500;
-    margin-left: 0%;
-    margin-bottom: -1%;
-    padding: 1%;
-}
-
 
 .adminmobile {
     position: relative;

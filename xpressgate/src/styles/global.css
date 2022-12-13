@@ -49,12 +49,11 @@
 
 
 .dashboard-card-row{
-    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-content: space-between;
     justify-items: center;
-
+    column-gap: 1rem;
 }
 .w-40{
     width: 40rem;
@@ -63,9 +62,8 @@
     margin-top: 12px;
     padding-bottom: 1rem;
     padding-top: 1rem;
-    display: flex;
     flex-direction: column;
-    justify-content: center;
+    display: flex;
     background-color: #0A8996;
     border-radius: 18px;
     color: white;
@@ -127,15 +125,13 @@
     font-size: 25px;
     font-weight: 500;
     font-family: Inter;
-    color: white;
     line-height: 2.7rem;
 }
 
 .dash-heading-sm{
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 700;
     font-family: Inter;
-    color: white;
     line-height: 2rem;
 }
 
@@ -161,6 +157,8 @@
     border-radius: 1rem;
     background-color: white;
     color: #14335D;
+    display: block;
+    max-width: fit-content;
     padding: 0.5rem 2rem;
     font-weight: 700;
     font-family: Inter;
@@ -292,8 +290,11 @@
   }
   .adminheadersection{
     display: grid;
-    grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
+    grid-template-columns: 1.5fr 1fr 5fr;
     grid-template-areas: "adminlogo adminguard adminspace adminnotification adminsetting adminlogout";
+  }
+  #logout{
+    margin-right: 2rem;
   }
   #adminlogo{
         grid-area: adminlogo;
@@ -308,11 +309,11 @@
     grid-area: adminguard;
 }
 #adminguard label{
-    margin-top: 18%;
+  margin-top: 30%;
   margin-left: -128%;
   width: 9vw;
   height: 6vh;
-  background-color: black;
+  background-color: rgba(58, 54, 64, 1);
   color: #fff;
   border-radius: 11px;
   padding: 5%;
@@ -327,7 +328,7 @@
   
   #adminnotification img {
     margin-top: 110%;
-    width: 2.5vw;
+    width: 3.6rem;
     height: auto;
    margin-right: 100%;
   }
@@ -337,17 +338,17 @@
   
   #adminsetting img {
     margin-top: 110%;
-    width: 2.4vw;
+    width: 3.6rem;
     height: auto;
    margin-right: 90%;
   }
   #adminlogout {
     grid-area: adminlogout;
+    font-size: 1.5rem;
   }
   #adminlogout img {
     padding-left: 10%;
-    padding-bottom: 5%;
-    width: 2vw;
+    width: 3rem;
     height: auto;
   }
   .adminLogout {
@@ -358,8 +359,6 @@
     width: 9vw;
     height: 6vh;
     border-radius: 11px;
-    padding: 4%;
-    font-size: 1.3vw;
   }
 
 .adminsidelogo {
@@ -484,7 +483,6 @@
       }
       #adminlogout img {
         padding-left: 7%;
-        padding-bottom: 3%;
         width: 1.5vw;
         height: auto;
       }
@@ -609,16 +607,7 @@
     width: 33vw;
     height: 26vh;
 }
-.page-label {
-    width: 300px;
-    height: 60px;
-    background-color: #AED8DC;
-    border-radius: 30px;
-    font-size: 20px;
-    padding-top: 14px;
-    margin: auto;
-    margin-top: -2%;
-}
+
 /* .page-label label {
     display: inline-block;
     padding: 2%;
@@ -630,7 +619,7 @@
 
 .admin-profile {
     box-sizing: border-box;
-    background: #AED8DC;
+    background: rgba(10, 137, 150, 1);
     border-radius: 24px;
     padding-top: 12px;
     width: 15vw;
@@ -640,7 +629,7 @@
     font-weight: 500;
     font-family: 'Rubik';
     font-style: normal;
-    color: #14335D;
+    color: #FFFFFF;
     font-size: 1.2vw;
 }
 
@@ -676,4 +665,16 @@
     height: 30px;
     width: 30px;
 
+}
+
+
+@media screen and (max-width: 700px){
+    .dashboard-card-row{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-content: space-between;
+        justify-items: center;
+        column-gap: 1rem;
+    }
 }
