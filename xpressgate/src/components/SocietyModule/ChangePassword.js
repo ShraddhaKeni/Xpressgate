@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
-import '../SocietyModule/Main_reset.css'
+import '../SocietyModule/ChangePassword.css'
 import { useLocation } from "react-router-dom";
 import { validatePassword } from "../auth/validation";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
-import GuardHeader from './Utils/GuardHeader';
+import Societyheader from './Utils/Societyheader';
 
 
 const ChangePassword = () => {
@@ -60,45 +60,45 @@ const ChangePassword = () => {
     }
   }
   return (
-    <div className="changePwdContainer">
-      <div id="changePwdsection">
-        <GuardHeader />
+    <div className="changesocContainer">
+      <div id="changesocsection">
+        <Societyheader />
       </div>
-      <div id="cpnamesection">
-        <div className='cpguardname'>
-          <img src="/images/guardnameicon.svg" alt="Guard image" />
-          <label>Guard Name</label>
+      <div id="scpnamesection">
+        <div className='cpsocname'>
+          <img src="/images/societyicon.svg" alt="Society image" />
+          <label>Society Name</label>
         </div>
-        <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
+        <div className='scpsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
       </div>
-      <div className='addguestbackgroundimg'>
-        <div className='maintitle'>
+      <div className='scpbackgroundimg'>
+        <div className='scpmaintitle'>
           <label>Change Password</label>
         </div>
-        <Form className='changepasswordclass'>
-          <div className="cpinput_fields">
-            <div className="password">
+        <Form className='scpclass'>
+          <div className="scpinput_fields">
+            <div className="scppassword">
               <div class="form-group row">
                 <div class="col-lg-6">
-                  <label className="cpassword">Current Password</label>
+                  <label className="scpcppassword">Current Password</label>
                   <input ref={oldpass} type="text" className="form-control input-lg" id="oldpass" placeholder="Current Password"></input>
                 </div>
               </div>
             </div>
             <br></br>
-            <div className="password">
+            <div className="scppassword">
               <div class="form-group row">
                 <div class="col-lg-6">
-                  <label className="npassword">New Password</label>
+                  <label className="ncppassword">New Password</label>
                   <input ref={password} type="password" className="form-control input-lg" id="loginpassword" placeholder="New Password"></input>
                 </div>
               </div>
             </div>
             <br></br>
-            <div className="password">
+            <div className="scppassword">
               <div class="form-group row">
                 <div class="col-lg-6">
-                  <label className="cppassword">Confirm Password</label>
+                  <label className="cscppassword">Confirm Password</label>
                   <input ref={confirmPass} type="password" className="form-control input-lg" id="loginpassword" placeholder="Confirm Password"></input>
                 </div>
               </div>

@@ -21,8 +21,8 @@ const Blocklist = () => {
       console.log(error)
     }
   }
-  const navigateToList = (id) => {
-    navigate('/flatList', { state: { id: id } })
+  const navigateToList = (id,block) => {
+    navigate('/flatList', { state: { id: id,block:block} })
   }
   return (
     <>
@@ -42,10 +42,14 @@ const Blocklist = () => {
             <img src="/images/societyicon.svg" alt="society name" />
             <label>Society Name</label>
           </div>
-          <div className='blsidelinks '>
+          {/* <div className='blsidelinks '>
             <Link to={{pathname: "/flatlist"}}>Flat List</Link><br></br><br></br>
             <Link to={{pathname: "/addflat"}}>Add Flat</Link>
-          </div>
+          </div> */}
+          <div className='nlsidelinks'>
+          <a className='Flatsidelinks' href="/flatList">Flat List</a><br></br><br></br>
+          <a className='Addsidelinks' href="/addflat">Add Flat</a>
+        </div>
           <div className='blsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
         </div>
         <div className='blbackgroundimg'>
@@ -61,7 +65,7 @@ const Blocklist = () => {
                     <div className="blminicard"><br></br>
                       <label className='blblock'>Block {item.block}</label><br></br>
                       <label className='blflat'>Flats - {item.flat !== [] ? parseInt(item.flat) : 0}</label><br></br><br></br>
-                      <Button type="button" className="btnView" onClick={() => { navigateToList(item._id) }} >View</Button><br></br>
+                      <Button type="button" className="btnView" onClick={() => { navigateToList(item._id,item.block) }} >View</Button><br></br>
                     </div>
                   </div>
                 )

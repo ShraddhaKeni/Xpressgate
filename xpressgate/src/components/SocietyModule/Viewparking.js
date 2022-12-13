@@ -57,10 +57,10 @@ const Viewparking = () => {
           <label>Society Name</label>
         </div>
         <br/>
-        <div className='vmsidelinks'>
-          <label>Vehicle List</label><br></br>
-          <a href='/viewparking'><b>View Parking Section</b></a><br/><br/>
-          <a href='/addparking'>Add Parking Section</a>
+        <div className='vpsidelinks'>
+          <label>Vehicle list</label><br></br>
+          <a href='/viewparking' className='Vparksection'><b>View parking section</b></a><br/><br/>
+          <a href='/addparking' className='Aparksection'>Add parking section</a>
         </div>
         <div className="viewparking_sideimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
@@ -70,12 +70,19 @@ const Viewparking = () => {
         <div className='VPdisplay'>
           <label>View Parking Section</label>
         </div>
-        <div className='row'>
+        {/* <div className='row'>
           <div className='search3'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon' className="SearchIconImg"></img></span>
             <span><input className='GL_search_input' id="search_input" placeholder="Search" onKeyPress={(e) => {
                   document.getElementById('search_input').style.border = "none";
                 }}></input></span>
+          </div>
+        </div> */}
+        <div className='row'>
+         <div className='VP_searchbox'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+              <input placeholder='Search' id="search_input" onKeyPress={(e) => {
+                  document.getElementById('search_input').style.border = "none"}}></input></span>
           </div>
         </div>
         <br/>

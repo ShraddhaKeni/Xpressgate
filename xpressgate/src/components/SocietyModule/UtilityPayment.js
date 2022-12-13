@@ -86,7 +86,7 @@ const UtilityPayment = () => {
         </div>
       <div id="societynamesection">
         <div className="societyname">
-          <img src="/images/profileicon.svg" alt="Society image" />
+          <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
         <br/>
@@ -159,7 +159,7 @@ const UtilityPayment = () => {
         </div>
         <div className="ButtonsContainer3">
             <div className="button1">
-                <button type="button" onClick={()=>{handleSubmit()}} className="AddUtilityButnn">Add</button>
+                <button type="button" onClick={()=>{handleSubmit()}} className="AUButnn">Add</button>
             </div>
         </div>
       </div>

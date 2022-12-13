@@ -89,8 +89,8 @@ const Addmanagementteam = () => {
 
       </div>
       <div id="societynamesection">
-        <div className="societyname">
-          <img src="/images/profileicon.svg" alt="Society image" />
+        <div className="AMM_societyname">
+          <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
 
@@ -99,22 +99,33 @@ const Addmanagementteam = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="Addguestdisplay5">
+        <div className="AMM_display">
           <label>Add Management Team</label>
         </div>
         <Form className="formclass">
-          <div class="form-group form-group5 row">
-            <label class="col-lg-2 col-form-label labelsize labelsize2">Resident</label>
+          {/* <div class="form-group form-group5 row">
+            <label class="col-lg-2 col-form-label  labelsize">Resident</label>
             <div class="col-lg-4">
-              <select className="form-control input-lg input-lg1" id='resident_id'>
+              <select className="form-control input-lg" id='resident_id'>
                 <option value={null} selected disabled>Select resident</option>
                 {residents.map(item => {
                   return <option value={item.id}>{item.firstname} {item.lastname}</option>
                 })}
               </select>
             </div>
-          </div>
-          <div class="form-group form-group5 row">
+          </div> */}
+           <div className="AMM_form">
+            <div className="inboxes">
+                <label for="Resident" className="AMMResident">Resident</label>
+                <select  id='resident_id'className="AMMinput">
+                <option value={null} selected disabled>Select resident</option>
+                {residents.map(item => {
+                  return <option value={item.id}>{item.firstname} {item.lastname}</option>
+                })}
+              </select>
+            </div>
+        </div>
+          {/* <div class="form-group form-group5 row">
             <label class="col-lg-2 col-form-label labelsize labelsize2">
               {" "}
               Designation
@@ -122,14 +133,20 @@ const Addmanagementteam = () => {
             <div class="col-lg-4">
               <input
                 type="text"
-                class="form-control input-lg input-lg1"
+                class="form-control input-lg "
                 name="Designation"
                 placeholder=""
                 id='management_title'
               ></input>
             </div>
-          </div>
-
+          </div> */}
+            <div className="AMM_form">
+            <div className="inboxes">
+                <label for="Designation" className="AMMDesignation">Designation</label>
+                <input type="text"   id="management_title"  className="AMMinput"></input> 
+            </div>
+        </div>
+{/* 
           <div className="date row g-2">
             <div class="col-md-3">
               <label for="inputPassword4" class="form-label dateto">
@@ -156,10 +173,23 @@ const Addmanagementteam = () => {
               />
             </div>
 
-          </div>
+          </div> */}
+           <div className="AMM_form">
+            <div className="inboxes">
+            <span>
+                <label for="ToDate" class="Todate">To</label>
+                <input type="date"  id="ToDate" className="Todateinput"  min={disablePastDate()}></input>
+                </span>
+                <span>
+                <label for="ForDate" class="Fromdate">From</label>
+                <input type="date" id="ForDate" className="Fromdateinput" min={disablePastDate()}></input>
+                </span>
+                
+            </div>
+        </div>
 
-          <Button type="submit" onClick={(e) => handleSubmit(e)} className="btnAdd4">
-            Add
+          <Button type="submit" onClick={(e) => handleSubmit(e)} className="AMM_Add_btn">
+            Add Number
           </Button>
         </Form>
       </div>

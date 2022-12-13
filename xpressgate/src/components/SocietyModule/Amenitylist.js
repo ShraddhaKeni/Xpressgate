@@ -5,6 +5,7 @@ import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import './Amenitylist.css';
 import { getAmenitiesBooked } from './common/common';
 import LogOut from './Utils/LogOut';
+import Societyheader from './Utils/Societyheader';
 
 const Amenitylist = () => {
 
@@ -36,7 +37,7 @@ const Amenitylist = () => {
     setCurrentPosts(list.sort().reverse().slice(indexoffirst,indexoflast))
   }
 
-  async function  paginate(event)
+  function  paginate(event)
   {
     setCurrentpage(event.selected+1)
     const indexoflast = (event.selected+1)*postPerPage  //endoffset
@@ -48,29 +49,43 @@ const Amenitylist = () => {
   {
     var d = new Date(date)
     return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()
-    
   }
 
   const getTime=(date)=>{
     var d = new Date(date)
     return d.getHours()+':'+d.getMinutes()
-    
   }
   const navigateToApprove=(id)=>{
-      navigate('/approvallistamenity',{state:{id:id}})
+    navigate('/approvallistamenity',{state:{id:id}})
+  }
+
+  function findText(e)
+  {
+    let search = e.target.value.toLowerCase()
+    let arr = bookedAmenities.filter(x=>{
+      if(x.firstname.toLowerCase().includes(search))
+      {
+        return true
+      }
+      else if(x.lastname.toLowerCase().includes(search))
+      {
+        return true
+      }
+    })
+    if(arr)
+    {
+      setCurrentPosts(arr)
+    }
+    else
+    {
+      paginate(0)
+    }
   }
 
   return (
     <div className="alcontainer">
       <div id="alheadersection">
-        <div class="alfirstheadersection">
-          <div id="aldashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="alsociety"><label>Society</label></div>
-          <div id="aldashboardspace"></div>
-          <div id="alnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="alsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="allogoutbutton"><LogOut /></div>
-        </div>
+        <Societyheader/>
       </div>
       <div id="alsection">
         <div className='alname'>
@@ -79,21 +94,15 @@ const Amenitylist = () => {
         </div>
         <Button onClick={()=>{navigate('/addeditamenity',{state:{id:location.state.id,type:'edit'}})}} className='btnAdd' style={{marginLeft:'65px'}}>Edit Amenity</Button>
         <div className='alsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
-        
       </div>
       <div className='albackgroundimg'>
         <div className='aldisplay'>
           <label>Amenitiy Bookings</label>
         </div>
-       
-         
-          
-         
-       
         <div className='row'>
           <div className='alsearchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-            <span><label className='alsearchlabel'>Search</label><input className='search_input'></input></span>
+            <span><label className='alsearchlabel'>Search</label><input className='search_input' onChange={(e)=>findText(e)}></input></span>
           </div>
         </div>
         <table id="altable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
@@ -108,11 +117,10 @@ const Amenitylist = () => {
             </tr>
           </thead>
           <tbody>
-
             {currentPosts.map((item,index)=>{
               return(
                 <tr onClick={()=>{navigateToApprove(item._id)}}>
-                  <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1)*12+(index+1)}</td>
+                  <td>{(currentPage-1)*12+(index+1)}</td>
                   <td>{item.firstname} {item.lastname}</td>
                   <td>{item.aminety}</td>
                   <td>{dateTimeFormat(item.date)}</td>
@@ -121,7 +129,6 @@ const Amenitylist = () => {
               </tr>
               )
             })}
-            
           </tbody>
         </table>
         <PaginationCalculate totalPages={bookedAmenities.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>

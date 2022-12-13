@@ -100,7 +100,7 @@ html {
 .dspguardname {
   display: flex;
   width: 80%;
-  height: 12%;
+  height: 14%;
   background-color: rgba(10, 137, 150, 0.33);
   margin-left: 10%;
   margin-top: 12%;
@@ -121,9 +121,9 @@ html {
   font-size: 20px;
 }
 
-.sideimage img {
+.dspsideimage img {
   display: flex;
-  margin-top: 125%;
+  margin-top: 64%;
   width: 100%;
   height: auto;
 }
@@ -269,7 +269,7 @@ html {
     font-size: 15px;
   }
 
-  .sideimage img {
+  .dspsideimage img {
     display: flex;
     margin-top: 216%;
     width: 100%;

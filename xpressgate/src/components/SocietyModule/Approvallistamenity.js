@@ -22,7 +22,7 @@ const Approvallistamenity = () => {
 
   const getBookedEmenity=async(id)=>{
     try {
-      const {data} = await axios.get(`${window.env_var}api/resident/booking/getSingle/${id}`)
+      const {data} = await axios.get(`${window.env_var}api/resident/booking/getSingle/${id}`);
       setBooking(data.data.amenities[0])
       
     } catch (error) {

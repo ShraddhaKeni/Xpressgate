@@ -11,14 +11,14 @@ html {
   font-family: 'Rubik', sans-serif;
 }
 .Addguestdisplay4 {
-  width: 20vw;
-  height: 9vh;
+  width: 18vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
   font-size: 1.5vw;
   margin: auto;
-  margin-top: -4%;
-  padding-top: 2%;
+  margin-top: -3%;
+  padding-top: 1%;
 }
 
 .Addguestdisplay4 label{
@@ -135,14 +135,14 @@ color: #000000;
     margin-left: 2%;
 }
 .Addguestdisplay4 {
-  width: 24vw;
-  height: 10vh;
+  width: 19vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 1.6vw;
-  padding-top: 2.2%;
+  font-size: 1.5vw;
+  padding-top: 1%;
   margin: auto;
-  margin-top: -5%;
+  margin-top: -3%;
 }
  .noticelist h4{
     color: #434242;

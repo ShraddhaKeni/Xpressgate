@@ -23,7 +23,7 @@ const Payment = () => {
     </div>
       <div id="societynamesection">
         <div className="societyname">
-          <img src="/images/profileicon.svg" alt="Society image" />
+          <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
         <br/>
@@ -39,17 +39,17 @@ const Payment = () => {
         <div className="all_payment_buttons">
        <div className="ButtonsContainer">
             <div className="button1">
-                <button type="button" onClick={()=>navigate('/societydues')} className="societydues_btn">Society Dues</button>
+                <button type="button" onClick={()=>navigate('/societyduesrecord')} className="societydues_btn">Society Dues </button>
             </div>
         </div>
         <div className="ButtonsContainer">
             <div className="button1">
-                <button type="button" onClick={()=>navigate('/vendorpayment')} className="societydues_btn">Vendor Payment</button>
+                <button type="button" onClick={()=>navigate('/vendorpaymentrecord')} className="societydues_btn">Vendor Payment</button>
             </div>
         </div>
         <div className="ButtonsContainer">
             <div className="button1">
-                <button type="button" onClick={()=>navigate('/utilitypayment')} className="societydues_btn" >Utility Payment</button>
+                <button type="button" onClick={()=>navigate('/utilitypaymentrecord')} className="societydues_btn" >Utility Payment</button>
             </div>
         </div>
         <div className="ButtonsContainer">

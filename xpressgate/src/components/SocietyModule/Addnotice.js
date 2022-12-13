@@ -44,6 +44,10 @@ const Addnotice = () => {
           <img src="/images/societyicon.svg" alt="society name" />
           <label>Society Name</label>
         </div>
+        <div className='nlsidelinks'>
+          <a className='sidelinks' href="/noticelist">Notice List</a><br></br><br></br>
+          <a className='sidelinks' href="/addNotice"><b>Add Notice</b></a>
+        </div>
         <div className='ansideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
       <div className='anbackgroundimg'>
