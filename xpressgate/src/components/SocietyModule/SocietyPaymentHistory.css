@@ -51,6 +51,28 @@ html {
   border: 2px solid #14335D;
   
 }
+.PH_societyname label {
+  color: #000;
+  margin-left: 4%;
+  margin-top: 13%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
+}
+.PH_societyname {
+  display: flex;
+  width: 80%;
+  height: 12%;
+  background-color: rgba(10, 137, 150, 0.33);
+  margin-left: 10%;
+  margin-top: 12%;
+  border-radius: 24px;
+}
+.PH_societyname img {
+  margin-left: 10%;
+  width: 25%;
+  height: 70%;
+  margin-top: 4%;
+}
 .dropboxes{
   display: flex;
   position: absolute;

@@ -5,6 +5,7 @@ import LogOut from "./Utils/LogOut";
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Societyheader from "./Utils/Societyheader";
 
 const Managementteam = () => {
     
@@ -33,41 +34,61 @@ const Managementteam = () => {
   async function  paginate(event)
   {
     setCurrentpage(event.selected+1)
-    const {data} = await axios.get(`${window.env_var}api/management/getAll`)
-    const indexoflast = currentPage*postPerPage  //endoffset
+    const indexoflast =(event.selected+1)*postPerPage  //endoffset
     const indexoffirst = indexoflast - postPerPage //startoffset
-    setCurrentPosts(data.data.managementteam.slice(indexoffirst,indexoflast))
+    setCurrentPosts(management.slice(indexoffirst,indexoflast))
   }
+
+  function findText(e)
+  {
+    console.log(currentPosts)
+    let search = e.target.value.toLowerCase()
+    let arr = management.filter(x=>{
+      if(x.resident.firstname.toLowerCase().includes(search))
+      {
+        return true
+      }
+      else if(x.resident.lastname.toLowerCase().includes(search))
+      {
+        return true
+      }
+    })
+    if(arr)
+    {
+      const indexoflast =currentPage*postPerPage  //endoffset
+      const indexoffirst = (indexoflast - postPerPage)
+      setCurrentPosts(arr.slice(indexoffirst,indexoflast))
+    }
+    else
+    {
+      paginate(0)
+    }
+  
+}
 
   return (
     <div className="addguestcontainer4">
     <div id="addflatsection">
-        <div className="addflatheadersection">
-          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="afsociety"><label>Society</label></div>
-          <div id="afspace"></div>
-          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="aflogoutbutton"><LogOut/></div>
-        </div>
+       <Societyheader/>
     
     </div>
       <div id="societynamesection">
-        <div className="societyname">
-          <img src="/images/profileicon.svg" alt="Society image" />
+        <div className="MM_societyname">
+          <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
+        
         <br/>
-        <div class="noticelist">
+        <div class="MM_notice">
           <h4>Management Team list</h4>
           <a href="/addManagement" class="Notice">Add Management Member</a>
           </div>
-        <div className="sideimage2">
+        <div className="MM_sideimage">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="Addguestdisplay5">
+        <div className="MM_display">
           <label>Management Team</label>
         </div>
         <div >
@@ -77,6 +98,7 @@ const Managementteam = () => {
           className="search2"
           name="Search"
           placeholder="&#128269; Search"
+          onChange={(e)=>{findText(e)}}
         ></input>
         </div>
 
@@ -90,7 +112,7 @@ const Managementteam = () => {
             </tr>
           </thead>
           <tbody>
-            {management.map((items,index)=>{
+            {currentPosts.map((items,index)=>{
               return(
                 <tr id={items._id}>
                   <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>

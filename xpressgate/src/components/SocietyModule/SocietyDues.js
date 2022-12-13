@@ -75,8 +75,8 @@ const SocietyDues = () => {
     
     </div>
       <div id="societynamesection">
-        <div className="societyname">
-          <img src="/images/profileicon.svg" alt="Society image" />
+        <div className="SD_societyname">
+          <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
         <br/>
@@ -149,7 +149,7 @@ const SocietyDues = () => {
         </div>
         <div className="ButtonsContainer2">
             <div className="button1">
-                <button type="button" onClick={(e)=>{handleSubmit(e)}} className="AddButnn">Add</button>
+                <button type="button" onClick={(e)=>{handleSubmit(e)}} className="SAddButn">Add</button>
             </div>
         </div>
       </div>

@@ -121,9 +121,11 @@ html {
 
 .ansideimage img {
   display: flex;
-  margin-top: 80%;
-  width: 100%;
+  margin-top: 68%;
+  max-width: 90%;
   height: auto;
+  margin-left: 13%;
+  margin-bottom: 5%
 }
 
 .addnoticedisplay {
@@ -152,7 +154,9 @@ html {
   margin-top: 4%;
   margin-right: 18%;
 }
-
+.btnAddNotice:hover {
+  background-color: #14335D;
+}
 .anformclass {
   margin-top: 5%;
   margin-left: 15%;
@@ -179,9 +183,10 @@ html {
 
   .ansideimage img {
     display: flex;
-    margin-top: 216%;
-    width: 100%;
+    margin-top: 53%;
+    max-width: 95%;
     height: auto;
+    margin-left: 2%;
   }
 
   .anbackgroundimg {
@@ -209,7 +214,9 @@ html {
     margin-right: 18%;
     padding-top: 0%;
   }
-
+  .btnAddNotice:hover {
+    background-color: #14335D;
+  }
   #ansociety label {
     margin-top: 14%;
     margin-left: -68%;
@@ -292,7 +299,9 @@ html {
   margin-top: 4%;
   margin-right: 0%;
 }
-
+.btnAddNotice:hover {
+  background-color: #14335D;
+}
 .anformclass {
   margin-top: 5%;
   margin-left: 22%;
