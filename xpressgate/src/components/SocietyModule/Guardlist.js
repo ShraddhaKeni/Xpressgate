@@ -42,7 +42,7 @@ const Guardlist = () => {
 
   function guardDetails(id)
   {
-    navigate('/addGuard',{state:{id:id}})
+    navigate('/addGuard',{state:{id:id,type:"edit"}})
   }
 
   const findText=()=>{
@@ -95,7 +95,7 @@ const Guardlist = () => {
         <table id="guardlisttable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>
-              <th class="th-sm">Sr</th>
+              <th class="th-sm">Sr No. </th>
               <th class="th-sm">Guard Name</th>
               <th class="th-sm">Phone</th>
               <th class="th-sm">Email</th>
