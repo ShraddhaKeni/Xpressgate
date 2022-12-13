@@ -4,23 +4,23 @@ import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const AdminReset= () => {
+const AdminReset = () => {
   let username = useRef([]);
 
   const navigate = useNavigate()
- 
-  const sendOTP = async()=>{
+
+  const sendOTP = async () => {
     try {
-      const {data} = await axios.post(`${window.env_var}api/admin/adminresetpassword`,{mobileno:username.current.value})
-      navigate('/adotp',{state:{mobileno:data.data.mobileno}})
+      const { data } = await axios.post(`${window.env_var}api/admin/adminresetpassword`, { mobileno: username.current.value })
+      navigate('/adotp', { state: { mobileno: data.data.mobileno } })
     } catch (error) {
-      
+
     }
   }
   return (
     <div className="superadmincontainer">
-      
-        
+
+
 
       <div id="superadminloginimg">
         <img src="./images/SuperAdminImg.svg" alt="" />
@@ -28,12 +28,12 @@ const AdminReset= () => {
       <div id="Superadminloginform">
         <Form>
           <div className="Superadmininputfield">
-          <div id="Superadminlogo">
-            <img src="/images/loginlogo.svg" alt="" />
-          </div>
-         <br/><br/>
+            <div id="Superadminlogo">
+              <img src="/images/loginlogo.svg" alt="" />
+            </div>
+            <br /><br />
             <div className="signinlabel" disabled>
-            RESET PASSWORD
+              RESET PASSWORD
             </div>
             <br />
             <div className="email_input">
@@ -51,13 +51,13 @@ const AdminReset= () => {
             </div>
             <br></br>
             <div className="email_input">
-             
+
               <Button
                 type="button"
                 className="adminsendcodebtn"
-                onClick={()=>sendOTP()}
+                onClick={() => sendOTP()}
               >
-               Send Code
+                Send Code
               </Button>
             </div>
 

@@ -54,15 +54,15 @@ export const CouponsList = () => {
             <div className='page-label'>
                 <label>Coupons</label>
             </div>
-            <div className='main-container'>
+            <div className='main-container mt-5'>
 
                 <div className='table-top-right-content'>
-                    <div className='table-search'>
+                    <div className='table-search pl-2'>
                         <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
                         <span><input className='search' placeholder='Search' onChange={(e) => { }} /></span>
                     </div>
                     <div className="table-add-new-button" onClick={handleAddPremise}>
-                        <img src="/images/ic_plus.svg" />  Add Coupon
+                        <img src="/images/ic_plus.svg" />  Add New Coupon
                     </div>
                 </div>
 

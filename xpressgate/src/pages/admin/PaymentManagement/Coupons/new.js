@@ -47,12 +47,12 @@ export const AddCoupon = () => {
 
 
     return (
-        <div className="addvehiclecontainer">
+        <div className="container">
+            <div className='page-label'>
+                <label>Create Coupon</label>
+            </div>
+            <div className='main-container'>
 
-            <div className='avbackgroundimg center-vertical'>
-                <div className='Addvehicledisplay'>
-                    <label>Create Coupon</label>
-                </div>
                 <Form className='formclass' method='POST' onSubmit={handleSubmit}>
 
                     <SimpleInputComponent label={'Coupon Name'} name={'name'} onChange={(e) => coupon.name = e.target.value} required />
