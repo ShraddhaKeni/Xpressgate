@@ -7,7 +7,6 @@ import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import { useNavigate } from "react-router-dom";
 
 
-
 const Guardlist = () => {
    const [guards,setGuards] = useState([])
    const [currentPage, setCurrentpage] = useState(1)
@@ -42,7 +41,7 @@ const Guardlist = () => {
 
   function guardDetails(id)
   {
-    navigate('/addGuard',{state:{id:id}})
+    navigate('/addGuard',{state:{id:id,type:'edit'}})
   }
 
   const findText=()=>{
@@ -65,33 +64,34 @@ const Guardlist = () => {
     </div>
     <div id="societynamesection">
       <div className="GL_societyname">
-        <img src="/images/profileicon.svg" alt="Society image" />
-        <label className="societylabel">Society Name</label>
+        <img src="/images/societyicon.svg" alt="Society image" />
+        <label>Society Name</label>
       </div>
       <br/>
-      <div class="notice">
-          <h4>Guard list</h4>
-          <a href="/addGuard" class="Notice">
-            Add Guard
-          </a>
+  
+        <div className='GLsidelinks'>
+          <a className='noticeGL' href="/guardlist"><b>Guard list</b></a><br></br><br></br>
+          <a className='AGnotice' onClick={()=>navigate('/addGuard')}>  Add Guard</a>
         </div>
-      <div className="sideimage3">
+      <div className="GLSimg">
         <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
       </div>
     </div>
     <div className="addguestbackgroundimg">
-    <div className='Addguestdisplay4'>
+    <div className='GL_display'>
         <label>Guard List</label>
       </div>
       <div className='row'>
-          <div className='search3'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon' className="SearchIconImg"></img></span>
-            <span><input className='GL_search_input' id="search_input" onChange={(e)=>findText(e)} placeholder="Search" onKeyPress={(e) => {
-                  document.getElementById('search_input').style.border = "none";
-                }}></input></span>
+          {/* <div className='search3'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
+            <span><label className='searchlabel'>Search</label><input className='search_input' onChange={(e)=>findText(e)} ></input></span>
+          </div>
+        </div> */}
+        <div className='GLsearchbox'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+              <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
           </div>
         </div>
-        <br/>
         <table id="guardlisttable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>

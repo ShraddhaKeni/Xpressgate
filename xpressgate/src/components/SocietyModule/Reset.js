@@ -1,20 +1,29 @@
-import React, { useRef } from "react";
+import React, { useRef,useState } from "react";
 import "./Reset.css";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { mobileValidation } from '../auth/validation';
 
 const Reset = () => {
   let username = useRef([]);
 
+  const [mobile, setMobile] = useState({})
+
   const navigate = useNavigate()
 
   const sendOTP = async () => {
+    setMobile(document.getElementById('mobileno').value)
+
     try {
+      if (await mobileValidation(document.getElementById('mobileno').value)) {
       const { data } = await axios.post(`${window.env_var}api/society/societyforgotpass`, { mobileno: username.current.value })
       navigate('/scotp', { state: { mobileno: data.data.mobileno } })
+      } else {
+        alert('Enter valid mobile number')
+      }
     } catch (error) {
-
+      console.log('Please check mobile number');
     }
   }
 
@@ -36,8 +45,8 @@ const Reset = () => {
             <br />
             <div className="email_input">
               <label className="socfpmobile">Enter Mobile Number</label>
-              <input ref={username} type="text" className="form-control socfptextbox" onKeyPress={(e) => { document.getElementById(e.target.id).style.border = "none"; }}
-                id="loginemailid" placeholder=""></input>
+              <input ref={username} type="text" maxLength="10" className="form-control socfptextbox" onKeyPress={(e) => { document.getElementById(e.target.id).style.border = "none"; }}
+                id="mobileno" placeholder=""></input>
             </div>
            
             <div className="email_input"><br />

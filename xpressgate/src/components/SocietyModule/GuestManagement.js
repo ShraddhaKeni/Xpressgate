@@ -3,6 +3,7 @@ import './GuestManagement.css';
 import LogOut from '../../components/SocietyModule/Utils/LogOut';
 import { getGuestList } from './common/common';
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
+import Societyheader from './Utils/Societyheader';
 
 const GuestManagement = () => {
 
@@ -34,18 +35,39 @@ const GuestManagement = () => {
     setCurrentPosts(guests.slice(indexoffirst,indexoflast))
   }
 
+
+
+  function findText(e)
+  {
+    let search = e.target.value.toLowerCase()
+    let arr = guests.filter(x=>{
+      if(x.guestFirstName.toLowerCase().includes(search))
+      {
+        return true
+      }
+      else if(x.guestLastName.toLowerCase().includes(search))
+      {
+        return true
+      }
+    })
+    if(arr)
+    {
+      const indexoflast =currentPage*postPerPage  //endoffset
+      const indexoffirst = (indexoflast - postPerPage)
+      setCurrentPosts(arr.slice(indexoffirst,indexoflast))
+    }
+    else
+    {
+      paginate(0)
+    }
+  
+}
+
   return (
     <div className="gmcontainer">
       <div id="gmheadersection">
 
-        <div class="gmfirstheadersection">
-          <div id="gmdashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="gmsociety"><label>Society</label></div>
-          <div id="gmdashboardspace"></div>
-          <div id="gmdashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="gmdashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="gmlogoutbutton"> <LogOut /></div>
-        </div>
+        <Societyheader/>
       </div>
       <div id="gmsection">
         <div className='gmname'>
@@ -59,9 +81,9 @@ const GuestManagement = () => {
           <label>Guest Management</label>
         </div>
         <div className='row'>
-          <div className='gmsearchbox'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-            <span><label className='gmsearchlabel'>Search</label><input className='search_input'></input></span>
+        <div className='vmsearchbox'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+              <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
           </div>
         </div>
         <table id="gmtable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>

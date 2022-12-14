@@ -81,6 +81,32 @@ const SocietyPaymentHistory = () => {
     setCurrentPosts(bills.slice(indexoffirst,indexoflast))
   }
 
+  function findText(e)
+  {
+    let search = e.target.value.toLowerCase()
+    let arr = bills.filter(x=>{
+      if(x.firstname.toLowerCase().includes(search))
+      {
+        return true
+      }
+      else if(x.lastname.toLowerCase().includes(search))
+      {
+        return true
+      }
+    })
+    if(arr)
+    {
+      const indexoflast =currentPage*postPerPage  //endoffset
+      const indexoffirst = (indexoflast - postPerPage)
+      setCurrentPosts(arr.slice(indexoffirst,indexoflast))
+    }
+    else
+    {
+      paginate(0)
+    }
+  
+}
+
   return (
     <div className="addguestcontainer4">
     <div id="addflatsection">
@@ -92,12 +118,12 @@ const SocietyPaymentHistory = () => {
           <label>Society Name</label>
         </div>
         
-        <div className="societysideimg1">
+        <div className="PHSimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="paymentlabel">
+        <div className="PH_display">
           <label> Payment History</label>
         </div>
        <div className="dropboxes">
@@ -120,15 +146,23 @@ const SocietyPaymentHistory = () => {
         </div>
         <Button style={{backgroundColor:'#0A8996', marginLeft:'40px'}} onClick={()=>getBills()}>Get All</Button>
        </div>
-        <input
+       <div className='row'>
+       <div className='PHsearchbox'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+              <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
+          </div>
+       </div>
+        {/* <input
           type=" search"
           className="paymentsearch"
           name="Search"
           placeholder="&#128269; Search"
-        ></input>
+
+          onChange={(e)=>findText(e)}
+        ></input> */}
 
         <table
-          id="inoutbooktable4"
+          id="inoutbooktable"
           class="table table-striped table-bordered table-sm  "
           cellspacing="0"
           // style={{ border: '2px solid #14335D;;'}}
@@ -151,7 +185,7 @@ const SocietyPaymentHistory = () => {
 
               return(
                
-                <tr key={item._id}>
+                <tr>
                   <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
                   <td>{item.flat}</td>
                   <td>{item.firstname} {item.lastname}</td>

@@ -32,7 +32,7 @@ const Ticketlist = () => {
     }
   }
 
-  async function  paginate(event)
+  function  paginate(event)
   {
     setCurrentpage(event.selected+1)
     const indexoflast = (event.selected+1)*postPerPage  //endoffset
@@ -52,6 +52,35 @@ const Ticketlist = () => {
   }
 
 
+
+  function findText(e)
+  {
+    console.log(currentPosts)
+    let search = e.target.value.toLowerCase()
+    let arr = tickets.filter(x=>{
+      if(x.ticketRaisedBy.firstname.toLowerCase().includes(search))
+      {
+        return true
+      }
+      else if(x.ticketRaisedBy.lastname.toLowerCase().includes(search))
+      {
+        return true
+      }
+    })
+    if(arr)
+    {
+      const indexoflast =currentPage*postPerPage  //endoffset
+      const indexoffirst = (indexoflast - postPerPage)
+      setCurrentPosts(arr.slice(indexoffirst,indexoflast))
+    }
+    else
+    {
+      paginate(0)
+    }
+  
+}
+
+
   return (
     <div className="tlcontainer">
       <div id="tlheadersection">
@@ -69,9 +98,9 @@ const Ticketlist = () => {
           <label>Ticket Management</label>
         </div>
         <div className='row'>
-          <div className='tlsearchbox'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-            <span><label className='tlsearchlabel'>Search</label><input className='search_input'></input></span>
+        <div className='vmsearchbox'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+              <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
           </div>
         </div>
         <table id="tltable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>

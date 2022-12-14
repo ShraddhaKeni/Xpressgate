@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios'
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import { getAllByPlaceholderText } from '@testing-library/react';
+import SocietyHeader from './Utils/Societyheader'
+import { useNavigate } from 'react-router-dom';
 
 const Noticelist = () => {
   const [notice, setNotice] = useState([])
@@ -13,6 +15,7 @@ const Noticelist = () => {
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts, setCurrentPosts] = useState([])
   const [pageCount, setpageCount] = useState(0)
+  const navigate = useNavigate()
   useEffect(() => {
     getNotices()
   }, [])
@@ -41,17 +44,32 @@ const Noticelist = () => {
     return date.getDay() + '/' + date.getMonth() + '/' + date.getFullYear()
   }
 
+  function findText(e)
+  {
+    let search = e.target.value.toLowerCase()
+    let arr = notice.filter(x=>{
+      if(x.noticeTitle.toLowerCase().includes(search))
+      {
+        return true
+      }
+    })
+    if(arr)
+    {
+      const indexoflast =currentPage*postPerPage  //endoffset
+      const indexoffirst = (indexoflast - postPerPage)
+      setCurrentPosts(arr.slice(indexoffirst,indexoflast))
+    }
+    else
+    {
+      paginate(0)
+    }
+  
+}
+
   return (
     <div className="nlcontainer">
       <div id="nlheadersection">
-        <div class="nlfirstsection">
-          <div id="nllogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="nlsociety"><label>Society</label></div>
-          <div id="nlspace"></div>
-          <div id="nlnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="nlsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="nllogoutbutton"> <LogOut /></div>
-        </div>
+        <SocietyHeader/>
       </div>
       <div id="nlsection">
         <div className='nlsocietyname'>
@@ -60,7 +78,7 @@ const Noticelist = () => {
         </div>
         <div className='nlsidelinks'>
           <a className='noticeSL' href="/noticelist"><b>Notice List</b></a><br></br><br></br>
-          <a className='AnoticeSL' href="/addNotice">Add Notice</a>
+          <a className='AnoticeSL' onClick={()=>navigate('/addNotice')}>Add Notice</a>
         </div>
         <div className='nlsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
@@ -75,7 +93,7 @@ const Noticelist = () => {
         <div className='row'>
           <div className='nlsearchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-              <input className='vlsearch_input' placeholder='Search'></input></span>
+              <input className='vlsearch_input' placeholder='Search' onChange={(e)=>findText(e)}></input></span>
           </div>
         </div>
 

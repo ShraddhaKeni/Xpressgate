@@ -21,8 +21,8 @@ const Blocklist = () => {
       console.log(error)
     }
   }
-  const navigateToList = (id) => {
-    navigate('/flatList', { state: { id: id } })
+  const navigateToList = (id,block) => {
+    navigate('/flatList', { state: { id: id,block:block} })
   }
   return (
     <>
@@ -65,7 +65,7 @@ const Blocklist = () => {
                     <div className="blminicard"><br></br>
                       <label className='blblock'>Block {item.block}</label><br></br>
                       <label className='blflat'>Flats - {item.flat !== [] ? parseInt(item.flat) : 0}</label><br></br><br></br>
-                      <Button type="button" className="btnView" onClick={() => { navigateToList(item._id) }} >View</Button><br></br>
+                      <Button type="button" className="btnView" onClick={() => { navigateToList(item._id,item.block) }} >View</Button><br></br>
                     </div>
                   </div>
                 )

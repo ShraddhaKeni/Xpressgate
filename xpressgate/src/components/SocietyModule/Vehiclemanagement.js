@@ -36,17 +36,31 @@ const Vehiclemanagement = () => {
     setCurrentPosts(data.data.vehicle.slice(indexoffirst, indexoflast))
   }
 
-  async function findText(e) {
-    let text = entry.filter(x => x.vehicle_number.toLowerCase().includes(e.target.value.toLowerCase()))
-
-    if (text) {
-      setCurrentPosts(text)
+  function findText(e)
+  {
+    let search = e.target.value.toLowerCase()
+    let arr = entry.filter(x=>{
+      if(x.firstname.toLowerCase().includes(search))
+      {
+        return true
+      }
+      else if(x.lastname.toLowerCase().includes(search))
+      {
+        return true
+      }
+    })
+    if(arr)
+    {
+      const indexoflast =currentPage*postPerPage  //endoffset
+      const indexoffirst = (indexoflast - postPerPage)
+      setCurrentPosts(arr.slice(indexoffirst,indexoflast))
     }
-    else {
+    else
+    {
       paginate(0)
     }
-
-  }
+  
+}
 
   return (
     <div className="vmcontainer">
@@ -92,7 +106,7 @@ const Vehiclemanagement = () => {
             </tr>
           </thead>
           <tbody>
-            {entry.map(item => {
+            {currentPosts.map(item => {
               return (
                 <tr>
                   <td>{item.firstname} {item.lastname}</td>

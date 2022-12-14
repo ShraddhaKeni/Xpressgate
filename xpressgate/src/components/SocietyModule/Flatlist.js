@@ -15,6 +15,7 @@ const Flatlist = () => {
   const location = useLocation()
   const navigate = useNavigate()
   useEffect(()=>{
+    
     if(location.state)
     {
       getFlats()
@@ -92,7 +93,7 @@ const Flatlist = () => {
       </div>
       <div className='flbackgroundimg'>
         <div className='fldisplay'>
-          <label>Block A</label>
+          <label>Block {location.state.block}</label>
         </div>
         {/* <div className='row'>
           <div className='flsearchbox'>

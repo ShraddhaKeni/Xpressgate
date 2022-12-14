@@ -6,6 +6,7 @@ import ReactPaginate from "react-paginate";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
+import Societyheader from "./Utils/Societyheader";
 
 
 const Emergency = () => {
@@ -32,29 +33,48 @@ useEffect(()=>{
   }
 
   const paginate = async(event)=>{
-    const {data} = await axios.get(`${window.env_var}api/emergencycontacts/getAll`)
+    
     setCurrentpage(event.selected+1)
     const indexoflast = currentPage*postPerPage  //endoffset
     const indexoffirst = indexoflast - postPerPage //startoffset
-    setCurrentPosts(data.data.contacts.slice(indexoffirst,indexoflast))
+    setCurrentPosts(contacts.slice(indexoffirst,indexoflast))
   }
+
+  function findText(e)
+  {
+    let search = e.target.value.toLowerCase()
+    let arr = contacts.filter(x=>{
+      if(x.type.toLowerCase().includes(search))
+      {
+        return true
+      }
+      else if(x.name.toLowerCase().includes(search))
+      {
+        return true
+      }
+    })
+    if(arr)
+    {
+      const indexoflast =currentPage*postPerPage  //endoffset
+      const indexoffirst = (indexoflast - postPerPage)
+      setCurrentPosts(arr.slice(indexoffirst,indexoflast))
+    }
+    else
+    {
+      paginate(0)
+    }
+  
+}
 
   return (
     <div className="addguestcontainer4">
     <div id="addflatsection">
-        <div className="addflatheadersection">
-          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="afsociety"><label>Society</label></div>
-          <div id="afspace"></div>
-          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="aflogoutbutton"><LogOut/></div>
-        </div>
+       <Societyheader/>
     
     </div>
       <div id="societynamesection">
         <div className="EN_societyname">
-          <img src="/images/profileicon.svg" alt="Society image" />
+          <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
         <br/>
@@ -79,7 +99,7 @@ useEffect(()=>{
           className="search1"
           name="Search"
           placeholder="&#128269; Search"
-          
+          onChange={(e)=>{findText(e)}}
         ></input>
         </div>
 
@@ -98,7 +118,7 @@ useEffect(()=>{
           </thead>
           <tbody>
 
-          {contacts.map(item=>{
+          {currentPosts.map(item=>{
             return(
               <tr id={item._id}>
                 <td>{item.type}</td>

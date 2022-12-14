@@ -2,7 +2,10 @@ html {
   height: 100vh;
 }
 .EN_societyname label {
-  color: #000;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
   margin-left: 4%;
   margin-top: 13%;
   font-size: 1.2vw;
@@ -49,7 +52,7 @@ font-style: normal;
   color: #0D960A;
 }
 .EN_display {
-  width: 18vw;
+  width: 17vw;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
@@ -62,11 +65,12 @@ font-style: normal;
 .EN_display label{
  
       display: inline-block;
-     
+      font-family: 'Rubik';
+      font-style: normal;
+      font-weight: 500;
+      color: #14335D;
       margin-bottom: -19%;
-      font-weight: 700;
-  
-}
+    }
   .EN_Add:hover{
     background-color: #14335D;
     color: #E8F5E9;
@@ -109,7 +113,7 @@ font-size: 1vw;
     color: #E8F5E9;
   }
   .EN_display {
-    width: 19vw;
+    width: 17vw;
     height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
@@ -117,6 +121,10 @@ font-size: 1vw;
     padding-top: 1%;
     margin: auto;
     margin-top: -3%;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
   }
  
   .EN_sideimg img {

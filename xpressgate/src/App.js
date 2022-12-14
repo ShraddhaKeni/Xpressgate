@@ -70,7 +70,7 @@ import SuperAdminLogin from './pages/admin/LoginScreens/SuperAdminLogin';
 import AdminEnterNewPass from './pages/admin/LoginScreens/AdminEnterNewPass';
 import AdminEnterCode from './pages/admin/LoginScreens/AdminEnterCode';
 import RouterPath from './common/constants/path/routerPath';
-
+import SocChangePassword from './components/SocietyModule/ChangePassword';
 import PackageList from './components/SocietyModule/PackageList';
 
 
@@ -118,7 +118,7 @@ function App() {
           <Route path="/addvehicle" element={<Addvehicle />} exact></Route>
           <Route path="/guardLogin" element={<Login />} exact></Route>
           <Route path="/addFlat" element={<Addflat />} exact></Route>
-
+          <Route path="/changesocpassword" element={<SocChangePassword />} exact></Route>
 
 
           <Route path="/blockList" element={<Blocklist />} exact></Route>
