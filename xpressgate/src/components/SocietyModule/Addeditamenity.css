@@ -95,6 +95,16 @@ html {
   padding-bottom: 5%;
 }
 
+.aeasocietyname label {
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+  margin-left: 4%;
+  margin-top: 13%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
+}
 .aeasocietyname {
   display: flex;
   width: 80%;
@@ -104,37 +114,36 @@ html {
   margin-top: 12%;
   border-radius: 24px;
 }
-
 .aeasocietyname img {
   margin-left: 10%;
   width: 25%;
   height: 70%;
   margin-top: 4%;
 }
-
-.aeasocietyname label {
-  color: #000;
-  margin-left: 8%;
-  margin-top: 10%;
-  font-size: 20px;
-}
-
 .aeasideimage img {
   display: flex;
-  margin-top: 80%;
-  width: 100%;
+  margin-top: 98%;
+  max-width: 90%;
   height: auto;
+  margin-left: 13%;
+  margin-bottom: 5%;  
 }
-
 .aeadisplay {
-  width: 300px;
-  height: 64px;
+  width: 16vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 20px;
   padding-top: 14px;
   margin: auto;
-  margin-top: -2%;
+  margin-top: -3%;
+}
+.aeadisplay label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;  
+  font-size: 1.6vw;
+  text-align: center;  
+  color: #14335D;
 }
 
 .labelsize {
@@ -145,41 +154,41 @@ html {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  width: 250px;
-  height: 60px;
-  font-size: 151%;
-  font-weight: 500;
+  width: 8vw;
+  height: 5vh;
+  font-size: 1.1vw;
+  font-weight: 700;
   margin-top: 4%;
   margin-right: 34%;
 }
-
+.btnAddAmenity:hover{
+  background-color: #14335D;
+}
 .aeaclass {
   margin-top: 5%;
   margin-left: 25%;
 }
-
+.sideBord{
+  background: #FFFFFF;
+border: 2px solid #14335D;
+box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+border-radius: 8px;
+}
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  .aeasocietyname {
-    display: flex;
-    width: 80%;
-    height: 10%;
-    background-color: rgba(10, 137, 150, 0.33);
-    margin-left: 10%;
-    margin-top: 12%;
-    border-radius: 24px;
-  }
-
-  .aeasocietyname label {
-    margin-left: 7%;
-    margin-top: 15%;
-    font-size: 15px;
+  .sideBord{
+    background: #FFFFFF;
+  border: 2px solid #14335D;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
   }
 
   .aeasideimage img {
     display: flex;
-    margin-top: 216%;
-    width: 100%;
+    margin-top: 93%;
+    max-width: 90%;
     height: auto;
+    margin-left: 13%;
+    margin-bottom: 5%;  
   }
 
   .aeabackgroundimg {
@@ -198,16 +207,18 @@ html {
   .btnAddAmenity {
     background-color: #0A8996;
     color: #fff;
-    border-radius: 14px;
-    width: 155px;
-    height: 44px;
-    font-size: 151%;
-    font-weight: 500;
+    border-radius: 10px;
+    width: 8vw;
+  height: 5vh;
+  font-size: 1.1vw;
+  font-weight: 700;
     margin-top: 4%;
     margin-right: 35%;
     padding-top: 0%;
   }
-
+  .btnAddAmenity:hover{
+    background-color: #14335D;
+  }
   #aeasociety label {
     margin-top: 14%;
     margin-left: -68%;
@@ -219,24 +230,28 @@ html {
     padding-top: 3%;
     font-size: 20px;
   }
-
   .aeadisplay {
-    width: 190px;
-    height: 64px;
+    width: 17vw;
+    height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 20px;
-    padding-top: 14px;
+    font-size: 1.4vw;
+    padding: 1%;
     margin: auto;
-    margin-top: -16%;
-  }
-
-  .aeasocietyname img {
-    margin-left: 5%;
-    width: 25%;
-    height: 70%;
-    margin-top: 7%;
+    margin-top: -15%;
+    margin-left: 38%;
 }
+.aeadisplay label {
+  
+    font-size: 1.5vw;
+    text-align: center;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+}
+
+
 
 }
 

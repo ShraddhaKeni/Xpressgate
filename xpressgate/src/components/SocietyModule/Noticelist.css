@@ -118,7 +118,10 @@ html {
 }
 
 .nlsocietyname label {
-  color: #000;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
   margin-left: 8%;
   margin-top: 13%;
   font-size: 20px;
@@ -135,14 +138,18 @@ html {
 
 
 .nldisplay {
-  width: 300px;
-  height: 64px;
+  width: 270px;
+  height: 60px;
   background-color: #AED8DC;
   border-radius: 30px;
   font-size: 20px;
   padding-top: 14px;
   margin: auto;
-  margin-top: -2%;
+  margin-top: -3%;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
 }
 
 .labelsize {
@@ -231,14 +238,31 @@ table th {
 .nlsidelinks {
   margin-right: 50%;
   margin-top: 10%;
+  
 }
 
-.sidelinks{
+.noticeSL{
+  color:#000;
+  font-size: 1vw;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  
+}
+.AnoticeSL{
   color:#757575;
   font-weight: 500;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-size: 1vw;
+ 
 }
 
-a:hover {
+.noticeSL:hover {
+  color: #000;
+  text-decoration: none; 
+}
+.AnoticeSL:hover {
   color: #000;
   text-decoration: none; 
 }
@@ -248,6 +272,10 @@ a:hover {
     margin-left: 1%;
     margin-top: 11%;
     font-size: 1.4vw;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    color: #14335D;
 }
 
   .nlsideimage img {
@@ -287,14 +315,18 @@ a:hover {
   }
 
   .nldisplay {
-    width: 300px;
-    height: 64px;
+    width: 250px;
+    height: 55px;
     background-color: #AED8DC;
     border-radius: 30px;
     font-size: 20px;
     padding-top: 14px;
     margin: auto;
     margin-top: -16%;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    color: #14335D;
   }
 
   .nlsearchbox {
@@ -355,8 +387,8 @@ a:hover {
   }
 
   .nldisplay {
-    width: 140px;
-    height: 56px;
+    width: 135px;
+    height: 54px;
     background-color: #AED8DC;
     border-radius: 30px;
     font-size: 20px;

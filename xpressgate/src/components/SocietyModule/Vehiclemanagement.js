@@ -91,7 +91,7 @@ const Vehiclemanagement = () => {
           </div>
           <div className='vmsearchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-              <input className='flsearch_input' placeholder='Search' onChange={(e) =>{findText(e)}}></input></span>
+              <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
           </div>
         </div>
 

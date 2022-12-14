@@ -22,18 +22,18 @@ const Payment = () => {
     
     </div>
       <div id="societynamesection">
-        <div className="societyname">
+        <div className="P_societyname">
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
         <br/>
         
-        <div className="addguard_sideimg">
+        <div className="Paymentsideimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="Addguestdisplay4">
+        <div className="Pdisplay">
           <label>Payment</label>
         </div>
         <div className="all_payment_buttons">

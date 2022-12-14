@@ -118,12 +118,12 @@ const SocietyPaymentHistory = () => {
           <label>Society Name</label>
         </div>
         
-        <div className="societysideimg1">
+        <div className="PHSimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="paymentlabel">
+        <div className="PH_display">
           <label> Payment History</label>
         </div>
        <div className="dropboxes">
@@ -146,17 +146,23 @@ const SocietyPaymentHistory = () => {
         </div>
         <Button style={{backgroundColor:'#0A8996', marginLeft:'40px'}} onClick={()=>getBills()}>Get All</Button>
        </div>
-        <input
+       <div className='row'>
+       <div className='PHsearchbox'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+              <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
+          </div>
+       </div>
+        {/* <input
           type=" search"
           className="paymentsearch"
           name="Search"
           placeholder="&#128269; Search"
 
           onChange={(e)=>findText(e)}
-        ></input>
+        ></input> */}
 
         <table
-          id="inoutbooktable4"
+          id="inoutbooktable"
           class="table table-striped table-bordered table-sm  "
           cellspacing="0"
           // style={{ border: '2px solid #14335D;;'}}

@@ -2,7 +2,7 @@ import { getDefaultNormalizer } from '@testing-library/react'
 import axios from 'axios'
 import { Button, Form } from "react-bootstrap";
 import React, { useEffect, useRef, useState } from 'react'
-
+import "../SocietyModule/PackageList.css"
 import SocietyHeader from './Utils/Societyheader'
 import { useLocation } from 'react-router-dom';
 
@@ -121,25 +121,25 @@ const PackageList = () => {
         <SocietyHeader/>
     </div>
       <div id="societynamesection">
-        <div className="societyname">
-          <img src="/images/profileicon.svg" alt="Society image" />
+        <div className="PackLSname">
+          <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
         <br/>
         
-        <div className="addguard_sideimg">
+        <div className="PackLSimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="Addguestdisplay4">
-          <label>Vendor</label>
+        <div className="PackL_display">
+          <label>Change Package</label>
         </div>
         <Form className="formclass">
           <div class="form-group row">
                 <label class="col-lg-2 col-form-label labelsize">Package</label>
                 <div class="col-lg-4">
-                  <select type="text" class="form-control input-lg" ref={plan_id} id='plan_id' name="First name" >
+                  <select type="text" class="form-control input-lg SBorder" ref={plan_id} id='plan_id' name="First name" >
                     <option  disabled value={null} selected>Select Plan</option>
                       {plan.map(item=>{
                         return <option value={item.id}>{item.name}</option>
@@ -150,7 +150,7 @@ const PackageList = () => {
               <div class="form-group row">
                 <label class="col-lg-2 col-form-label labelsize">Added By</label>
                 <div class="col-lg-4">
-                  <select type="text" class="form-control input-lg" ref={booked_by} id='block_id' name="First name" >
+                  <select type="text" class="form-control input-lg SBorder" ref={booked_by} id='block_id' name="First name" >
                     <option  disabled value={null} selected>Select Member</option>
                       {members.map(item=>{
                         return <option value={item._id}>{item.resident.firstname+' '+item.resident.lastname}</option>
@@ -162,18 +162,18 @@ const PackageList = () => {
               <div class="form-group row">
                 <label class="col-lg-2 col-form-label labelsize">Payment Date</label>
                 <div class="col-lg-4">
-                  <input type="date" class="form-control input-lg" onChange={()=>ChangeDate(purchase_date.current.value)} ref={purchase_date} id='payment_date' name="First name" />
+                  <input type="date" class="form-control input-lg SBorder" onChange={()=>ChangeDate(purchase_date.current.value)} ref={purchase_date} id='payment_date' name="First name" />
                 </div>
               </div>
               <div class="form-group row">
                 <label class="col-lg-2 col-form-label labelsize">Due Date</label>
                 <div class="col-lg-4">
-                  <input type="text" disabled class="form-control input-lg" ref={payment_due}  id='due_date' name="First name" />
+                  <input type="text" disabled class="form-control input-lg SBorder" ref={payment_due}  id='due_date' name="First name" />
                 </div>
               </div>
-              <Button type="submit" onClick={(e)=>{handleSubmit(e)}} className="btnAdd">
-                  Add Bill
-              </Button>
+              <button type="submit" onClick={(e)=>{handleSubmit(e)}} className="CPACKBtn">
+                 Change
+              </button>
         </Form>
       </div>
     </div>

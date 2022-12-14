@@ -201,6 +201,9 @@ function App() {
 
           <Route path="/packagelist" element={<PackageList />} exact></Route>
           <Route path="/paymenthistory" element={<SocietyPaymentHistory />} exact></Route>
+          <Route path="/societyduesrecord" element={<SocietyDuesTable />} exact></Route>
+            <Route path="/vendorpaymentrecord" element={<VendorPaymentTable />} exact></Route>
+            <Route path="/utilitypaymentrecord" element={<UtilityPaymentTable />} exact></Route>
         </Routes>
       </Router>
     </div>

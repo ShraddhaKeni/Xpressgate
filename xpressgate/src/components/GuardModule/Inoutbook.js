@@ -81,7 +81,7 @@ const Inoutbook = () => {
           <img src="/images/guardnameicon.svg" alt="guard name" />
           <label>Guard Name</label>
         </div>
-        <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
+        <div className='IOBsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='iobbackgroundimg'>
         <div className='inoutbookdisplay'>
