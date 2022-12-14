@@ -72,7 +72,7 @@ const Noticelist = () => {
         <SocietyHeader/>
       </div>
       <div id="nlsection">
-        <div className='nlsocietyname'>
+        <div className='NLSName'>
           <img src="/images/societyicon.svg" alt="society name" />
           <label>Society Name</label>
         </div>
@@ -80,10 +80,10 @@ const Noticelist = () => {
           <a className='noticeSL' href="/noticelist"><b>Notice List</b></a><br></br><br></br>
           <a className='AnoticeSL' onClick={()=>navigate('/addNotice')}>Add Notice</a>
         </div>
-        <div className='nlsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
+        <div className='NLSImg'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
       <div className='nlbackgroundimg'>
-        <div className='nldisplay'>
+        <div className='NL_display'>
           <label>Notice List</label>
         </div>
         <div> <Button type="submit" className="btnAddnotice"  onClick={() => {

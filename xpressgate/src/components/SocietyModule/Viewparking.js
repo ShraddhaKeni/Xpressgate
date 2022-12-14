@@ -56,11 +56,10 @@ const Viewparking = () => {
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
-        <br/>
         <div className='vpsidelinks'>
           <label>Vehicle list</label><br></br>
-          <a href='/viewparking' className='Vparksection'><b>View parking section</b></a><br/><br/>
-          <a href='/addparking' className='Aparksection'>Add parking section</a>
+          <a href='/viewparking' className='VpSec'><b>View parking section</b></a><br/><br/>
+          <a href='/addparking' className='ApSec'>Add parking section</a>
         </div>
         <div className="viewparking_sideimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />

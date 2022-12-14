@@ -94,7 +94,7 @@ const Addmanagementteam = () => {
           <label>Society Name</label>
         </div>
 
-        <div className="sideimage6">
+        <div className="AMTSideIMG">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>

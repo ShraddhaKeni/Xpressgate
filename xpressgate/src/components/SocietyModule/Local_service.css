@@ -16,7 +16,7 @@ html {
   margin-top: 68%;
   max-width: 90%;
   height: auto;
-  margin-left: 13%;
+  margin-left: 8%;
   margin-bottom: 5%;  
 }
 
@@ -71,26 +71,21 @@ html {
   transform: scale(1.2);
 }
 .LS_display {
-  width: 17vw;
+  width: 16vw;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 1.5vw;
+  padding-top: 14px;
   margin: auto;
   margin-top: -3%;
-  padding-top: 1%;
 }
-
-.LS_display label{
- 
-      display: inline-block;
-      font-family: 'Rubik';
-  font-style: normal;
-  font-weight: 500;
+.LS_display label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;  
+  font-size: 1.6vw;
+  text-align: center;  
   color: #14335D;
-      margin-bottom: -19%;
-     
-  
 }
 .dashboardcard_services h1{
   position: relative;
@@ -134,10 +129,26 @@ color: #0D960A;
 }
 
 .Nsidelinks{
-  color: #000000;
-  font-weight: 500;
+  color: #5C5C5C;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
 }
 
+.Asidelinks{
+  color: #5C5C5C;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1vw;
+}
+.Nsidelinks:hover{
+color:#000;
+}
+.Asidelinks:hover{
+color:#000;
+}
 /* Media query for laptop */
 @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
  
@@ -151,13 +162,23 @@ color: #0D960A;
 
 .LS_display {
   width: 17vw;
-  height: 9vh;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
   font-size: 1.4vw;
-  padding-top: 2%;
+  padding: 1%;
   margin: auto;
-  margin-top: -4%;
+  margin-top: -3%;
+  margin-left: 38%;
+}
+.LS_display label {
+
+  font-size: 1.5vw;
+  text-align: center;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
 }
 
 .AddLS:hover{

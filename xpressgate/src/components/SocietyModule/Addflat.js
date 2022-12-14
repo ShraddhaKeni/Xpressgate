@@ -100,7 +100,7 @@ const Addflat = () => {
           <div class="form-group row">
             <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label labelsize">Community</label>
             <div class="col-sm-4 col-md-4 col-lg-4">
-              <select class="form-control input-lg" id='community_select' onChange={(e)=>{getBlocks(e)}}>
+              <select class="form-control input-lg ADTBorder" id='community_select' onChange={(e)=>{getBlocks(e)}}>
                 <option value={null} disabled selected>Select Community</option>
                 {community.map(item=>{
                   
@@ -114,7 +114,7 @@ const Addflat = () => {
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Block</label>
             <div class="col-lg-4">
-              <select class="form-control input-lg" id="block_select" placeholder="Block">
+              <select class="form-control input-lg ADTBorder" id="block_select" placeholder="Block">
               <option value={null} disabled selected>Select Block</option>
               {block.map(item=>{
                   return (
@@ -127,19 +127,19 @@ const Addflat = () => {
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Flat No</label>
             <div class="col-lg-4">
-              <input type="text" class="form-control input-lg" id='flat_no' name="flatNo" placeholder="Flat No"></input>
+              <input type="text" class="form-control input-lg ADTBorder" id='flat_no' name="flatNo" placeholder="Flat No"></input>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Description</label>
             <div class="col-lg-4">
-              <textarea  type="text" id='description' class="form-control input-lg" name="description" placeholder="Description"></textarea>
+              <textarea  type="text" id='description' class="form-control input-lg ADTBorder" name="description" placeholder="Description"></textarea>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Status</label>
             <div class="col-lg-4">
-              <select class="form-control input-lg" id="status" placeholder="Status">
+              <select class="form-control input-lg ADTBorder" id="status" placeholder="Status">
                 <option value={null} disabled selected>Select Status</option>
                 <option value={1}>Occupied</option>
                 <option value={0}>Empty</option>
@@ -150,7 +150,7 @@ const Addflat = () => {
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Images</label>
             <div class="col-lg-4">
-              <input type='file' class="form-control input-lg" name="inputnoofpeople" placeholder="Images"></input>
+              <input type='file' class="form-control input-lg ADTBorder" name="inputnoofpeople" placeholder="Images"></input>
             </div>
           </div>
           <Button type="submit" onClick={(e)=>{handleSubmit(e)}} className="btnAddflat">Add Flat</Button>
