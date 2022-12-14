@@ -156,14 +156,14 @@ html {
     color: #000000;
   }
   .MM_display {
-    width: 20vw;
-    height: 9vh;
+    width: 17vw;
+    height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
     font-size: 1.5vw;
     margin: auto;
-    margin-top: -4%;
-    padding-top: 2%;
+    margin-top: -3%;
+    padding-top: 1%;
   }
   
   .MM_display label{
@@ -228,14 +228,14 @@ html {
     font-size: 12px;
   }
   .MM_display {
-    width: 24vw;
-    height: 10vh;
+    width: 17vw;
+    height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 1.6vw;
-    padding-top: 2.2%;
+    font-size: 1.4vw;
+    padding-top: 1%;
     margin: auto;
-    margin-top: -5%;
+    margin-top: -3%;
   }
  
   .Addguestdisplay6 label {

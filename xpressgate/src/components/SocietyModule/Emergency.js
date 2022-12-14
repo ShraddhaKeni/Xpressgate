@@ -94,15 +94,14 @@ useEffect(()=>{
         <button type="button" className="EN_Add" onClick={() => {
                 window.location.href = "/addemergency";
               }}>&#10011; Add New Number</button>
-        <input
-          type=" search"
-          className="search1"
-          name="Search"
-          placeholder="&#128269; Search"
-          onChange={(e)=>{findText(e)}}
-        ></input>
-        </div>
 
+        </div>
+        <div className="row">
+        <div className='EMMsearchbox'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+              <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
+          </div>
+        </div>
         <table
           id="inoutbooktable"
           class="table table-striped table-bordered table-sm "

@@ -46,9 +46,26 @@ html {
   margin-top: 10%;            
 }
 
-.sidelinks{
+.CNsidelinks{
   color:#757575;
-  font-weight: 500;
+  font-size: 1vw;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+
+}
+.CNsidelinks:hover{
+color: #000;
+}
+.CANsidelinks:hover{
+color: #000;
+}
+.CANsidelinks{
+  color:#757575;
+  font-size: 1vw;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
 }
 .SC_sideimage img {
   display: flex;
@@ -60,14 +77,14 @@ html {
 }
 
 .SC_display {
-  width: 20vw;
-  height: 9vh;
+  width: 17vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 1.5vw;
+  font-size: 1.2vw;
   margin: auto;
-  margin-top: -4%;
-  padding-top: 2%;
+  margin-top: -3%;
+  padding: 1%;
 }
 
 .SC_display label{
@@ -97,15 +114,15 @@ font-Size: 1.5vw;
 /* Media query for laptop */
 @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
 
-.SC_display {
-  width: 24vw;
-  height: 10vh;
-  background-color: #AED8DC;
-  border-radius: 30px;
-  font-size: 1.6vw;
-  padding-top: 2.2%;
-  margin: auto;
-  margin-top: -5%;
+  .SC_display {
+    width: 20vw;
+    height: 9vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 1.4vw;
+    padding-top: 2.2%;
+    margin: auto;
+    margin-top: -4%;
 }
 
 .dashboardcard img{

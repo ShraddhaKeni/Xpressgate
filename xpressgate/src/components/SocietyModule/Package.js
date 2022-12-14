@@ -80,7 +80,7 @@ const Package = () => {
           </div>
           <br/><br/>
           <div className="buttonContainer">
-              <button type="button" class="validbtn"><i class="fa fa-circle circle" ></i> { ChangeDate(booked.purchased_date)}</button>
+              <button type="button" class="validbtn"><i class="fa fa-circle circle " ></i> { ChangeDate(booked.purchased_date)}</button>
               <button className="ChangePackageBtn"  onClick={()=>{navigateToEdit()}}>Change Package</button>
             </div> 
 
