@@ -330,16 +330,20 @@ font-weight: 500;
 
 .name {
   display: flex;
-  width: 38%;
-  line-height: 150%;
-  background-color: #304B71;
-  margin-left: 30%;
+  width: 10vw;
+  height: 5vh;
+ 
+
+  margin-left: 25%;
   margin-top: 2%;
-  border-radius: 24px;
+justify-content: center;
+align-content: center;
   color: white;
   font-weight: 700;
-  font-size: 30px;
-  padding-left: 8%;
+  font-size: 1vw;
+  padding: 2%;
+  background: #304B71;
+border-radius: 21px;
 }
 
 
@@ -482,7 +486,7 @@ color: #14335D;
 
 }
 
-.ticket_name
+/* .ticket_name
 {
   max-width: 80% !important;
   height: 40% !important;
@@ -492,4 +496,4 @@ color: #14335D;
   margin-right: auto;
   text-align: center;
   text-indent: 20px;
-}
+} */

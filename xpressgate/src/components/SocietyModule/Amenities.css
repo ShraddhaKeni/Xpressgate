@@ -161,12 +161,12 @@ html {
 }
 
 .amntsminicard {
-  margin-left: 50%;
+  margin-left: 23%;
   margin-bottom: 10%;
   border: none;
   background-color: #0A8996;
   width: 75%;
-  height: 50%;
+  height: 80%;
   border-radius: 20px;
 }
 
@@ -195,7 +195,7 @@ html {
 }
 
 .amnts_img_top {
-  width: 100%;
+  width: 50%;
   height: 50%;
   margin: auto;
   border-radius: 50px;
@@ -270,12 +270,12 @@ html {
     margin-top: -16%;
   }
   .amntsminicard {
-    margin-left: 24%;
+    margin-left: 20%;
     margin-bottom: 10%;
     border: none;
     background-color: #0A8996;
     width: 90%;
-    height: 90%;
+    height: 80%;
     border-radius: 20px;
   }
   

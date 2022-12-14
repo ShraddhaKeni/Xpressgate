@@ -17,7 +17,7 @@ useEffect(()=>{
   }
   else
   {
-    window.location.href = '/flatList'
+    navigate('/flatList')
   }
 },[])
 
