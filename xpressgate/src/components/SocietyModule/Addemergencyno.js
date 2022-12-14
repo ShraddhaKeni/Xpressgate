@@ -98,7 +98,7 @@ const Addemergencyno = () => {
     </div>
       <div id="societynamesection">
         <div className="AEN_societyname">
-          <img src="/images/profileicon.svg" alt="Society image" />
+          <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
         

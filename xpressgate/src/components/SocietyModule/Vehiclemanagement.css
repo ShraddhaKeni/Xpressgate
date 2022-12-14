@@ -125,10 +125,13 @@ html {
 }
 
 .vmsocietyname label {
-  color: #000;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
   margin-left: 8%;
   margin-top: 13%;
-  font-size: 20px;
+  font-size: 21px;
 }
 
 .vmsideimage img {
@@ -140,15 +143,20 @@ html {
 }
 
 .vmdisplay {
-  width: 300px;
-  height: 64px;
+  width: 270px;
+  height: 60px;
   background-color: #AED8DC;
   border-radius: 30px;
   font-size: 20px;
   padding-top: 14px;
   margin: auto;
   margin-top: -2%;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
 }
+
 
 .labelsize {
   font-size: 20px;
@@ -270,6 +278,10 @@ font-size: 1.5vw;
     margin-left: 2%;
     margin-top: 16%;
     font-size: 15px;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    color: #14335D;
   }
 
   .vmsideimage img {
@@ -305,14 +317,18 @@ font-size: 1.5vw;
   }
 
   .vmdisplay {
-    width: 300px;
-    height: 64px;
+    width: 200px;
+    height: 55px;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 20px;
+    font-size: 1.5vw;
     padding-top: 14px;
     margin: auto;
     margin-top: -16%;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
   }
 
   .vmsearchbox{

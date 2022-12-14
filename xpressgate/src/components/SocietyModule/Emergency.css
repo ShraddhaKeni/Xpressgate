@@ -2,7 +2,10 @@ html {
   height: 100vh;
 }
 .EN_societyname label {
-  color: #000;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
   margin-left: 4%;
   margin-top: 13%;
   font-size: 1.2vw;
@@ -31,6 +34,32 @@ html {
   margin-left: 13%;
   margin-bottom: 5%;  
 }
+
+.EMMsearchbox{
+  width: 15%;
+  height: 5%;
+  border: 2px solid #000;
+  border-radius: 15px;
+  margin-left: 74%;
+  margin-top: -4.5%;
+  
+}
+
+.EMMsearchbox input {
+  outline: none;
+  border: none;
+  height: 5vh;
+  width: 8vw;
+  border-radius: 5px;
+  margin-left: 6%;
+}
+
+.EMMsearchbox img{
+  position: relative;
+  margin-top: 0%;
+  margin-left: -2%;
+}
+
 .EN_Add {
   
 font-family: 'Rubik';
@@ -41,7 +70,7 @@ font-style: normal;
   border: none;
   width: 12vw;
   height: 5vh;
-  margin-left: 46%;
+  margin-left: 30%;
   margin-top: 1.5%;
   margin-bottom: 1%;
   font-weight: 500;
@@ -49,7 +78,7 @@ font-style: normal;
   color: #0D960A;
 }
 .EN_display {
-  width: 18vw;
+  width: 17vw;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
@@ -62,11 +91,12 @@ font-style: normal;
 .EN_display label{
  
       display: inline-block;
-     
+      font-family: 'Rubik';
+      font-style: normal;
+      font-weight: 500;
+      color: #14335D;
       margin-bottom: -19%;
-      font-weight: 700;
-  
-}
+    }
   .EN_Add:hover{
     background-color: #14335D;
     color: #E8F5E9;
@@ -104,12 +134,22 @@ font-size: 1vw;
 
 /* Media query for laptop */
 @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
-  .EN_Add:hover{
+ 
+ 
+  .EMMsearchbox {
+    width: 15%;
+    height: 5%;
+    border: 2px solid #000;
+    border-radius: 15px;
+    margin-left: 73%;
+    margin-top: -4.5%;
+}
+ .EN_Add:hover{
     background-color: #14335D;
     color: #E8F5E9;
   }
   .EN_display {
-    width: 19vw;
+    width: 17vw;
     height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
@@ -117,6 +157,10 @@ font-size: 1vw;
     padding-top: 1%;
     margin: auto;
     margin-top: -3%;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
   }
  
   .EN_sideimg img {

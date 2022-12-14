@@ -98,7 +98,7 @@ const Addinout = () => {
           <img src="/images/guardnameicon.svg" alt="guard name" />
           <label>Guard Name</label>
         </div>
-        <div classNameName='aiosideimage'>
+        <div className='aiosideimage'>
           <img src="/images/sideimage.svg" alt="guard sideimage" />
         </div>
       </div>
@@ -176,7 +176,7 @@ const Addinout = () => {
             </div>
           </div>
 
-          <Button type="submit" onClick={(e) => { handleSubmit(e) }} className="btnAddInOut" on>Add In Out</Button>
+          <button type="submit" onClick={(e) => { handleSubmit(e) }} className="btnInOut" on>Add In Out</button>
         </Form>
 
       </div>

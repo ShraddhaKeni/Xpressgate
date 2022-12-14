@@ -129,6 +129,16 @@ html {
   background-color: #96230A;
 }
 
+.tktname label {
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+  margin-left: 4%;
+  margin-top: 13%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
+}
 .tktname {
   display: flex;
   width: 80%;
@@ -138,40 +148,39 @@ html {
   margin-top: 12%;
   border-radius: 24px;
 }
-
 .tktname img {
   margin-left: 10%;
   width: 25%;
   height: 70%;
   margin-top: 4%;
 }
-
-.tktname label {
-  color: #000;
-  margin-left: 8%;
-  margin-top: 12%;
-  font-size: 20px;
-}
-
 .tktsideimage img {
   display: flex;
-  margin-top: 125%;
-  width: 100%;
+  margin-top: 93%;
+  max-width: 90%;
   height: auto;
+  margin-left: 13%;
+  margin-bottom: 5%;  
 }
+
 
 .tktdisplay {
-  width: 300px;
-  height: 64px;
+  width: 16vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 30px;
+  padding-top: 14px;
   margin: auto;
   margin-top: -3%;
-  color:#14335D;
-  padding-top: 6px;
 }
-
+.tktdisplay label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;  
+  font-size: 1.6vw;
+  text-align: center;  
+  color: #14335D;
+}
 .labelsize {
   font-size: 20px;
 }
@@ -321,33 +330,31 @@ html {
 
 .name {
   display: flex;
-  width: 38%;
-  line-height: 150%;
-  background-color: #304B71;
-  margin-left: 30%;
+  width: 10vw;
+  height: 5vh;
+ 
+
+  margin-left: 25%;
   margin-top: 2%;
-  border-radius: 24px;
+justify-content: center;
+align-content: center;
   color: white;
   font-weight: 700;
-  font-size: 30px;
-  padding-left: 8%;
+  font-size: 1vw;
+  padding: 2%;
+  background: #304B71;
+border-radius: 21px;
 }
 
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  .tktname label {
-    margin-left: 3%;
-    margin-top: 18%;
-    font-size: 15px;
-  }
-
   .tktsideimage img {
     display: flex;
-    margin-top: 216%;
-    width: 100%;
+    margin-top: 93%;
+    max-width: 95%;
     height: auto;
+    margin-left: 2%;
   }
-
   .tktbackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;
@@ -374,15 +381,25 @@ html {
   }
 
   .tktdisplay {
-    width: 300px;
-    height: 64px;
+    width: 17vw;
+    height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 20px;
-    padding-top: 14px;
+    font-size: 1.4vw;
+    padding: 1%;
     margin: auto;
-    margin-top: -16%;
-  }
+    margin-top: -15%;
+    margin-left: 38%;
+}
+.tktdisplay label {
+  
+    font-size: 1.5vw;
+    text-align: center;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+}
 
   .tktcard {
     width: 50%;
@@ -466,9 +483,10 @@ html {
   font-size: 30px;
   padding-left: 7%;
 }
+
 }
 
-.ticket_name
+/* .ticket_name
 {
   max-width: 80% !important;
   height: 40% !important;
@@ -478,4 +496,4 @@ html {
   margin-right: auto;
   text-align: center;
   text-indent: 20px;
-}
+} */

@@ -77,8 +77,8 @@ const Noticelist = () => {
           <label>Society Name</label>
         </div>
         <div className='nlsidelinks'>
-          <a className='sidelinks' href="/noticelist">Notice List</a><br></br><br></br>
-          <a className='sidelinks' onClick={()=>navigate('/addNotice')}>Add Notice</a>
+          <a className='noticeSL' href="/noticelist"><b>Notice List</b></a><br></br><br></br>
+          <a className='AnoticeSL' onClick={()=>navigate('/addNotice')}>Add Notice</a>
         </div>
         <div className='nlsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
@@ -86,7 +86,9 @@ const Noticelist = () => {
         <div className='nldisplay'>
           <label>Notice List</label>
         </div>
-        <div> <Button type="button" className="btnAddnotice" onClick={()=>navigate('/addNotice')}><img src="/images/plus.svg" alt="header logo"  />&nbsp;Add New Notice</Button></div>
+        <div> <Button type="submit" className="btnAddnotice"  onClick={() => {
+                window.location.href = "/addNotice";
+              }}><img src="/images/plus.svg" alt="header logo"  />&nbsp;Add New Notice</Button></div>
       
         <div className='row'>
           <div className='nlsearchbox'>

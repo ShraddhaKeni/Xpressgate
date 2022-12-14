@@ -31,7 +31,10 @@ html {
   "societynamesection cardsection"
 }
 .P_societyname label {
-  color: #000;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
   margin-left: 4%;
   margin-top: 13%;
   font-size: 1.2vw;
@@ -66,9 +69,12 @@ html {
 .P_display label{
  
       display: inline-block;
-     
+      font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
       margin-bottom: -19%;
-      font-weight: 700;
+     
   
 }
 

@@ -117,7 +117,10 @@ html {
 } */
 
 .afsocietyname label {
-  color: #000;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
   margin-left: 4%;
   margin-top: 13%;
   font-size: 1.2vw;
@@ -149,7 +152,7 @@ html {
   margin-bottom: 5%;  
 }
 .Addflatdisplay {
-  width: 18vw;
+  width: 17vw;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
@@ -162,10 +165,12 @@ html {
 .Addflatdisplay label{
  
       display: inline-block;
-     
+      font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    color: #14335D;
       margin-bottom: -19%;
-      font-weight: 700;
-  
+     
 }
 
 .labelsize {
@@ -239,6 +244,10 @@ html {
   margin-left: 5%;
   margin-top: 18%;
   font-size: 1.4vw;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
 }
 
 .afsideimage img {
@@ -282,7 +291,7 @@ html {
  
 
 .Addflatdisplay {
-  width: 19vw;
+  width: 17vw;
   height: 6vh;
   background-color: #AED8DC;
   border-radius: 30px;
@@ -290,6 +299,10 @@ html {
   padding-top: 1%;
   margin: auto;
   margin-top: -15%;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
 }
   .afsocietyname img {
     margin-left: 6%;

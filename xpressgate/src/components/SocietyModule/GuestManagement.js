@@ -81,9 +81,9 @@ const GuestManagement = () => {
           <label>Guest Management</label>
         </div>
         <div className='row'>
-          <div className='gmsearchbox'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-            <span><label className='gmsearchlabel'>Search</label><input className='search_input' onChange={(e)=>findText(e)}></input></span>
+        <div className='vmsearchbox'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+              <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
           </div>
         </div>
         <table id="gmtable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>

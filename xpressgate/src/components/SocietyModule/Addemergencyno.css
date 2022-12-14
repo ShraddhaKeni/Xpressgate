@@ -22,7 +22,7 @@ html {
   
   }
   .AEN_display {
-    width: 18vw;
+    width: 17vw;
     height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
@@ -35,9 +35,12 @@ html {
   .AEN_display label{
    
         display: inline-block;
-       
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: 500;
+        color: #14335D;
         margin-bottom: -19%;
-        font-weight: 700;
+        
     
   }
   .addguestbackgroundimg {
@@ -51,7 +54,10 @@ html {
   
 
   .AEN_societyname label {
-    color: #000;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
     margin-left: 4%;
     margin-top: 13%;
     font-size: 1.2vw;
@@ -87,7 +93,7 @@ margin-bottom: 3.5%;
 
 .AEN_sideimage img {
   display: flex;
-  margin-top: 90%;
+  margin-top: 99%;
   max-width: 90%;
   height: auto;
   margin-left: 13%;
@@ -100,11 +106,13 @@ margin-bottom: 3.5%;
   border-radius: 14px;
   width: 9vw;
   height: 5vh;
-  font-size: 1.1vw;
-  font-weight: 500;
+  font-size: 1.2vw;
+  font-weight: 700;
   margin-top: 3%;
   margin-right: 34%;
   padding-top: 0%;
+  font-family: 'Rubik';
+font-style: normal;
 }
 .AEN_btnAdd:hover{
   background-color:  #14335D;
@@ -118,7 +126,7 @@ border-radius: 8px;
 /* Media query for laptop */
 @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
   .AEN_display {
-    width: 19vw;
+    width: 17vw;
     height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
@@ -126,6 +134,10 @@ border-radius: 8px;
     padding-top: 1%;
     margin: auto;
     margin-top: -3%;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
   }
 .form-group5 {
   margin-bottom: 3.5%;
@@ -146,11 +158,14 @@ color: #fff;
 border-radius: 12px;
 width: 9vw;
 height: 5vh;
-font-size: 1.1vw;
-font-weight: 500;
+font-size: 1.2vw;
+font-weight: 700;
 margin-top: 4%;
 margin-right: 32%;
-padding-top: 0%;
+padding-top: 1%;
+font-family: 'Rubik';
+font-style: normal;
+
 }
 .AEN_btnAdd:hover{
   background-color:  #14335D;

@@ -86,7 +86,7 @@ const SocietyDues = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="Addguestdisplay4">
+        <div className="SD_display">
           <label>Society Dues</label>
         </div>
         <div className="Payment_form">
