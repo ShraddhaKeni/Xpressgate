@@ -107,7 +107,7 @@ const Addeditamenity = () => {
           <div id="aeasociety"><label>Society</label></div>
           <div id="aeaspace"></div>
           <div id="aeanotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="aeasetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="aeasetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
           <div id="aealogoutbutton"><LogOut /></div>
         </div>
       </div>

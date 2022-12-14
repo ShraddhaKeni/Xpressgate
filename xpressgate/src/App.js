@@ -84,7 +84,7 @@ import UtilityPaymentTable from './components/SocietyModule/UtilityPaymentTable'
 function App() {
 
   window.env_var = "http://143.110.187.80:5050/"
-  // window.env_var = "http://localhost:5050/"
+  //window.env_var = "http://localhost:5050/"
   useEffect(() => {
 
   }, [])
@@ -165,6 +165,9 @@ function App() {
           <Route path="/package" element={<Package />} exact></Route>
           <Route path="/Approvallist" element={<ApprovalList />} exact></Route>
           <Route path="/paymenthistory" element={<SocietyPaymentHistory />} exact></Route>
+          <Route path="/societyduesrecord" element={<SocietyDuesTable />} exact></Route>
+          <Route path="/vendorpaymentrecord" element={<VendorPaymentTable />} exact></Route>
+          <Route path="/utilitypaymentrecord" element={<UtilityPaymentTable />} exact></Route>
 
           <Route path={RouterPath.ADMIN_DASHBOARD} element={<AdminModuleComponent />}></Route>
 

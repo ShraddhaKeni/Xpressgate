@@ -53,7 +53,7 @@ const approveFlat=async(id)=>{
           <div id="faldashboardguard"><label>Society</label></div>
           <div id="faldashboardspace"></div>
           <div id="faldashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="faldashboardsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="faldashboardsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
           <div id="fallogoutbutton"> <LogOut/></div>
         </div>
       </div>

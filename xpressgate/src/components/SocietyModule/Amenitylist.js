@@ -49,23 +49,19 @@ const Amenitylist = () => {
   {
     var d = new Date(date)
     return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()
-    
   }
 
   const getTime=(date)=>{
     var d = new Date(date)
     return d.getHours()+':'+d.getMinutes()
-    
   }
   const navigateToApprove=(id)=>{
-      navigate('/approvallistamenity',{state:{id:id}})
+    navigate('/approvallistamenity',{state:{id:id}})
   }
 
   function findText(e)
   {
     let search = e.target.value.toLowerCase()
-    
-    
     let arr = bookedAmenities.filter(x=>{
       if(x.firstname.toLowerCase().includes(search))
       {
@@ -84,11 +80,7 @@ const Amenitylist = () => {
     {
       paginate(0)
     }
-  
-}
-
-    
-  
+  }
 
   return (
     <div className="alcontainer">
@@ -105,7 +97,6 @@ const Amenitylist = () => {
         </div>
         {/* <Button onClick={()=>{navigate('/addeditamenity',{state:{id:location.state.id,type:'edit'}})}} className='btnAdd' style={{marginLeft:'65px'}}>Edit Amenity</Button> */}
         <div className='alsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
-        
       </div>
       <div className='albackgroundimg'>
         <div className='aldisplay'>
@@ -129,7 +120,6 @@ const Amenitylist = () => {
             </tr>
           </thead>
           <tbody>
-
             {currentPosts.map((item,index)=>{
               return(
                 <tr onClick={()=>{navigateToApprove(item._id)}}>
@@ -142,7 +132,6 @@ const Amenitylist = () => {
               </tr>
               )
             })}
-            
           </tbody>
         </table>
         <PaginationCalculate totalPages={bookedAmenities.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>

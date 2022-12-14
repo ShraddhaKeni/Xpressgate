@@ -7,64 +7,85 @@ import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 
 const Flatlist = () => {
 
-  const [flats,setFlats] = useState([])
+  const [flats, setFlats] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
-  const [currentPosts,setCurrentPosts] = useState([])
-  const [pageCount,setpageCount] = useState(0)
+  const [currentPosts, setCurrentPosts] = useState([])
+  const [pageCount, setpageCount] = useState(0)
   const location = useLocation()
   const navigate = useNavigate()
-  useEffect(()=>{
-    
-    if(location.state)
-    {
+  useEffect(() => {
+
+    if (location.state) {
       getFlats()
     }
-    else
-    {
-      window.location.href='/blockList'
+    else {
+      window.location.href = '/blockList'
     }
-    
-  },[])
 
-  const getFlats=async()=>{
+  }, [])
+
+  const getFlats = async () => {
     try {
-      const {data} = await axios.get(`${window.env_var}api/flats/getList/${location.state.id}`)
+      const { data } = await axios.get(`${window.env_var}api/flats/getList/${location.state.id}`)
       setFlats(data.data.list)
-      const indexoflast = currentPage*postPerPage  //endoffset
+      const indexoflast = currentPage * postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
-      setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
+      setCurrentPosts(data.data.list.slice(indexoffirst, indexoflast))
     } catch (error) {
       console.log(error)
     }
   }
 
-  async function  paginate(event)
-  {
-    const {data} = await axios.get(`${window.env_var}api/flats/getList/${location.state.id}`)
-    setCurrentpage(event.selected+1)
-    const indexoflast = (event.selected+1)*postPerPage  //endoffset
+  async function paginate(event) {
+   
+    setCurrentpage(event.selected + 1)
+    const indexoflast = (event.selected + 1) * postPerPage  //endoffset
     const indexoffirst = (indexoflast - postPerPage) //startoffset
-    setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
+    setCurrentPosts(flats.slice(indexoffirst, indexoflast))
   }
 
-  async function findText(e)
+  // async function findText(e) {
+  //   let text = flats.filter(x => x.lastname.toLowerCase().includes(e.target.value.toLowerCase()))
+
+  //   if (text) {
+  //     setCurrentPosts(text)
+  //   }
+  //   else {
+  //     paginate(0)
+  //   }
+
+  // }
+
+  function findText(e)
   {
-    let text = flats.filter(x=>x.lastname.toLowerCase().includes(e.target.value.toLowerCase()))
-    
-    if(text)
+    let search = e.target.value.toLowerCase()
+    let arr = flats.filter(x=>{
+
+      if(String(x.firstname).toLowerCase().includes(search))
+      {
+        return true
+      }
+      else if(String(x.lastname).toLowerCase().includes(search))
+      {
+        return true
+      }
+    })
+    if(arr)
     {
-      setCurrentPosts(text)
+      const indexoflast =currentPage*postPerPage  //endoffset
+      const indexoffirst = (indexoflast - postPerPage)
+      setCurrentPosts(arr.slice(indexoffirst,indexoflast))
     }
     else
     {
       paginate(0)
     }
-    
-  }
+  
+}
 
-  const aprroveFlatScreen=(id)=>{
-    navigate('/approveFlat',{state:{id:id}})
+  const aprroveFlatScreen = (id) => {
+    navigate('/approveFlat', { state: { id: id } })
   }
 
 
@@ -76,13 +97,13 @@ const Flatlist = () => {
           <div id="flsociety"><label>Society</label></div>
           <div id="sldashboardspace"></div>
           <div id="flnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="flsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="flsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
           <div id="fllogoutbutton"> <Button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
         </div>
       </div>
       <div id="flsection">
         <div className='flname'>
-        <img src="/images/societyicon.svg" alt="society name" />
+          <img src="/images/societyicon.svg" alt="society name" />
           <label>Society Name</label>
         </div>
         <div className='nlsidelinks'>
@@ -94,6 +115,7 @@ const Flatlist = () => {
       <div className='flbackgroundimg'>
         <div className='fldisplay'>
           <label>Block {location.state.block}</label>
+
         </div>
         {/* <div className='row'>
           <div className='flsearchbox'>
@@ -104,7 +126,7 @@ const Flatlist = () => {
         <div className='row'>
           <div className='flsearchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-          <input className='flsearch_input' placeholder='Search' onChange={(e)=>{findText(e)}}></input></span>
+              <input className='flsearch_input' placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
           </div>
         </div>
         <table id="fltable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
@@ -119,21 +141,21 @@ const Flatlist = () => {
           </thead>
           <tbody>
 
-            {currentPosts.map(item=>{
-              return(
-              <tr style={item.status==false?{backgroundColor:'#AED8DC'}:{backgroundColor:'white'}} onClick={()=>{item.status==false?aprroveFlatScreen(item._id):getFlats()}}>
-                <td>{item.flat_number}</td>
-                <td >{item.firstname} {item.lastname}</td>
-                <td>{item.family}</td>
-                <td>{item.vehical}</td>
-                <td>{item.status==false?'Unoccupied':'Occupied'}</td>
-              </tr>
-          )
+            {currentPosts.map(item => {
+              return (
+                <tr style={item.status == false ? { backgroundColor: '#AED8DC' } : { backgroundColor: 'white' }} onClick={() => { item.status == false ? aprroveFlatScreen(item._id) : getFlats() }}>
+                  <td>{item.flat_number}</td>
+                  <td >{item.firstname} {item.lastname}</td>
+                  <td>{item.family}</td>
+                  <td>{item.vehical}</td>
+                  <td>{item.status == false ? 'Unoccupied' : 'Occupied'}</td>
+                </tr>
+              )
             })}
-           
+
           </tbody>
         </table>
-        <PaginationCalculate totalPages={flats.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+        <PaginationCalculate totalPages={flats.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
       </div>
     </div>
   )

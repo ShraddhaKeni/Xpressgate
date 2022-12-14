@@ -1,27 +1,56 @@
-import React from 'react';
-import "../SocietyModule/Viewparking.css"
-import LogOut from './Utils/LogOut'
-
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
+import "../SocietyModule/Viewparking.css";
+import LogOut from './Utils/LogOut';
+import { useNavigate } from "react-router-dom";
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
-
-
+import Societyheader from './Utils/Societyheader';
 
 const Viewparking = () => {
- 
+  const [parkingSection,setParkingSections] = useState([])
+  const [currentPage, setCurrentpage] = useState(1)
+  const [postPerPage, setPostPerPage] = useState(12)
+  const [currentPosts,setCurrentPosts] = useState([])
+  const navigate= useNavigate()
+
+  useEffect(()=>{
+    getParkingSections()
+  },[])
+
+  const getParkingSections=async()=>{
+    let community_id = localStorage.getItem('community_id');
+    try {
+      const {data}=await axios.get(`${window.env_var}api/parkingsectionbyid/getAll/`+community_id);
+      setParkingSections(data.data.block_list);
+      console.log(data.data.block_list);
+      const indexoflast = currentPage*postPerPage  //endoffset
+      const indexoffirst = indexoflast - postPerPage //startoffset
+      setCurrentPosts(data.data.block_list.slice(indexoffirst,indexoflast))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  async function  paginate(event)
+  {
+    let community_id = localStorage.getItem('community_id');
+    const {data}=await axios.get(`${window.env_var}api/parkingsectionbyid/getAll/`+community_id);
+    setCurrentpage(event.selected+1)
+    const indexoflast = (event.selected+1)*postPerPage  //endoffset
+    const indexoffirst = (indexoflast - postPerPage) //startoffset
+    setCurrentPosts(data.data.block_list.slice(indexoffirst,indexoflast))
+  }
+
+  function parkingSectionDetails(id)
+  {
+    navigate('/addparking',{state:{id:id,type:'edit'}})
+  }
 
   return (
     <div className="addguestcontainer4">
-    <div id="addflatsection">
-        <div className="addflatheadersection">
-          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="afsociety"><label>Society</label></div>
-          <div id="afspace"></div>
-          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="aflogoutbutton"><LogOut/></div>
-        </div>
-    
-    </div>
+      <div id="addflatsection">
+        <Societyheader/>
+      </div>
       <div id="societynamesection">
         <div className="VP_societyname">
           <img src="/images/societyicon.svg" alt="Society image" />
@@ -38,7 +67,7 @@ const Viewparking = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
-      <div className='VPdisplay'>
+        <div className='VPdisplay'>
           <label>View Parking Section</label>
         </div>
         {/* <div className='row'>
@@ -62,36 +91,27 @@ const Viewparking = () => {
             <tr>
               <th class="th-sm">Sr No.</th>
               <th class="th-sm">Parking Section</th>
-              
               <th class="th-sm">Block</th>
               <th class="th-sm">Status</th>
             </tr>
           </thead>
           <tbody>
-              {/* {currentPosts.map((item,index)=>{
-               
-                return(
-                 
-                  <tr onClick={()=>guardDetails(item.id)}>
-                   <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
-                    <td >{item.firstname} {item.lastname}</td>
-                    <td>{item.mobileno}</td>
-                    <td>{item.email}</td>
-                    <td>{item.status==false?'Inactive':'Active'}</td>
+            {currentPosts.map((item,index)=>{
+              return(
+                <tr onClick={()=>parkingSectionDetails(item._id)}>
+                  <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
+                  <td>{item.section}</td>
+                  <td>{item.blocks}</td>
+                  <td>{item.status==false?'Inactive':'Active'}</td>
                 </tr>
-                )
-              })} */}
+              )
+            })}
           </tbody>
         </table>
         <br/><br/>
-        <PaginationCalculate totalPages={" "} postperPage={" "} currentPage={" "} paginate={" "}/>
-    </div>
-  </div>
-         
-        
-     
-       
+        <PaginationCalculate totalPages={parkingSection.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+      </div>
+    </div>     
   );
 }
-
 export default Viewparking;

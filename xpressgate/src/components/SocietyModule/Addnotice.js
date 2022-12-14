@@ -35,7 +35,7 @@ const Addnotice = () => {
           <div id="ansociety"><label>Society</label></div>
           <div id="anspace"></div>
           <div id="annotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="ansetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="ansetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
           <div id="anlogoutbutton"><LogOut /></div>
         </div>
       </div>
