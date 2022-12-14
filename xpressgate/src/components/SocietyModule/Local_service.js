@@ -48,7 +48,7 @@ const Local_service = () => {
         
         <div class="nlsidelinks">
         <a className='Nsidelinks' href="/noticelist"><b>Notice List</b></a><br></br><br></br>
-          <a className='sidelinks' href="/addNotice">Add Notice</a>
+          <a className='Asidelinks' href="/addNotice">Add Notice</a>
           </div>
         <div className="LS_sideimage">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />

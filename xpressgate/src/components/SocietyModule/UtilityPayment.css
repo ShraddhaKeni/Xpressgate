@@ -32,8 +32,8 @@ html {
         margin-top: 95%;
         max-width: 90%;
         height: auto;
-        margin-left: 13%;
-        margin-bottom: 5%;  
+        margin-left: 8%;
+        margin-bottom: 3%;  
       }
       .UPdisplay {
         width: 17vw;
@@ -94,8 +94,8 @@ font-weight: 500;
 }
 
 .Utility_Residentname{
-    margin-right: 5.9%;
-    margin-left: -16.4%;
+    margin-right: 5.2%;
+    margin-left: -17%;
     font-size: 1.2vw;
     font-family: 'Rubik';
     font-style: normal;
@@ -180,7 +180,7 @@ font-weight: 500;
     }
     .UP_Simg img {
         display: flex;
-        margin-top: 83%;
+        margin-top: 72%;
         max-width: 95%;
         height: auto;
         margin-left: 2%;

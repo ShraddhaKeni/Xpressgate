@@ -93,6 +93,8 @@ html {
 #anlogoutbutton img {
   padding-left: 10%;
   padding-bottom: 5%;
+  width: 1.5vw;
+  height: auto;
 }
 
 .ansocietyname {

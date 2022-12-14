@@ -56,8 +56,8 @@ font-style: normal;
     margin-top: 95%;
     max-width: 90%;
     height: auto;
-    margin-left: 13%;
-    margin-bottom: 5%;  
+    margin-left: 8%;
+    margin-bottom: 3%;  
   }
   .UPAddBTN {
   
@@ -71,7 +71,7 @@ font-style: normal;
       height: 5vh;
       margin-left: 54%;
       margin-top: 1.5%;
-      margin-bottom: 1%;
+      margin-bottom: -1%;
       font-weight: 500;
       font-size: 1vw;
       color: #0D960A;
@@ -99,7 +99,7 @@ font-style: normal;
   }
   .UPT_sideimage img {
     display: flex;
-    margin-top: 83%;
+    margin-top: 72%;
     max-width: 95%;
     height: auto;
     margin-left: 2%;
@@ -116,7 +116,7 @@ font-style: normal;
       height: 5vh;
       margin-left: 53%;
       margin-top: 1.5%;
-      margin-bottom: 1%;
+      margin-bottom: -1%;
       font-weight: 500;
       font-size: 1vw;
       color: #0D960A;

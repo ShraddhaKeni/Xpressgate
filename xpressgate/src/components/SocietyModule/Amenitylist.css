@@ -107,48 +107,57 @@ html {
   padding-top: 2%;
 } */
 
+.alname label {
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+  margin-left: 4%;
+  margin-top: 13%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
+}
 .alname {
   display: flex;
   width: 80%;
-  height: 14%;
+  height: 12%;
   background-color: rgba(10, 137, 150, 0.33);
   margin-left: 10%;
   margin-top: 12%;
   border-radius: 24px;
 }
-
 .alname img {
-  margin-left: 6%;
-  width: 30%;
+  margin-left: 10%;
+  width: 25%;
   height: 70%;
-  margin-top: 6%;
-}
-
-.alname label {
-  color: #000;
-  margin-left: 8%;
-  margin-top: 13%;
-  font-size: 20px;
+  margin-top: 4%;
 }
 
 .alsideimage img {
   display: flex;
-  margin-top: 80%;
-  width: 100%;
+  margin-top: 85%;
+  max-width: 90%;
   height: auto;
+  margin-left: 8%;
+  margin-bottom: 3%;  
 }
-
 .aldisplay {
-  width: 300px;
-  height: 64px;
+  width: 16vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 20px;
   padding-top: 14px;
   margin: auto;
-  margin-top: -2%;
+  margin-top: -3%;
 }
-
+.aldisplay label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;  
+  font-size: 1.4vw;
+  text-align: center;  
+  color: #14335D;
+}
 #altable {
   margin-Left: 10%;
   margin-Top: 2%;
@@ -184,17 +193,12 @@ table th {
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  .alname label {
-    margin-left: 2%;
-    margin-top: 16%;
-    font-size: 15px;
-  }
-
   .alsideimage img {
     display: flex;
-    margin-top: 216%;
-    width: 100%;
+    margin-top: 75%;
+    max-width: 95%;
     height: auto;
+    margin-left: 2%;
   }
 
   .albackgroundimg {
@@ -219,15 +223,25 @@ table th {
   }
 
   .aldisplay {
-    width: 300px;
-    height: 64px;
+    width: 17vw;
+    height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 20px;
-    padding-top: 14px;
+    font-size: 1.4vw;
+    padding: 1%;
     margin: auto;
-    margin-top: -16%;
-  }
+    margin-top: -15%;
+    margin-left: 38%;
+}
+.aldisplay label {
+  
+    font-size: 1.5vw;
+    text-align: center;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+}
 
   .alsearchbox {
     width: 28%;
@@ -237,15 +251,7 @@ table th {
     margin-top: 2%;
     margin-left: 60%;
 }
-.alname {
-  display: flex;
-  width: 80%;
-  height: 10%;
-  background-color: rgba(10, 137, 150, 0.33);
-  margin-left: 10%;
-  margin-top: 12%;
-  border-radius: 24px;
-}
+
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 425px) {

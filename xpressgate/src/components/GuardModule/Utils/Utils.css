@@ -85,15 +85,20 @@ html {
 #dashboardlogoutbutton img {
   padding-left: 10%;
   padding-bottom: 5%;
+  width: 1.5vw;
+  height: auto;
 }
 /*  */
 .btnlogout {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  height: 52px;
-  font-size: 20px;
+  height: 5vh;
+  font-size: 1.2vw;
   font-weight: 500;
+  width: 8vw;
+  margin-top: 18%;
+  margin-right: 20%;
 }
 .btnlogout:hover {
   background-color: #14335D;
@@ -152,7 +157,7 @@ html {
   padding-top: 0%;
 } 
 .btnlogout:hover {
-  background-color: #14335D;
+ background-color: #14335D;
 }
 #dashboardguard label {
   margin-top: 14%;

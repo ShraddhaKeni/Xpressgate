@@ -82,7 +82,7 @@ const SocietyDues = () => {
         </div>
         <br/>
         
-        <div className="addguard_sideimg">
+        <div className="SocietyDSideIMG">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>

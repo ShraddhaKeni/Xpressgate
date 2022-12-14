@@ -2,13 +2,13 @@ html {
   height: 100vh;
 }
 
-.sideimage6 img {
+.AMTSideIMG img {
   display: flex;
-  margin-top: 100%;
+  margin-top: 98%;
   max-width: 90%;
   height: auto;
-  margin-left: 13%;
-  margin-bottom: 5%;
+  margin-left: 8%;
+  margin-bottom: 3%;  
 }
   
   #societynamesection {
@@ -32,8 +32,6 @@ html {
     position: relative;
     margin-top: 0.5%;
   }
-  
-  
  
   .AMM_societyname label {
     font-family: 'Rubik';
@@ -60,38 +58,36 @@ html {
     height: 70%;
     margin-top: 4%;
   }
+ 
   .AMM_display {
-    width: 20vw;
-    height: 9vh;
+    width: 17vw;
+    height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 1.5vw;
+    padding-top: 14px;
     margin: auto;
-    margin-top: -4%;
-    padding-top: 2%;
+    margin-top: -3%;
   }
-  
-  .AMM_display label{
-   
-        display: inline-block;
-       font-size: 1.5vw;
-        margin-bottom: -19%;
-        font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 500;
+  .AMM_display label {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;  
+    font-size: 1.3vw;
+    text-align: center;  
     color: #14335D;
-     }
+  }
 .AMM_Add_btn {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  width: 12vw;
+  width: 8vw;
   height: 5vh;
-  font-size: 1.2vw;
-  
+  font-size: 1vw;
+  font-family: 'Rubik';
+  font-style: normal;
   margin-top: 4%;
   margin-right: 34%;
-  padding-top: 0%;
+  padding: 1%;
   font-weight: 700;
 }
 .AMM_Add_btn:hover {
@@ -103,8 +99,8 @@ html {
 }
 .Todate{
   margin-right: 5%;
-  margin-left: -32.5%;
-  font-size: 1.4vw;
+  margin-left: -32%;
+  font-size: 1.2vw;
   color: #14335D;
 }
 .Todateinput{
@@ -119,7 +115,7 @@ html {
 }
 .Fromdate{
   margin-right: 4%;
-  font-size: 1.4vw;
+  font-size: 1.2vw;
   color: #14335D;
 }
 .Fromdateinput{
@@ -136,20 +132,20 @@ html {
 .AMMResident{
   margin-right: 5%;
   margin-left: -45%;
-  font-size: 1.5vw;
+  font-size: 1.2vw;
   color: #14335D;
   
 }
 .AMMDesignation{
   margin-right: 5%;
   margin-left: -48%;
-  font-size: 1.4vw;
+  font-size: 1.2vw;
   color: #14335D;
 }
 .AMMinput{
   width: 28vw;
   height: 5vh;
-  padding: 1%;
+  padding: 0%;
   background: #FFFFFF;
   border: 2px solid #14335D;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
@@ -158,40 +154,49 @@ html {
 }
 /* Media query for laptop */
 @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
- 
-  .sideimage6 img {
+  .AMTSideIMG img {
     display: flex;
-    margin-top: 147%;
-    max-width: 92%;
+    margin-top: 93%;
+    max-width: 95%;
     height: auto;
-    margin-left: 4%;
-}
+    margin-left: 2%;
+  }
 
 .dateto{
   font-size: 1vw;
   font-weight: 600;
 }
 .AMM_display {
-  width: 24vw;
-  height: 8vh;
+  width: 17vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 1.6vw;
-  padding-top: 2.2%;
+  padding: 1%;
   margin: auto;
-  margin-top: -4%;
+  margin-top: -3%;
+  margin-left: 38%;
+}
+.AMM_display label {
+
+  font-size: 1.2vw;
+  text-align: center;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
 }
 .AMM_Add_btn {
   background-color: #0A8996;
   color: #fff;
-  border-radius: 14px;
-  width: 12vw;
+  border-radius: 10px;
+  width: 9vw;
   height: 5vh;
-  font-size: 1.3vw;
-  
+  font-size: 1vw;
+  font-family: 'Rubik';
+  font-style: normal;
   margin-top: 4%;
   margin-right: 32%;
-  padding-top: 0%;
+  padding: 1%;
   font-weight: 700;
 }
 .AMM_Add_btn:hover {
