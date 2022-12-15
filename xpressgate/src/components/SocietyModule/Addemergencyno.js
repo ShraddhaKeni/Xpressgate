@@ -113,19 +113,19 @@ const Addemergencyno = () => {
         <Form className='formclass'>
          
             <div class="form-group form-group5 row">
-              <label class="col-lg-2 col-form-label  labelsize2">Name</label>
+              <label class="col-lg-2 col-form-label  labelsize">Name</label>
               <div class="col-lg-4">
                 <input type="text" class="form-control input-lg input-lg1 AEN_border" id="contact_name" ref={name} name="Name" placeholder="Name"></input>
               </div>
             </div>
             <div class="form-group form-group5 row">
-              <label class="col-lg-2 col-form-label  labelsize2">Phone Number</label>
+              <label class="col-lg-2 col-form-label  labelsize">Phone Number</label>
               <div class="col-lg-4">
                 <input type="number" class="form-control input-lg input-lg1 AEN_border" id="contact_number" ref={contact} name="Phone Number" placeholder="Contact"></input>
               </div>
             </div>
             <div class="form-group  form-group5 row">
-              <label class="col-lg-2 col-form-label  labelsize2">Type</label>
+              <label class="col-lg-2 col-form-label  labelsize">Type</label>
               <div class="col-lg-4">
                 <select  class="form-control input-lg input-lg1 AEN_border" ref={type} name="Type">
                     <option value={null} selected disabled>Select Type</option>
