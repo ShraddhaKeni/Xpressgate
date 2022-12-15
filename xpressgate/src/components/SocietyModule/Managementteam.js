@@ -6,6 +6,7 @@ import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Societyheader from "./Utils/Societyheader";
+import { useNavigate } from "react-router-dom";
 
 const Managementteam = () => {
     
@@ -14,6 +15,8 @@ const Managementteam = () => {
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts,setCurrentPosts] = useState([])
+  const navigate= useNavigate()
+
 
   useEffect(()=>{
     getDetails()
@@ -21,7 +24,7 @@ const Managementteam = () => {
    
   const getDetails=async()=>{
     try {
-      const {data} = await axios.get(`${window.env_var}api/management/getAll`)
+      const {data} = await axios.get(`${window.env_var}api/management/getAll/${localStorage.getItem('community_id')}`)
       setmanagement(data.data.managementteam)
       const indexoflast = currentPage*postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
@@ -37,6 +40,11 @@ const Managementteam = () => {
     const indexoflast =(event.selected+1)*postPerPage  //endoffset
     const indexoffirst = indexoflast - postPerPage //startoffset
     setCurrentPosts(management.slice(indexoffirst,indexoflast))
+  }
+
+  function managementDetails(mainid,id,title)
+  {
+    navigate('/addManagement',{state:{id:id,type:'edit',title, mainid}})
   }
 
   function findText(e)
@@ -91,7 +99,7 @@ const Managementteam = () => {
         <div className="MM_display">
           <label>Management Team</label>
         </div>
-        <div >
+        <div>
       
         <input
           type=" search"
@@ -114,7 +122,7 @@ const Managementteam = () => {
           <tbody>
             {currentPosts.map((items,index)=>{
               return(
-                <tr id={items._id}>
+                <tr id={items._id} onClick={()=>managementDetails(items._id,items.resident._id,items.managementTitle)}>
                   <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
                   <td>{items.resident.firstname} {items.resident.lastname}</td>
                   <td>{items.managementTitle}</td>

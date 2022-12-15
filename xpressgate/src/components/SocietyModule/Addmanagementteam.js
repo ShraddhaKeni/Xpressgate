@@ -10,7 +10,10 @@ import { checkSociety } from "../auth/Auth";
 const Addmanagementteam = () => {
 
   const [residents, setResidents] = useState([])
-
+  const [type, setType] = useState('add')
+  const location = useLocation()
+  const [one,setOne] = useState({})
+  const [title,setTitle] = useState()
 
   useEffect(() => {
     if (checkSociety()) {
@@ -21,11 +24,20 @@ const Addmanagementteam = () => {
       }
       axios.get(`${window.env_var}api/society/checkLogin`, config)
         .then(({ data }) => {
-          getResidents()
+          //console.log(location.state.id)
+          if (location.state) {
+             getResidents()
+             getResidents()// 2 times getResidents is required
+          setTitle(location.state.title)
+          setType(location.state.type)
+          }else{
+            getResidentsAdd()
+          }
         })
         .catch(err => {
-          localStorage.clear();
-          window.location.href = '/societylogin'
+           localStorage.clear();
+           window.location.href = '/societylogin'
+          //console.log(err)
         })
     }
     else {
@@ -36,32 +48,70 @@ const Addmanagementteam = () => {
   const getResidents = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/resident/getall`)
+      let resident_1 = await  data.data.Resident.find(x=>x.id===location.state.id)
+      console.log(resident_1.id)
+      document.getElementById('resident_id').value = resident_1.id
+      //setOne(data.data.Resident.find(x=>x.id===location.state.id))
       setResidents(data.data.Resident)
     } catch (error) {
       console.log(error)
     }
   }
 
+  const getResidentsAdd = async () => {
+    try {
+      const { data } = await axios.get(`${window.env_var}api/resident/getall`)
+     
+      setResidents(data.data.Resident)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+ async function getValues()
+  {
+    document.getElementById('resident_id').value = location.state.id
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-
-      if (document.getElementById('management_title').value !== "" && document.getElementById('from').value != "" && document.getElementById('to').value !== "") {
-        const sendData = {
-          community_id: '632970d054edb049bcd0f0b4',
-          managementTitle: document.getElementById('management_title').value,
-          resident_id: document.getElementById('resident_id').value,
-          from: document.getElementById('from').value,
-          to: document.getElementById('to').value
-        }
-        const { data } = await axios.post(`${window.env_var}api/management/add`, sendData)
-        window.location.href = '/management'
+      if (type == 'add') {
+        //if (document.getElementById('management_title').value !== "" && document.getElementById('from').value != "" && document.getElementById('to').value !== "") {
+          const sendData = {
+            // community_id: '632970d054edb049bcd0f0b4',
+            community_id:localStorage.getItem('community_id'),
+            managementTitle: document.getElementById('management_title').value,
+            resident_id: document.getElementById('resident_id').value,
+            from: document.getElementById('ForDate').value,
+            to: document.getElementById('ToDate').value
+          }
+          const { data } = await axios.post(`${window.env_var}api/management/add`, sendData)
+          console.log(data)
+          window.location.href = '/management'
+       // }
       }
       else {
-        console.log('error')
+        // let formdata = new FormData()
+        // //formdata.append('id', document.getElementById('location.state.id').value)
+        // id: location.state.id,
+        // formdata.append('resident_id', document.getElementById('resident_id').value)
+        // formdata.append('community_id',localStorage.getItem('community_id')) 
+        // formdata.append('managementTitle', document.getElementById('management_title').value)
+        // formdata.append('to', document.getElementById('ToDate').value)
+        // formdata.append('from', document.getElementById('ForDate').value)
+        const sendDataedit = {
+          id: location.state.mainid,
+          community_id:localStorage.getItem('community_id'),
+          managementTitle: document.getElementById('management_title').value,
+          resident_id: document.getElementById('resident_id').value,
+          from: document.getElementById('ForDate').value,
+          to: document.getElementById('ToDate').value
+        }
+        const { data } = await axios.post(`${window.env_var}api/management/update`, sendDataedit)
+        console.log(data)
+        window.location.href = '/management'
       }
-
-
     } catch (error) {
       console.log(error)
     }
@@ -78,6 +128,7 @@ const Addmanagementteam = () => {
   return (
     <div className="addguestcontainer4">
       <div id="addflatsection">
+       
         <div className="addflatheadersection">
           <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
           <div id="afsociety"><label>Society</label></div>
@@ -114,17 +165,17 @@ const Addmanagementteam = () => {
               </select>
             </div>
           </div> */}
-           <div className="AMM_form">
+          <div className="AMM_form">
             <div className="inboxes">
-                <label for="Resident" className="AMMResident">Resident</label>
-                <select  id='resident_id'className="AMMinput">
+              <label for="Resident" className="AMMResident">Resident</label>
+              <select id='resident_id' className="AMMinput">
                 <option value={null} selected disabled>Select resident</option>
                 {residents.map(item => {
                   return <option value={item.id}>{item.firstname} {item.lastname}</option>
                 })}
               </select>
             </div>
-        </div>
+          </div>
           {/* <div class="form-group form-group5 row">
             <label class="col-lg-2 col-form-label labelsize labelsize2">
               {" "}
@@ -140,53 +191,27 @@ const Addmanagementteam = () => {
               ></input>
             </div>
           </div> */}
-            <div className="AMM_form">
+          <div className="AMM_form">
             <div className="inboxes">
-                <label for="Designation" className="AMMDesignation">Designation</label>
-                <input type="text"   id="management_title"  className="AMMinput"></input> 
+              <label for="Designation" className="AMMDesignation">Designation</label>
+              {title? <input type="text" id="management_title" defaultValue={title}  className="AMMinput"></input>: <input type="text" id="management_title"  className="AMMinput"></input>}
+        
             </div>
-        </div>
-{/* 
-          <div className="date row g-2">
-            <div class="col-md-3">
-              <label for="inputPassword4" class="form-label dateto">
-                From
-              </label>
-              <input
-                type="date"
-                class="form-control"
-                id="from"
-                name="From"
-                min={disablePastDate()}
-              />
-            </div>
-            <div class="col-md-3">
-              <label for="inputEmail4" class="form-label dateto">
-                To
-              </label>
-              <input
-                type="date"
-                class="form-control"
-                id="to"
-                name="to"
-                min={disablePastDate()}
-              />
-            </div>
-
-          </div> */}
-           <div className="AMM_form">
+          </div>
+          
+          <div className="AMM_form">
             <div className="inboxes">
-            <span>
+              <span>
                 <label for="ToDate" class="Todate">To</label>
-                <input type="date"  id="ToDate" className="Todateinput"  min={disablePastDate()}></input>
-                </span>
-                <span>
+                <input type="date" id="ToDate" className="Todateinput" min={disablePastDate()}></input>
+              </span>
+              <span>
                 <label for="ForDate" class="Fromdate">From</label>
                 <input type="date" id="ForDate" className="Fromdateinput" min={disablePastDate()}></input>
-                </span>
-                
+              </span>
+
             </div>
-        </div>
+          </div>
 
           <Button type="submit" onClick={(e) => handleSubmit(e)} className="AMM_Add_btn">
             Add Number
