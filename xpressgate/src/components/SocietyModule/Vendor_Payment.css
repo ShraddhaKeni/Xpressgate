@@ -9,8 +9,8 @@ html {
     margin-top: 93%;
     max-width: 90%;
     height: auto;
-    margin-left: 13%;
-    margin-bottom: 5%;  
+    margin-left: 8%;
+    margin-bottom: 3%;  
   }
 
 .Payment_form{
@@ -25,7 +25,10 @@ html {
   
 }
 .VPay_societyname label {
-  color: #000;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
   margin-left: 4%;
   margin-top: 13%;
   font-size: 1.2vw;
@@ -46,11 +49,29 @@ html {
   height: 70%;
   margin-top: 4%;
 }
+.VPaydisplay {
+  width: 17vw;
+  height: 7vh;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  padding-top: 14px;
+  margin: auto;
+  margin-top: -3%;
+}
+.VPaydisplay label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;  
+  font-size: 1.6vw;
+  text-align: center;  
+  color: #14335D;
+}
+
 
 .vendorinput{
-  width: 35vw;
+  width: 23vw;
   height: 5vh;
-  padding: 1%;
+  padding: 0%;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border: 2px solid #14335D;
   border-radius: 8px;
@@ -60,6 +81,9 @@ html {
   margin-right: 5.5%;
   margin-left: -11%;
   font-size: 1.5vw;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
   color: #14335D;
 }
 
@@ -67,19 +91,28 @@ html {
   margin-right: 5%;
   margin-left: -12%;
   font-size: 1.5vw;
-  color: #14335D;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
   
 }
 .Residentnames{
   margin-right: 5%;
   margin-left: -19%;
   font-size: 1.5vw;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
   color: #14335D;
-}
+}ol
 .Amountdetails{
   margin-right: 5%;
   margin-left: -12.5%;
   font-size: 1.5vw;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
   color: #14335D;
 }
 .ButtonsContainer1{
@@ -87,18 +120,7 @@ html {
   margin-top: 14%;
   justify-content: center;
 }
-.AddButn{
-  width: 15vw;
-  height: 6vh;
-  font-size: 1.5vw;
-  font-weight: 700;
-  padding: 0%;
-  border-radius: 9px;
-  background: #0A8996;
-  border: none;
-  color: #FFFFFF;
 
-}
 
 .VPay_Add{
   width: 9vw;
@@ -117,11 +139,18 @@ html {
 .VPay_Add:hover{
   background: #14335D;
 }
+.SideB{
+  
+background: #FFFFFF;
+border: 2px solid #14335D;
+box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+border-radius: 8px;
+}
 /* Media query for laptop */
 @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
   .VPay_sideimg img {
     display: flex;
-    margin-top: 93%;
+    margin-top: 72%;
     max-width: 95%;
     height: auto;
     margin-left: 2%;
@@ -129,4 +158,40 @@ html {
 .VPay_Add:hover{  
   background: #14335D;
     }
+    .vendorinput {
+      width: 24vw;
+      height: 5vh;
+      padding: 0%;
+      box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);
+      border: 2px solid #14335D;
+      border-radius: 8px;
+      margin-top: 0%;
+  }
+  .VPaydisplay {
+    width: 17vw;
+    height: 7vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 1.4vw;
+    padding: 1%;
+    margin: auto;
+    margin-top: -3%;
+    margin-left: 38%;
+}
+.VPaydisplay label {
+  
+    font-size: 1.5vw;
+    text-align: center;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+}
+.SideB{
+  
+  background: #FFFFFF;
+  border: 2px solid #14335D;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  }
 }

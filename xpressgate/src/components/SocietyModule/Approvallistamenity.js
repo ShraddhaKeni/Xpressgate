@@ -22,7 +22,7 @@ const Approvallistamenity = () => {
 
   const getBookedEmenity=async(id)=>{
     try {
-      const {data} = await axios.get(`${window.env_var}api/resident/booking/getSingle/${id}`)
+      const {data} = await axios.get(`${window.env_var}api/resident/booking/getSingle/${id}`);
       setBooking(data.data.amenities[0])
       
     } catch (error) {
@@ -68,20 +68,20 @@ const Approvallistamenity = () => {
           <div id="alasociety"><label>Society</label></div>
           <div id="alaspace"></div>
           <div id="alanotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="alasetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="alasetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
           <div id="alalogoutbutton"> <Button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
         </div>
       </div>
       <div id="alasection">
-        <div className='alaname'>
-          <img src="/images/guardnameicon.svg" alt="guard name" />
+        <div className='ALAname'>
+          <img src="/images/societyicon.svg" alt="guard name" />
           <label>Society Name</label>
         </div>
-        <div className='alasideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
+        <div className='ALASimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='alabackgroundimg'>
-        <div className='aladisplay'>
-          <label>Amenitiy Booking Approval</label>
+        <div className='ALAdisplay'>
+          <label>Amenity Booking Approval</label>
         </div>
         <div className="col">
           <div className="alacard">
@@ -101,8 +101,8 @@ const Approvallistamenity = () => {
             </div>
             <br></br>
             <br></br>
-            {booking.status==false?<> <Button type="button" onClick={()=>{approveBooking(booking._id,'accept')}} className="alabtnApprove">APPROVE</Button>
-            <Button type="button" onClick={()=>{approveBooking(booking._id,'reject')}} className="alabtnDeny">DENY</Button></>: <Button type="button" onClick={()=>{approveBooking(booking._id,'reject')}} className="alabtnDeny">DENY</Button>}
+            {booking.status==false?<> <Button type="button" onClick={()=>{approveBooking(booking._id,'accept')}} className="ALAbtnApprove">APPROVE</Button>
+            <Button type="button" onClick={()=>{approveBooking(booking._id,'reject')}} className="ALAbtnDeny">DENY</Button></>: <Button type="button" onClick={()=>{approveBooking(booking._id,'reject')}} className="alabtnDeny">DENY</Button>}
            
             <br></br>
           </div>

@@ -2,22 +2,22 @@ html {
     height: 100vh;
   }
  
-  .paymentlabel {
-    width: 24vw;
-    height: 10vh;
+  .PH_display {
+    width: 17vw;
+    height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 2vw;
-    padding-top: 2%;
+    padding-top: 14px;
     margin: auto;
-    margin-top: -4%;
-}
-  .paymentlabel label{
-     
-    display: inline-block;
-  margin-bottom: 2%;
-  font-weight: 700;
-  
+    margin-top: -3%;
+  }
+  .PH_display label {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;  
+    font-size: 1.6vw;
+    text-align: center;  
+    color: #14335D;
   }
   .selectboxes{
     max-width: 50%;
@@ -36,23 +36,20 @@ html {
     margin-left: 60%;
     margin-top: 2%;
 }
-#inoutbooktable4 {
-  margin-Left: 13%;
-  margin-Top: 1.5%;
-  width: 57vw;
-  height: 10vh;
-  /* max-Width: 80%; */
-  background-color: #F9FAFF;
-  /* -webkit-border-radius: 14px; */
-  /* border-radius: 18px; */
-  border-radius: 33px 33px 0px 0px;
-  border-collapse: collapse;
-  font-family: 'Rubik', sans-serif;
-  border: 2px solid #14335D;
-  
+.PHSimg img {
+  display: flex;
+  margin-top: 93%;
+  max-width: 90%;
+  height: auto;
+  margin-left: 8%;
+  margin-bottom: 3%;  
 }
+
 .PH_societyname label {
-  color: #000;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
   margin-left: 4%;
   margin-top: 13%;
   font-size: 1.2vw;
@@ -79,68 +76,91 @@ html {
   margin-top: 3%;
   margin-left: 10%;
 }
-.societysideimg1 img {
-  display: flex;
-  margin-top: 99%;
-  max-width: 90%;
-  height: auto;
-  margin-left: 13%;
-  margin-bottom: 5%;
-  }
-  .Bills{
-    width: 12vw;
+
+  #bills{
+    width: 9vw;
     height: 4vh;
-    margin-left: 20%;
+    margin-left: 6%;
     background: #0A8996;
 border-radius: 14px;
 color: #FEFEFF;
 padding: 2%;
   }
-.blocks{
-  width: 12vw;
+#Blocks{
+  width: 9vw;
   height: 4vh;
-  margin-left: 40%;
+  margin-left: 30%;
   background: #0A8996;
 border-radius: 14px;
 color: #FEFEFF;
 padding: 2%;
 }
+
+.PHsearchbox{
+  width: 15%;
+  height: 5%;
+  border: 2px solid #000;
+  border-radius: 15px;
+  margin-left: 74%;
+  margin-top: 1%;
+  
+}
+.PHsearchbox input {
+  outline: none;
+  border: none;
+  height: 5vh;
+  width: 8vw;
+  border-radius: 5px;
+  margin-left: 6%;
+}
+
+.PHsearchbox img{
+  position: relative;
+  margin-top: 0%;
+  margin-left: -2%;
+}
+
   /* Media query for laptop */
   @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
    
-    .societysideimg1 img {
-      display: flex;
-      margin-top: 144%;
-      max-width: 92%;
-      height: auto;
-      margin-left: 4%;
+    .PH_display {
+      width: 17vw;
+      height: 7vh;
+      background-color: #AED8DC;
+      border-radius: 30px;
+      font-size: 1.4vw;
+      padding: 1%;
+      margin: auto;
+      margin-top: -3%;
+      margin-left: 38%;
   }
-  
-  .paymentlabel {
-    width: 24vw;
-    height: 10vh;
-    background-color: #AED8DC;
-    border-radius: 30px;
-    font-size: 1.6vw;
-    padding-top: 2.2%;
-    margin: auto;
-    margin-top: -17%;
+  .PH_display label {
+    
+      font-size: 1.5vw;
+      text-align: center;
+      font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
   }
-  #inoutbooktable4 {
-    margin-Left: 10%;
-    margin-Top: 1.5%;
-    width: 62vw;
-    /* max-Width: 80%; */
-    background-color: #F9FAFF;
-    /* -webkit-border-radius: 14px; */
-    /* border-radius: 18px; */
-    border-radius: 33px 33px 0px 0px;
-    border-collapse: collapse;
-    font-family: 'Rubik', sans-serif;
-    border: 2px solid #14335D;
-    /* max-height: min-content; */
-} 
+
+.PHSimg img {
+  display: flex;
+  margin-top: 93%;
+  max-width: 95%;
+  height: auto;
+  margin-left: 2%;
+}
+.PHsearchbox{
+  width: 15%;
+  height: 5%;
+  border: 2px solid #000;
+  border-radius: 15px;
+  margin-left: 73%;
+  margin-top: 0%;
   
+}
+
   
   }
 

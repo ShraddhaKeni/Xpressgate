@@ -8,6 +8,7 @@ import { CompressOutlined } from '@mui/icons-material';
 import { getBlocks } from '../SocietyModule/common/common';
 import { checkGuard } from '../auth/Auth';
 import './Addinout.css';
+import { useNavigate } from 'react-router-dom'
 
 const Addinout = () => {
   const [details, setDetails] = useState({})
@@ -62,6 +63,8 @@ const Addinout = () => {
     }
   }
 
+  const navigate = useNavigate();
+
   const handleSubmit=async(e)=>{
     e.preventDefault();
     try {
@@ -74,7 +77,8 @@ const Addinout = () => {
         mobileno:document.getElementById('contact_no').value,
         intime: date,
         status:document.getElementById('status').value,
-        bookedID : 1
+        bookedID : 1,
+        community_id: "632970d054edb049bcd0f0b4"
       }
 
       const {data} = await axios.post(`${window.env_var}api/inout/add`,sendData)
@@ -94,7 +98,7 @@ const Addinout = () => {
           <img src="/images/guardnameicon.svg" alt="guard name" />
           <label>Guard Name</label>
         </div>
-        <div classNameName='aiosideimage'>
+        <div className='aiosideimage'>
           <img src="/images/sideimage.svg" alt="guard sideimage" />
         </div>
       </div>
@@ -172,7 +176,7 @@ const Addinout = () => {
             </div>
           </div>
 
-          <Button type="submit" onClick={(e) => { handleSubmit(e) }} className="btnAddInOut" on>Add In Out</Button>
+          <button type="submit" onClick={(e) => { handleSubmit(e) }} className="btnInOut" on>Add In Out</button>
         </Form>
 
       </div>

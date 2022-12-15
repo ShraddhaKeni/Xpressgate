@@ -1,5 +1,8 @@
 .VPT_societyname label {
-    color: #000;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
     margin-left: 4%;
     margin-top: 13%;
     font-size: 1.2vw;
@@ -21,7 +24,7 @@
     margin-top: 4%;
   }
   .VPT_display {
-    width: 18vw;
+    width: 17vw;
     height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
@@ -34,9 +37,12 @@
   .VPT_display label{
    
         display: inline-block;
-       
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: 500;
+        color: #14335D;
         margin-bottom: -19%;
-        font-weight: 700;
+       
     
   }
 
@@ -45,8 +51,8 @@
     margin-top: 95%;
     max-width: 90%;
     height: auto;
-    margin-left: 13%;
-    margin-bottom: 5%;  
+    margin-left: 8%;
+    margin-bottom: 3%;  
   }
   .VPAddBTN {
   
@@ -60,7 +66,7 @@
       height: 5vh;
       margin-left: 54%;
       margin-top: 1.5%;
-      margin-bottom: 1%;
+      margin-bottom: -1%;
       font-weight: 500;
       font-size: 1vw;
       color: #0D960A;
@@ -73,7 +79,7 @@
 @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
 
   .VPT_display {
-    width: 19vw;
+    width: 17vw;
     height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
@@ -81,10 +87,14 @@
     padding-top: 1%;
     margin: auto;
     margin-top: -3%;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    color: #14335D;
   }
   .VPT_sideimage img {
     display: flex;
-    margin-top: 83%;
+    margin-top: 72%;
     max-width: 95%;
     height: auto;
     margin-left: 2%;
@@ -101,7 +111,7 @@
       height: 5vh;
       margin-left: 53%;
       margin-top: 1.5%;
-      margin-bottom: 1%;
+      margin-bottom: -1%;
       font-weight: 500;
       font-size: 1vw;
       color: #0D960A;

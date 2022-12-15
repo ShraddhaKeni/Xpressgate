@@ -127,7 +127,10 @@ html {
 } */
 
 .flname label {
-  color: #000;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
   margin-left: 4%;
   margin-top: 13%;
   font-size: 1.2vw;
@@ -153,7 +156,7 @@ html {
   margin-top: 68%;
   max-width: 90%;
   height: auto;
-  margin-left: 13%;
+  margin-left: 8%;
   margin-bottom: 5%;
 }
 
@@ -172,15 +175,22 @@ html {
 }
 
 .fldisplay {
-  width: 18vw;
-  height: 8vh;
+  width: 16vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 1.8vw;
-  padding-top: 1%;
+  padding-top: 14px;
   margin: auto;
-  margin-top: -3%;}
-
+  margin-top: -3%;
+}
+.fldisplay label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;  
+  font-size: 1.6vw;
+  text-align: center;  
+  color: #14335D;
+}
 .labelsize {
   font-size: 20px;
 }
@@ -225,11 +235,6 @@ table th {
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  .flname label {
-    margin-left: 2%;
-    margin-top: 16%;
-    font-size: 15px;
-  }
 
   .flsideimage img {
     display: flex;
@@ -265,16 +270,25 @@ table th {
   }
 
   .fldisplay {
-    width: 18vw;
-    height: 8vh;
+    width: 17vw;
+    height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 1.8vw;
-    padding-top: 1%;
+    font-size: 1.4vw;
+    padding: 1%;
     margin: auto;
     margin-top: -15%;
-  }
-
+    margin-left: 38%;
+}
+.fldisplay label {
+  
+    font-size: 1.5vw;
+    text-align: center;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+}
   .flsearchbox {
     width: 18vw;
     height: 5%;
@@ -286,15 +300,7 @@ table th {
 .flsearchbox img{
   margin-left: -8%;
 }
-.flname {
-  display: flex;
-  width: 80%;
-  height: 10%;
-  background-color: rgba(10, 137, 150, 0.33);
-  margin-left: 10%;
-  margin-top: 12%;
-  border-radius: 24px;
-}
+
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 425px) {

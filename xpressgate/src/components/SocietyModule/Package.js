@@ -1,8 +1,8 @@
 import React, { useEffect,useState } from "react";
 import "../SocietyModule/Package.css";
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
 
-import LogOut from "../SocietyModule/Utils/LogOut";
+// import LogOut from "../SocietyModule/Utils/LogOut";
 import Societyheader from "./Utils/Societyheader";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -50,21 +50,21 @@ const Package = () => {
     
     </div>
       <div id="societynamesection">
-        <div className="societyname">
-          <img src="/images/profileicon.svg" alt="Society image" />
+        <div className="PACK_Sname">
+          <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
         <br />
 
-        <div className="addguard_sideimg">
+        <div className="PACK_sideimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="Addguestdisplay4">
-          <label>{booked.plan_name}</label>
+        <div className="PACK_display">
+          <label>{booked.plan_name} </label>
         </div>
-        <Button style={{marginLeft:'50%',backgroundColor:'#0A8996'}} onClick={()=>{navigateToEdit()}}>Edit package</Button>
+        {/* <Button style={{marginLeft:'50%',backgroundColor:'#0A8996'}} onClick={()=>{navigateToEdit()}}>Edit package</Button> */}
         <div className="packagedetailscard">
        
           <div className="cardimage">
@@ -80,8 +80,8 @@ const Package = () => {
           </div>
           <br/><br/>
           <div className="buttonContainer">
-              <button type="button" class="validbtn"><i class="fa fa-circle circle" ></i>{ChangeDate(booked.purchased_date)}</button>
-             
+              <button type="button" class="validbtn"><i class="fa fa-circle circle " ></i> { ChangeDate(booked.purchased_date)}</button>
+              <button className="ChangePackageBtn"  onClick={()=>{navigateToEdit()}}>Change Package</button>
             </div> 
 
         </div>

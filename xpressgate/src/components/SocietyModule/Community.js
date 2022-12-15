@@ -11,7 +11,7 @@ const Community = () => {
           <div id="afsociety"><label>Society</label></div>
           <div id="afspace"></div>
           <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="afsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
           <div id="aflogoutbutton"><LogOut /></div>
         </div>
 
@@ -27,8 +27,8 @@ const Community = () => {
           <a href="/addNotice" class="Notice">Add Notice</a>
         </div> */}
         <div className='csidelinks'>
-          <a className='sidelinks' href="/noticelist">Notice List</a><br></br><br></br>
-          <a className='sidelinks' href="/addNotice">Add Notice</a>
+          <a className='CNsidelinks' href="/noticelist">Notice List</a><br></br><br></br>
+          <a className='CANsidelinks' href="/addNotice">Add Notice</a>
         </div>
         <div className="SC_sideimage">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />

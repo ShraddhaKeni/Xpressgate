@@ -68,19 +68,19 @@ const Vehiclemanagement = () => {
         <Societyheader />
       </div>
       <div id="vmsection">
-        <div className='vmsocietyname'>
+        <div className='VMsocietyname'>
           <img src="/images/societyicon.svg" alt="society name" />
           <label>Society Name</label>
         </div>
         <div className='vmsidelinks'>
           <label>Vehicle list</label><br></br>
-          <a href='/viewparking'>View parking section</a><br/><br/>
-          <a href='/addparking'>Add parking section</a>
+          <a href='/viewparking' className='VPsec'>View parking section</a><br/><br/>
+          <a href='/addparking' className='APsec'>Add parking section</a>
         </div>
-        <div className='vmsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
+        <div className='VMsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
       <div className='vmbackgroundimg'>
-        <div className='vmdisplay'>
+        <div className='VMdisplay'>
           <label>Vehicle Management</label>
         </div>
         <div className='row'>
@@ -91,7 +91,7 @@ const Vehiclemanagement = () => {
           </div>
           <div className='vmsearchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-              <input className='flsearch_input' placeholder='Search' onChange={(e) =>{findText(e)}}></input></span>
+              <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
           </div>
         </div>
 

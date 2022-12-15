@@ -111,7 +111,7 @@ const navigateTo =e=>{
     </div>
       <div id="societynamesection">
         <div className="P_societyname">
-          <img src="/images/profileicon.svg" alt="Society image" />
+          <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
         <div class="noticelist">
@@ -141,13 +141,13 @@ const navigateTo =e=>{
           <label>{location.state.serviceName}</label>
         </div>
 
-        <input
-          type=" search"
-          className="P_search"
-          name="Search"
-          placeholder="&#128269; Search"
-          onChange={(e)=>findText(e)}
-        ></input>
+        <div className="row">
+        <div className='vmsearchbox'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+              <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
+          </div>
+        </div>
+
 
         <table
           id="plumbertable"

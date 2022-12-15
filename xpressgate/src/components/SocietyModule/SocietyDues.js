@@ -60,7 +60,8 @@ const SocietyDues = () => {
         paymentAmount:amount.current.value,
       }
 
-      const {data} = await axios.post(`${window.env_var}api/maintenancepayment/addBill`,sendData)
+      const {data} = await axios.post(`${window.env_var}api/maintenancepayment/addBill`,sendData);
+      window.location.href='/societyduesrecord'
       console.log(data)
     } catch (error) {
       console.log(error)
@@ -81,12 +82,12 @@ const SocietyDues = () => {
         </div>
         <br/>
         
-        <div className="addguard_sideimg">
+        <div className="SocietyDSideIMG">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="Addguestdisplay4">
+        <div className="SD_display">
           <label>Society Dues</label>
         </div>
         <div className="Payment_form">

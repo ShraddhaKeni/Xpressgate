@@ -1,12 +1,30 @@
 html {
   height: 100vh;
 }
-
-.noticelist h4{
-  color: #434242;
+.P_societyname label {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  margin-left: 4%;
+  margin-top: 13%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
+  color: #14335D;
 }
-.noticelist a{
- color: #757575;
+.P_societyname {
+  display: flex;
+  width: 80%;
+  height: 12%;
+  background-color: rgba(10, 137, 150, 0.33);
+  margin-left: 10%;
+  margin-top: 12%;
+  border-radius: 24px;
+}
+.P_societyname img {
+  margin-left: 10%;
+  width: 25%;
+  height: 70%;
+  margin-top: 4%;
 }
 .ButtonsContainer{
   max-width: 100%;
@@ -20,7 +38,14 @@ html {
   flex-direction: column;
   gap: 0px;
 }
-
+.Paymentsideimg img {
+  display: flex;
+  margin-top: 93%;
+  max-width: 90%;
+  height: auto;
+  margin-left: 8%;
+  margin-bottom: 3%;
+}
 .societydues_btn{
   width: 20vw;
   height: 8vh;
@@ -38,9 +63,53 @@ html {
   transform: scale(1.05);
   filter: drop-shadow(0 0 0.75rem #0A8996 )
 }
+.Pdisplay {
+  width: 17vw;
+  height: 7vh;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  padding-top: 14px;
+  margin: auto;
+  margin-top: -3%;
+}
+.Pdisplay label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;  
+  font-size: 1.6vw;
+  text-align: center;  
+  color: #14335D;
+}
 
 /* Media query for laptop */
 @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
  
+  .Paymentsideimg img {
+    display: flex;
+    margin-top: 85%;
+    max-width: 95%;
+    height: auto;
+    margin-left: 2%;
+}
 
+  .Pdisplay {
+    width: 17vw;
+    height: 7vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+   
+    padding: 1%;
+    margin: auto;
+    margin-top: -3%;
+    margin-left: 39.5%;
+}
+.Pdisplay label {
+  
+    font-size: 1.5vw;
+    text-align: center;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+}
 }

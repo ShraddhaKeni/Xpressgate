@@ -72,18 +72,24 @@ input::-webkit-inner-spin-button {
   margin-top: 0.5%;
 }
 
-.sdsocietydisplay {
-  width: 300px;
-  height: 64px;
+
+.sdashdisplay {
+  width: 16vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 20px;
   padding-top: 14px;
   margin: auto;
-  margin-top: -37px;
-  margin-right: 42%;
+  margin-top: -3%;
 }
-
+.sdashdisplay label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;  
+  font-size: 1.4vw;
+  text-align: center;  
+  color: #14335D;
+}
 .firstheadersection {
   display: grid;
   grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
@@ -146,19 +152,17 @@ input::-webkit-inner-spin-button {
   padding-bottom: 5%;
 }
 
-/* .btnlogout {
-  background-color: #0A8996;
-  color: #fff;
-  border-radius: 14px;
-  width: 142px;
-  height: 52px;
-  font-size: 20px;
-  font-weight: 500;
-  margin-top: 18%;
-  padding-top: 2%;
-} */
-
-.guardname {
+.SC_Name label {
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+  margin-left: 4%;
+  margin-top: 13%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
+}
+.SC_Name {
   display: flex;
   width: 80%;
   height: 12%;
@@ -167,27 +171,22 @@ input::-webkit-inner-spin-button {
   margin-top: 12%;
   border-radius: 24px;
 }
-
-.guardname img {
+.SC_Name img {
   margin-left: 10%;
   width: 25%;
   height: 70%;
   margin-top: 4%;
 }
 
-.guardname label {
-  color: #000;
-  margin-left: 8%;
-  margin-top: 10%;
-  font-size: 20px;
-}
-
 .sdsideimage img {
   display: flex;
-  margin-top: 71%;
-  width: 100%;
+  margin-top: 98%;
+  max-width: 90%;
   height: auto;
+  margin-left: 9%;
+  margin-bottom: 5%;  
 }
+
 
 .enterpasscodesearch {
   width: 25%;
@@ -225,6 +224,27 @@ input::-webkit-inner-spin-button {
 
 /* Media query for laptop */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  .sdashdisplay {
+    width: 17vw;
+    height: 7vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 1.4vw;
+    padding: 1%;
+    margin: auto;
+    margin-top: -13%;
+    margin-left: 38%;
+  
+}
+.sdashdisplay label {
+  
+    font-size: 1.4vw;
+    text-align: center;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+}
   #dashboardguard label {
     margin-top: 14%;
     margin-left: -68%;
@@ -254,11 +274,11 @@ input::-webkit-inner-spin-button {
 
   .sdsideimage img {
     display: flex;
-    margin-top: 216%;
-    width: 100%;
+    margin-top: 93%;
+    max-width: 95%;
     height: auto;
+    margin-left: 2%;
   }
-
   .sdfullcardscss {
     margin-top: 5%;
     margin-right: 4%;

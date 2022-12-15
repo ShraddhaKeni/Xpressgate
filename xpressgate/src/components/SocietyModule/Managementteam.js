@@ -20,8 +20,9 @@ const Managementteam = () => {
   },[])
    
   const getDetails=async()=>{
+    console.log(localStorage.getItem('community_id'));
     try {
-      const {data} = await axios.get(`${window.env_var}api/management/getAll`)
+      const {data} = await axios.get(`${window.env_var}api/management/getAll/`+localStorage.getItem('community_id'))
       setmanagement(data.data.managementteam)
       const indexoflast = currentPage*postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
@@ -91,15 +92,11 @@ const Managementteam = () => {
         <div className="MM_display">
           <label>Management Team</label>
         </div>
-        <div >
-      
-        <input
-          type=" search"
-          className="search2"
-          name="Search"
-          placeholder="&#128269; Search"
-          onChange={(e)=>{findText(e)}}
-        ></input>
+        <div className="row">
+        <div className='vmsearchbox'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+              <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
+          </div>
         </div>
 
         <table id="managementtable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>

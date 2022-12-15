@@ -1,5 +1,29 @@
 
-
+.VP_societyname label {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  margin-left: 4%;
+  margin-top: 13%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
+  color: #14335D;
+}
+.VP_societyname {
+  display: flex;
+  width: 80%;
+  height: 12%;
+  background-color: rgba(10, 137, 150, 0.33);
+  margin-left: 10%;
+  margin-top: 12%;
+  border-radius: 24px;
+}
+.VP_societyname img {
+  margin-left: 10%;
+  width: 25%;
+  height: 70%;
+  margin-top: 4%;
+}
 #viewparkingtable {
     margin-Left: 10%;
     margin-Top: 2%;
@@ -12,11 +36,11 @@
 
 .viewparking_sideimg img {
     display: flex;
-    margin-top: 53%;
+    margin-top: 60%;
     max-width: 90%;
     height: auto;
-    margin-left: 13%;
-    margin-bottom: 5%;
+    margin-left: 8%;
+    margin-bottom: 3%;
 }
 .VP_searchbox{
     width: 15%;
@@ -40,30 +64,7 @@
     color: #000000;
     font-size: 1.3vw;
     }
-    .Vparksection {
-      font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 0.9vw;
-    text-align: center;
-    margin-left: 23%;
-    color: #000;
-    }
-    .Aparksection {
-      font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 0.9vw;
-    text-align: center;
-    margin-left: 21%;
-    color: #5C5C5C;
-    }
-    .Vparksection:hover{
-      color: #000000;
-    }
-    .Aparksection:hover{
-      color: #000000;
-    }
+   
   .VP_searchbox input {
     outline: none;
     border: none;
@@ -79,7 +80,7 @@
     margin-left: -2%;
   }
 .VPdisplay {
-    width: 20vw;
+    width: 17vw;
     height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
@@ -88,16 +89,41 @@
     margin-top: -3%;
 }
 .VPdisplay label {
-      
-    font-size: 1.6vw;
-    /* margin-bottom: 5px; */
-    font-weight: 700;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;  
+    font-size: 1.3vw;
     text-align: center;  
+    color: #14335D;
+}
+.VpSec{
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  color: #000;
+  font-size: 0.9vw;
+  margin-left: 14%;
+}
+.ApSec{
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  color: #5C5C5C;
+  font-size: 0.9vw;
+  margin-left: 13%;
+  
+}
+.VpSec:hover{
+  color:#000
+}
+.ApSec:hover{
+  color:#000
 }
 
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
-    .vpsidelinks {
+
+  .vpsidelinks {
         margin-right: 38%;
         margin-top: 10%;
       }
@@ -126,22 +152,24 @@
         margin-left: 2%;
     }
     .VPdisplay {
-        width: 27vw;
-        height: 8vh;
+        width: 17vw;
+        height: 7vh;
         background-color: #AED8DC;
         border-radius: 30px;
         font-size: 20px;
-        padding: 1%;
+        padding: 0.5%;
         margin: auto;
-        margin-top: -4%;
-        margin-left: 30%;
+        margin-top: -3%;
+        margin-left: 37%;
     }
     .VPdisplay label {
       
-        font-size: 1.5vw;
-        /* margin-bottom: 5px; */
-        font-weight: 700;
+        font-size: 1.4vw;
         text-align: center;
+        font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
 
        
 

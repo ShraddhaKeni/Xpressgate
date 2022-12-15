@@ -66,15 +66,22 @@ input::-webkit-inner-spin-button {
   margin-top: 0.5%;
 }
 
-.societydisplay {
-  width: 18vw;
-  height: 8vh;
+.BL_display {
+  width: 16vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 1.8vw;
-  padding-top: 1%;
+  padding-top: 14px;
   margin: auto;
   margin-top: -3%;
+}
+.BL_display label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;  
+  font-size: 1.6vw;
+  text-align: center;  
+  color: #14335D;
 }
 .Flatsidelinks{
   color:#757575;
@@ -160,7 +167,10 @@ input::-webkit-inner-spin-button {
 }
 
 .blsocietyname label {
-  color: #000;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
   margin-left: 4%;
   margin-top: 13%;
   font-size: 1.2vw;
@@ -187,7 +197,7 @@ input::-webkit-inner-spin-button {
   margin-top: 68%;
   max-width: 90%;
   height: auto;
-  margin-left: 13%;
+  margin-left: 8%;
   margin-bottom: 5%; }
 
 
@@ -359,15 +369,25 @@ input::-webkit-inner-spin-button {
     margin-top: 13%;
     font-size: 1.3vw;
 }
-.societydisplay {
-  width: 18vw;
-  height: 8vh;
+.BL_display {
+  width: 17vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 1.8vw;
-  padding-top: 1%;
+  font-size: 1.4vw;
+  padding: 1%;
   margin: auto;
   margin-top: -13%;
+  margin-left: 38%;
+}
+.BL_display label {
+
+  font-size: 1.5vw;
+  text-align: center;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
 }
 }
 

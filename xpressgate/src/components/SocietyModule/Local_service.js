@@ -35,7 +35,7 @@ const Local_service = () => {
           <div id="afsociety"><label>Society</label></div>
           <div id="afspace"></div>
           <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="afsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="afsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
           <div id="aflogoutbutton"><LogOut/></div>
         </div>
     
@@ -45,9 +45,10 @@ const Local_service = () => {
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
-        <br/>
-        <div class="noticelist">
-         
+        
+        <div class="nlsidelinks">
+        <a className='Nsidelinks' href="/noticelist"><b>Notice List</b></a><br></br><br></br>
+          <a className='Asidelinks' href="/addNotice">Add Notice</a>
           </div>
         <div className="LS_sideimage">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />

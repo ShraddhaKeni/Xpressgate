@@ -33,7 +33,7 @@ const Blocklist = () => {
             <div id="blsociety"><label>Society</label></div>
             <div id="blspace"></div>
             <div id="blnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-            <div id="blsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+            <div id="blsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
             <div id="bllogoutbutton"><LogOut /></div>
           </div>
         </div>
@@ -53,7 +53,7 @@ const Blocklist = () => {
           <div className='blsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
         </div>
         <div className='blbackgroundimg'>
-          <div className='societydisplay'>
+          <div className='BL_display'>
             <label>Block List</label>
           </div>
           <div id="blcardsection">

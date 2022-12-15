@@ -26,15 +26,15 @@ const Amenities = () => {
         <Societyheader/>
       </div>
       <div id="amntsnamesection">
-        <div className='amntsname'>
-          <img src="/images/guardnameicon.svg" alt="guard name" />
+        <div className='ASname'>
+          <img src="/images/societyicon.svg" alt="guard name" />
           <label>Society Name</label>
         </div>
-        <div className='amntssideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
+        <div className='AMSideIMG'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='amntsbackgroundimg'>
         <div id="amntscard">
-          <div className='amntsdisplay'>
+          <div className='Amendisplay'>
             <label>Amenities</label>
           </div>
           <div className="row row-cols-1 row-cols-md-3 g-4 amntscss">

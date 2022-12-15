@@ -17,7 +17,10 @@ html {
   width: 100%;
 }
 .SC_societyname label {
-  color: #000;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
   margin-left: 4%;
   margin-top: 13%;
   font-size: 1.2vw;
@@ -43,39 +46,56 @@ html {
   margin-top: 10%;            
 }
 
-.sidelinks{
+.CNsidelinks{
   color:#757575;
-  font-weight: 500;
+  font-size: 1vw;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+
+}
+.CNsidelinks:hover{
+color: #000;
+}
+.CANsidelinks:hover{
+color: #000;
+}
+.CANsidelinks{
+  color:#757575;
+  font-size: 1vw;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+text-decoration: none;
 }
 .SC_sideimage img {
   display: flex;
   margin-top: 68%;
   max-width: 90%;
   height: auto;
-  margin-left: 13%;
+  margin-left: 8%;
   margin-bottom: 5%;  
+  text-decoration: none;
 }
+
 
 .SC_display {
-  width: 20vw;
-  height: 9vh;
+  width: 17vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 1.5vw;
+  padding-top: 14px;
   margin: auto;
-  margin-top: -4%;
-  padding-top: 2%;
+  margin-top: -3%;
 }
-
-.SC_display label{
- 
-      display: inline-block;
-     
-      margin-bottom: -19%;
-      font-weight: 700;
-  
+.SC_display label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;  
+  font-size: 1.2vw;
+  text-align: center;  
+  color: #14335D;
 }
-
 .dashboardcard img{
   width:20vw;
   padding-right: 2%;
@@ -91,16 +111,24 @@ font-Size: 1.5vw;
 /* Media query for laptop */
 @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
 
-.SC_display {
-  width: 24vw;
-  height: 10vh;
-  background-color: #AED8DC;
-  border-radius: 30px;
-  font-size: 1.6vw;
-  padding-top: 2.2%;
-  margin: auto;
-  margin-top: -5%;
-}
+  .SC_display img {
+    display: flex;
+    margin-top: 93%;
+    max-width: 95%;
+    height: auto;
+    margin-left: 2%;
+  }
+  .SC_display {
+      width: 17vw;
+      height: 7vh;
+      background-color: #AED8DC;
+      border-radius: 30px;
+      font-size: 1.4vw;
+      padding: 1%;
+      margin: auto;
+      margin-top: -3%;
+      margin-left: 38%;
+  }
 
 .dashboardcard img{
 width:20vw;

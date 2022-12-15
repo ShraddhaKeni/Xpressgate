@@ -35,7 +35,7 @@ const Addnotice = () => {
           <div id="ansociety"><label>Society</label></div>
           <div id="anspace"></div>
           <div id="annotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="ansetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+          <div id="ansetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
           <div id="anlogoutbutton"><LogOut /></div>
         </div>
       </div>
@@ -45,8 +45,8 @@ const Addnotice = () => {
           <label>Society Name</label>
         </div>
         <div className='nlsidelinks'>
-          <a className='sidelinks' href="/noticelist">Notice List</a><br></br><br></br>
-          <a className='sidelinks' href="/addNotice"><b>Add Notice</b></a>
+          <a className='NLSLink' href="/noticelist">Notice List</a><br></br><br></br>
+          <a className='ANSLink' href="/addNotice"><b>Add Notice</b></a>
         </div>
         <div className='ansideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
@@ -83,7 +83,7 @@ const Addnotice = () => {
               <input type="file" class="form-control input-lg" name="attachments" placeholder="Upload from computer" style={{border: "1px solid #000000"}}></input>
             </div>
           </div>
-          <Button type="submit" onClick={(e)=>handleSubmit(e)} className="btnAddNotice">Add Notice</Button>
+          <Button type="submit" onClick={(e)=>handleSubmit(e)} className="AddNoticeButton">Add Notice</Button>
         </Form>
 
       </div>
