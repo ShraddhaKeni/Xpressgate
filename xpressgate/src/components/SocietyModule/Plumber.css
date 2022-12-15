@@ -80,10 +80,10 @@ html {
 
 .P_sideimage img {
   display: flex;
-  margin-top: 68%;
+  margin-top: 58%;
   max-width: 90%;
   height: auto;
-  margin-left: 13%;
+  margin-left: 8%;
   margin-bottom: 5%;  
 }
 .P_search{
@@ -242,7 +242,7 @@ font-size: 1.1vw;
   }
     .P_sideimage img {
       display: flex;
-      margin-top: 53%;
+      margin-top: 21%;
       max-width: 95%;
       height: auto;
       margin-left: 2%;

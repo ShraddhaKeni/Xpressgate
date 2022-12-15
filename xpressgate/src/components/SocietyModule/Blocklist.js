@@ -53,7 +53,7 @@ const Blocklist = () => {
           <div className='blsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
         </div>
         <div className='blbackgroundimg'>
-          <div className='societydisplay'>
+          <div className='BL_display'>
             <label>Block List</label>
           </div>
           <div id="blcardsection">

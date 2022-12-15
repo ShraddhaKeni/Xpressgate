@@ -9,8 +9,8 @@ html {
     margin-top: 93%;
     max-width: 90%;
     height: auto;
-    margin-left: 13%;
-    margin-bottom: 5%;  
+    margin-left: 8%;
+    margin-bottom: 3%;  
   }
 
 .Payment_form{
@@ -150,7 +150,7 @@ border-radius: 8px;
 @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
   .VPay_sideimg img {
     display: flex;
-    margin-top: 93%;
+    margin-top: 72%;
     max-width: 95%;
     height: auto;
     margin-left: 2%;
