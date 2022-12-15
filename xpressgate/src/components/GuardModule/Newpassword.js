@@ -52,30 +52,30 @@ const Newpassword = () => {
   }
 
   return (
-    <div className="nplogincontainer">
-      <div id="nplogoid">
+    <div className="NPLoginContainer">
+      <div id="NPLogoId">
         <img src="/images/loginlogo.svg" alt="" />
-        <div className="npsignin">
-          <label className="nplabel">Forgot Password</label>
+        <div className="NPSignIn">
+          <label className="NPLabel">Forgot Password</label>
         </div>
       </div>
-      <div id="nploginimgid">
+      <div id="NPLoginImgId">
         <img src="/images/loginsideimg.png" alt="" />
       </div>
       <div id="nploginformid">
         <Form>
           <div className='npinput_fields'>
             <div className='npemail_input'>
-              <label className='npnewpassword'>New password</label>
-              <input type="text" className="form-control gfpemailtextbox" id="newpassword" placeholder='New Password' ></input>
+              <label className='NPNewPassword'>New password</label>
+              <input type="text" className="form-control NEWPemailtextbox" id="newpassword" placeholder='New Password' ></input>
             </div>
             <br></br><br></br>
             <div className='npemail_input'>
-              <label className='npconfirmpassword'>Confirm Password</label>
-              <input type="password" className="form-control gfppasswordtextbox" id="confirmpassword" placeholder='Confirm password'></input>
+              <label className='NPConfirmPassword'>Confirm Password</label>
+              <input type="password" className="form-control NEWPpasswordtextbox" id="confirmpassword" placeholder='Confirm password'></input>
             </div>
             <br></br>
-            <Button type="button" className="btnconfirm" onClick={() => { confirmPasword() }}>Login</Button>
+            <Button type="button" className="NPBtnConfirm" onClick={() => { confirmPasword() }}>Login</Button>
           </div>
         </Form>
       </div>
