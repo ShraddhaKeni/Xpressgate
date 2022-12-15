@@ -66,13 +66,7 @@ html{
   margin-top: 10%;
 }
 
-.input_fields
-{
-  position: absolute;
-  width: 50%;
-  height: 50%;
-  left: 27.5%;
-}
+
 
 .otpemail{
   position: relative;

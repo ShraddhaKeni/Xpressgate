@@ -113,8 +113,12 @@ const navigateTo =e=>{
         <div className="P_societyname">
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
+        </div><br></br>
+        <div>
+        <a href="/localservices" className="LOcalSLINK">Local Services</a>
         </div>
         <div class="noticelist">
+        
         <div className="sidebar_classes">
           {services.map(item=>{
 
