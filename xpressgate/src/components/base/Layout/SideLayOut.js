@@ -86,11 +86,27 @@ const SideLayOut = () => {
           <span className='ml-3 Labelfont'>Reports</span>
         </div>
       </Link>
-      <Link to={'#'} style={{ textDecoration: 'none' }} >
-        <div className={`nav-item ${router.pathname.includes("reports") && 'font-weight-bold'}`}>
+      <Link to={RouterPath.PRIVACY_POLICY} style={{ textDecoration: 'none' }} >
+        <div className={`nav-item ${router.pathname.includes("configurations") && 'font-weight-bold'}`}>
           <SettingsOutlinedIcon className='side-nav-icon' fontSize='large' />
           <span className='ml-3 Labelfont'>Configuration</span>
         </div>
+        {router.pathname.includes('configurations') &&
+          <div className='px-5'>
+            <Link to={RouterPath.PRIVACY_POLICY} style={{ textDecoration: 'none' }} >
+              <div className={`nav-inner-item ${router.pathname.includes("privacy") && 'font-weight-bold'}`}>
+                <ChevronRightOutlinedIcon className={router.pathname.includes("privacy") ? '' : 'd-none'} />
+                <span className={router.pathname.includes("privacy") ? '' : 'ml-4'}>Privacy Policy</span>
+              </div>
+            </Link>
+            <Link to={RouterPath.TERMS} style={{ textDecoration: 'none' }} >
+              <div className={`nav-inner-item ${router.pathname.includes("terms") && 'font-weight-bold'}`}>
+                <ChevronRightOutlinedIcon className={router.pathname.includes("terms") ? '' : 'd-none'} />
+                <span className={router.pathname.includes("terms") ? '' : 'ml-4'}>Terms & Conditions</span>
+              </div>
+            </Link>
+          </div>
+        }
       </Link>
 
       <img src='/images/side_bar_img.svg' style={{ width: '100%' }} />
