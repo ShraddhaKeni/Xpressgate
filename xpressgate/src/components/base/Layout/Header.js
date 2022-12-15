@@ -1,9 +1,6 @@
-import { makeStyles } from '@mui/material'
 import React, { useState } from 'react'
 import { Button } from 'react-bootstrap'
 import HeaderSection from '../../GuardModule/Utils/HeaderSection'
-import LogOut from '../../GuardModule/Utils/LogOut'
-import { MaterialButton } from '../../../pages/admin/components/MaterialButton'
 
 function Header() {
     const [stat, setStat] = useState(false)
@@ -11,7 +8,6 @@ function Header() {
         localStorage.clear()
         window.location.href = '/'
     }
-
     return (
         <div id="headersection">
             <div className="adminheadersection">
@@ -23,7 +19,7 @@ function Header() {
                     {stat ? <div className='notification_section mx-4'><HeaderSection /></div> : ''}
                     <div className='mx-3'><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
 
-                    <LogOut className='bg-[#0A8996]' />
+                    <Button type="button" onClick={() => guardLogout()} className="btnlogout mx-4 mr-5 pt-3" >Log Out<img src="/images/logout.svg" className='ml-4' alt="header logo" /></Button>
 
                 </div>
             </div>
