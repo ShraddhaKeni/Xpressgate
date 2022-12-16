@@ -65,7 +65,7 @@ const ChangePassword = () => {
         <Societyheader />
       </div>
       <div id="scpnamesection">
-        <div className='cpsocname'>
+        <div className='CPSName'>
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>

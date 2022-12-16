@@ -113,14 +113,14 @@ color: #14335D;
   height: 12%;
   background-color: rgba(10, 137, 150, 0.33);
   margin-left: 10%;
-  margin-top: 12%;
+  margin-top: 11%;
   border-radius: 24px;
 }
 .InOutName img {
   margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 4%;
+  margin-top: 5%;
 }
 
 .IOBsideimage img {
@@ -144,7 +144,7 @@ color: #14335D;
 font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;  
-  font-size: 1.6vw;
+  font-size: 1.4vw;
   text-align: center;  
   color: #14335D;
 }
