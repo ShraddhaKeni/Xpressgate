@@ -17,12 +17,6 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.code {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  align-items: center;
-}
 
 .dashboard_passcode {
   position: relative;
@@ -79,7 +73,7 @@ input::-webkit-inner-spin-button {
 font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;  
-  font-size: 1.6vw;
+  font-size: 1.4vw;
   text-align: center;  
   color: #14335D;
 }
@@ -189,7 +183,7 @@ font-weight: 500;
   margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 4%;
+  margin-top: 5%;
 }
 
 .blsideimage img {
@@ -206,24 +200,7 @@ font-weight: 500;
   margin-top: 10%;
 }
 
-.enterpasscodesearch {
-  width: 25%;
-  height: 10%;
-  background-color: #CFDBEB;
-  border-radius: 25px;
-  border-color: #0A8996;
-  border-style: solid;
-  margin: auto;
-  margin-top: 5%;
-  font-size: 20px;
-  font-weight: 600;
-  color: #0A8996;
-}
 
-.enterpasscodesearch img {
-  margin-left: 105%;
-  margin-top: -8%;
-}
 
 .blcard {
   width: fit-content;
@@ -290,11 +267,7 @@ font-weight: 500;
     font-size: 20px;
   }
 
-  .blsocietyname label {
-    margin-left: 7%;
-    margin-top: 18%;
-    font-size: 15px;
-  }
+
 
   .blbackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
@@ -333,20 +306,7 @@ font-weight: 500;
     border-bottom: 5px solid #000000;
   }
 
-  .enterpasscodesearch {
-    width: 35%;
-    height: 10%;
-    background-color: #CFDBEB;
-    border-radius: 25px;
-    border-color: #0A8996;
-    border-style: solid;
-    margin: auto;
-    margin-top: 5%;
-    font-size: 20px;
-    font-weight: 600;
-    color: #0A8996;
-  }
-
+ 
   .blminicard {
     margin-left: 50%;
     margin-bottom: 10%;
@@ -357,18 +317,7 @@ font-weight: 500;
     border-radius: 20px;
   }
 
-  .blsocietyname img {
-    margin-left: 6%;
-    width: 30%;
-    height: 70%;
-    margin-top: 8%;
-  }
 
-  .blsocietyname label {
-    margin-left: 1%;
-    margin-top: 13%;
-    font-size: 1.3vw;
-}
 .BL_display {
   width: 17vw;
   height: 7vh;

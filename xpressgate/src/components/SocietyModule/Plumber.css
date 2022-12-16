@@ -30,7 +30,7 @@ html {
   grid-template-areas: "addflatsection addflatsection"
   "societynamesection cardsection"
 }
-.P_societyname label {
+.Plum_societyname label {
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 500;
@@ -40,7 +40,7 @@ html {
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
-.P_societyname {
+.Plum_societyname {
   display: flex;
   width: 80%;
   height: 12%;
@@ -49,18 +49,18 @@ html {
   margin-top: 12%;
   border-radius: 24px;
 }
-.P_societyname img {
+.Plum_societyname img {
   margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 4%;
+  margin-top: 5%;
 }
 .P_display {
   width: 17vw;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 1.5vw;
+  font-size: 1.4vw;
   margin: auto;
   margin-top: -3%;
   padding-top: 1%;
@@ -249,12 +249,7 @@ font-size: 1.1vw;
     color: #F9F9FF;
    
   }
-    #dashboardlogo img {
-      margin-top: 9%;
-      margin-left: -38%;
-      margin-bottom: 3%;
-      width: 5vw;
-  }
+ 
     .P_sideimage img {
       display: flex;
       margin-top: 14%;

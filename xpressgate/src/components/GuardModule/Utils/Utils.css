@@ -36,8 +36,8 @@ html {
 }
 
 #dashboardlogo img {
-  margin-top: 5%;
-  margin-left: 1%;
+  margin-top: 7%;
+  margin-left: -30%;
   margin-bottom: 5%;
   width: 40%;
 }
@@ -47,15 +47,18 @@ html {
 }
 
 #dashboardguard label {
-  margin-top: 20%;
-  margin-left: -88%;
-  width: 136px;
-  height: 58px;
+  margin-top: 19%;
+  margin-left: -120%;
+  width: 7.5vw;
+  height: 6.5vh;
   background-color: black;
   color: #fff;
-  border-radius: 18px;
-  padding-top: 4%;
-  font-size: 20px;
+  border-radius: 19px;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.6vw;
+  padding: 3%;
 }
 
 #dashboardspace {
@@ -99,6 +102,7 @@ html {
   width: 8vw;
   margin-top: 18%;
   margin-right: 20%;
+  padding: 2%;
 }
 .btnlogout:hover {
   background-color: #14335D;
@@ -156,19 +160,20 @@ html {
   margin-right: 35%;
   padding-top: 0%;
 } 
+.btnlogout {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 9px;
+  height: 6vh;
+  font-size: 1.2vw;
+  font-weight: 500;
+  width: 8vw;
+  margin-top: 24%;
+  margin-right: 20%;
+  padding: 2%;
+}
 .btnlogout:hover {
  background-color: #14335D;
-}
-#dashboardguard label {
-  margin-top: 14%;
-  margin-left: -68%;
-  width: 108px;
-  height: 45px;
-  background-color: black;
-  color: #fff;
-  border-radius: 18px;
-  padding-top: 3%;
-  font-size: 20px;
 }
 
 .Addguestdisplay {

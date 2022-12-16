@@ -79,15 +79,15 @@ const Dailyhelplist = () => {
        <GuardHeader/>
       </div>
       <div id="dhlguardnamesection">
-        <div className='dhlguardname'>
+        <div className='DHL_Name'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
           <label>Guard Name</label>
         </div>
-        <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
+        <div className='DHL_SideImg'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='dhlbackgroundimg'>
         <div id="cardsection">
-          <div className='Dailyhelplistdisplay'>
+          <div className='DHL_display'>
             <label>Daily Help List</label>
           </div>
           <div className="row row-cols-1 row-cols-md-3 g-4 dhfullcardscss">
@@ -102,8 +102,8 @@ const Dailyhelplist = () => {
                   <div className="col" onClick={()=>routeChange(dailydata._id)}>
                     <div className="dailyhelpminicard"><br></br>
                       <img className="dhcard-img-top" src={`${window.env_var}` +dailydata.helper_image} alt="profile"></img><br></br>
-                      <label className='dhcard-titlename'>{dailydata.helper_name}</label><br></br>
-                      <label className='dhcard-profession'>{dailydata.service}</label><br></br><br></br>
+                      <label className='dhlcard-titlename'>{dailydata.helper_name}</label><br></br>
+                      <label className='dhlcard-profession'>{dailydata.service}</label><br></br><br></br>
                       <label className='dhcard-allowedhouses'>Allowed in {dailydata.booking_id.length} Houses</label><br></br>
                     </div>
 

@@ -77,19 +77,20 @@ const Inoutbook = () => {
         <GuardHeader/>
       </div>
       <div id="guardnamesection">
-        <div className='guardname'>
+        <div className='InOutName'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
           <label>Guard Name</label>
         </div>
         <div className='IOBsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='iobbackgroundimg'>
-        <div className='inoutbookdisplay'>
+        <div className='IOB_display'>
           <label>In-out Book</label>
         </div>
-        <div className='InoutBookButton'>
+        {/* <div className='InoutBookButton'>
           <a href="/addinout" className='InoutBookADDButton'>&#43; Add In Out</a>
-        </div>
+        </div> */}
+         <button type="button" onClick={()=>{window.location.href='/addinout'}} className="AddInOutBtn">&#10011; Add In Out</button>
         <table id="inoutbooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>

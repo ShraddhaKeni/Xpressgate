@@ -124,18 +124,18 @@ const Vendorlist = () => {
       </div>
      
       <div id="guardnamesection">
-        <div className='guardname'>
+        <div className='VendorLname'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
           <label>Guard Name</label>
         </div>
-        <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
+        <div className='VendorLSImg'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='vlbackgroundimg'>
-        <div className='vendorlistdisplay'>
+        <div className='VendorL_display'>
           <label>Vendor List</label>
         </div>
         <div className='row'>
-          <div className='searchbox'>
+          <div className='Vsearchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
           {/* <label className='searchlabel'>Search</label> */}
           <input className='vlsearch_input' placeholder='Search' onChange={(e)=>{findText(e)}}></input></span>
@@ -146,6 +146,7 @@ const Vendorlist = () => {
           </div> */}
         </div>
         {/* <div class="table-responsive"> */}
+        <button type="button" onClick={()=>{window.location.href='/vendorentry'}} className="AddVendor">&#10011; Add Vendor</button>
         <table id="vendortable" class="table vendorList table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>

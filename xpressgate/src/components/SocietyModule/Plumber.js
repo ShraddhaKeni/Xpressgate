@@ -110,7 +110,7 @@ const navigateTo =e=>{
         <Societyheader/>
     </div>
       <div id="societynamesection">
-        <div className="P_societyname">
+        <div className="Plum_societyname">
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div><br></br>
