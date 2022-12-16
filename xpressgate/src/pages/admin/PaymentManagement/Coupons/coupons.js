@@ -11,7 +11,7 @@ export const CouponsList = () => {
 
     const [coupons, setCoupons] = useState();
     const [allCoupons, setAllCoupons] = useState();
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(0);
 
 
 
@@ -19,7 +19,7 @@ export const CouponsList = () => {
         async function getCoupons() {
             const res = await getAllCoupons();
             if (res && res.data.status_code == 200) {
-                setCoupons(getCurrentCoupons(res.data.data.block))
+                setCoupons(getCurrentCoupons(res.data.data.coupons))
             }
         }
 
@@ -27,10 +27,12 @@ export const CouponsList = () => {
     }, [])
 
     function getCurrentCoupons(data) {
-        console.log(data);
+        setAllCoupons(data);
+        if (currentPage == 0) {
+            return data?.slice(0, PageSize)
+        }
         const firstPageIndex = (currentPage) * PageSize
         const lastPageIndex = firstPageIndex + PageSize;
-        setAllCoupons(data);
         return data?.slice(firstPageIndex, lastPageIndex);
     }
 
@@ -40,7 +42,7 @@ export const CouponsList = () => {
 
     const handlePageChange = (page) => {
 
-        setCurrentPage(page.selected);
+        setCurrentPage(page.selected + 1);
 
         setCoupons(getCurrentCoupons(allCoupons));
 
@@ -62,7 +64,8 @@ export const CouponsList = () => {
                         <span><input className='search' placeholder='Search' onChange={(e) => { }} /></span>
                     </div>
                     <div className="table-add-new-button" onClick={handleAddPremise}>
-                        <img src="/images/ic_plus.svg" />  Add New Coupon
+                        <img src="/images/ic_plus.svg" />
+                        <span className='ml-2'> Add New Coupon</span>
                     </div>
                 </div>
 
@@ -90,15 +93,13 @@ export const CouponsList = () => {
                     </div>
                 </div>
 
-                {allCoupons && <div className='flex space-between'>
-                    <p>Showing {currentPage} of {`${Math.ceil(allCoupons.length / PageSize)}`}</p>
-
-                    {/* <PaginationCalculate totalPages={Math.ceil(allCoupons.length / PageSize)} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} /> */}
-                    <PaginationCalculate totalPages={Math.ceil(allCoupons.length / PageSize)} postperPage={3} currentPage={currentPage} paginate={handlePageChange} />
-
-                </div>}
-
+                {allCoupons?.length &&
+                    <div className="paginate mb-5">
+                        <PaginationCalculate totalPages={allCoupons.length} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} />
+                    </div>
+                }
             </div >
+
         </div >
     )
 }

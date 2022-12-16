@@ -7,17 +7,22 @@ const Reports = () => {
 
   return (
     <>
-      <div className="AdminSideImg"><img src="/images/AdminSideImage.svg" alt="Admin side image"></img></div>
-      <div className="Reportscontainer">
-        <img src="/images/AdminBgImg.svg" className="Reportsbgimg"></img>
-        <div className="Reportsdisplay">
-          <label>Reports</label>
+      <div className="container pb-5">
+        <div className='page-label'>
+          <label>Subscription Plan</label>
         </div>
-        
+        <div className='main-container mt-5'>
+
+          <div className='table-top-right-content'>
+            <div className='table-search pl-2'>
+              <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
+              <span><input className='search' placeholder='Search' /></span>
+            </div>
+
+          </div>
+        </div>
       </div>
-      <div className="AdminSearch">
-        <input type="search" className="searchinput" placeholder="&#128269; search"></input>
-      </div>
+
       <div className="Reports">
         <div className="reportfirst">
           <label className="ActivityReports">Activity Reports</label>

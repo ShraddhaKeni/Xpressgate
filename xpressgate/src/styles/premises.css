@@ -17,19 +17,20 @@
   outline: none;
   border: none;
   height: 40px;
-  width: 16rem;
-  border-radius: 5px;
-  margin-left: 10px;
+  width: 20rem;
+  border: 0;
+  background: none;
+  border-radius: 1.5rem;
+  margin-left: 1rem;
 }
 
 .table-search{
-  border: 2px solid rgba(0, 0, 0, 0.2  );
-  border-radius: 1rem;
+  border: 2px solid rgba(0, 0, 0  );
+  border-radius: 1.5rem;
   margin-right: 1rem;
   display: flex;
   align-items: center;
   color: #14335D;
-  max-width: 25rem;
 }
 
 .table-search img{

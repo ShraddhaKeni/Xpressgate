@@ -20,7 +20,7 @@ export const SimpleInputComponent = ({ name, id, label, onChange, type = 'text',
                     onChange={onChange}
                     text
                     id={id}
-                    size={'small'}
+                    size={'medium'}
                     fullWidth
                     required={required}
                 ></TextField>}
@@ -29,7 +29,7 @@ export const SimpleInputComponent = ({ name, id, label, onChange, type = 'text',
                     class="form-control input-lg"
                     name={name}
                     placeholder={placeholder}
-                    rows="4"
+                    rows="6"
                     text
                     onChange={onChange}
                     id={id}
@@ -44,7 +44,7 @@ export const SimpleInputComponent = ({ name, id, label, onChange, type = 'text',
                         text={value}
                         defaultValue={new Date().toISOString().slice(0, 10)}
                         id={id}
-                        size={'small'}
+                        size={'medium'}
                         fullWidth
                         required={required}
                         inputProps={{
