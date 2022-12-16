@@ -136,11 +136,11 @@ const navigate = useNavigate()
         <GuardHeader/>
       </div>
       <div id="dspguardnamesection">
-        <div className='dspguardname'>
+        <div className='DSPName'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
           <label>Guard Name</label>
         </div>
-       <div className='dspsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
+       <div className='DSPSImg'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='dspbackgroundimg'>
         {props ? <div className='dailyservicepasscodedisplay'><label>{props.code} </label> </div> : " "}

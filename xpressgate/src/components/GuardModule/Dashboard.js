@@ -92,11 +92,11 @@ const Dashboard = () => {
         <GuardHeader/>
         </div>
         <div id="guardnamesection">
-          <div className='guardname'>
+          <div className='GuardName'>
             <img src="/images/guardnameicon.svg" alt="guard name" />
             <label>Guard Name</label>
           </div>
-          <div className='gdsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
+          <div className='GDsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
         </div>
         <div className='dashboardbackgroundimg'>
           <div id="cardsection">
@@ -113,29 +113,29 @@ const Dashboard = () => {
 
               <img src="/images/searchicon.svg" className='search_icon' onClick={() => { checkInputs() }} alt="search" />
             </div>
-            <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
+            <div className="row row-cols-1 row-cols-md-3 g-4 FullCardsCss">
               <div className="col">
-                <div className="dashboardcard">
+                <div className="DashBoardCard">
                   <img src="/images/guestcard.svg" onClick={() => { window.location.href = '/guestlist' }} className="dbcard-img-top" alt="guest card"></img>
                 </div>
               </div>
               <div className="col">
-                <div className="dashboardcard">
+                <div className="DashBoardCard">
                   <img src="/images/vendorcard.svg" className="dbcard-img-top" alt="vendor card" onClick={() => { window.location.href = '/vendorlist' }}></img>
                 </div>
               </div>
               <div className="col">
-                <div className="dashboardcard">
+                <div className="DashBoardCard">
                   <img src="/images/dailyhelpcard.svg" className="dbcard-img-top" onClick={() => { window.location.href = '/dailyhelp' }} alt="dailyhelp card"></img>
                 </div>
               </div>
               <div className="col">
-                <div className="dashboardcard">
+                <div className="DashBoardCard">
                   <img src="/images/inoutbookcard.svg" className="dbcard-img-top" onClick={() => { window.location.href = '/inoutbook' }} alt="inout book card"></img>
                 </div>
               </div>
               <div className="col">
-                <div className="dashboardcard">
+                <div className="DashBoardCard">
                   <img src="/images/videoclass.svg" className="dbcard-img-top" onClick={() => { window.location.href = '/videoclass' }} alt="video class"></img>
                 </div>
               </div>

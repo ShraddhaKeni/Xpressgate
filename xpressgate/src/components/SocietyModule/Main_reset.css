@@ -23,7 +23,14 @@ html {
   grid-area: cpnamesection;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
+.CP_SideIMG img {
+  display: flex;
+  margin-top: 99%;
+  max-width: 90%;
+  height: auto;
+  margin-left: 8%;
+  margin-bottom: 3%;  
+}
 #logoid5 {
   margin-top: -37rem;
   margin-left: 1rem;
@@ -57,9 +64,9 @@ html {
   color: red;
 }
 
-.cpinput_fields{
-  margin-left: 34%;
-}
+/* .cpinput_fields{
+  margin-left: 5%;
+} */
 
 .btlogin6 {
   background-color: #0a8996;
@@ -130,60 +137,102 @@ html {
   font-size: 1vw;
 }
 
-.cpassword {
-  position: relative;
-  right: 30%;
+.CPASS {
+  position: absolute;
+margin-top: -3%;
+margin-left: -45%;
   font-family: 'Rubik', sans-serif;
-  font-size: 15px;
+  font-size: 1.1vw;
 }
 
-.npassword {
-  position: relative;
-  right: 33%;
+.NPASS {
+  position: absolute;
+  margin-top: 5%;
+  margin-left: -45%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.1vw;
+}
+.CP_input{
+  position: absolute;
+  margin-top: 2.5%;
+  width: 26vw;
+  height: auto;
+  margin-left: 1%;
+}
+.CHP_input{
+  position: absolute;
+  margin-top: 18%;
+  width: 26vw;
+  height: auto;
+  margin-left: 1%;
+}
+.NP_input{
+  position: absolute;
+  margin-top: 10%;
+  width: 26vw;
+  height: auto;
+  margin-left: 1%;
+}
+.CHPASS {
+  position: absolute;
+margin-top: 13%;
+margin-left: -45%;
   font-family: 'Rubik', sans-serif;
-  font-size: 15px;
+  font-size: 1.1vw;
 }
 
-.cppassword {
-  position: relative;
-  right: 29%;
-  font-family: 'Rubik', sans-serif;
-  font-size: 15px;
-}
-
-.maintitle {
-  width: 300px;
-  height: 64px;
+.CPass_dsplay {
+  width: 16vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 20px;
   padding-top: 14px;
   margin: auto;
-  margin-top: -2%;
+  margin-top: -3%;
+}
+.CPass_dsplay label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;  
+  font-size: 1.4vw;
+  text-align: center;  
+  color: #14335D;
 }
 
-.changepasswordclass {
-  margin-left: 36%;
+.CPForm {
+  /* margin-left: 0%; */
   margin-top: 4%;
 }
 
-.btnUpdatecp {
+.CHPASS_BTN {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  width: 164px;
-  height: 60px;
-  font-size: 151%;
-  font-weight: 500;
-  margin-top: 4%;
-  margin-right: 56%;
+  width: 8vw;
+  height: 5vh;
+  font-size: 1.2vw;
+  font-weight: 700;
+  margin-top: 13%;
+  margin-left: -5.5%;
+  position: absolute;
+  font-family: 'Rubik';
+font-style: normal;
 }
 
-.btnUpdatecp:hover{
+.CHPASS_BTN:hover{
   background-color: #14335D;
 }
-
-.cpguardname {
+.CP_GName label {
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+  margin-left: 4%;
+  margin-top: 12%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
+}
+.CP_GName {
   display: flex;
   width: 80%;
   height: 12%;
@@ -192,19 +241,11 @@ html {
   margin-top: 12%;
   border-radius: 24px;
 }
-
-.cpguardname img {
+.CP_GName img {
   margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 4%;
-}
-
-.cpguardname label {
-  color: #000;
-  margin-left: 8%;
-  margin-top: 10%;
-  font-size: 20px;
+  margin-top: 5%;
 }
 
 
@@ -216,14 +257,39 @@ html {
     margin-left: -2rem;
     /* margin-top: -7rem; */
   }
-
+  .CP_SideIMG img {
+    display: flex;
+    margin-top: 93%;
+    max-width: 95%;
+    height: auto;
+    margin-left: 2%;
+  }
   #logoid5 {
     margin-top: -24rem;
     margin-left: -3rem;
     margin-bottom: -2rem;
     position: relative;
   }
-
+  .CPass_dsplay {
+    width: 17vw;
+    height: 7vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 1.4vw;
+    padding: 1%;
+    margin: auto;
+    margin-top: -3%;
+    margin-left: 38%;
+}
+.CPass_dsplay label {
+  
+    font-size: 1.5vw;
+    text-align: center;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+}
   #logoid5 img {
     max-width: 44%;
     height: auto;
@@ -238,18 +304,23 @@ html {
     height: 100vh;
   }
 
-  .btnUpdatecp {
+  .CHPASS_BTN {
     background-color: #0A8996;
     color: #fff;
-    border-radius: 14px;
-    width: 150px;
-    height: 60px;
-    font-size: 151%;
-    font-weight: 500;
-    margin-top: 4%;
-    margin-right: 50%;
+    border-radius: 11px;
+    width: 8vw;
+    height: 5.2vh;
+    font-size: 1.2vw;
+    font-weight: 700;
+    margin-top: 13%;
+    margin-left: -5.5%;
+    position: absolute;
+    font-family: 'Rubik';
+    font-style: normal;
+}
+  .CHPASS_BTN:hover{
+    background-color: #14335D;
   }
-
   .btlogin6 {
     background-color: #0a8996;
     color: #fff;
@@ -317,26 +388,48 @@ html {
     font-size: 1.1vw;
   }
 
-  .cpassword {
-    position: relative;
-    right: 24%;
+  .CPASS {
+    position: absolute;
+    margin-top: -3%;
+    margin-left: -5%;
     font-family: 'Rubik', sans-serif;
-    font-size: 15px;
-  }
-  
-  .npassword {
-    position: relative;
-    right: 27%;
-    font-family: 'Rubik', sans-serif;
-    font-size: 15px;
-  }
-  
-  .cppassword {
-    position: relative;
-    right: 23%;
-    font-family: 'Rubik', sans-serif;
-    font-size: 15px;
-  }
+    font-size: 1.2vw;
+}
+.NPASS {
+  position: absolute;
+  margin-top: 4%;
+  margin-left: -5%;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.2vw;
+}
+.CHPASS {
+  position: absolute;
+  margin-top: 11%;
+  margin-left: -5%;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.2vw;
+}
+  .CP_input {
+    position: absolute;
+    margin-top: 2.5%;
+    width: 26vw;
+    height: 6vh;
+    margin-left: 41%;
+}
+.NP_input {
+  position: absolute;
+    margin-top: 9%;
+    width: 26vw;
+    height: 6vh;
+    margin-left: 41%;
+}
+.CHP_input {
+  position: absolute;
+    margin-top: 16%;
+    width: 26vw;
+    height: 6vh;
+    margin-left: 41%;
+}
 }
 
 /* Media query for mobile */

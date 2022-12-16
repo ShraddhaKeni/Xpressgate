@@ -98,7 +98,7 @@ const Addlocalservice = () => {
           <Link to='/addlocalservice'>Add Local Services</Link>
         </div> */}
           <div className='nlsidelinks'>
-          <a className='LSsidelinks' href="/"><b>Local Service</b></a><br></br><br></br>
+          <a className='LSsidelinks' href="/localservices"><b>Local Service</b></a><br></br><br></br>
           <a className='ALSsidelinks' href="/addlocalservice">Add Local Services</a>
         </div>
         <div className='alssideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>

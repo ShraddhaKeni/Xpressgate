@@ -97,14 +97,14 @@ const Inoutbookcard = () => {
       <GuardHeader/>
       </div>
       <div id="guardnamesection">
-        <div className='guardname'>
+        <div className='IOBC_GName'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
           <label>Guard Name</label>
         </div>
-        <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
+        <div className='IOBC_SImg'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='iobcbackgroundimg'>
-        <div className='inoutbookcarddisplay'>
+        <div className= "IOBC_display">
           <label>In-out Book</label>
         </div>
         {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}

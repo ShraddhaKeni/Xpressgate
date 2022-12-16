@@ -65,23 +65,23 @@ const ChangePassword = () => {
         <GuardHeader />
       </div>
       <div id="cpnamesection">
-        <div className='cpguardname'>
+        <div className='CP_GName'>
           <img src="/images/guardnameicon.svg" alt="Guard image" />
           <label>Guard Name</label>
         </div>
-        <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
+        <div className='CP_SideIMG'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='addguestbackgroundimg'>
-        <div className='maintitle'>
+        <div className='CPass_dsplay'>
           <label>Change Password</label>
         </div>
-        <Form className='changepasswordclass'>
+        <Form className='CPForm'>
           <div className="cpinput_fields">
             <div className="password">
               <div class="form-group row">
                 <div class="col-lg-6">
-                  <label className="cpassword">Current Password</label>
-                  <input ref={oldpass} type="text" className="form-control input-lg" id="oldpass" placeholder="Current Password"></input>
+                  <label className="CPASS">Current Password</label>
+                  <input ref={oldpass} type="text" className="form-control input-lg CP_input" id="oldpass" placeholder="Current Password"></input>
                 </div>
               </div>
             </div>
@@ -89,8 +89,8 @@ const ChangePassword = () => {
             <div className="password">
               <div class="form-group row">
                 <div class="col-lg-6">
-                  <label className="npassword">New Password</label>
-                  <input ref={password} type="password" className="form-control input-lg" id="loginpassword" placeholder="New Password"></input>
+                  <label className="NPASS">New Password</label>
+                  <input ref={password} type="password" className="form-control input-lg NP_input" id="loginpassword" placeholder="New Password"></input>
                 </div>
               </div>
             </div>
@@ -98,13 +98,13 @@ const ChangePassword = () => {
             <div className="password">
               <div class="form-group row">
                 <div class="col-lg-6">
-                  <label className="cppassword">Confirm Password</label>
-                  <input ref={confirmPass} type="password" className="form-control input-lg" id="loginpassword" placeholder="Confirm Password"></input>
+                  <label className="CHPASS">Confirm Password</label>
+                  <input ref={confirmPass} type="password" className="form-control input-lg CHP_input" id="loginpassword" placeholder="Confirm Password"></input>
                 </div>
               </div>
             </div>
           </div>
-          <Button type="submit" onClick={(e) => handleSubmit(e)} className="btnUpdatecp">Update</Button>
+          <Button type="submit" onClick={(e) => handleSubmit(e)} className="CHPASS_BTN">Update</Button>
         </Form>
 
       </div>

@@ -30,23 +30,24 @@ const Forgotpassword = () => {
 
   return (
     <div className="forgotpcontainer">
-      <div id="fplogoid">
+      <div id="FPlogoid">
         <img src="/images/loginlogo.svg" alt="" />
-        <div className="fp">
-          <label className="forgotplabel">Forgot Password</label>
+        <div className="FP">
+          <label className="FPLabel">Forgot Password</label>
         </div>
       </div>
-      <div id="fpimgid">
+      <div id="FPimgid">
         <img src="/images/loginsideimg.png" alt="" />
       </div>
-      <div id="fpformid">
+      <div id="FPformid">
         <Form>
           <div className='input_fields'>
             <div className='email_input'>
-              <label className='fpemail'>Enter Mobile number</label>
-              <input type="text" className="form-control gfptextbox" id="mobileno" maxLength="10" placeholder='Enter mobile number' ></input>
+              <label className='FPemail'>Enter Mobile number</label>
+              <input type="text" className="form-control GFPtextbox" id="mobileno" maxLength="10" placeholder='Enter mobile number' ></input>
             </div>
-            <Button type="button" className="btnsendotp" onClick={() => { checkMobileno() }}>Send OTP</Button>
+            
+            <Button type="button" className="FBTNSendOtp" onClick={() => { checkMobileno() }}>Send OTP</Button>
           </div>
         </Form>
       </div>
