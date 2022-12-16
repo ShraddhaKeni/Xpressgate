@@ -102,13 +102,27 @@ html {
   padding-bottom: 5%;
 }
 
-/* .btnlogout {
-  background-color: #0A8996;
-  color: #fff;
-  margin-top: 18%;
-  padding-top: 2%;
-} */
 
+
+.AddNAmenity{
+  border-radius: 18px;
+  background: #E8F5E9;
+  border: none;
+  width: 12vw;
+  height: 5vh;
+  margin-right: -50%;
+  margin-top: 2%;
+  margin-bottom: -30%;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1vw;
+  color: #0D960A;
+  }
+  .AddNAmenity:hover{
+    background-color: #14335D;
+    color: #E8F5E9;
+  }
 .ASname label {
   font-family: 'Rubik';
 font-style: normal;
@@ -233,7 +247,10 @@ font-weight: 500;
 
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
- 
+  .AddNAmenity:hover{
+    background-color: #14335D;
+    color: #E8F5E9;
+  } 
   .AMSideIMG img {
     display: flex;
     margin-top: 93%;

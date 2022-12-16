@@ -46,32 +46,6 @@ html {
   grid-template-areas: "dashboardlogo dashboardguard dashboardspace dashboardnotification dashboardsetting dashboardlogoutbutton";
 }
 
-#dashboardlogo {
-  grid-area: dashboardlogo;
-}
-
-#dashboardlogo img {
-  margin-top: 5%;
-  margin-left: 1%;
-  margin-bottom: 5%;
-  width: 40%;
-}
-
-#dashboardguard {
-  grid-area: dashboardguard;
-}
-
-#dashboardguard label {
-  margin-top: 20%;
-  margin-left: -88%;
-  width: 136px;
-  height: 58px;
-  background-color: black;
-  color: #fff;
-  border-radius: 18px;
-  padding-top: 4%;
-  font-size: 20px;
-}
 
 #dashboardspace {
   grid-area: dashboardspace;
@@ -93,16 +67,17 @@ html {
   margin-top: 100%;
 }
 
-#dashboardlogoutbutton {
-  grid-area: dashboardlogoutbutton;
+.ADDGName label {
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+  margin-left: 4%;
+  margin-top: 12%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
 }
-
-#dashboardlogoutbutton img {
-  padding-left: 10%;
-  padding-bottom: 5%;
-}
-
-.guardname {
+.ADDGName {
   display: flex;
   width: 80%;
   height: 12%;
@@ -111,37 +86,37 @@ html {
   margin-top: 12%;
   border-radius: 24px;
 }
-
-.guardname img {
+.ADDGName img {
   margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 4%;
+  margin-top: 5%;
 }
-
-.guardname label {
-  color: #000;
-  margin-left: 8%;
-  margin-top: 10%;
-  font-size: 20px;
-}
-
-.sideimage img {
+.ADDGSImg img {
   display: flex;
-  margin-top: 80%;
-  width: 100%;
+  margin-top: 99%;
+  max-width: 90%;
   height: auto;
+  margin-left: 8%;
+  margin-bottom: 3%; 
 }
 
-.Addguestdisplay{
-  width: 300px;
-  height: 64px;
+.AGuest_display {
+  width: 16vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 20px;
   padding-top: 14px;
   margin: auto;
-  margin-top: -2%;
+  margin-top: -3%;
+}
+.AGuest_display label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;  
+  font-size: 1.4vw;
+  text-align: center;  
+  color: #14335D;
 }
 
 .labelsize{
@@ -152,33 +127,45 @@ html {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  width: 250px;
-  height: 60px; 
-  font-size: 151%;
-  font-weight: 500;
+  width: 9vw;
+  height: 5vh; 
+  font-size: 1.2vw;
+  padding: 1%;
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 700;
   margin-top: 4%;
   margin-right: 34%;
+  border: none;
 }
-
+.btnAddguest:hover{
+  background-color: #14335D;
+}
 .formclass{
   margin-top: 5%;
   margin-left: 25%;
 }
 
-
+.ADGBorDer{
+  background: #FFFFFF;
+border: 2px solid #14335D;
+box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+border-radius: 8px;
+}
 
 @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
-  .guardname label{
-    margin-left: 7%;
-    margin-top: 18%;
-    font-size: 15px;
+  .ADGBorDer{
+    background: #FFFFFF;
+  border: 2px solid #14335D;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
   }
-  
-.sideimage img {
-    display: flex;
-    margin-top: 216%;
-    width: 100%;
-    height: auto;
+.ADDGSImg img {
+  display: flex;
+  margin-top: 93%;
+  max-width: 95%;
+  height: auto;
+  margin-left: 2%;
 }
 
 .addguestbackgroundimg {
@@ -197,35 +184,40 @@ html {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  width: 155px;
-  height: 36px;
-  font-size: 151%;
-  font-weight: 500;
+  width: 9vw;
+  height: 5vh; 
+  font-size: 1.2vw;
+  padding: 1%;
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 700;
   margin-top: 4%;
-  margin-right: 35%;
-  padding-top: 0%;
+  margin-right: 34%;
+  border: none;
 } 
-
-#dashboardguard label {
-  margin-top: 14%;
-  margin-left: -68%;
-  width: 108px;
-  height: 45px;
-  background-color: black;
-  color: #fff;
-  border-radius: 18px;
-  padding-top: 3%;
-  font-size: 20px;
+.btnAddguest:hover{
+  background-color: #14335D;
 }
 
-.Addguestdisplay {
-  width: 300px;
-  height: 64px;
+
+.AGuest_display {
+  width: 17vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 20px;
-  padding-top: 14px;
+  font-size: 1.4vw;
+  padding: 1%;
   margin: auto;
-  margin-top: -16%;
+  margin-top: -3%;
+  margin-left: 38%;
+}
+.AGuest_display label {
+
+  font-size: 1.5vw;
+  text-align: center;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
 }
 }

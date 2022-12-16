@@ -87,7 +87,7 @@ const Addflat = () => {
           <label>Society Name</label>
         </div>
         <div className='nlsidelinks'>
-          <a className='ALFlatsidelinks' href="/flatList">Flat List</a><br></br><br></br>
+          {/* <a className='ALFlatsidelinks' href="/flatList">Flat List</a><br></br><br></br> */}
           <a className='ALAddsidelinks' href="/addflat"><b>Add Flat</b></a>
         </div>
         <div className='afsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>

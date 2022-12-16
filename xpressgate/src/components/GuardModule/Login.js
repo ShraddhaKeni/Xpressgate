@@ -41,16 +41,16 @@ const Login = () => {
   }
   return (
     <div className="logincontainer">
-      <div id="logoid">
+      <div id="Glogoid">
         <img src="/images/loginlogo.svg" alt="" />
-        <div className="guardsignin">
-          <label className="guardsigninlabel">SIGN IN</label>
+        <div className="Guardsignin">
+          <label className="Guardsigninlabel">SIGN IN</label>
         </div>
       </div>
-      <div id="loginimgid">
+      <div id="Gloginimgid">
         <img src="/images/loginsideimg.png" alt="" />
       </div>
-      <div id="loginformid">
+      <div id="Gloginformid">
         <Form>
           <div className='input_fields'>
             <div className='email_input'>
@@ -63,8 +63,8 @@ const Login = () => {
               <input ref={password} type="password" className="form-control passwordtextboxguard" onKeyPress={(e)=>{document.getElementById(e.target.id).style.border='none'}} id="loginpassword" placeholder='Password'></input>
             </div>
             <br></br>
-            <Button type="button" className="btnlogin" id='login' onClick={()=>{loginGuard()}}>Login</Button>
-            <div className='forgotpassword'><a href='/forgotpassword' style={{color:"#FD6B22",fontSize: "15px"}}>Forgot Password?</a></div>
+            <Button type="button" className="GuardLoginbtn" id='login' onClick={()=>{loginGuard()}}>Login</Button>
+            <div className='Guardforgotpassword'><a href='/forgotpassword' >Forgot Password?</a></div>
           </div>
         </Form>
       </div>

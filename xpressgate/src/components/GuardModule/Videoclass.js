@@ -48,15 +48,15 @@ const Videoclass = () => {
         <GuardHeader/>
       </div>
       <div id="videoguardnamesection">
-        <div className='videoguardname'>
+        <div className='VG_Name'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
           <label>Guard Name</label>
         </div>
-        <div className='videosideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
+        <div className='VG_SImG'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='vcbackgroundimg'>
         <div id="cardsection">
-          <div className='videolistdisplay'>
+          <div className='VG_Display'>
             <label>Video class List</label>
           </div>
           <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">

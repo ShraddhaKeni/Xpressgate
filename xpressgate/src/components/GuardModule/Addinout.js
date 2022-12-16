@@ -110,13 +110,13 @@ const Addinout = () => {
           <div className="form-group row">
             <label className="col-lg-2 col-form-label aiolabelsize">Name</label>
             <div className="col-lg-4">
-              <input type="text" className="form-control input-lg" id='name' name="addinoutname" placeholder="Name" value={details.name}></input>
+              <input type="text" className="form-control input-lg AIOBorder" id='name' name="addinoutname" placeholder="Name" value={details.name}></input>
             </div>
           </div>
           <div className="form-group row">
             <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-2 col-form-label aiolabelsize">Visitor Type</label>
             <div className="col-sm-4 col-md-4 col-lg-4">
-              <select class="form-control input-lg" name="visitortype" placeholder="Visitor Type" id="visitortype">
+              <select class="form-control input-lg AIOBorder" name="visitortype" placeholder="Visitor Type" id="visitortype">
                 <option value={1}>Guest</option>
                 <option value={2}>Vendor</option>
                 <option value={3}>Daily Helper</option>
@@ -126,7 +126,7 @@ const Addinout = () => {
           <div className="form-group row">
             <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-2 col-form-label aiolabelsize">Block</label>
             <div className="col-sm-4 col-md-4 col-lg-4">
-              <select className="form-control input-lg" id='block' onChange={(e) => getFlats(e)}>
+              <select className="form-control input-lg AIOBorder" id='block' onChange={(e) => getFlats(e)}>
                 <option value={null} disabled selected>Block</option>
                 {block.map(item => {
                   return (
@@ -140,7 +140,7 @@ const Addinout = () => {
           <div className="form-group row">
             <label className="col-lg-2 col-form-label aiolabelsize">Flat No.</label>
             <div className="col-lg-4">
-              <select className="form-control input-lg" id="flatno" placeholder="Flat No.">
+              <select className="form-control input-lg AIOBorder" id="flatno" placeholder="Flat No.">
                 <option value="" selected disabled>Select Flat</option>
                 {flatno.map(item => {
                   return <option value={item._id}>{item.flat_number}</option>
@@ -151,25 +151,25 @@ const Addinout = () => {
           <div className="form-group row">
             <label className="col-lg-2 col-form-label aiolabelsize">Contact No.</label>
             <div className="col-lg-4">
-              <input type="text" className="form-control input-lg" id='contact_no' name="ContactNo" placeholder="Contact No." value={details.contact_no} maxLength="10"></input>
+              <input type="text" className="form-control input-lg AIOBorder" id='contact_no' name="ContactNo" placeholder="Contact No." value={details.contact_no} maxLength="10"></input>
             </div>
           </div>
           <div className="form-group row">
             <label className="col-lg-2 col-form-label aiolabelsize">Date</label>
             <div className="col-lg-4">
-              <input type="date" className="form-control input-lg" id='date' name="date" placeholder="Date" value={details.date}></input>
+              <input type="date" className="form-control input-lg AIOBorder" id='date' name="date" placeholder="Date" value={details.date}></input>
             </div>
           </div>
           <div className="form-group row">
             <label className="col-lg-2 col-form-label aiolabelsize">In Time</label>
             <div className="col-lg-4">
-              <input type="time" className="form-control input-lg" id='intime' name="intime" placeholder=" In Time" value={details.intime} ></input>
+              <input type="time" className="form-control input-lg AIOBorder" id='intime' name="intime" placeholder=" In Time" value={details.intime} ></input>
             </div>
           </div>
           <div className="form-group row">
             <label className="col-lg-2 col-form-label aiolabelsize">Status</label>
             <div className="col-lg-4">
-              <select class="form-control input-lg" id='status' placeholder="Status">
+              <select class="form-control input-lg AIOBorder" id='status' placeholder="Status">
                 <option value={1}>In</option>
                 <option value={2}>Out</option>
               </select>

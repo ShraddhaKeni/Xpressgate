@@ -37,6 +37,7 @@ const Amenities = () => {
           <div className='Amendisplay'>
             <label>Amenities</label>
           </div>
+          <button type="button" onClick={()=>{window.location.href='/addeditamenity'}} className="AddNAmenity">&#10011; Add New Amenities</button>
           <div className="row row-cols-1 row-cols-md-3 g-4 amntscss">
             {amenities.map(items=>{
               return(

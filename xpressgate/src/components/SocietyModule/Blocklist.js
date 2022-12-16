@@ -47,7 +47,7 @@ const Blocklist = () => {
             <Link to={{pathname: "/addflat"}}>Add Flat</Link>
           </div> */}
           <div className='nlsidelinks'>
-          <a className='Flatsidelinks' href="/flatList">Flat List</a><br></br><br></br>
+          {/* <a className='Flatsidelinks' href="/flatList">Flat List</a><br></br><br></br> */}
           <a className='Addsidelinks' href="/addflat">Add Flat</a>
         </div>
           <div className='blsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
