@@ -19,7 +19,7 @@ function Header() {
                     {stat ? <div className='notification_section mx-4'><HeaderSection /></div> : ''}
                     <div className='mx-3'><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
 
-                    <Button type="button" onClick={() => guardLogout()} className="btnlogout mx-4 mr-5 pt-3" >Log Out<img src="/images/logout.svg" className='ml-4' alt="header logo" /></Button>
+                    <Button type="button" onClick={() => guardLogout()} className="logoutBtn mx-4 mr-5 pt-3" >Log Out<img src="/images/logout.svg" className='ml-4' alt="header logo" /></Button>
 
                 </div>
             </div>

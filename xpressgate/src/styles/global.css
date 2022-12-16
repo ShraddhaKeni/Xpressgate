@@ -11,6 +11,18 @@
         border-color: #2e6da4;
     }
 } */
+
+.logoutBtn {
+    background-color: #0A8996;
+    color: #fff;
+    border-radius: 14px;
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+  .logoutBtn:hover {
+    background-color: #14335D;
+  }
+
 .td{
     text-overflow: ellipsis;
     overflow: hidden;
@@ -41,7 +53,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    width: 100%;
+    width:90%;
     height: 80vh;
     align-content: center;
     justify-content: center;
