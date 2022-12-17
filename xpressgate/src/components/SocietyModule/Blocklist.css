@@ -65,7 +65,7 @@ input::-webkit-inner-spin-button {
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  padding-top: 14px;
+  padding-top: 16px;
   margin: auto;
   margin-top: -3%;
 }
@@ -73,7 +73,7 @@ input::-webkit-inner-spin-button {
 font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;  
-  font-size: 1.4vw;
+  font-size: 1.3vw;
   text-align: center;  
   color: #14335D;
 }
@@ -109,8 +109,8 @@ font-weight: 500;
 }
 
 #bllogo img {
-  margin-top: 5%;
-  margin-left: 1%;
+  margin-top: 7%;
+  margin-left: -30%;
   margin-bottom: 5%;
   width: 40%;
 }
@@ -120,15 +120,18 @@ font-weight: 500;
 }
 
 #blsociety label {
-  margin-top: 20%;
-  margin-left: -88%;
-  width: 136px;
-  height: 58px;
+  margin-top: 19%;
+  margin-left: -120%;
+  width: 7.5vw;
+  height: 6.5vh;
   background-color: black;
   color: #fff;
-  border-radius: 18px;
-  padding-top: 4%;
-  font-size: 20px;
+  border-radius: 19px;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.6vw;
+  padding: 3%;
 }
 
 #blspace {
@@ -158,6 +161,8 @@ font-weight: 500;
 #bllogoutbutton img {
   padding-left: 10%;
   padding-bottom: 5%;
+  width: 1.8vw;
+  height: auto;
 }
 
 .blsocietyname label {
@@ -166,7 +171,7 @@ font-weight: 500;
   font-weight: 500;
   color: #14335D;
   margin-left: 4%;
-  margin-top: 13%;
+  margin-top: 12%;
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
@@ -228,7 +233,7 @@ font-weight: 500;
 }
 
 .blblock {
-  font-size: 19px;
+  font-size: 25px;
   font-family: 'Rubik', sans-serif;
   color: #fff;
   font-weight: 600;
@@ -240,6 +245,7 @@ font-weight: 500;
   margin: auto;
   font-family: 'Rubik', sans-serif;
   color: #fff;
+  font-size: 16px ;
 }
 
 .btnView {
@@ -255,18 +261,7 @@ font-weight: 500;
 
 /* Media query for laptop */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  #blsociety label {
-    margin-top: 14%;
-    margin-left: -68%;
-    width: 108px;
-    height: 45px;
-    background-color: black;
-    color: #fff;
-    border-radius: 18px;
-    padding-top: 3%;
-    font-size: 20px;
-  }
-
+ 
 
 
   .blbackgroundimg {

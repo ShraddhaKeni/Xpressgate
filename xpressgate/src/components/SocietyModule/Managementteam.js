@@ -81,8 +81,8 @@ const Managementteam = () => {
         
         <br/>
         <div class="MM_notice">
-          <h4>Management Team list</h4>
-          <a href="/addManagement" class="Notice">Add Management Member</a>
+        <a href="/management" class="MT_link"><b>Management Team</b></a><br></br>
+          <a href="/addManagement" class="AMM_link">Add Management Member</a>
           </div>
         <div className="MM_sideimage">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />

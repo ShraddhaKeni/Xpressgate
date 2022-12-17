@@ -36,7 +36,7 @@ html {
   font-weight: 500;
   color: #14335D;
   margin-left: 4%;
-  margin-top: 13%;
+  margin-top: 12%;
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
@@ -60,7 +60,7 @@ html {
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 1.4vw;
+  font-size: 1.3vw;
   margin: auto;
   margin-top: -3%;
   padding-top: 1%;
@@ -80,7 +80,7 @@ html {
 
 .P_sideimage img {
   display: flex;
-  margin-top: 47%;
+  margin-top: 46%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -136,30 +136,16 @@ color: #F9F9FF;
   font-family: 'Rubik';
   font-style: normal;
 }
-.Pnoticelist h4{
-  color: #434242;
-  font-size: 1.2vw;
 
-font-weight: 500;
+.fontstyle{
+  font-family: 'Rubik', sans-serif;
+  font-style: normal;
+  font-weight: 500;
 }
-.PNotice {
-  color: #5C5C5C;
- margin-left: -17%;
-font-weight: 400;
-font-size: 1vw;
-}
-.ENotice {
-  color: #5C5C5C;
- margin-left: -14%;
-font-weight: 400;
-font-size: 1vw;
-}
-.PNotice:hover{
+.fontstyle:hover{
   color: #000;
 }
-.ENotice:hover{
-  color: #000;
-}
+
 #plumbertable{
   margin-Left: 10%;
   margin-Top: 2%;

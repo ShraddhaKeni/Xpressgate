@@ -101,7 +101,7 @@ font-style: normal;
 font-weight: 500;
 color: #14335D;
   margin-left: 4%;
-  margin-top: 13%;
+  margin-top: 12%;
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
@@ -118,14 +118,14 @@ color: #14335D;
   margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 4%;
+  margin-top: 5%;
 }
 .aeasideimage img {
   display: flex;
-  margin-top: 98%;
+  margin-top: 99%;
   max-width: 90%;
   height: auto;
-  margin-left: 13%;
+  margin-left: 8%;
   margin-bottom: 5%;  
 }
 .aeadisplay {
@@ -133,7 +133,7 @@ color: #14335D;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  padding-top: 14px;
+  padding-top: 16px;
   margin: auto;
   margin-top: -3%;
 }
@@ -141,7 +141,7 @@ color: #14335D;
 font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;  
-  font-size: 1.6vw;
+  font-size: 1.3vw;
   text-align: center;  
   color: #14335D;
 }
@@ -156,7 +156,7 @@ font-weight: 500;
   border-radius: 14px;
   width: 8vw;
   height: 5vh;
-  font-size: 1.1vw;
+  font-size: 1vw;
   font-weight: 700;
   margin-top: 4%;
   margin-right: 34%;
@@ -187,7 +187,7 @@ border-radius: 8px;
     margin-top: 93%;
     max-width: 90%;
     height: auto;
-    margin-left: 13%;
+    margin-left: 8%;
     margin-bottom: 5%;  
   }
 

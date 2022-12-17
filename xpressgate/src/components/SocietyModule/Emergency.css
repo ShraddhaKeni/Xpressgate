@@ -7,7 +7,7 @@ font-style: normal;
 font-weight: 500;
 color: #14335D;
   margin-left: 4%;
-  margin-top: 13%;
+  margin-top: 12%;
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
@@ -28,7 +28,7 @@ color: #14335D;
 }
 .EN_sideimg img {
   display: flex;
-  margin-top: 68%;
+  margin-top: 74%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -37,7 +37,7 @@ color: #14335D;
 
 .EMMsearchbox{
   width: 15%;
-  height: 5%;
+  height: 4.5%;
   border: 2px solid #000;
   border-radius: 15px;
   margin-left: 74%;
@@ -82,10 +82,10 @@ font-style: normal;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 1.4vw;
+  font-size: 1.3vw;
   margin: auto;
   margin-top: -3%;
-  padding-top: 1%;
+  padding-top: 1.1%;
 }
 
 .EN_display label{

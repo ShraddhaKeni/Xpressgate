@@ -102,7 +102,7 @@ const UtilityPayment = () => {
         <div className="Payment_form">
             <div className="inboxes">
                 <label for="Utility_Type" className="UtilityTypesdetails">Utility Type</label>
-                <select  id="Utility_Type" ref={utility_id} className="vendorinput">
+                <select  id="Utility_Type" ref={utility_id} className="VenDorInp">
                     <option value="" selected disabled>Select Utitlity</option>
                       {utility.map(item=>{
                         return <option value={item._id}>{item.utilityType}</option>
@@ -113,7 +113,7 @@ const UtilityPayment = () => {
         <div className="Payment_form">
             <div className="inboxes">
                 <label for="Blockkk " className="Utility_Block ">Block </label>
-                <select  id="Blockkk"  onChange={(e)=>getFlats(e)}  className="vendorinput">
+                <select  id="Blockkk"  onChange={(e)=>getFlats(e)}  className="VenDorInp">
                 <option value="" selected disabled>Select Block</option>
                       {block.map(item=>{
                         return <option value={item.id}>{item.name}</option>
@@ -124,7 +124,7 @@ const UtilityPayment = () => {
         <div className="Payment_form">
             <div className="inboxes">
                 <label for="UtilityFlatNo"  className="Utility_FlatNo">Flat No</label>
-                <select  id="UtilityFlatNo" ref={flat_id} onChange={(e)=>{getResident(e)}} className="vendorinput">
+                <select  id="UtilityFlatNo" ref={flat_id} onChange={(e)=>{getResident(e)}} className="VenDorInp">
                 <option value="" selected disabled>Select Flat</option>
                       {flats.map(item=>{
                         return <option value={item._id}>{item.flat_number}</option>
@@ -135,14 +135,14 @@ const UtilityPayment = () => {
         <div className="Payment_form">
             <div className="inboxes">
                 <label for="UtilityResidentname"  className="Utility_Residentname">Resident Name</label>
-                {resident.firstname?<input type="text"  id="UtilityResidentname" className="vendorinput" disabled name="First name" placeholder="Resident name" value={resident.firstname+' '+resident.lastname}/>:
-                <input type="text"  id="UtilityResidentname" className="vendorinput" disabled name="First name" placeholder="Resident name" />}
+                {resident.firstname?<input type="text"  id="UtilityResidentname" className="VenDorInp" disabled name="First name" placeholder="Resident name" value={resident.firstname+' '+resident.lastname}/>:
+                <input type="text"  id="UtilityResidentname" className="VenDorInp" disabled name="First name" placeholder="Resident name" />}
             </div>
         </div>
         <div className="Payment_form">
             <div className="inboxes">
                 <label for="UtilityAmount"  className="Utility_Amount">Amount</label>
-                <input type="text"  id="UtilityAmount" ref={amount} className="vendorinput"></input> 
+                <input type="text"  id="UtilityAmount" ref={amount} className="VenDorInp"></input> 
             </div>
         </div>
         <div className="Payment_form">

@@ -106,7 +106,7 @@ font-style: normal;
 font-weight: 500;
 color: #14335D;
   margin-left: 4%;
-  margin-top: 13%;
+  margin-top: 12%;
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
@@ -123,12 +123,12 @@ color: #14335D;
   margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 4%;
+  margin-top: 5%;
 }
 
 .gmsideimage img {
   display: flex;
-  margin-top: 98%;
+  margin-top: 99%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -139,7 +139,7 @@ color: #14335D;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  padding-top: 14px;
+  padding-top: 16px;
   margin: auto;
   margin-top: -3%;
 }
@@ -147,7 +147,7 @@ color: #14335D;
 font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;  
-  font-size: 1.4vw;
+  font-size: 1.3vw;
   text-align: center;  
   color: #14335D;
 }

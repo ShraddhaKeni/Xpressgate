@@ -6,7 +6,7 @@ html {
   .Typedetails {
     margin-right: 5%;
     margin-left: -10%;
-    font-size: 1.2vw;
+    font-size: 1.1vw;
     color: #14335D;
     font-family: 'Rubik';
 font-style: normal;
@@ -18,7 +18,7 @@ font-weight: 500;
 font-style: normal;
 font-weight: 500;
     margin-left: 4%;
-    margin-top: 13%;
+    margin-top: 12%;
     font-size: 1.2vw;
     padding-top: 0.5%;
   }
@@ -35,13 +35,13 @@ font-weight: 500;
     margin-left: 10%;
     width: 25%;
     height: 70%;
-    margin-top: 4%;
+    margin-top: 5%;
   }
 
 .SocietyFlatNo{
-    margin-right: 5%;
+    margin-right: 5.2%;
     margin-left: -12%;
-    font-size: 1.2vw;
+    font-size: 1.1vw;
     color: #14335D;
     font-family: 'Rubik';
 font-style: normal;
@@ -51,25 +51,25 @@ font-weight: 500;
 .Society_Block{
     margin-right: 5%;
     margin-left: -10.5%;
-    font-size: 1.2vw;
+    font-size: 1.1vw;
     color: #14335D;
     font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;
 }
 .Society_Residentnames{
-    margin-right: 4%;
+    margin-right: 5.2%;
     margin-left: -17%;
-    font-size: 1.2vw;
+    font-size: 1.1vw;
     color: #14335D;
     font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;
 }
 .Society_Amount{
-    margin-right: 5%;
+    margin-right: 5.2%;
     margin-left: -12.5%;
-    font-size: 1.2vw;
+    font-size: 1.1vw;
     color: #14335D;
     font-family: 'Rubik';
 font-style: normal;
@@ -81,16 +81,16 @@ font-weight: 500;
     justify-content: center;
 }
 .SAddButn{
-    width: 10vw;
-    height: 5vh;
-    font-size: 1.5vw;
+    width: 8vw;
+    height: 4.5vh;
+    font-size: 1.3vw;
     font-weight: 700;
     padding: 0%;
     border-radius: 9px;
     background: #0A8996;
     border: none;
     color: #FFFFFF;
-    margin-top: -7%;
+    margin-top: -3%;
 
 }
 .SocietyDSideIMG img {
@@ -106,7 +106,7 @@ font-weight: 500;
     height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    padding-top: 14px;
+    padding-top: 16px;
     margin: auto;
     margin-top: -3%;
 }
@@ -114,7 +114,7 @@ font-weight: 500;
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 500;  
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     text-align: center;  
     color: #14335D;
 }
@@ -124,8 +124,8 @@ font-weight: 500;
 }
 .paymentdate{
     margin-right: 5%;
-    margin-left: -11.5%;
-    font-size: 1.2vw;
+    margin-left: -10%;
+    font-size: 1.1vw;
     color: #14335D;
     font-family: 'Rubik';
     font-style: normal;
@@ -133,8 +133,8 @@ font-weight: 500;
     
 }
 .Paymentdateinput{
-    width: 7vw;
-    height: 5vh;
+    width: 6vw;
+    height: 4vh;
     padding: 1%;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     border: 2px solid #14335D;
@@ -144,21 +144,30 @@ font-weight: 500;
 }
 .Duedate{
     margin-right: 2%;
-    font-size: 1.2vw;
+    font-size: 1.1vw;
     color: #14335D;
     font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;
 }
 .Duedateinput{
-    width: 7vw;
-    height: 5vh;
+    width: 6vw;
+    height: 4vh;
     padding: 1%;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     border: 2px solid #14335D;
     border-radius: 8px;
     margin-top: 0%;
     margin-right: 6%;
+}
+.VendorInp {
+    width: 20vw;
+    height: 4.5vh;
+    padding: 0%;
+    box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);
+    border: 2px solid #14335D;
+    border-radius: 8px;
+    margin-top: 0%;
 }
   /* Media query for laptop */
   @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
@@ -170,6 +179,15 @@ font-weight: 500;
         margin-left: -10%;
         font-size: 1.2vw;
         color: #14335D;
+    }
+    .VendorInp {
+        width: 24vw;
+        height: 5vh;
+        padding: 0%;
+        box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);
+        border: 2px solid #14335D;
+        border-radius: 8px;
+        margin-top: 0%;
     }
     .SD_display {
         width: 17vw;

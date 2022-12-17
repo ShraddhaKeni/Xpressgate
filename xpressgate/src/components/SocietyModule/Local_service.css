@@ -13,17 +13,17 @@ html {
 
 .LS_sideimage img {
   display: flex;
-  margin-top: 68%;
+  margin-top: 99%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
   margin-bottom: 5%;  
 }
 
-.lsfullcardscss{
-  margin-top: 5%;
+.lsfullcardscss {
+  margin-top: 4%;
   padding-left: 20%;
-  margin-left: -16%;
+  margin-left: -13%;
   width: 100%;
 }
 .LS_societyname label {
@@ -32,7 +32,7 @@ html {
   font-weight: 500;
   color: #14335D;
   margin-left: 4%;
-  margin-top: 13%;
+  margin-top: 12%;
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
@@ -52,30 +52,31 @@ html {
   margin-top: 5%;
 }
 
-.dashboardcard_services{
+.dashboardcard_services {
+  width: -moz-fit-content;
   width: fit-content;
   margin-left: 24%;
   margin-bottom: 10%;
   border: none;
   cursor: pointer;
   background-color: #0A8996;
-  width: 300px;
-  height: 200px;
+  width: 250px;
+  height: 160px;
   border-radius: 10px;
   align-items: center;
 }
-.dashboardcard_services img
-{
+.dashboardcard_services img {
   background-color: white;
-  margin-top: 20px;
+  margin-top: 15px;
   transform: scale(1.2);
+  width: 3vw;
 }
 .LS_display {
   width: 16vw;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  padding-top: 14px;
+  padding-top: 16px;
   margin: auto;
   margin-top: -3%;
 }
@@ -83,7 +84,7 @@ html {
 font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;  
-  font-size: 1.4vw;
+  font-size: 1.3vw;
   text-align: center;  
   color: #14335D;
 }
@@ -91,20 +92,16 @@ font-weight: 500;
   position: relative;
   top:10%;
   color: white;
-  font-size: 25px;
+  font-size: 20px;
 }
-.image_div
-{
+.image_div {
   position: relative;
   left: 30%;
-  top:10%;
-  width: 110px;
-  height: 110px;
+  top: 10%;
+  width: 98px;
+  height: 95px;
   background: white;
-  -moz-border-radius: 50px;
-  -webkit-border-radius: 50px;
   border-radius: 50px;
-  
 }
 
 
@@ -128,7 +125,7 @@ color: #0D960A;
   color: #E8F5E9;
 }
 
-.Nsidelinks{
+/* .Nsidelinks{
   color: #5C5C5C;
   font-family: 'Rubik';
   font-style: normal;
@@ -148,7 +145,7 @@ color:#000;
 }
 .Asidelinks:hover{
 color:#000;
-}
+} */
 /* Media query for laptop */
 @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
  
@@ -159,7 +156,46 @@ color:#000;
     height: auto;
     margin-left: 2%;
 }
-
+.lsfullcardscss {
+  margin-top: 4%;
+  padding-left: 27%;
+  margin-left: -21%;
+  width: 105%;
+}
+.dashboardcard_services {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: 24%;
+  margin-bottom: 10%;
+  border: none;
+  cursor: pointer;
+  background-color: #0A8996;
+  width: 155px;
+  height: 115px;
+  border-radius: 10px;
+  align-items: center;
+}
+.image_div {
+  position: relative;
+  left: 25%;
+  top: 10%;
+  width: 70px;
+  height: 65px;
+  background: white;
+  border-radius: 50px;
+}
+.dashboardcard_services img {
+  background-color: white;
+  margin-top: 11px;
+  transform: scale(1.2);
+  width: 3.5vw;
+}
+.dashboardcard_services h1 {
+  position: relative;
+  top: 7%;
+  color: white;
+  font-size: 16px;
+}
 .LS_display {
   width: 17vw;
   height: 7vh;
