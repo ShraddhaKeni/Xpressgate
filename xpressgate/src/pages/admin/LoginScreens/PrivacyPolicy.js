@@ -8,7 +8,8 @@ const PrivacyPolicy = () => {
   const [policydata,setdata]=useState({});
   const ckdata = '<h1>This is test</h1>'
   const handleChange=(e,editor)=>{
-    setdata(editor.getData());
+    let edited_data = editor.getData();
+    console.log(e,'In handleChange',edited_data);
   }
 
   useEffect(()=>{
@@ -33,7 +34,7 @@ const PrivacyPolicy = () => {
         </div>
         <div className="policiestextbox">
           <div className="editor"> 
-            <CKEditor editor={ClassicEditor}  data={<div dangerouslySetInnerHTML={{ __html: ckdata}} />} onchange={(e,editor)=>{handleChange(e,editor)}} />
+            <CKEditor editor={ ClassicEditor } data={policydata.rn} onchange={(e,editor)=>{handleChange(e,editor)}} />
           </div>
         </div>
       </div>

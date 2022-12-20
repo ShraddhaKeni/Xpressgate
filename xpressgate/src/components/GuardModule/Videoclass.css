@@ -112,7 +112,17 @@ html {
   padding-top: 2%;
 }
 
-.videoguardname {
+.VG_Name label {
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+  margin-left: 4%;
+  margin-top: 12%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
+}
+.VG_Name {
   display: flex;
   width: 80%;
   height: 12%;
@@ -121,37 +131,36 @@ html {
   margin-top: 12%;
   border-radius: 24px;
 }
-
-.videoguardname img {
+.VG_Name img {
   margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 4%;
+  margin-top: 5%;
 }
-
-.videoguardname label {
-  color: #000;
-  margin-left: 8%;
-  margin-top: 10%;
-  font-size: 20px;
-}
-
-.videosideimage img {
+.VG_SImG img {
   display: flex;
-  margin-top: 80%;
-  width: 100%;
+  margin-top: 99%;
+  max-width: 90%;
   height: auto;
+  margin-left: 8%;
+  margin-bottom: 3%;  
 }
-
-.videolistdisplay {
-  width: 300px;
-  height: 64px;
+.VG_Display {
+  width: 16vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 20px;
   padding-top: 14px;
   margin: auto;
-  margin-top: -2%;
+  margin-top: -3%;
+}
+.VG_Display label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;  
+  font-size: 1.4vw;
+  text-align: center;  
+  color: #14335D;
 }
 
 .labelsize {
@@ -164,7 +173,7 @@ html {
 }
 
 .videocard {
-  margin-left: 50%;
+  margin-left: 40%;
   margin-bottom: 20%;
   border: none;
   opacity: 0.8;
@@ -220,17 +229,14 @@ html {
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  .videoguardname label {
-    margin-left: 7%;
-    margin-top: 18%;
-    font-size: 15px;
-  }
 
-  .videosideimage img {
+
+  .VG_SImG img {
     display: flex;
-    margin-top: 216%;
-    width: 100%;
+    margin-top: 93%;
+    max-width: 95%;
     height: auto;
+    margin-left: 2%;
   }
 
   .vcbackgroundimg {
@@ -258,16 +264,26 @@ html {
     font-size: 20px;
   }
 
-  .videolistdisplay {
-    width: 300px;
-    height: 64px;
+  .VG_Display {
+    width: 17vw;
+    height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 20px;
-    padding-top: 14px;
+    font-size: 1.4vw;
+    padding: 1%;
     margin: auto;
-    margin-top: -16%;
-  }
+    margin-top: -15%;
+    margin-left: 38%;
+}
+.VG_Display label {
+  
+    font-size: 1.5vw;
+    text-align: center;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+}
   .card {
     margin-left: 24%;
     margin-bottom: 10%;

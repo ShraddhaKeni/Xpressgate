@@ -44,8 +44,8 @@ html {
 }
 
 #tktlogo img {
-  margin-top: 5%;
-  margin-left: 1%;
+  margin-top: 7%;
+  margin-left: -30%;
   margin-bottom: 5%;
   width: 40%;
 }
@@ -55,15 +55,18 @@ html {
 }
 
 #tktsociety label {
-  margin-top: 20%;
-  margin-left: -88%;
-  width: 136px;
-  height: 58px;
+  margin-top: 19%;
+  margin-left: -120%;
+  width: 7.5vw;
+  height: 6.5vh;
   background-color: black;
   color: #fff;
-  border-radius: 18px;
-  padding-top: 4%;
-  font-size: 20px;
+  border-radius: 19px;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+  font-size: 1.6vw;
+  padding: 3%;
 }
 
 #tktspace {
@@ -93,6 +96,8 @@ html {
 #tktlogoutbutton img {
   padding-left: 10%;
   padding-bottom: 5%;
+  width: 1.8vw;
+  height: auto;
 }
 
 .btnApprove {
@@ -366,18 +371,6 @@ border-radius: 21px;
 
   .labelsize {
     font-size: 12px;
-  }
-
-  #tktsociety label {
-    margin-top: 14%;
-    margin-left: -68%;
-    width: 108px;
-    height: 45px;
-    background-color: black;
-    color: #fff;
-    border-radius: 18px;
-    padding-top: 3%;
-    font-size: 20px;
   }
 
   .tktdisplay {

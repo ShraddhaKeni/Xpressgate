@@ -134,7 +134,7 @@ html {
   margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 4%;
+  margin-top: 5%;
 }
 
 
@@ -151,14 +151,13 @@ html {
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 1.5vw;
   margin: auto;
   margin-top: -3%;
   padding-top: 1%;
 }
 
 .Addflatdisplay label{
- 
+  font-size: 1.4vw;
       display: inline-block;
       font-family: 'Rubik';
     font-style: normal;

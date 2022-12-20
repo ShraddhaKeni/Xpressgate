@@ -44,32 +44,6 @@ html {
   grid-template-areas: "dashboardlogo dashboardguard dashboardspace dashboardnotification dashboardsetting dashboardlogoutbutton";
 }
 
-#dashboardlogo {
-  grid-area: dashboardlogo;
-}
-
-#dashboardlogo img {
-  margin-top: 5%;
-  margin-left: 1%;
-  margin-bottom: 5%;
-  width: 40%;
-}
-
-#dashboardguard {
-  grid-area: dashboardguard;
-}
-
-#dashboardguard label {
-  margin-top: 20%;
-  margin-left: -88%;
-  width: 136px;
-  height: 58px;
-  background-color: black;
-  color: #fff;
-  border-radius: 18px;
-  padding-top: 4%;
-  font-size: 20px;
-}
 
 #dashboardspace {
   grid-area: dashboardspace;
@@ -91,17 +65,19 @@ html {
   margin-top: 100%;
 }
 
-#dashboardlogoutbutton {
-  grid-area: dashboardlogoutbutton;
+
+
+.VendorLname label {
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+  margin-left: 4%;
+  margin-top: 12%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
 }
-
-#dashboardlogoutbutton img {
-  padding-left: 10%;
-  padding-bottom: 5%;
-}
-
-
-.guardname {
+.VendorLname {
   display: flex;
   width: 80%;
   height: 12%;
@@ -110,37 +86,37 @@ html {
   margin-top: 12%;
   border-radius: 24px;
 }
-
-.guardname img {
+.VendorLname img {
   margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 4%;
+  margin-top: 5%;
 }
-
-.guardname label {
-  color: #000;
-  margin-left: 8%;
-  margin-top: 10%;
-  font-size: 20px;
-}
-
-.sideimage img {
+.VendorLSImg img {
   display: flex;
-  margin-top: 80%;
-  width: 100%;
+  margin-top: 99%;
+  max-width: 90%;
   height: auto;
+  margin-left: 8%;
+  margin-bottom: 3%;  
 }
 
-.vendorlistdisplay {
-  width: 300px;
-  height: 64px;
+.VendorL_display {
+  width: 16vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 20px;
   padding-top: 14px;
   margin: auto;
-  margin-top: -2%;
+  margin-top: -3%;
+}
+.VendorL_display label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;  
+  font-size: 1.4vw;
+  text-align: center;  
+  color: #14335D;
 }
 
 .labelsize {
@@ -175,16 +151,34 @@ table th {
   color: #FD6B22;
 }
 
-.searchbox{
+.Vsearchbox{
   width: 15%;
   height: 5%;
   border: 2px solid #000;
   border-radius: 15px;
-  margin-left: 72%;
+  margin-left: 12%;
   margin-top: 2%;
-  
 }
-
+.AddVendor{
+  border-radius: 18px;
+  color: #FFFFFF;
+  border: none;
+  width: 12vw;
+  height: 5vh;
+ margin-left: 25%;
+  margin-top: -3.3%;
+  margin-bottom: -20%;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1vw;
+  background: #017069;
+  position: absolute;
+  }
+  .AddVendor:hover{
+    background-color: #14335D;
+    color: #FFFFFF;
+  }
 .vlsearch_input
 {
   outline: none;
@@ -195,7 +189,7 @@ table th {
   margin-left: 10px;
 }
 
-.searchbox img{
+.Vsearchbox img{
  
   margin-left: -14%;
 }
@@ -207,37 +201,18 @@ table th {
   font-size: 14px;
 }
 
-.addvendor{
-  width: 9%;
-  border-radius: 15px;
-  margin-left: 30%;
-  margin-top: 2%;
-  background-color: #017069;
-}
-
-.addvendor img{
-  margin-left: 5%;
-}
-
-.addvendorlabel{
-  color:#fff;
-  font-family: 'Rubik', sans-serif;
-  margin: 10px;
-  font-size: 14px;
-}
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  .guardname label {
-    margin-left: 7%;
-    margin-top: 18%;
-    font-size: 15px;
+  .AddVendor:hover{
+    background-color: #14335D;
+    color: #FFFFFF;
   }
-
-  .sideimage img {
+  .VendorLSImg img {
     display: flex;
-    margin-top: 216%;
-    width: 100%;
+    margin-top: 93%;
+    max-width: 95%;
     height: auto;
+    margin-left: 2%;
   }
 
   .vlbackgroundimg {
@@ -252,46 +227,39 @@ table th {
   .labelsize {
     font-size: 12px;
   }
-
-  #dashboardguard label {
-    margin-top: 14%;
-    margin-left: -68%;
-    width: 108px;
-    height: 45px;
-    background-color: black;
-    color: #fff;
-    border-radius: 18px;
-    padding-top: 3%;
-    font-size: 20px;
-  }
-
-  .vendorlistdisplay {
-    width: 300px;
-    height: 64px;
+  .VendorL_display {
+    width: 17vw;
+    height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 20px;
-    padding-top: 14px;
+    font-size: 1.4vw;
+    padding: 1%;
     margin: auto;
-    margin-top: -16%;
-  }
+    margin-top: -15%;
+    margin-left: 38%;
+}
+.VendorL_display label {
+  
+    font-size: 1.5vw;
+    text-align: center;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+}
 
-  .searchbox{
-    width: 25%;
-    height: 5%;
-    border: 2px solid #000;
-    border-radius: 15px;
-    margin-left: 20%;
-    margin-top: 2%;
-  }
-
-  .addvendor {
-    width: 18%;
-    border-radius: 15px;
-    margin-left: 20%;
-    margin-top: 2%;
-    background-color: #017069;
-  }
+.Vsearchbox {
+  width: 20%;
+  height: 5%;
+  border: 2px solid #000;
+  border-radius: 15px;
+  margin-left: 67%;
+  margin-top: 2%;
+}
+.Vsearchbox img {
+  margin-left: 3%;
+}
+  
 }
 
 .vendorList
