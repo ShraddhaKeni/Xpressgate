@@ -57,7 +57,7 @@ const Viewparking = () => {
           <label>Society Name</label>
         </div>
         <div className='vpsidelinks'>
-          <label>Vehicle list</label><br></br>
+        <a href='/vehiclemanagement' className='VLsLink'><b>Vehicle List</b></a><br/><br/>
           <a href='/viewparking' className='VpSec'><b>View parking section</b></a><br/><br/>
           <a href='/addparking' className='ApSec'>Add parking section</a>
         </div>

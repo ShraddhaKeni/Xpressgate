@@ -106,7 +106,7 @@ font-style: normal;
 font-weight: 500;
 color: #14335D;
   margin-left: 4%;
-  margin-top: 13%;
+  margin-top: 12%;
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
@@ -149,7 +149,7 @@ color: #14335D;
 font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;  
-  font-size: 1.4vw;
+  font-size: 1.3vw;
   text-align: center;  
   color: #14335D;
 }
@@ -198,7 +198,7 @@ table th {
 }
 
 .nlsearchbox{
-  width: 15%;
+  width: 14%;
   height: 5%;
   border: 2px solid #000;
   border-radius: 15px;
@@ -210,13 +210,17 @@ table th {
   background-color: #E8F5E9;
   color: #0D960A;
   border-radius: 14px;
-  width: 228px;
-  height: 48px;
-  font-size: 151%;
+  width: 11vw;
+  height: 4.5vh;
+  font-size: 1vw;
   font-weight: 500;
   margin-top: 3%;
-  padding-bottom: 1%;
-  margin-left: 30%;
+  padding: 0%;
+  margin-left: 32%;
+ 
+}
+.btnAddnotice img{
+ width: 1vw;
 }
 
 .btnAddnotice:hover {
@@ -234,7 +238,7 @@ table th {
 
 .nlsearchbox img {
   margin-top: 0%;
-  margin-left: -18%;
+  margin-left: -8%;
 }
 
 .nlsidelinks {

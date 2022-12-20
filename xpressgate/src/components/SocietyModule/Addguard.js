@@ -6,11 +6,13 @@ import { Form } from 'react-bootstrap';
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { checkSociety } from '../auth/Auth'
+import { useNavigate } from 'react-router-dom';
 
 const Addguard = () => {
   const [guard, setGuard] = useState({})
   const location = useLocation()
   const [type, setType] = useState('add')
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -110,37 +112,39 @@ const Addguard = () => {
           <label>Society Name</label>
         </div>
         <br />
-
-        <div className="addguard_sideimg">
+        <div className='GLsidelinks'>
+          <a className='noticegll' href="/guardlist">Guard list</a><br></br><br></br>
+          <a className='aggnotice' onClick={()=>navigate('/addGuard')}><b>  Add Guard</b></a>
+        </div>
+        <div className="AGSideimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className='Addflatdisplay'>
+        <div className='AG_display'>
           <label>{type == 'edit' ? 'Edit Guard' : 'Add Guard'}</label>
         </div>
         <Form className='formclass'>
-
           <div class="form-group form-group6 row">
             <label class="col-lg-2 col-form-label labelsize1">First name</label>
             <div class="col-lg-4">
-              {type == 'edit' ? <input type="text" class="form-control input-lg" name="First name" id='firstname' placeholder="First Name" defaultValue={guard.firstname} /> :
-                <input type="text" class="form-control input-lg input-lg1" name="First name" id='firstname' placeholder="First Name" />}
+              {type == 'edit' ? <input type="text" class="form-control input-lg SideB" name="First name" id='firstname' placeholder="First Name" defaultValue={guard.firstname} /> :
+                <input type="text" class="form-control input-lg input-lg1 SideB" name="First name" id='firstname' placeholder="First Name" />}
             </div>
           </div>
           <div class="form-group form-group6 row">
             <label class="col-lg-2 col-form-label labelsize1">Last name</label>
             <div class="col-lg-4">
-              {type == 'edit' ? <input type="text" class="form-control input-lg" name="Last name" id='lastname' defaultValue={guard.lastname} placeholder="Last name" /> :
-                <input type="text" class="form-control input-lg input-lg1" name="Last name" id='lastname' placeholder="Last name" />}
+              {type == 'edit' ? <input type="text" class="form-control input-lg SideB" name="Last name" id='lastname' defaultValue={guard.lastname} placeholder="Last name" /> :
+                <input type="text" class="form-control input-lg input-lg1 SideB" name="Last name" id='lastname' placeholder="Last name" />}
 
             </div>
           </div>
           <div class="form-group form-group6 row">
             <label class="col-lg-2 col-form-label labelsize1">Username</label>
             <div class="col-lg-4">
-              {type == 'edit' ? <input type="text" class="form-control input-lg" name="Last name" id="username" defaultValue={guard.username} placeholder="Username" />
-                : <input type="text" class="form-control input-lg input-lg1" name="Last name" id="username" placeholder="Username" />}
+              {type == 'edit' ? <input type="text" class="form-control input-lg SideB" name="Last name" id="username" defaultValue={guard.username} placeholder="Username" />
+                : <input type="text" class="form-control input-lg input-lg1 SideB" name="Last name" id="username" placeholder="Username" />}
 
             </div>
           </div>
@@ -148,7 +152,7 @@ const Addguard = () => {
             <div class="form-group form-group6 row">
               <label class="col-lg-2 col-form-label labelsize1">Password</label>
               <div class="col-lg-4">
-                <input type="text" class="form-control input-lg input-lg1" name="Last name" id="password" placeholder="Password"></input>
+                <input type="text" class="form-control input-lg input-lg1 SideB" name="Last name" id="password" placeholder="Password"></input>
               </div>
             </div>
             : ''

@@ -1,6 +1,6 @@
 .AP_societyname label {
     margin-left: 4%;
-    margin-top: 13%;
+    margin-top: 12%;
     font-size: 1.2vw;
     padding-top: 0.5%;
     font-family: 'Rubik';
@@ -56,16 +56,28 @@ background: #14335D;
     height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    padding-top: 14px;
+    padding-top: 16px;
     margin: auto;
     margin-top: -3%;
+  }
+  .VLSECLink{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    color: #5C5C5C;
+    font-size: 1.2vw;
+    margin-left: 16%;
+  }
+  .VLSECLink:hover{
+  color: #000;
+  text-decoration: none;
   }
   .APdisplay label {
     font-family: 'Rubik';
     font-style: normal;
     font-weight: 500;
     color: #14335D; 
-    font-size: 1.3vw;
+    font-size: 1.2vw;
     text-align: center;  
 }
 .AddParksidelinks{
@@ -86,7 +98,7 @@ background: #14335D;
   font-weight: 400;
   font-size: 0.9vw;
   text-align: center;
-  margin-left: 14%;
+  margin-left: 15%;
   color: #5C5C5C;
   }
   .Addpsec {
@@ -100,9 +112,11 @@ background: #14335D;
   }
   .Viewpsec:hover{
     color: #000000;
+    text-decoration: none;
   }
   .Addpsec:hover{
     color: #000000;
+    text-decoration: none;
   }
   .ADDParkBor{
     background: #FFFFFF;

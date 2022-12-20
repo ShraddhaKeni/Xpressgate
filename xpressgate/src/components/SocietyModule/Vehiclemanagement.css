@@ -113,7 +113,7 @@ font-style: normal;
 font-weight: 500;
 color: #14335D;
   margin-left: 4%;
-  margin-top: 13%;
+  margin-top: 12%;
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
@@ -146,7 +146,7 @@ color: #14335D;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  padding-top: 14px;
+  padding-top: 16px;
   margin: auto;
   margin-top: -3%;
 }
@@ -154,7 +154,7 @@ color: #14335D;
 font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;  
-  font-size: 1.3vw;
+  font-size: 1.2vw;
   text-align: center;  
   color: #14335D;
 }
@@ -195,7 +195,7 @@ table th {
 
 .vmsearchbox{
   width: 15%;
-  height: 5%;
+  height: 4.5%;
   border: 2px solid #000;
   border-radius: 15px;
   margin-left: 74%;
@@ -282,7 +282,19 @@ font-size: 1.5vw;
   font-weight: 400;
   color: #5C5C5C;
   font-size: 1vw;
-  margin-left: 13%;
+  margin-left: 16%;
+}
+.VLsecLink{
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  color: #000;
+  font-size: 1.2vw;
+  margin-left: 16%;
+}
+.VLsecLink:hover{
+color: #000;
+text-decoration: none;
 }
 .APsec{
   font-family: 'Rubik';
@@ -290,14 +302,16 @@ font-size: 1.5vw;
   font-weight: 400;
   color: #5C5C5C;
   font-size: 1vw;
-  margin-left: 14%;
+  margin-left: 16%;
   
 }
 .VPsec:hover{
-  color:#000
+  color:#000;
+  text-decoration: none;
 }
 .APsec:hover{
-  color:#000
+  color:#000;
+  text-decoration: none;
 }
 
 

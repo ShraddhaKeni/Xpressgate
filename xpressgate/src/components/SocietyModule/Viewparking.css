@@ -4,7 +4,7 @@
   font-style: normal;
   font-weight: 500;
   margin-left: 4%;
-  margin-top: 13%;
+  margin-top: 12%;
   font-size: 1.2vw;
   padding-top: 0.5%;
   color: #14335D;
@@ -33,7 +33,18 @@
     border-collapse: separate;
     font-family: 'Rubik', sans-serif;
 }
-
+.VLsLink{
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  color: #5C5C5C;
+  font-size: 1.2vw;
+  margin-left: 16%;
+}
+.VLsLink:hover{
+color: #000;
+text-decoration: none;
+}
 .viewparking_sideimg img {
     display: flex;
     margin-top: 60%;
@@ -84,7 +95,7 @@
     height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    padding-top: 14px;
+    padding-top: 16px;
     margin: auto;
     margin-top: -3%;
 }
@@ -92,7 +103,7 @@
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 500;  
-    font-size: 1.3vw;
+    font-size: 1.2vw;
     text-align: center;  
     color: #14335D;
 }
@@ -102,7 +113,7 @@
   font-weight: 400;
   color: #000;
   font-size: 0.9vw;
-  margin-left: 14%;
+  margin-left: 15%;
 }
 .ApSec{
   font-family: 'Rubik';
@@ -110,14 +121,16 @@
   font-weight: 400;
   color: #5C5C5C;
   font-size: 0.9vw;
-  margin-left: 13%;
+  margin-left: 14%;
   
 }
 .VpSec:hover{
-  color:#000
+  color:#000;
+  text-decoration: none;
 }
 .ApSec:hover{
-  color:#000
+  color:#000;
+  text-decoration: none;
 }
 
 

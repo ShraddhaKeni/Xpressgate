@@ -2,40 +2,39 @@ html {
   height: 100vh;
 }
 
-.logincontainer4 {
+.SOC_RESET_CONTAINER {
   display: grid;
   height: 100vh;
   grid-template-columns: 1.8fr 2fr;
   grid-template-rows: 2.4fr 2fr;
-  grid-template-areas: "logoid44 loginimgid4"
-    "loginformid4 loginimgid4"
+  grid-template-areas: "SOC_Reset_LogoId RESET_LOGIN_IMG"
+    "Soc_LOgin_Form_ID RESET_LOGIN_IMG"
 }
 
-#logoid4 {
-  margin-top: -37rem;
-  margin-left: 1rem;
-  margin-bottom: -1rem;
-  position: relative;
+#SOC_Reset_LogoId {
+  grid-area: SOC_Reset_LogoId;
 }
 
-#logoid4 img {
-  max-width: 60%;
-  height: auto;
+#SOC_Reset_LogoId img {
+  margin-top: 10%;
+  width: 28vw;
+  height: 28vh;
+  margin-left: 3%;
 }
 
-#loginimgid4 {
+#RESET_LOGIN_IMG {
   /* background-color: blueviolet;    */
-  grid-area: loginimgid4;
+  grid-area: RESET_LOGIN_IMG;
 }
 
-#loginimgid4 img {
+#RESET_LOGIN_IMG img {
   height: 100vh;
-  width: 54vw;
+  width: 65vw;
 }
 
-#loginformid4 {
+#Soc_LOgin_Form_ID {
 
-  grid-area: loginformid4;
+  grid-area: Soc_LOgin_Form_ID;
   position: relative;
   margin-left: -4rem;
   /* margin-top: -35rem; */
@@ -45,17 +44,26 @@ html {
   color: red;
 }
 
+
 .btnsocsendotp {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  width: 250px;
-  height: 60px;
-  font-size: 151%;
+  width: 12vw;
+  height: 6vh; 
+  font-size: 1.5vw;
   font-weight: 500;
-  margin-top: 4%;
+  margin-top: 6%;
   padding-bottom: 3%;
+  font-family: 'Rubik';
+font-style: normal;
+margin-left: -3%;
 }
+
+.btnsocsendotp:hover {
+  background-color: #14335D;
+}
+
 
 .fpsoc {
   background-color: #0b2447;
@@ -69,35 +77,41 @@ html {
   margin-top: 10%;
 }
 
-.input_fields4 {
-  position: relative;
-  width: 25vw;
+.SOC_Input_Fields {
+  position: absolute;
+  width: 50%;
   height: 50%;
-  left: 25.5%;
+  left: 27.5%;
 }
 
-.entermob {
-  position: relative;
-  margin-left: -69%;
+.SOC_EnterMobileNo {
+  position: absolute;
+ margin-top: -10%;
+ margin-left: -60%;
   font-family: 'Rubik', sans-serif;
   font-size: 1.2vw;
+  font-style: normal;
+font-weight: 500;
 }
 
-
-.emailtextbox {
-  width: 25vw;
-
-}
-
-.spocfp {
-
-  width: 400px;
-  height: 76px;
+.SOC_Fgt {
+  width: 23vw;
+  height: 6vh;
   background-color: #14335D;
-  margin-left: 8%;
-  margin-top: 6%;
-  font-size: 36px;
+  margin-left: 17%; 
+  margin-top: 8%;
 
+  padding: 0%;
+  
+}
+
+.SOC_fgt_Label{
+  display:inline-block;
+  margin-top: 3%;
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.7vw;
+  font-weight: 500;
 }
 
 .socfogtpwd {
@@ -107,51 +121,57 @@ html {
   font-family: 'Rubik', sans-serif;
 }
 
-.socfpmobile {
-  position: relative;
-  right: 26%;
-  font-family: 'Rubik', sans-serif;
-  font-size: 15px;
-}
 
 .socfptextbox {
-  width: 83%;
-  margin-left: 8%;
+  width: 23vw;
+  height: 4.5vh;
+  margin-left: -10%;
+  margin-top: -5%;
 }
 
 
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+
+
+  .socfptextbox {
+    width: 29vw;
+    height: 5.5vh;
+    margin-left: -5%;
+    margin-top: 10%;
+    position: absolute;
+}
+.btnsocsendotp {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 13px;
+  width: 13vw;
+  height: 7vh;
+  font-size: 1.5vw;
+  font-weight: 700;
+  margin-top: 16%;
+  padding-bottom: 0%;
+  font-family: 'Rubik';
+  font-style: normal;
+  margin-left: -46%;
+}
 .btnsocsendotp:hover {
   background-color: #14335D;
 }
 
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  #loginformid4 {
-    grid-area: loginformid4;
-    position: relative;
-    margin-left: -2rem;
-
+  #SOC_Reset_LogoId img {
+    margin-top: 10%;
+    width: 17vw;
+    height: 30vh;
   }
 
-  #logoid4 {
-    margin-top: -21rem;
-    margin-left: -3rem;
-    margin-bottom: 0rem;
-    position: relative;
-  }
-
-  #logoid4 img {
-    max-width: 45%;
-    height: auto;
-    margin-top: 6%;
-  }
-
-  .logincontainer4 {
+  .SOC_RESET_CONTAINER {
     overflow-y: hidden;
   }
 
-  #loginimgid4 img {
-    width: auto;
+  #RESET_LOGIN_IMG img {
     height: 100vh;
+    width: 60vw;
   }
 
   .btlogin4 {
@@ -165,7 +185,12 @@ html {
     margin-left: -3rem;
     margin-bottom: -1rem;
   }
-
+  .SOC_Input_Fields{
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    left: 27.5%;
+  }
   .fpsoc {
     background-color: #0b2447;
     color: #fff;
@@ -177,20 +202,34 @@ html {
     margin-bottom: -6%;
     margin-top: 4%;
   }
+  .SOC_Fgt {
+    width: 29vw;
+    height: 10vh;
+    background-color: #14335D;
+    margin-left: 15%;
+    margin-top: 6%;
+    font-size: 2vw;
+}
 
-  .entermob {
-    position: relative;
-    margin-left: -67%;
+.SOC_fgt_Label {
+  display: inline-block;
+  margin-top: 3%;
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+  padding-top: 2%;
+}
+
+  .SOC_EnterMobileNo {
+    position: absolute;
+    margin-left: -55%;
+    margin-top: 4%;
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 500;
     font-family: 'Rubik', sans-serif;
-    font-size: 1.3vw;
-    margin-bottom: 0rem;
   }
 
-  .emailtextbox {
-    width: 22vw;
-    height: 5.5vh;
-    margin-bottom: -1.5rem;
-  }
+ 
 }
 
 /*   
@@ -220,7 +259,7 @@ html {
 /* Media query for mobile */
 @media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
 
-  #loginimgid4 {
+  #RESET_LOGIN_IMG {
     display: none;
   }
 
@@ -233,12 +272,12 @@ html {
     font-size: 36px;
   }
 
-  #logoid4 img {
+  #SOC_Reset_LogoId img {
     margin-top: 10%;
     margin-left: 36%;
   }
 
-  .input_fields4 {
+  .SOC_Input_Fields {
     position: absolute;
     width: 100%;
     height: 50%;

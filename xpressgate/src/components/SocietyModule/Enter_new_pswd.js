@@ -48,30 +48,26 @@ const Enter_new_pswd = () => {
   }
   
   return (
-    <div className="logincontainer2">
-      
+    <div className="NP_Login_Container">
+      <div id="NP_Logo_ID">
+            <img src="/images/loginlogo.svg" alt="" />
         
-
-      <div id="loginimgid2">
+         <div className="NP_SignIn">
+          <label className="NP_SignIn_Label">Forgot Password</label>
+        </div>
+        </div>
+      <div id="NP_Login_Img">
         <img src="/images/societylogin.svg" alt="" />
       </div>
-      <div id="loginformid2">
+      <div id="NP_Login_Form_Id">
         <Form>
-          <div className="input_fields2">
-          <div id="logoid2">
-            <img src="/images/loginlogo.svg" alt="" />
-          </div>
-         <br/>
-         <div className="socnpsignin">
-          <label className="nplabel">Forgot Password</label>
-        </div>
-            <br />
+          <div className="NP_Input_Fields">
             <div className="email_input">
-              <label className="socnp">New password</label>
+              <label className="NP_New_Pass">New Password</label>
               <input
                 ref={password}
                 type="text"
-                className="form-control socnpemailtextbox"
+                className="form-control NP_Email_Text_Box"
                 onKeyPress={(e) => {
                   document.getElementById(e.target.id).style.border = "none";
                 }}
@@ -79,13 +75,12 @@ const Enter_new_pswd = () => {
                 placeholder="New Password"
               ></input>
             </div>
-            <br></br>
             <div className="email_input">
-              <label className="soccp">Confirm Password</label>
+              <label className="NP_Confirm_Password">Confirm Password</label>
               <input
                 ref={confirmpassword}
                 type="password"
-                className="form-control socnpinput"
+                className="form-control NP_CnfmPass_TextBox"
                 onKeyPress={(e) => {
                   document.getElementById(e.target.id).style.border = "none";
                 }}
@@ -95,7 +90,7 @@ const Enter_new_pswd = () => {
               <br />
               <Button
                 type="button"
-                className="btnsocconfirm"
+                className="NP_ConFirm_Btn"
                 onClick={() => {
                   handleSubmit();
                 }}
