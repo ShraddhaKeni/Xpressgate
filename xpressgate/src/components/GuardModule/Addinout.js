@@ -102,7 +102,7 @@ const Addinout = () => {
           <img src="/images/sideimage.svg" alt="guard sideimage" />
         </div>
       </div>
-      <div classNameName='dhlbackgroundimg'>
+      <div className='aiobackgroundimg'>
         <div className='aiodisplay'>
           <label>Add In Out</label>
         </div>
