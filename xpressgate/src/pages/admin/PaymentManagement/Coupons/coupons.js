@@ -56,7 +56,7 @@ export const CouponsList = () => {
             <div className='page-label'>
                 <label>Coupons</label>
             </div>
-            <div className='main-container mt-5'>
+            <div className='main-container'>
 
                 <div className='table-top-right-content'>
                     <div className='table-search pl-2'>
@@ -69,7 +69,7 @@ export const CouponsList = () => {
                     </div>
                 </div>
 
-                <div id="cardsection">
+                <div id="cardsection pt-5">
                     <div className="row row-cols-1 row-cols-md-3 g-3 mb-5">
 
                         {coupons && coupons.map((coupon) => {
@@ -90,14 +90,15 @@ export const CouponsList = () => {
 
                         })}
 
+
                     </div>
+                    {allCoupons?.length &&
+                        <div className="paginate mb-5">
+                            <PaginationCalculate totalPages={allCoupons.length} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} />
+                        </div>
+                    }
                 </div>
 
-                {allCoupons?.length &&
-                    <div className="paginate mb-5">
-                        <PaginationCalculate totalPages={allCoupons.length} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} />
-                    </div>
-                }
             </div >
 
         </div >
