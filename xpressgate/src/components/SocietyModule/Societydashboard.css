@@ -17,11 +17,26 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-
+.Dasboard_sideLink{
+  margin-right: 46%;
+  margin-top: 4%;
+}
+.SL_LabelName{
+  
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+font-size: 1.1vw;
+color: #000000;
+}
+.SL_LabelName:hover{
+  color: #000000;
+  text-decoration: none;
+}
 .sddashboardcard img {
-  width: 18vw;
-  padding-right: 2%;
-  margin-bottom: 4%;
+  width: 17vw;
+  padding-right: 8%;
+  margin-bottom: 5%;
 }
 
 .dashboard_passcode {
@@ -75,6 +90,7 @@ input::-webkit-inner-spin-button {
   padding-top: 16px;
   margin: auto;
   margin-top: -3%;
+  margin-left: 37%;
 }
 .sdashdisplay label {
 font-family: 'Rubik';
@@ -140,7 +156,7 @@ color: #14335D;
 
 .sdsideimage img {
   display: flex;
-  margin-top: 98%;
+  margin-top: 90%;
   max-width: 90%;
   height: auto;
   margin-left: 9%;
@@ -157,12 +173,11 @@ color: #14335D;
 }
 
 .sdfullcardscss {
-  margin-top: 1%;
-  padding-left: 25px;
-  width: 76%;
+  margin-top: 4%;
+  padding-left: 49px;
+  width: 71%;
   margin-left: 10%;
 }
-
 /* Media query for laptop */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   .sdashdisplay {
@@ -205,7 +220,7 @@ color: #14335D;
 
   .sdsideimage img {
     display: flex;
-    margin-top: 93%;
+    margin-top: 68%;
     max-width: 95%;
     height: auto;
     margin-left: 2%;

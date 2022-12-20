@@ -43,6 +43,9 @@ const Societydashboard = () => {
           <img src="/images/societyicon.svg" alt="society name" />
           <label>Society Name</label>
         </div>
+        <div className='Dasboard_sideLink'>
+          <a href="/scDashboard" className='SL_LabelName'>Dashboard</a>
+        </div>
         <div className='sdsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
       </div>
         <div className='dashboardbackgroundimg'>

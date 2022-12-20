@@ -129,14 +129,14 @@ const Addguard = () => {
         <Form className='formclass'>
          
          <div class="form-group form-group6 row">
-           <label class="col-lg-2 col-form-label labelsize1">First name</label>
+           <label class="col-lg-2 col-form-label labelsize1">First Name</label>
            <div class="col-lg-4">
             {type=='edit'?<input type="text" class="form-control input-lg SideB" name="First name" id='firstname' placeholder="First Name" defaultValue={guard.firstname}/>:
             <input type="text" class="form-control input-lg input-lg1 SideB" name="First name" id='firstname' placeholder="First Name"/>}
            </div>
          </div>
          <div class="form-group form-group6 row">
-           <label class="col-lg-2 col-form-label labelsize1">Last name</label>
+           <label class="col-lg-2 col-form-label labelsize1">Last Name</label>
            <div class="col-lg-4">
             {type=='edit'?<input type="text" class="form-control input-lg SideB" name="Last name" id='lastname' defaultValue={guard.lastname} placeholder="Last name" />:
             <input type="text" class="form-control input-lg input-lg1 SideB" name="Last name" id='lastname' placeholder="Last name" />}

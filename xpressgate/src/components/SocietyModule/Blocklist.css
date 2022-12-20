@@ -68,6 +68,7 @@ input::-webkit-inner-spin-button {
   padding-top: 16px;
   margin: auto;
   margin-top: -3%;
+  margin-left: 39%;
 }
 .BL_display label {
 font-family: 'Rubik';
@@ -81,13 +82,32 @@ font-weight: 500;
   color:#757575;
   font-weight: 500;
   font-size: 1.1vw;
+  margin-left:-8% ;
 }
 .Addsidelinks{
   color:#757575;
   font-weight: 500;
   font-size: 1.1vw;
+  margin-left:-8% ;
 }
-
+.BListsidelink{
+  color:#000;
+  font-weight: 500;
+  font-size: 1.1vw;
+}
+.BListsidelink:hover{
+text-decoration: none;
+color: #000;
+}
+.ABlockSidelink{
+  color:#757575;
+  font-weight: 500;
+  font-size: 1.1vw;
+}
+.ABlockSidelink:hover{
+color: #000;
+text-decoration: none;
+}
 .Addsidelinks:hover {
   color: #000;
   text-decoration: none; 
@@ -193,7 +213,7 @@ font-weight: 500;
 
 .blsideimage img {
   display: flex;
-  margin-top: 68%;
+  margin-top: 42%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -215,11 +235,11 @@ font-weight: 500;
   cursor: pointer;
 }
 
-.fullcardscss {
-  margin-top: 5%;
-  padding-left: 25px;
-  margin-right: 125px;
-  width: 100%;
+.BLfullcardscss {
+  margin-top: 4%;
+  margin-right: 1%;
+  margin-left: 1%;
+  padding-right: 20%;
 }
 
 .blminicard {
@@ -227,11 +247,14 @@ font-weight: 500;
   margin-bottom: 10%;
   border: none;
   background-color: #0A8996;
-  width: 70%;
+  width: 80%;
   height: 95%;
   border-radius: 20px;
 }
-
+.Pencilicon img{ 
+  margin-left: 80%;
+  width: 8%;
+}
 .blblock {
   font-size: 25px;
   font-family: 'Rubik', sans-serif;
@@ -258,7 +281,9 @@ font-weight: 500;
   font-weight: 500;
   margin-top: 4%;
 }
-
+.btnView:hover{
+  background: #14335D;
+}
 /* Media query for laptop */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
  
@@ -272,16 +297,17 @@ font-weight: 500;
     position: relative;
     margin-top: 10.5%;
   }
-
   .blsideimage img {
     display: flex;
-    margin-top: 53%;
-    max-width: 95%;
+    margin-top: 20%;
+    max-width: 82%;
     height: auto;
-    margin-left: 2%;
-  }
-
-  .fullcardscss {
+    margin-left: 10%;
+}
+.btnView:hover{
+  background: #14335D;
+}
+  .BLfullcardscss {
     margin-top: 5%;
     margin-right: 4%;
   }
