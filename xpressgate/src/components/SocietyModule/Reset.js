@@ -29,22 +29,23 @@ const Reset = () => {
 
 
   return (
-    <div className="logincontainer4">
-      <div id="loginimgid4">
+    <div className="SOC_RESET_CONTAINER">
+       <div id="SOC_Reset_LogoId">
+              <img src="/images/loginlogo.svg" alt="" />
+          
+            <div className="SOC_Fgt">
+              <label className="SOC_fgt_Label">Forgot Password</label>
+            </div>
+            </div>
+      <div id="RESET_LOGIN_IMG">
         <img src="/images/societylogin.svg" alt="" />
       </div>
-      <div id="loginformid4">
+      <div id="Soc_LOgin_Form_ID">
         <Form>
-          <div className="input_fields4">
-            <div id="logoid4">
-              <img src="/images/loginlogo.svg" alt="" />
-            </div>
-            <div className="spocfp">
-              <label className="socfogtpwd">Forgot Password</label>
-            </div>
-            <br />
+          <div className="SOC_Input_Fields">
+           
             <div className="email_input">
-              <label className="socfpmobile">Enter Mobile Number</label>
+              <label className="SOC_EnterMobileNo">Enter Mobile Number</label>
               <input ref={username} type="text" maxLength="10" className="form-control socfptextbox" onKeyPress={(e) => { document.getElementById(e.target.id).style.border = "none"; }}
                 id="mobileno" placeholder=""></input>
             </div>

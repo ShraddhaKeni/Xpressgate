@@ -109,7 +109,7 @@ const AddParkingSec = () => {
         </div>
         <br/>
         <div className='AddParksidelinks'>
-          <label>Vehicle list</label><br></br>
+        <a href='/vehiclemanagement' className='VLSECLink'><b>Vehicle List</b></a><br/><br/>
           <a href='/viewparking' className='Viewpsec'>View parking section</a><br/><br/>
           <a href='/addparking' className='Addpsec'><b>Add parking section</b></a>
         </div>

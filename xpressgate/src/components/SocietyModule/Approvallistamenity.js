@@ -101,8 +101,9 @@ const Approvallistamenity = () => {
             </div>
             <br></br>
             <br></br>
-            {booking.status==false?<> <Button type="button" onClick={()=>{approveBooking(booking._id,'accept')}} className="ALAbtnApprove">APPROVE</Button>
-            <Button type="button" onClick={()=>{approveBooking(booking._id,'reject')}} className="ALAbtnDeny">DENY</Button></>: <Button type="button" onClick={()=>{approveBooking(booking._id,'reject')}} className="alabtnDeny">DENY</Button>}
+            {booking.status==false?<> 
+            <Button type="button" onClick={()=>{approveBooking(booking._id,'accept')}} className="ALAbtnApprove">APPROVE</Button>
+            <Button type="button" onClick={()=>{approveBooking(booking._id,'reject')}} className="ALAbtnDeny">DENY</Button></>: <Button type="button" onClick={()=>{approveBooking(booking._id,'reject')}} className="ALAbtnDeny">DENY</Button>}
            
             <br></br>
           </div>

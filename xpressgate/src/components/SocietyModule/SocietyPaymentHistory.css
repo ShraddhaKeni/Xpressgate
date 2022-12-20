@@ -7,7 +7,7 @@ html {
     height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    padding-top: 14px;
+    padding-top: 16px;
     margin: auto;
     margin-top: -3%;
   }
@@ -15,7 +15,7 @@ html {
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 500;  
-    font-size: 1.6vw;
+    font-size: 1.3vw;
     text-align: center;  
     color: #14335D;
   }
@@ -26,6 +26,19 @@ html {
     background: #0A8996;
     border-radius: 14px;
     width: 10%;
+  }
+  .GeTAllBTN{
+    width: 9vw;
+    height: 3.8vh;
+    font-size: 1vw;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+border-radius: 12px;
+padding: 1%;
+  }
+  .GeTAllBTN:hover{
+    background-color: #14335D;
   }
   .paymentsearch {
     width: 12vw;
@@ -38,7 +51,7 @@ html {
 }
 .PHSimg img {
   display: flex;
-  margin-top: 93%;
+  margin-top: 99%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -51,7 +64,7 @@ font-style: normal;
 font-weight: 500;
 color: #14335D;
   margin-left: 4%;
-  margin-top: 13%;
+  margin-top: 12%;
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
@@ -68,7 +81,7 @@ color: #14335D;
   margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 4%;
+  margin-top: 5%;
 }
 .dropboxes{
   display: flex;
@@ -134,9 +147,11 @@ padding: 2%;
       margin-top: -3%;
       margin-left: 38%;
   }
+  .GeTAllBTN:hover{
+    background-color: #14335D;
+  }
   .PH_display label {
-    
-      font-size: 1.5vw;
+    font-size: 1.5vw;
       text-align: center;
       font-family: 'Rubik';
   font-style: normal;

@@ -42,24 +42,22 @@ const Entercode = () => {
   }
 
   return (
-    <div className="logincontainer3">
-      <div id="loginimgid3">
-        <img src="/images/societylogin.svg" alt="" />
-      </div>
-      <div id="loginformid3">
-        <Form>
-          <div className="input_fields3">
-            <div id="logoid3">
+    <div className="SOC_ENTRCODE_CONTAINER">
+       <div id="SOC_ENTR_LOGOID">
               <img src="/images/loginlogo.svg" alt="" />
-            </div>
-            <br />
-            <div className="socentercode">
+            <div className="SOC_ENTRCODE">
               <label className="soccodelabel">Forgot Password</label>
             </div>
-            <br />
-            <br></br>
+            </div>
+            
+      <div id="SOC_ENTR_LOGIN_Img">
+        <img src="/images/societylogin.svg" alt="" />
+      </div>
+      <div id="Soc_ENTR_LoginFormID">
+        <Form>
+          <div className="input_fields3">
             <div className="email_input">
-              <label className="socenterotp">Enter OTP</label>
+              <label className="SOC_ENTROTP">Enter OTP</label>
               <input ref={username} type="text" maxLength="4" className="form-control socotptextbox" onKeyPress={(e) => { document.getElementById(e.target.id).style.border = "none"; }}
                 id="loginemailid" placeholder="Enter OTP"></input>
             </div>

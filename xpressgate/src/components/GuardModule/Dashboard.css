@@ -17,7 +17,7 @@ html {
   gap: 16px;
   justify-content: center;
   align-items: center;
-  margin-top: -9%;
+  margin-top: -6%;
 }
 
 .dashboard_passcode {
@@ -146,7 +146,7 @@ color: #14335D;
 
 .enterpasscodesearch img {
   margin-left: 105%;
-  margin-top: -4.5%;
+  margin-top: -7.5%;
   width: 3.5vw;
   height: auto;
 }

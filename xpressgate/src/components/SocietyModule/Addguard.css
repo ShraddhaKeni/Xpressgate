@@ -8,7 +8,7 @@ font-style: normal;
 font-weight: 500;
 color: #14335D;
   margin-left: 4%;
-  margin-top: 13%;
+  margin-top: 12%;
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
@@ -25,12 +25,12 @@ color: #14335D;
   margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 4%;
+  margin-top: 5%;
 }
 
 .AGSideimg img {
   display: flex;
-  margin-top: 93%;
+  margin-top: 66%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -47,11 +47,11 @@ border-radius: 9px;
   font-family: 'Rubik';
 font-style: normal;
 font-weight: 700;
-font-size: 1.1vw;
+font-size: 1vw;
 text-align: center;color: #FFFFFF;
   margin-top: 5%;
   margin-right: 35%;
-  padding-top: 0%;
+  padding-top: 0.5%;
 }
 .AGBtn:hover{
   background-color: #14335D;
@@ -61,7 +61,7 @@ text-align: center;color: #FFFFFF;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  padding-top: 14px;
+  padding-top: 16px;
   margin: auto;
   margin-top: -3%;
 }
@@ -69,7 +69,7 @@ text-align: center;color: #FFFFFF;
 font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;  
-  font-size: 1.6vw;
+  font-size: 1.3vw;
   text-align: center;  
   color: #14335D;
 }
@@ -79,11 +79,36 @@ border: 2px solid #14335D;
 box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 border-radius: 8px;
 }
+.noticegll{
+  color:#757575;
+  font-size: 1vw;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  
+}
+.aggnotice{
+  color:#000;
+  font-weight: 400;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-size: 1vw;
+ 
+}
+
+.noticeGL:hover {
+  color: #000;
+  text-decoration: none; 
+}
+.AGnotice:hover {
+  color: #000;
+  text-decoration: none; 
+}
 /* Media query for laptop */
 @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
   .AGSideimg img {
     display: flex;
-    margin-top: 93%;
+    margin-top: 53%;
     max-width: 95%;
     height: auto;
     margin-left: 2%;
@@ -94,13 +119,7 @@ border-radius: 8px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   }
-  .addguard_sideimg img {
-    display: flex;
-    margin-top: 125%;
-    max-width: 95%;
-    height: auto;
-    margin-left: 2%;
-}
+ 
    
 .AG_display {
   width: 17vw;
