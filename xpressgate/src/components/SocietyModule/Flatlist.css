@@ -153,7 +153,7 @@ html {
 }
 .flsideimage img {
   display: flex;
-  margin-top: 68%;
+  margin-top: 43%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -233,12 +233,30 @@ table th {
   margin-top: 2%;
   
 }
+.AfListsidelink{
+  color:#757575;
+  font-weight: 500;
+  font-size: 1.1vw;
+}
+.AfListsidelink:hover{
+text-decoration: none;
+color: #000;
+}
+.AflockSidelink{
+  color:#757575;
+  font-weight: 500;
+  font-size: 1.1vw;
+}
+.AflockSidelink:hover{
+color: #000;
+text-decoration: none;
+}
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
 
   .flsideimage img {
     display: flex;
-    margin-top: 53%;
+    margin-top: 27%;
     max-width: 95%;
     height: auto;
     margin-left: 2%;

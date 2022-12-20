@@ -73,10 +73,11 @@ const PremiseList = () => {
                 <div className='table-top-right-content'>
                     <div className='table-search pl-2'>
                         <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-                        <span><input className='search_input' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
+                        <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
                     </div>
                     <div className="table-add-new-button" onClick={handleAddPremise}>
-                        <img src="/images/ic_plus.svg" /> Add New Premise
+                        <img src="/images/ic_plus.svg" />
+                        <span className='ml-2'> Add New Premise</span>
                     </div>
                 </div>
 

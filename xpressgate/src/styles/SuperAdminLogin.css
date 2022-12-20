@@ -5,10 +5,9 @@ html{
   .superadmincontainer {
     display: grid;
     height: 100vh;
-    grid-template-columns: 1.8fr 2fr;
-    grid-template-rows: 2.4fr 2fr;
-    grid-template-areas: "Superadminlogo superadminloginimg"
-      "Superadminloginform superadminloginimg"
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "Superadminloginform superadminloginimg"
   }
   /* #Superadminlogo{
     margin-top: 2rem;
@@ -18,9 +17,6 @@ html{
   }
   */
   #Superadminlogo{
-    margin-top: -95%;
-    margin-left: 2%;
-    margin-bottom: -15%;
     position: relative;
   }
 
@@ -40,9 +36,9 @@ html{
   
   #Superadminloginform {
    
-    grid-area: Superadminloginform;
-    position: relative;
-    margin-left: -4rem;
+    display: flex;
+    height: 100%;
+    align-items: center !important;
     /* margin-top: -35rem; */
   }
   
@@ -56,7 +52,7 @@ html{
     border-radius: 14px;
     width: 12vw;
     height: 5vh;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     font-weight: 500;
     margin-left: 0%;
     margin-bottom: -1%;
@@ -75,7 +71,6 @@ html{
     font-weight: 500;
     margin-bottom: 2%;
     font-size: 2vw;
-    margin-top: 8%;
   }
   
   .Superadmininputfield
@@ -131,7 +126,6 @@ html{
   #Superadminlogo {
     margin-top: -108%;
     margin-left: 2%;
-    margin-bottom: -15%;
     position: relative;
 }
     .superadmincontainer {

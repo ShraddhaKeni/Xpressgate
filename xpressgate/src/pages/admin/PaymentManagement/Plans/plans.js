@@ -53,7 +53,7 @@ export const PlansList = () => {
     return (
         <div className="container pb-5">
             <div className='page-label'>
-                <label>Subscription Plans</label>
+                <label>Subscription Plan</label>
             </div>
             <div className='main-container'>
 
@@ -63,7 +63,9 @@ export const PlansList = () => {
                         <span><input className='search' placeholder='Search' onChange={(e) => { }} /></span>
                     </div>
                     <div className="table-add-new-button" onClick={handleAddPlan}>
-                        <img src="/images/ic_plus.svg" /> Add New Plan
+                        <img src="/images/ic_plus.svg" />
+                        <span className='ml-2'> Add New Plan</span>
+
                     </div>
                 </div>
 
@@ -78,7 +80,7 @@ export const PlansList = () => {
                                         <div className='d-flex justify-content-end mr-5'><button className={`${plan.status == true ? 'highlight-active' : 'highlight-inactive'} p-2 px-3`}><span className={`${plan.status == true ? 'dot' : 'dot-inactive'}`}></span>{plan.status == true ? 'Active' : 'Inactive'}</button></div>
                                         <div>
                                             <p className='dash-heading-sm'>{plan.name}</p>
-                                            <p className='dash-heading'>{plan.code}</p>
+                                            <p className='dash-heading'>{plan.code || 'N/A'}</p>
                                             <p className='dash-heading-md'><b>{plan.type}</b></p>
                                             <Link to={`${RouterPath.PLAN_DETAILS}`} state={{ plan }} type="button" className="btn btn-primary blue-bg">View</Link>
                                         </div>
