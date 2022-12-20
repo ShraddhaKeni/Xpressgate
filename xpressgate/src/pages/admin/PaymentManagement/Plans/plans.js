@@ -81,7 +81,7 @@ export const PlansList = () => {
                                         <div>
                                             <p className='dash-heading-sm'>{plan.name}</p>
                                             <p className='dash-heading'>{plan.code || 'N/A'}</p>
-                                            <p className='dash-heading-md'><b>{plan.type}</b></p>
+                                            <p className='dash-heading-md'><b>{plan.type || 'N/A'}</b></p>
                                             <Link to={`${RouterPath.PLAN_DETAILS}`} state={{ plan }} type="button" className="btn btn-primary blue-bg">View</Link>
                                         </div>
                                     </div>
