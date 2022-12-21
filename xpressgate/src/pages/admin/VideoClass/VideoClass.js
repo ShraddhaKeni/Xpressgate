@@ -61,7 +61,7 @@ const VideoClass = () => {
               </div>
             </div>
           </div>
-          <div className="row row-cols-1 row-cols-md-3">
+          <div className="row row-cols-1 row-cols-md-3 mt-5">
 
             {console.log(currentPosts)}
             {currentPosts.map(item => {
@@ -79,7 +79,7 @@ const VideoClass = () => {
             })}
 
           </div>
-          <div className="paginate" style={{ marginTop: '-8%' }}>
+          <div className="paginate" style={{ marginTop: '-14%' }}>
             <PaginationCalculate totalPages={videos.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
           </div>
         </div>
