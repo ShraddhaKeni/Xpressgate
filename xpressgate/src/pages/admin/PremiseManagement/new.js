@@ -45,8 +45,9 @@ const AddPremise = () => {
         }
     }
 
-    const getArea = async (id) => {
+    const getArea = async (value) => {
         try {
+            const id = states.find(item => item.option == value)._id
             const { data } = await axios.get(`${window.env_var}api/area/get/${id}`)
             let array = data.data.map(item => {
                 return {
@@ -90,7 +91,7 @@ const AddPremise = () => {
             </div>
             <div className='main-container mt-5'>
 
-                <Form className='formclass'>
+                <Form className='formclass fcadmin'>
 
                     <SimpleInputComponent label={'Premises Name'} name={'premises_name'} id={'premises'} onChange={(e) => { setPremise({ ...premise, name: e.target.value }) }} />
                     <SimpleInputComponent label={'Number of Blocks'} name={'number_block'} id={'block'} onChange={(e) => { setPremise({ ...premise, noofblocks: parseInt(e.target.value) }) }} />
