@@ -145,7 +145,7 @@ const Addmanagementteam = () => {
           <label>Society Name</label>
         </div><br/>
         <div class="MM_notice">
-        <a href="/management" class="Mt_Link">Management Team</a><br></br>
+        <a href="/management" class="AMt_Link">Management Team</a><br></br><br/>
           <a href="/addManagement" class="Amm_Link"><b>Add Management Member</b></a>
           </div>
         <div className="AMTSideIMG">
@@ -171,7 +171,7 @@ const Addmanagementteam = () => {
           <div className="AMM_form">
             <div className="inboxes">
               <label for="Resident" className="AMMResident">Resident</label>
-              <select id='resident_id' className="AMMinput">
+              <select id='resident_id' className="AMMinputR">
                 <option value={null} selected disabled>Select resident</option>
                 {residents.map(item => {
                   return <option value={item.id}>{item.firstname} {item.lastname}</option>

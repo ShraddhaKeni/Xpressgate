@@ -86,10 +86,8 @@ const Managementteam = () => {
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
-        
-        <br/>
         <div class="MM_notice">
-        <a href="/management" class="MT_link"><b>Management Team</b></a><br></br>
+        <a href="/management" class="MT_link"><b>Management Team</b></a><br></br><br/>
           <a href="/addManagement" class="AMM_link">Add Management Member</a>
           </div>
         <div className="MM_sideimage">
@@ -101,14 +99,13 @@ const Managementteam = () => {
           <label>Management Team</label>
         </div>
         <div>
-      
-        <input
-          type=" search"
-          className="search2"
-          name="Search"
-          placeholder="&#128269; Search"
-          onChange={(e)=>{findText(e)}}
-        ></input>
+        <div className='row'>
+          <div className='mtsearchbox'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+              <input className='vlsearch_input' placeholder='Search' onChange={(e)=>findText(e)}></input></span>
+          </div>
+        </div>
+       
         </div>
 
         <table id="managementtable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>

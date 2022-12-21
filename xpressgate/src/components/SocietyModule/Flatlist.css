@@ -28,15 +28,12 @@ html {
   position: relative;
 
 }
-.BlFlatsidelinks{
-  color:#000000;
-  font-weight: 500;
-  font-size: 1.1vw;
-}
+
 .BlAddsidelinks{
   color:#757575;
   font-weight: 500;
   font-size: 1.1vw;
+  margin-right: 6%;
 }
 
 .BlAddsidelinks:hover {
@@ -44,10 +41,7 @@ html {
   text-decoration: none; 
 }
 
-.BlFlatsidelinks:hover {
-  color: #000;
-  text-decoration: none; 
-}
+
 .flbackgroundimg {
   background-image: url("../../../public/images/dashboardbackground.svg");
   background-repeat: no-repeat;
@@ -153,7 +147,7 @@ html {
 }
 .flsideimage img {
   display: flex;
-  margin-top: 43%;
+  margin-top: 55%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;

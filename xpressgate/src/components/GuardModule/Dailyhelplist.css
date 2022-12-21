@@ -107,7 +107,7 @@ font-style: normal;
 font-weight: 500;
 color: #14335D;
   margin-left: 4%;
-  margin-top: 13%;
+  margin-top: 12%;
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
@@ -140,7 +140,7 @@ color: #14335D;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  padding-top: 14px;
+  padding-top: 16px;
   margin: auto;
   margin-top: -3%;
 }
@@ -148,7 +148,7 @@ color: #14335D;
 font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;  
-  font-size: 1.4vw;
+  font-size: 1.3vw;
   text-align: center;  
   color: #14335D;
 }
@@ -168,7 +168,7 @@ font-weight: 500;
   border: none;
   background-color: #0A8996;
   width: 14.5vw;
-  height: 18vh;
+  height: 20vh;
   border-radius: 20px;
 }
 
@@ -284,12 +284,12 @@ font-weight: 500;
 color: #14335D;
 }
   .dailyhelpminicard{
-    margin-left: 24%;
+    margin-left: 42%;
     margin-bottom: 10%;
     border: none;
     background-color: #0A8996;
-    width: 90%;
-    height: 90%;
+    width: 15vw;
+    height: 31vh;
     border-radius: 20px;
   }
 
