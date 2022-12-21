@@ -40,7 +40,7 @@ export const EditPlan = () => {
             </div>
             <div className='main-container mt-5'>
 
-                <Form className='formclass'>
+                <Form className='formclass fcadmin'>
 
                     <SimpleInputComponent label={'Plan Name'} name={'name'} onChange={(e) => plan.name = e.target.value} required />
                     <SimpleInputComponent label={'Plan code'} name={'code'} onChange={(e) => plan.code = e.target.value} required />

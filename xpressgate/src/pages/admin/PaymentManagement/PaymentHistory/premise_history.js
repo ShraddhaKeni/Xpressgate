@@ -2,12 +2,12 @@ import { ButtonUnstyled } from '@mui/base';
 import { IconButton } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getAllPlans, getPaymentHistory } from '../../../../common/admin/admin_api';
+import { getAllPlans, getPaymentHistory, getPaymentHistoryByCommunityId } from '../../../../common/admin/admin_api';
 import RouterPath from '../../../../common/constants/path/routerPath';
 import PaginationCalculate from '../../../../components/GuardModule/Utils/paginationCalculate';
 
 const PageSize = 10;
-export const PaymentHistory = ({ route }) => {
+export const PremisesPayHistory = ({ route }) => {
 
     const navigate = useNavigate();
 
@@ -30,18 +30,14 @@ export const PaymentHistory = ({ route }) => {
 
     }
 
-    const handlePremiseHistory = (item) => {
-        navigate(`/admin/payments/history/premise/${item.community_id}`);
-    }
-
-
 
     useEffect(() => {
         async function getPayments() {
-            const res = await getPaymentHistory();
+            const res = await getPaymentHistoryByCommunityId('632970d054edb049bcd0f0b4');
             if (res && res.data.status_code == 200) {
-                setAllHistory(res.data.data);
-                setHistory(getCurrentHistory(res.data.data))
+                let d = res.data.data;
+                setAllHistory(d);
+                setHistory(getCurrentHistory(d));
             }
         }
 
@@ -54,6 +50,7 @@ export const PaymentHistory = ({ route }) => {
         }
         const lastPageIndex = (currentPage) * PageSize
         const firstPageIndex = lastPageIndex - PageSize;
+        console.log(lastPageIndex, firstPageIndex);
         setHistory(data?.slice(firstPageIndex, lastPageIndex));
     }
 
@@ -65,11 +62,10 @@ export const PaymentHistory = ({ route }) => {
         navigate('/admin/premises/edit')
     }
 
-
     function findText(e) {
         let search = e.target.value.toLowerCase()
         let arr = allHistory.filter(x => {
-            if (x.community_name.toLowerCase().includes(search)) {
+            if (x.payment_type_name.toLowerCase().includes(search)) {
                 return true
             }
 
@@ -78,11 +74,10 @@ export const PaymentHistory = ({ route }) => {
             setHistory(getCurrentHistory(arr));
         }
         else {
-            handlePageChange({ selected: 0 })
+            setHistory(getCurrentHistory(allHistory))
         }
 
     }
-
 
     return (
         <div className="container pb-5">
@@ -99,24 +94,28 @@ export const PaymentHistory = ({ route }) => {
                 </div>
 
                 <table id="table-header" class="table table-striped table-bordered table-sm " style={{ border: '2px solid black' }} cellspacing="0">
+
                     <thead className='table-th'>
                         <tr>
                             <th class="th-sm">ID No.</th>
-                            <th class="th-sm">Premise Name</th>
+                            <th class="th-sm">Payment Type</th>
                             <th class="th-sm">Date</th>
                             <th class="th-sm">Amount</th>
                             <th class="th-sm">Status</th>
+                            <th class="th-sm"></th>
                         </tr>
                     </thead>
                     <tbody>
                         {history && history.map((item) => {
                             return <tr>
                                 <td>{item.pg_transection_id}</td>
-                                <td onClick={() => handlePremiseHistory(item)} style={{ cursor: 'pointer' }}>{item.community_name}</td>
+                                <td>{item.payment_type_name}</td>
                                 <td>{item.date?.slice(0, 10) || "n/a"}</td>
                                 <td>{item.amount}</td>
                                 <td> <p className={`status-${item.status_name.toLowerCase()}`}>{item.status_name}</p></td>
-
+                                <td>
+                                    <ButtonUnstyled className='download-invoice' onClick={() => openInNewTab(item.invoice_url)}>Download Invoice</ButtonUnstyled>
+                                </td>
                             </tr>
                         })}
 
@@ -126,7 +125,7 @@ export const PaymentHistory = ({ route }) => {
                     <p>Showing {currentPage} of {`${Math.ceil(allHistory.length / PageSize)}`}</p>
 
                     {/* <PaginationCalculate totalPages={Math.ceil(allCoupons.length / PageSize)} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} /> */}
-                    <PaginationCalculate totalPages={Math.ceil(allHistory.length / PageSize)} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} />
+                    <PaginationCalculate totalPages={allHistory.length} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} />
 
                 </div>}
 

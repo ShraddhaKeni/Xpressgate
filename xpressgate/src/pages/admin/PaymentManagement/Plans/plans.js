@@ -18,8 +18,8 @@ export const PlansList = () => {
         async function getCoupons() {
             const res = await getAllPlans();
             if (res && res.data.status_code == 200) {
-                console.log(res.data.data.plan);
-                setPlans(getCurrentPlans(res.data.data.plan))
+                setAllPlans(res.data.data.plan);
+                getCurrentPlans(res.data.data.plan)
             }
         }
         getCoupons();
@@ -29,16 +29,17 @@ export const PlansList = () => {
         if (data.length < PageSize) {
             return data;
         }
-        const firstPageIndex = (currentPage) * PageSize
-        const lastPageIndex = firstPageIndex + PageSize;
-        return data?.slice(firstPageIndex, lastPageIndex);
+        const lastPageIndex = (currentPage) * PageSize
+        const firstPageIndex = lastPageIndex - PageSize;
+        console.log(lastPageIndex, firstPageIndex);
+        setPlans(data?.slice(firstPageIndex, lastPageIndex));
     }
     const handlePageChange = (page) => {
-
-        setCurrentPage(page.selected);
-
-        setPlans(getCurrentPlans(allPlans));
-
+        setCurrentPage(page.selected + 1);
+        const lastPageIndex = (page.selected + 1) * PageSize
+        const firstPageIndex = lastPageIndex - PageSize;
+        console.log(lastPageIndex, firstPageIndex);
+        setPlans(allPlans?.slice(firstPageIndex, lastPageIndex));
     }
 
 
@@ -50,6 +51,27 @@ export const PlansList = () => {
     const handleEditClick = (someId) => {
         navigate(RouterPath.PLAN_DETAILS)
     }
+
+
+    function findText(e) {
+        let search = e.target.value.toLowerCase()
+        let arr = allPlans.filter(x => {
+            if (x.name.toLowerCase().includes(search)) {
+                return true
+            }
+
+        })
+        console.log(arr);
+        if (arr) {
+            setPlans(getCurrentPlans(arr));
+        }
+        else {
+            setPlans(getCurrentPlans(allPlans))
+        }
+
+    }
+
+
     return (
         <div className="container pb-5">
             <div className='page-label'>
@@ -60,7 +82,7 @@ export const PlansList = () => {
                 <div className='table-top-right-content'>
                     <div className='table-search pl-2'>
                         <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-                        <span><input className='search' placeholder='Search' onChange={(e) => { }} /></span>
+                        <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
                     </div>
                     <div className="table-add-new-button" onClick={handleAddPlan}>
                         <img src="/images/ic_plus.svg" />
@@ -97,10 +119,10 @@ export const PlansList = () => {
                 </div>
 
                 {allPlans && <div className='flex space-between'>
-                    <p>Showing {currentPage} of {`${Math.ceil(allPlans.length / PageSize)}`}</p>
+                    <p>Showing {currentPage + 1} of {`${Math.ceil(allPlans.length / PageSize)}`}</p>
 
                     {/* <PaginationCalculate totalPages={Math.ceil(allCoupons.length / PageSize)} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} /> */}
-                    <PaginationCalculate totalPages={Math.ceil(allPlans.length / PageSize)} postperPage={3} currentPage={currentPage} paginate={handlePageChange} />
+                    <PaginationCalculate totalPages={allPlans.length} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} />
 
                 </div>}
 

@@ -35,11 +35,8 @@ html{
   }
   
   #Superadminloginform {
-   
-    display: flex;
     height: 100%;
-    align-items: center !important;
-    /* margin-top: -35rem; */
+    margin-top: 20%;
   }
   
   .req{
@@ -59,10 +56,15 @@ html{
     padding: 1%;
     
   }
+
+  .btn-primary:hover{
+    background-color: #0b2447;
+  }
+
   .signinlabel{
     background-color: #0b2447;
     color: #fff;
-    width: 25vw;
+    width: 30vw;
     height: 5.5vh;
     display: flex;
     justify-content: center;
@@ -76,7 +78,7 @@ html{
   .Superadmininputfield
   {
     position:relative;
-    width: 25vw;
+    width: 30vw;
     height: 50%;
     left: 25.5%;
   }
@@ -108,11 +110,11 @@ html{
     font-weight: 500;
 }
   .adminemailtextbox{
-    width: 25vw;
+    width: 30vw;
   }
   
   .adminpasswordbox{
-    width: 25vw;
+    width: 30vw;
   }
   
   

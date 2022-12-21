@@ -7,78 +7,76 @@ import axios from 'axios'
 import PaginationCalculate from './Utils/paginationCalculate';
 import { useNavigate } from 'react-router-dom';
 import GuardHeader from './Utils/GuardHeader';
-import {checkGuard} from '../auth/Auth'
+import { checkGuard } from '../auth/Auth'
 
 const GuestList = () => {
 
-    const [guests,setGuests] = useState([])
-    const [currentPage, setCurrentpage] = useState(1)
-    const [postPerPage, setPostPerPage] = useState(12)
-    const [currentPosts,setCurrentPosts] = useState([])
-    const [pageCount,setpageCount] = useState(0)
-    const navigate = useNavigate()
-    useEffect(()=>{
-      if (checkGuard()) {
-        const config = {
-          headers: {
-            'x-access-token': localStorage.getItem('accesstoken')
-          }
+  const [guests, setGuests] = useState([])
+  const [currentPage, setCurrentpage] = useState(1)
+  const [postPerPage, setPostPerPage] = useState(12)
+  const [currentPosts, setCurrentPosts] = useState([])
+  const [pageCount, setpageCount] = useState(0)
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (checkGuard()) {
+      const config = {
+        headers: {
+          'x-access-token': localStorage.getItem('accesstoken')
         }
-        axios.get(`${window.env_var}api/guard/checkLogin`, config)
-          .then(({ data }) => {
-            getData()
-          })
-          .catch(err => {
-            localStorage.clear();
-            window.location.href = '/guardLogin'
-          })
-      } else {
-        window.location.href = '/'
-      }  
-    },[])
-
-    const getData=async()=>{
-        try {
-            const {data}= await axios.post(`${window.env_var}api/guard/getallguest`,{community_id:localStorage.getItem('community_id')})
-            setGuests(data.data.guests_list)
-            const indexoflast = currentPage*postPerPage  //endoffset
-            const indexoffirst = indexoflast - postPerPage //startoffset
-            setCurrentPosts(data.data.guests_list.slice(indexoffirst,indexoflast))
-            
-        } catch (error) {
-            console.log(error)
-        }
+      }
+      axios.get(`${window.env_var}api/guard/checkLogin`, config)
+        .then(({ data }) => {
+          getData()
+        })
+        .catch(err => {
+          localStorage.clear();
+          window.location.href = '/guardLogin'
+        })
+    } else {
+      window.location.href = '/'
     }
-    const  dateTimeFormat=(date)=>
-    {
-      var d = new Date(date)
-      return d.getHours()+':'+d.getMinutes()
-      
+  }, [])
+
+  const getData = async () => {
+    try {
+      const { data } = await axios.post(`${window.env_var}api/guard/getallguest`, { community_id: localStorage.getItem('community_id') })
+      setGuests(data.data.guests_list)
+      const indexoflast = currentPage * postPerPage  //endoffset
+      const indexoffirst = indexoflast - postPerPage //startoffset
+      setCurrentPosts(data.data.guests_list.slice(indexoffirst, indexoflast))
+
+    } catch (error) {
+      console.log(error)
     }
-
-
-  const  dateFormat=(date)=>
-  {
+  }
+  const dateTimeFormat = (date) => {
     var d = new Date(date)
-    return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()
-    
+    return d.getHours() + ':' + d.getMinutes()
+
   }
 
-async function  paginate(event)
-  {
-    setCurrentpage(event.selected+1)
-    const indexoflast = (event.selected+1)*postPerPage  //endoffset
+
+  const dateFormat = (date) => {
+    var d = new Date(date)
+    return d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate()
+
+  }
+
+  async function paginate(event) {
+    setCurrentpage(event.selected + 1)
+    const indexoflast = (event.selected + 1) * postPerPage  //endoffset
     const indexoffirst = (indexoflast - postPerPage) //startoffset
-    setCurrentPosts(guests.slice(indexoffirst,indexoflast))
-}
-const guestEntry=async(id)=>{
-    navigate('/guestentry',{state:{id:id}})
-}
-  
+    setCurrentPosts(guests.slice(indexoffirst, indexoflast))
+  }
+
+  const guestEntry = async (id) => {
+    navigate('/guestentry', { state: { id: id } })
+  }
+
   return (
     <div className="inoutbookcontainer">
       <div id="headersection">
-        <GuardHeader/>
+        <GuardHeader />
       </div>
       <div id="guardnamesection">
         <div className='GuestLName'>
@@ -106,25 +104,25 @@ const guestEntry=async(id)=>{
             </tr>
           </thead>
           <tbody>
-            {currentPosts.map((items,index)=>{
-              return( 
-              <tr>
-                    <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1)*12+(index+1)}</td>
-                    <td onClick={()=>{guestEntry(items.Guest_id)}}>{items.guestFirstName} {items.guestLastName}</td>
-                    <td>Guest</td>
-                    <td>{items.block_name}</td>
-                    <td>{items.flat_number}</td>
-                    <td>{dateFormat(items.time)}</td>
-                    <td>{dateTimeFormat(items.time)}</td>
-                    <td>-</td>
+            {currentPosts.map((items, index) => {
+              return (
+                <tr>
+                  <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1) * 12 + (index + 1)}</td>
+                  <td onClick={() => { guestEntry(items.Guest_id) }}>{items.guestFirstName} {items.guestLastName}</td>
+                  <td>Guest</td>
+                  <td>{items.block_name}</td>
+                  <td>{items.flat_number}</td>
+                  <td>{dateFormat(items.time)}</td>
+                  <td>{dateTimeFormat(items.time)}</td>
+                  <td>-</td>
                 </tr>)
             })}
-            
+
           </tbody>
         </table>
         {/* <div className="App">
       {data} */}
-             <PaginationCalculate totalPages={guests.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+        <PaginationCalculate totalPages={guests.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
 
         {/* </div> */}
       </div>

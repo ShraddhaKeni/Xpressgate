@@ -175,13 +175,14 @@ font-weight: 500;
   margin-bottom: 20%;
   border: none;
   opacity: 0.8;
-  width: 280px;
   height: 200px;
+  width: fit-content;
   border-radius: 20px;
+  margin-top: 8%;
 }
 
 .player{
-  width : 280px !important;
+  max-width : 280px !important;
   height : 200px !important;
 }
 

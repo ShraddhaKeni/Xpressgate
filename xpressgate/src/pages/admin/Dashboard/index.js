@@ -70,7 +70,7 @@ const AdminDashboard = () => {
                         <div className='card-green mx-4 px-4'>
                             <div className='d-flex flex-column align-items-center'>
                                 <div className='icon-bg-white-round-big'>
-                                    <img className='dash-icon' src='../images/icon_premises_due.svg' />
+                                    <img className='dash-icon-big' src='../images/icon_premises_due.svg' />
                                 </div>
                                 <p className='dash-heading-lg pl-4 font-weight-bold mt-4'>Latest Payments</p>
                             </div>
@@ -103,7 +103,7 @@ const AdminDashboard = () => {
                         </div>
                     </div>
 
-                    <div className='card-green w-40 ml-12 align-items-center  mt-5'>
+                    <div className='card-green w-40 ml-12 align-items-center  mt-5 m-b-8'>
                         <div className="btn-bg-white">
                             <span className='dash-heading-sm '>Recent Report</span>
                         </div>
