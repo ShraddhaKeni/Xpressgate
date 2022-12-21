@@ -4,7 +4,7 @@ html {
 
 .AMTSideIMG img {
   display: flex;
-  margin-top: 65%;
+  margin-top: 68%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -64,7 +64,7 @@ html {
     height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    padding-top: 14px;
+    padding-top: 16px;
     margin: auto;
     margin-top: -3%;
   }

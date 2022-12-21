@@ -97,7 +97,7 @@ const Addlocalservice = () => {
           <Link>Local Services</Link><br></br><br></br>
           <Link to='/addlocalservice'>Add Local Services</Link>
         </div> */}
-          <div className='nlsidelinks'>
+          <div className='AddLSsidelinks'>
           <a className='LSsidelinks' href="/localservices"><b>Local Service</b></a><br></br><br></br>
           <a className='ALSsidelinks' href="/addlocalservice">Add Local Services</a>
         </div>
@@ -109,13 +109,13 @@ const Addlocalservice = () => {
         </div>
         <Form className='formclass'>
           <div class="form-group row">
-            <label class="col-lg-2 col-form-label labelsize">Vendor Name</label>
+            <label class="col-lg-2 col-form-label ADN_label">Vendor Name</label>
             <div class="col-lg-4">
               <input type="text" class="form-control input-lg inputborder" id='vendor_name' name="flatNo" placeholder="Vendor Name"></input>
             </div>
           </div>
           <div class="form-group row">
-            <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label labelsize">Added By</label>
+            <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Added By</label>
             <div class="col-sm-4 col-md-4 col-lg-4">
               <select class="form-control input-lg inputborder" id='added_by'>
                 <option value={null} disabled selected>Added By</option>
@@ -126,7 +126,7 @@ const Addlocalservice = () => {
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-2 col-form-label labelsize">Service</label>
+            <label class="col-lg-2 col-form-label ADN_label">Service</label>
             <div class="col-lg-4">
               <select class="form-control input-lg inputborder" id="service" placeholder="Service">
                 <option value={null} disabled selected>Service</option>
@@ -137,7 +137,7 @@ const Addlocalservice = () => {
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-2 col-form-label labelsize">Contact No.</label>
+            <label class="col-lg-2 col-form-label ADN_label">Contact No.</label>
             <div class="col-lg-4">
               <input type="text" class="form-control input-lg inputborder" id='contact_no' name="flatNo" placeholder="Contact No." maxLength="10"></input>
             </div>

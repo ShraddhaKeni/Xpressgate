@@ -143,7 +143,7 @@ const Addmanagementteam = () => {
         <div className="AMM_societyname">
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
-        </div><br/>
+        </div>
         <div class="MM_notice">
         <a href="/management" class="AMt_Link">Management Team</a><br></br><br/>
           <a href="/addManagement" class="Amm_Link"><b>Add Management Member</b></a>
