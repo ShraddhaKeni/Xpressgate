@@ -40,7 +40,7 @@
 .table-add-new-button {
   border-radius: 150px;
   padding: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #0D960A;
   background-color: #E8F5E9;
   margin-top: 2rem;
@@ -77,10 +77,9 @@
   background-color: #BED7DA;
 }
 
-/*   
+  
 .formclass {
-  margin-left: 15%;
-  margin-top: 5%;
-  justify-items: center;
-} */
+  margin-top: 10vh;
+  margin-left: 10vh;
+}
 

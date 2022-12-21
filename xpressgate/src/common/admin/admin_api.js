@@ -56,6 +56,14 @@ export async function getPaymentHistory() {
     }
 }
 
+export async function getPaymentHistoryByCommunityId(id) {
+    try {
+        return await getRequest(`paymenthistory/getbycommunity/${id}`);
+    } catch (error) {
+        return error
+    }
+}
+
 
 
 /// COUPONS ////

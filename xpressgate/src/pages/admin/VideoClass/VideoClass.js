@@ -46,34 +46,44 @@ const VideoClass = () => {
   return (
     <>
 
-      <div className="Videoocontainer">
-        <img src="/images/AdminBgImg.svg" className="videoclassbgimg"></img>
-        <div className="videodisplay">
+      <div className="container">
+        <div className="page-label">
           <label>Video Class</label>
         </div>
-        <div className="VideoButton">
-          <button type="button" className="VideoAddBtn" onClick={() => navigate('/admin/addvideo')}>&#43; Add New Video</button>
-        </div>
-        <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
 
-          {console.log(currentPosts)}
-          {currentPosts.map(item => {
-            return (
-              <div className="col">
+        <div className="main-container" style={{ marginLeft: '0' }}>
+          <div className="table-top-right-content">
 
-                <div className="videocard">
-                  {/* <video className='videoclass' src={vdata.videoURL} controls></video> */}
-                  <ReactPlayer className='player' url={item.videoURL} />
-                  <label className='card-titlename' onClick={() => { navigate('/admin/editvideo', { state: { id: item._id } }) }}>{item.videoTitle}</label>
-                  {/* <p className='card-content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p> */}
-                </div>
+            <div className="VideoButton">
+              <div className="table-add-new-button mt-3" onClick={() => { navigate('/admin/addvideo') }}>
+                <img src="/images/ic_plus.svg" />
+                <span className='ml-2'> Add New Video</span>
               </div>
-            )
-          })}
+            </div>
+          </div>
+          <div className="row row-cols-1 row-cols-md-3">
+
+            {console.log(currentPosts)}
+            {currentPosts.map(item => {
+              return (
+                <div className="col">
+
+                  <div className="videocard row p-5">
+                    {/* <video className='videoclass' src={vdata.videoURL} controls></video> */}
+                    <ReactPlayer className='player' url={item.videoURL} />
+                    <label className='card-titlename' onClick={() => { navigate('/admin/editvideo', { state: { id: item._id } }) }}>{item.videoTitle}</label>
+                    {/* <p className='card-content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p> */}
+                  </div>
+                </div>
+              )
+            })}
+
+          </div>
+          <div className="paginate" style={{ marginTop: '-8%' }}>
+            <PaginationCalculate totalPages={videos.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+          </div>
         </div>
-        <div className="paginate">
-          <PaginationCalculate totalPages={videos.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
-        </div>
+
       </div>
 
     </>

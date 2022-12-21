@@ -7,6 +7,7 @@ const RouterPath = {
     EDIT_PREMISE: "/admin/premises/edit",
 
     PAYMENT_HISTORY: "/admin/payments/history",
+    PREMISE_PAYMENT_HISTORY: "/admin/payments/history/premise/:premise",
 
     PRLANS_LIST: "/admin/payments/plans",
     ADD_PLAN: "/admin/payments/plans/add",
