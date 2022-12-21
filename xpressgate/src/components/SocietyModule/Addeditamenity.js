@@ -124,14 +124,14 @@ const Addeditamenity = () => {
         </div>
         <Form className='aeaclass'>
           <div class="form-group row">
-            <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label labelsize">Name</label>
+            <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Name</label>
             <div class="col-sm-4 col-md-4 col-lg-4">
               {type=='edit'? <input type="text" class="form-control input-lg sideBord" ref={amenityType} defaultValue={amenity.amenityType} name="community" placeholder="Name" />:
                <input type="text" class="form-control input-lg sideBord" ref={amenityType} name="community" placeholder="Name" />}
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-2 col-form-label labelsize">Rule for Booking</label>
+            <label class="col-lg-2 col-form-label ADN_label">Rule for Booking</label>
             <div class="col-lg-4">
               {type=='edit'?<textarea type="text" class="form-control input-lg sideBord" ref={rule} defaultValue={amenity.rule} name="inputnoofpeople" placeholder="Rule for Booking" />
               :<textarea type="text" class="form-control input-lg sideBord" ref={rule} name="inputnoofpeople" placeholder="Rule for Booking" />}
@@ -139,7 +139,7 @@ const Addeditamenity = () => {
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-2 col-form-label labelsize">Status</label>
+            <label class="col-lg-2 col-form-label ADN_label">Status</label>
             <div class="col-lg-4">
               <select class="form-control input-lg sideBord" ref={status} name="flatNo" placeholder="Status" value>
                 {type=='edit'?(amenity.status==false?<> <option value={true} >Active</option>
@@ -151,7 +151,7 @@ const Addeditamenity = () => {
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-2 col-form-label labelsize">Rent</label>
+            <label class="col-lg-2 col-form-label ADN_label">Rent</label>
             <div class="col-lg-4">
               {type=='edit'?<input type="number" class="form-control input-lg sideBord" defaultValue={amenity.rent} ref={rent} name="inputnoofpeople" placeholder="Rent"></input>:
               <input type="number" class="form-control input-lg" ref={rent} name="inputnoofpeople" placeholder="Rent"></input>}
@@ -159,7 +159,7 @@ const Addeditamenity = () => {
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-2 col-form-label labelsize">Image</label>
+            <label class="col-lg-2 col-form-label ADN_label">Image</label>
             <div class="col-lg-4">
               <input type="file" accept='.jpg ,.jpeg ,.png' class="form-control input-lg sideBord" id='amenity_image' ref={image} name="inputnoofpeople"></input>
             </div>

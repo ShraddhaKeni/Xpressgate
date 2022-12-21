@@ -76,10 +76,10 @@ const Emergency = () => {
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
-        <br />
+        
         <div class="EN_noticelist">
-          <h4>Emergency Number list</h4>
-          <a href="/addemergency" class="Notice">Add Emergency Number</a>
+        <a href="/emergencyList" class="ENLNotice"><b>Emergency Number List</b></a><br/><br/>
+          <a href="/addemergency" class="AENNotice">Add Emergency Number</a>
         </div>
         <div className="EN_sideimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />

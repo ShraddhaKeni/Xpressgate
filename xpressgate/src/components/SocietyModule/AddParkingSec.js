@@ -107,9 +107,9 @@ const AddParkingSec = () => {
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
-        <br/>
+        
         <div className='AddParksidelinks'>
-        <a href='/vehiclemanagement' className='VLSECLink'><b>Vehicle List</b></a><br/><br/>
+        <a href='/vehiclemanagement' className='VLSECLink'>Vehicle List</a><br/><br/>
           <a href='/viewparking' className='Viewpsec'>View parking section</a><br/><br/>
           <a href='/addparking' className='Addpsec'><b>Add parking section</b></a>
         </div>
@@ -123,7 +123,7 @@ const AddParkingSec = () => {
         </div>
         <Form className='formclass'> 
           <div className="form-group row">
-            <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-2 col-form-label aiolabelsize">Block</label>
+            <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Block</label>
             <div className="col-sm-4 col-md-4 col-lg-4">
               <select className="form-control input-lg ADDParkBor" id='block_id' >
                 <option value={null} disabled selected>Select Block</option>
@@ -136,7 +136,7 @@ const AddParkingSec = () => {
             </div>
           </div>
           <div class="form-group form-group6 row">
-            <label class="col-lg-2 col-form-label labelsize1">Name</label>
+            <label class="col-lg-2 col-form-label ADN_label">Name</label>
             <div class="col-lg-4">
               <input type="text" id="section" class="form-control input-lg ADDParkBor" defaultValue={parkingSection.section?parkingSection.section:''} name="New Parking"  />
             </div>

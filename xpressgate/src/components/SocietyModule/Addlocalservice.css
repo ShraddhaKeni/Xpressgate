@@ -163,9 +163,6 @@ font-weight: 500;
   text-align: center;  
   color: #14335D;
 }
-.labelsize {
-  font-size: 20px;
-}
 
 .btnAddV {
   background-color: #0A8996;
@@ -189,19 +186,31 @@ font-weight: 500;
   color:#757575;
   font-weight: 500;
   margin-left: 5%;
-  text-decoration: none;
+  font-size: 1.1vw;
+  font-family: 'Rubik';
+font-style: normal;
+margin-left: -7%;
 }
 .LSsidelinks:hover{
   color: #000000;
+  text-decoration: none;
+}
+.AddLSsidelinks {
+  margin-right: 28%;
+  margin-top: 10%;
 }
 .ALSsidelinks{
   color:#000000;
   font-weight: 500;
   margin-left: 10%;
-  text-decoration: none;
+  font-size: 1.1vw;
+  font-family: 'Rubik';
+font-style: normal;
+
 }
 .ALSsidelinks:hover{
   color: #000000;
+  text-decoration: none;
 }
 .inputborder{
   background: #FFFFFF;
@@ -233,11 +242,6 @@ border-radius: 8px;
     position: relative;
     margin-top: 12.5%;
   }
-
-  .labelsize {
-    font-size: 12px;
-  }
-
 
 .btnAddV {
     background-color: #0A8996;

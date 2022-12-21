@@ -150,7 +150,7 @@ color: #14335D;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  padding-top: 14px;
+  padding-top: 16px;
   margin: auto;
   margin-top: -3%;
 }
@@ -158,21 +158,20 @@ color: #14335D;
 font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;  
-  font-size: 1.4vw;
+  font-size: 1.3vw;
   text-align: center;  
   color: #14335D;
 }
 
-.labelsize {
-  font-size: 20px;
-}
+
 
 .formclass {
   margin-top: 5%;
   margin-left: 25%;
 }
 
-.videocard {
+.ViDeOcArD {
+  margin-left: 18%;
   margin-bottom: 20%;
   border: none;
   opacity: 0.8;
@@ -248,9 +247,7 @@ font-weight: 500;
     margin-top: 12.5%;
   }
 
-  .labelsize {
-    font-size: 12px;
-  }
+
 
   #videodashboardguard label {
     margin-top: 14%;

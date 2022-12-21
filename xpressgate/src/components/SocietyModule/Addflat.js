@@ -89,7 +89,7 @@ const Addflat = () => {
         <div className='nlsidelinks'>
         <a className='AfListsidelink' href="/blockList">Block List</a><br></br><br/>
           <a className='AflockSidelink' href="/addblock">Add Block</a><br/><br/>
-          <a className='ALFlatsidelinks' href="/flatList">Flat List</a><br></br><br></br>
+          {/* <a className='ALFlatsidelinks' href="/flatList">Flat List</a><br></br><br></br> */}
           <a className='ALAddsidelinks' href="/addflat"><b>Add Flat</b></a>
         </div>
         <div className='afsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
@@ -100,7 +100,7 @@ const Addflat = () => {
         </div>
         <Form className='formclass'>
           <div class="form-group row">
-            <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label labelsize">Community</label>
+            <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Community</label>
             <div class="col-sm-4 col-md-4 col-lg-4">
               <select class="form-control input-lg ADTBorder" id='community_select' onChange={(e)=>{getBlocks(e)}}>
                 <option value={null} disabled selected>Select Community</option>
@@ -114,7 +114,7 @@ const Addflat = () => {
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-2 col-form-label labelsize">Block</label>
+            <label class="col-lg-2 col-form-label ADN_label">Block</label>
             <div class="col-lg-4">
               <select class="form-control input-lg ADTBorder" id="block_select" placeholder="Block">
               <option value={null} disabled selected>Select Block</option>
@@ -127,19 +127,19 @@ const Addflat = () => {
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-2 col-form-label labelsize">Flat No</label>
+            <label class="col-lg-2 col-form-label ADN_label">Flat No</label>
             <div class="col-lg-4">
               <input type="text" class="form-control input-lg ADTBorder" id='flat_no' name="flatNo" placeholder="Flat No"></input>
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-2 col-form-label labelsize">Description</label>
+            <label class="col-lg-2 col-form-label ADN_label">Description</label>
             <div class="col-lg-4">
               <textarea  type="text" id='description' class="form-control input-lg ADTBorder" name="description" placeholder="Description"></textarea>
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-2 col-form-label labelsize">Status</label>
+            <label class="col-lg-2 col-form-label ADN_label">Status</label>
             <div class="col-lg-4">
               <select class="form-control input-lg ADTBorder" id="status" placeholder="Status">
                 <option value={null} disabled selected>Select Status</option>
@@ -149,12 +149,7 @@ const Addflat = () => {
 
             </div>
           </div>
-          <div class="form-group row">
-            <label class="col-lg-2 col-form-label labelsize">Images</label>
-            <div class="col-lg-4">
-              <input type='file' class="form-control input-lg ADTBorder" name="inputnoofpeople" placeholder="Images"></input>
-            </div>
-          </div>
+          
           <Button type="submit" onClick={(e)=>{handleSubmit(e)}} className="btnAddflat">Add Flat</Button>
         </Form>
 

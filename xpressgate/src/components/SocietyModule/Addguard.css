@@ -30,7 +30,7 @@ color: #14335D;
 
 .AGSideimg img {
   display: flex;
-  margin-top: 66%;
+  margin-top: 70%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -81,7 +81,7 @@ border-radius: 8px;
 }
 .noticegll{
   color:#757575;
-  font-size: 1vw;
+  font-size: 1.1vw;
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 500;
@@ -89,18 +89,18 @@ border-radius: 8px;
 }
 .aggnotice{
   color:#000;
-  font-weight: 400;
+  font-weight: 500;
   font-family: 'Rubik';
   font-style: normal;
-  font-size: 1vw;
+  font-size: 1.1vw;
  
 }
 
-.noticeGL:hover {
+.noticegll:hover {
   color: #000;
   text-decoration: none; 
 }
-.AGnotice:hover {
+.aggnotice:hover {
   color: #000;
   text-decoration: none; 
 }

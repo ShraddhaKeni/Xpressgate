@@ -137,7 +137,7 @@ const PackageList = () => {
         </div>
         <Form className="formclass">
           <div class="form-group row">
-                <label class="col-lg-2 col-form-label labelsize">Package</label>
+                <label class="col-lg-2 col-form-label ADN_label">Package</label>
                 <div class="col-lg-4">
                   <select type="text" class="form-control input-lg SBorder" ref={plan_id} id='plan_id' name="First name" >
                     <option  disabled value={null} selected>Select Plan</option>
@@ -148,7 +148,7 @@ const PackageList = () => {
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-lg-2 col-form-label labelsize">Added By</label>
+                <label class="col-lg-2 col-form-label ADN_label">Added By</label>
                 <div class="col-lg-4">
                   <select type="text" class="form-control input-lg SBorder" ref={booked_by} id='block_id' name="First name" >
                     <option  disabled value={null} selected>Select Member</option>
@@ -160,13 +160,13 @@ const PackageList = () => {
               </div>
              
               <div class="form-group row">
-                <label class="col-lg-2 col-form-label labelsize">Payment Date</label>
+                <label class="col-lg-2 col-form-label ADN_label">Payment Date</label>
                 <div class="col-lg-4">
                   <input type="date" class="form-control input-lg SBorder" onChange={()=>ChangeDate(purchase_date.current.value)} ref={purchase_date} id='payment_date' name="First name" />
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-lg-2 col-form-label labelsize">Due Date</label>
+                <label class="col-lg-2 col-form-label ADN_label">Due Date</label>
                 <div class="col-lg-4">
                   <input type="text" disabled class="form-control input-lg SBorder" ref={payment_due}  id='due_date' name="First name" />
                 </div>

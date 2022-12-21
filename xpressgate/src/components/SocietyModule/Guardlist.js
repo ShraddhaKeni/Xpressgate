@@ -67,7 +67,6 @@ const Guardlist = () => {
         <img src="/images/societyicon.svg" alt="Society image" />
         <label>Society Name</label>
       </div>
-      <br/>
   
         <div className='GLsidelinks'>
           <a className='noticeGL' href="/guardlist"><b>Guard list</b></a><br></br><br></br>
