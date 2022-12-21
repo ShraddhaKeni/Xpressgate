@@ -50,7 +50,7 @@ export const EditPlan = () => {
 
 
 
-                    <Button type="button" onClick={(e) => handleSubmit(e)} className="btnAddVeh">Add</Button>
+                    <Button type="button" onClick={(e) => handleSubmit(e)} className="hovergreen btnAddVeh">Add</Button>
 
                 </Form>
 

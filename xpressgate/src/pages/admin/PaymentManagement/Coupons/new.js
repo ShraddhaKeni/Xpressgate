@@ -65,7 +65,7 @@ export const AddCoupon = () => {
 
 
 
-                    <Button type="submit" className="btnAddVeh">Generate</Button>
+                    <Button type="submit" className="hovergreen btnAddVeh">Generate</Button>
 
                 </Form>
 
