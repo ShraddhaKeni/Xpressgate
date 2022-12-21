@@ -125,6 +125,7 @@ const Flatlist = () => {
             <span><label className='searchlabel'>Search</label><input className='search_input' onChange={(e)=>findText(e)} ></input></span>
           </div>
         </div> */}
+        <button type="button" onClick={()=>{window.location.href='/addflat'}} className="ADDFlaT">&#10011; Add Flat</button>
         <div className='row'>
           <div className='flsearchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>

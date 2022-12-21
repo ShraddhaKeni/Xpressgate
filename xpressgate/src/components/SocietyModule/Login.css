@@ -133,9 +133,6 @@ font-weight: 500;
   margin-top: 8%;
 }
 
-.forgotsocpassword a {
-  font-size: 1vw;
-}
 
 .signinsociety {
   display: inline-block;
@@ -151,7 +148,9 @@ font-weight: 500;
   font-style: normal;
   font-weight: 500;
     }
-
+    .socforgotpassword a:hover{
+      text-decoration: none;
+    }
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
  
 
@@ -160,6 +159,7 @@ font-weight: 500;
     margin-top: 10%;
     width: 17vw;
     height: 30vh;
+  
   }
 
   .LoginContainer {
@@ -179,18 +179,18 @@ font-weight: 500;
     height: 7vh;
     font-size: 1.5vw;
     font-weight: 700;
-    margin-top: 41%;
+    margin-top: 24%;
     padding-bottom: 0%;
     font-family: 'Rubik';
     font-style: normal;
-    margin-left: 15%;
+    margin-left: -45%;
 }
   .socbtnlogin:hover {
     background-color: #14335D;
   }
   .SOC_Login_SignIN {
     width: 29vw;
-    height: 10vh;
+    height: 7vh;
     background-color: #14335D;
     margin-left: 15%;
     margin-top: 6%;
@@ -199,53 +199,50 @@ font-weight: 500;
 
 .SOC_Login_SignIN_Label {
   display: inline-block;
-  margin-top: 3%;
+  margin-top: 1.5%;
   color: #fff;
   font-family: 'Rubik', sans-serif;
   padding-top: 2%;
 }
 
-  .Soc_Name {
-    position: absolute;
-    margin-left: -59%;
-    margin-top: 3%;
-    font-size: 1.5vw;
-    font-style: normal;
-    font-weight: 500;
-    font-family: 'Rubik', sans-serif;
-  }
-
-  .Soc_emailtextBox {
-    width: 29vw;
-    height: 5.5vh;
-    margin-left: -10%;
-    margin-top: 14%;
-    position: absolute;
-  }
-
-
-  .Soc_Password {
-    position: absolute;
-    margin-left: -59%;
-    margin-top: 20%;
-    font-size: 1.5vw;
-    font-style: normal;
-    font-weight: 500;
-    font-family: 'Rubik', sans-serif;
+.Soc_Name {
+  position: absolute;
+  margin-left: -55%;
+  margin-top: -5%;
+  font-size: 1.5vw;
+  font-style: normal;
+  font-weight: 500;
+  font-family: 'Rubik', sans-serif;
 }
-  .Soc_Password_textBox {
-      width: 29vw;
-      height: 5.5vh;
-      margin-left: -10%;
-      margin-top: 30%;
-      position: absolute;
-  }
-  
-  .socforgotpassword {
-      margin-top: 3%;
-      margin-left: 16%;
-  }
-  
+
+.Soc_emailtextBox {
+  width: 29vw;
+  height: 5.5vh;
+  margin-left: -5%;
+  margin-top: 1%;
+  position: absolute;
+}
+
+.Soc_Password {
+  position: absolute;
+  margin-left: -54.5%;
+  margin-top: 8%;
+  font-size: 1.5vw;
+  font-style: normal;
+  font-weight: 500;
+  font-family: 'Rubik', sans-serif;
+}
+.Soc_Password_textBox {
+  width: 29vw;
+  height: 5.5vh;
+  margin-left: -5%;
+  margin-top: 14%;
+  position: absolute;
+}
+.socforgotpassword {
+  margin-top: 2%;
+  margin-left: -43%;
+}
   .socforgotpassword a {
     font-size: 1.1vw;
     color: #FD6B22;
@@ -253,6 +250,9 @@ font-weight: 500;
     font-style: normal;
     font-weight: 500;
     text-decoration: none;
+      }
+      .socforgotpassword a:hover{
+        text-decoration: none;
       }
 }
 

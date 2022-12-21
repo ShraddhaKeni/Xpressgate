@@ -98,8 +98,8 @@ const Addlocalservice = () => {
           <Link to='/addlocalservice'>Add Local Services</Link>
         </div> */}
           <div className='AddLSsidelinks'>
-          <a className='LSsidelinks' href="/localservices"><b>Local Service</b></a><br></br><br></br>
-          <a className='ALSsidelinks' href="/addlocalservice">Add Local Services</a>
+          <a className='LSsidelinks' href="/localservices">Local Service</a><br></br><br></br>
+          <a className='ALSsidelinks' href="/addlocalservice"><b>Add Local Services</b></a>
         </div>
         <div className='alssideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
@@ -108,24 +108,7 @@ const Addlocalservice = () => {
           <label>Add Local Service</label>
         </div>
         <Form className='formclass'>
-          <div class="form-group row">
-            <label class="col-lg-2 col-form-label ADN_label">Vendor Name</label>
-            <div class="col-lg-4">
-              <input type="text" class="form-control input-lg inputborder" id='vendor_name' name="flatNo" placeholder="Vendor Name"></input>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Added By</label>
-            <div class="col-sm-4 col-md-4 col-lg-4">
-              <select class="form-control input-lg inputborder" id='added_by'>
-                <option value={null} disabled selected>Added By</option>
-                {addeddata.map(item => {
-                  return <option value={item.resident._id}>{item.resident.firstname + ' ' + item.resident.lastname}</option>
-                })}
-              </select>
-            </div>
-          </div>
-          <div class="form-group row">
+        <div class="form-group row">
             <label class="col-lg-2 col-form-label ADN_label">Service</label>
             <div class="col-lg-4">
               <select class="form-control input-lg inputborder" id="service" placeholder="Service">
@@ -136,6 +119,24 @@ const Addlocalservice = () => {
               </select>
             </div>
           </div>
+          <div class="form-group row">
+            <label class="col-lg-2 col-form-label ADN_label">Vendor Name</label>
+            <div class="col-lg-4">
+              <input type="text" class="form-control input-lg inputborder" id='vendor_name' name="flatNo" placeholder="Vendor Name"></input>
+            </div>
+          </div>
+          {/* <div class="form-group row">
+            <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Added By</label>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+              <select class="form-control input-lg inputborder" id='added_by'>
+                <option value={null} disabled selected>Added By</option>
+                {addeddata.map(item => {
+                  return <option value={item.resident._id}>{item.resident.firstname + ' ' + item.resident.lastname}</option>
+                })}
+              </select>
+            </div>
+          </div> */}
+        
           <div class="form-group row">
             <label class="col-lg-2 col-form-label ADN_label">Contact No.</label>
             <div class="col-lg-4">

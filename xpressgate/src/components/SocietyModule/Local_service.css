@@ -10,10 +10,36 @@ html {
   grid-template-areas: "addflatsection addflatsection"
   "societynamesection cardsection"
 }
+.lssidelinks{
+  color:#000;
+  font-weight: 500;
+  margin-left: 5%;
+  font-size: 1.1vw;
+  font-family: 'Rubik';
+font-style: normal;
+margin-left: -7%;
+}
+.lssidelinks:hover{
+  color: #000000;
+  text-decoration: none;
+}
 
+.alssidelinks{
+  color:#757575;
+  font-weight: 500;
+  margin-left: 10%;
+  font-size: 1.1vw;
+  font-family: 'Rubik';
+font-style: normal;
+
+}
+.alssidelinks:hover{
+  color: #000000;
+  text-decoration: none;
+}
 .LS_sideimage img {
   display: flex;
-  margin-top: 99%;
+  margin-top: 70%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;

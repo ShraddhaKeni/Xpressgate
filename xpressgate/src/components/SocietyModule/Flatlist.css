@@ -41,6 +41,26 @@ html {
   text-decoration: none; 
 }
 
+.ADDFlaT{
+  border-radius: 18px;
+  background: #E8F5E9;
+  border: none;
+  width: 12vw;
+  height: 5vh;
+margin-left: 7.5%;
+  margin-top: 2%;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1vw;
+  color: #0D960A;
+  position: absolute;
+  padding-right: 1.5%;
+  }
+  .ADDFlaT:hover{
+    background-color: #14335D;
+    color: #E8F5E9;
+  }
 
 .flbackgroundimg {
   background-image: url("../../../public/images/dashboardbackground.svg");
@@ -247,7 +267,10 @@ text-decoration: none;
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-
+  .ADDFlaT:hover{
+    background-color: #14335D;
+    color: #E8F5E9;
+  }
   .flsideimage img {
     display: flex;
     margin-top: 27%;

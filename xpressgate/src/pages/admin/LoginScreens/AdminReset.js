@@ -19,7 +19,21 @@ const AdminReset = () => {
   }
   return (
     <div className="superadmincontainer">
-
+        <div id="SOC_Reset_LogoId">
+              <img src="/images/loginlogo.svg" alt="" />
+          
+            <div className="SOC_Fgt">
+              <label className="SOC_fgt_Label">Forgot Password</label>
+            </div>
+            </div>
+ <div id="Superadminlogo">
+              <img src="/images/loginlogo.svg" alt="" />
+            </div>
+            <br /><br />
+            <div className="signinlabel" disabled>
+              RESET PASSWORD
+            </div>
+            <br />
 
 
       <div id="superadminloginimg">
@@ -28,14 +42,7 @@ const AdminReset = () => {
       <div id="Superadminloginform">
         <Form>
           <div className="Superadmininputfield">
-            <div id="Superadminlogo">
-              <img src="/images/loginlogo.svg" alt="" />
-            </div>
-            <br /><br />
-            <div className="signinlabel" disabled>
-              RESET PASSWORD
-            </div>
-            <br />
+         
             <div className="email_input">
               <label className="adminmobile">Enter Mobile</label>
               <input

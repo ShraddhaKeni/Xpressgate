@@ -99,7 +99,7 @@ const Addflat = () => {
           <label>Add Flat</label>
         </div>
         <Form className='formclass'>
-          <div class="form-group row">
+          {/* <div class="form-group row">
             <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Community</label>
             <div class="col-sm-4 col-md-4 col-lg-4">
               <select class="form-control input-lg ADTBorder" id='community_select' onChange={(e)=>{getBlocks(e)}}>
@@ -112,7 +112,7 @@ const Addflat = () => {
                 })}
               </select>
             </div>
-          </div>
+          </div> */}
           <div class="form-group row">
             <label class="col-lg-2 col-form-label ADN_label">Block</label>
             <div class="col-lg-4">
