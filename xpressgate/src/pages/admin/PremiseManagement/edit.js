@@ -137,7 +137,7 @@ const EditPremise = () => {
                 </div>
                 <div className='main-container mt-5'>
 
-                    <Form className='formclass'>
+                    <Form className='formclass fcadmin'>
 
                         <SimpleInputComponent label={'Premises Name'} name={'premises_name'} id={'premises'} onChange={(e) => { setPremise({ ...premise, name: e.target.value }) }} />
                         <SimpleInputComponent label={'Number of Blocks'} name={'number_block'} id={'block'} onChange={(e) => { setPremise({ ...premise, noofblocks: parseInt(e.target.value) }) }} />

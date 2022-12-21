@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import '../../../styles/premises.css';
 import PaginationCalculate from '../../../components/GuardModule/Utils/paginationCalculate';
 import { SimpleInputComponent } from '../components/input';
 import { ButtonBase, Icon, IconButton } from '@mui/material';
