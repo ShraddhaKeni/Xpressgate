@@ -2,6 +2,11 @@ html{
     width: 100vw;
     height: 100vh;
 }
+
+.reports {
+    width: 70vw;
+    justify-content: center;
+}
 .Reportscontainer {
     /* background-image: url("../../public/images/AdminBgImg.svg"); */
     background-repeat: no-repeat;
@@ -64,31 +69,21 @@ width: 13vw;
 height: 3vh;
 padding: 3%;
     }
-    .Reports{
-        max-width: 100%;
-        height: auto;
-        position: absolute;
-        display: flex;
-        margin-top: -38%;
-        margin-left: 16%;
-    }
-
 .reportfirst{
-    width: 22vw;
-    height: 12vh;
-    background: #AED8DC;
+background: #AED8DC;
 box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 border-radius: 12px;
+margin: 2rem;
+display: flex;
+position: relative;
 }
 .ActivityReports{
-    margin-left: 12%;
-    margin-top: 10%;
-    text-align: center;
-    font-family: 'Rubik';
+text-align: left;
+font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;
 color: #14335D;
-font-size: 1.4vw;
+font-size: 2.2rem;
 }
 .complaintrec{
     margin-left: 18%;
@@ -115,9 +110,10 @@ line-height: 1;
 }
 .ViewreportBtn{
     position: absolute;
-    margin-top: 0%;
-    margin-left: 29%;
-   
+    right: 0;
+    bottom: 0;
+    margin-bottom: 2rem;
+    margin-right: 2rem;
 }
 .ViewreportBtn1{
     position: absolute;
@@ -167,8 +163,7 @@ border-radius: 12px;
 margin-left: 4%;
 }
 .reportimage{
-    position: absolute;
-    margin-top: -6%;
+    position: relative;
 }
 .reportimage img{
     width: 6vw;
@@ -198,13 +193,7 @@ margin-left: 4%;
         margin-top: 40%;
         margin-left: 0%;
     }
-.reportfirst1{
-    width: 21vw;
-    height: 12vh;
-    background: #AED8DC;
-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-border-radius: 12px; 
-}
+
 .reportimage2{
     position: absolute;
     margin-top: -12%;
