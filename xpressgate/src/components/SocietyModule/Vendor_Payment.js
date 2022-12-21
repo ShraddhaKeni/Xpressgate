@@ -121,7 +121,7 @@ const Vendor_Payment = () => {
         </div>
         <Form className="formclass">
           <div class="form-group row">
-                <label class="col-lg-2 col-form-label labelsize">Vendor</label>
+                <label class="col-lg-2 col-form-label ADN_label">Vendor</label>
                 <div class="col-lg-4">
                   <select type="text" class="form-control input-lg SideB" ref={vendor_id} id='vendor_id' name="First name" >
                     <option  disabled value={null} selected>Select Vendor</option>
@@ -132,7 +132,7 @@ const Vendor_Payment = () => {
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-lg-2 col-form-label labelsize">Block</label>
+                <label class="col-lg-2 col-form-label ADN_label">Block</label>
                 <div class="col-lg-4">
                   <select type="text" class="form-control input-lg SideB" onChange={(e)=>getFlats(e)} id='block_id' name="First name" >
                     <option  disabled value={null} selected>Select Block</option>
@@ -143,7 +143,7 @@ const Vendor_Payment = () => {
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-lg-2 col-form-label labelsize">Flat</label>
+                <label class="col-lg-2 col-form-label ADN_label">Flat</label>
                 <div class="col-lg-4">
                   <select type="text" class="form-control input-lg SideB" id='flat_id' ref={flat_id} onChange={(e)=>{getResident(e)}} name="First name" >
                     <option  disabled value={null} selected>Select Flat</option>
@@ -154,7 +154,7 @@ const Vendor_Payment = () => {
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-lg-2 col-form-label labelsize">Resident</label>
+                <label class="col-lg-2 col-form-label ADN_label">Resident</label>
                 <div class="col-lg-4">
                   {resident.firstname?<input type="text" class="form-control input-lg SideB" id='resident_id' disabled name="First name" placeholder="Resident name" value={resident.firstname+' '+resident.lastname} > 
                   </input>:<input type="text" class="form-control input-lg SideB" id='resident_id' disabled name="First name" placeholder="Resident name" ></input>}
@@ -162,19 +162,19 @@ const Vendor_Payment = () => {
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-lg-2 col-form-label labelsize">Payment Date</label>
+                <label class="col-lg-2 col-form-label ADN_label">Payment Date</label>
                 <div class="col-lg-4">
                   <input type="date" class="form-control input-lg SideB" ref={payment_date} id='payment_date' name="First name" />
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-lg-2 col-form-label labelsize">Due Date</label>
+                <label class="col-lg-2 col-form-label ADN_label">Due Date</label>
                 <div class="col-lg-4">
                   <input type="date" class="form-control input-lg SideB" ref={payment_due}  id='due_date' name="First name" />
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-lg-2 col-form-label labelsize">Amount</label>
+                <label class="col-lg-2 col-form-label ADN_label">Amount</label>
                 <div class="col-lg-4">
                   <input type="number" class="form-control input-lg SideB" id='resident_id' ref={amount} name="First name" placeholder="Resident name"> 
                   </input>

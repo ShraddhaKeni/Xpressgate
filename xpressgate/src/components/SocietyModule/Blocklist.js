@@ -49,7 +49,7 @@ const Blocklist = () => {
           <div className='nlsidelinks'>
           <a className='BListsidelink' href="/blockList"><b>Block List</b></a><br></br><br/>
           <a className='ABlockSidelink' href="/addblock">Add Block</a><br/><br/>
-          <a className='Flatsidelinks' href="/addflat">Flat List</a><br/><br/>
+          {/* <a className='Flatsidelinks' href="/addflat">Flat List</a><br/><br/> */}
           <a className='Addsidelinks' href="/addflat">Add Flat</a>
         </div>
           <div className='blsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>

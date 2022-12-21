@@ -36,10 +36,10 @@
 .VLsLink{
   font-family: 'Rubik';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   color: #5C5C5C;
-  font-size: 1.2vw;
-  margin-left: 16%;
+  font-size: 1.1vw;
+  margin-left: -24%;
 }
 .VLsLink:hover{
 color: #000;
@@ -47,7 +47,7 @@ text-decoration: none;
 }
 .viewparking_sideimg img {
     display: flex;
-    margin-top: 60%;
+    margin-top: 57%;
     max-width: 90%;
     height: auto;
     margin-left: 8%;
@@ -64,7 +64,7 @@ text-decoration: none;
     
   }
   .vpsidelinks{
-    margin-right: 40%;
+    margin-right: 20%;
     margin-top: 10%;
     }
     .vpsidelinks label{
@@ -110,18 +110,18 @@ text-decoration: none;
 .VpSec{
   font-family: 'Rubik';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   color: #000;
-  font-size: 0.9vw;
-  margin-left: 15%;
+  font-size: 1.1vw;
+  
 }
 .ApSec{
   font-family: 'Rubik';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   color: #5C5C5C;
-  font-size: 0.9vw;
-  margin-left: 14%;
+  font-size: 1.1vw;
+ 
   
 }
 .VpSec:hover{
@@ -157,12 +157,12 @@ text-decoration: none;
         margin-top: 0%;
         
       }
-    .viewparking_sideimg img {
+      .viewparking_sideimg img {
         display: flex;
-        margin-top: 54%;
-        max-width: 95%;
+        margin-top: 17%;
+        max-width: 86%;
         height: auto;
-        margin-left: 2%;
+        margin-left: 8%;
     }
     .VPdisplay {
         width: 17vw;

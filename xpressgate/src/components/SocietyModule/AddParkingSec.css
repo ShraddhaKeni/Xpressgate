@@ -45,7 +45,7 @@ background: #14335D;
   }
   .AP_sideimg img{
     display: flex;
-    margin-top: 59%;
+    margin-top: 57%;
     max-width: 90%;
     height: auto;
     margin-left: 8%;
@@ -63,10 +63,10 @@ background: #14335D;
   .VLSECLink{
     font-family: 'Rubik';
     font-style: normal;
-    font-weight: 400;
-    color: #5C5C5C;
-    font-size: 1.2vw;
-    margin-left: 16%;
+    font-weight: 500;
+    color: #757575;
+    font-size: 1.1vw;
+  margin-left: -25%;
   }
   .VLSECLink:hover{
   color: #000;
@@ -81,7 +81,7 @@ background: #14335D;
     text-align: center;  
 }
 .AddParksidelinks{
-  margin-right: 40%;
+  margin-right: 20%;
   margin-top: 10%;
   }
   .AddParksidelinks label{
@@ -95,19 +95,19 @@ background: #14335D;
   .Viewpsec {
     font-family: 'Rubik';
   font-style: normal;
-  font-weight: 400;
-  font-size: 0.9vw;
+  font-weight: 500;
+  font-size: 1.1vw;
   text-align: center;
-  margin-left: 15%;
+
   color: #5C5C5C;
   }
   .Addpsec {
     font-family: 'Rubik';
   font-style: normal;
-  font-weight: 400;
-  font-size: 0.9vw;
+  font-weight: 500;
+  font-size: 1.1vw;
   text-align: center;
-  margin-left: 14%;
+
   color: #000000;
   }
   .Viewpsec:hover{

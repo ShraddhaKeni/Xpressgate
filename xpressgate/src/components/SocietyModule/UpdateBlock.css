@@ -1,9 +1,4 @@
-.UDT_Flatsidelinks{
-    color:#757575;
-    font-weight: 500;
-    font-size: 1.1vw;
-    margin-left:-8% ;
-  }
+
   .UDT_Addsidelinks{
     color:#757575;
     font-weight: 500;
@@ -33,7 +28,4 @@
     text-decoration: none; 
   }
   
-  .UDT_Flatsidelinks:hover {
-    color: #000;
-    text-decoration: none; 
-  }
+ 

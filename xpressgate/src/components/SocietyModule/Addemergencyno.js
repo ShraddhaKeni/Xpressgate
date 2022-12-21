@@ -134,6 +134,10 @@ const Addemergencyno = () => {
           <label>Society Name</label>
         </div>
 
+        <div class="EN_noticelist">
+        <a href="/emergencyList" class="AENLNotice">Emergency Number List</a><br/><br/>
+          <a href="/addemergency" class="AAENNotice"><b>Add Emergency Number</b></a>
+        </div>
         <div className="AEN_sideimage">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
@@ -145,19 +149,19 @@ const Addemergencyno = () => {
         <Form className='formclass'>
 
           <div class="form-group form-group5 row">
-            <label class="col-lg-2 col-form-label  labelsize2">Name</label>
+            <label class="col-lg-2 col-form-label ADN_label ">Name</label>
             <div class="col-lg-4">
               {ename ? <input type="text" id="contact_name" ref={name} defaultValue={ename} name="Name" className="form-control input-lg input-lg1 AEN_border" placeholder="Name"></input> : <input type="text" class="form-control input-lg input-lg1 AEN_border" id="contact_name" ref={name} name="Name" placeholder="Name"></input>}
             </div>
           </div>
           <div class="form-group form-group5 row">
-            <label class="col-lg-2 col-form-label  labelsize2">Phone Number</label>
+            <label class="col-lg-2 col-form-label ADN_label ">Phone Number</label>
             <div class="col-lg-4">
               {econtact ? <input type="number" id="contact_number" ref={contact} defaultValue={econtact} name="Phone Number" className="form-control input-lg input-lg1 AEN_border" placeholder="Contact"></input> : <input type="number" class="form-control input-lg input-lg1 AEN_border" id="contact_number" ref={contact} name="Phone Number" placeholder="Contact"></input>}
             </div>
           </div>
           <div class="form-group  form-group5 row">
-            <label class="col-lg-2 col-form-label  labelsize2">Type</label>
+            <label class="col-lg-2 col-form-label ADN_label">Type</label>
             <div class="col-lg-4">
               <select class="form-control input-lg input-lg1 AEN_border" ref={type} id="emergencytype" name="Type">
                 <option value={null} selected disabled>Select Type</option>

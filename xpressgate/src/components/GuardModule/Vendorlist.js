@@ -146,7 +146,7 @@ const Vendorlist = () => {
           </div> */}
         </div>
         {/* <div class="table-responsive"> */}
-        <button type="button" onClick={()=>{window.location.href='/vendorentry'}} className="AddVendor">&#10011; Add Vendor</button>
+       
         <table id="vendortable" class="table vendorList table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>

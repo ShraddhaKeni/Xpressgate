@@ -105,7 +105,7 @@ html {
 #aflogoutbutton img {
   padding-left: 10%;
   padding-bottom: 5%;
-  width: 2vw;
+  width: 1.8vw;
   height: auto;
 }
 
@@ -140,7 +140,7 @@ html {
 
 .afsideimage img {
   display: flex;
-  margin-top: 43%;
+  margin-top: 56%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -205,6 +205,7 @@ border-radius: 8px;
   color:#000000;
   font-weight: 500;
   font-size: 1.1vw;
+  margin-left: -5%;
 }
 
 .ALAddsidelinks:hover {
@@ -253,10 +254,10 @@ text-decoration: none;
 
 .afsideimage img {
   display: flex;
-  margin-top: 27%;
-  max-width: 95%;
+  margin-top: 24%;
+  max-width: 87%;
   height: auto;
-  margin-left: 2%;
+  margin-left: 7%;
 }
   #aflogoutbutton img {
     padding-left: 7%;
