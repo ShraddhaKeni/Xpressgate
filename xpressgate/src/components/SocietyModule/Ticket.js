@@ -83,7 +83,7 @@ const Ticket = () => {
             <br></br>
             <br/>
             <div className='tktmsgbox'>
-              <label className='tktmsgs'>Message</label>
+              <input type="text" className='tktmsgs' placeholder='Message'></input>
               <button className='tktMsgBtn'>Resolved</button></div>
             <br></br>
           </div>

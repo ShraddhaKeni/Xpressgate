@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import '../../../styles/premises.css';
 import PaginationCalculate from '../../../components/GuardModule/Utils/paginationCalculate';
 import { SimpleInputComponent } from '../components/input';
 import { ButtonBase, Icon, IconButton } from '@mui/material';
@@ -30,7 +29,7 @@ const PremiseList = () => {
             const indexoffirst = (indexoflast - postPerPage) //startoffset
             setCurrentPosts(data.data.slice(indexoffirst, indexoflast))
         } catch (error) {
-            alert('Data loading failed.')
+
         }
     }
     async function paginate(event) {
@@ -67,7 +66,9 @@ const PremiseList = () => {
 
     return (
         <div className="container pb-5">
-
+            <div className='page-label'>
+                <label>Premises Management</label>
+            </div>
             <div className='main-container mt-5'>
 
                 <div className='table-top-right-content'>
@@ -81,7 +82,7 @@ const PremiseList = () => {
                     </div>
                 </div>
 
-                <table id="table-header" class="table table-light table-striped overflow-auto" cellspacing="0">
+                <table id="table-header" class="table table-striped table-bordered table-sm " cellspacing="0">
                     <thead className='table-th'>
                         <tr>
                             <th class="th-sm" >ID No.</th>

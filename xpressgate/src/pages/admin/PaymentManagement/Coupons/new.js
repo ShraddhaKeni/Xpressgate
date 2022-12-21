@@ -54,7 +54,7 @@ export const AddCoupon = () => {
             </div>
             <div className='main-container'>
 
-                <Form className='formclass' method='POST' onSubmit={handleSubmit}>
+                <Form className='formclass fcadmin' method='POST' onSubmit={handleSubmit}>
 
                     <SimpleInputComponent label={'Coupon Name'} name={'name'} onChange={(e) => coupon.name = e.target.value} required />
                     <SimpleInputComponent label={'Validity'} type={'datepicker'} name={'valid'} required onChange={(e) => handleChange(e)} />
@@ -65,7 +65,7 @@ export const AddCoupon = () => {
 
 
 
-                    <Button type="submit" className="btnAddVeh">Generate</Button>
+                    <Button type="submit" className="hovergreen btnAddVeh">Generate</Button>
 
                 </Form>
 

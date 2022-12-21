@@ -234,6 +234,7 @@ table th {
 } */
 .btnAddnotice:hover {
   background-color: #14335D;
+  color: #F9F9FF;
 }
 
 .search_input {
@@ -374,9 +375,11 @@ color: #14335D;
     margin-top: 3%;
     padding-bottom: 1%;
     margin-left: -50%;
+    border: none;
   }
   .btnAddnotice:hover {
     background-color:#14335D;
+    color: #F9F9FF;
   }
 }
 

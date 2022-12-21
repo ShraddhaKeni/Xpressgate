@@ -45,8 +45,9 @@ const AddPremise = () => {
         }
     }
 
-    const getArea = async (id) => {
+    const getArea = async (value) => {
         try {
+            const id = states.find(item => item.option == value)._id
             const { data } = await axios.get(`${window.env_var}api/area/get/${id}`)
             let array = data.data.map(item => {
                 return {
@@ -90,7 +91,7 @@ const AddPremise = () => {
             </div>
             <div className='main-container mt-5'>
 
-                <Form className='formclass'>
+                <Form className='formclass fcadmin'>
 
                     <SimpleInputComponent label={'Premises Name'} name={'premises_name'} id={'premises'} onChange={(e) => { setPremise({ ...premise, name: e.target.value }) }} />
                     <SimpleInputComponent label={'Number of Blocks'} name={'number_block'} id={'block'} onChange={(e) => { setPremise({ ...premise, noofblocks: parseInt(e.target.value) }) }} />
@@ -99,7 +100,7 @@ const AddPremise = () => {
                     <SimpleDropDownComponent items={states} label={'State'} name={'state_name'} id={'state'} onChange={(e) => { setPremise({ ...premise, state: e.target.value }); getArea(e.target.value) }} />
                     <SimpleDropDownComponent items={area} label={'City'} name={'city_name'} id={'city'} onChange={(e) => { setPremise({ ...premise, city: e.target.value }) }} />
                     <SimpleInputComponent label={'Pincode'} name={'pincode'} id={'pincode'} onChange={(e) => { setPremise({ ...premise, pincode: e.target.value }) }} />
-                    <Button type="submit" onClick={(e) => handleSubmit(e)} className="btnAddVeh">Add Premise</Button>
+                    <Button type="submit" onClick={(e) => handleSubmit(e)} className="hovergreen btnAddVeh ">Add Premise</Button>
 
                 </Form>
 

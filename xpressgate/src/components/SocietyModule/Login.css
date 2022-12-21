@@ -58,6 +58,7 @@ html {
   font-family: 'Rubik';
 font-style: normal;
 margin-left: -4.5%;
+border: none;
 }
 
 .socbtnlogin:hover {
@@ -184,6 +185,7 @@ font-weight: 500;
     font-family: 'Rubik';
     font-style: normal;
     margin-left: -45%;
+    border: none;
 }
   .socbtnlogin:hover {
     background-color: #14335D;

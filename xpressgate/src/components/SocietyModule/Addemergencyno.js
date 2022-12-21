@@ -172,7 +172,7 @@ const Addemergencyno = () => {
           </div>
           
 
-          <Button type="submit" onClick={(e) => handleSubmit(e)} className="AEN_btnAdd">Add Number</Button>
+          <button type="submit" onClick={(e) => handleSubmit(e)} className="AEN_btnAdd">Add Number</button>
         </Form>
 
 

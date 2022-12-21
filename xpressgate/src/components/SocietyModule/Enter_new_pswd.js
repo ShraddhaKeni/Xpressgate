@@ -88,7 +88,7 @@ const Enter_new_pswd = () => {
                 placeholder="Confirm Password"
               ></input>
               <br />
-              <Button
+              <button
                 type="button"
                 className="NP_ConFirm_Btn"
                 onClick={() => {
@@ -96,7 +96,7 @@ const Enter_new_pswd = () => {
                 }}
               >
                 Login
-              </Button>
+              </button>
             </div>
 
             {/* <Button

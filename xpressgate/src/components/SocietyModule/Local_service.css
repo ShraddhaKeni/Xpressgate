@@ -93,9 +93,9 @@ font-style: normal;
 }
 .dashboardcard_services img {
   background-color: white;
-  margin-top: 15px;
+  margin-top: 23px;
   transform: scale(1.2);
-  width: 3vw;
+  width: 2.5vw;
 }
 .LS_display {
   width: 16vw;

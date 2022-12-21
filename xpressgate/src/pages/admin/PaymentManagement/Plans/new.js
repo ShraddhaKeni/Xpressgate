@@ -40,7 +40,7 @@ export const AddPlan = () => {
             </div>
             <div className='main-container mt-5'>
 
-                <Form className='formclass' style={{ width: '100%' }}>
+                <Form className='formclass fcadmin' style={{ width: '100%' }}>
 
                     <SimpleInputComponent label={'Plan Name'} name={'name'} onChange={(e) => plan.name = e.target.value} required />
                     <SimpleInputComponent label={'Plan code'} name={'code'} onChange={(e) => plan.code = e.target.value} required />
@@ -50,7 +50,7 @@ export const AddPlan = () => {
 
 
 
-                    <Button type="button" onClick={(e) => handleSubmit(e)} className="btnAddVeh">Add</Button>
+                    <Button type="button" onClick={(e) => handleSubmit(e)} className="hovergreen btnAddVeh">Add</Button>
 
                 </Form>
 

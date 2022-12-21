@@ -69,7 +69,7 @@ const Approvallistamenity = () => {
           <div id="alaspace"></div>
           <div id="alanotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
           <div id="alasetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="alalogoutbutton"> <Button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
+          <div id="alalogoutbutton"> <button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></button></div>
         </div>
       </div>
       <div id="alasection">
@@ -102,8 +102,8 @@ const Approvallistamenity = () => {
             <br></br>
             <br></br>
             {booking.status==false?<> 
-            <Button type="button" onClick={()=>{approveBooking(booking._id,'accept')}} className="ALAbtnApprove">APPROVE</Button>
-            <Button type="button" onClick={()=>{approveBooking(booking._id,'reject')}} className="ALAbtnDeny">DENY</Button></>: <Button type="button" onClick={()=>{approveBooking(booking._id,'reject')}} className="ALAbtnDeny">DENY</Button>}
+          <button type="button" onClick={()=>{approveBooking(booking._id,'accept')}} className="ALAbtnApprove">APPROVE</button>  
+            <button type="button" onClick={()=>{approveBooking(booking._id,'reject')}} className="ALAbtnDeny">DENY</button></>: <Button type="button" onClick={()=>{approveBooking(booking._id,'reject')}} className="ALAbtnDeny">DENY</Button>}
            
             <br></br>
           </div>

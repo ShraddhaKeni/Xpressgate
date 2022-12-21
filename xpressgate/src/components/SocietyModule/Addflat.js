@@ -150,7 +150,7 @@ const Addflat = () => {
             </div>
           </div>
           
-          <Button type="submit" onClick={(e)=>{handleSubmit(e)}} className="btnAddflat">Add Flat</Button>
+          <button type="submit" onClick={(e)=>{handleSubmit(e)}} className="btnAddflat">Add Flat</button>
         </Form>
 
       </div>

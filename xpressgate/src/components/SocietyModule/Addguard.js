@@ -178,7 +178,7 @@ const Addguard = () => {
            </div>
          </div>
 
-         <Button type="submit" onClick={(e)=>handleSubmit(e)} className="AGBtn">{type=='edit'?'Update Guard':'Add Guard'}</Button>
+         <button type="submit" onClick={(e)=>handleSubmit(e)} className="AGBtn">{type=='edit'?'Update Guard':'Add Guard'}</button>
          </Form>
 
       </div>

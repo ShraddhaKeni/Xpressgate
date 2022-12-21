@@ -144,7 +144,7 @@ const Addlocalservice = () => {
             </div>
           </div>
 
-          <Button type="submit" onClick={(e) => { handleSubmit(e) }} className="btnAddV" on>Add Vendor</Button>
+          <button type="submit" onClick={(e) => { handleSubmit(e) }} className="btnAddV" on>Add Vendor</button>
         </Form>
 
       </div>

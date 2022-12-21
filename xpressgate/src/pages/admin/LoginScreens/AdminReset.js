@@ -44,7 +44,7 @@ const AdminReset = () => {
           <div className="Superadmininputfield">
          
             <div className="email_input">
-              <label className="adminmobile">Enter Mobile</label>
+              <label className="adminmobile mb-3">Enter Mobile</label>
               <input
                 ref={username}
                 type="text"
@@ -61,7 +61,7 @@ const AdminReset = () => {
 
               <Button
                 type="button"
-                className="adminsendcodebtn"
+                className="adminsendcodebtn mt-5"
                 onClick={() => sendOTP()}
               >
                 Send Code
