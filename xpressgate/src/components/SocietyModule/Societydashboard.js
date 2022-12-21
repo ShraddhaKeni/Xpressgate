@@ -44,7 +44,7 @@ const Societydashboard = () => {
           <label>Society Name</label>
         </div>
         <div className='Dasboard_sideLink'>
-          <a href="/scDashboard" className='SL_LabelName'>Dashboard</a>
+          <a href="/scDashboard" className='SL_LabelName'><b>Dashboard</b></a>
         </div>
         <div className='sdsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
       </div>
