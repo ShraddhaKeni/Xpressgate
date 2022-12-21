@@ -184,8 +184,10 @@ function App() {
 
           <Route path={RouterPath.PRLANS_LIST} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.ADD_PLAN} element={<AdminModuleComponent />}></Route>
-          <Route path={RouterPath.EDITP_PLAN} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.EDIT_PLAN} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.PLAN_DETAILS} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.PAYMENT_HISTORY} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.PREMISE_PAYMENT_HISTORY} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.ADMIN_PROFILE} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.VIDEO_CLASS} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.ADD_VIDEO} element={<AdminModuleComponent />}></Route>
@@ -208,8 +210,8 @@ function App() {
           <Route path="/packagelist" element={<PackageList />} exact></Route>
           <Route path="/paymenthistory" element={<SocietyPaymentHistory />} exact></Route>
           <Route path="/societyduesrecord" element={<SocietyDuesTable />} exact></Route>
-            <Route path="/vendorpaymentrecord" element={<VendorPaymentTable />} exact></Route>
-            <Route path="/utilitypaymentrecord" element={<UtilityPaymentTable />} exact></Route>
+          <Route path="/vendorpaymentrecord" element={<VendorPaymentTable />} exact></Route>
+          <Route path="/utilitypaymentrecord" element={<UtilityPaymentTable />} exact></Route>
         </Routes>
       </Router>
     </div>

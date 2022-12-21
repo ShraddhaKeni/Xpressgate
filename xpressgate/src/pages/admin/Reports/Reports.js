@@ -7,9 +7,9 @@ const Reports = () => {
 
   return (
     <>
-      <div className="container pb-5">
+      <div className="container">
         <div className='page-label'>
-          <label>Subscription Plan</label>
+          <label>Reports</label>
         </div>
         <div className='main-container'>
 
@@ -23,7 +23,7 @@ const Reports = () => {
 
 
           <div className="reports row row-cols-2 row-cols-md-3 g-3 p-5">
-            <div className="reportfirst p-5">
+            <div className="reportfirst p-4">
               <div className="reportimage">
                 <img src="/images/report.svg"></img>
               </div>
@@ -33,7 +33,7 @@ const Reports = () => {
               </div>
 
             </div>
-            <div className="reportfirst  p-5">
+            <div className="reportfirst  p-4">
               <div className="reportimage">
                 <img src="/images/report.svg"></img>
               </div>
@@ -44,7 +44,7 @@ const Reports = () => {
 
             </div>
 
-            <div className="reportfirst p-5">
+            <div className="reportfirst p-4">
               <div className="reportimage">
                 <img src="/images/report.svg"></img>
               </div>
@@ -54,7 +54,7 @@ const Reports = () => {
               </div>
 
             </div>
-            <div className="reportfirst p-5">
+            <div className="reportfirst p-4">
               <div className="reportimage">
                 <img src="/images/report.svg"></img>
               </div>
@@ -65,7 +65,7 @@ const Reports = () => {
 
             </div>
             <br /><br />
-            <div className="reportfirst p-5">
+            <div className="reportfirst p-4">
               <div className="reportimage">
                 <img src="/images/report.svg"></img>
               </div>
@@ -75,8 +75,7 @@ const Reports = () => {
               </div>
 
             </div>
-            <div className="pagination">
-              <PaginationCalculate totalPages={10} postperPage={20} currentPage={2} paginate={10} /></div>
+
           </div>
 
         </div>

@@ -5,7 +5,6 @@ html{
 
 .reports {
     width: 70vw;
-    justify-content: center;
 }
 .Reportscontainer {
     /* background-image: url("../../public/images/AdminBgImg.svg"); */
@@ -112,7 +111,7 @@ line-height: 1;
     position: absolute;
     right: 0;
     bottom: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     margin-right: 2rem;
 }
 .ViewreportBtn1{

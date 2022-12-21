@@ -46,7 +46,7 @@ const SuperAdminLogin = () => {
             </div>
             <br />
             <div className="email_input">
-              <label className="adminemail">Username</label>
+              <label className="adminemail mb-3">Username</label>
               <input
                 ref={username}
                 type="text"
@@ -60,7 +60,7 @@ const SuperAdminLogin = () => {
             </div>
             <br></br>
             <div className="email_input mt-4">
-              <label className="adminpassword">Password</label>
+              <label className="adminpassword mb-3">Password</label>
               <input
                 ref={password}
                 type="password"
