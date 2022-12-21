@@ -1,0 +1,39 @@
+.UDT_Flatsidelinks{
+    color:#757575;
+    font-weight: 500;
+    font-size: 1.1vw;
+    margin-left:-8% ;
+  }
+  .UDT_Addsidelinks{
+    color:#757575;
+    font-weight: 500;
+    font-size: 1.1vw;
+    margin-left:-8% ;
+  }
+  .UDT_BListsidelink{
+    color:#757575;
+    font-weight: 500;
+    font-size: 1.1vw;
+  }
+  .UDT_BListsidelink:hover{
+  text-decoration: none;
+  color: #000;
+  }
+  .UDT_ABlockSidelink{
+    color:#757575;
+    font-weight: 500;
+    font-size: 1.1vw;
+  }
+  .UDT_ABlockSidelink:hover{
+  color: #000;
+  text-decoration: none;
+  }
+  .UDT_Addsidelinks:hover {
+    color: #000;
+    text-decoration: none; 
+  }
+  
+  .UDT_Flatsidelinks:hover {
+    color: #000;
+    text-decoration: none; 
+  }

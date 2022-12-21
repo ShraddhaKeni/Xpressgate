@@ -2,40 +2,39 @@ html {
   height: 100vh;
 }
 
-.logincontainer2 {
+.NP_Login_Container {
   display: grid;
   height: 100vh;
   grid-template-columns: 1.8fr 2fr;
   grid-template-rows: 2.4fr 2fr;
-  grid-template-areas: "logoid2 loginimgid2"
-    "loginformid2 loginimgid2"
+  grid-template-areas: "NP_Logo_ID NP_Login_Img"
+    "NP_Login_Form_Id NP_Login_Img"
 }
 
-#logoid2 {
-  margin-top: -36rem;
-  margin-left: 1rem;
-  margin-bottom: -3rem;
-  position: relative;
+#NP_Logo_ID {
+  grid-area: NP_Logo_ID;
 }
 
-#logoid2 img {
-  max-width: 60%;
-  height: auto;
+#NP_Logo_ID img {
+  margin-top: 10%;
+  width: 28vw;
+  height: 28vh;
+  margin-left: 3%;
 }
 
-#loginimgid2 {
+#NP_Login_Img {
 
-  grid-area: loginimgid2;
+  grid-area: NP_Login_Img;
 }
 
-#loginimgid2 img {
+#NP_Login_Img img {
   height: 100vh;
-  width: 63vw;
+  width: 65vw;
 }
 
-#loginformid2 {
+#NP_Login_Form_Id {
 
-  grid-area: loginformid2;
+  grid-area: NP_Login_Form_Id;
   position: relative;
   margin-left: -4rem;
   /* margin-top: -35rem; */
@@ -45,172 +44,174 @@ html {
   color: red;
 }
 
-.btnsocconfirm{
+.NP_ConFirm_Btn {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  width: 250px;
-  height: 60px; 
-  font-size: 151%;
+  width: 12vw;
+  height: 6vh; 
+  font-size: 1.5vw;
   font-weight: 500;
-  margin-top: 4%;
-  padding-bottom: 3%;
-}
-
-
-.socnpsignin {
-  width: 400px;
-  height: 76px;
-  background-color: #14335D;
-  margin-left: 8%;
   margin-top: 6%;
-  font-size: 36px;
-
+  padding-bottom: 3%;
+  font-family: 'Rubik';
+font-style: normal;
+margin-left: -4.5%;
 }
 
-.socnp {
-  position: relative;
-  right: 31%;
+.NP_ConFirm_Btn:hover {
+  background-color: #14335D;
+}
+
+.NP_SignIn {
+  width: 23vw;
+  height: 6vh;
+  background-color: #14335D;
+  margin-left: 17%; 
+  margin-top: 8%;
+
+  padding: 0%;
+  
+}
+
+.NP_SignIn_Label{
+  display:inline-block;
+  margin-top: 3%;
+  color: #fff;
   font-family: 'Rubik', sans-serif;
-  font-size: 15px;
+  font-size: 1.7vw;
+  font-weight: 500;
 }
 
-.soccp {
-  position: relative;
-  right: 28%;
-  font-family: 'Rubik', sans-serif;
-  font-size: 15px;
+.NP_New_Pass {
+  position: absolute;
+  margin-top: -10%;
+  margin-left: -60%;
+   font-family: 'Rubik', sans-serif;
+   font-size: 1.2vw;
+   font-style: normal;
+ font-weight: 500;
 }
 
-.input_fields2 {
-  position: relative;
-  width: 25vw;
+.NP_Confirm_Password {
+  position: absolute;
+  margin-top: -9%;
+  margin-left: -60%;
+   font-family: 'Rubik', sans-serif;
+   font-size: 1.2vw;
+   font-style: normal;
+ font-weight: 500;
+}
+
+.NP_Input_Fields {
+  position: absolute;
+  width: 50%;
   height: 50%;
-  left: 25.5%;
+  left: 27.5%;
 }
 
-.newpswd {
-  position: relative;
-  margin-left: -64%;
-  font-family: 'Rubik', sans-serif;
-  font-size: 1.2vw;
+.NP_Email_Text_Box {
+  width: 23vw;
+  height: 4.5vh;
+  margin-left: -10%;
+  margin-top: -5%;
 }
 
-.cnfpswd {
-  position: relative;
-  margin-left: -56%;
-  font-family: 'Rubik', sans-serif;
-  font-size: 1.2vw;
-
-}
-
-.socnpemailtextbox {
-  width: 82%;
-    margin-left: 8%;
-}
-
-.socnpinput {
-  width: 82%;
-    margin-left: 8%;
+.NP_CnfmPass_TextBox {
+  width: 23vw;
+  height: 4.5vh;
+  margin-left: -10%;
+  margin-top: 13%;
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  #loginformid2 {
-    grid-area: loginformid2;
-    position: relative;
-    margin-left: -2rem;
-
+  .NP_Confirm_Password {
+    position: absolute;
+    margin-top: 30%;
+    margin-left: -59%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 500;
+}
+  .NP_New_Pass {
+    position: absolute;
+    margin-left: -59%;
+    margin-top: 3%;
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 500;
+    font-family: 'Rubik', sans-serif;
   }
-
-  #logoid2 {
-    margin-top: -22rem;
-    margin-left: -3rem;
-    margin-bottom: -2rem;
-    position: relative;
+  .NP_CnfmPass_TextBox {
+    width: 29vw;
+    height: 5.5vh;
+    margin-left: -10%;
+    margin-top: 40%;
+    position: absolute;
+}
+  #NP_Logo_ID img {
+    margin-top: 10%;
+    width: 17vw;
+    height: 30vh;
   }
+  .NP_SignIn {
+    width: 29vw;
+    height: 10vh;
+    background-color: #14335D;
+    margin-left: 15%;
+    margin-top: 6%;
+    font-size: 2vw;
+}
+.NP_Email_Text_Box {
+  width: 29vw;
+  height: 5.5vh;
+  margin-left: -10%;
+  margin-top: 14%;
+  position: absolute;
+}
 
-  #logoid2 img {
-    max-width: 45%;
-    height: auto;
-    margin-top: 13%;
-  }
+.NP_SignIn_Label {
+  display: inline-block;
+  margin-top: 3%;
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+  padding-top: 2%;
+}
 
-  .logincontainer2 {
+
+.NP_ConFirm_Btn {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 13px;
+  width: 13vw;
+  height: 7vh;
+  font-size: 1.5vw;
+  font-weight: 700;
+  margin-top: 52%;
+  padding-bottom: 0%;
+  font-family: 'Rubik';
+  font-style: normal;
+  margin-left: 9%;
+}
+.NP_ConFirm_Btn:hover {
+  background-color: #14335D;
+}
+  .NP_Login_Container {
     overflow-y: hidden;
   }
 
-  #loginimgid2 img {
-    width: auto;
+  #NP_Login_Img img {
     height: 100vh;
+    width: 60vw;
   }
-
-  .btlogin2 {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 7px;
-    width: 12vw;
-    height: 3rem;
-    font-size: 1.2vw;
-    font-weight: 400;
-    margin-left: -3rem;
-    margin-bottom: -1rem;
-  }
-
-  .btsign {
-    background-color: #0b2447;
-    color: #fff;
-    width: 22vw;
-    height: 3rem;
-    font-size: 1.5;
-    font-weight: 400;
-    padding: 0.5rem;
-    margin-bottom: -0.5rem;
-  }
-
-  .newpswd {
-    position: relative;
-    margin-left: -62%;
-    font-family: 'Rubik', sans-serif;
-    font-size: 1.3vw;
-    margin-bottom: 0rem;
-  }
-
-  .emailtextbox {
-    width: 22vw;
-    height: 5.5vh;
-    margin-bottom: -1.5rem;
-  }
-
-  .cnfpswd {
-    position: relative;
-    margin-left: -53%;
-    font-family: 'Rubik', sans-serif;
-    font-size: 1.3vw;
-    margin-bottom: 0rem;
-  }
-
-  .passwordtextbox {
-    width: 22vw;
-    height: 5.5vh;
-    margin-bottom: -1.5rem;
-  }
-
-  .forgotpassword {
-
-    margin-left: -2rem;
-  }
-
-  .forgotpassword a {
-    font-size: 1.1vw;
-  }
-
 }
 
 
 /* Media query for mobile */
 @media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
 
-  #loginimgid2 {
+  #NP_Login_Img {
     display: none;
   }
 
@@ -223,12 +224,12 @@ html {
     font-size: 36px;
   }
 
-  #logoid2 img {
+  #NP_Logo_ID img {
     margin-top: 10%;
     margin-left: 36%;
   }
 
-  .input_fields2 {
+  .NP_Input_Fields {
     position: absolute;
     width: 100%;
     height: 50%;

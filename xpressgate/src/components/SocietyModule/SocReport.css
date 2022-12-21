@@ -1,0 +1,148 @@
+.REPfullcardscss {
+    padding-left: 35%;
+    margin-left: -18%;
+    width: 100%;
+    margin-bottom: -9%;
+    margin-top: 6%;
+}
+.REPdashboardcard{
+    background: #AED8DC;
+box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+border-radius: 12px;
+width: 22vw;
+height: 12vh;
+padding: 2%;
+margin-top: 10%;
+}
+
+.REP_img{
+    margin-left: -75%;
+    width: 6vw;
+    height: 6vh;
+margin-top: 6.5%;
+max-width: 15%;
+position: relative;
+   
+}
+.ActReport{
+margin-top: 8%;
+position:absolute;
+margin-left: 12%;
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+line-height: 28px;
+font-size: 1.1vw ;
+}
+.ActSRUPReport{
+    margin-top: 5%;
+position:absolute;
+margin-left: 12%;
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+line-height: 28px;
+font-size: 1.1vw ;
+text-align: justify;
+}
+.VReportBtn{
+    position: absolute;
+    margin-left: 40%;
+    margin-top: 16%;
+    background: #14335D;
+border-radius: 9px;
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 700;
+font-size: 0.7vw;
+text-align: center;
+color: #FFFFFF;
+border: none;
+width: 5.5vw;
+height: 3vh;
+}
+.SOC_Report_sideImg img {
+    display: flex;
+    margin-top: 84%;
+    max-width: 90%;
+    height: auto;
+    margin-left: 8%;
+    margin-bottom: 3%;
+}
+.VReportBtn:hover{
+background-color: #14335D;
+}
+.SOC_report_sidelink{
+    margin-right: 55%;
+    margin-top: 3%;
+}
+.Reportsidelink{
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+font-size: 1.1vw;
+line-height: 24px;
+text-align: center;
+
+color: #000000;
+}
+.Reportsidelink:hover{
+    color: #000000;
+    text-decoration: none;
+}
+ /* Media query for laptop */
+ @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
+    .REPfullcardscss {
+        padding-left: 35%;
+        margin-left: -19%;
+        width: 100%;
+        margin-bottom: -9%;
+        margin-top: 6%;
+    }
+    .ActReport {
+        margin-top: 8%;
+        position: absolute;
+        margin-left: 12%;
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: 500;
+        line-height: 12px;
+        font-size: 1.1vw;
+    }
+
+    .ActSRUPReport {
+        margin-top: 5%;
+        position: absolute;
+        margin-left: 12%;
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: 500;
+        line-height: 12px;
+        font-size: 1.1vw;
+        text-align: justify;
+    }
+    .VReportBtn {
+        position: absolute;
+        margin-left: 40%;
+        margin-top: 14%;
+        background: #14335D;
+        border-radius: 6px;
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 0.7vw;
+        text-align: center;
+        color: #FFFFFF;
+        border: none;
+        width: 5.5vw;
+        height: 3vh;
+    }
+    .SOC_Report_sideImg img {
+        display: flex;
+        margin-top: 54%;
+        max-width: 83%;
+        height: auto;
+        margin-left: 10%;
+        margin-bottom: 3%;
+    }
+ }

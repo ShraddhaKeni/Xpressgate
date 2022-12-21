@@ -81,6 +81,10 @@ const Ticket = () => {
             <br></br>
             <div><label className='tktailabels'>Attached images</label></div>
             <br></br>
+            <br/>
+            <div className='tktmsgbox'>
+              <label className='tktmsgs'>Message</label>
+              <button className='tktMsgBtn'>Resolved</button></div>
             <br></br>
           </div>
         </div>

@@ -80,6 +80,9 @@ import Viewparking from './components/SocietyModule/Viewparking';
 import SocietyDuesTable from './components/SocietyModule/SocietyDuesTable';
 import VendorPaymentTable from './components/SocietyModule/VendorPaymentTable';
 import UtilityPaymentTable from './components/SocietyModule/UtilityPaymentTable';
+import AddBlock from './components/SocietyModule/AddBlock';
+import UpdateBlock from './components/SocietyModule/UpdateBlock';
+import SocReport from './components/SocietyModule/SocReport';
 
 function App() {
 
@@ -198,6 +201,9 @@ function App() {
           <Route path='/adminentercode' element={<AdminEnterCode />}></Route>
           <Route path='/adminresetpass' element={<AdminReset />}></Route>
           <Route path='/adminchangepass' element={<AdminChangePass />}></Route>
+          <Route path='/addblock' element={<AddBlock />}></Route>
+          <Route path='/updateblock' element={<UpdateBlock />}></Route>
+          <Route path='/socreports' element={<SocReport />}></Route>
 
 
 

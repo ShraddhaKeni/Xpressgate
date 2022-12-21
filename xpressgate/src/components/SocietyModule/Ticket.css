@@ -140,7 +140,7 @@ font-style: normal;
 font-weight: 500;
 color: #14335D;
   margin-left: 4%;
-  margin-top: 13%;
+  margin-top: 12%;
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
@@ -157,7 +157,7 @@ color: #14335D;
   margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 4%;
+  margin-top: 5%;
 }
 .tktsideimage img {
   display: flex;
@@ -174,7 +174,7 @@ color: #14335D;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  padding-top: 14px;
+  padding-top: 16px;
   margin: auto;
   margin-top: -3%;
 }
@@ -182,7 +182,7 @@ color: #14335D;
 font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;  
-  font-size: 1.6vw;
+  font-size: 1.3vw;
   text-align: center;  
   color: #14335D;
 }
@@ -202,7 +202,7 @@ font-weight: 500;
 }
 
 .tktcard {
-  width: 25%;
+  width: 50%;
   margin: auto;
   margin-top: 5%;
   background-color: #fff;
@@ -213,7 +213,7 @@ font-weight: 500;
 .tktclass {
   background-color: #304B71;
   width: 50%;
-  line-height:2;
+  line-height:0.5;
   color: #fff;
   font-family: 'Rubik', sans-serif;
   font-size: 20px;
@@ -247,7 +247,7 @@ font-weight: 500;
   border-radius: 8px;
   margin: auto;
   padding-left: 4%;
-  padding-top: 4%;
+  padding-top: 2%;
   padding-bottom: 4%;
   text-align: left;
 }
@@ -276,7 +276,7 @@ font-weight: 500;
   font-size: 22px;
   font-family: 'Rubik', sans-serif;
   color: #14335D;
-  margin-right: 64%;
+  margin-right: 70%;
 }
 
 .tktdesclabels {
@@ -284,7 +284,7 @@ font-weight: 500;
   font-size: 22px;
   font-family: 'Rubik', sans-serif;
   color: #14335D;
-  margin-right: 46%;
+  margin-right: 60%;
 }
 
 .tktailabels {
@@ -292,7 +292,39 @@ font-weight: 500;
   font-size: 22px;
   font-family: 'Rubik', sans-serif;
   color: #14335D;
-  margin-right: 32%;
+  margin-right: 50%;
+}
+.tktmsgbox{
+  background-color: #AED8DC;
+  width: 80%;
+  height: fit-content;
+  border-radius: 8px;
+  margin: auto;
+  padding: 1% 4% 1% 4%;
+  text-align: left;
+}
+.tktmsgs{
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+font-size: 26px;
+line-height: 36px;
+color: #14335D;
+}
+.tktMsgBtn{
+  background: #0A8996;
+border-radius: 12px;
+border: none;
+margin-left: 55%;
+color: #F9F9FF;
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+width: 6vw;
+height: 3vh;
+}
+.tktMsgBtn:hover{
+background-color: #14335D;
 }
 
 .date {
@@ -335,11 +367,11 @@ font-weight: 500;
 
 .name {
   display: flex;
-  width: 10vw;
+  width: 12vw;
   height: 5vh;
  
 
-  margin-left: 25%;
+  margin-left: 35%;
   margin-top: 2%;
 justify-content: center;
 align-content: center;
@@ -368,11 +400,31 @@ border-radius: 21px;
     position: relative;
     margin-top: 12.5%;
   }
-
+  .tktailabels {
+    font-weight: 600;
+    font-size: 22px;
+    font-family: 'Rubik', sans-serif;
+    color: #14335D;
+    margin-right: 32%;
+  }
+  .tktdesclabels {
+    font-weight: 600;
+    font-size: 22px;
+    font-family: 'Rubik', sans-serif;
+    color: #14335D;
+    margin-right: 46%;
+  }
   .labelsize {
     font-size: 12px;
   }
-
+  .tktIssuelabels {
+    font-weight: 600;
+    font-size: 22px;
+    font-family: 'Rubik', sans-serif;
+    color: #14335D;
+    margin-right: 64%;
+  }
+  
   .tktdisplay {
     width: 17vw;
     height: 7vh;

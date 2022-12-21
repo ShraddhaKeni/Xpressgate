@@ -38,13 +38,13 @@ const Editguard = () => {
         <Form className='formclass'>
          
          <div class="form-group form-group6 row">
-           <label class="col-lg-2 col-form-label labelsize1">First name</label>
+           <label class="col-lg-2 col-form-label labelsize1">First Name</label>
            <div class="col-lg-4">
              <input type="text" class="form-control input-lg" name="First name" placeholder=""></input>
            </div>
          </div>
          <div class="form-group form-group6 row">
-           <label class="col-lg-2 col-form-label labelsize1">Last name</label>
+           <label class="col-lg-2 col-form-label labelsize1">Last Name</label>
            <div class="col-lg-4">
              <input type="text" class="form-control input-lg" name="Last name" placeholder=""></input>
            </div>

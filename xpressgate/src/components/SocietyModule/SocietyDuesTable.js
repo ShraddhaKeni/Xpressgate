@@ -41,8 +41,8 @@ const SocietyDuesTable = () => {
               <th class="th-sm">Flat  No</th>
               <th class="th-sm">Resident Name</th>
               <th class="th-sm">Amount</th>
-              <th class="th-sm">Payment date</th>
-              <th class="th-sm">Due date</th>
+              <th class="th-sm">Payment Date</th>
+              <th class="th-sm">Due Date</th>
               <th class="th-sm">Status</th>
             </tr>
           </thead>

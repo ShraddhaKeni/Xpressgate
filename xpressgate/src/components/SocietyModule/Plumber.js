@@ -124,11 +124,11 @@ const navigateTo =e=>{
 
             if(item.serviceName===location.state.serviceName)
             {
-              return <h5 id={item.id} onClick={(e)=>{navigateTo(e)}} className="sidebar_h6">{item.serviceName}</h5>
+              return <h5 id={item.id} onClick={(e)=>{navigateTo(e)}} className="sidebar_h6 fontstyle">{item.serviceName}</h5>
             }
             else
             {
-              return <h5 id={item.id} onClick={(e)=>{navigateTo(e)}} className="sidebar_h6">{item.serviceName}</h5>
+              return <h5 id={item.id} onClick={(e)=>{navigateTo(e)}} className="sidebar_h6 fontstyle">{item.serviceName}</h5>
             }
            
           
@@ -188,3 +188,5 @@ const navigateTo =e=>{
 };
 
 export default Plumber;
+
+
