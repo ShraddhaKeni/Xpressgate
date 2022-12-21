@@ -106,7 +106,7 @@ color: #14335D;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  padding-top: 14px;
+  padding-top: 16px;
   margin: auto;
   margin-top: -3%;
 }
@@ -114,7 +114,7 @@ color: #14335D;
 font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;  
-  font-size: 1.4vw;
+  font-size: 1.3vw;
   text-align: center;  
   color: #14335D;
 }
@@ -156,7 +156,7 @@ table th {
   height: 5%;
   border: 2px solid #000;
   border-radius: 15px;
-  margin-left: 12%;
+  margin-left: 74%;
   margin-top: 2%;
 }
 .AddVendor{

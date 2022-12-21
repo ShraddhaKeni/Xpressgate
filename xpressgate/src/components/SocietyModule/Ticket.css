@@ -161,7 +161,7 @@ color: #14335D;
 }
 .tktsideimage img {
   display: flex;
-  margin-top: 93%;
+  margin-top: 99%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -202,7 +202,7 @@ font-weight: 500;
 }
 
 .tktcard {
-  width: 50%;
+  width: 45%;
   margin: auto;
   margin-top: 5%;
   background-color: #fff;
@@ -307,7 +307,7 @@ font-weight: 500;
   font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;
-font-size: 26px;
+font-size: 1.2vw;
 line-height: 36px;
 color: #14335D;
 }

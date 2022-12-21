@@ -114,16 +114,15 @@ html {
   font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;
-font-size: 20px;
+font-size: 1.1vw;
 line-height: 24px;
 text-decoration: none;
-
-text-align: center;
-
-color: #000000;
+margin-right: 36%;
+color: #757575;
 }
 .LOcalSLINK:hover{
   color: #000;
+  text-decoration: none;
 }
 table thead {
 background: #14335D;
@@ -141,6 +140,9 @@ color: #F9F9FF;
   font-family: 'Rubik', sans-serif;
   font-style: normal;
   font-weight: 500;
+  margin-right: 49%;
+  font-size: 1.1vw;
+  color: #000; 
 }
 .fontstyle:hover{
   color: #000;

@@ -28,6 +28,10 @@ html {
   position: relative;
 
 }
+.amen_sidelinks{
+  margin-right: 35%;
+  margin-top: 10%;
+}
 
 .albackgroundimg {
   background-image: url("../../../public/images/dashboardbackground.svg");

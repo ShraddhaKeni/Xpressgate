@@ -135,7 +135,7 @@ color: #14335D;
 
 .VMsideimage img {
   display: flex;
-  margin-top: 62%;
+  margin-top: 57%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -237,7 +237,7 @@ table th {
 
 
 .vmsidelinks{
-margin-right: 40%;
+margin-right: 20%;
 margin-top: 10%;
 }
 .vmsidelinks label{
@@ -246,7 +246,7 @@ margin-top: 10%;
   font-weight: 500;
 text-align: center;
 color: #000000;
-font-size: 1.3vw;
+font-size: 1.1vw;
 }
 /* .vmsidelinks a{
   font-family: 'Rubik';
@@ -279,18 +279,19 @@ font-size: 1.5vw;
 .VPsec{
   font-family: 'Rubik';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   color: #5C5C5C;
-  font-size: 1vw;
-  margin-left: 16%;
+  font-size: 1.1vw;
+
 }
 .VLsecLink{
   font-family: 'Rubik';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   color: #000;
-  font-size: 1.2vw;
-  margin-left: 16%;
+  font-size: 1.1vw;
+  margin-left: -27%;
+  
 }
 .VLsecLink:hover{
 color: #000;
@@ -299,10 +300,10 @@ text-decoration: none;
 .APsec{
   font-family: 'Rubik';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   color: #5C5C5C;
-  font-size: 1vw;
-  margin-left: 16%;
+  font-size: 1.1vw;
+
   
 }
 .VPsec:hover{
@@ -394,7 +395,7 @@ color: #14335D;
 }
 
 .vmsidelinks {
-  margin-right: 38%;
+  margin-right: 18%;
   margin-top: 10%;
 }
 .vmsidelinks label{

@@ -213,7 +213,7 @@ text-decoration: none;
 
 .blsideimage img {
   display: flex;
-  margin-top: 42%;
+  margin-top: 55%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -299,7 +299,7 @@ text-decoration: none;
   }
   .blsideimage img {
     display: flex;
-    margin-top: 20%;
+    margin-top: 40%;
     max-width: 82%;
     height: auto;
     margin-left: 10%;

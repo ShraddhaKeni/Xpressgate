@@ -4,7 +4,7 @@ html {
 
 .AMTSideIMG img {
   display: flex;
-  margin-top: 78%;
+  margin-top: 68%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -64,7 +64,7 @@ html {
     height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    padding-top: 14px;
+    padding-top: 16px;
     margin: auto;
     margin-top: -3%;
   }
@@ -98,8 +98,8 @@ html {
   margin-top: 3%;
 }
 .Todate{
-  margin-right: 6%;
-  margin-left: -33%;
+  margin-right: 10%;
+  margin-left: -37.5%;
   font-size: 1.1vw;
   color: #14335D;
 }
@@ -129,21 +129,22 @@ html {
   margin-right: 6%;
 }
  
-.Mt_Link{
+.AMt_Link{
+  margin-right: 19%;
   color:#757575;
-  font-size: 1.2vw;
+  font-size: 1.1vw;
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 500;
  
  }
-.Mt_Link:hover{
+.AMt_Link:hover{
  color: #000;
  text-decoration: none;
 }
  .Amm_Link {
   color: #000;
-  font-size: 1vw;
+  font-size: 1.1vw;
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 500;
@@ -154,8 +155,8 @@ html {
    text-decoration: none;
  }
 .AMMResident{
-  margin-right: 5%;
-  margin-left: -45%;
+  margin-right: 7%;
+  margin-left: -47%;
   font-size: 1.1vw;
   color: #14335D;
   
@@ -167,6 +168,17 @@ html {
   color: #14335D;
 }
 .AMMinput{
+  width: 28vw;
+  height: 5vh;
+  padding: 0%;
+  background: #FFFFFF;
+  border: 2px solid #14335D;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  margin-top: 0%;
+  padding-left: 1%;
+}
+.AMMinputR{
   width: 28vw;
   height: 5vh;
   padding: 0%;

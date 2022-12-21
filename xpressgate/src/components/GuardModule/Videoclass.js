@@ -64,7 +64,7 @@ const Videoclass = () => {
               return (
               <div className="col">
               
-                <div className="videocard">
+                <div className="ViDeOcArD">
                   {/* <video className='videoclass' src={vdata.videoURL} controls></video> */}
                   <ReactPlayer className='player' url={vdata.videoURL} />
                   <label className='card-titlename'>{vdata.videoTitle}</label>

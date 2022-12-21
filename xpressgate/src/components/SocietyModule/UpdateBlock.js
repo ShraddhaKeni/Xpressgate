@@ -49,7 +49,7 @@ const UpdateBlock = () => {
           <div className='nlsidelinks'>
           <a className='UDT_BListsidelink' href="/blockList">Block List</a><br></br><br/>
           <a className='UDT_ABlockSidelink' href="/addblock">Add Block</a><br/><br/>
-          <a className='UDT_Flatsidelinks' href="/addflat">Flat List</a><br/><br/>
+          {/* <a className='UDT_Flatsidelinks' href="/addflat">Flat List</a><br/><br/> */}
           <a className='UDT_Addsidelinks' href="/addflat">Add Flat</a>
         </div>
           <div className='blsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>

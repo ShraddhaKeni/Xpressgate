@@ -142,6 +142,7 @@ color: #14335D;
   padding-top: 14px;
   margin: auto;
   margin-top: -3%;
+  margin-left: 37%;
 }
 .addnoticedisplay label {
 font-family: 'Rubik';
@@ -152,20 +153,28 @@ font-weight: 500;
   color: #14335D;
 }
 
-.labelsize {
-  font-size: 20px;
+.ADN_label {
+  font-size: 1.1vw;
+  font-family: 'Rubik';
+font-style: normal;
+color: #14335D;
 }
-
+.AD_input_size{
+  background: #FFFFFF;
+border: 2px solid #14335D;
+box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+border-radius: 8px;
+}
 .AddNoticeButton {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
   width: 10vw;
   height: 5vh;
-  font-size: 1.3vw;
+  font-size: 1.2vw;
   font-weight: 500;
   margin-top: 4%;
-  margin-right: 18%;
+  margin-right: 26%;
 }
 .AddNoticeButton:hover {
   background-color: #14335D;
@@ -177,10 +186,10 @@ font-weight: 500;
 
 .NLSLink{
   color:#757575;
-  font-weight: 400;
+  font-weight: 500;
   font-family: 'Rubik';
   font-style: normal;
-font-size: 1vw;
+font-size: 1.1vw;
   
 }
 .ANSLink{
@@ -188,7 +197,7 @@ font-size: 1vw;
   font-weight: 500;
   font-family: 'Rubik';
   font-style: normal;
-  font-size: 1vw;
+  font-size: 1.1vw;
  
 }
 
@@ -221,8 +230,11 @@ font-size: 1vw;
     margin-top: 12.5%;
   }
 
-  .labelsize {
-    font-size: 12px;
+  .ADN_label {
+    font-size: 1.1vw;
+  font-family: 'Rubik';
+font-style: normal;
+color: #14335D;
   }
   .AddNoticeButton {
     background-color: #0A8996;

@@ -128,7 +128,7 @@ color: #14335D;
 
 .NLSImg img {
   display: flex;
-  margin-top: 68%;
+  margin-top: 69%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -144,6 +144,7 @@ color: #14335D;
   padding-top: 14px;
   margin: auto;
   margin-top: -3%;
+  margin-left: 37%;
 }
 .NL_display label {
 font-family: 'Rubik';
@@ -164,9 +165,9 @@ font-weight: 500;
 }
 
 #nltable {
-  margin-Left: 10%;
+  margin-Left: 15%;
   margin-Top: 2%;
-  max-Width: 80%;
+  max-Width: 70%;
   background-color: #F9FAFF;
 
   border-radius: 14px;
@@ -202,7 +203,7 @@ table th {
   height: 5%;
   border: 2px solid #000;
   border-radius: 15px;
-  margin-left: 74%;
+  margin-left: 70%;
   margin-top: -3%;
   
 }
@@ -216,13 +217,20 @@ table th {
   font-weight: 500;
   margin-top: 3%;
   padding: 0%;
-  margin-left: 32%;
+  margin-left: 24%;
  
 }
 .btnAddnotice img{
  width: 1vw;
 }
-
+/* .Vsearchbox{
+  width: 15%;
+  height: 5%;
+  border: 2px solid #000;
+  border-radius: 15px;
+  margin-left: 12%;
+  margin-top: 2%;
+} */
 .btnAddnotice:hover {
   background-color: #14335D;
 }
@@ -242,14 +250,14 @@ table th {
 }
 
 .nlsidelinks {
-  margin-right: 50%;
+  margin-right: 46%;
   margin-top: 10%;
   
 }
 
 .noticeSL{
   color:#000;
-  font-size: 1vw;
+  font-size: 1.1vw;
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 500;
@@ -260,7 +268,7 @@ table th {
   font-weight: 500;
   font-family: 'Rubik';
   font-style: normal;
-  font-size: 1vw;
+  font-size: 1.1vw;
  
 }
 

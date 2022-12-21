@@ -75,17 +75,22 @@ html {
   
   .MM_sideimage img {
     display: flex;
-    margin-top: 75%;
+    margin-top: 70%;
     max-width: 90%;
     height: auto;
     margin-left: 8%;
     margin-bottom: 3%;
     
   }
- 
+  .MM_notice {
+    margin-right: 10%;
+    margin-top: 10%;
+    
+  }
   .MT_link{
+    margin-right: 19%;
    color: #000;
-   font-size: 1.2vw;
+   font-size: 1.1vw;
    font-family: 'Rubik';
    font-style: normal;
    font-weight: 500;
@@ -97,7 +102,7 @@ html {
  }
   .AMM_link {
    color: #757575;
-   font-size: 0.9vw;
+   font-size: 1.1vw;
    font-family: 'Rubik';
    font-style: normal;
    font-weight: 500;
@@ -107,6 +112,16 @@ html {
     color: #000000;
     text-decoration: none;
   }
+  
+.mtsearchbox{
+  width: 14%;
+  height: 5%;
+  border: 2px solid #000;
+  border-radius: 15px;
+  margin-left: 70%;
+  margin-top: 1%;
+  
+}
   .MM_display {
     width: 17vw;
     height: 7vh;
@@ -116,6 +131,7 @@ html {
     margin: auto;
     margin-top: -3%;
     padding-top: 1%;
+    margin-left: 37%;
   }
   
   .MM_display label{
@@ -132,7 +148,7 @@ html {
   #managementtable {
     margin-Left: 10%;
     margin-Top: 2%;
-    max-Width: 80%;
+    max-Width: 75%;
     background-color: #F9FAFF;
    
     border-radius: 14px;

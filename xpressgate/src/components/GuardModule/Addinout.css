@@ -74,20 +74,17 @@ color: #14335D;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  padding-top: 14px;
+  padding-top: 16px;
   margin: auto;
-  margin-top: -2.5%;
+  margin-top: -3%;
 }
 .aiodisplay label {
 font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;  
-  font-size: 1.4vw;
+  font-size: 1.3vw;
   text-align: center;  
   color: #14335D;
-}
-.aiolabelsize {
-  font-size: 20px;
 }
 
 .btnInOut {
@@ -146,10 +143,7 @@ border-radius: 8px;
     margin-top: 12.5%;
   }
 
-  .aiolabelsize {
-    font-size: 12px;
-  }
-
+  
   .btnInOut {
     background-color: #0A8996;
     color: #fff;
@@ -174,7 +168,7 @@ border-radius: 8px;
     font-size: 1.4vw;
     padding: 1%;
     margin: auto;
-    margin-top: -2%;
+    margin-top: -15%;
     margin-left: 38%;
 }
 .aiodisplay label {
