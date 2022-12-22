@@ -73,11 +73,11 @@ export const PlansList = () => {
 
 
     return (
-        <div className="container pb-5">
+        <div>
             <div className='page-label'>
                 <label>Subscription Plan</label>
             </div>
-            <div className='main-container'>
+            <div>
 
                 <div className='table-top-right-content'>
                     <div className='table-search pl-2'>
@@ -118,9 +118,7 @@ export const PlansList = () => {
                     </div>
                 </div>
 
-                {allPlans && <div className='flex space-between'>
-                    <p>Showing {currentPage + 1} of {`${Math.ceil(allPlans.length / PageSize)}`}</p>
-
+                {allPlans && <div className='paginate'>
                     {/* <PaginationCalculate totalPages={Math.ceil(allCoupons.length / PageSize)} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} /> */}
                     <PaginationCalculate totalPages={allPlans.length} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} />
 

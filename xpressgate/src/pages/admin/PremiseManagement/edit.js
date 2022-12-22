@@ -131,11 +131,11 @@ const EditPremise = () => {
     return (
 
         <>
-            {location.state ? <div className="container">
+            {location.state ? <div>
                 <div className='page-label'>
                     <label>{premise.name || "Premise"}</label>
                 </div>
-                <div className='main-container mt-5'>
+                <div>
 
                     <Form className='formclass fcadmin'>
 

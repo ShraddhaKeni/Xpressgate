@@ -52,11 +52,12 @@ export const CouponsList = () => {
         navigate(RouterPath.EDIT_COUPON)
     }
     return (
-        <div className="container pb-5">
+        <div>
             <div className='page-label'>
                 <label>Coupons</label>
             </div>
-            <div className='main-container'>
+
+            <div>
 
                 <div className='table-top-right-content'>
                     <div className='table-search pl-2'>

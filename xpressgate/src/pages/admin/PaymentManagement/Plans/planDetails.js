@@ -40,11 +40,11 @@ export const PlanDetails = () => {
         <>
             {!plan && <Navigate to={RouterPath.PRLANS_LIST} />}
             {plan &&
-                <div className="container">
+                <div>
                     <div className='page-label'>
                         <label>plan Details</label>
                     </div>
-                    <div className='main-container'>
+                    <div>
                         <div className="trans-bg-container">
                             <div>
                                 <p className='h3 bold'><b>Plan Details</b></p>

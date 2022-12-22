@@ -85,11 +85,11 @@ const AddPremise = () => {
 
 
     return (
-        <div className="container pb-5">
+        <div>
             <div className='page-label'>
                 <label>Add New Premises</label>
             </div>
-            <div className='main-container mt-5'>
+            <div>
 
                 <Form className='formclass fcadmin'>
 
