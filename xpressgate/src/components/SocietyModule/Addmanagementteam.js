@@ -14,6 +14,7 @@ const Addmanagementteam = () => {
   const location = useLocation()
   const [one,setOne] = useState({})
   const [title,setTitle] = useState()
+  const [from,setFrom] = useState()
 
   useEffect(() => {
     if (checkSociety()) {
@@ -49,7 +50,6 @@ const Addmanagementteam = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/resident/getall`)
       let resident_1 = await  data.data.Resident.find(x=>x.id===location.state.id)
-      console.log(resident_1.id)
       document.getElementById('resident_id').value = resident_1.id
       //setOne(data.data.Resident.find(x=>x.id===location.state.id))
       setResidents(data.data.Resident)
@@ -87,7 +87,6 @@ const Addmanagementteam = () => {
             to: document.getElementById('ToDate').value
           }
           const { data } = await axios.post(`${window.env_var}api/management/add`, sendData)
-          console.log(data)
           window.location.href = '/management'
        // }
       }
@@ -109,7 +108,6 @@ const Addmanagementteam = () => {
           to: document.getElementById('ToDate').value
         }
         const { data } = await axios.post(`${window.env_var}api/management/update`, sendDataedit)
-        console.log(data)
         window.location.href = '/management'
       }
     } catch (error) {

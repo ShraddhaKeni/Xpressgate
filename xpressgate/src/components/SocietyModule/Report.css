@@ -1,0 +1,525 @@
+html {
+  height: 100vh;
+}
+
+.sreportcontainer {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 0.5fr 2fr;
+  grid-template-rows: 0.2fr 2fr;
+  grid-template-areas: "srheadersection srheadersection"
+    "srsocietynamesection blcardsection"
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.code {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard_passcode {
+  position: relative;
+  top: 30px;
+  border: none;
+  outline: none;
+  background-color: #CFDBEB;
+  text-align: center;
+  width: 40px;
+  border-bottom: 5px solid #000000;
+
+}
+
+#srheadersection {
+  /* background-color: aquamarine; */
+  /* margin-top: 10%; */
+  grid-area: srheadersection;
+  background-color: #F9F9FF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#srsocietynamesection {
+  /* background-color: blueviolet; */
+  grid-area: srsocietynamesection;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#blcardsection {
+  /* background-color: blue; */
+  grid-area: blcardsection;
+  position: relative;
+
+}
+
+.srbackgroundimg {
+  background-image: url("../../../public/images/dashboardbackground.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  margin-top: 0.5%;
+}
+
+.sr_display {
+  width: 16vw;
+  height: 7vh;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  padding-top: 14px;
+  margin: auto;
+  margin-top: -3%;
+}
+
+.sr_display label {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.6vw;
+  text-align: center;
+  color: #14335D;
+}
+
+.srsearchbox {
+  width: 15%;
+  height: 5%;
+  border: 2px solid #000;
+  border-radius: 15px;
+  margin-left: 72%;
+  margin-top: 2%;
+
+}
+
+.srsearchbox img {
+
+  margin-left: -14%;
+}
+
+.srsearch_input {
+  outline: none;
+  border: none;
+  height: 40px;
+  width: 120px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.srcardsection {
+  max-width: 100%;
+  height: auto;
+  position: absolute;
+  display: flex;
+  margin-top: -38%;
+  margin-left: 16%;
+}
+
+.srreportfirst {
+  width: 24vw;
+  height: 15vh;
+  background: #AED8DC;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  margin-left: 15%;
+}
+
+.srActivityReports {
+  margin-left: 12%;
+  margin-top: 10%;
+  text-align: center;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  color: #14335D;
+  font-size: 1.4vw;
+}
+
+.srreportimage {
+  position: absolute;
+  margin-top: -66px;
+  margin-left: 2%;
+}
+
+.srViewbtn {
+  background: #14335D;
+  border-radius: 9px;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1vw;
+  color: #FFFFFF;
+  border: none;
+  margin-left: -220%;
+  width:120%;
+  margin-top: 6%;
+}
+
+.srViewbtn:hover {
+  background: #4b6c9c;
+}
+
+.srViewreportBtn {
+  position: absolute;
+  margin-top: 0%;
+  margin-left: 29%;
+
+}
+
+.srfirstblsection {
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
+  grid-template-areas: "srbllogo srsociety srspace srnotification srnotification srlogoutbutton";
+}
+
+#srbllogo {
+  grid-area: srbllogo;
+}
+
+#srbllogo img {
+  margin-top: 5%;
+  margin-left: 1%;
+  margin-bottom: 5%;
+  width: 40%;
+}
+
+#srsociety {
+  grid-area: srsociety;
+}
+
+#srsociety label {
+  margin-top: 20%;
+  margin-left: -88%;
+  width: 136px;
+  height: 58px;
+  background-color: black;
+  color: #fff;
+  border-radius: 18px;
+  padding-top: 4%;
+  font-size: 20px;
+}
+
+#srspace {
+  grid-area: srspace;
+}
+
+#srnotification {
+  grid-area: srnotification;
+}
+
+#srnotification img {
+  margin-top: 100%;
+}
+
+#srnotification {
+  grid-area: srnotification;
+}
+
+#srnotification img {
+  margin-top: 100%;
+}
+
+#srlogoutbutton {
+  grid-area: srlogoutbutton;
+}
+
+#srlogoutbutton img {
+  padding-left: 10%;
+  padding-bottom: 5%;
+}
+
+.srsocietyname label {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
+  margin-left: 4%;
+  margin-top: 13%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
+}
+
+.srsocietyname {
+  display: flex;
+  width: 80%;
+  height: 12%;
+  background-color: rgba(10, 137, 150, 0.33);
+  margin-left: 10%;
+  margin-top: 12%;
+  border-radius: 24px;
+}
+
+.srsocietyname img {
+  margin-left: 10%;
+  width: 25%;
+  height: 70%;
+  margin-top: 4%;
+}
+
+.srsideimage img {
+  display: flex;
+  margin-top: 68%;
+  max-width: 90%;
+  height: auto;
+  margin-left: 8%;
+  margin-bottom: 5%;
+}
+
+
+.blsidelinks {
+  margin-right: 60%;
+  margin-top: 10%;
+}
+
+.enterpasscodesearch {
+  width: 25%;
+  height: 10%;
+  background-color: #CFDBEB;
+  border-radius: 25px;
+  border-color: #0A8996;
+  border-style: solid;
+  margin: auto;
+  margin-top: 5%;
+  font-size: 20px;
+  font-weight: 600;
+  color: #0A8996;
+}
+
+.enterpasscodesearch img {
+  margin-left: 105%;
+  margin-top: -8%;
+}
+
+.blcard {
+  width: fit-content;
+  margin-left: 24%;
+  margin-bottom: 10%;
+  border: none;
+  cursor: pointer;
+}
+
+.srfullcardscss {
+  margin-top: 5%;
+  padding-left: 25px;
+  margin-right: 125px;
+  width: 100%;
+}
+
+.blminicard {
+  margin-left: 50%;
+  margin-bottom: 10%;
+  border: none;
+  background-color: #0A8996;
+  width: 70%;
+  height: 95%;
+  border-radius: 20px;
+}
+
+.blblock {
+  font-size: 19px;
+  font-family: 'Rubik', sans-serif;
+  color: #fff;
+  font-weight: 600;
+}
+
+.blflat {
+  width: 40%;
+  height: fit-content;
+  margin: auto;
+  font-family: 'Rubik', sans-serif;
+  color: #fff;
+}
+
+.btnView {
+  background-color: #14335D;
+  color: #fff;
+  border-radius: 14px;
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 4%;
+}
+
+/* Media query for laptop */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  #srsociety label {
+    margin-top: 14%;
+    margin-left: -68%;
+    width: 108px;
+    height: 45px;
+    background-color: black;
+    color: #fff;
+    border-radius: 18px;
+    padding-top: 3%;
+    font-size: 20px;
+  }
+
+  .srsocietyname label {
+    margin-left: 7%;
+    margin-top: 18%;
+    font-size: 15px;
+  }
+
+  .srbackgroundimg {
+    background-image: url("../../../public/images/dashboardbackground.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    margin-top: 10.5%;
+  }
+
+  .srsideimage img {
+    display: flex;
+    margin-top: 53%;
+    max-width: 95%;
+    height: auto;
+    margin-left: 2%;
+  }
+
+  .srfullcardscss {
+    margin-top: 5%;
+    margin-right: 4%;
+  }
+
+  .dbcard-img-top {
+    width: 150%;
+  }
+
+  .dashboard_passcode {
+    position: relative;
+    top: 36px;
+    border: none;
+    outline: none;
+    background-color: #CFDBEB;
+    text-align: center;
+    width: 14px;
+    border-bottom: 5px solid #000000;
+  }
+
+  .enterpasscodesearch {
+    width: 35%;
+    height: 10%;
+    background-color: #CFDBEB;
+    border-radius: 25px;
+    border-color: #0A8996;
+    border-style: solid;
+    margin: auto;
+    margin-top: 5%;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0A8996;
+  }
+
+  .blminicard {
+    margin-left: 50%;
+    margin-bottom: 10%;
+    border: none;
+    background-color: #0A8996;
+    width: 90%;
+    height: 95%;
+    border-radius: 20px;
+  }
+
+  .srsocietyname img {
+    margin-left: 6%;
+    width: 30%;
+    height: 70%;
+    margin-top: 8%;
+  }
+
+  .srsocietyname label {
+    margin-left: 1%;
+    margin-top: 13%;
+    font-size: 1.3vw;
+  }
+
+  .sr_display {
+    width: 17vw;
+    height: 7vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 1.4vw;
+    padding: 1%;
+    margin: auto;
+    margin-top: -13%;
+    margin-left: 38%;
+  }
+
+  .sr_display label {
+
+    font-size: 1.5vw;
+    text-align: center;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    color: #14335D;
+  }
+}
+
+/* Media query for mobile */
+@media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
+  .srsideimage {
+    display: none;
+  }
+
+  #srsocietynamesection {
+    display: none;
+  }
+
+  #srsociety {
+    display: none;
+  }
+
+  #srbllogo img {
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-bottom: 5%;
+    width: 114%;
+  }
+
+  .blcard {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-left: 6%;
+    margin-bottom: 10%;
+    border: none;
+  }
+
+  .srbackgroundimg {
+    background-image: url("../../../public/images/dashboardbackground.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    margin-top: 10.5%;
+  }
+
+  .societydisplay {
+    width: 160px;
+    height: 64px;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-top: 14px;
+    /* margin: auto; */
+    /* margin-top: -2%; */
+    margin-left: 50%;
+  }
+
+  .blminicard {
+    margin-left: 50%;
+    margin-bottom: 10%;
+    border: none;
+    background-color: #0A8996;
+    width: 128%;
+    height: 95%;
+    border-radius: 20px;
+  }
+
+}

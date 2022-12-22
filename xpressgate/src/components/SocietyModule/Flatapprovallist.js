@@ -88,7 +88,7 @@ const approveFlat=async(id)=>{
             </div>
             <br></br>
             <Button type="button" onClick={()=>approveFlat(flat._id)} className="btnApprove">APPROVE</Button>
-            <Button type="button" className="btnDenyFlat" onClick={()=>window.location.href="/flatList"}>DENY</Button>
+            <Button type="button" className="btnDenyFlat" onClick={()=>{ window.location.href = '/blockList'  }}>DENY</Button>
             <br></br>
           </div>
         </div>
