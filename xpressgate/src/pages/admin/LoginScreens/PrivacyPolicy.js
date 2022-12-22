@@ -27,13 +27,12 @@ const PrivacyPolicy = () => {
   }
   return (
     <>
-      <div className="container">
+      <div>
         <div className="page-label" >
           <label>Privacy Policy</label>
         </div>
 
         <div className="Policycontainer" >
-
           <div className="policiestextbox">
             <div className="editor">
               <CKEditor editor={ClassicEditor} data={policydata.rn} onchange={(e, editor) => { handleChange(e, editor) }} />

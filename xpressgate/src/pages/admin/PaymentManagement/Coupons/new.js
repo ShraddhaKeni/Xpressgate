@@ -48,11 +48,11 @@ export const AddCoupon = () => {
 
 
     return (
-        <div className="container">
+        <div>
             <div className='page-label'>
                 <label>Generate Coupon</label>
             </div>
-            <div className='main-container'>
+            <div>
 
                 <Form className='formclass fcadmin' method='POST' onSubmit={handleSubmit}>
 
@@ -65,7 +65,7 @@ export const AddCoupon = () => {
 
 
 
-                    <Button type="submit" className="hovergreen btnAddVeh">Generate</Button>
+                    <Button type="submit" className="hovergreen btnAddVeh" style={{ marginLeft: '18vw' }}>Generate</Button>
 
                 </Form>
 
