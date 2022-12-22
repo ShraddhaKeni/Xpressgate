@@ -46,12 +46,12 @@ const VideoClass = () => {
   return (
     <>
 
-      <div className="container">
+      <div >
         <div className="page-label">
           <label>Video Class</label>
         </div>
 
-        <div className="main-container" style={{ marginLeft: '0' }}>
+        <div style={{ marginLeft: '0' }}>
           <div className="table-top-right-content">
 
             <div className="VideoButton">
@@ -61,7 +61,7 @@ const VideoClass = () => {
               </div>
             </div>
           </div>
-          <div className="row row-cols-1 row-cols-md-3">
+          <div className="row row-cols-1 row-cols-md-3 mt-5">
 
             {console.log(currentPosts)}
             {currentPosts.map(item => {
@@ -79,7 +79,7 @@ const VideoClass = () => {
             })}
 
           </div>
-          <div className="paginate" style={{ marginTop: '-8%' }}>
+          <div className="paginate" style={{ marginTop: '-14%' }}>
             <PaginationCalculate totalPages={videos.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
           </div>
         </div>

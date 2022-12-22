@@ -7,20 +7,11 @@ const Reports = () => {
 
   return (
     <>
-      <div className="container">
+      <div>
         <div className='page-label'>
           <label>Reports</label>
         </div>
-        <div className='main-container'>
-
-          <div className='table-top-right-content  mt-5'>
-            <div className='table-search pl-2'>
-              <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-              <span><input className='search' placeholder='Search' /></span>
-            </div>
-
-          </div>
-
+        <div>
 
           <div className="reports row row-cols-2 row-cols-md-3 g-3 p-5">
             <div className="reportfirst p-4">
