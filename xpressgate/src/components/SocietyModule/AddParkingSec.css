@@ -31,13 +31,13 @@ height: 5vh;
 font-family: 'Rubik';
 font-style: normal;
 font-weight: 700;
-font-size: 0.7vw;
+font-size: 0.9vw;
 text-align: center;
 margin-left: -34%;
 color: #FFFFFF;
 margin-top: 5%;
 padding: 1%;
-
+border: none;
 
   }
   .AP_Button:hover{  
@@ -186,7 +186,7 @@ border-radius: 8px;
     color: #FFFFFF;
     margin-top: 5%;
     padding: 1%;
-    
+    border: none;
       }
       .AP_Button:hover{  
         background: #14335D;

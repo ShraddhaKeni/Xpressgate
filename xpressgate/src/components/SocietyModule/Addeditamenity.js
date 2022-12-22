@@ -164,7 +164,7 @@ const Addeditamenity = () => {
               <input type="file" accept='.jpg ,.jpeg ,.png' class="form-control input-lg sideBord" id='amenity_image' ref={image} name="inputnoofpeople"></input>
             </div>
           </div>
-          <Button type="submit" onClick={(e)=>{handleSubmit(e)}} className="btnAddAmenity">{type=='edit'?'Edit':'Add'}  Amenity</Button>
+          <button type="submit" onClick={(e)=>{handleSubmit(e)}} className="btnAddAmenity">{type=='edit'?'Edit':'Add'}  Amenity</button>
         </Form>
 
       </div>

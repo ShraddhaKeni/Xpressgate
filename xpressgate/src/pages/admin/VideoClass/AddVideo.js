@@ -23,7 +23,7 @@ const AddVideo = () => {
   }
   return (
     <>
-
+    <img src='/images/side_bar_img.svg' className='ADDVideo_side_Img' />
       <div className="AddVideocontainer">
         <div className="AddVideodisplay">
           <label>Add Video</label>

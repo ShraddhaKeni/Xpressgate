@@ -28,25 +28,21 @@ const SuperAdminLogin = () => {
   };
   return (
     <div className="superadmincontainer">
-
-
-
-      <div id="superadminloginimg">
+        <div id="Superadminlogo">
+              <img src="/images/loginlogo.svg" alt="" />
+            <div className="Admin_SignIn">
+              <label className="Admin_SignIn_Label">SIGN IN</label>
+            </div>
+            </div>
+        <div id="superadminloginimg">
         <img src="./images/SuperAdminImg.svg" alt="" />
       </div>
       <div id="Superadminloginform">
         <Form>
           <div className="Superadmininputfield">
-            <div id="Superadminlogo">
-              <img src="/images/loginlogo.svg" alt="" />
-            </div>
-            <br /><br />
-            <div className="signinlabel" disabled>
-              SIGN IN
-            </div>
-            <br />
+           
             <div className="email_input">
-              <label className="adminemail mb-3">Username</label>
+              <label className="adminemail">Username</label>
               <input
                 ref={username}
                 type="text"
@@ -60,7 +56,7 @@ const SuperAdminLogin = () => {
             </div>
             <br></br>
             <div className="email_input mt-4">
-              <label className="adminpassword mb-3">Password</label>
+              <label className="adminpassword">Password</label>
               <input
                 ref={password}
                 type="password"
@@ -74,7 +70,7 @@ const SuperAdminLogin = () => {
               <br />
               <Button
                 type="button"
-                className="adminloginbtn  mt-5"
+                className="adminloginbtn "
                 onClick={() => {
                   loginGuard();
                 }}
@@ -83,10 +79,9 @@ const SuperAdminLogin = () => {
               </Button>
             </div>
 
-            <div className="adminforgotpassword mt-4">
+            <div className="adminforgotpassword ">
               <a
                 href="/adminresetpass"
-                style={{ color: "#FD6B22" }}
               >
                 Forgot Password?
               </a>

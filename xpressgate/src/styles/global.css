@@ -21,11 +21,26 @@
 
 .logoutBtn {
     background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    font-size: 1.8rem;
-    font-weight: 500;
+  color: #fff;
+  border-radius: 14px;
+  height: 5.5vh;
+  font-size: 1.2vw;
+  font-weight: 500;
+  width: 8vw;
+  margin-top: 3%;
+  margin-left: -115%;
+  margin-right: 40%;
+  padding: 2%;
+  border: none;
   }
+  .logoutBtn img{     
+        padding-left: 10%;
+        padding-bottom: 5%;
+        width: 1.8vw;
+        height: auto;
+     
+  }
+
   .logoutBtn:hover {
     background-color: #14335D;
   }
@@ -318,7 +333,14 @@
     display: flex;
     flex-direction: row-reverse;
   }
-
+.Margin_NIcon{
+    margin-left: -850%;
+    /* margin-right: 120%; */
+}
+.Margin_setting_icon{
+    margin-right: 110%;
+    margin-left: -90%;
+}
   .download-invoice{
     border-radius: 1rem;
     padding: 0.5rem;
@@ -357,24 +379,27 @@
         grid-area: adminlogo;
  }
  #adminlogo img{
-    margin-top: 14%;
-    margin-left: -38%;
-    margin-bottom: 3%;
-    width: 5vw;
+    margin-top: 7%;
+    margin-left: -35%;
+    margin-bottom: 5%;
+    width: 35%;
  }
  #adminguard {
     grid-area: adminguard;
 }
 #adminguard label{
-  margin-top: 30%;
-  margin-left: -128%;
-  width: 9vw;
-  height: 6vh;
-  background-color: rgba(58, 54, 64, 1);
-  color: #fff;
-  border-radius: 11px;
-  padding: 5%;
-  font-size: 1.1vw;
+    margin-top: 22%;
+    margin-left: -135%;
+    width: 84%;
+    height: 40%;
+    background-color: black;
+    color: #fff;
+    border-radius: 19px;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2vw;
+    padding: 7.5%;
 }
 #adminspace {
     grid-area: adminspace;
@@ -419,8 +444,10 @@
   }
 
 .adminsidelogo {
-    width: 6vw;
-    height: 4vh;
+    margin-left: 10%;
+  width: 25%;
+  height: 70%;
+  margin-top: 5%;
 }
 .AdminSideImg {
     position: absolute;
@@ -508,7 +535,49 @@
     color: #726D6D;
     font-size: 1.2vw;
 }
-
+.margin_icons{
+    margin-left: 10%;
+}
+.DashBoard_side_Img{
+    display: flex;
+    margin-top: 32.2%;
+    margin-left: -32%;
+    /* max-width: 30%; */
+    width: 40%;
+    height: 24%;
+    margin-bottom: 5%; 
+    position: absolute;  
+  }
+.DashBoard_side_Img{
+    display: flex;
+    margin-top: 32.2%;
+    margin-left: -32%;
+    /* max-width: 30%; */
+    width: 40%;
+    height: 24%;
+    margin-bottom: 5%; 
+    position: absolute;  
+  }
+.Premise_side_Img{
+    display: flex;
+    margin-top: 34.5%;
+    margin-left: -32%;
+    /* max-width: 30%; */
+    width: 40%;
+    height: 24%;
+    margin-bottom: 5%; 
+    position: absolute;  
+  }
+.PAY_Coupans_side_Img{
+    display: flex;
+    margin-top: 34.5%;
+    margin-left: -32%;
+    /* max-width: 30%; */
+    width: 40%;
+    height: 24%;
+    margin-bottom: 5%; 
+    position: absolute;  
+  }
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
     #adminlogo img {
         margin-top: 14%;
@@ -528,7 +597,23 @@
         padding-bottom: -124%;
         font-size: 1.3vw;
     }
-
+    .logoutBtn {
+        background-color: #0A8996;
+        color: #fff;
+        border-radius: 9px;
+        height: 6vh;
+        font-size: 1.2vw;
+        font-weight: 500;
+        width: 8vw;
+        margin-top: 24%;
+        margin-right: 20%;
+        padding: 2%;
+        border: none;
+      }
+      .logoutBtn:hover {
+       background-color: #14335D;
+      }
+      
     #adminnotification img {
         margin-top: 106%;
         width: 2.5vw;
@@ -680,19 +765,23 @@
 }
 
 .admin-profile {
-    box-sizing: border-box;
-    background: rgba(174, 216, 220, 1);
+    display: flex;
+    width: 80%;
+    height: 12%;
+    background-color: rgba(10, 137, 150, 0.33);
+    margin-left: 10%;
+    margin-top: 12%;
     border-radius: 24px;
-    padding-top: 12px;
-    width: 15vw;
-    height: 9vh;
 }
 .admin-profile-username{
-    font-weight: 500;
     font-family: 'Rubik';
-    font-style: normal;
-    color: #14335D;
-    font-size: 1.2vw;
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
+  margin-left: 4%;
+  margin-top: 14%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
 }
 
 .sidelayout {

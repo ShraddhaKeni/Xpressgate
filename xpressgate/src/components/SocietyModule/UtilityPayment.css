@@ -126,18 +126,18 @@ font-weight: 500;
     background: #0A8996;
     border: none;
     color: #FFFFFF;
-    margin-top: -3%;
+    margin-top: 5%;
     font-family: 'Rubik';
     font-style: normal;
- 
+ margin-right: 1%;
 
 }
 .AUButnn:hover{
     background: #14335D;
 }
 .Utilitypaymentdate{
-  margin-right: 5%;
-  margin-left: -10%;
+  margin-right: 5.4%;
+  margin-left: -10.4%;
   font-size: 1.1vw;
   color: #14335D;
   font-family: 'Rubik';
@@ -146,7 +146,7 @@ font-weight: 500;
     
 }
 .Utility_Paymentdateinput{
-  width: 6vw;
+  width: 9vw;
   height: 4vh;
   padding: 1%;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
@@ -164,7 +164,7 @@ font-style: normal;
 font-weight: 500;
 }
 .Utility_Duedateinput{
-  width: 6vw;
+  width: 9vw;
   height: 4vh;
   padding: 1%;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
@@ -174,7 +174,7 @@ font-weight: 500;
   margin-right: 6%;
 }
 .VenDorInp {
-  width: 20vw;
+  width: 27vw;
   height: 4.5vh;
   padding: 0%;
   box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);

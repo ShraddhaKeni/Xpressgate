@@ -225,9 +225,9 @@ const getOneData = async () => {
             </div>
           </div>
 
-          <Button type="submit" onClick={(e) => handleSubmit(e)} className="AMM_Add_btn">
+          <button type="submit" onClick={(e) => handleSubmit(e)} className="AMM_Add_btn">
             Add Number
-          </Button>
+          </button>
         </Form>
       </div>
     </div>

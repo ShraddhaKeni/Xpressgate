@@ -70,7 +70,7 @@ const Login_society = () => {
                 placeholder="Password"
               ></input>
               <br />
-              <Button
+              <button
                 type="button"
                 className="socbtnlogin"
                 onClick={() => {
@@ -78,7 +78,7 @@ const Login_society = () => {
                 }}
               >
                 Login
-              </Button>
+              </button>
             </div>
 
             <div className="socforgotpassword"><a href="/screset" >Forgot Password?</a></div>

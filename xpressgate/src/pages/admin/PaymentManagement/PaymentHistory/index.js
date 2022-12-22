@@ -85,6 +85,8 @@ export const PaymentHistory = ({ route }) => {
 
 
     return (
+        <>
+         <img src='/images/side_bar_img.svg' className='PAY_Coupans_side_Img' />
         <div>
             <div className='page-label'>
                 <label>Payment History</label>
@@ -131,5 +133,6 @@ export const PaymentHistory = ({ route }) => {
 
             </div >
         </div >
+        </>
     )
 }

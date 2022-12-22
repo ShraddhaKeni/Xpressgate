@@ -89,6 +89,7 @@ html {
   margin-right: 34%;
   padding: 1%;
   font-weight: 700;
+  border: none;
 }
 .AMM_Add_btn:hover {
   background-color: #14335D;
@@ -234,6 +235,7 @@ color: #14335D;
   margin-right: 32%;
   padding: 1%;
   font-weight: 700;
+  border: none;
 }
 .AMM_Add_btn:hover {
   background-color: #14335D;

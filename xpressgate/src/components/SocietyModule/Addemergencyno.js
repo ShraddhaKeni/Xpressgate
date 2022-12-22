@@ -147,7 +147,17 @@ const Addemergencyno = () => {
           <label>Add Emergency Number</label>
         </div>
         <Form className='formclass'>
-
+        <div class="form-group  form-group5 row">
+            <label class="col-lg-2 col-form-label ADN_label">Type</label>
+            <div class="col-lg-4">
+              <select class="form-control input-lg input-lg1 AEN_border" ref={type} id="emergencytype" name="Type">
+                <option value={null} selected disabled>Select Type</option>
+                {contactTypes.map((items) => {
+                  return <option value={items.id}>{items.emgContactType}</option>
+                })}
+              </select>
+            </div>
+          </div>
           <div class="form-group form-group5 row">
             <label class="col-lg-2 col-form-label ADN_label ">Name</label>
             <div class="col-lg-4">
@@ -160,19 +170,9 @@ const Addemergencyno = () => {
               {econtact ? <input type="number" id="contact_number" ref={contact} defaultValue={econtact} name="Phone Number" className="form-control input-lg input-lg1 AEN_border" placeholder="Contact"></input> : <input type="number" class="form-control input-lg input-lg1 AEN_border" id="contact_number" ref={contact} name="Phone Number" placeholder="Contact"></input>}
             </div>
           </div>
-          <div class="form-group  form-group5 row">
-            <label class="col-lg-2 col-form-label ADN_label">Type</label>
-            <div class="col-lg-4">
-              <select class="form-control input-lg input-lg1 AEN_border" ref={type} id="emergencytype" name="Type">
-                <option value={null} selected disabled>Select Type</option>
-                {contactTypes.map((items) => {
-                  return <option value={items.id}>{items.emgContactType}</option>
-                })}
-              </select>
-            </div>
-          </div>
+          
 
-          <Button type="submit" onClick={(e) => handleSubmit(e)} className="AEN_btnAdd">Add Number</Button>
+          <button type="submit" onClick={(e) => handleSubmit(e)} className="AEN_btnAdd">Add Number</button>
         </Form>
 
 

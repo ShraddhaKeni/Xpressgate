@@ -42,16 +42,17 @@ color: #14335D;
 .AGBtn{
   background: #0A8996;
 border-radius: 9px;
-  width: 7vw;
+  width: 8vw;
   height: 5vh;
   font-family: 'Rubik';
 font-style: normal;
 font-weight: 700;
 font-size: 1vw;
 text-align: center;color: #FFFFFF;
-  margin-top: 5%;
+  margin-top: 4%;
   margin-right: 35%;
-  padding-top: 0.5%;
+  padding: 0%;
+  border: none;
 }
 .AGBtn:hover{
   background-color: #14335D;

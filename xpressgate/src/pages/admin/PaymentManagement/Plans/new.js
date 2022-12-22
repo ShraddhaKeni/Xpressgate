@@ -34,6 +34,8 @@ export const AddPlan = () => {
 
 
     return (
+        <>
+        <img src='/images/side_bar_img.svg' className='PAY_Coupans_side_Img' />
         <div>
             <div className='page-label'>
                 <label>Add New Subscription Plan</label>
@@ -56,6 +58,7 @@ export const AddPlan = () => {
 
             </div>
         </div>
+        </>
     )
 }
 
