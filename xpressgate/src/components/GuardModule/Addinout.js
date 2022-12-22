@@ -1,11 +1,8 @@
 import '../GuardModule/Addinout.css';
-import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import GuardHeader from './Utils/GuardHeader';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { CompressOutlined } from '@mui/icons-material';
-import { getBlocks } from '../SocietyModule/common/common';
+import React, { useEffect, useRef, useState } from 'react';
 import { checkGuard } from '../auth/Auth';
 import './Addinout.css';
 import { useNavigate } from 'react-router-dom'
@@ -15,9 +12,12 @@ const Addinout = () => {
   const [block, setBlock] = useState([])
   const [visitor_type, setVisitorType] = useState([])
   const [flatno, setFlatNo] = useState([])
+  const [vendor, setVendor] = useState([])
+  const [dailyhelp, setDailyhelp] = useState([])
+  const [residents, setResidents] = useState([])
 
   // let blockid = document.getElementById('item').value
-
+  const visitortype = useRef([])
 
   useEffect(() => {
     getBlocks();
@@ -38,7 +38,8 @@ const Addinout = () => {
     } else {
       window.location.href = '/'
     }
-
+    document.getElementById('fullvendor').classList.add('select_visibility')
+    document.getElementById('fulldailyhelp').classList.add('select_visibility')
   }, [])
   const getBlocks = async (e) => {
     try {
@@ -63,26 +64,63 @@ const Addinout = () => {
     }
   }
 
-  const navigate = useNavigate();
-
-  const handleSubmit=async(e)=>{
-    e.preventDefault();
+  const getResidents = async (e) => {
     try {
-     
-      let date = new Date(document.getElementById('date').value+'T'+document.getElementById('intime').value+':00').toISOString()
-      const sendData = {
-        firstname:document.getElementById('name').value,
-        type:document.getElementById('visitortype').value,
-        flat_id:document.getElementById('flatno').value,
-        mobileno:document.getElementById('contact_no').value,
-        intime: date,
-        status:document.getElementById('status').value,
-        bookedID : 1,
-        community_id: "632970d054edb049bcd0f0b4"
+      const config = {
+        headers:{'x-access-token':localStorage.getItem('accesstoken')},
+      }
+      const { data } = await axios.get(`${window.env_var}api/resident/getResidentByFlatId/${e.target.value}`,config)
+      //setResidents(data.data.list)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getDetails = async (e) => {
+    try {
+      if (visitortype.current.value == 2) {
+
+        document.getElementById('fullvendor').classList.remove('select_visibility')
+        document.getElementById('fulldailyhelp').classList.add('select_visibility')
+        const { data } = await axios.get(`${window.env_var}api/vendor/getAll`)
+        setVendor(data.data.vendors)
+      } else if (visitortype.current.value == 3) {
+        document.getElementById('fullvendor').classList.add('select_visibility')
+        document.getElementById('fulldailyhelp').classList.remove('select_visibility')
+        const { data } = await axios.get(`${window.env_var}api/admin/dailyhelp/getAll`)
+        setDailyhelp(data.data.dailyhelp)
       }
 
-      const {data} = await axios.post(`${window.env_var}api/inout/add`,sendData)
-      window.location.href='/inoutbook'
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+    
+      let date = new Date(document.getElementById('date').value + 'T' + document.getElementById('intime').value + ':00').toISOString()
+      const sendData = {
+        firstname: document.getElementById('name').value,
+        type: document.getElementById('visitortype').value,
+        flat_id: document.getElementById('flatno').value,
+        mobileno: document.getElementById('contact_no').value,
+        intime: date,
+        status: document.getElementById('status').value,
+        bookedID: 1,
+        community_id: localStorage.getItem('community_id'),
+        vendor_id: document.getElementById('vendor').value,
+        serviceType: document.getElementById('dailyhelp').value,
+        residentID: document.getElementById('resident').value,
+        allowed_by: localStorage.getItem('guard_id')
+      }
+
+      const { data } = await axios.post(`${window.env_var}api/inout/addbyguard`, sendData)
+      console.log(data)
+      window.location.href = '/inoutbook'
     } catch (error) {
       console.log(error)
     }
@@ -116,10 +154,32 @@ const Addinout = () => {
           <div className="form-group row">
             <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Visitor Type</label>
             <div className="col-sm-4 col-md-4 col-lg-4">
-              <select class="form-control input-lg AIOBorder" name="visitortype" placeholder="Visitor Type" id="visitortype">
+              <select class="form-control input-lg AIOBorder" ref={visitortype} name="visitortype" placeholder="Visitor Type" id="visitortype" onChange={(e) => getDetails(e)}>
                 <option value={1}>Guest</option>
                 <option value={2}>Vendor</option>
                 <option value={3}>Daily Helper</option>
+              </select>
+            </div>
+          </div>
+          <div className="form-group row" id='fullvendor'>
+            <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Select Vendor</label>
+            <div className="col-sm-4 col-md-4 col-lg-4">
+              <select className="form-control input-lg" id="vendor" placeholder="Vendor">
+                <option value="" selected disabled>Select Vendor</option>
+                {vendor.map(item => {
+                  return <option value={item._id}>{item.vendorName}</option>
+                })}
+              </select>
+            </div>
+          </div>
+          <div className="form-group row" id='fulldailyhelp'>
+            <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Select Daily Helper</label>
+            <div className="col-sm-4 col-md-4 col-lg-4">
+              <select className="form-control input-lg" id="dailyhelp" placeholder="Daily Helper">
+                <option value="" selected disabled>Select Daily Helper</option>
+                {dailyhelp.map(item => {
+                  return <option value={item.id}>{item.serviceType}</option>
+                })}
               </select>
             </div>
           </div>
@@ -140,10 +200,21 @@ const Addinout = () => {
           <div className="form-group row">
             <label className="col-lg-2 col-form-label ADN_label">Flat No.</label>
             <div className="col-lg-4">
-              <select className="form-control input-lg AIOBorder" id="flatno" placeholder="Flat No.">
+              <select className="form-control input-lg AIOBorder" id="flatno" placeholder="Flat No." onChange={(e) => getResidents(e)}>
                 <option value="" selected disabled>Select Flat</option>
                 {flatno.map(item => {
                   return <option value={item._id}>{item.flat_number}</option>
+                })}
+              </select>
+            </div>
+          </div>
+          <div className="form-group row">
+            <label className="col-lg-2 col-form-label ADN_label">Resident</label>
+            <div className="col-lg-4">
+              <select className="form-control input-lg" id="resident" placeholder="Resident">
+                <option value="" selected disabled>Select Resident</option>
+                {flatno.map(item => {
+                  return <option value={item._id}>{item.firstname}{item.lastname}</option>
                 })}
               </select>
             </div>

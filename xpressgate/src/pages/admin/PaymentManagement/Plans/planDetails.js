@@ -43,9 +43,9 @@ export const PlanDetails = () => {
             {plan &&
                 <div>
                     <div className='page-label'>
-                        <label>plan Details</label>
+                        <label>Plan Details</label>
                     </div>
-                    <div>
+                    <div style={{ margin: '0 20%', marginTop: '5%' }}>
                         <div className="trans-bg-container">
                             <div>
                                 <p className='h3 bold'><b>Plan Details</b></p>

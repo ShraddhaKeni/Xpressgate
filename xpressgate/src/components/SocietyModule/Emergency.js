@@ -33,10 +33,10 @@ const Emergency = () => {
     }
   }
 
-  const paginate = async (event) => {
+  const paginate =  (event) => {
 
     setCurrentpage(event.selected + 1)
-    const indexoflast = currentPage * postPerPage  //endoffset
+    const indexoflast = (event.selected + 1) * postPerPage  //endoffset
     const indexoffirst = indexoflast - postPerPage //startoffset
     setCurrentPosts(contacts.slice(indexoffirst, indexoflast))
   }

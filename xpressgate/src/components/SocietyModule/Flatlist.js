@@ -25,6 +25,18 @@ const Flatlist = () => {
 
   }, [])
 
+  const getflatlist = async () => {
+    try {
+      const { data } = await axios.get(`${window.env_var}api/flats/getList/${location.state.id}`)
+      setFlats(data.data.list)
+      const indexoflast = currentPage * postPerPage  //endoffset
+      const indexoffirst = indexoflast - postPerPage //startoffset
+      setCurrentPosts(data.data.list.slice(indexoffirst, indexoflast))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const getFlats = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/flats/getList/${location.state.id}`)
@@ -91,6 +103,7 @@ const Flatlist = () => {
 
   return (
     <div className="flcontainer">
+      
       <div id="flheadersection">
         <div class="flfirstheadersection">
           <div id="fldashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
@@ -143,7 +156,6 @@ const Flatlist = () => {
             </tr>
           </thead>
           <tbody>
-
             {currentPosts.map(item => {
               return (
                 <tr style={item.status == false ? { backgroundColor: '#AED8DC' } : { backgroundColor: 'white' }} onClick={() => { item.status == false ? aprroveFlatScreen(item._id) : getFlats() }}>

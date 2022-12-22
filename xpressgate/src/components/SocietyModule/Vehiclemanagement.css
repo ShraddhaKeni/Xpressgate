@@ -276,6 +276,15 @@ color: #FEFEFF;
 font-size: 1.5vw;
 }
 
+.apssec{
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  color: #5C5C5C;
+  font-size: 1vw;
+  margin-left: 12%;
+}
+
 .VPsec{
   font-family: 'Rubik';
   font-style: normal;

@@ -1,32 +1,90 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Addnotice.css';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import LogOut from './Utils/LogOut';
 import axios from 'axios'
+import { useLocation } from "react-router-dom";
+import { checkSociety } from '../auth/Auth'
+import { useNavigate } from 'react-router-dom';
 
 const Addnotice = () => {
+  const [notice, setNotice] = useState({})
+  const location = useLocation()
+  const [type, setType] = useState('add')
+  const navigate = useNavigate()
 
   const handleSubmit=async(e)=>{
     e.preventDefault();
     try {
-     
       let date = new Date(document.getElementById('notice_date').value+'T'+document.getElementById('notice_time').value+':00').toISOString()
-      const sendData = {
-        noticeTitle:document.getElementById('notice_title').value,
-        noticeBody:document.getElementById('notice_description').value,
-        eventDate:date,
-        fromTime:date,
-        toTime:date,
-        community_id:localStorage.getItem('community_id')  //will be from localstorage
+      if (type == 'edit') {
+        let formdata = new FormData()
+        formdata.append('noticeTitle', document.getElementById('noticeTitle').value)
+        formdata.append('noticeBody', document.getElementById('noticeBody').value)
+        formdata.append('eventDate',date)
+        formdata.append('fromTime', date)
+        formdata.append('toTime', date)
+        formdata.append('community_id', localStorage.getItem('community_id'))
+        if (document.getElementById('attachment').value) {
+          formdata.append('attachment', document.getElementById('attachment').files[0])
+        }
+        const { data } = await axios.post(`${window.env_var}api/guard/updateNotice`, formdata)
+        window.location.href = '/noticeList'
       }
-
-      const {data} = await axios.post(`${window.env_var}api/notices/addNotice`,sendData)
-      window.location.href='/noticeList'
+      else {
+        let formdata = new FormData()
+        formdata.append('noticeTitle', document.getElementById('noticeTitle').value)
+        formdata.append('noticeBody', document.getElementById('noticeBody').value)
+        formdata.append('eventDate',date)
+        formdata.append('fromTime', date)
+        formdata.append('toTime', date)
+        formdata.append('community_id', localStorage.getItem('community_id'))
+        formdata.append('attachment', document.getElementById('attachment').files[0])
+        const { data } = await axios.post(`${window.env_var}api/notices/addNotice`, formdata)
+        window.location.href = '/noticeList'
+      }
     } catch (error) {
       console.log(error)
     }
   }
+
+  useEffect(() => {
+    if (checkSociety()) {
+      const config = {
+        headers: {
+          'x-access-token': localStorage.getItem('accesstoken')
+        }
+      }
+      axios.get(`${window.env_var}api/society/checkLogin`, config)
+        .then(({ data }) => {
+          if (location.state) {
+            getNoticeDetails()
+            setType(location.state.type)
+          }
+          else {
+            // window.history.back(-1)
+          }
+        })
+        .catch(err => {
+          localStorage.clear();
+          window.location.href = '/societylogin'
+        })
+    }
+    else {
+      window.location.href = '/'
+    }
+  }, [])
+
+  const getNoticeDetails = async () => {
+    try {
+      const { data } = await axios.get(`${window.env_var}api/notices/getOne/${location.state.id}`)
+      setNotice(data.data.notice[0])
+    } catch (error) {
+
+    }
+  }
+
   return (
     <div className="ancontainer">
       <div id="ansection">

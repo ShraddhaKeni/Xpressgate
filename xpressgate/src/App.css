@@ -95,3 +95,7 @@ textarea.input-lg{
 {
   background-color: #14335D;;
 }
+
+img:hover {
+  cursor:pointer;
+}

@@ -5,6 +5,7 @@ import LogOut from './Utils/LogOut';
 import axios from 'axios'
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import Societyheader from './Utils/Societyheader';
+import { useNavigate } from "react-router-dom";
 
 const Vehiclemanagement = () => {
 
@@ -12,6 +13,8 @@ const Vehiclemanagement = () => {
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts, setCurrentPosts] = useState([])
+  const navigate= useNavigate()
+
   useEffect(() => {
     getVehicleParkDetails()
   }, [])
@@ -57,6 +60,11 @@ const Vehiclemanagement = () => {
 
   }
 
+function navigatetoEdit(name,section)
+  {
+    navigate('/addvehicle',{state:{type:'edit',name,section}})
+  }
+
   return (
     <div className="vmcontainer">
       <div id="vmheadersection">
@@ -68,6 +76,8 @@ const Vehiclemanagement = () => {
           <label>Society Name</label>
         </div>
         <div className='vmsidelinks'>
+          <label>Vehicle list</label><br></br>
+          <a href='/addvehicle' className='apssec'>Assign parking section</a><br/><br/>
         <a href='/vehiclemanagement' className='VLsecLink'><b>Vehicle List</b></a><br/><br/>
           <a href='/viewparking' className='VPsec'>View parking section</a><br/><br/>
           <a href='/addparking' className='APsec'>Add parking section</a>
@@ -102,8 +112,9 @@ const Vehiclemanagement = () => {
           </thead>
           <tbody>
             {currentPosts.map(item => {
+              console.log(item)
               return (
-                <tr>
+                <tr onClick={() => navigatetoEdit(item.firstname, item.section )}>
                   <td>{item.firstname} {item.lastname}</td>
                   <td >{item.vehicle_number}</td>
                   <td>{item.vehicle_make}</td>
