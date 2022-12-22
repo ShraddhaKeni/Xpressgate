@@ -36,7 +36,7 @@ export const AddPlan = () => {
     return (
         <div>
             <div className='page-label'>
-                <label>Add new Subscription Plan</label>
+                <label>Add New Subscription Plan</label>
             </div>
             <div>
 
