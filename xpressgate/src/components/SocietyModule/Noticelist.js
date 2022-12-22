@@ -64,7 +64,11 @@ const Noticelist = () => {
       paginate(0)
     }
   
-}
+  }
+  function noticeDetails(id)
+  {
+    navigate('/addNotice',{state:{id:id,type:'edit'}})
+  }
 
   return (
     <div className="nlcontainer">
@@ -109,7 +113,7 @@ const Noticelist = () => {
 
             {currentPosts.map((item, index) => {
               return (
-                <tr>
+                <tr onClick={()=>noticeDetails(item.id)}>
                   <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1 + 1) + (index + 1)}</td>
                   <td >{item.noticeTitle}</td>
                   <td>{getDate(item.eventDate)}</td>
