@@ -46,12 +46,12 @@ const VideoClass = () => {
   return (
     <>
 
-      <div className="container">
+      <div >
         <div className="page-label">
           <label>Video Class</label>
         </div>
 
-        <div className="main-container" style={{ marginLeft: '0' }}>
+        <div style={{ marginLeft: '0' }}>
           <div className="table-top-right-content">
 
             <div className="VideoButton">

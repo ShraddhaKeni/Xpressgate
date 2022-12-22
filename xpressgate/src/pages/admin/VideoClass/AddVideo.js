@@ -25,7 +25,6 @@ const AddVideo = () => {
     <>
 
       <div className="AddVideocontainer">
-        <img src="/images/AdminBgImg.svg" className="Addbgimg"></img>
         <div className="AddVideodisplay">
           <label>Add Video</label>
         </div>

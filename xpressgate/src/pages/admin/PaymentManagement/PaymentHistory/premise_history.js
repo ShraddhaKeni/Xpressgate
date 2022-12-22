@@ -80,11 +80,11 @@ export const PremisesPayHistory = ({ route }) => {
     }
 
     return (
-        <div className="container pb-5">
+        <div>
             <div className='page-label'>
                 <label>Payment History</label>
             </div>
-            <div className='main-container mt-5'>
+            <div>
 
                 <div className='table-top-right-content search-right mb-5'>
                     <div className='table-search pl-2'>
@@ -121,9 +121,7 @@ export const PremisesPayHistory = ({ route }) => {
 
                     </tbody>
                 </table>
-                {allHistory && <div className='flex space-between'>
-                    <p>Showing {currentPage} of {`${Math.ceil(allHistory.length / PageSize)}`}</p>
-
+                {allHistory && <div className='paginate'>
                     {/* <PaginationCalculate totalPages={Math.ceil(allCoupons.length / PageSize)} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} /> */}
                     <PaginationCalculate totalPages={allHistory.length} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} />
 

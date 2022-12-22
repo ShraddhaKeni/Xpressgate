@@ -65,11 +65,11 @@ const PremiseList = () => {
     }
 
     return (
-        <div className="container pb-5">
+        <div>
             <div className='page-label'>
                 <label>Premises Management</label>
             </div>
-            <div className='main-container mt-5'>
+            <div>
 
                 <div className='table-top-right-content'>
                     <div className='table-search pl-2'>

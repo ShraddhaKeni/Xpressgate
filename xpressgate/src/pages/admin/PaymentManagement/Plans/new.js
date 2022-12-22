@@ -34,13 +34,13 @@ export const AddPlan = () => {
 
 
     return (
-        <div className="container">
+        <div>
             <div className='page-label'>
                 <label>Add new Subscription Plan</label>
             </div>
-            <div className='main-container mt-5'>
+            <div>
 
-                <Form className='formclass fcadmin' style={{ width: '100%' }}>
+                <Form className='formclass fcadmin'>
 
                     <SimpleInputComponent label={'Plan Name'} name={'name'} onChange={(e) => plan.name = e.target.value} required />
                     <SimpleInputComponent label={'Plan code'} name={'code'} onChange={(e) => plan.code = e.target.value} required />
@@ -50,7 +50,7 @@ export const AddPlan = () => {
 
 
 
-                    <Button type="button" onClick={(e) => handleSubmit(e)} className="hovergreen btnAddVeh">Add</Button>
+                    <Button type="button" onClick={(e) => handleSubmit(e)} style={{ marginLeft: '18vw' }} className="hovergreen btnAddVeh">Add</Button>
 
                 </Form>
 
