@@ -79,7 +79,7 @@ const VideoClass = () => {
             })}
 
           </div>
-          <div className="paginate">
+          <div className="paginate" style={{ marginTop: '4%' }}>
             <PaginationCalculate totalPages={videos.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
           </div>
         </div>
