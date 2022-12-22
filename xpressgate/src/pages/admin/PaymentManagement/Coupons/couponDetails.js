@@ -57,7 +57,7 @@ export const CouponDetails = () => {
                     <div className='page-label'>
                         <label>Coupon Details</label>
                     </div>
-                    <div>
+                    <div style={{ margin: '0 20%', marginTop: '5%' }}>
                         <div className="trans-bg-container">
                             <div>
                                 <p className='h3 bold'><b>Coupon Details</b></p>
