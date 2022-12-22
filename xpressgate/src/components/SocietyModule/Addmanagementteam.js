@@ -31,6 +31,7 @@ const Addmanagementteam = () => {
              getResidents()// 2 times getResidents is required
           setTitle(location.state.title)
           setType(location.state.type)
+          getOneData()
           }else{
             getResidentsAdd()
           }
@@ -46,6 +47,16 @@ const Addmanagementteam = () => {
     }
   }, [])
 
+const getOneData = async () => {
+  try {
+    const { data } = await axios.get(`${window.env_var}api/management/getOne/${props.booked_id}`)
+   
+    setResidents(data.data.Resident)
+  } catch (error) {
+    console.log(error)
+  }
+}
+  
   const getResidents = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/resident/getall`)

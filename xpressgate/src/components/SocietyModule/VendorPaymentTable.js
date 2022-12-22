@@ -81,11 +81,12 @@ const VendorPaymentTable = () => {
           </thead>
           <tbody>
             {currentPosts.map(item => {
+              console.log(item)
               return (
                 <tr>
                   <td>{item.vendorName}</td>
-                  <td >bl</td>
-                  <td>fl</td>
+                  <td >{item.block.block_no}</td>
+                  <td>{item.flat.flat_no}</td>
                   <td>{item.resident.firstname}{item.resident.lastname}</td>
                   <td>{item.paymentAmount}</td>
                   <td>{item.paid ? 'PAID' : 'NOT PAID'}</td>
