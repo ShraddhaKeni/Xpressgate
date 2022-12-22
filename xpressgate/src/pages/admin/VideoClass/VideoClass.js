@@ -68,7 +68,7 @@ const VideoClass = () => {
               return (
                 <div className="col">
 
-                  <div className="videocard row p-5">
+                  <div className="videocard ">
                     {/* <video className='videoclass' src={vdata.videoURL} controls></video> */}
                     <ReactPlayer className='player' url={item.videoURL} />
                     <label className='card-titlename' onClick={() => { navigate('/admin/editvideo', { state: { id: item._id } }) }}>{item.videoTitle}</label>
@@ -79,7 +79,7 @@ const VideoClass = () => {
             })}
 
           </div>
-          <div className="paginate" style={{ marginTop: '2%' }}>
+          <div className="paginate">
             <PaginationCalculate totalPages={videos.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
           </div>
         </div>
