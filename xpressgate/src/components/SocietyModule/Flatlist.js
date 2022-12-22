@@ -98,7 +98,7 @@ const Flatlist = () => {
           <div id="sldashboardspace"></div>
           <div id="flnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
           <div id="flsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="fllogoutbutton"> <Button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></Button></div>
+          <div id="fllogoutbutton"> <button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></button></div>
         </div>
       </div>
       <div id="flsection">
@@ -125,6 +125,7 @@ const Flatlist = () => {
             <span><label className='searchlabel'>Search</label><input className='search_input' onChange={(e)=>findText(e)} ></input></span>
           </div>
         </div> */}
+        <button type="button" onClick={()=>{window.location.href='/addflat'}} className="ADDFlaT">&#10011; Add Flat</button>
         <div className='row'>
           <div className='flsearchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>

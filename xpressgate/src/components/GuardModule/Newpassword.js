@@ -75,7 +75,7 @@ const Newpassword = () => {
               <input type="password" className="form-control NEWPpasswordtextbox" id="confirmpassword" placeholder='Confirm password'></input>
             </div>
             <br></br>
-            <Button type="button" className="NPBtnConfirm" onClick={() => { confirmPasword() }}>Login</Button>
+            <button type="button" className="NPBtnConfirm" onClick={() => { confirmPasword() }}>Login</button>
           </div>
         </Form>
       </div>

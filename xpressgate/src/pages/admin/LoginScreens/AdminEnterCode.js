@@ -18,25 +18,20 @@ const AdminEnterCode = () => {
   }
   return (
     <div className="superadmincontainer">
-      
-        
-
-      <div id="superadminloginimg">
+        <div id="Superadminlogo">
+              <img src="/images/loginlogo.svg" alt="" />
+            <div className="Admin_SignIn">
+              <label className="Admin_SignIn_Label">Forgot Password</label>
+            </div>
+            </div>
+        <div id="superadminloginimg">
         <img src="./images/SuperAdminImg.svg" alt="" />
       </div>
       <div id="Superadminloginform">
         <Form>
           <div className="Superadmininputfield">
-          <div id="Superadminlogo">
-            <img src="/images/loginlogo.svg" alt="" />
-          </div>
-         <br/><br/>
-            <div className="signinlabel" disabled>
-            RESET PASSWORD
-            </div>
-            <br />
             <div className="email_input">
-              <label className="adminentercode">Enter Code</label>
+              <label className="adminemail">Enter Code</label>
               <input
                 ref={username}
                 type="text"
@@ -51,13 +46,13 @@ const AdminEnterCode = () => {
             <br></br>
             <div className="email_input">
              
-              <Button
+              <button
                 type="button"
                 className="adminverifybtn"
                 onClick={()=>{sendOTP()}}
               >
                Verify
-              </Button>
+              </button>
             </div>
 
           </div>

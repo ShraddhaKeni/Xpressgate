@@ -157,11 +157,10 @@ const UtilityPayment = () => {
                 </span>
             </div>
         </div>
-        <div className="ButtonsContainer3">
-            <div className="button1">
+      
                 <button type="button" onClick={()=>{handleSubmit()}} className="AUButnn">Add</button>
-            </div>
-        </div>
+            
+       
       </div>
     </div>
        

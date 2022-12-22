@@ -122,7 +122,7 @@ const Addguard = () => {
       </div>
       <div className="addguestbackgroundimg">
         <div className='AG_display'>
-          <label>{type == 'edit' ? 'Edit Guard' : 'Add Guard'}</label>
+          <label>{type == 'edit' ? 'Update Guard' : 'Add Guard'}</label>
         </div>
         <Form className='formclass'>
           <div class="form-group form-group6 row">
@@ -178,7 +178,7 @@ const Addguard = () => {
            </div>
          </div>
 
-         <Button type="submit" onClick={(e)=>handleSubmit(e)} className="AGBtn">{type=='edit'?'Edit Guard':'Add Guard'}</Button>
+         <button type="submit" onClick={(e)=>handleSubmit(e)} className="AGBtn">{type=='edit'?'Update Guard':'Add Guard'}</button>
          </Form>
 
       </div>

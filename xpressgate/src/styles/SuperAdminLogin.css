@@ -5,9 +5,10 @@ html{
   .superadmincontainer {
     display: grid;
     height: 100vh;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: "Superadminloginform superadminloginimg"
+    grid-template-columns: 1.8fr 2fr;
+    grid-template-rows:  2.4fr 2fr;
+    grid-template-areas: "Superadminlogo superadminloginimg "
+                          "Superadminloginform superadminloginimg"
   }
   /* #Superadminlogo{
     margin-top: 2rem;
@@ -17,11 +18,14 @@ html{
   }
   */
   #Superadminlogo{
-    position: relative;
+    grid-area: Superadminlogo;
   }
 
   #Superadminlogo img{
-    width: 10vw;
+    margin-top: 10%;
+    width: 28vw;
+    height: 28vh;
+    margin-left: 3%;
   }
 
   #superadminloginimg {
@@ -31,90 +35,117 @@ html{
   
   #superadminloginimg img{
     height: 100vh;
-    width: 63vw;
+    width: 65vw;
   }
   
   #Superadminloginform {
-    height: 100%;
-    margin-top: 20%;
+   
+    grid-area: Superadminloginform;
+    position: relative;
+    margin-left: -4rem;
+    /* margin-top: -35rem; */
   }
   
   .req{
     color: red;
   }
-  
-  .adminloginbtn{
+  .adminloginbtn {
     background-color: #0A8996;
     color: #fff;
     border-radius: 14px;
     width: 12vw;
-    height: 5vh;
-    font-size: 1.8rem;
+    height: 6vh; 
+    font-size: 1.5vw;
     font-weight: 500;
-    margin-left: 0%;
-    margin-bottom: -1%;
-    padding: 1%;
-    
-  }
-
-  .btn-primary:hover{
-    background-color: #0b2447;
-  }
-
-  .signinlabel{
-    background-color: #0b2447;
-    color: #fff;
-    width: 30vw;
-    height: 5.5vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.5rem !important;
-    font-weight: 500;
-    margin-bottom: 2%;
-    font-size: 2vw;
+    margin-top: 6%;
+    padding-bottom: 3%;
+    font-family: 'Rubik';
+  font-style: normal;
+  margin-left: -4.5%;
+  border: none;
   }
   
+  .adminloginbtn:hover {
+    background-color: #14335D;
+  }
+  
+  .Admin_SignIn {
+    width: 23vw;
+    height: 6vh;
+    background-color: #14335D;
+    margin-left: 17%; 
+    margin-top: 8%;
+  
+    padding: 0%;
+    
+  }
+  
+  .Admin_SignIn_Label{
+    display:inline-block;
+    margin-top: 3%;
+    color: #fff;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.7vw;
+    font-weight: 500;
+  }
   .Superadmininputfield
   {
-    position:relative;
-    width: 30vw;
-    height: 50%;
-    left: 25.5%;
+    position: absolute;
+  width: 50%;
+  height: 50%;
+  left: 27.5%;
+
   }
   
   .adminemail{
-    position: relative;
-    float: left;
-    font-family: 'Rubik', sans-serif;
-    font-size: 1.5rem;
-    margin-bottom: 0%;
-    margin-top: 3%;
+    position: absolute;
+ margin-top: -10%;
+ margin-left: -60%;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.2vw;
+  font-style: normal;
+font-weight: 500;
   }
   
   .adminpassword
   {
-    position: relative;
-    float: left;
-    font-family: 'Rubik', sans-serif;
-    font-size: 1.5rem;
-    margin-bottom: 0rem;
+    position: absolute;
+  margin-top: -9.5%;
+  margin-left: -60%;
+   font-family: 'Rubik', sans-serif;
+   font-size: 1.2vw;
+   font-style: normal;
+ font-weight: 500;
   }
   
-  .adminforgotpassword {
-    margin-left: 2%;
-    margin-top: 1%;
-}
-.adminforgotpassword a {
-    font-size: 1.4rem;
+  .adminforgotpassword{
+    margin-left: -1%;
+    margin-top: 3.5%;
+     text-decoration: none;
+     /* font-size: 1.4vw; */
+   }
+   .adminforgotpassword a {
+    font-size: 1.1vw;
+    color: #FD6B22;
+    font-family: 'Rubik';
+    font-style: normal;
     font-weight: 500;
-}
+      }
+      .adminforgotpassword a:hover{
+        text-decoration: none;
+      }
   .adminemailtextbox{
-    width: 30vw;
+    width: 23vw;
+    height: 4.5vh;
+    margin-left: -10%;
+    margin-top: -5%;
   }
   
   .adminpasswordbox{
-    width: 30vw;
+    width: 23vw;
+    height: 4.5vh;
+    margin-left: -10%;
+    margin-top: 8%;
   }
   
   
@@ -125,37 +156,102 @@ html{
       margin-left: -2rem;
       /* margin-top: -7rem; */
   }
-  #Superadminlogo {
-    margin-top: -108%;
-    margin-left: 2%;
-    position: relative;
+  .Admin_SignIn {
+    width: 29vw;
+    height: 8vh;
+    background-color: #14335D;
+    margin-left: 18%;
+    margin-top: 8%;
+    font-size: 2vw;
+}
+.adminloginbtn {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 13px;
+  width: 13vw;
+  height: 7vh;
+  font-size: 1.5vw;
+  font-weight: 700;
+  margin-top: 41%;
+  padding-bottom: 0%;
+  font-family: 'Rubik';
+  font-style: normal;
+  margin-left: 15%;
+  border: none;
+}
+.adminloginbtn:hover {
+  background-color: #14335D;
+}
+
+.Admin_SignIn_Label {
+  display: inline-block;
+  margin-top: 3%;
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+  padding-top: 2%;
+}
+  #Superadminlogo img{
+    margin-top: 10%;
+    width: 17vw;
+    height: 30vh;
+    margin-left: 12%;
 }
     .superadmincontainer {
       overflow-y: hidden;
     }
     #superadminloginimg img {
-      width: auto;
       height: 100vh;
+      width: 60vw;
   }
 
+  .adminemail {
+    position: absolute;
+    margin-left: -59%;
+    margin-top: 3%;
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 500;
+    font-family: 'Rubik', sans-serif;
+  }
 
 .adminemailtextbox {
-    width: 22vw;
-    height: 5vh;
-    margin-bottom: -4%;
-    margin-left: 6%;
+  width: 29vw;
+  height: 5.5vh;
+  margin-left: -10%;
+  margin-top: 14%;
+  position: absolute;
 }
-  
+.adminpassword {
+  position: absolute;
+  margin-left: -59%;
+  margin-top: 20%;
+  font-size: 1.5vw;
+  font-style: normal;
+  font-weight: 500;
+  font-family: 'Rubik', sans-serif;
+} 
 .adminpasswordbox {
-    width: 22vw;
-    height: 5vh;
-    margin-bottom: 1%;
-    margin-left: 6%;
+  width: 29vw;
+  height: 5.5vh;
+  margin-left: -10%;
+  margin-top: 30%;
+  position: absolute;
 }
 .adminforgotpassword {
-    margin-left: 2%;
-    margin-top: 1%;
+  margin-top: 3%;
+  margin-left: 16%;
 }
+.adminforgotpassword a:hover{
+  text-decoration: none;
+}
+.adminforgotpassword a {
+font-size: 1.1vw;
+color: #FD6B22;
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+text-decoration: none;
+  }
 } 
   
   

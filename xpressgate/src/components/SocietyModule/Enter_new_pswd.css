@@ -57,6 +57,7 @@ html {
   font-family: 'Rubik';
 font-style: normal;
 margin-left: -4.5%;
+border:none;
 }
 
 .NP_ConFirm_Btn:hover {
@@ -193,6 +194,7 @@ margin-left: -4.5%;
   font-family: 'Rubik';
   font-style: normal;
   margin-left: 9%;
+  border: none;
 }
 .NP_ConFirm_Btn:hover {
   background-color: #14335D;

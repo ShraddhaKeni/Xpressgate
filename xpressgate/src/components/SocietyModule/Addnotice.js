@@ -141,7 +141,7 @@ const Addnotice = () => {
               <input type="file" class="form-control input-lg AD_input_size" name="attachments" placeholder="Upload from computer" ></input>
             </div>
           </div>
-          <Button type="submit" onClick={(e)=>handleSubmit(e)} className="AddNoticeButton">Add Notice</Button>
+          <button type="submit" onClick={(e)=>handleSubmit(e)} className="AddNoticeButton">Add Notice</button>
         </Form>
 
       </div>

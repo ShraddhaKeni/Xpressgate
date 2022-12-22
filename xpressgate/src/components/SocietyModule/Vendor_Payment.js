@@ -180,9 +180,9 @@ const Vendor_Payment = () => {
                   </input>
                 </div>
               </div>
-              <Button type="submit" onClick={(e)=>handleSubmit(e)} className="VPay_Add">
+              <button type="submit" onClick={(e)=>handleSubmit(e)} className="VPay_Add">
                   Add 
-              </Button>
+              </button>
         </Form>
       </div>
     </div>

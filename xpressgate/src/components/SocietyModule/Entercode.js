@@ -64,13 +64,13 @@ const Entercode = () => {
 
             <div className="email_input">
               <br />
-              <Button
+              <button
                 type="button"
                 className="btnverifyOTP"
                 onClick={() => { sendOTP() }}
               >
                 Verify OTP
-              </Button>
+              </button>
             </div>
           </div>
         </Form>

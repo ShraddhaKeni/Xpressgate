@@ -90,9 +90,9 @@ const Noticelist = () => {
         <div className='NL_display'>
           <label>Notice List</label>
         </div>
-        <div> <Button type="submit" className="btnAddnotice"  onClick={() => {
+        <div> <button type="submit" className="btnAddnotice"  onClick={() => {
                 window.location.href = "/addNotice";
-              }}><img src="/images/plus.svg" alt="header logo"  />&nbsp;Add New Notice</Button></div>
+              }}><img src="/images/plus.svg" alt="header logo"  />&nbsp;Add New Notice</button></div>
       
         <div className='row'>
           <div className='nlsearchbox'>
