@@ -160,7 +160,7 @@ const EditPremise = () => {
                         </div>
                         <SimpleInputComponent label={'Pincode'} name={'pincode'} id={'pincode'} onChange={(e) => { setPremise({ ...premise, pincode: e.target.value }) }} />
 
-                        <Button type="submit" onClick={(e) => handleSubmit(e)} className="btnAddVeh">Update Premise</Button>
+                        <Button type="submit" onClick={(e) => handleSubmit(e)} className="hovergreen btnAddVeh">Update Premise</Button>
                     </Form>
 
                 </div>

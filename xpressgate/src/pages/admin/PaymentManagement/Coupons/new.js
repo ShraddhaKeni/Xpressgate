@@ -65,7 +65,7 @@ export const AddCoupon = () => {
 
 
 
-                    <Button type="submit" className="btnAddVeh" style={{ marginLeft: '18vw' }}>Generate</Button>
+                    <Button type="submit" className="hovergreen btnAddVeh" style={{ marginLeft: '18vw' }}>Generate</Button>
 
                 </Form>
 

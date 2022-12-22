@@ -744,6 +744,11 @@
     max-width: 60px;
 }
 
+.hovergreen:hover{
+    background-color: #AED8DC !important;
+    color: #14335D;
+}
+
 @media screen and (max-width: 700px){
     .dashboard-card-row{
         display: flex;
