@@ -37,7 +37,16 @@
     margin-left: 27%;
     padding: 1%;
 }
-
+.ADDVideo_side_Img{
+    display: flex;
+    margin-top: 30.5%;
+    margin-left: -32%;
+    /* max-width: 30%; */
+    width: 40%;
+    height: 24%;
+    margin-bottom: 5%; 
+    position: absolute; 
+}
     .AddVideodisplay label{
     
         display: inline-block;
