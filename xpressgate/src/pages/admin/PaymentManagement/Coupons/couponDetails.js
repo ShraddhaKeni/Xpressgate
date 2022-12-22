@@ -52,11 +52,11 @@ export const CouponDetails = () => {
         <>
             {!coupon && <Navigate to={RouterPath.COUPONS_LIST} />}
             {coupon &&
-                <div className="container">
+                <div>
                     <div className='page-label'>
                         <label>Coupon Details</label>
                     </div>
-                    <div className='main-container'>
+                    <div style={{ margin: '0 20%', marginTop: '5%' }}>
                         <div className="trans-bg-container">
                             <div>
                                 <p className='h3 bold'><b>Coupon Details</b></p>
