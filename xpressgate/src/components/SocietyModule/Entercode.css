@@ -49,15 +49,16 @@ html {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  width: 12vw;
+  width: 10vw;
   height: 6vh; 
   font-size: 1.5vw;
   font-weight: 500;
   margin-top: 6%;
-  padding-bottom: 3%;
+  padding: 2%;
   font-family: 'Rubik';
 font-style: normal;
 margin-left: -3%;
+border: none;
 }
 
 .btnverifyOTP:hover {
@@ -140,6 +141,7 @@ margin-left: -3%;
   font-family: 'Rubik';
   font-style: normal;
   margin-left: 9%;
+  border: none;
 }
 .btnverifyOTP:hover {
   background-color: #14335D;

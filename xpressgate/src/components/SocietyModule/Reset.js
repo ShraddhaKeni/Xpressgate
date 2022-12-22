@@ -51,7 +51,7 @@ const Reset = () => {
             </div>
            
             <div className="email_input"><br />
-              <Button type="button" className="btnsocsendotp" onClick={() => sendOTP()}>Send OTP</Button>
+              <button type="button" className="btnsocsendotp" onClick={() => sendOTP()}>Send OTP</button>
             </div>
           </div>
         </Form>

@@ -64,7 +64,11 @@ const Noticelist = () => {
       paginate(0)
     }
   
-}
+  }
+  function noticeDetails(id)
+  {
+    navigate('/addNotice',{state:{id:id,type:'edit'}})
+  }
 
   return (
     <div className="nlcontainer">
@@ -86,9 +90,9 @@ const Noticelist = () => {
         <div className='NL_display'>
           <label>Notice List</label>
         </div>
-        <div> <Button type="submit" className="btnAddnotice"  onClick={() => {
+        <div> <button type="submit" className="btnAddnotice"  onClick={() => {
                 window.location.href = "/addNotice";
-              }}><img src="/images/plus.svg" alt="header logo"  />&nbsp;Add New Notice</Button></div>
+              }}><img src="/images/plus.svg" alt="header logo"  />&nbsp;Add New Notice</button></div>
       
         <div className='row'>
           <div className='nlsearchbox'>
@@ -109,7 +113,7 @@ const Noticelist = () => {
 
             {currentPosts.map((item, index) => {
               return (
-                <tr>
+                <tr onClick={()=>noticeDetails(item.id)}>
                   <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1 + 1) + (index + 1)}</td>
                   <td >{item.noticeTitle}</td>
                   <td>{getDate(item.eventDate)}</td>

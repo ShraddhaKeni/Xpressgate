@@ -47,7 +47,7 @@ const Forgotpassword = () => {
               <input type="text" className="form-control GFPtextbox" id="mobileno" maxLength="10" placeholder='Enter mobile number' ></input>
             </div>
             
-            <Button type="button" className="FBTNSendOtp" onClick={() => { checkMobileno() }}>Send OTP</Button>
+            <button type="button" className="FBTNSendOtp" onClick={() => { checkMobileno() }}>Send OTP</button>
           </div>
         </Form>
       </div>

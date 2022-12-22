@@ -186,6 +186,7 @@ border-radius: 8px;
   font-weight: 500;
   margin-top: 4%;
   margin-right: 34%;
+  border: none;
 }
 .btnAddflat:hover{
   background-color: #14335D;
@@ -323,6 +324,7 @@ border-radius: 8px;
   margin-top: 4%;
   margin-right: 35%;
   padding-top: 1%;
+  border: none;
 }
 .btnAddflat:hover{
   background-color: #14335D;
