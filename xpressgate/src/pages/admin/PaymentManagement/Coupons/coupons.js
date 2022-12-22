@@ -11,7 +11,7 @@ export const CouponsList = () => {
 
     const [coupons, setCoupons] = useState();
     const [allCoupons, setAllCoupons] = useState();
-    const [currentPage, setCurrentPage] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
 
 
 
@@ -19,7 +19,8 @@ export const CouponsList = () => {
         async function getCoupons() {
             const res = await getAllCoupons();
             if (res && res.data.status_code == 200) {
-                setCoupons(getCurrentCoupons(res.data.data.coupons))
+                setAllCoupons(res.data.data.coupons);
+                getCurrentCoupons(res.data.data.coupons)
             }
         }
 
@@ -27,13 +28,16 @@ export const CouponsList = () => {
     }, [])
 
     function getCurrentCoupons(data) {
-        setAllCoupons(data);
-        if (currentPage == 0) {
-            return data?.slice(0, PageSize)
+        const lastPageIndex = (currentPage) * PageSize
+        const firstPageIndex = lastPageIndex - PageSize;
+        console.log(lastPageIndex, firstPageIndex);
+
+        if (data.length < PageSize) {
+            setCoupons(data?.slice(firstPageIndex, lastPageIndex));
+            return data;
         }
-        const firstPageIndex = (currentPage) * PageSize
-        const lastPageIndex = firstPageIndex + PageSize;
-        return data?.slice(firstPageIndex, lastPageIndex);
+
+        setCoupons(data?.slice(firstPageIndex, lastPageIndex));
     }
 
     const handleAddPremise = () => {
@@ -43,8 +47,29 @@ export const CouponsList = () => {
     const handlePageChange = (page) => {
 
         setCurrentPage(page.selected + 1);
+        const lastPageIndex = (page.selected + 1) * PageSize
+        const firstPageIndex = lastPageIndex - PageSize;
+        console.log(lastPageIndex, firstPageIndex);
+        setCoupons(allCoupons?.slice(firstPageIndex, lastPageIndex));
 
-        setCoupons(getCurrentCoupons(allCoupons));
+    }
+
+    function findText(e) {
+        let search = e.target.value.toLowerCase()
+        let arr = allCoupons.filter(x => {
+            console.log(x);
+            if (x?.code?.toLowerCase()?.includes(search)) {
+                return true
+            }
+
+        })
+        console.log(arr);
+        if (arr) {
+            getCurrentCoupons(arr);
+        }
+        else {
+            getCurrentCoupons(allCoupons);
+        }
 
     }
 
@@ -62,7 +87,7 @@ export const CouponsList = () => {
                 <div className='table-top-right-content'>
                     <div className='table-search pl-2'>
                         <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-                        <span><input className='search' placeholder='Search' onChange={(e) => { }} /></span>
+                        <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
                     </div>
                     <div className="table-add-new-button" onClick={handleAddPremise}>
                         <img src="/images/ic_plus.svg" />

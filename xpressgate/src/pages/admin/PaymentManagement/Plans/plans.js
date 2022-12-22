@@ -18,6 +18,7 @@ export const PlansList = () => {
         async function getCoupons() {
             const res = await getAllPlans();
             if (res && res.data.status_code == 200) {
+                console.log(res.data.data.plan);
                 setAllPlans(res.data.data.plan);
                 getCurrentPlans(res.data.data.plan)
             }
@@ -26,12 +27,15 @@ export const PlansList = () => {
     }, [])
 
     function getCurrentPlans(data) {
-        if (data.length < PageSize) {
-            return data;
-        }
         const lastPageIndex = (currentPage) * PageSize
         const firstPageIndex = lastPageIndex - PageSize;
         console.log(lastPageIndex, firstPageIndex);
+
+        if (data.length < PageSize) {
+            setPlans(data?.slice(firstPageIndex, lastPageIndex));
+            return data;
+        }
+
         setPlans(data?.slice(firstPageIndex, lastPageIndex));
     }
     const handlePageChange = (page) => {
@@ -63,10 +67,10 @@ export const PlansList = () => {
         })
         console.log(arr);
         if (arr) {
-            setPlans(getCurrentPlans(arr));
+            getCurrentPlans(arr);
         }
         else {
-            setPlans(getCurrentPlans(allPlans))
+            getCurrentPlans(allPlans);
         }
 
     }
@@ -94,8 +98,9 @@ export const PlansList = () => {
                 <div id="cardsection">
                     <div className="row row-cols-1 row-cols-md-3 g-3 mb-5">
 
+                        {console.log("Main", plans)}
                         {plans && plans.map((plan) => {
-                            console.log("Main", plan);
+
                             return <div className="col" key={plan.id}>
                                 <div className="col">
                                     <div className="card-green">
