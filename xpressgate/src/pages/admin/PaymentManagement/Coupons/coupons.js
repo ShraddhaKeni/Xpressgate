@@ -77,6 +77,8 @@ export const CouponsList = () => {
         navigate(RouterPath.EDIT_COUPON)
     }
     return (
+        <>
+         <img src='/images/side_bar_img.svg' className='PAY_Coupans_side_Img' />
         <div>
             <div className='page-label'>
                 <label>Coupons</label>
@@ -128,5 +130,6 @@ export const CouponsList = () => {
             </div >
 
         </div >
+        </>
     )
 }

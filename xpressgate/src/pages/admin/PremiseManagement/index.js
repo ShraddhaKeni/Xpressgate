@@ -65,6 +65,8 @@ const PremiseList = () => {
     }
 
     return (
+        <>
+        <img src='/images/side_bar_img.svg' className='Premise_side_Img' />
         <div>
             <div className='page-label'>
                 <label>Premises Management</label>
@@ -125,7 +127,8 @@ const PremiseList = () => {
                 </div>}
             </div >
         </div >
-    )
+   
+   </> )
 }
 
 export default PremiseList

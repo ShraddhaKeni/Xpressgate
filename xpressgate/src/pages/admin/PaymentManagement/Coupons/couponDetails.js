@@ -50,6 +50,7 @@ export const CouponDetails = () => {
     return (
 
         <>
+         <img src='/images/side_bar_img.svg' className='PAY_Coupans_side_Img' />
             {!coupon && <Navigate to={RouterPath.COUPONS_LIST} />}
             {coupon &&
                 <div>
