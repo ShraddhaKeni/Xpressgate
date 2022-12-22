@@ -47,7 +47,7 @@ const EditVideo = () => {
 
   return (
     <>
-
+    <img src='/images/side_bar_img.svg' className='EditVideo_side_Img' />
       <div className="EditVideocontainer">
         <img src="/images/AdminBgImg.svg" className="Editbgimg"></img>
         <div className="EditVideodisplay">
