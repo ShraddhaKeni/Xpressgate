@@ -107,11 +107,16 @@ const AdminModuleComponent = () => {
             <Header />
             <div className='flex'>
                 <SideLayOut />
-                <main style={{ width: "100vw" }}>
-                    <div>
-                        {children}
+                <div className='flex-1 d-flex' style={{ width: "100%", height: '100%' }}>
+                    <div className='main-container px-5 mx-2 my-4'>
+                        <main>
+
+                            {children}
+
+                        </main>
                     </div>
-                </main>
+
+                </div>
             </div>
 
 

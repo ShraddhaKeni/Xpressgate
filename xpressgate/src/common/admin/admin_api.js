@@ -3,7 +3,15 @@ import { getRequest, postRequest } from "../axios_client";
 
 
 
+/// DASHBOARD ///
 
+export async function getDashboard() {
+    try {
+        return await postRequest('admin/dashboard', {});
+    } catch (error) {
+        return error
+    }
+}
 
 
 /// PAYMENT ///
