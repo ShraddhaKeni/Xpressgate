@@ -4,32 +4,35 @@ import React from 'react'
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { TextField } from '@mui/material';
 
-
 export const SimpleInputComponent = ({ name, id, label, onChange, type = 'text', text = '', required = false, placeholder = '', value = '' }) => {
+
     return (
-        <div class="form-group row">
+        <div class="form-group row align-items-center">
             <label class="col-lg-2 col-form-label float-left">
                 {" "}
                 {label}
             </label>
-            <div class="col-lg-4">
+            <div class="col-lg-8">
                 {(type == 'text' || type == 'number') && <TextField
                     type={type}
                     name={name}
                     placeholder={placeholder}
                     onChange={onChange}
+                    sx={{ background: 'white', "& .MuiOutlinedInput-root": { "& > fieldset": { border: '2px solid #14335D', borderRadius: '8px', } } }}
                     text
                     id={id}
-                    size={'small'}
+
                     fullWidth
+                    disableUnderline
                     required={required}
+                    InputProps={{ style: { fontSize: '1.5rem' } }}
                 ></TextField>}
                 {type === 'textarea' && <textarea
                     type={type}
-                    class="form-control input-lg"
+                    class="form-control input-lg form-input-bg"
                     name={name}
                     placeholder={placeholder}
-                    rows="4"
+                    rows="6"
                     text
                     onChange={onChange}
                     id={id}
@@ -40,21 +43,23 @@ export const SimpleInputComponent = ({ name, id, label, onChange, type = 'text',
                         type={'date'}
                         name={name}
                         placeholder={placeholder}
+                        sx={{ background: 'white', "& .MuiOutlinedInput-root": { "& > fieldset": { border: '2px solid #14335D', borderRadius: '8px', } } }}
                         onChange={onChange}
                         text={value}
                         defaultValue={new Date().toISOString().slice(0, 10)}
                         id={id}
-                        size={'small'}
+                        size={'medium'}
                         fullWidth
                         required={required}
                         inputProps={{
+                            style: { fontSize: '1.4rem' },
                             min: new Date().toISOString().slice(0, 16),
                         }}
                     ></TextField>
 
                 }
             </div>
-        </div>
+        </div >
     )
 }
 
@@ -62,8 +67,8 @@ export const SimpleDropDownComponent = ({ name, id, label, onChange, items = [] 
     return (
         <div class="form-group row">
             <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label float-left">{label}</label>
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <select type="text" class="form-control" name={name} id={id} onChange={onChange}>
+            <div class="col-sm-4 col-md-4 col-lg-8">
+                <select type="text" class="form-control form-input-bg" name={name} id={id} onChange={onChange}>
                     <option disabled selected value={null}>Select {label}</option>
                     {items.map((item) => {
                         console.log(item);

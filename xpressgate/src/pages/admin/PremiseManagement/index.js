@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import '../../../styles/premises.css';
 import PaginationCalculate from '../../../components/GuardModule/Utils/paginationCalculate';
 import { SimpleInputComponent } from '../components/input';
 import { ButtonBase, Icon, IconButton } from '@mui/material';
@@ -30,7 +29,7 @@ const PremiseList = () => {
             const indexoffirst = (indexoflast - postPerPage) //startoffset
             setCurrentPosts(data.data.slice(indexoffirst, indexoflast))
         } catch (error) {
-            alert('Data loading failed.')
+
         }
     }
     async function paginate(event) {
@@ -66,21 +65,24 @@ const PremiseList = () => {
     }
 
     return (
-        <div className="container pb-5">
-
-            <div className='main-container mt-5'>
+        <div>
+            <div className='page-label'>
+                <label>Premises Management</label>
+            </div>
+            <div>
 
                 <div className='table-top-right-content'>
                     <div className='table-search pl-2'>
                         <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-                        <span><input className='search_input' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
+                        <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
                     </div>
                     <div className="table-add-new-button" onClick={handleAddPremise}>
-                        <img src="/images/ic_plus.svg" /> Add New Premise
+                        <img src="/images/ic_plus.svg" />
+                        <span className='ml-2'> Add New Premise</span>
                     </div>
                 </div>
 
-                <table id="table-header" class="table table-light table-striped overflow-auto" cellspacing="0">
+                <table id="table-header" class="table table-striped table-bordered table-sm " cellspacing="0">
                     <thead className='table-th'>
                         <tr>
                             <th class="th-sm" >ID No.</th>

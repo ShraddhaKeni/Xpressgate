@@ -120,7 +120,9 @@ const Flatlist = () => {
           <label>Society Name</label>
         </div>
         <div className='nlsidelinks'>
-          <a className='BlFlatsidelinks' href="/flatList"><b>Flat List</b></a><br></br><br></br>
+        <a className='AfListsidelink' href="/blockList">Block List</a><br></br><br/>
+          <a className='AflockSidelink' href="/addblock">Add Block</a><br/><br/>
+          {/* <a className='BlFlatsidelinks' href="/flatList"><b>Flat List</b></a><br></br><br></br> */}
           <a className='BlAddsidelinks' href="/addflat">Add Flat</a>
         </div>
         <div className='flsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>

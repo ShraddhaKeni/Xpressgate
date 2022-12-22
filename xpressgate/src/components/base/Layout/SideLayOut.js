@@ -17,7 +17,7 @@ const SideLayOut = () => {
   const router = useLocation()
 
   return (
-    <aside className='sidelayout'>
+    <aside className='sidelayout' style={{ position: 'relative' }}>
 
       <Link to={"/admin"} className='admin-profile' style={{ textDecoration: 'none' }} >
         <img src="/images/AdminSideicon.svg" alt="logo" className='adminsidelogo'></img>
@@ -26,7 +26,7 @@ const SideLayOut = () => {
       </Link>
 
       <Link to={RouterPath.ADMIN_DASHBOARD} style={{ textDecoration: 'none' }} >
-        <div className={`nav-item ${router.pathname.includes("dashboard") && 'font-weight-bold'} mt-5`}>
+        <div className={`nav-item ${router.pathname.includes("dashboard") && 'font-weight-bold'} mt-3`}>
           <HomeOutlinedIcon className='side-nav-icon' fontSize='large' />
           <span className='ml-3 Labelfont'>Dashboard</span>
         </div>
@@ -109,7 +109,7 @@ const SideLayOut = () => {
         }
       </Link>
 
-      <img src='/images/side_bar_img.svg' style={{ width: '100%' }} />
+      <img src='/images/side_bar_img.svg' style={{ width: '94%', position: 'absolute', bottom: '0', marginBottom: '4rem' }} />
 
     </aside>
   )

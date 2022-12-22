@@ -79,6 +79,9 @@ import SocietyDuesTable from './components/SocietyModule/SocietyDuesTable';
 import VendorPaymentTable from './components/SocietyModule/VendorPaymentTable';
 import UtilityPaymentTable from './components/SocietyModule/UtilityPaymentTable';
 import Report from './components/SocietyModule/Report';
+import AddBlock from './components/SocietyModule/AddBlock';
+import UpdateBlock from './components/SocietyModule/UpdateBlock';
+import SocReport from './components/SocietyModule/SocReport';
 
 function App() {
 
@@ -177,11 +180,14 @@ function App() {
           <Route path={RouterPath.COUPONS_LIST} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.EDIT_COUPON} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.ADD_COUPON} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.COUPON_DETAILS} element={<AdminModuleComponent />}></Route>
 
           <Route path={RouterPath.PRLANS_LIST} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.ADD_PLAN} element={<AdminModuleComponent />}></Route>
-          <Route path={RouterPath.EDITP_PLAN} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.EDIT_PLAN} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.PLAN_DETAILS} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.PAYMENT_HISTORY} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.PREMISE_PAYMENT_HISTORY} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.ADMIN_PROFILE} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.VIDEO_CLASS} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.ADD_VIDEO} element={<AdminModuleComponent />}></Route>
@@ -195,6 +201,9 @@ function App() {
           <Route path='/adminentercode' element={<AdminEnterCode />}></Route>
           <Route path='/adminresetpass' element={<AdminReset />}></Route>
           <Route path='/adminchangepass' element={<AdminChangePass />}></Route>
+          <Route path='/addblock' element={<AddBlock />}></Route>
+          <Route path='/updateblock' element={<UpdateBlock />}></Route>
+          <Route path='/socreports' element={<SocReport />}></Route>
 
 
 

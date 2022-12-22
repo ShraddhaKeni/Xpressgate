@@ -85,6 +85,7 @@ const Guardlist = () => {
         </div>
         <br />
 
+  
         <div className='GLsidelinks'>
           <a className='noticeGL' href="/guardlist"><b>Guard list</b></a><br></br><br></br>
           <a className='AGnotice' onClick={() => navigate('/addGuard')}>  Add Guard</a>

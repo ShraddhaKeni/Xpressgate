@@ -97,35 +97,39 @@ html {
 }
 
 
-.dspguardname {
+.DSPName label {
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+  margin-left: 4%;
+  margin-top: 12%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
+}
+.DSPName {
   display: flex;
   width: 80%;
-  height: 14%;
+  height: 12%;
   background-color: rgba(10, 137, 150, 0.33);
   margin-left: 10%;
   margin-top: 12%;
   border-radius: 24px;
 }
-
-.dspguardname img {
+.DSPName img {
   margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 4%;
+  margin-top: 5%;
 }
 
-.dspguardname label {
-  color: #000;
-  margin-left: 8%;
-  margin-top: 12%;
-  font-size: 20px;
-}
-
-.dspsideimage img {
+.DSPSImg img {
   display: flex;
-  margin-top: 64%;
-  width: 100%;
+  margin-top: 99%;
+  max-width: 90%;
   height: auto;
+  margin-left: 8%;
+  margin-bottom: 3%;  
 }
 
 .dailyservicepasscodedisplay {
@@ -263,19 +267,14 @@ html {
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  .dspguardname label {
-    margin-left: 7%;
-    margin-top: 18%;
-    font-size: 15px;
-  }
-
-  .dspsideimage img {
+  
+  .DSPSImg img {
     display: flex;
-    margin-top: 216%;
-    width: 100%;
+    margin-top: 93%;
+    max-width: 95%;
     height: auto;
+    margin-left: 2%;
   }
-
   .dspbackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;

@@ -124,18 +124,18 @@ const Vendorlist = () => {
       </div>
      
       <div id="guardnamesection">
-        <div className='guardname'>
+        <div className='VendorLname'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
           <label>Guard Name</label>
         </div>
-        <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
+        <div className='VendorLSImg'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='vlbackgroundimg'>
-        <div className='vendorlistdisplay'>
+        <div className='VendorL_display'>
           <label>Vendor List</label>
         </div>
         <div className='row'>
-          <div className='searchbox'>
+          <div className='Vsearchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
           {/* <label className='searchlabel'>Search</label> */}
           <input className='vlsearch_input' placeholder='Search' onChange={(e)=>{findText(e)}}></input></span>
@@ -146,16 +146,17 @@ const Vendorlist = () => {
           </div> */}
         </div>
         {/* <div class="table-responsive"> */}
+       
         <table id="vendortable" class="table vendorList table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>
-              <th class="th-sm">Sr no</th>
+              <th class="th-sm">Sr No.</th>
               <th class="th-sm">Name</th>
-              <th class="th-sm">Vendor type</th>
+              <th class="th-sm">Vendor Type</th>
               <th class="th-sm">Block</th>
               <th class="th-sm">Flat No.</th>
               <th class="th-sm">Date</th>
-              <th class="th-sm">In time</th>
+              <th class="th-sm">In Time</th>
               <th class="th-sm">Status</th>
             </tr>
           </thead>

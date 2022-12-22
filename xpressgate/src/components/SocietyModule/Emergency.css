@@ -7,7 +7,7 @@ font-style: normal;
 font-weight: 500;
 color: #14335D;
   margin-left: 4%;
-  margin-top: 13%;
+  margin-top: 12%;
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
@@ -24,20 +24,20 @@ color: #14335D;
   margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 4%;
+  margin-top: 5%;
 }
 .EN_sideimg img {
   display: flex;
-  margin-top: 68%;
+  margin-top: 72%;
   max-width: 90%;
   height: auto;
-  margin-left: 13%;
-  margin-bottom: 5%;  
+  margin-left: 8%;
+  margin-bottom: 3%;  
 }
 
 .EMMsearchbox{
   width: 15%;
-  height: 5%;
+  height: 4.5%;
   border: 2px solid #000;
   border-radius: 15px;
   margin-left: 74%;
@@ -82,14 +82,13 @@ font-style: normal;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 1.5vw;
   margin: auto;
   margin-top: -3%;
-  padding-top: 1%;
+  padding-top: 1.1%;
 }
 
 .EN_display label{
- 
+  font-size: 1.3vw;
       display: inline-block;
       font-family: 'Rubik';
       font-style: normal;
@@ -113,23 +112,32 @@ font-style: normal;
 }
 
 
-.EN_noticelist h4{
-  color: #000000;
+.EN_noticelist{
+margin-top: 10%;
+margin-right: 15%;
+
+}
+.ENLNotice {
+  color: #000;
   font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;
-font-size: 1.2vw;
-
+font-size: 1.1vw;
 }
-.EN_noticelist a{
+.AENNotice {
   color: #757575;
   font-family: 'Rubik';
 font-style: normal;
-font-weight: 400;
-font-size: 1vw;
+font-weight: 500;
+font-size: 1.1vw;
 }
-.EN_noticelist a:hover{
+.ENLNotice:hover{
   color: #000000;
+  text-decoration: none;
+}
+.AENNotice:hover{
+  color: #000000;
+  text-decoration: none;
 }
 
 /* Media query for laptop */
@@ -148,20 +156,7 @@ font-size: 1vw;
     background-color: #14335D;
     color: #E8F5E9;
   }
-  .EN_display {
-    width: 17vw;
-    height: 7vh;
-    background-color: #AED8DC;
-    border-radius: 30px;
-    font-size: 1.5vw;
-    padding-top: 1%;
-    margin: auto;
-    margin-top: -3%;
-    font-family: 'Rubik';
-font-style: normal;
-font-weight: 500;
-color: #14335D;
-  }
+
  
   .EN_sideimg img {
     display: flex;

@@ -7,64 +7,75 @@ html{
   height: 100vh;
   grid-template-columns: 1.8fr 2fr;
   grid-template-rows: 2.4fr 2fr;
-  grid-template-areas: "logoid loginimgid"
-    "loginformid loginimgid"
+  grid-template-areas: "Glogoid Gloginimgid"
+    "Gloginformid Gloginimgid"
 }
 
-#logoid {
+#Glogoid {
  
-  grid-area: logoid;
+  grid-area: Glogoid;
 }
 
-#loginimgid {
-  grid-area: loginimgid;
+#Gloginimgid {
+  grid-area: Gloginimgid;
 }
 
-#loginimgid img{
+#Gloginimgid img{
   height: 100vh;
+  width: 65vw;
+ 
 }
 
-#loginformid {
+#Gloginformid {
  
-  grid-area: loginformid;
+  grid-area: Gloginformid;
   position: relative;
 }
 
-.guardsignin {
-  width: 402px;
-  height: 76px;
+.Guardsignin {
+  width: 23vw;
+  height: 6vh;
   background-color: #14335D;
-  margin-left: 28%; 
-  margin-top: 6%;
-  font-size: 36px;
+  margin-left: 17%; 
+  margin-top: 8%;
+
+  padding: 0%;
   
 }
 
-.guardsigninlabel{
+.Guardsigninlabel{
   display:inline-block;
   margin-top: 3%;
   color: #fff;
   font-family: 'Rubik', sans-serif;
+  font-size: 1.7vw;
+  font-weight: 500;
 }
 
 .req{
   color: red;
 }
 
-.btnlogin{
+.GuardLoginbtn{
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  width: 250px;
-  height: 60px; 
-  font-size: 151%;
+  width: 12vw;
+  height: 6vh; 
+  font-size: 1.5vw;
   font-weight: 500;
-  margin-top: 4%;
+  margin-top: 6%;
   padding-bottom: 3%;
+  font-family: 'Rubik';
+font-style: normal;
+margin-left: -13.5%;
 }
 
-#logoid img{
+#Glogoid img{
   margin-top: 10%;
+  width: 28vw;
+  height: 28vh;
+  margin-left: 3%;
 }
 
 .input_fields
@@ -76,66 +87,118 @@ html{
 }
 
 .usernameemail{
-  position: relative;
-  right:41%;
+  position: absolute;
+ margin-top: -10%;
+ margin-left: -70%;
   font-family: 'Rubik', sans-serif;
-  font-size: 15px;
+  font-size: 1.2vw;
+  font-style: normal;
+font-weight: 500;
 }
 
 .guardpassword
 {
-  position: relative;
-  right: 41%;
-  font-family: 'Rubik', sans-serif;
-  font-size: 15px;
+  position: absolute;
+  margin-top: -11%;
+  margin-left: -70%;
+   font-family: 'Rubik', sans-serif;
+   font-size: 1.2vw;
+   font-style: normal;
+ font-weight: 500;
 }
 
-.forgotpassword{
-  margin-top: 3%;
-  font-weight: bold;
+.Guardforgotpassword{
+ margin-left: -10%;
+ margin-top: 2%;
+  text-decoration: none;
+  /* font-size: 1.4vw; */
 }
 
 .emailtextboxguard{
-  width: 97%;
+  width: 23vw;
+  height: 4.5vh;
+  margin-left: -20%;
+  margin-top: -5%;
 }
 
 .passwordtextboxguard{
-  width: 97%
+  width: 23vw;
+  height: 4.5vh;
+  margin-left: -20%;
+  margin-top: 1.5%;
 }
 
-
+.Guardforgotpassword a {
+  font-size: 1.1vw;
+  color: #FD6B22;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+    }
 @media only screen  and (min-device-width : 768px) and (max-device-width : 1024px) {
-
+  #Glogoid img {
+    margin-top: 10%;
+    width: 17vw;
+    height: 30vh;
+}
   .logincontainer {
     overflow-y: hidden;
   }
 
-  #loginimgid img{
-    width: 180%
+  .Guardforgotpassword{
+    margin-top: 1%;
   }
-
-  .guardsignin {
-    width: 230px;
-    height: 76px;
-    background-color: #14335D;
-    margin-left: 28%;
-    margin-top: 6%;
-    font-size: 36px;
-  }
-
-  .btnlogin {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 186px;
-    height: 50px;
-    font-size: 151%;
+  .Guardforgotpassword a {
+    font-size: 1.1vw;
+    color: #FD6B22;
+    font-family: 'Rubik';
+    font-style: normal;
     font-weight: 500;
-    margin-top: 4%;
-    padding-bottom: 4%;
+    text-decoration: none;
+      }
+  #Gloginimgid img{
+    height: 100vh;
+    width: 60vw;
+  }
+  .emailtextboxguard {
+    width: 29vw;
+    height: 5.5vh;
+    margin-left: -25%;
+    margin-top: 14%;
+    position: absolute;
+}
+.passwordtextboxguard{
+  width: 29vw;
+    height: 5.5vh;
+    margin-left: -25%;
+    margin-top: 24%;
+    position: absolute;
 }
 
-.guardsigninlabel {
+  .Guardsignin {
+    width: 29vw;
+    height: 10vh;
+    background-color: #14335D;
+    margin-left: 15%;
+    margin-top: 6%;
+    font-size: 2vw;
+}
+
+.GuardLoginbtn {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 13vw;
+  height: 7vh;
+  font-size: 1.5vw;
+  font-weight: 700;
+  margin-top: 37%;
+  padding-bottom: 0%;
+  font-family: 'Rubik';
+  font-style: normal;
+}
+
+.Guardsigninlabel {
   display: inline-block;
   margin-top: 3%;
   color: #fff;
@@ -144,27 +207,34 @@ html{
 }
 
 .usernameemail {
-  position: relative;
-  right: 35%;
+  position: absolute;
+  margin-left: -75%;
+  margin-top: 3%;
+  font-size: 1.5vw;
+  font-style: normal;
+  font-weight: 500;
   font-family: 'Rubik', sans-serif;
-  font-size: 15px;
 }
 
 .guardpassword {
-  position: relative;
-  right: 35%;
-  font-family: 'Rubik', sans-serif;
-  font-size: 15px;
+  
+    position: absolute;
+    margin-left: -75%;
+    margin-top: 13%;
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 500;
+    font-family: 'Rubik', sans-serif;
 }
 }
 
 @media only screen  and (min-device-width : 320px) and (max-device-width : 425px) {
 
-  #loginimgid{
+  #Gloginimgid{
     display: none;
   }
 
-  .guardsignin {
+  .Guardsignin {
     width: 270px;
     height: 76px;
     background-color: #14335D;
@@ -173,7 +243,7 @@ html{
     font-size: 36px;
   }
 
-  #logoid img {
+  #Glogoid img {
     margin-top: 10%;
     margin-left: 36%;
 }
@@ -199,7 +269,7 @@ html{
   font-size: 15px;
 }
 
-.btnlogin {
+.GuardLoginbtn {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;

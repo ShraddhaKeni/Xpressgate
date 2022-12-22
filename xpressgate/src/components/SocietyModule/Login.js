@@ -26,30 +26,29 @@ const Login_society = () => {
     }
   };
   return (
-    <div className="logincontainer1">
+    <div className="LoginContainer">
+            <div id="SOC_LogoId">
+              <img src="/images/loginlogo.svg" alt="" />
+            <div className="SOC_Login_SignIN">
+              <label className="SOC_Login_SignIN_Label">SIGN IN</label>
+            </div>
+            </div>
+           
 
 
-
-      <div id="loginimgid1">
+      <div id="SC_LOGIN_IMG">
         <img src="./images/societylogin.svg" alt="" />
       </div>
-      <div id="loginformid1">
+      <div id="SOC_Login_FormId">
         <Form>
-          <div className="socinputfields">
-            <div id="soclogoid">
-              <img src="/images/loginlogo.svg" alt="" />
-            </div>
-            <br /><br />
-            <div className="socbtnsign">
-              <label className="signinsociety">SIGN IN</label>
-            </div>
-            <br />
+          <div className="SOC_Input_Fields">
+            
             <div className="socemail_input">
-              <label className="socname">User Name</label>
+              <label className="Soc_Name">User Name</label>
               <input
                 ref={username}
                 type="text"
-                className="form-control socemailtextbox"
+                className="form-control Soc_emailtextBox"
                 onKeyPress={(e) => {
                   document.getElementById(e.target.id).style.border = "none";
                 }}
@@ -59,11 +58,11 @@ const Login_society = () => {
             </div>
             <br></br>
             <div className="socemail_input">
-              <label className="socpassword">Password</label>
+              <label className="Soc_Password">Password</label>
               <input
                 ref={password}
                 type="password"
-                className="form-control socpasswordtextbox"
+                className="form-control Soc_Password_textBox"
                 onKeyPress={(e) => {
                   document.getElementById(e.target.id).style.border = "none";
                 }}
@@ -82,7 +81,7 @@ const Login_society = () => {
               </Button>
             </div>
 
-            <div className="socforgotpassword"><a href="/screset" style={{color:"#FD6B22",fontSize: "15px", marginRight:"5%"}}>Forgot Password?</a></div>
+            <div className="socforgotpassword"><a href="/screset" >Forgot Password?</a></div>
           </div>
         </Form>
       </div>

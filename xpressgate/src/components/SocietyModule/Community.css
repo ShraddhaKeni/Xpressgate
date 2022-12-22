@@ -11,10 +11,12 @@ html {
 }
 
 .cfullcardscss {
-  margin-top: 6%;
-  padding-left: 20%;
-  margin-left: -16%;
+  margin-top: 4%;
+  padding-left: 35%;
+  margin-left: -18%;
   width: 100%;
+  margin-bottom: -9%;
+  margin-top: 6%;
 }
 .SC_societyname label {
   font-family: 'Rubik';
@@ -22,7 +24,7 @@ html {
   font-weight: 500;
   color: #14335D;
   margin-left: 4%;
-  margin-top: 13%;
+  margin-top: 12%;
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
@@ -39,9 +41,9 @@ html {
   margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 4%;
+  margin-top: 5%;
 }
-.csidelinks {
+/* .csidelinks {
   margin-right: 55%;
   margin-top: 10%;            
 }
@@ -67,10 +69,10 @@ color: #000;
 font-style: normal;
 font-weight: 500;
 text-decoration: none;
-}
+} */
 .SC_sideimage img {
   display: flex;
-  margin-top: 68%;
+  margin-top: 93%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -84,7 +86,7 @@ text-decoration: none;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  padding-top: 14px;
+  padding-top: 17px;
   margin: auto;
   margin-top: -3%;
 }
@@ -96,10 +98,12 @@ font-weight: 500;
   text-align: center;  
   color: #14335D;
 }
-.dashboardcard img{
-  width:20vw;
-  padding-right: 2%;
-  }
+.Cdashboardcard img {
+  width: 15vw;
+  padding-right: 0;
+  margin-top: 9%;
+  padding-top: 5%;
+}
   
 .noticelist h4{
 font-Size: 1.5vw;
@@ -130,11 +134,20 @@ font-Size: 1.5vw;
       margin-left: 38%;
   }
 
-.dashboardcard img{
-width:20vw;
-padding-right: 2%;
+  .Cdashboardcard img {
+    width: 15vw;
+    padding-right: 0;
+    margin-top: 11%;
+    padding-top: 7%;
 }
-
+.cfullcardscss {
+  margin-top: 4%;
+  padding-left: 35%;
+  margin-left: -19%;
+  width: 100%;
+  margin-bottom: -9%;
+  margin-top: 6%;
+}
 .SC_sideimage img {
   display: flex;
     margin-top: 52%;

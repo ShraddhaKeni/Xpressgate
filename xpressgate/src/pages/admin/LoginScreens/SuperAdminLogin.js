@@ -46,7 +46,7 @@ const SuperAdminLogin = () => {
             </div>
             <br />
             <div className="email_input">
-              <label className="adminemail">Email</label>
+              <label className="adminemail mb-3">Username</label>
               <input
                 ref={username}
                 type="text"
@@ -59,8 +59,8 @@ const SuperAdminLogin = () => {
               ></input>
             </div>
             <br></br>
-            <div className="email_input">
-              <label className="adminpassword">Password</label>
+            <div className="email_input mt-4">
+              <label className="adminpassword mb-3">Password</label>
               <input
                 ref={password}
                 type="password"
@@ -74,7 +74,7 @@ const SuperAdminLogin = () => {
               <br />
               <Button
                 type="button"
-                className="adminloginbtn  mt-4"
+                className="adminloginbtn  mt-5"
                 onClick={() => {
                   loginGuard();
                 }}

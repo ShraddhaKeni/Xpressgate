@@ -14,10 +14,10 @@ export const AddCoupon = () => {
 
     const [value, setValue] = useState(new Date().toLocaleString());
 
-    const handleChange = (newValue) => {
-        console.log(newValue.target.value);
+    const handleChange = (e) => {
+        console.log(e.target.value);
 
-        setValue(newValue);
+        setValue(e.target.value);
     };
 
     let coupon = {
@@ -34,7 +34,8 @@ export const AddCoupon = () => {
         e.preventDefault();
 
         //Validate the data by regex before submit
-        coupon.valid = value.slice(0, 9);
+        console.log(value.value);
+        coupon.valid = value;
         const res = await addCoupon(coupon)
         console.log(res);
         if (res && res.data.status_code == 200) {
@@ -47,16 +48,16 @@ export const AddCoupon = () => {
 
 
     return (
-        <div className="container">
+        <div>
             <div className='page-label'>
-                <label>Create Coupon</label>
+                <label>Generate Coupon</label>
             </div>
-            <div className='main-container'>
+            <div>
 
-                <Form className='formclass' method='POST' onSubmit={handleSubmit}>
+                <Form className='formclass fcadmin' method='POST' onSubmit={handleSubmit}>
 
                     <SimpleInputComponent label={'Coupon Name'} name={'name'} onChange={(e) => coupon.name = e.target.value} required />
-                    <SimpleInputComponent label={'Validity'} type={'datepicker'} name={'valid'} required onChange={handleChange} value={value} />
+                    <SimpleInputComponent label={'Validity'} type={'datepicker'} name={'valid'} required onChange={(e) => handleChange(e)} />
                     <SimpleInputComponent label={'Code'} name={'code'} required onChange={(e) => coupon.code = e.target.value} />
                     <SimpleInputComponent label={'Type'} name={'type'} required onChange={(e) => coupon.type = e.target.value} />
                     <SimpleInputComponent label={'Amount'} name={'amount'} required onChange={(e) => coupon.amount = e.target.value} type={'number'} />
@@ -64,7 +65,7 @@ export const AddCoupon = () => {
 
 
 
-                    <Button type="submit" className="btnAddVeh">Generate</Button>
+                    <Button type="submit" className="hovergreen btnAddVeh" style={{ marginLeft: '18vw' }}>Generate</Button>
 
                 </Form>
 

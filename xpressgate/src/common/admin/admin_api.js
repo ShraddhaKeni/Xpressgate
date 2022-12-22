@@ -3,7 +3,15 @@ import { getRequest, postRequest } from "../axios_client";
 
 
 
+/// DASHBOARD ///
 
+export async function getDashboard() {
+    try {
+        return await postRequest('admin/dashboard', {});
+    } catch (error) {
+        return error
+    }
+}
 
 
 /// PAYMENT ///
@@ -51,6 +59,14 @@ export async function getPlanById(id) {
 export async function getPaymentHistory() {
     try {
         return await getRequest('paymenthistory/getall');
+    } catch (error) {
+        return error
+    }
+}
+
+export async function getPaymentHistoryByCommunityId(id) {
+    try {
+        return await getRequest(`paymenthistory/getbycommunity/${id}`);
     } catch (error) {
         return error
     }

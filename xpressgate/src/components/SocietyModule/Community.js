@@ -26,10 +26,10 @@ const Community = () => {
           <h4><b>Notice List</b></h4>
           <a href="/addNotice" class="Notice">Add Notice</a>
         </div> */}
-        <div className='csidelinks'>
+        {/* <div className='csidelinks'>
           <a className='CNsidelinks' href="/noticelist">Notice List</a><br></br><br></br>
           <a className='CANsidelinks' href="/addNotice">Add Notice</a>
-        </div>
+        </div> */}
         <div className="SC_sideimage">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
@@ -42,7 +42,7 @@ const Community = () => {
 
         <div className="row row-cols-1 row-cols-md-3 g-4 cfullcardscss">
           <div className="col">
-            <div className="dashboardcard">
+            <div className="Cdashboardcard">
               <a href="/management">
                 <img
                   src="/images/Mteam.svg"
@@ -53,7 +53,7 @@ const Community = () => {
             </div>
           </div>
           <div className="col">
-            <div className="dashboardcard">
+            <div className="Cdashboardcard">
               <img
                 src="/images/Lservices.svg"
                 className="dbcard-img-top"
@@ -65,12 +65,24 @@ const Community = () => {
             </div>
           </div>
           <div className="col">
-            <div className="dashboardcard">
+            <div className="Cdashboardcard">
               <img
                 src="/images/emergency.svg"
                 className="dbcard-img-top"
                 onClick={() => {
                   window.location.href = "/emergencyList";
+                }}
+                alt="Emergency"
+              ></img>
+            </div>
+          </div>
+          <div className="col">
+            <div className="Cdashboardcard">
+              <img
+                src="/images/reportbox.svg"
+                className="dbcard-img-top"
+                onClick={() => {
+                  window.location.href = "/socreports";
                 }}
                 alt="Emergency"
               ></img>

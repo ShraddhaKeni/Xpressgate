@@ -5,10 +5,9 @@ html{
   .superadmincontainer {
     display: grid;
     height: 100vh;
-    grid-template-columns: 1.8fr 2fr;
-    grid-template-rows: 2.4fr 2fr;
-    grid-template-areas: "Superadminlogo superadminloginimg"
-      "Superadminloginform superadminloginimg"
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "Superadminloginform superadminloginimg"
   }
   /* #Superadminlogo{
     margin-top: 2rem;
@@ -18,9 +17,6 @@ html{
   }
   */
   #Superadminlogo{
-    margin-top: -95%;
-    margin-left: 2%;
-    margin-bottom: -15%;
     position: relative;
   }
 
@@ -39,11 +35,8 @@ html{
   }
   
   #Superadminloginform {
-   
-    grid-area: Superadminloginform;
-    position: relative;
-    margin-left: -4rem;
-    /* margin-top: -35rem; */
+    height: 100%;
+    margin-top: 20%;
   }
   
   .req{
@@ -56,17 +49,22 @@ html{
     border-radius: 14px;
     width: 12vw;
     height: 5vh;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     font-weight: 500;
     margin-left: 0%;
     margin-bottom: -1%;
     padding: 1%;
     
   }
+
+  .btn-primary:hover{
+    background-color: #0b2447;
+  }
+
   .signinlabel{
     background-color: #0b2447;
     color: #fff;
-    width: 25vw;
+    width: 30vw;
     height: 5.5vh;
     display: flex;
     justify-content: center;
@@ -75,13 +73,12 @@ html{
     font-weight: 500;
     margin-bottom: 2%;
     font-size: 2vw;
-    margin-top: 8%;
   }
   
   .Superadmininputfield
   {
     position:relative;
-    width: 25vw;
+    width: 30vw;
     height: 50%;
     left: 25.5%;
   }
@@ -113,11 +110,11 @@ html{
     font-weight: 500;
 }
   .adminemailtextbox{
-    width: 25vw;
+    width: 30vw;
   }
   
   .adminpasswordbox{
-    width: 25vw;
+    width: 30vw;
   }
   
   
@@ -131,7 +128,6 @@ html{
   #Superadminlogo {
     margin-top: -108%;
     margin-left: 2%;
-    margin-bottom: -15%;
     position: relative;
 }
     .superadmincontainer {

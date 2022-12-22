@@ -106,7 +106,7 @@ font-style: normal;
 font-weight: 500;
 color: #14335D;
   margin-left: 4%;
-  margin-top: 13%;
+  margin-top: 12%;
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
@@ -123,16 +123,16 @@ color: #14335D;
   margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 4%;
+  margin-top: 5%;
 }
 
 .NLSImg img {
   display: flex;
-  margin-top: 68%;
+  margin-top: 69%;
   max-width: 90%;
   height: auto;
-  margin-left: 13%;
-  margin-bottom: 5%;  
+  margin-left: 8%;
+  margin-bottom: 3%;  
 }
 
 
@@ -144,12 +144,13 @@ color: #14335D;
   padding-top: 14px;
   margin: auto;
   margin-top: -3%;
+  margin-left: 37%;
 }
 .NL_display label {
 font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;  
-  font-size: 1.6vw;
+  font-size: 1.3vw;
   text-align: center;  
   color: #14335D;
 }
@@ -164,9 +165,9 @@ font-weight: 500;
 }
 
 #nltable {
-  margin-Left: 10%;
+  margin-Left: 15%;
   margin-Top: 2%;
-  max-Width: 80%;
+  max-Width: 70%;
   background-color: #F9FAFF;
 
   border-radius: 14px;
@@ -198,11 +199,11 @@ table th {
 }
 
 .nlsearchbox{
-  width: 15%;
+  width: 14%;
   height: 5%;
   border: 2px solid #000;
   border-radius: 15px;
-  margin-left: 74%;
+  margin-left: 70%;
   margin-top: -3%;
   
 }
@@ -210,15 +211,26 @@ table th {
   background-color: #E8F5E9;
   color: #0D960A;
   border-radius: 14px;
-  width: 228px;
-  height: 48px;
-  font-size: 151%;
+  width: 11vw;
+  height: 4.5vh;
+  font-size: 1vw;
   font-weight: 500;
   margin-top: 3%;
-  padding-bottom: 1%;
-  margin-left: 30%;
+  padding: 0%;
+  margin-left: 24%;
+ 
 }
-
+.btnAddnotice img{
+ width: 1vw;
+}
+/* .Vsearchbox{
+  width: 15%;
+  height: 5%;
+  border: 2px solid #000;
+  border-radius: 15px;
+  margin-left: 12%;
+  margin-top: 2%;
+} */
 .btnAddnotice:hover {
   background-color: #14335D;
 }
@@ -234,18 +246,18 @@ table th {
 
 .nlsearchbox img {
   margin-top: 0%;
-  margin-left: -18%;
+  margin-left: -8%;
 }
 
 .nlsidelinks {
-  margin-right: 50%;
+  margin-right: 46%;
   margin-top: 10%;
   
 }
 
 .noticeSL{
   color:#000;
-  font-size: 1vw;
+  font-size: 1.1vw;
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 500;
@@ -256,7 +268,7 @@ table th {
   font-weight: 500;
   font-family: 'Rubik';
   font-style: normal;
-  font-size: 1vw;
+  font-size: 1.1vw;
  
 }
 

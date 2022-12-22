@@ -1,29 +1,31 @@
 import React from "react";
 import "../../../styles/Terms.css";
-import { Component , useState  } from 'react';
+import { Component, useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 const Terms = () => {
-  const [data,setdata]=useState('');
-  const handleChange=(e,editor)=>{
+  const [data, setdata] = useState('');
+  const handleChange = (e, editor) => {
     setdata(editor.getData());
   }
   return (
     <>
-    
-   
-    <div className="AdminSideImg"><img src="/images/AdminSideImage.svg"  alt="Admin side image"></img></div> 
-    <div className="Termscontainer">
-      <div className="Admindisplay">
-        <label>Terms & Conditions</label>
-      </div>
-      <div className="conditionstextbox">
-       <div className="editor"> <CKEditor editor={ClassicEditor} onchange={(e,editor)=>{handleChange(e,editor)}} /></div>
-        <div>
-          {data}
+
+
+      <div className="container">
+        <div className="page-label" >
+          <label>Terms and Conditions</label>
+        </div>
+
+        <div className="Policycontainer" >
+
+          <div className="policiestextbox">
+            <div className="editor">
+              <div className="editor"> <CKEditor editor={ClassicEditor} onchange={(e, editor) => { handleChange(e, editor) }} /></div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 };

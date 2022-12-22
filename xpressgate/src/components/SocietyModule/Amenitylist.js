@@ -92,7 +92,7 @@ const Amenitylist = () => {
         <img src="/images/societyicon.svg" alt="society name" />
           <label>Society Name</label>
         </div>
-        <div className='nlsidelinks'>
+        <div className='amen_sidelinks'>
           <a className='AnoticeSL'  onClick={()=>{navigate('/addeditamenity',{state:{id:location.state.id,type:'edit'}})}}>Edit Amenity</a>
         </div>
         {/* <Button onClick={()=>{navigate('/addeditamenity',{state:{id:location.state.id,type:'edit'}})}} className='btnAdd' style={{marginLeft:'65px'}}>Edit Amenity</Button> */}

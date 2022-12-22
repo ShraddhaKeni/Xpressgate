@@ -17,12 +17,6 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.code {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  align-items: center;
-}
 
 .dashboard_passcode {
   position: relative;
@@ -71,15 +65,16 @@ input::-webkit-inner-spin-button {
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  padding-top: 14px;
+  padding-top: 16px;
   margin: auto;
   margin-top: -3%;
+  margin-left: 39%;
 }
 .BL_display label {
 font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;  
-  font-size: 1.6vw;
+  font-size: 1.3vw;
   text-align: center;  
   color: #14335D;
 }
@@ -87,13 +82,32 @@ font-weight: 500;
   color:#757575;
   font-weight: 500;
   font-size: 1.1vw;
+  margin-left:-8% ;
 }
 .Addsidelinks{
   color:#757575;
   font-weight: 500;
   font-size: 1.1vw;
+  margin-left:-8% ;
 }
-
+.BListsidelink{
+  color:#000;
+  font-weight: 500;
+  font-size: 1.1vw;
+}
+.BListsidelink:hover{
+text-decoration: none;
+color: #000;
+}
+.ABlockSidelink{
+  color:#757575;
+  font-weight: 500;
+  font-size: 1.1vw;
+}
+.ABlockSidelink:hover{
+color: #000;
+text-decoration: none;
+}
 .Addsidelinks:hover {
   color: #000;
   text-decoration: none; 
@@ -115,8 +129,8 @@ font-weight: 500;
 }
 
 #bllogo img {
-  margin-top: 5%;
-  margin-left: 1%;
+  margin-top: 7%;
+  margin-left: -30%;
   margin-bottom: 5%;
   width: 40%;
 }
@@ -126,15 +140,18 @@ font-weight: 500;
 }
 
 #blsociety label {
-  margin-top: 20%;
-  margin-left: -88%;
-  width: 136px;
-  height: 58px;
+  margin-top: 19%;
+  margin-left: -120%;
+  width: 7.5vw;
+  height: 6.5vh;
   background-color: black;
   color: #fff;
-  border-radius: 18px;
-  padding-top: 4%;
-  font-size: 20px;
+  border-radius: 19px;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.6vw;
+  padding: 3%;
 }
 
 #blspace {
@@ -164,6 +181,8 @@ font-weight: 500;
 #bllogoutbutton img {
   padding-left: 10%;
   padding-bottom: 5%;
+  width: 1.8vw;
+  height: auto;
 }
 
 .blsocietyname label {
@@ -172,7 +191,7 @@ font-weight: 500;
   font-weight: 500;
   color: #14335D;
   margin-left: 4%;
-  margin-top: 13%;
+  margin-top: 12%;
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
@@ -189,12 +208,12 @@ font-weight: 500;
   margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 4%;
+  margin-top: 5%;
 }
 
 .blsideimage img {
   display: flex;
-  margin-top: 68%;
+  margin-top: 55%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -206,24 +225,7 @@ font-weight: 500;
   margin-top: 10%;
 }
 
-.enterpasscodesearch {
-  width: 25%;
-  height: 10%;
-  background-color: #CFDBEB;
-  border-radius: 25px;
-  border-color: #0A8996;
-  border-style: solid;
-  margin: auto;
-  margin-top: 5%;
-  font-size: 20px;
-  font-weight: 600;
-  color: #0A8996;
-}
 
-.enterpasscodesearch img {
-  margin-left: 105%;
-  margin-top: -8%;
-}
 
 .blcard {
   width: fit-content;
@@ -233,11 +235,11 @@ font-weight: 500;
   cursor: pointer;
 }
 
-.fullcardscss {
-  margin-top: 5%;
-  padding-left: 25px;
-  margin-right: 125px;
-  width: 100%;
+.BLfullcardscss {
+  margin-top: 4%;
+  margin-right: 1%;
+  margin-left: 1%;
+  padding-right: 20%;
 }
 
 .blminicard {
@@ -245,13 +247,16 @@ font-weight: 500;
   margin-bottom: 10%;
   border: none;
   background-color: #0A8996;
-  width: 70%;
+  width: 80%;
   height: 95%;
   border-radius: 20px;
 }
-
+.Pencilicon img{ 
+  margin-left: 80%;
+  width: 8%;
+}
 .blblock {
-  font-size: 19px;
+  font-size: 25px;
   font-family: 'Rubik', sans-serif;
   color: #fff;
   font-weight: 600;
@@ -263,6 +268,7 @@ font-weight: 500;
   margin: auto;
   font-family: 'Rubik', sans-serif;
   color: #fff;
+  font-size: 16px ;
 }
 
 .btnView {
@@ -275,26 +281,13 @@ font-weight: 500;
   font-weight: 500;
   margin-top: 4%;
 }
-
+.btnView:hover{
+  background: #14335D;
+}
 /* Media query for laptop */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  #blsociety label {
-    margin-top: 14%;
-    margin-left: -68%;
-    width: 108px;
-    height: 45px;
-    background-color: black;
-    color: #fff;
-    border-radius: 18px;
-    padding-top: 3%;
-    font-size: 20px;
-  }
+ 
 
-  .blsocietyname label {
-    margin-left: 7%;
-    margin-top: 18%;
-    font-size: 15px;
-  }
 
   .blbackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
@@ -304,16 +297,17 @@ font-weight: 500;
     position: relative;
     margin-top: 10.5%;
   }
-
   .blsideimage img {
     display: flex;
-    margin-top: 53%;
-    max-width: 95%;
+    margin-top: 40%;
+    max-width: 82%;
     height: auto;
-    margin-left: 2%;
-  }
-
-  .fullcardscss {
+    margin-left: 10%;
+}
+.btnView:hover{
+  background: #14335D;
+}
+  .BLfullcardscss {
     margin-top: 5%;
     margin-right: 4%;
   }
@@ -333,20 +327,7 @@ font-weight: 500;
     border-bottom: 5px solid #000000;
   }
 
-  .enterpasscodesearch {
-    width: 35%;
-    height: 10%;
-    background-color: #CFDBEB;
-    border-radius: 25px;
-    border-color: #0A8996;
-    border-style: solid;
-    margin: auto;
-    margin-top: 5%;
-    font-size: 20px;
-    font-weight: 600;
-    color: #0A8996;
-  }
-
+ 
   .blminicard {
     margin-left: 50%;
     margin-bottom: 10%;
@@ -357,18 +338,7 @@ font-weight: 500;
     border-radius: 20px;
   }
 
-  .blsocietyname img {
-    margin-left: 6%;
-    width: 30%;
-    height: 70%;
-    margin-top: 8%;
-  }
 
-  .blsocietyname label {
-    margin-left: 1%;
-    margin-top: 13%;
-    font-size: 1.3vw;
-}
 .BL_display {
   width: 17vw;
   height: 7vh;

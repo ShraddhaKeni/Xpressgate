@@ -1,0 +1,82 @@
+.ADD_Flatsidelinks{
+    color:#757575;
+    font-weight: 500;
+    font-size: 1.1vw;
+    margin-left:-8% ;
+  }
+  .ADD_Addsidelinks{
+    color:#757575;
+    font-weight: 500;
+    font-size: 1.1vw;
+    margin-left:-8% ;
+  }
+  .ADD_BListsidelink{
+    color:#757575;
+    font-weight: 500;
+    font-size: 1.1vw;
+  }
+  .ADD_BListsidelink:hover{
+  text-decoration: none;
+  color: #000;
+  }
+  .ADD_ABlockSidelink{
+    color:#000;
+    font-weight: 500;
+    font-size: 1.1vw;
+  }
+  .ADD_ABlockSidelink:hover{
+  color: #000;
+  text-decoration: none;
+  }
+  .ADD_Addsidelinks:hover {
+    color: #000;
+    text-decoration: none; 
+  }
+  
+  .ADD_Flatsidelinks:hover {
+    color: #000;
+    text-decoration: none; 
+  }
+  .addblock_form{
+    margin-top: 5%;
+    display: flex;
+    margin-left: 23%;
+  }
+  .ABl_label{
+    
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+font-size: 1.1vw;
+color: #14335D;
+margin-right: 6%;
+
+  }
+  .ABl_input{
+    width: 22vw;
+    background: #FFFFFF;
+border: 2px solid #14335D;
+box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+border-radius: 8px;
+padding-left: 1%;
+
+  }
+  .ADDB_BtN{
+    margin-top: 4%;
+margin-left: -2%;
+  }
+  .BtnADDBlock{
+    width: 8vw;
+    height: 5vh;
+    font-size: 1.2vw;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 700;
+color: #FFFFFF;
+background: #0A8996;
+border-radius: 9px;
+border: none;
+  }
+  .BtnADDBlock:hover{
+background-color: #14335D;
+  }

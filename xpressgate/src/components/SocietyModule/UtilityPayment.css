@@ -8,7 +8,7 @@ html {
     font-weight: 500;
     color: #14335D;
       margin-left: 4%;
-      margin-top: 13%;
+      margin-top: 12%;
       font-size: 1.2vw;
       padding-top: 0.5%;
     }
@@ -25,7 +25,7 @@ html {
       margin-left: 10%;
       width: 25%;
       height: 70%;
-      margin-top: 4%;
+      margin-top: 5%;
     }
     .UP_Simg img {
         display: flex;
@@ -40,10 +40,10 @@ html {
         height: 7vh;
         background-color: #AED8DC;
         border-radius: 30px;
-        font-size: 1.5vw;
+        font-size: 1.3vw;
         margin: auto;
         margin-top: -3%;
-        padding-top: 1%;
+        padding-top: 1.1%;
       }
       
       .UPdisplay label{
@@ -62,54 +62,54 @@ html {
     margin-top: 3%;
 }
 .UtilityTypesdetails{
-    margin-right: 5%;
-    margin-left: -14%;
-    font-size: 1.2vw;
-    font-family: 'Rubik';
+  margin-right: 5.8%;
+  margin-left: -14.8%;
+  font-size: 1.1vw;
+  color: #14335D;
+  font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;
-    color: #14335D;
     
 }
 
 .Utility_Block{
-    margin-right: 5.5%;
-    margin-left: -11%;
-    font-size: 1.2vw;
-    font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 500;
-        color: #14335D;
+  margin-right: 8%;
+  margin-left: -13.5%;
+  font-size: 1.1vw;
+  color: #14335D;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
 }
 
 .Utility_FlatNo{
-    margin-right: 5.8%;
-    margin-left: -12%;
-    font-size: 1.2vw;
-    font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 500;
-        color: #14335D;
+  margin-right: 7.2%;
+  margin-left: -14%;
+  font-size: 1.1vw;
+  color: #14335D;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
     
 }
 
 .Utility_Residentname{
-    margin-right: 5.2%;
-    margin-left: -17%;
-    font-size: 1.2vw;
-    font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 500;
-        color: #14335D;
-}
-.Utility_Amount{
-    margin-right: 7%;
-    margin-left: -13%;
-    font-size: 1.2vw;
-    font-family: 'Rubik';
+  margin-right: 5.2%;
+  margin-left: -17%;
+  font-size: 1.1vw;
+  color: #14335D;
+  font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;
-    color: #14335D;
+}
+.Utility_Amount{
+  margin-right: 7.2%;
+  margin-left: -14.5%;
+  font-size: 1.1vw;
+  color: #14335D;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
 }
 .ButtonsContainer3{
     max-width: 100%;
@@ -117,16 +117,16 @@ font-weight: 500;
     justify-content: center;
 }
 .AUButnn{
-    width: 9vw;
-    height: 5vh;
-    font-size: 1.4vw;
+    width: 8vw;
+    height: 4.5vh;
+    font-size: 1.2vw;
     font-weight: 700;
     padding: 0%;
     border-radius: 9px;
     background: #0A8996;
     border: none;
     color: #FFFFFF;
-    margin-top: -6%;
+    margin-top: -3%;
     font-family: 'Rubik';
     font-style: normal;
  
@@ -136,42 +136,51 @@ font-weight: 500;
     background: #14335D;
 }
 .Utilitypaymentdate{
-    margin-right: 6%;
-    margin-left: -9.5%;
-    font-size: 1.2vw;
-    font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 500;
-        color: #14335D;
+  margin-right: 5%;
+  margin-left: -10%;
+  font-size: 1.1vw;
+  color: #14335D;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
     
 }
 .Utility_Paymentdateinput{
-    width: 7vw;
-    height: 4vh;
-    padding: 1%;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-    border: 2px solid #14335D;
-    border-radius: 8px;
-    margin-top: 0%;
-    margin-right: 2%;
+  width: 6vw;
+  height: 4vh;
+  padding: 1%;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border: 2px solid #14335D;
+  border-radius: 8px;
+  margin-top: 0%;
+  margin-right: 2.5%;
 }
 .Utility_Duedate{
-    margin-right: 3%;
-    font-size: 1.2vw;
-    font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 500;
-        color: #14335D;
+  margin-right: 2%;
+  font-size: 1.1vw;
+  color: #14335D;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
 }
 .Utility_Duedateinput{
-    width: 7vw;
-    height: 4vh;
-    padding: 1%;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-    border: 2px solid #14335D;
-    border-radius: 8px;
-    margin-top: 0%;
-    margin-right: 6%;
+  width: 6vw;
+  height: 4vh;
+  padding: 1%;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border: 2px solid #14335D;
+  border-radius: 8px;
+  margin-top: 0%;
+  margin-right: 6%;
+}
+.VenDorInp {
+  width: 20vw;
+  height: 4.5vh;
+  padding: 0%;
+  box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);
+  border: 2px solid #14335D;
+  border-radius: 8px;
+  margin-top: 0%;
 }
   /* Media query for laptop */
   @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
@@ -185,6 +194,15 @@ font-weight: 500;
         height: auto;
         margin-left: 2%;
     }
+    .VenDorInp {
+      width: 24vw;
+      height: 5vh;
+      padding: 0%;
+      box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);
+      border: 2px solid #14335D;
+      border-radius: 8px;
+      margin-top: 0%;
+  }
     .UPdisplay {
         width: 17vw;
         height: 7vh;

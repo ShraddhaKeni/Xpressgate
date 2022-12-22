@@ -51,8 +51,8 @@ html {
 }
 
 #aflogo img {
-  margin-top: 5%;
-  margin-left: 1%;
+  margin-top: 7%;
+  margin-left: -30%;
   margin-bottom: 5%;
   width: 40%;
 }
@@ -62,15 +62,18 @@ html {
 }
 
 #afsociety label {
-  margin-top: 20%;
-  margin-left: -88%;
-  width: 136px;
-  height: 58px;
+  margin-top: 19%;
+  margin-left: -120%;
+  width: 7.5vw;
+  height: 6.5vh;
   background-color: black;
   color: #fff;
-  border-radius: 18px;
-  padding-top: 4%;
-  font-size: 20px;
+  border-radius: 19px;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+  font-size: 1.6vw;
+  padding: 3%;
 }
 
 #afspace {
@@ -109,9 +112,11 @@ html {
   margin-top: 18%;
   padding-top: 2%;
 } */
-
 .alssocietyname label {
-  color: #000;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
   margin-left: 4%;
   margin-top: 13%;
   font-size: 1.2vw;
@@ -130,48 +135,45 @@ html {
   margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 4%;
+  margin-top: 5.5%;
 }
 
 .alssideimage img {
   display: flex;
-  margin-top: 80%;
-  width: 100%;
+  margin-top: 68%;
+  max-width: 90%;
   height: auto;
+  margin-left: 8%;
+  margin-bottom: 3%;  
 }
-
 .alsdisplay {
-  width: 17vw;
+  width: 16vw;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 1.5vw;
+  padding-top: 14px;
   margin: auto;
   margin-top: -3%;
-  padding-top: 1%;
 }
-.alsdisplay label{
- 
-  display: inline-block;
- 
-  margin-bottom: -19%;
-  font-weight: 700;
-
-}
-.labelsize {
-  font-size: 20px;
+.alsdisplay label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;  
+  font-size: 1.3vw;
+  text-align: center;  
+  color: #14335D;
 }
 
 .btnAddV {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  width: 10vw;
+  width: 8vw;
   height: 5vh;
-  font-size: 1.2vw;
+  font-size: 1.1vw;
   font-weight: 500;
   margin-top: 4%;
-  margin-right: 34%;
+  margin-right: 32%;
 }
 .btnAddV:hover{
   background-color: #14335D;
@@ -184,11 +186,31 @@ html {
   color:#757575;
   font-weight: 500;
   margin-left: 5%;
+  font-size: 1.1vw;
+  font-family: 'Rubik';
+font-style: normal;
+margin-left: -7%;
+}
+.LSsidelinks:hover{
+  color: #000000;
+  text-decoration: none;
+}
+.AddLSsidelinks {
+  margin-right: 28%;
+  margin-top: 10%;
 }
 .ALSsidelinks{
   color:#000000;
   font-weight: 500;
-  margin-left: 25%;
+  margin-left: 10%;
+  font-size: 1.1vw;
+  font-family: 'Rubik';
+font-style: normal;
+
+}
+.ALSsidelinks:hover{
+  color: #000000;
+  text-decoration: none;
 }
 .inputborder{
   background: #FFFFFF;
@@ -197,28 +219,14 @@ box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 border-radius: 8px;
 }
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  .alssocietyname {
-    display: flex;
-    width: 80%;
-    height: 10%;
-    background-color: rgba(10, 137, 150, 0.33);
-    margin-left: 10%;
-    margin-top: 12%;
-    border-radius: 24px;
-  }
 
- 
-  .alssocietyname label {
-    margin-left: 7%;
-    margin-top: 15%;
-    font-size: 15px;
-  }
 
   .alssideimage img {
     display: flex;
-    margin-top: 216%;
-    width: 100%;
+    margin-top: 43%;
+    max-width: 95%;
     height: auto;
+    margin-left: 2%;
   }
   .inputborder{
     background: #FFFFFF;
@@ -235,18 +243,13 @@ border-radius: 8px;
     margin-top: 12.5%;
   }
 
-  .labelsize {
-    font-size: 12px;
-  }
-
-
 .btnAddV {
     background-color: #0A8996;
     color: #fff;
-    border-radius: 14px;
-    width: 12vw;
-    height: 6vh;
-    font-size: 1.4vw;
+    border-radius: 11px;
+    width: 8vw;
+    height: 5vh;
+    font-size: 1.1vw;
     font-weight: 500;
     margin-top: 4%;
     margin-right: 35%;
@@ -255,35 +258,26 @@ border-radius: 8px;
   .btnAddV:hover{
     background-color: #14335D;
   }
-  #afsociety label {
-    margin-top: 14%;
-    margin-left: -68%;
-    width: 108px;
-    height: 45px;
-    background-color: black;
-    color: #fff;
-    border-radius: 18px;
-    padding-top: 3%;
-    font-size: 20px;
-  }
 
+  .alsdisplay img {
+    display: flex;
+    margin-top: 93%;
+    max-width: 95%;
+    height: auto;
+    margin-left: 2%;
+  }
   .alsdisplay {
-    width: 24vw;
-  height: 10vh;
-  background-color: #AED8DC;
-  border-radius: 30px;
-  font-size: 1.6vw;
-  padding-top: 2.2%;
-  margin: auto;
-  margin-top: -5%;
+      width: 17vw;
+      height: 7vh;
+      background-color: #AED8DC;
+      border-radius: 30px;
+      font-size: 1.4vw;
+      padding: 1%;
+      margin: auto;
+      margin-top: -15%;
+      margin-left: 38%;
   }
-
-  .alssocietyname img {
-    margin-left: 5%;
-    width: 25%;
-    height: 70%;
-    margin-top: 7%;
-}
+ 
 }
 
 /* Media query for mobile */

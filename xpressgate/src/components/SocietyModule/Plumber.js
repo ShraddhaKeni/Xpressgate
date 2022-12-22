@@ -110,21 +110,25 @@ const navigateTo =e=>{
         <Societyheader/>
     </div>
       <div id="societynamesection">
-        <div className="P_societyname">
+        <div className="Plum_societyname">
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
+        </div><br></br>
+        <div>
+        <a href="/localservices" className="LOcalSLINK">Local Services</a>
         </div>
         <div class="noticelist">
+        
         <div className="sidebar_classes">
           {services.map(item=>{
 
             if(item.serviceName===location.state.serviceName)
             {
-              return <h5 id={item.id} onClick={(e)=>{navigateTo(e)}} className="sidebar_h6">{item.serviceName}</h5>
+              return <h5 id={item.id} onClick={(e)=>{navigateTo(e)}} className="sidebar_h6 fontstyle">{item.serviceName}</h5>
             }
             else
             {
-              return <h5 id={item.id} onClick={(e)=>{navigateTo(e)}} className="sidebar_h6">{item.serviceName}</h5>
+              return <h5 id={item.id} onClick={(e)=>{navigateTo(e)}} className="sidebar_h6 fontstyle">{item.serviceName}</h5>
             }
            
           
@@ -184,3 +188,5 @@ const navigateTo =e=>{
 };
 
 export default Plumber;
+
+

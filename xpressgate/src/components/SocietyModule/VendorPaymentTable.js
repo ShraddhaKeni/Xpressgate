@@ -73,7 +73,7 @@ const VendorPaymentTable = () => {
             <tr>
               <th class="th-sm">Vendor</th>
               <th class="th-sm">Block </th>
-              <th class="th-sm">Flat  No</th>
+              <th class="th-sm">Flat  No.</th>
               <th class="th-sm">Resident Name</th>
               <th class="th-sm">Amount</th>
               <th class="th-sm">Status</th>

@@ -19,7 +19,8 @@ export const CouponsList = () => {
         async function getCoupons() {
             const res = await getAllCoupons();
             if (res && res.data.status_code == 200) {
-                setCoupons(getCurrentCoupons(res.data.data.block))
+                setAllCoupons(res.data.data.coupons);
+                getCurrentCoupons(res.data.data.coupons)
             }
         }
 
@@ -27,11 +28,16 @@ export const CouponsList = () => {
     }, [])
 
     function getCurrentCoupons(data) {
-        console.log(data);
-        const firstPageIndex = (currentPage) * PageSize
-        const lastPageIndex = firstPageIndex + PageSize;
-        setAllCoupons(data);
-        return data?.slice(firstPageIndex, lastPageIndex);
+        const lastPageIndex = (currentPage) * PageSize
+        const firstPageIndex = lastPageIndex - PageSize;
+        console.log(lastPageIndex, firstPageIndex);
+
+        if (data.length < PageSize) {
+            setCoupons(data?.slice(firstPageIndex, lastPageIndex));
+            return data;
+        }
+
+        setCoupons(data?.slice(firstPageIndex, lastPageIndex));
     }
 
     const handleAddPremise = () => {
@@ -40,9 +46,30 @@ export const CouponsList = () => {
 
     const handlePageChange = (page) => {
 
-        setCurrentPage(page.selected);
+        setCurrentPage(page.selected + 1);
+        const lastPageIndex = (page.selected + 1) * PageSize
+        const firstPageIndex = lastPageIndex - PageSize;
+        console.log(lastPageIndex, firstPageIndex);
+        setCoupons(allCoupons?.slice(firstPageIndex, lastPageIndex));
 
-        setCoupons(getCurrentCoupons(allCoupons));
+    }
+
+    function findText(e) {
+        let search = e.target.value.toLowerCase()
+        let arr = allCoupons.filter(x => {
+            console.log(x);
+            if (x?.code?.toLowerCase()?.includes(search)) {
+                return true
+            }
+
+        })
+        console.log(arr);
+        if (arr) {
+            getCurrentCoupons(arr);
+        }
+        else {
+            getCurrentCoupons(allCoupons);
+        }
 
     }
 
@@ -50,23 +77,25 @@ export const CouponsList = () => {
         navigate(RouterPath.EDIT_COUPON)
     }
     return (
-        <div className="container pb-5">
+        <div>
             <div className='page-label'>
                 <label>Coupons</label>
             </div>
-            <div className='main-container mt-5'>
+
+            <div>
 
                 <div className='table-top-right-content'>
                     <div className='table-search pl-2'>
                         <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-                        <span><input className='search' placeholder='Search' onChange={(e) => { }} /></span>
+                        <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
                     </div>
                     <div className="table-add-new-button" onClick={handleAddPremise}>
-                        <img src="/images/ic_plus.svg" />  Add New Coupon
+                        <img src="/images/ic_plus.svg" />
+                        <span className='ml-2'> Add New Coupon</span>
                     </div>
                 </div>
 
-                <div id="cardsection">
+                <div id="cardsection pt-5">
                     <div className="row row-cols-1 row-cols-md-3 g-3 mb-5">
 
                         {coupons && coupons.map((coupon) => {
@@ -87,18 +116,17 @@ export const CouponsList = () => {
 
                         })}
 
+
                     </div>
+                    {allCoupons?.length &&
+                        <div className="paginate mb-5">
+                            <PaginationCalculate totalPages={allCoupons.length} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} />
+                        </div>
+                    }
                 </div>
 
-                {allCoupons && <div className='flex space-between'>
-                    <p>Showing {currentPage} of {`${Math.ceil(allCoupons.length / PageSize)}`}</p>
-
-                    {/* <PaginationCalculate totalPages={Math.ceil(allCoupons.length / PageSize)} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} /> */}
-                    <PaginationCalculate totalPages={Math.ceil(allCoupons.length / PageSize)} postperPage={3} currentPage={currentPage} paginate={handlePageChange} />
-
-                </div>}
-
             </div >
+
         </div >
     )
 }

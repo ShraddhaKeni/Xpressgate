@@ -3,16 +3,17 @@ import { IconButton } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAllPlans, getPaymentHistory } from '../../../../common/admin/admin_api';
+import RouterPath from '../../../../common/constants/path/routerPath';
 import PaginationCalculate from '../../../../components/GuardModule/Utils/paginationCalculate';
 
 const PageSize = 10;
-export const PaymentsHistory = () => {
+export const PaymentHistory = ({ route }) => {
 
     const navigate = useNavigate();
 
     const [history, setHistory] = useState();
     const [allHistory, setAllHistory] = useState();
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(0);
 
     const openInNewTab = (url) => {
 
@@ -22,17 +23,24 @@ export const PaymentsHistory = () => {
 
     const handlePageChange = (page) => {
 
-        setCurrentPage(page.selected);
-
-        setHistory(getCurrentHistory(allHistory));
+        setCurrentPage(page.selected + 1);
+        const lastPageIndex = (page.selected + 1) * PageSize
+        const firstPageIndex = lastPageIndex - PageSize;
+        setHistory(allHistory?.slice(firstPageIndex, lastPageIndex));
 
     }
+
+    const handlePremiseHistory = (item) => {
+        navigate(`/admin/payments/history/premise/${item.community_id}`);
+    }
+
 
 
     useEffect(() => {
         async function getPayments() {
             const res = await getPaymentHistory();
             if (res && res.data.status_code == 200) {
+                setAllHistory(res.data.data);
                 setHistory(getCurrentHistory(res.data.data))
             }
         }
@@ -44,9 +52,9 @@ export const PaymentsHistory = () => {
         if (data.length < PageSize) {
             return data;
         }
-        const firstPageIndex = (currentPage) * PageSize
-        const lastPageIndex = firstPageIndex + PageSize;
-        return data?.slice(firstPageIndex, lastPageIndex);
+        const lastPageIndex = (currentPage) * PageSize
+        const firstPageIndex = lastPageIndex - PageSize;
+        setHistory(data?.slice(firstPageIndex, lastPageIndex));
     }
 
     const handleAddPremise = (someId) => {
@@ -57,49 +65,64 @@ export const PaymentsHistory = () => {
         navigate('/admin/premises/edit')
     }
 
+
+    function findText(e) {
+        let search = e.target.value.toLowerCase()
+        let arr = allHistory.filter(x => {
+            if (x.community_name.toLowerCase().includes(search)) {
+                return true
+            }
+
+        })
+        if (arr) {
+            setHistory(getCurrentHistory(arr));
+        }
+        else {
+            handlePageChange({ selected: 0 })
+        }
+
+    }
+
+
     return (
-        <div className="container pb-5">
+        <div>
             <div className='page-label'>
                 <label>Payment History</label>
             </div>
-            <div className='main-container mt-5'>
+            <div>
 
                 <div className='table-top-right-content search-right mb-5'>
                     <div className='table-search pl-2'>
                         <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-                        <span><input className='search_input' placeholder='Search' onChange={(e) => { }} /></span>
+                        <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
                     </div>
                 </div>
 
-                <table id="table-header" class="table table-light table-striped" cellspacing="0">
+                <table id="table-header" class="table table-striped table-bordered table-sm " style={{ border: '2px solid black' }} cellspacing="0">
                     <thead className='table-th'>
                         <tr>
                             <th class="th-sm">ID No.</th>
-                            <th class="th-sm">Payment Type</th>
+                            <th class="th-sm">Premise Name</th>
                             <th class="th-sm">Date</th>
                             <th class="th-sm">Amount</th>
                             <th class="th-sm">Status</th>
-                            <th class="th-sm"></th>
                         </tr>
                     </thead>
                     <tbody>
                         {history && history.map((item) => {
                             return <tr>
                                 <td>{item.pg_transection_id}</td>
-                                <td>{item.payment_type}</td>
-                                <td>{item.payment_date || "n/a"}</td>
+                                <td onClick={() => handlePremiseHistory(item)} style={{ cursor: 'pointer' }}>{item.community_name}</td>
+                                <td>{item.date?.slice(0, 10) || "n/a"}</td>
                                 <td>{item.amount}</td>
                                 <td> <p className={`status-${item.status_name.toLowerCase()}`}>{item.status_name}</p></td>
-                                <td>
-                                    <ButtonUnstyled className='download-invoice' onClick={() => openInNewTab(item.invoice_url)}>Download Invoice</ButtonUnstyled>
-                                </td>
+
                             </tr>
                         })}
 
                     </tbody>
                 </table>
-                {allHistory && <div className='flex space-between'>
-                    <p>Showing {currentPage} of {`${Math.ceil(allHistory.length / PageSize)}`}</p>
+                {allHistory && <div className='paginate'>
 
                     {/* <PaginationCalculate totalPages={Math.ceil(allCoupons.length / PageSize)} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} /> */}
                     <PaginationCalculate totalPages={Math.ceil(allHistory.length / PageSize)} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} />

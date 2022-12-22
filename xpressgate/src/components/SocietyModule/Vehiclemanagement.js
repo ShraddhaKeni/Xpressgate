@@ -39,31 +39,26 @@ const Vehiclemanagement = () => {
     setCurrentPosts(data.data.vehicle.slice(indexoffirst, indexoflast))
   }
 
-  function findText(e)
-  {
+  function findText(e) {
     let search = e.target.value.toLowerCase()
-    let arr = entry.filter(x=>{
-      if(x.firstname.toLowerCase().includes(search))
-      {
+    let arr = entry.filter(x => {
+      if (x.firstname.toLowerCase().includes(search)) {
         return true
       }
-      else if(x.lastname.toLowerCase().includes(search))
-      {
+      else if (x.lastname.toLowerCase().includes(search)) {
         return true
       }
     })
-    if(arr)
-    {
-      const indexoflast =currentPage*postPerPage  //endoffset
+    if (arr) {
+      const indexoflast = currentPage * postPerPage  //endoffset
       const indexoffirst = (indexoflast - postPerPage)
-      setCurrentPosts(arr.slice(indexoffirst,indexoflast))
+      setCurrentPosts(arr.slice(indexoffirst, indexoflast))
     }
-    else
-    {
+    else {
       paginate(0)
     }
-  
-}
+
+  }
 
 function navigatetoEdit(name,section)
   {
@@ -83,6 +78,7 @@ function navigatetoEdit(name,section)
         <div className='vmsidelinks'>
           <label>Vehicle list</label><br></br>
           <a href='/addvehicle' className='apssec'>Assign parking section</a><br/><br/>
+        <a href='/vehiclemanagement' className='VLsecLink'><b>Vehicle List</b></a><br/><br/>
           <a href='/viewparking' className='VPsec'>View parking section</a><br/><br/>
           <a href='/addparking' className='APsec'>Add parking section</a>
         </div>

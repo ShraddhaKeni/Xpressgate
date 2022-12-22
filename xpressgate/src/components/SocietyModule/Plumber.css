@@ -30,17 +30,17 @@ html {
   grid-template-areas: "addflatsection addflatsection"
   "societynamesection cardsection"
 }
-.P_societyname label {
+.Plum_societyname label {
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 500;
   color: #14335D;
   margin-left: 4%;
-  margin-top: 13%;
+  margin-top: 12%;
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
-.P_societyname {
+.Plum_societyname {
   display: flex;
   width: 80%;
   height: 12%;
@@ -49,18 +49,18 @@ html {
   margin-top: 12%;
   border-radius: 24px;
 }
-.P_societyname img {
+.Plum_societyname img {
   margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 4%;
+  margin-top: 5%;
 }
 .P_display {
   width: 17vw;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 1.5vw;
+  font-size: 1.3vw;
   margin: auto;
   margin-top: -3%;
   padding-top: 1%;
@@ -80,7 +80,7 @@ html {
 
 .P_sideimage img {
   display: flex;
-  margin-top: 58%;
+  margin-top: 46%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -110,6 +110,20 @@ html {
   border: 2px solid #14335D;
   
 }
+.LOcalSLINK {
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+font-size: 1.1vw;
+line-height: 24px;
+text-decoration: none;
+margin-right: 36%;
+color: #757575;
+}
+.LOcalSLINK:hover{
+  color: #000;
+  text-decoration: none;
+}
 table thead {
 background: #14335D;
 border-radius: 33px 33px 0px 0px;
@@ -121,30 +135,19 @@ color: #F9F9FF;
   font-family: 'Rubik';
   font-style: normal;
 }
-.Pnoticelist h4{
-  color: #434242;
-  font-size: 1.2vw;
 
-font-weight: 500;
+.fontstyle{
+  font-family: 'Rubik', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  margin-right: 49%;
+  font-size: 1.1vw;
+  color: #000; 
 }
-.PNotice {
-  color: #5C5C5C;
- margin-left: -17%;
-font-weight: 400;
-font-size: 1vw;
-}
-.ENotice {
-  color: #5C5C5C;
- margin-left: -14%;
-font-weight: 400;
-font-size: 1vw;
-}
-.PNotice:hover{
+.fontstyle:hover{
   color: #000;
 }
-.ENotice:hover{
-  color: #000;
-}
+
 #plumbertable{
   margin-Left: 10%;
   margin-Top: 2%;
@@ -234,15 +237,10 @@ font-size: 1.1vw;
     color: #F9F9FF;
    
   }
-    #dashboardlogo img {
-      margin-top: 9%;
-      margin-left: -38%;
-      margin-bottom: 3%;
-      width: 5vw;
-  }
+ 
     .P_sideimage img {
       display: flex;
-      margin-top: 21%;
+      margin-top: 14%;
       max-width: 95%;
       height: auto;
       margin-left: 2%;

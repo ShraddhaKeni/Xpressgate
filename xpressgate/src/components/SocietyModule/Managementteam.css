@@ -36,7 +36,7 @@ html {
     font-weight: 500;
     color: #14335D;
     margin-left: 4%;
-    margin-top: 13%;
+    margin-top: 12%;
     font-size: 1.2vw;
     padding-top: 0.5%;
   }
@@ -53,72 +53,15 @@ html {
     margin-left: 10%;
     width: 25%;
     height: 70%;
-    margin-top: 4%;
+    margin-top: 5%;
   }
   .firstheadersection1 {
     display: grid;
     grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
     grid-template-areas: "dashboardlogo dashboardguard1 dashboardspace dashboardnotification1 dashboardsetting1 dashboardlogoutbutton";
   }
-  
-  #dashboardlogo {
-    grid-area: dashboardlogo;
-  }
-  
-  #dashboardlogo img {
-    margin-top: 5%;
-    margin-left: 1%;
-    margin-bottom: 5%;
-    width: 40%;
-  }
-  
-  #dashboardguard1 {
-    grid-area: dashboardguard1;
-  }
  
-  
-  #dashboardspace {
-    grid-area: dashboardspace;
-  }
-  
-  #dashboardnotification1 {
-    grid-area: dashboardnotification1;
-  }
-  
-  #dashboardnotification1 img {
-    margin-top: 100%;
-  }
-  
-  #dashboardsetting1 {
-    grid-area: dashboardsetting1;
-  }
-  
-  #dashboardsetting1 img {
-    margin-top: 100%;
-  }
-  
-  #dashboardlogoutbutton {
-    grid-area: dashboardlogoutbutton;
-  }
-  
-  #dashboardlogoutbutton img {
-    padding-left: 10%;
-    padding-bottom: 5%;
-  }
  
-  /* .btnlogout {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 142px;
-    height: 52px;
-    font-size: 20px;
-    font-weight: 500;
-    margin-top: 18%;
-    padding-top: 2%;
-  }
-   */
-
   .search2 {
     width: 12vw;
     height: 5vh;
@@ -132,38 +75,63 @@ html {
   
   .MM_sideimage img {
     display: flex;
-    margin-top: 75%;
+    margin-top: 70%;
     max-width: 90%;
     height: auto;
     margin-left: 8%;
     margin-bottom: 3%;
     
   }
-  .MM_notice h4{
-    font-family: 'Rubik';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 1.2vw;
-  color: #000000;
+  .MM_notice {
+    margin-right: 10%;
+    margin-top: 10%;
+    
   }
+  .MT_link{
+    margin-right: 19%;
+   color: #000;
+   font-size: 1.1vw;
+   font-family: 'Rubik';
+   font-style: normal;
+   font-weight: 500;
   
-  .MM_notice a{
+  }
+ .MT_link:hover{
+  color: #000;
+  text-decoration: none;
+ }
+  .AMM_link {
    color: #757575;
-   font-size: 0.9vw;
+   font-size: 1.1vw;
+   font-family: 'Rubik';
+   font-style: normal;
+   font-weight: 500;
   
   }
-  .MM_notice a:hover{
+  .AMM_link:hover{
     color: #000000;
+    text-decoration: none;
   }
+  
+.mtsearchbox{
+  width: 14%;
+  height: 5%;
+  border: 2px solid #000;
+  border-radius: 15px;
+  margin-left: 70%;
+  margin-top: 1%;
+  
+}
   .MM_display {
     width: 17vw;
     height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     margin: auto;
     margin-top: -3%;
     padding-top: 1%;
+    margin-left: 37%;
   }
   
   .MM_display label{
@@ -180,7 +148,7 @@ html {
   #managementtable {
     margin-Left: 10%;
     margin-Top: 2%;
-    max-Width: 80%;
+    max-Width: 75%;
     background-color: #F9FAFF;
    
     border-radius: 14px;
@@ -202,12 +170,7 @@ html {
   }
   /* Media query for laptop */
   @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
-    #dashboardlogo img {
-      margin-top: 9%;
-      margin-left: -38%;
-      margin-bottom: 3%;
-      width: 5vw;
-  }
+    
   .MM_sideimage img {
     display: flex;
     margin-top: 64%;

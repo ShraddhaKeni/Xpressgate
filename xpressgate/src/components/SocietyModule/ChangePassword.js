@@ -65,7 +65,7 @@ const ChangePassword = () => {
         <Societyheader />
       </div>
       <div id="scpnamesection">
-        <div className='cpsocname'>
+        <div className='CPSName'>
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
@@ -81,7 +81,7 @@ const ChangePassword = () => {
               <div class="form-group row">
                 <div class="col-lg-6">
                   <label className="scpcppassword">Current Password</label>
-                  <input ref={oldpass} type="text" className="form-control input-lg" id="oldpass" placeholder="Current Password"></input>
+                  <input ref={oldpass} type="text" className="form-control input-lg CP_Border" id="oldpass" placeholder="Current Password"></input>
                 </div>
               </div>
             </div>
@@ -90,7 +90,7 @@ const ChangePassword = () => {
               <div class="form-group row">
                 <div class="col-lg-6">
                   <label className="ncppassword">New Password</label>
-                  <input ref={password} type="password" className="form-control input-lg" id="loginpassword" placeholder="New Password"></input>
+                  <input ref={password} type="password" className="form-control input-lg CP_Border" id="loginpassword" placeholder="New Password"></input>
                 </div>
               </div>
             </div>
@@ -99,7 +99,7 @@ const ChangePassword = () => {
               <div class="form-group row">
                 <div class="col-lg-6">
                   <label className="cscppassword">Confirm Password</label>
-                  <input ref={confirmPass} type="password" className="form-control input-lg" id="loginpassword" placeholder="Confirm Password"></input>
+                  <input ref={confirmPass} type="password" className="form-control input-lg CP_Border" id="loginpassword" placeholder="Confirm Password"></input>
                 </div>
               </div>
             </div>

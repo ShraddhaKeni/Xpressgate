@@ -9,7 +9,7 @@ font-style: normal;
   font-weight: 500;
   color: #14335D;
     margin-left: 4%;
-    margin-top: 13%;
+    margin-top: 12%;
     font-size: 1.2vw;
     padding-top: 0.5%;
   }
@@ -26,17 +26,17 @@ font-style: normal;
     margin-left: 10%;
     width: 25%;
     height: 70%;
-    margin-top: 4%;
+    margin-top: 5%;
   }
   .UPT_display {
     width: 17vw;
     height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     margin: auto;
     margin-top: -3%;
-    padding-top: 1%;
+    padding-top: 1.1%;
   }
   
   .UPT_display label{

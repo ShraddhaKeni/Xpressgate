@@ -107,9 +107,9 @@ const AddParkingSec = () => {
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
-        <br/>
+        
         <div className='AddParksidelinks'>
-          <label>Vehicle list</label><br></br>
+        <a href='/vehiclemanagement' className='VLSECLink'>Vehicle List</a><br/><br/>
           <a href='/viewparking' className='Viewpsec'>View parking section</a><br/><br/>
           <a href='/addparking' className='Addpsec'><b>Add parking section</b></a>
         </div>
@@ -119,13 +119,13 @@ const AddParkingSec = () => {
       </div>
       <div className="addguestbackgroundimg">
         <div className='APdisplay'>
-          <label>Add Parking Section</label>
+          <label>Update Parking Section</label>
         </div>
         <Form className='formclass'> 
           <div className="form-group row">
-            <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-2 col-form-label aiolabelsize">Block</label>
+            <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Block</label>
             <div className="col-sm-4 col-md-4 col-lg-4">
-              <select className="form-control input-lg" id='block_id' >
+              <select className="form-control input-lg ADDParkBor" id='block_id' >
                 <option value={null} disabled selected>Select Block</option>
                 {block.map(item=>{
                   return (
@@ -136,12 +136,12 @@ const AddParkingSec = () => {
             </div>
           </div>
           <div class="form-group form-group6 row">
-            <label class="col-lg-2 col-form-label labelsize1">Name</label>
+            <label class="col-lg-2 col-form-label ADN_label">Name</label>
             <div class="col-lg-4">
-              <input type="text" id="section" class="form-control input-lg " defaultValue={parkingSection.section?parkingSection.section:''} name="New Parking"  />
+              <input type="text" id="section" class="form-control input-lg ADDParkBor" defaultValue={parkingSection.section?parkingSection.section:''} name="New Parking"  />
             </div>
           </div>
-          <Button type="submit" onClick={(e)=>{handleSubmit(e)}} className="AP_Button">{type=='edit'?'Update':'Add'} Parking Section</Button>
+          <Button type="submit" onClick={(e)=>{handleSubmit(e)}} className="AP_Button">{type=='edit'?'Add':'Update'} Parking Section</Button>
         </Form>
       </div>
     </div>

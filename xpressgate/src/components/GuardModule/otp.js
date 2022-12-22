@@ -44,23 +44,23 @@ const Otp = () => {
   return (
     <div className="otpcontainer">
 
-      <div id="otplogoid">
+      <div id="OTPlogoid">
         <img src="/images/loginlogo.svg" alt="" />
-        <div className="otp">
-          <label className="otplabel">Forgot Password</label>
+        <div className="OTP">
+          <label className="OTPLabel">Forgot Password</label>
         </div>
       </div>
-      <div id="otpimgid">
+      <div id="OTPimgid">
         <img src="/images/loginsideimg.png" alt="" />
       </div>
       <div id="otpformid">
         <Form>
           <div className='input_fields'>
             <div className='email_input'>
-              <label className='otpemail'>Enter OTP</label>
-              <input type="text" className="form-control gfpemailtextbox" id="otp" maxLength="4" placeholder='Enter OTP' ></input>
+              <label className='OTPemail'>Enter OTP</label>
+              <input type="text" className="form-control OTPemailtextbox" id="otp" maxLength="4" placeholder='Enter OTP' ></input>
             </div>
-            <Button type="button" className="btnsendotp" id='sendotp' onClick={() => { verifyotp() }}>Verify OTP</Button>
+            <button type="button" className="BTNSendOtp" id='sendotp' onClick={() => { verifyotp() }}>Verify OTP</button>
 
           </div>
         </Form>

@@ -15,7 +15,7 @@ html {
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  padding-top: 14px;
+  padding-top: 16px;
   margin: auto;
   margin-top: -3%;
 }
@@ -23,7 +23,7 @@ html {
 font-family: 'Rubik';
 font-style: normal;
 font-weight: 500;  
-  font-size: 1.6vw;
+  font-size: 1.3vw;
   text-align: center;  
   color: #14335D;
 }
@@ -96,7 +96,7 @@ font-weight: 500;
 }
 .GLSimg img {
   display: flex;
-  margin-top: 68%;
+  margin-top: 70%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -108,7 +108,7 @@ font-style: normal;
 font-weight: 500;
 color: #14335D;
   margin-left: 4%;
-  margin-top: 13%;
+  margin-top: 12%;
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
@@ -125,7 +125,7 @@ color: #14335D;
   margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 4%;
+  margin-top: 5%;
 }
 .fullcardscss1 {
   margin-top: 6%;
@@ -134,14 +134,14 @@ color: #14335D;
   width: 100%;
 }
 .GLsidelinks {
-  margin-right: 50%;
+  margin-right: 46%;
   margin-top: 10%;
   
 }
 
 .noticeGL{
   color:#000;
-  font-size: 1vw;
+  font-size: 1.1vw;
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 500;
@@ -149,10 +149,10 @@ color: #14335D;
 }
 .AGnotice{
   color:#757575;
-  font-weight: 400;
+  font-weight: 500;
   font-family: 'Rubik';
   font-style: normal;
-  font-size: 1vw;
+  font-size: 1.1vw;
  
 }
 

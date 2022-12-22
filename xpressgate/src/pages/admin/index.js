@@ -15,7 +15,6 @@ import { AddCoupon } from './PaymentManagement/Coupons/new';
 import { CouponDetails } from './PaymentManagement/Coupons/couponDetails';
 import { PlansList } from './PaymentManagement/Plans/plans';
 import { AddPlan } from './PaymentManagement/Plans/new';
-import { PaymentsHistory } from './PaymentManagement/PaymentHistory';
 
 import AdminProfile from '../admin/LoginScreens/AdminProfile';
 import Terms from "../admin/LoginScreens/Terms"
@@ -30,6 +29,8 @@ import { PlanDetails } from './PaymentManagement/Plans/planDetails';
 import { EditPlan } from './PaymentManagement/Plans/edit';
 // import Reports from "../admin/Reports/Reports"
 import { DatePicker } from '@mui/x-date-pickers';
+import { PaymentHistory } from './PaymentManagement/PaymentHistory';
+import { PremisesPayHistory } from './PaymentManagement/PaymentHistory/premise_history';
 
 
 
@@ -83,13 +84,21 @@ const AdminModuleComponent = () => {
         children = (<EditPlan />)
     }
     if (router.pathname === RouterPath.PAYMENT_HISTORY) {
-        children = (<PaymentsHistory />)
+        children = (<PaymentHistory />)
     }
+    if (router.pathname.includes('/admin/payments/history/premise/')) {
+        children = (<PremisesPayHistory />)
+    }
+
     if (router.pathname === RouterPath.PRIVACY_POLICY) {
         children = (<PrivacyPolicy />)
     }
     if (router.pathname === RouterPath.TERMS) {
         children = (<Terms />)
+    }
+
+    if (router.pathname === RouterPath.ADD_VIDEO) {
+        children = (<AddVideo />)
     }
 
     return (
@@ -98,11 +107,16 @@ const AdminModuleComponent = () => {
             <Header />
             <div className='flex'>
                 <SideLayOut />
-                <main style={{ width: "100vw" }}>
-                    <div>
-                        {children}
+                <div className='flex-1 d-flex' style={{ width: "100%", height: '100%' }}>
+                    <div className='main-container px-5 mx-2 my-4'>
+                        <main>
+
+                            {children}
+
+                        </main>
                     </div>
-                </main>
+
+                </div>
             </div>
 
 

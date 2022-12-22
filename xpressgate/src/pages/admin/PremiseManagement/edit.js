@@ -131,13 +131,13 @@ const EditPremise = () => {
     return (
 
         <>
-            {location.state ? <div className="container">
+            {location.state ? <div>
                 <div className='page-label'>
                     <label>{premise.name || "Premise"}</label>
                 </div>
-                <div className='main-container mt-5'>
+                <div>
 
-                    <Form className='formclass'>
+                    <Form className='formclass fcadmin'>
 
                         <SimpleInputComponent label={'Premises Name'} name={'premises_name'} id={'premises'} onChange={(e) => { setPremise({ ...premise, name: e.target.value }) }} />
                         <SimpleInputComponent label={'Number of Blocks'} name={'number_block'} id={'block'} onChange={(e) => { setPremise({ ...premise, noofblocks: parseInt(e.target.value) }) }} />
@@ -160,7 +160,7 @@ const EditPremise = () => {
                         </div>
                         <SimpleInputComponent label={'Pincode'} name={'pincode'} id={'pincode'} onChange={(e) => { setPremise({ ...premise, pincode: e.target.value }) }} />
 
-                        <Button type="submit" onClick={(e) => handleSubmit(e)} className="btnAddVeh">Update Premise</Button>
+                        <Button type="submit" onClick={(e) => handleSubmit(e)} className="hovergreen btnAddVeh">Update Premise</Button>
                     </Form>
 
                 </div>
