@@ -12,9 +12,10 @@ const Addmanagementteam = () => {
   const [residents, setResidents] = useState([])
   const [type, setType] = useState('add')
   const location = useLocation()
-  const [one,setOne] = useState({})
-  const [title,setTitle] = useState()
-  const [from,setFrom] = useState()
+  const [one, setOne] = useState({})
+  const [title, setTitle] = useState()
+  const [from, setFrom] = useState()
+  const [editdata, seteditdata] = useState() 
 
   useEffect(() => {
     if (checkSociety()) {
@@ -27,18 +28,18 @@ const Addmanagementteam = () => {
         .then(({ data }) => {
           //console.log(location.state.id)
           if (location.state) {
-             getResidents()
-             getResidents()// 2 times getResidents is required
-          setTitle(location.state.title)
-          setType(location.state.type)
-          getOneData()
-          }else{
+            getResidents()
+            getResidents()// 2 times getResidents is required
+            setTitle(location.state.title)
+            setType(location.state.type)
+            getOneData()
+          } else {
             getResidentsAdd()
           }
         })
         .catch(err => {
-           localStorage.clear();
-           window.location.href = '/societylogin'
+          localStorage.clear();
+          window.location.href = '/societylogin'
           //console.log(err)
         })
     }
@@ -47,20 +48,20 @@ const Addmanagementteam = () => {
     }
   }, [])
 
-const getOneData = async () => {
-  try {
-    const { data } = await axios.get(`${window.env_var}api/management/getOne/${props.booked_id}`)
-   
-    setResidents(data.data.Resident)
-  } catch (error) {
-    console.log(error)
+  const getOneData = async () => {
+    try {
+      const { data } = await axios.get(`${window.env_var}api/management/getOne/${location.state.mainid}`)
+      console.log(data)
+      //setResidents(data.data.Resident)
+    } catch (error) {
+      console.log(error)
+    }
   }
-}
-  
+
   const getResidents = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/resident/getall`)
-      let resident_1 = await  data.data.Resident.find(x=>x.id===location.state.id)
+      let resident_1 = await data.data.Resident.find(x => x.id === location.state.id)
       document.getElementById('resident_id').value = resident_1.id
       //setOne(data.data.Resident.find(x=>x.id===location.state.id))
       setResidents(data.data.Resident)
@@ -72,15 +73,14 @@ const getOneData = async () => {
   const getResidentsAdd = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/resident/getall`)
-     
+
       setResidents(data.data.Resident)
     } catch (error) {
       console.log(error)
     }
   }
 
- async function getValues()
-  {
+  async function getValues() {
     document.getElementById('resident_id').value = location.state.id
   }
 
@@ -89,17 +89,17 @@ const getOneData = async () => {
     try {
       if (type == 'add') {
         //if (document.getElementById('management_title').value !== "" && document.getElementById('from').value != "" && document.getElementById('to').value !== "") {
-          const sendData = {
-            // community_id: '632970d054edb049bcd0f0b4',
-            community_id:localStorage.getItem('community_id'),
-            managementTitle: document.getElementById('management_title').value,
-            resident_id: document.getElementById('resident_id').value,
-            from: document.getElementById('ForDate').value,
-            to: document.getElementById('ToDate').value
-          }
-          const { data } = await axios.post(`${window.env_var}api/management/add`, sendData)
-          window.location.href = '/management'
-       // }
+        const sendData = {
+          // community_id: '632970d054edb049bcd0f0b4',
+          community_id: localStorage.getItem('community_id'),
+          managementTitle: document.getElementById('management_title').value,
+          resident_id: document.getElementById('resident_id').value,
+          from: document.getElementById('ForDate').value,
+          to: document.getElementById('ToDate').value
+        }
+        const { data } = await axios.post(`${window.env_var}api/management/add`, sendData)
+        window.location.href = '/management'
+        // }
       }
       else {
         // let formdata = new FormData()
@@ -112,7 +112,7 @@ const getOneData = async () => {
         // formdata.append('from', document.getElementById('ForDate').value)
         const sendDataedit = {
           id: location.state.mainid,
-          community_id:localStorage.getItem('community_id'),
+          community_id: localStorage.getItem('community_id'),
           managementTitle: document.getElementById('management_title').value,
           resident_id: document.getElementById('resident_id').value,
           from: document.getElementById('ForDate').value,
@@ -137,7 +137,7 @@ const getOneData = async () => {
   return (
     <div className="addguestcontainer4">
       <div id="addflatsection">
-       
+
         <div className="addflatheadersection">
           <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
           <div id="afsociety"><label>Society</label></div>
@@ -154,9 +154,9 @@ const getOneData = async () => {
           <label>Society Name</label>
         </div>
         <div class="MM_notice">
-        <a href="/management" class="AMt_Link">Management Team</a><br></br><br/>
+          <a href="/management" class="AMt_Link">Management Team</a><br></br><br />
           <a href="/addManagement" class="Amm_Link"><b>Add Management Member</b></a>
-          </div>
+        </div>
         <div className="AMTSideIMG">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
@@ -206,11 +206,11 @@ const getOneData = async () => {
           <div className="AMM_form">
             <div className="inboxes">
               <label for="Designation" className="AMMDesignation">Designation</label>
-              {title? <input type="text" id="management_title" defaultValue={title}  className="AMMinput"></input>: <input type="text" id="management_title"  className="AMMinput"></input>}
-        
+              {title ? <input type="text" id="management_title" defaultValue={title} className="AMMinput"></input> : <input type="text" id="management_title" className="AMMinput"></input>}
+
             </div>
           </div>
-          
+
           <div className="AMM_form">
             <div className="inboxes">
               <span>
