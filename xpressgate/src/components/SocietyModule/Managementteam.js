@@ -23,12 +23,14 @@ const Managementteam = () => {
   },[])
    
   const getDetails=async()=>{
+    //console.log(localStorage.getItem('community_id'));
     try {
       const {data} = await axios.get(`${window.env_var}api/management/getAll/${localStorage.getItem('community_id')}`)
       setmanagement(data.data.managementteam)
       const indexoflast = currentPage*postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.managementteam.slice(indexoffirst,indexoflast))
+      //console.log(data)
     } catch (error) {
       console.log(error)
     }
@@ -49,7 +51,7 @@ const Managementteam = () => {
 
   function findText(e)
   {
-    console.log(currentPosts)
+    //console.log(currentPosts)
     let search = e.target.value.toLowerCase()
     let arr = management.filter(x=>{
       if(x.resident.firstname.toLowerCase().includes(search))
@@ -121,6 +123,7 @@ const Managementteam = () => {
           </thead>
           <tbody>
             {currentPosts.map((items,index)=>{
+              console.log(items)
               return(
                 <tr id={items._id} onClick={()=>managementDetails(items._id,items.resident._id,items.managementTitle)}>
                   <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>

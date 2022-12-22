@@ -1,5 +1,8 @@
 .SDT_societyname label {
-    color: #000;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
     margin-left: 4%;
     margin-top: 13%;
     font-size: 1.2vw;
@@ -21,23 +24,21 @@
     margin-top: 4%;
   }
   .SDT_display {
-    width: 18vw;
+    width: 16vw;
     height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 1.5vw;
+    padding-top: 14px;
     margin: auto;
     margin-top: -3%;
-    padding-top: 1%;
   }
-  
-  .SDT_display label{
-   
-        display: inline-block;
-       
-        margin-bottom: -19%;
-        font-weight: 700;
-    
+  .SDT_display label {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;  
+    font-size: 1.6vw;
+    text-align: center;  
+    color: #14335D;
   }
 
   .SDT_sideimage img {
@@ -45,8 +46,8 @@
     margin-top: 95%;
     max-width: 90%;
     height: auto;
-    margin-left: 13%;
-    margin-bottom: 5%;  
+    margin-left: 8%;
+    margin-bottom: 3%;  
   }
   .SDAddBTN {
   
@@ -60,9 +61,9 @@
       height: 5vh;
       margin-left: 54%;
       margin-top: 1.5%;
-      margin-bottom: 1%;
+      margin-bottom: -1%;
       font-weight: 500;
-      font-size: 1vw;
+      font-size: 0.9vw;
       color: #0D960A;
     }
     .SDAddBTN:hover{
@@ -71,20 +72,27 @@
       }
 /* Media query for laptop */
 @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
-
+  .SDT_display img {
+    display: flex;
+    margin-top: 93%;
+    max-width: 95%;
+    height: auto;
+    margin-left: 2%;
+  }
   .SDT_display {
-    width: 19vw;
-    height: 7vh;
-    background-color: #AED8DC;
-    border-radius: 30px;
-    font-size: 1.5vw;
-    padding-top: 1%;
-    margin: auto;
-    margin-top: -3%;
+      width: 17vw;
+      height: 7vh;
+      background-color: #AED8DC;
+      border-radius: 30px;
+      font-size: 1.4vw;
+      padding: 1%;
+      margin: auto;
+      margin-top: -3%;
+      margin-left: 38%;
   }
   .SDT_sideimage img {
     display: flex;
-    margin-top: 83%;
+    margin-top: 72%;
     max-width: 95%;
     height: auto;
     margin-left: 2%;

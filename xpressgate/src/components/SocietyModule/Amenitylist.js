@@ -49,23 +49,19 @@ const Amenitylist = () => {
   {
     var d = new Date(date)
     return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()
-    
   }
 
   const getTime=(date)=>{
     var d = new Date(date)
     return d.getHours()+':'+d.getMinutes()
-    
   }
   const navigateToApprove=(id)=>{
-      navigate('/approvallistamenity',{state:{id:id}})
+    navigate('/approvallistamenity',{state:{id:id}})
   }
 
   function findText(e)
   {
     let search = e.target.value.toLowerCase()
-    
-    
     let arr = bookedAmenities.filter(x=>{
       if(x.firstname.toLowerCase().includes(search))
       {
@@ -84,11 +80,7 @@ const Amenitylist = () => {
     {
       paginate(0)
     }
-  
-}
-
-    
-  
+  }
 
   return (
     <div className="alcontainer">
@@ -100,18 +92,20 @@ const Amenitylist = () => {
         <img src="/images/societyicon.svg" alt="society name" />
           <label>Society Name</label>
         </div>
-        <Button onClick={()=>{navigate('/addeditamenity',{state:{id:location.state.id,type:'edit'}})}} className='btnAdd' style={{marginLeft:'65px'}}>Edit Amenity</Button>
+        <div className='nlsidelinks'>
+          <a className='AnoticeSL'  onClick={()=>{navigate('/addeditamenity',{state:{id:location.state.id,type:'edit'}})}}>Edit Amenity</a>
+        </div>
+        {/* <Button onClick={()=>{navigate('/addeditamenity',{state:{id:location.state.id,type:'edit'}})}} className='btnAdd' style={{marginLeft:'65px'}}>Edit Amenity</Button> */}
         <div className='alsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
-        
       </div>
       <div className='albackgroundimg'>
         <div className='aldisplay'>
-          <label>Amenitiy Bookings</label>
+          <label>Amenity Bookings</label>
         </div>
         <div className='row'>
-          <div className='alsearchbox'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-            <span><label className='alsearchlabel'>Search</label><input className='search_input' onChange={(e)=>findText(e)}></input></span>
+        <div className='vmsearchbox'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+              <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
           </div>
         </div>
         <table id="altable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
@@ -126,10 +120,9 @@ const Amenitylist = () => {
             </tr>
           </thead>
           <tbody>
-
             {currentPosts.map((item,index)=>{
               return(
-                <tr onClick={()=>{navigateToApprove(item._id)}}>
+                <tr style={item.status == false ? { backgroundColor: '#AED8DC' } : { backgroundColor: 'white' }} onClick={()=>{ item.status == false ? navigateToApprove(item._id) : getData() }}>
                   <td>{(currentPage-1)*12+(index+1)}</td>
                   <td>{item.firstname} {item.lastname}</td>
                   <td>{item.aminety}</td>
@@ -139,7 +132,6 @@ const Amenitylist = () => {
               </tr>
               )
             })}
-            
           </tbody>
         </table>
         <PaginationCalculate totalPages={bookedAmenities.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>

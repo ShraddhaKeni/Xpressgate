@@ -85,18 +85,18 @@ const UtilityPayment = () => {
         
         </div>
       <div id="societynamesection">
-        <div className="societyname">
+        <div className="UP_Sname">
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
         <br/>
         
-        <div className="addguard_sideimg">
+        <div className="UP_Simg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="Addguestdisplay4">
+        <div className="UPdisplay">
           <label>Utility Payment</label>
         </div>
         <div className="Payment_form">

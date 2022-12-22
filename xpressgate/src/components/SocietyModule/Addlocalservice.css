@@ -97,10 +97,6 @@ html {
   grid-area: aflogoutbutton;
 }
 
-#aflogoutbutton img {
-  padding-left: 10%;
-  padding-bottom: 5%;
-}
 
 /* .btnlogout {
   background-color: #0A8996;

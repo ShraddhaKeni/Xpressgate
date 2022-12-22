@@ -93,47 +93,56 @@ html {
   padding-left: 10%;
   padding-bottom: 5%;
 }
- 
+.tlname label {
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+  margin-left: 4%;
+  margin-top: 13%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
+}
 .tlname {
   display: flex;
   width: 80%;
-  height: 14%;
+  height: 12%;
   background-color: rgba(10, 137, 150, 0.33);
   margin-left: 10%;
   margin-top: 12%;
   border-radius: 24px;
 }
-
 .tlname img {
-  margin-left: 6%;
-  width: 30%;
+  margin-left: 10%;
+  width: 25%;
   height: 70%;
-  margin-top: 6%;
-}
-
-.tlname label {
-  color: #000;
-  margin-left: 8%;
-  margin-top: 13%;
-  font-size: 20px;
+  margin-top: 4%;
 }
 
 .tlsideimage img {
   display: flex;
-  margin-top: 80%;
-  width: 100%;
+  margin-top: 93%;
+  max-width: 90%;
   height: auto;
+  margin-left: 8%;
+  margin-bottom: 3%;  
 }
-
 .tldisplay {
-  width: 300px;
-  height: 64px;
+  width: 16vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 20px;
   padding-top: 14px;
   margin: auto;
-  margin-top: -2%;
+  margin-top: -3%;
+}
+.tldisplay label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;  
+  font-size: 1.4vw;
+  text-align: center;  
+  color: #14335D;
 }
 
 .labelsize {
@@ -196,17 +205,12 @@ table th {
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  .tlname label {
-    margin-left: 2%;
-    margin-top: 16%;
-    font-size: 15px;
-  }
-
   .tlsideimage img {
     display: flex;
-    margin-top: 216%;
-    width: 100%;
+    margin-top: 93%;
+    max-width: 95%;
     height: auto;
+    margin-left: 2%;
   }
 
   .tlbackgroundimg {
@@ -233,18 +237,26 @@ table th {
     padding-top: 3%;
     font-size: 20px;
   }
-
   .tldisplay {
-    width: 300px;
-    height: 64px;
+    width: 17vw;
+    height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 20px;
-    padding-top: 14px;
+    font-size: 1.4vw;
+    padding: 1%;
     margin: auto;
-    margin-top: -16%;
-  }
-
+    margin-top: -15%;
+    margin-left: 38%;
+}
+.tldisplay label {
+  
+    font-size: 1.5vw;
+    text-align: center;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+}
   .tlsearchbox {
     width: 28%;
     height: 5%;
@@ -252,15 +264,6 @@ table th {
     border-radius: 15px;
     margin-top: 2%;
     margin-left: 60%;
-}
-.tlname {
-  display: flex;
-  width: 80%;
-  height: 10%;
-  background-color: rgba(10, 137, 150, 0.33);
-  margin-left: 10%;
-  margin-top: 12%;
-  border-radius: 24px;
 }
 
 #tlsociety label {

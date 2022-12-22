@@ -2,13 +2,13 @@ html {
   height: 100vh;
 }
 
-.blcontainer {
+.sreportcontainer {
   display: grid;
   height: 100vh;
   grid-template-columns: 0.5fr 2fr;
   grid-template-rows: 0.2fr 2fr;
-  grid-template-areas: "blheadersection blheadersection"
-    "societynamesection blcardsection"
+  grid-template-areas: "srheadersection srheadersection"
+    "srsocietynamesection blcardsection"
 }
 
 input::-webkit-outer-spin-button,
@@ -36,17 +36,17 @@ input::-webkit-inner-spin-button {
 
 }
 
-#blheadersection {
+#srheadersection {
   /* background-color: aquamarine; */
   /* margin-top: 10%; */
-  grid-area: blheadersection;
+  grid-area: srheadersection;
   background-color: #F9F9FF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-#societynamesection {
+#srsocietynamesection {
   /* background-color: blueviolet; */
-  grid-area: societynamesection;
+  grid-area: srsocietynamesection;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -57,7 +57,7 @@ input::-webkit-inner-spin-button {
 
 }
 
-.blbackgroundimg {
+.srbackgroundimg {
   background-image: url("../../../public/images/dashboardbackground.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -66,7 +66,7 @@ input::-webkit-inner-spin-button {
   margin-top: 0.5%;
 }
 
-.BL_display {
+.sr_display {
   width: 16vw;
   height: 7vh;
   background-color: #AED8DC;
@@ -75,57 +75,123 @@ input::-webkit-inner-spin-button {
   margin: auto;
   margin-top: -3%;
 }
-.BL_display label {
-font-family: 'Rubik';
-font-style: normal;
-font-weight: 500;  
+
+.sr_display label {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
   font-size: 1.6vw;
-  text-align: center;  
+  text-align: center;
   color: #14335D;
 }
-.Flatsidelinks{
-  color:#757575;
-  font-weight: 500;
-  font-size: 1.1vw;
-}
-.Addsidelinks{
-  color:#757575;
-  font-weight: 500;
-  font-size: 1.1vw;
+
+.srsearchbox {
+  width: 15%;
+  height: 5%;
+  border: 2px solid #000;
+  border-radius: 15px;
+  margin-left: 72%;
+  margin-top: 2%;
+
 }
 
-.Addsidelinks:hover {
-  color: #000;
-  text-decoration: none; 
+.srsearchbox img {
+
+  margin-left: -14%;
 }
 
-.Flatsidelinks:hover {
-  color: #000;
-  text-decoration: none; 
+.srsearch_input {
+  outline: none;
+  border: none;
+  height: 40px;
+  width: 120px;
+  border-radius: 5px;
+  margin-left: 10px;
 }
 
-.firstblsection {
+.srcardsection {
+  max-width: 100%;
+  height: auto;
+  position: absolute;
+  display: flex;
+  margin-top: -38%;
+  margin-left: 16%;
+}
+
+.srreportfirst {
+  width: 24vw;
+  height: 15vh;
+  background: #AED8DC;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  margin-left: 15%;
+}
+
+.srActivityReports {
+  margin-left: 12%;
+  margin-top: 10%;
+  text-align: center;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  color: #14335D;
+  font-size: 1.4vw;
+}
+
+.srreportimage {
+  position: absolute;
+  margin-top: -66px;
+  margin-left: 2%;
+}
+
+.srViewbtn {
+  background: #14335D;
+  border-radius: 9px;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1vw;
+  color: #FFFFFF;
+  border: none;
+  margin-left: -220%;
+  width:120%;
+  margin-top: 6%;
+}
+
+.srViewbtn:hover {
+  background: #4b6c9c;
+}
+
+.srViewreportBtn {
+  position: absolute;
+  margin-top: 0%;
+  margin-left: 29%;
+
+}
+
+.srfirstblsection {
   display: grid;
   grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
-  grid-template-areas: "bllogo blsociety blspace blnotification blsetting bllogoutbutton";
+  grid-template-areas: "srbllogo srsociety srspace srnotification srnotification srlogoutbutton";
 }
 
-#bllogo {
-  grid-area: bllogo;
+#srbllogo {
+  grid-area: srbllogo;
 }
 
-#bllogo img {
+#srbllogo img {
   margin-top: 5%;
   margin-left: 1%;
   margin-bottom: 5%;
   width: 40%;
 }
 
-#blsociety {
-  grid-area: blsociety;
+#srsociety {
+  grid-area: srsociety;
 }
 
-#blsociety label {
+#srsociety label {
   margin-top: 20%;
   margin-left: -88%;
   width: 136px;
@@ -137,36 +203,36 @@ font-weight: 500;
   font-size: 20px;
 }
 
-#blspace {
-  grid-area: blspace;
+#srspace {
+  grid-area: srspace;
 }
 
-#blnotification {
-  grid-area: blnotification;
+#srnotification {
+  grid-area: srnotification;
 }
 
-#blnotification img {
+#srnotification img {
   margin-top: 100%;
 }
 
-#blsetting {
-  grid-area: blsetting;
+#srnotification {
+  grid-area: srnotification;
 }
 
-#blsetting img {
+#srnotification img {
   margin-top: 100%;
 }
 
-#bllogoutbutton {
-  grid-area: bllogoutbutton;
+#srlogoutbutton {
+  grid-area: srlogoutbutton;
 }
 
-#bllogoutbutton img {
+#srlogoutbutton img {
   padding-left: 10%;
   padding-bottom: 5%;
 }
 
-.blsocietyname label {
+.srsocietyname label {
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 500;
@@ -176,7 +242,8 @@ font-weight: 500;
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
-.blsocietyname {
+
+.srsocietyname {
   display: flex;
   width: 80%;
   height: 12%;
@@ -185,20 +252,22 @@ font-weight: 500;
   margin-top: 12%;
   border-radius: 24px;
 }
-.blsocietyname img {
+
+.srsocietyname img {
   margin-left: 10%;
   width: 25%;
   height: 70%;
   margin-top: 4%;
 }
 
-.blsideimage img {
+.srsideimage img {
   display: flex;
   margin-top: 68%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
-  margin-bottom: 5%; }
+  margin-bottom: 5%;
+}
 
 
 .blsidelinks {
@@ -233,7 +302,7 @@ font-weight: 500;
   cursor: pointer;
 }
 
-.fullcardscss {
+.srfullcardscss {
   margin-top: 5%;
   padding-left: 25px;
   margin-right: 125px;
@@ -278,7 +347,7 @@ font-weight: 500;
 
 /* Media query for laptop */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  #blsociety label {
+  #srsociety label {
     margin-top: 14%;
     margin-left: -68%;
     width: 108px;
@@ -290,13 +359,13 @@ font-weight: 500;
     font-size: 20px;
   }
 
-  .blsocietyname label {
+  .srsocietyname label {
     margin-left: 7%;
     margin-top: 18%;
     font-size: 15px;
   }
 
-  .blbackgroundimg {
+  .srbackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -305,7 +374,7 @@ font-weight: 500;
     margin-top: 10.5%;
   }
 
-  .blsideimage img {
+  .srsideimage img {
     display: flex;
     margin-top: 53%;
     max-width: 95%;
@@ -313,7 +382,7 @@ font-weight: 500;
     margin-left: 2%;
   }
 
-  .fullcardscss {
+  .srfullcardscss {
     margin-top: 5%;
     margin-right: 4%;
   }
@@ -357,55 +426,57 @@ font-weight: 500;
     border-radius: 20px;
   }
 
-  .blsocietyname img {
+  .srsocietyname img {
     margin-left: 6%;
     width: 30%;
     height: 70%;
     margin-top: 8%;
   }
 
-  .blsocietyname label {
+  .srsocietyname label {
     margin-left: 1%;
     margin-top: 13%;
     font-size: 1.3vw;
-}
-.BL_display {
-  width: 17vw;
-  height: 7vh;
-  background-color: #AED8DC;
-  border-radius: 30px;
-  font-size: 1.4vw;
-  padding: 1%;
-  margin: auto;
-  margin-top: -13%;
-  margin-left: 38%;
-}
-.BL_display label {
+  }
 
-  font-size: 1.5vw;
-  text-align: center;
-  font-family: 'Rubik';
-font-style: normal;
-font-weight: 500;
-color: #14335D;
-}
+  .sr_display {
+    width: 17vw;
+    height: 7vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 1.4vw;
+    padding: 1%;
+    margin: auto;
+    margin-top: -13%;
+    margin-left: 38%;
+  }
+
+  .sr_display label {
+
+    font-size: 1.5vw;
+    text-align: center;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    color: #14335D;
+  }
 }
 
 /* Media query for mobile */
 @media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
-  .blsideimage {
+  .srsideimage {
     display: none;
   }
 
-  #societynamesection {
+  #srsocietynamesection {
     display: none;
   }
 
-  #blsociety {
+  #srsociety {
     display: none;
   }
 
-  #bllogo img {
+  #srbllogo img {
     margin-top: 5%;
     margin-left: 20%;
     margin-bottom: 5%;
@@ -420,7 +491,7 @@ color: #14335D;
     border: none;
   }
 
-  .blbackgroundimg {
+  .srbackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -439,16 +510,16 @@ color: #14335D;
     /* margin: auto; */
     /* margin-top: -2%; */
     margin-left: 50%;
-}
+  }
 
-.blminicard {
-  margin-left: 50%;
-  margin-bottom: 10%;
-  border: none;
-  background-color: #0A8996;
-  width: 128%;
-  height: 95%;
-  border-radius: 20px;
-}
+  .blminicard {
+    margin-left: 50%;
+    margin-bottom: 10%;
+    border: none;
+    background-color: #0A8996;
+    width: 128%;
+    height: 95%;
+    border-radius: 20px;
+  }
 
 }

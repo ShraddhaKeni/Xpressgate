@@ -2,15 +2,72 @@ html {
     height: 100vh;
   }
   
-
+  .UP_Sname label {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    color: #14335D;
+      margin-left: 4%;
+      margin-top: 13%;
+      font-size: 1.2vw;
+      padding-top: 0.5%;
+    }
+    .UP_Sname {
+      display: flex;
+      width: 80%;
+      height: 12%;
+      background-color: rgba(10, 137, 150, 0.33);
+      margin-left: 10%;
+      margin-top: 12%;
+      border-radius: 24px;
+    }
+    .UP_Sname img {
+      margin-left: 10%;
+      width: 25%;
+      height: 70%;
+      margin-top: 4%;
+    }
+    .UP_Simg img {
+        display: flex;
+        margin-top: 95%;
+        max-width: 90%;
+        height: auto;
+        margin-left: 8%;
+        margin-bottom: 3%;  
+      }
+      .UPdisplay {
+        width: 17vw;
+        height: 7vh;
+        background-color: #AED8DC;
+        border-radius: 30px;
+        font-size: 1.5vw;
+        margin: auto;
+        margin-top: -3%;
+        padding-top: 1%;
+      }
+      
+      .UPdisplay label{
+       
+            display: inline-block;
+            font-family: 'Rubik';
+            font-style: normal;
+            font-weight: 500;
+            color: #14335D;
+            margin-bottom: -19%;
+           
+        
+      }
 .Payment_form{
     max-width: 100%;
     margin-top: 3%;
 }
 .UtilityTypesdetails{
     margin-right: 5%;
-    margin-left: -16%;
-    font-size: 1.5vw;
+    margin-left: -14%;
+    font-size: 1.2vw;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
     color: #14335D;
     
 }
@@ -18,28 +75,40 @@ html {
 .Utility_Block{
     margin-right: 5.5%;
     margin-left: -11%;
-    font-size: 1.5vw;
-    color: #14335D;
+    font-size: 1.2vw;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+        color: #14335D;
 }
 
 .Utility_FlatNo{
-    margin-right: 5%;
+    margin-right: 5.8%;
     margin-left: -12%;
-    font-size: 1.5vw;
-    color: #14335D;
+    font-size: 1.2vw;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+        color: #14335D;
     
 }
 
 .Utility_Residentname{
-    margin-right: 5%;
-    margin-left: -19%;
-    font-size: 1.5vw;
-    color: #14335D;
+    margin-right: 5.2%;
+    margin-left: -17%;
+    font-size: 1.2vw;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+        color: #14335D;
 }
 .Utility_Amount{
-    margin-right: 5%;
-    margin-left: -12.5%;
-    font-size: 1.5vw;
+    margin-right: 7%;
+    margin-left: -13%;
+    font-size: 1.2vw;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
     color: #14335D;
 }
 .ButtonsContainer3{
@@ -48,45 +117,55 @@ html {
     justify-content: center;
 }
 .AUButnn{
-    width: 10vw;
+    width: 9vw;
     height: 5vh;
-    font-size: 1.5vw;
+    font-size: 1.4vw;
     font-weight: 700;
     padding: 0%;
     border-radius: 9px;
     background: #0A8996;
     border: none;
     color: #FFFFFF;
-    margin-top: -3%;
+    margin-top: -6%;
+    font-family: 'Rubik';
+    font-style: normal;
+ 
 
 }
 .AUButnn:hover{
     background: #14335D;
 }
 .Utilitypaymentdate{
-    margin-right: 4%;
-    margin-left: -10.5%;
-    font-size: 1.5vw;
-    color: #14335D;
+    margin-right: 6%;
+    margin-left: -9.5%;
+    font-size: 1.2vw;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+        color: #14335D;
+    
 }
 .Utility_Paymentdateinput{
-    width: 10vw;
-    height: 5vh;
+    width: 7vw;
+    height: 4vh;
     padding: 1%;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     border: 2px solid #14335D;
     border-radius: 8px;
     margin-top: 0%;
-    margin-right: 6%;
+    margin-right: 2%;
 }
 .Utility_Duedate{
-    margin-right: 4%;
-    font-size: 1.5vw;
-    color: #14335D;
+    margin-right: 3%;
+    font-size: 1.2vw;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+        color: #14335D;
 }
 .Utility_Duedateinput{
-    width: 10vw;
-    height: 5vh;
+    width: 7vw;
+    height: 4vh;
     padding: 1%;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     border: 2px solid #14335D;
@@ -99,6 +178,27 @@ html {
     .AUButnn:hover{
         background: #14335D;
     }
+    .UP_Simg img {
+        display: flex;
+        margin-top: 72%;
+        max-width: 95%;
+        height: auto;
+        margin-left: 2%;
+    }
+    .UPdisplay {
+        width: 17vw;
+        height: 7vh;
+        background-color: #AED8DC;
+        border-radius: 30px;
+        font-size: 1.5vw;
+        padding-top: 1%;
+        margin: auto;
+        margin-top: -3%;
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: 500;
+        color: #14335D;
+      }
   
   }
   .pagination_ul

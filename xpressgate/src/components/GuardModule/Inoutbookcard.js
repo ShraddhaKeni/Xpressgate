@@ -12,6 +12,8 @@ const Inoutbookcard = () => {
   const [flats, setFlats] = useState([])
   const location = useLocation()
   const navigate = useNavigate()
+
+  console.log(location.state)
   useEffect(() => {
     if (checkGuard()) {
       const config = {
@@ -40,7 +42,7 @@ const Inoutbookcard = () => {
   const getData = async () => {
     let id = {
       booking_id: location.state.id,
-      
+      type:1
     }
     try {
       const { data } = await axios.post(`${window.env_var}api/inout/getone`, id);

@@ -34,12 +34,12 @@ export const AddPlan = () => {
 
 
     return (
-        <div className="addvehiclecontainer">
+        <div className="container">
+            <div className='page-label'>
+                <label>Add new Subscription Plan</label>
+            </div>
+            <div className='main-container mt-5'>
 
-            <div className='avbackgroundimg center-vertical'>
-                <div className='Addvehicledisplay'>
-                    <label>Add new Subscription Plan</label>
-                </div>
                 <Form className='formclass'>
 
                     <SimpleInputComponent label={'Plan Name'} name={'name'} onChange={(e) => plan.name = e.target.value} required />

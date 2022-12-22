@@ -10,24 +10,22 @@ html {
   border-collapse: separate;
   font-family: 'Rubik', sans-serif;
 }
-.Addguestdisplay4 {
-  width: 18vw;
+.GL_display {
+  width: 16vw;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 1.5vw;
+  padding-top: 14px;
   margin: auto;
   margin-top: -3%;
-  padding-top: 1%;
 }
-
-.Addguestdisplay4 label{
- 
-      display: inline-block;
-     
-      margin-bottom: -19%;
-      font-weight: 700;
-  
+.GL_display label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;  
+  font-size: 1.6vw;
+  text-align: center;  
+  color: #14335D;
 }
 .AddG {
   border-radius: 18px;
@@ -46,8 +44,31 @@ html {
     background-color:rgb(155, 201, 212);
   }
 
+  .GLsearchbox{
+    width: 15%;
+    height: 5%;
+    border: 2px solid #000;
+    border-radius: 15px;
+    margin-left: 68.5%;
+    margin-top: 0.5%;
+    
+  }
 
-
+  .GLsearchbox input {
+    outline: none;
+    border: none;
+    height: 5vh;
+    width: 8vw;
+    border-radius: 5px;
+    margin-left: 6%;
+  }
+  
+  .GLsearchbox img{
+    position: relative;
+    margin-top: 0%;
+    margin-left: -2%;
+  }
+  
 .search3 {
   width: 12vw;
   height: 5vh;
@@ -73,16 +94,19 @@ html {
   width: 8.5vw;
   padding: 1%;
 }
-.sideimage3 img {
+.GLSimg img {
   display: flex;
-  margin-top: 78%;
+  margin-top: 68%;
   max-width: 90%;
   height: auto;
-  margin-left: 13%;
-  margin-bottom: 5%;  
+  margin-left: 8%;
+  margin-bottom: 3%;  
 }
 .GL_societyname label {
-  color: #000;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
   margin-left: 4%;
   margin-top: 13%;
   font-size: 1.2vw;
@@ -109,47 +133,81 @@ html {
   margin-left: -5%;
   width: 100%;
 }
-.notice h4{
-  font-family: 'Rubik';
-font-style: normal;
-font-weight: 500;
-font-size: 1.5vw;
-color: #000000;
+.GLsidelinks {
+  margin-right: 50%;
+  margin-top: 10%;
+  
 }
 
-.notice a{
- color: #757575;
- font-size: 1vw;
+.noticeGL{
+  color:#000;
+  font-size: 1vw;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  
 }
-.notice a:hover{
-  color: #000000;
+.AGnotice{
+  color:#757575;
+  font-weight: 400;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-size: 1vw;
+ 
+}
+
+.noticeGL:hover {
+  color: #000;
+  text-decoration: none; 
+}
+.AGnotice:hover {
+  color: #000;
+  text-decoration: none; 
 }
 /* Media query for laptop */
 @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
- 
-  .sideimage3 img {
+  .GLsearchbox{
+    width: 15%;
+    height: 5%;
+    border: 2px solid #000;
+    border-radius: 15px;
+    margin-left: 73%;
+    margin-top: 0%;
+    
+  }
+
+  .GLsidelinks {
+    margin-right: 38%;
+    margin-top: 10%;
+  }
+  .GLSimg img {
     display: flex;
-    margin-top: 53%;
+    margin-top: 36%;
     max-width: 95%;
     height: auto;
     margin-left: 2%;
-}
-.Addguestdisplay4 {
-  width: 19vw;
-  height: 7vh;
-  background-color: #AED8DC;
-  border-radius: 30px;
-  font-size: 1.5vw;
-  padding-top: 1%;
-  margin: auto;
-  margin-top: -3%;
-}
- .noticelist h4{
-    color: #434242;
- }
- .noticelist a{
-   color: #757575;
   }
+  .GL_display {
+    width: 17vw;
+    height: 7vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 1.4vw;
+    padding: 1%;
+    margin: auto;
+    margin-top: -3%;
+    margin-left: 38%;
+}
+.GL_display label {
+  
+    font-size: 1.5vw;
+    text-align: center;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+}
+
 
   #guardlisttable {
     margin-Left: 10%;

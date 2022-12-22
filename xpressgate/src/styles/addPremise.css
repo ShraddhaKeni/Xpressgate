@@ -95,22 +95,8 @@ html {
     padding-left: 10%;
     padding-bottom: 5%;
   }
-  
-  .btnlogout {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 142px;
-    height: 52px;
-    font-size: 20px;
-    font-weight: 500;
-    margin-top: 18%;
-    padding-top: 2%;
-  }
-  .btnlogout:hover {
-    background-color: #14335D;
-  }
 
+  
   .avsocietyname {
     display: flex;
     width: 80%;
@@ -142,14 +128,17 @@ html {
     height: auto;
   }
   
-  .Addvehicledisplay {
-    width: 300px;
-    height: 48px;
+  .page-label {
+    max-height: 60px;
+    max-width: fit-content;
+    margin-left: 30%;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 20px;
-    margin: auto;
-    margin-top: -3.5rem;
+    font-size: 2rem;
+    font-family: 'Rubik';
+    margin-top: -2rem;
+    padding: 0 2rem;
+    color: #14335D;
   }
   
   .labelsize {
@@ -157,21 +146,17 @@ html {
   }
   
   .btnAddVeh {
-    background-color: #0A8996;
+    background-color: #304B71;
     color: #fff;
-    border-radius: 14px;
-    width: 250px;
-    height: 60px;
-    font-size: 151%;
+    border-radius: 8px;
+    max-width: fit-content;
+    height: 44px;
+    font-size: 1.8rem;
     font-weight: 500;
     margin-top: 4%;
     margin-right: 34%;
   }
   
-  .formclass {
-    margin-top: 5%;
-    margin-left: 25%;
-  }
   
   .avsidelinks{
     margin-right: 60%;
@@ -245,25 +230,11 @@ table th {
       position: relative;
       margin-top: 12.5%;
     }
-    .btnlogout:hover {
-      background-color: #14335D;
-    }
+    
     .labelsize {
       font-size: 12px;
     }
-  
-    .btnAddVeh {
-      background-color: #0A8996;
-      color: #fff;
-      border-radius: 14px;
-      width: 155px;
-      height: 44px;
-      font-size: 151%;
-      font-weight: 500;
-      margin-top: 4%;
-      margin-right: 35%;
-      padding-top: 0%;
-    }
+ 
   
     #avsociety label {
       margin-top: 14%;
@@ -277,16 +248,6 @@ table th {
       font-size: 20px;
     }
   
-    .Addvehicledisplay {
-      width: 190px;
-      height: 64px;
-      background-color: #AED8DC;
-      border-radius: 30px;
-      font-size: 20px;
-      padding-top: 14px;
-      margin: auto;
-      margin-top: -16%;
-    }
   
     .avsocietyname img {
       margin-left: 5%;
@@ -331,29 +292,18 @@ table th {
       position: relative;
       margin-top: 10.5%;
     }
+
   
-    .Addvehicledisplay {
-      width: 160px;
-      height: 64px;
-      background-color: #AED8DC;
-      border-radius: 30px;
-      font-size: 20px;
-      padding-top: 14px;
-      margin-left: 78%;
+  .page-label-green {
+    max-width: fit-content;
+    height: 60px;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-top: 14px;
+    margin: auto;
+    margin-top: -2%;
   }
-  
-  .btnAddVeh {
-    background-color: #0A8996;
-    color: #fff;
-    border-radius: 14px;
-    width: 140px;
-    margin-right: auto;
-  }
-  
-  .formclass {
-    margin-top: 5%;
-    margin-left: 42%;
-    width: 170%;
-  }
+
   
   }

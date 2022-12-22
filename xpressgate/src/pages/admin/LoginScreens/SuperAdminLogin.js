@@ -18,7 +18,7 @@ const SuperAdminLogin = () => {
       localStorage.setItem("accesstoken", data.data.accessToken);
       // localStorage.setItem("community_id", data.data.community_id);
       localStorage.setItem("admin_id", data.data.id);
-      localStorage.setItem('mode','admin')
+      localStorage.setItem('mode', 'admin')
       window.location.href = "/admin/dashboard";
     } catch (err) {
       console.log(err)
@@ -28,8 +28,8 @@ const SuperAdminLogin = () => {
   };
   return (
     <div className="superadmincontainer">
-      
-        
+
+
 
       <div id="superadminloginimg">
         <img src="./images/SuperAdminImg.svg" alt="" />
@@ -37,10 +37,10 @@ const SuperAdminLogin = () => {
       <div id="Superadminloginform">
         <Form>
           <div className="Superadmininputfield">
-          <div id="Superadminlogo">
-            <img src="/images/loginlogo.svg" alt="" />
-          </div>
-         <br/><br/>
+            <div id="Superadminlogo">
+              <img src="/images/loginlogo.svg" alt="" />
+            </div>
+            <br /><br />
             <div className="signinlabel" disabled>
               SIGN IN
             </div>
@@ -74,7 +74,7 @@ const SuperAdminLogin = () => {
               <br />
               <Button
                 type="button"
-                className="adminloginbtn"
+                className="adminloginbtn  mt-4"
                 onClick={() => {
                   loginGuard();
                 }}
@@ -83,7 +83,7 @@ const SuperAdminLogin = () => {
               </Button>
             </div>
 
-            <div className="adminforgotpassword">
+            <div className="adminforgotpassword mt-4">
               <a
                 href="/adminresetpass"
                 style={{ color: "#FD6B22" }}

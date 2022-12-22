@@ -17,11 +17,11 @@ import { PlansList } from './PaymentManagement/Plans/plans';
 import { AddPlan } from './PaymentManagement/Plans/new';
 import { PaymentsHistory } from './PaymentManagement/PaymentHistory';
 
-// import AdminProfile from '../admin/LoginScreens/AdminProfile';
-// import Terms from "../admin/LoginScreens/Terms"
-// import PrivacyPolicy from "../admin/LoginScreens/PrivacyPolicy"
-// import AddVideo from "../admin/VideoClass/AddVideo"
-// import EditVideo from "../admin/VideoClass/EditVideo"
+import AdminProfile from '../admin/LoginScreens/AdminProfile';
+import Terms from "../admin/LoginScreens/Terms"
+import PrivacyPolicy from "../admin/LoginScreens/PrivacyPolicy"
+import AddVideo from "../admin/VideoClass/AddVideo"
+import EditVideo from "../admin/VideoClass/EditVideo"
 import Reports from "../admin/Reports/Reports"
 import SideLayOut from '../../components/base/Layout/SideLayOut';
 import RouterPath from '../../common/constants/path/routerPath';
@@ -62,7 +62,7 @@ const AdminModuleComponent = () => {
     if (router.pathname === RouterPath.REPORTS) {
         children = (<Reports />)
     }
-    if (router.pathname == '/admin') {
+    if (router.pathname == RouterPath.VIDEO_CLASS) {
         children = (<VideoClass />)
     }
 
@@ -84,6 +84,12 @@ const AdminModuleComponent = () => {
     }
     if (router.pathname === RouterPath.PAYMENT_HISTORY) {
         children = (<PaymentsHistory />)
+    }
+    if (router.pathname === RouterPath.PRIVACY_POLICY) {
+        children = (<PrivacyPolicy />)
+    }
+    if (router.pathname === RouterPath.TERMS) {
+        children = (<Terms />)
     }
 
     return (

@@ -5,6 +5,7 @@ import LogOut from './Utils/LogOut';
 import axios from 'axios'
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import Societyheader from './Utils/Societyheader';
+import { useNavigate } from "react-router-dom";
 
 const Vehiclemanagement = () => {
 
@@ -12,6 +13,8 @@ const Vehiclemanagement = () => {
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts, setCurrentPosts] = useState([])
+  const navigate= useNavigate()
+
   useEffect(() => {
     getVehicleParkDetails()
   }, [])
@@ -62,25 +65,31 @@ const Vehiclemanagement = () => {
   
 }
 
+function navigatetoEdit(name,section)
+  {
+    navigate('/addvehicle',{state:{type:'edit',name,section}})
+  }
+
   return (
     <div className="vmcontainer">
       <div id="vmheadersection">
         <Societyheader />
       </div>
       <div id="vmsection">
-        <div className='vmsocietyname'>
+        <div className='VMsocietyname'>
           <img src="/images/societyicon.svg" alt="society name" />
           <label>Society Name</label>
         </div>
         <div className='vmsidelinks'>
           <label>Vehicle list</label><br></br>
-          <a href='/viewparking'>View parking section</a><br/><br/>
-          <a href='/addparking'>Add parking section</a>
+          <a href='/addvehicle' className='apssec'>Assign parking section</a><br/><br/>
+          <a href='/viewparking' className='VPsec'>View parking section</a><br/><br/>
+          <a href='/addparking' className='APsec'>Add parking section</a>
         </div>
-        <div className='vmsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
+        <div className='VMsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
       <div className='vmbackgroundimg'>
-        <div className='vmdisplay'>
+        <div className='VMdisplay'>
           <label>Vehicle Management</label>
         </div>
         <div className='row'>
@@ -91,7 +100,7 @@ const Vehiclemanagement = () => {
           </div>
           <div className='vmsearchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-              <input className='flsearch_input' placeholder='Search' onChange={(e) =>{findText(e)}}></input></span>
+              <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
           </div>
         </div>
 
@@ -107,8 +116,9 @@ const Vehiclemanagement = () => {
           </thead>
           <tbody>
             {currentPosts.map(item => {
+              console.log(item)
               return (
-                <tr>
+                <tr onClick={() => navigatetoEdit(item.firstname, item.section )}>
                   <td>{item.firstname} {item.lastname}</td>
                   <td >{item.vehicle_number}</td>
                   <td>{item.vehicle_make}</td>

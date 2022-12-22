@@ -27,8 +27,8 @@ const Community = () => {
           <a href="/addNotice" class="Notice">Add Notice</a>
         </div> */}
         <div className='csidelinks'>
-          <a className='sidelinks' href="/noticelist">Notice List</a><br></br><br></br>
-          <a className='sidelinks' href="/addNotice">Add Notice</a>
+          <a className='CNsidelinks' href="/noticelist">Notice List</a><br></br><br></br>
+          <a className='CANsidelinks' href="/addNotice">Add Notice</a>
         </div>
         <div className="SC_sideimage">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />

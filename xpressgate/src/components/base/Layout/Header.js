@@ -18,10 +18,14 @@ function Header() {
                 <div id="adminlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
                 <div id="adminguard"><label>Super Admin</label></div>
                 <div id="adminspace"></div>
-                <div id="adminnotification" onClick={() => { setStat(!stat) }}><img src="/images/notification.svg" className='bellicon' alt="notificationicon" /></div>
-                {stat ? <div className='notification_section'><HeaderSection /></div> : ''}
-                <div id="adminsetting"><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-                <div id="adminlogout"><LogOut className='bg-[#0A8996]' /></div>
+                <div className='d-flex justify-content-around align-items-center gx-2'>
+                    <div onClick={() => { setStat(!stat) }}><img src="/images/notification.svg" className='bellicon mx-3' alt="notificationicon" /></div>
+                    {stat ? <div className='notification_section mx-4'><HeaderSection /></div> : ''}
+                    <div className='mx-3'><a href="abc"><img src="/images/setting.svg" alt="settingicon" /></a></div>
+
+                    <LogOut className='bg-[#0A8996]' />
+
+                </div>
             </div>
         </div>
     )

@@ -72,19 +72,18 @@ import AdminEnterCode from './pages/admin/LoginScreens/AdminEnterCode';
 import RouterPath from './common/constants/path/routerPath';
 import SocChangePassword from './components/SocietyModule/ChangePassword';
 import PackageList from './components/SocietyModule/PackageList';
-
-
 import AdminChangePass from './pages/admin/LoginScreens/AdminChangePass';
 import AdminReset from './pages/admin/LoginScreens/AdminReset';
 import Viewparking from './components/SocietyModule/Viewparking';
 import SocietyDuesTable from './components/SocietyModule/SocietyDuesTable';
 import VendorPaymentTable from './components/SocietyModule/VendorPaymentTable';
 import UtilityPaymentTable from './components/SocietyModule/UtilityPaymentTable';
+import Report from './components/SocietyModule/Report';
 
 function App() {
 
   window.env_var = "http://143.110.187.80:5050/"
-  // window.env_var = "http://localhost:5050/"
+  //window.env_var = "http://localhost:5050/"
   useEffect(() => {
 
   }, [])
@@ -110,7 +109,7 @@ function App() {
           <Route path="/newpassword" element={<Newpassword />} exact></Route>
           <Route path="/guestentry" element={<GuestEntry />} exact></Route>
           <Route path="/scDashboard" element={<SocietyDashboard />} exact></Route>
-          <Route path="/flatlist" element={<Flatlist />} exact></Route>
+          {/* <Route path="/flatlist" element={<Flatlist />} exact></Route> */}
           <Route path="/flatapprovallist" element={<Flatapprovallist />} exact></Route>
           <Route path="/blocklist" element={<Blocklist />} exact></Route>
           <Route path="/addflat" element={<Addflat />} exact></Route>
@@ -119,6 +118,7 @@ function App() {
           <Route path="/guardLogin" element={<Login />} exact></Route>
           <Route path="/addFlat" element={<Addflat />} exact></Route>
           <Route path="/changesocpassword" element={<SocChangePassword />} exact></Route>
+          <Route path="/sreport" element={<Report />} exact></Route>
 
 
           <Route path="/blockList" element={<Blocklist />} exact></Route>
@@ -127,7 +127,6 @@ function App() {
           <Route path="/approveFlat" element={<Flatapprovallist />} exact></Route>
           <Route path="/noticeList" element={<Noticelist />} exact></Route>
           <Route path="/addNotice" element={<Addnotice />} exact></Route>
-          <Route path="/addVehical" element={<Addvehicle />} exact></Route>
           <Route path="/manageVehicle" element={<Vehiclemanagement />} exact></Route>
           <Route path="/editGuard" element={<Editguard />} exact></Route>
           <Route path="/addGuard" element={<Addguard />} exact></Route>
@@ -165,6 +164,9 @@ function App() {
           <Route path="/package" element={<Package />} exact></Route>
           <Route path="/Approvallist" element={<ApprovalList />} exact></Route>
           <Route path="/paymenthistory" element={<SocietyPaymentHistory />} exact></Route>
+          <Route path="/societyduesrecord" element={<SocietyDuesTable />} exact></Route>
+          <Route path="/vendorpaymentrecord" element={<VendorPaymentTable />} exact></Route>
+          <Route path="/utilitypaymentrecord" element={<UtilityPaymentTable />} exact></Route>
 
           <Route path={RouterPath.ADMIN_DASHBOARD} element={<AdminModuleComponent />}></Route>
 
@@ -198,6 +200,9 @@ function App() {
 
           <Route path="/packagelist" element={<PackageList />} exact></Route>
           <Route path="/paymenthistory" element={<SocietyPaymentHistory />} exact></Route>
+          {/* <Route path="/societyduesrecord" element={<SocietyDuesTable />} exact></Route> */}
+            <Route path="/vendorpaymentrecord" element={<VendorPaymentTable />} exact></Route>
+            <Route path="/utilitypaymentrecord" element={<UtilityPaymentTable />} exact></Route>
         </Routes>
       </Router>
     </div>

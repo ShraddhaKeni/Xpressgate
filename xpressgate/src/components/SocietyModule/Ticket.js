@@ -49,7 +49,7 @@ const Ticket = () => {
       </div>
       <div id="tktsection">
         <div className='tktname'>
-          <img src="/images/guardnameicon.svg" alt="guard name" />
+          <img src="/images/societyicon.svg" alt="guard name" />
           <label>Society Name</label>
         </div>
         <div className='tktsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>

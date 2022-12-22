@@ -105,77 +105,77 @@ const Addguard = () => {
 
       </div>
       <div id="societynamesection">
-        <div className="societyname">
-          <img src="/images/profileicon.svg" alt="Society image" />
+        <div className="AGSname">
+          <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
-        <br />
-
-        <div className="addguard_sideimg">
+        <br/>
+        
+        <div className="AGSideimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className='Addflatdisplay'>
-          <label>{type == 'edit' ? 'Edit Guard' : 'Add Guard'}</label>
+      <div className='AG_display'>
+          <label>{type=='edit'?'Edit Guard':'Add Guard'}</label>
         </div>
         <Form className='formclass'>
-
+         
+         <div class="form-group form-group6 row">
+           <label class="col-lg-2 col-form-label labelsize1">First name</label>
+           <div class="col-lg-4">
+            {type=='edit'?<input type="text" class="form-control input-lg SideB" name="First name" id='firstname' placeholder="First Name" defaultValue={guard.firstname}/>:
+            <input type="text" class="form-control input-lg input-lg1 SideB" name="First name" id='firstname' placeholder="First Name"/>}
+           </div>
+         </div>
+         <div class="form-group form-group6 row">
+           <label class="col-lg-2 col-form-label labelsize1">Last name</label>
+           <div class="col-lg-4">
+            {type=='edit'?<input type="text" class="form-control input-lg SideB" name="Last name" id='lastname' defaultValue={guard.lastname} placeholder="Last name" />:
+            <input type="text" class="form-control input-lg input-lg1 SideB" name="Last name" id='lastname' placeholder="Last name" />}
+             
+           </div>
+         </div>
+         <div class="form-group form-group6 row">
+           <label class="col-lg-2 col-form-label labelsize1">Username</label>
+           <div class="col-lg-4">
+              {type=='edit'?<input type="text" class="form-control input-lg SideB" name="Last name" id="username" defaultValue={guard.username} placeholder="Username" />
+              :<input type="text" class="form-control input-lg input-lg1 SideB" name="Last name" id="username" placeholder="Username" />}
+             
+           </div>
+         </div>
+         {type!=='edit'?
           <div class="form-group form-group6 row">
-            <label class="col-lg-2 col-form-label labelsize1">First name</label>
-            <div class="col-lg-4">
-              {type == 'edit' ? <input type="text" class="form-control input-lg" name="First name" id='firstname' placeholder="First Name" defaultValue={guard.firstname} /> :
-                <input type="text" class="form-control input-lg input-lg1" name="First name" id='firstname' placeholder="First Name" />}
-            </div>
+          <label class="col-lg-2 col-form-label labelsize1">Password</label>
+          <div class="col-lg-4">
+            <input type="text" class="form-control input-lg input-lg1 SideB" name="Last name" id="password" placeholder="Password"></input>
           </div>
-          <div class="form-group form-group6 row">
-            <label class="col-lg-2 col-form-label labelsize1">Last name</label>
-            <div class="col-lg-4">
-              {type == 'edit' ? <input type="text" class="form-control input-lg" name="Last name" id='lastname' defaultValue={guard.lastname} placeholder="Last name" /> :
-                <input type="text" class="form-control input-lg input-lg1" name="Last name" id='lastname' placeholder="Last name" />}
-
-            </div>
-          </div>
-          <div class="form-group form-group6 row">
-            <label class="col-lg-2 col-form-label labelsize1">Username</label>
-            <div class="col-lg-4">
-              {type == 'edit' ? <input type="text" class="form-control input-lg" name="Last name" id="username" defaultValue={guard.username} placeholder="Username" />
-                : <input type="text" class="form-control input-lg input-lg1" name="Last name" id="username" placeholder="Username" />}
-
-            </div>
-          </div>
-          {type !== 'edit' ?
-            <div class="form-group form-group6 row">
-              <label class="col-lg-2 col-form-label labelsize1">Password</label>
-              <div class="col-lg-4">
-                <input type="text" class="form-control input-lg input-lg1" name="Last name" id="password" placeholder="Password"></input>
-              </div>
-            </div>
-            : ''
+        </div>
+        :''
           }
-          <div class="form-group form-group6 row">
-            <label class="col-lg-2 col-form-label labelsize1">Phone No</label>
-            <div class="col-lg-4">
-              {type == 'edit' ? <input type="text" class="form-control input-lg" name="Phone No" id="phone" defaultValue={guard.mobileno} placeholder="Phone No" /> :
-                <input type="text" class="form-control input-lg input-lg1" name="Phone No" id="phone" placeholder="Phone No" />}
-            </div>
-          </div>
-          <div class="form-group form-group6 row">
-            <label class="col-lg-2 col-form-label labelsize1">Email </label>
-            <div class="col-lg-4">
-              {type == 'edit' ? <input type="email" class="form-control input-lg" name="Email" id='email' defaultValue={guard.email} placeholder="Email" /> :
-                <input type="email" class="form-control input-lg input-lg1" name="Email" id='email' placeholder="Email" />}
-            </div>
-          </div>
-          <div class="form-group form-group6 row">
-            <label class="col-lg-2 col-form-label labelsize1">Add Profile Picture</label>
-            <div class="col-lg-4">
-              <input type="file" class="form-control input-lg input-lg1" name="Add Profile Picture" id="profilePic" placeholder=""></input>
-            </div>
-          </div>
+         <div class="form-group form-group6 row">
+           <label class="col-lg-2 col-form-label labelsize1">Phone No</label>
+           <div class="col-lg-4">
+             {type=='edit'?<input type="text" class="form-control input-lg SideB" name="Phone No" id="phone" defaultValue={guard.mobileno} placeholder="Phone No" />:
+             <input type="text" class="form-control input-lg input-lg1 SideB" name="Phone No" id="phone" placeholder="Phone No" />}
+           </div>
+         </div>
+         <div class="form-group form-group6 row">
+           <label class="col-lg-2 col-form-label labelsize1">Email </label>
+           <div class="col-lg-4">
+             {type=='edit'?<input type="email" class="form-control input-lg SideB" name="Email" id='email' defaultValue={guard.email} placeholder="Email" />:
+             <input type="email" class="form-control input-lg input-lg1 SideB" name="Email" id='email' placeholder="Email" />}
+           </div>
+         </div>
+         <div class="form-group form-group6 row">
+           <label class="col-lg-2 col-form-label labelsize1">Add Profile Picture</label>
+           <div class="col-lg-4">
+             <input type="file" class="form-control input-lg input-lg1 SideB" name="Add Profile Picture" id="profilePic" placeholder=""></input>
+           </div>
+         </div>
 
-          <Button type="submit" onClick={(e) => handleSubmit(e)} className="btnAdd5">{type == 'edit' ? 'Edit Guard' : 'Add Guard'}</Button>
-        </Form>
+         <Button type="submit" onClick={(e)=>handleSubmit(e)} className="AGBtn">{type=='edit'?'Edit Guard':'Add Guard'}</Button>
+         </Form>
 
       </div>
     </div>

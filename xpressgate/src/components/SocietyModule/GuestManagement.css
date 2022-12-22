@@ -100,49 +100,57 @@ html {
   margin-top: 18%;
   padding-top: 2%;
 } */
-
+.gmname label {
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+  margin-left: 4%;
+  margin-top: 13%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
+}
 .gmname {
   display: flex;
   width: 80%;
-  height: 14%;
+  height: 12%;
   background-color: rgba(10, 137, 150, 0.33);
   margin-left: 10%;
   margin-top: 12%;
   border-radius: 24px;
 }
-
 .gmname img {
-  margin-left: 6%;
-  width: 30%;
+  margin-left: 10%;
+  width: 25%;
   height: 70%;
-  margin-top: 6%;
-}
-
-.gmname label {
-  color: #000;
-  margin-left: 8%;
-  margin-top: 13%;
-  font-size: 20px;
+  margin-top: 4%;
 }
 
 .gmsideimage img {
   display: flex;
-  margin-top: 80%;
-  width: 100%;
+  margin-top: 98%;
+  max-width: 90%;
   height: auto;
+  margin-left: 8%;
+  margin-bottom: 3%;  
 }
-
 .gmdisplay {
-  width: 300px;
-  height: 64px;
+  width: 16vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 20px;
   padding-top: 14px;
   margin: auto;
-  margin-top: -2%;
+  margin-top: -3%;
 }
-
+.gmdisplay label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;  
+  font-size: 1.4vw;
+  text-align: center;  
+  color: #14335D;
+}
 .labelsize {
   font-size: 20px;
 }
@@ -203,17 +211,13 @@ table th {
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  .gmname label {
-    margin-left: 2%;
-    margin-top: 16%;
-    font-size: 15px;
-  }
-
+ 
   .gmsideimage img {
     display: flex;
-    margin-top: 216%;
-    width: 100%;
+    margin-top: 93%;
+    max-width: 95%;
     height: auto;
+    margin-left: 2%;
   }
 
   .gmbackgroundimg {
@@ -242,15 +246,25 @@ table th {
   }
 
   .gmdisplay {
-    width: 300px;
-    height: 64px;
+    width: 17vw;
+    height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 20px;
-    padding-top: 14px;
+    font-size: 1.4vw;
+    padding: 1%;
     margin: auto;
-    margin-top: -16%;
-  }
+    margin-top: -15%;
+    margin-left: 38%;
+}
+.gmdisplay label {
+  
+    font-size: 1.5vw;
+    text-align: center;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+}
 
   .gmsearchbox {
     width: 28%;
@@ -259,15 +273,6 @@ table th {
     border-radius: 15px;
     margin-top: 2%;
     margin-left: 60%;
-}
-.gmname {
-  display: flex;
-  width: 80%;
-  height: 10%;
-  background-color: rgba(10, 137, 150, 0.33);
-  margin-left: 10%;
-  margin-top: 12%;
-  border-radius: 24px;
 }
 
 #gmsociety label {

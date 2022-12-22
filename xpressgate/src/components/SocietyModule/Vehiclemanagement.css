@@ -107,48 +107,58 @@ html {
   padding-top: 2%;
 } */
 
-.vmsocietyname {
+.VMsocietyname label {
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+  margin-left: 4%;
+  margin-top: 13%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
+}
+.VMsocietyname {
   display: flex;
   width: 80%;
-  height: 14%;
+  height: 12%;
   background-color: rgba(10, 137, 150, 0.33);
   margin-left: 10%;
   margin-top: 12%;
   border-radius: 24px;
 }
-
-.vmsocietyname img {
-  margin-left: 6%;
-  width: 30%;
+.VMsocietyname img {
+  margin-left: 10%;
+  width: 25%;
   height: 70%;
-  margin-top: 6%;
+  margin-top: 4%;
 }
 
-.vmsocietyname label {
-  color: #000;
-  margin-left: 8%;
-  margin-top: 13%;
-  font-size: 20px;
-}
-
-.vmsideimage img {
+.VMsideimage img {
   display: flex;
-  margin-top: 50%;
-  width: 90%;
+  margin-top: 62%;
+  max-width: 90%;
   height: auto;
-  margin-left: 5%;
+  margin-left: 8%;
+  margin-bottom: 3%;  
 }
-
-.vmdisplay {
-  width: 300px;
-  height: 64px;
+.VMdisplay {
+  width: 16vw;
+  height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
-  font-size: 20px;
   padding-top: 14px;
   margin: auto;
-  margin-top: -2%;
+  margin-top: -3%;
 }
+.VMdisplay label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;  
+  font-size: 1.3vw;
+  text-align: center;  
+  color: #14335D;
+}
+
 
 .labelsize {
   font-size: 20px;
@@ -238,7 +248,7 @@ text-align: center;
 color: #000000;
 font-size: 1.3vw;
 }
-.vmsidelinks a{
+/* .vmsidelinks a{
   font-family: 'Rubik';
 font-style: normal;
 font-weight: 400;
@@ -249,7 +259,7 @@ color: #5C5C5C;
 }
 .vmsidelinks a:hover{
   color: #000000;
-}
+} */
 .parkingsection{
   position: absolute;
 margin-top: 0%;
@@ -265,18 +275,53 @@ font-weight: 400;
 color: #FEFEFF;
 font-size: 1.5vw;
 }
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  .vmsocietyname label {
-    margin-left: 2%;
-    margin-top: 16%;
-    font-size: 15px;
-  }
 
-  .vmsideimage img {
+.apssec{
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  color: #5C5C5C;
+  font-size: 1vw;
+  margin-left: 12%;
+}
+
+.VPsec{
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  color: #5C5C5C;
+  font-size: 1vw;
+  margin-left: 13%;
+}
+.APsec{
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  color: #5C5C5C;
+  font-size: 1vw;
+  margin-left: 14%;
+  
+}
+.VPsec:hover{
+  color:#000
+}
+.APsec:hover{
+  color:#000
+}
+
+
+
+
+
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  .VMsideimage img {
     display: flex;
-    margin-top: 216%;
-    width: 100%;
+    margin-top: 53%;
+    max-width: 95%;
     height: auto;
+    margin-left: 2%;
   }
 
   .vmbackgroundimg {
@@ -304,16 +349,26 @@ font-size: 1.5vw;
     font-size: 20px;
   }
 
-  .vmdisplay {
-    width: 300px;
-    height: 64px;
+  .VMdisplay {
+    width: 17vw;
+    height: 7vh;
     background-color: #AED8DC;
     border-radius: 30px;
-    font-size: 20px;
-    padding-top: 14px;
+    font-size: 1.4vw;
+    padding: 1%;
     margin: auto;
-    margin-top: -16%;
-  }
+    margin-top: -15%;
+    margin-left: 38%;
+}
+.VMdisplay label {
+  
+    font-size: 1.5vw;
+    text-align: center;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+}
 
   .vmsearchbox{
     width: 15%;
@@ -325,15 +380,6 @@ font-size: 1.5vw;
     
   }
 
-.vmsocietyname {
-  display: flex;
-  width: 80%;
-  height: 10%;
-  background-color: rgba(10, 137, 150, 0.33);
-  margin-left: 10%;
-  margin-top: 12%;
-  border-radius: 24px;
-}
 
 .vmsearchlabel{
   margin-top: 2%;

@@ -39,14 +39,14 @@ const Societydashboard = () => {
         </div>
       </div>
       <div id="guardnamesection">
-        <div className='guardname'>
+        <div className='SC_Name'>
           <img src="/images/societyicon.svg" alt="society name" />
           <label>Society Name</label>
         </div>
         <div className='sdsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
       </div>
         <div className='dashboardbackgroundimg'>
-        <div className='sdsocietydisplay'>
+        <div className='sdashdisplay'>
           <label>Society Dashboard</label>
         </div>
           <div id="cardsection">
