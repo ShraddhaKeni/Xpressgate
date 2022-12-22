@@ -5,51 +5,62 @@ import { Form } from 'react-bootstrap';
 import LogOut from './Utils/LogOut';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
+import { useLocation } from "react-router-dom";
 
 const Addvehicle = () => {
 
-  const [blocks,setBlocks] = useState([])
-  const [flats,setFlats] = useState([])
-  const [sections,setSections] = useState([])
-  const [resident,setResident] = useState({})
-  const [vehicles,setVehicles] = useState([])
+  const [blocks, setBlocks] = useState([])
+  const [flats, setFlats] = useState([])
+  const [sections, setSections] = useState([])
+  const [resident, setResident] = useState({})
+  const [vehicles, setVehicles] = useState([])
+  const [name, setName] = useState()
+  const [section, setSection] = useState()
+  const [type, setType] = useState()
+  const location = useLocation()
 
-  useEffect(()=>{
+
+  useEffect(() => {
     getBlocks()
-  },[])
-  const getBlocks = async()=>{
+    if (location.state) {
+      setName(location.state.name)
+      setSection(location.state.section)
+    }
+  }, [])
+  const getBlocks = async () => {
     try {
-      const {data} = await axios.get(`${window.env_var}api/block/blockList`)
+      const { data } = await axios.get(`${window.env_var}api/block/blockList`)
       setBlocks(data.data.block)
     } catch (error) {
       console.log(error)
     }
   }
-  const getFlats = async(e)=>{
+  const getFlats = async (e) => {
     try {
-      document.getElementById('vehicle_id').selectedIndex='0'
-      document.getElementById('flat_id').selectedIndex='0'
-      document.getElementById('resident_name').value=null
-      const {data} = await axios.get(`${window.env_var}api/flats/getList/${e.target.value}`)
+      document.getElementById('vehicle_id').selectedIndex = '0'
+      document.getElementById('flat_id').selectedIndex = '0'
+      document.getElementById('resident_name').value = null
+      const { data } = await axios.get(`${window.env_var}api/flats/getList/${e.target.value}`)
       setFlats(data.data.list)
     } catch (error) {
       console.log(error)
     }
   }
 
-  const getSections = async(e)=>{
+  const getSections = async (e) => {
     try {
-      const {data} = await axios.get(`${window.env_var}api/parkingsection/getAll/${e.target.value}`)
+      const { data } = await axios.get(`${window.env_var}api/parkingsection/getAll/${e.target.value}`)
       setSections(data.data)
     } catch (error) {
       console.log(error)
     }
   }
-  const getResident = async(e)=>{
+  const getResident = async (e) => {
     try {
-      const {data} = await axios.get(`${window.env_var}api/flats/single/${e.target.value}`)  
+      const { data } = await axios.get(`${window.env_var}api/flats/single/${e.target.value}`)
+      console.log(data)
       setResident(data.data.list[0])
-      document.getElementById('resident_name').value = data.data.list[0].firstname+' '+data.data.list[0].lastname
+      document.getElementById('resident_name').value = data.data.list[0].firstname + ' ' + data.data.list[0].lastname
 
       const vehicle = await axios.get(`${window.env_var}api/resident/vehicle/getResidentVehicle/${data.data.list[0].resident_id}`)
       setVehicles(vehicle.data.data.vehical)
@@ -57,20 +68,20 @@ const Addvehicle = () => {
       console.log(error)
     }
   }
-  const handleSubmit=async(e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault()
     try {
       const sendData = {
-        section_id:document.getElementById('section').value,
-        resident_id:resident.resident_id,
-        flat_id:document.getElementById('flat_id').value,
-        vehicle_id:document.getElementById('vehicle_id').value
+        section_id: document.getElementById('section').value,
+        resident_id: resident.resident_id,
+        flat_id: document.getElementById('flat_id').value,
+        vehicle_id: document.getElementById('vehicle_id').value
       }
-      const data = await axios.post(`${window.env_var}api/assigns/post`,sendData)
-      console.log(data)
+      const data = await axios.post(`${window.env_var}api/assigns/post`, sendData)
+      console.log(sendData)
     } catch (error) {
-      console.log(resident)
-      console.log(error)
+      //console.log(resident)
+      alert("Parking is already assigned")
     }
   }
 
@@ -106,62 +117,62 @@ const Addvehicle = () => {
           <div class="form-group row">
             <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label labelsize">Block</label>
             <div class="col-sm-4 col-md-4 col-lg-4">
-              <select type="text" class="form-control input-lg" name="community" style={{border: "1px solid #000000"}} id='block_id' onChange={(e)=>{getFlats(e);getSections(e)}}>
-                  <option disabled selected value={null}>Select Block</option>
-                  {blocks.map((item)=>{
-                    return(
-                      <option value={item._id}>{item.block}</option>
-                    )
-                  })}
+              <select type="text" class="form-control input-lg" name="community" style={{ border: "1px solid #000000" }} id='block_id' onChange={(e) => { getFlats(e); getSections(e) }}>
+                <option disabled selected value={null}>Select Block</option>
+                {blocks.map((item) => {
+                  return (
+                    <option value={item._id}>{item.block}</option>
+                  )
+                })}
               </select>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Flat</label>
             <div class="col-lg-4">
-              <select style={{border: "1px solid #000000"}} type="text" class="form-control input-lg" id='flat_id' name="community" onChange={(e)=>getResident(e)}>
-                    <option disabled selected value={null}>Select Flat</option>
-                    {flats.map((item)=>{
-                      return(
-                        <option value={item._id}>{item.flat_number}</option>
-                      )
-                    })}
-                </select>
+              <select style={{ border: "1px solid #000000" }} type="text" class="form-control input-lg" id='flat_id' name="community" onChange={(e) => getResident(e)}>
+                <option disabled selected value={null}>Select Flat</option>
+                {flats.map((item) => {
+                  return (
+                    <option value={item._id}>{item.flat_number}</option>
+                  )
+                })}
+              </select>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Vehicle</label>
             <div class="col-lg-4">
-              <select style={{border: "1px solid #000000"}} type="text" class="form-control input-lg" id='vehicle_id' name="community" onChange={(e)=>getResident(e)}>
-                    <option disabled selected value={null}>Select Vehicle</option>
-                    {vehicles.map((item)=>{
-                      return(
-                        <option value={item._id}>{item.vehicalNumber}</option>
-                      )
-                    })}
-                </select>
+              <select style={{ border: "1px solid #000000" }} type="text" class="form-control input-lg" id='vehicle_id' name="community" onChange={(e) => getResident(e)}>
+                <option disabled selected value={null}>Select Vehicle</option>
+                {vehicles.map((item) => {
+                  return (
+                    <option value={item._id}>{item.vehicalNumber}</option>
+                  )
+                })}
+              </select>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Resident Name</label>
             <div class="col-lg-4">
-              <input style={{border: "1px solid #000000"}} type="text" class="form-control input-lg" name="flatNo" id='resident_name' placeholder="Resident Name" disabled></input>
+              <input style={{ border: "1px solid #000000" }} type="text" class="form-control input-lg" name="flatNo" id='resident_name' placeholder="Resident Name" disabled></input>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-2 col-form-label labelsize">Parking section</label>
             <div class="col-lg-4">
-              <select style={{border: "1px solid #000000"}} class="form-control input-lg" id="section" placeholder="Parking section">
+              <select style={{ border: "1px solid #000000" }} class="form-control input-lg" id="section" placeholder="Parking section">
                 <option disabled selected value={null}>Select Section</option>
-                  {sections.map((item)=>{
-                        return(
-                          <option value={item._id}>{item.section}</option>
-                        )
-                      })}
-                </select>
+                {sections.map((item) => {
+                  return (
+                    <option value={item._id}>{item.section}</option>
+                  )
+                })}
+              </select>
             </div>
           </div>
-          <Button type="submit" onClick={(e)=>handleSubmit(e)} className="btnAddVeh">Allot Parking</Button>
+          <Button type="submit" onClick={(e) => handleSubmit(e)} className="btnAddVeh">Allot Parking</Button>
         </Form>
 
       </div>

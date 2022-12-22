@@ -121,8 +121,8 @@ const Addguard = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className='AG_display'>
-          <label>{type == 'edit' ? 'Edit Guard' : 'Add Guard'}</label>
+      <div className='AG_display'>
+          <label>{type=='edit'?'Edit Guard':'Add Guard'}</label>
         </div>
         <Form className='formclass'>
           <div class="form-group form-group6 row">
