@@ -38,6 +38,7 @@ export const PlanDetails = () => {
     return (
 
         <>
+         <img src='/images/side_bar_img.svg' className='PAY_Coupans_side_Img' />
             {!plan && <Navigate to={RouterPath.PRLANS_LIST} />}
             {plan &&
                 <div>
