@@ -19,24 +19,13 @@ const AdminReset = () => {
   }
   return (
     <div className="superadmincontainer">
-        <div id="SOC_Reset_LogoId">
+        <div id="Superadminlogo">
               <img src="/images/loginlogo.svg" alt="" />
-          
-            <div className="SOC_Fgt">
-              <label className="SOC_fgt_Label">Forgot Password</label>
+            <div className="Admin_SignIn">
+              <label className="Admin_SignIn_Label">Forgot Password</label>
             </div>
             </div>
- <div id="Superadminlogo">
-              <img src="/images/loginlogo.svg" alt="" />
-            </div>
-            <br /><br />
-            <div className="signinlabel" disabled>
-              RESET PASSWORD
-            </div>
-            <br />
-
-
-      <div id="superadminloginimg">
+        <div id="superadminloginimg">
         <img src="./images/SuperAdminImg.svg" alt="" />
       </div>
       <div id="Superadminloginform">
@@ -44,7 +33,7 @@ const AdminReset = () => {
           <div className="Superadmininputfield">
          
             <div className="email_input">
-              <label className="adminmobile mb-3">Enter Mobile</label>
+              <label className="adminemail">Enter Mobile</label>
               <input
                 ref={username}
                 type="text"
@@ -59,13 +48,13 @@ const AdminReset = () => {
             <br></br>
             <div className="email_input">
 
-              <Button
+              <button
                 type="button"
-                className="adminsendcodebtn mt-5"
+                className="adminsendcodebtn "
                 onClick={() => sendOTP()}
               >
                 Send Code
-              </Button>
+              </button>
             </div>
 
           </div>

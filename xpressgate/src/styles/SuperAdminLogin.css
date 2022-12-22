@@ -62,6 +62,7 @@ html{
     font-family: 'Rubik';
   font-style: normal;
   margin-left: -4.5%;
+  border: none;
   }
   
   .adminloginbtn:hover {
@@ -176,6 +177,7 @@ font-weight: 500;
   font-family: 'Rubik';
   font-style: normal;
   margin-left: 15%;
+  border: none;
 }
 .adminloginbtn:hover {
   background-color: #14335D;
