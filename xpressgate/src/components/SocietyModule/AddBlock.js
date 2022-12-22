@@ -7,23 +7,29 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const AddBlock = () => {
-//   const [blocks, setBlocks] = useState([])
-//   const navigate = useNavigate()
-//   useEffect(() => {
-//     getBlocks()
-//   }, [])
+   const [blocks, setBlocks] = useState([])
+   const navigate = useNavigate()
+   useEffect(() => {
+  
+   }, [])
 
-//   const getBlocks = async () => {
-//     try {
-//       const { data } = await axios.get(`${window.env_var}api/block/blockList`)
-//       setBlocks(data.data.block)
-//     } catch (error) {
-//       console.log(error)
-//     }
-//   }
-//   const navigateToList = (id,block) => {
-//     navigate('/flatList', { state: { id: id,block:block} })
-//   }
+   const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+        const sendData = {
+          name : document.getElementById('block_name').value,
+          community_id: localStorage.getItem('community_id'),
+          status:"1"
+        }
+        const { data } = await axios.post(`${window.env_var}api/block/add`, sendData)
+        setBlocks(data.data)
+        window.location.href = '/blockList'
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  
   return (
     <>
       <div className="blcontainer">
@@ -63,7 +69,7 @@ const AddBlock = () => {
             <input type="text" id="block_name" className='ABl_input'></input>
         </div><br/>
           <div className='ADDB_BtN'>
-            <button type='button' className='BtnADDBlock'>Add</button>
+            <button type='button' onClick={(e) => handleSubmit(e)} className='BtnADDBlock'>Add</button>
           </div>
 
 
