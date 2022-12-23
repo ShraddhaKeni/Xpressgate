@@ -7,13 +7,14 @@ import Button from '@mui/material/Button';
 import { ButtonUnstyled } from '@mui/base';
 import { MaterialButton } from '../components/MaterialButton';
 import axios from 'axios';
+import { deleteCommunity } from '../../../common/admin/admin_api';
 
 const PremiseList = () => {
 
     const navigate = useNavigate();
 
     const [community, setCommunity] = useState([])
-    const [currentPage, setCurrentpage] = useState(1)
+    const [currentPage, setCurrentpage] = useState(0)
     const [postPerPage, setPostPerPage] = useState(12)
     const [currentPosts, setCurrentPosts] = useState([])
 
@@ -24,10 +25,11 @@ const PremiseList = () => {
     const getCommunities = async () => {
         try {
             const { data } = await axios.get(`${window.env_var}api/community/get`)
-            setCommunity(data.data)
-            const indexoflast = (currentPage) * postPerPage  //endoffset
+            setCommunity(data.data.community)
+            const indexoflast = (currentPage + 1) * postPerPage  //endoffset
             const indexoffirst = (indexoflast - postPerPage) //startoffset
-            setCurrentPosts(data.data.slice(indexoffirst, indexoflast))
+            console.log(data.data);
+            setCurrentPosts(data.data.community.slice(indexoffirst, indexoflast))
         } catch (error) {
 
         }
@@ -41,7 +43,8 @@ const PremiseList = () => {
     }
 
     const removePremise = async (id) => {
-
+        await deleteCommunity(id);
+        window.location.reload();
     }
 
     const handleAddPremise = () => {
@@ -98,7 +101,7 @@ const PremiseList = () => {
                         {currentPosts.map((item, index) => {
                             return (
                                 <tr>
-                                    <td>{(currentPage - 1) * 12 + (index + 1)}</td>
+                                    <td>{(currentPage ? currentPage : 1 - 1) * 12 + (index + 1)}</td>
                                     <td>{item.name}</td>
                                     <td>{item.noofblocks}</td>
                                     <td><ButtonUnstyled className='approve-active'>{item.status == true ? 'Unapprove' : 'Approve'}</ButtonUnstyled></td>
@@ -108,7 +111,7 @@ const PremiseList = () => {
                                                 <img src="/images/icon_edit.svg" />
                                             </IconButton>
 
-                                            {item.status === false ? <IconButton onClick={() => removePremise(item._id)}>
+                                            {item.status === true ? <IconButton onClick={() => removePremise(item._id)}>
                                                 <img src="/images/icon_delete.svg" />
                                             </IconButton> : ''}
 
@@ -121,8 +124,7 @@ const PremiseList = () => {
 
                     </tbody>
                 </table>
-                {currentPosts.length > 0 && <div className='flex space-between mx-5'>
-                    <p>Showing {currentPosts.length} of {community.length}</p>
+                {currentPosts.length > postPerPage && <div className='paginate'>
                     <PaginationCalculate totalPages={community.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
                 </div>}
             </div >
