@@ -88,7 +88,9 @@ export const AddCoupon = () => {
                     }
                     <SimpleInputComponent label={'Description'} type={'textarea'} name={'description'} onChange={(e) => coupon.description = e.target.value} />
 
-                    <Button type="submit" className="hovergreen btnAddVeh" style={{ marginLeft: '18vw' }}>Generate</Button>
+
+
+                    <button type="submit" className="BTN_ADD_premise " >Generate</button>
 
                 </Form>
 

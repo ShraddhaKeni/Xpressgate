@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import './Addvehicle.css';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
-import LogOut from './Utils/LogOut';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
 import { useLocation } from "react-router-dom";
+import SocietyHeader from './Utils/Societyheader';
 
 const Addvehicle = () => {
 
@@ -87,37 +87,35 @@ const Addvehicle = () => {
 
 
   return (
-    <div className="addvehiclecontainer">
-      <div id="addvehiclesection">
-        <div className="addvehheadersection">
-          <div id="avlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="avsociety"><label>Society</label></div>
-          <div id="avspace"></div>
-          <div id="avnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="avsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="avlogoutbutton"><LogOut /></div>
-        </div>
+    <div className="addguestcontainer4">
+    <div id="addflatsection">
+      <SocietyHeader/>
+    </div>
+    <div id="societynamesection">
+      <div className="AP_societyname">
+        <img src="/images/societyicon.svg" alt="Society image" />
+        <label>Society Name</label>
       </div>
-      <div id="avsocietysection">
-        <div className='avsocietyname'>
-          <img src="/images/societyicon.svg" alt="society name" />
-          <label>Society Name</label>
-        </div>
-        {/* <div className='avsidelinks'>
-          <Link>Vehicle List</Link><br></br><br></br>
-          <Link>Add Vehicle</Link>
-        </div> */}
-        <div className='avsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
+      
+      <div className='AddParksidelinks'>
+      <a href='/vehiclemanagement' className='ALLOT_VL'>Vehicle List</a><br/><br/>
+        <a href='/viewparking' className='ALLOT_VPS'>View Parking Section</a><br/><br/>
+        <a href='/addparking' className='ALLOT_APS'>Add Parking Section</a><br/><br/>
+        <a href='/addvehicle' className='ALLOT_ASPS'><b>Assign Parking Section</b></a>
       </div>
-      <div className='avbackgroundimg'>
-        <div className='Addvehicledisplay'>
-          <label>Allot Vehicle</label>
-        </div>
+      <div className="AP_sideimg">
+        <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+      </div>
+    </div>
+    <div className="addguestbackgroundimg">
+      <div className='APdisplay'>
+        <label>Allot vehicle</label>
+      </div>
         <Form className='formclass'>
           <div class="form-group row">
-            <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label labelsize">Block</label>
+            <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Block</label>
             <div class="col-sm-4 col-md-4 col-lg-4">
-              <select type="text" class="form-control input-lg" name="community" style={{ border: "1px solid #000000" }} id='block_id' onChange={(e) => { getFlats(e); getSections(e) }}>
+              <select type="text" className="form-control input-lg ALLOT_INP_BORDER" name="community"  id='block_id' onChange={(e) => { getFlats(e); getSections(e) }}>
                 <option disabled selected value={null}>Select Block</option>
                 {blocks.map((item) => {
                   return (
@@ -128,9 +126,9 @@ const Addvehicle = () => {
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-2 col-form-label labelsize">Flat</label>
+            <label class="col-lg-2 col-form-label ADN_label">Flat</label>
             <div class="col-lg-4">
-              <select style={{ border: "1px solid #000000" }} type="text" class="form-control input-lg" id='flat_id' name="community" onChange={(e) => getResident(e)}>
+              <select  type="text" className="form-control input-lg ALLOT_INP_BORDER" id='flat_id' name="community" onChange={(e) => getResident(e)}>
                 <option disabled selected value={null}>Select Flat</option>
                 {flats.map((item) => {
                   return (
@@ -141,9 +139,9 @@ const Addvehicle = () => {
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-2 col-form-label labelsize">Vehicle</label>
+            <label class="col-lg-2 col-form-label ADN_label">Vehicle</label>
             <div class="col-lg-4">
-              <select style={{ border: "1px solid #000000" }} type="text" class="form-control input-lg" id='vehicle_id' name="community" onChange={(e) => getResident(e)}>
+              <select type="text" className="form-control input-lg ALLOT_INP_BORDER" id='vehicle_id' name="community" onChange={(e) => getResident(e)}>
                 <option disabled selected value={null}>Select Vehicle</option>
                 {vehicles.map((item) => {
                   return (
@@ -154,15 +152,15 @@ const Addvehicle = () => {
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-2 col-form-label labelsize">Resident Name</label>
+            <label class="col-lg-2 col-form-label ADN_label">Resident Name</label>
             <div class="col-lg-4">
-              <input style={{ border: "1px solid #000000" }} type="text" class="form-control input-lg" name="flatNo" id='resident_name' placeholder="Resident Name" disabled></input>
+              <input type="text" className="form-control input-lg ALLOT_INP_BORDER" name="flatNo" id='resident_name' placeholder="Resident Name" disabled></input>
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-2 col-form-label labelsize">Parking section</label>
+            <label class="col-lg-2 col-form-label ADN_label">Parking section</label>
             <div class="col-lg-4">
-              <select style={{ border: "1px solid #000000" }} class="form-control input-lg" id="section" placeholder="Parking section">
+              <select className="form-control input-lg ALLOT_INP_BORDER" id="section" placeholder="Parking section">
                 <option disabled selected value={null}>Select Section</option>
                 {sections.map((item) => {
                   return (
@@ -172,7 +170,7 @@ const Addvehicle = () => {
               </select>
             </div>
           </div>
-          <Button type="submit" onClick={(e) => handleSubmit(e)} className="btnAddVeh">Allot Parking</Button>
+          <button type="submit" onClick={(e) => handleSubmit(e)} className="BTNADDVeh">Allot Parking</button>
         </Form>
 
       </div>

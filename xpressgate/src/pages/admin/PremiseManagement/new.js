@@ -104,9 +104,9 @@ const AddPremise = () => {
                     <SimpleInputComponent label={'Address'} name={'address_line'} id={'address'} onChange={(e) => { setPremise({ ...premise, address: e.target.value }) }} />
                     <SimpleInputComponent label={'Landmark'} name={'landmark_name'} id={'landmark'} onChange={(e) => { setPremise({ ...premise, landmark: e.target.value }) }} />
                     <SimpleDropDownComponent items={states} label={'State'} name={'state_name'} id={'state'} onChange={(e) => { setPremise({ ...premise, state: e.target.value }); getArea(e.target.value) }} />
-                    <SimpleDropDownComponent items={area} label={'City'} name={'city_name'} id={'city'} onChange={(e) => { console.log(e.target.value); setPremise({ ...premise, city: e.target.value }) }} />
-                    <SimpleInputComponent label={'Pincode'} name={'pincode'} type={'number'} id={'pincode'} onChange={(e) => { setPremise({ ...premise, pincode: e.target.value }) }} />
-                    <Button type="submit" onClick={(e) => handleSubmit(e)} className="hovergreen btnAddVeh " style={{ marginLeft: '18vw' }}>Add Premise</Button>
+                    <SimpleDropDownComponent items={area} label={'City'} name={'city_name'} id={'city'} onChange={(e) => { setPremise({ ...premise, city: e.target.value }) }} />
+                    <SimpleInputComponent label={'Pincode'} name={'pincode'} id={'pincode'} onChange={(e) => { setPremise({ ...premise, pincode: e.target.value }) }} />
+                    <button type="submit" onClick={(e) => handleSubmit(e)} className="BTN_ADD_premise ">Add Premise</button>
 
                 </Form>
 

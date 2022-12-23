@@ -72,18 +72,18 @@ const PremiseList = () => {
         <img src='/images/side_bar_img.svg' className='Premise_side_Img' />
         <div>
             <div className='page-label'>
-                <label>Premises Management</label>
+                <label>Premise Management</label>
             </div>
             <div>
-
                 <div className='table-top-right-content'>
                     <div className='table-search pl-2'>
                         <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
                         <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
                     </div>
+                     
                     <div className="table-add-new-button" onClick={handleAddPremise}>
-                        <img src="/images/ic_plus.svg" />
-                        <span className='ml-2'> Add New Premise</span>
+                      
+                        <span className='ml-2'>&#43; Add New Premise</span>
                     </div>
                 </div>
 

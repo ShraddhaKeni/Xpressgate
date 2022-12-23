@@ -87,13 +87,12 @@ export const CouponsList = () => {
             <div>
 
                 <div className='table-top-right-content'>
-                    <div className='table-search pl-2'>
+                    <div className='table-srch pl-2'>
                         <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
                         <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
                     </div>
-                    <div className="table-add-new-button" onClick={handleAddPremise}>
-                        <img src="/images/ic_plus.svg" />
-                        <span className='ml-2'> Add New Coupon</span>
+                    <div className="table-add-new-butn" onClick={handleAddPremise}>
+                        <span className='ml-2'>&#43; Add New Coupon</span>
                     </div>
                 </div>
 
@@ -103,12 +102,12 @@ export const CouponsList = () => {
                         {coupons && coupons.map((coupon) => {
 
                             return <div className="col" key={coupon.id}>
-                                <div className="card-green ">
+                                <div className="Coupon-card-green ">
                                     <div className='d-flex justify-content-end mr-5'><button className={`${coupon.status == 1 ? 'highlight-active' : 'highlight-inactive'} p-2 px-3`}><span className={`${coupon.status == 1 ? 'dot' : 'dot-inactive'}`}></span>{coupon.status == 1 ? 'Active' : 'Inactive'}</button></div>
                                     <div>
-                                        <p className='dash-heading-sm'>{coupon.name || "n/a"}</p>
-                                        <p className='dash-heading'>{coupon.code || "n/a"}</p>
-                                        <p className='dash-heading-md'>{coupon.amount || "n/a"}</p>
+                                        <p className='dash-Coupon_heading-sm'>{coupon.name || "n/a"}</p>
+                                        <p className='Coupon_heading'>{coupon.code || "n/a"}</p>
+                                        <p className='dash-Coupon_heading-md'>{coupon.amount || "n/a"}</p>
                                         <Link to={`${RouterPath.COUPON_DETAILS}`} state={{ coupon }} type="button" className="btn btn-primary blue-bg">View</Link>
                                     </div>
                                 </div>
@@ -121,7 +120,7 @@ export const CouponsList = () => {
 
                     </div>
                     {allCoupons?.length &&
-                        <div className="paginate mb-5">
+                        <div className="paginate" style={{ marginTop: '8%' }}>
                             <PaginationCalculate totalPages={allCoupons.length} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} />
                         </div>
                     }

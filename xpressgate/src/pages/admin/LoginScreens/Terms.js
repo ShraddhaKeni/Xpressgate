@@ -11,7 +11,7 @@ const Terms = () => {
   return (
     <>
 
-
+<img src='/images/side_bar_img.svg' className='DashBoard_side_Img' />
       <div className="container">
         <div className="page-label" >
           <label>Terms and Conditions</label>

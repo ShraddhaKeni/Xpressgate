@@ -143,18 +143,23 @@ html {
   font-size: 20px;
 }
 
-.btnAddVeh {
+.BTNADDVeh {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  width: 250px;
-  height: 60px;
-  font-size: 151%;
-  font-weight: 500;
+  width: 8vw;
+  height: 5.5vh;
+  font-size: 1.1vw;
   margin-top: 4%;
   margin-right: 34%;
+  border: none;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 700;
 }
-
+.BTNADDVeh:hover{
+  background-color: #14335D;
+}
 .formclass {
   margin-top: 5%;
   margin-left: 25%;
@@ -164,7 +169,62 @@ html {
   margin-right: 60%;
   margin-top: 10%;
   } */
+
+  .ALLOT_ASPS{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    color: #000;
+    font-size: 1.1vw;
+    margin-left: 8%;
+  }
+  .ALLOT_ASPS:hover{
+    color: #000;
+    text-decoration: none;
+  }
+  .ALLOT_VPS{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    color: #5C5C5C;
+    font-size: 1.1vw;
+    margin-left: 2%;
+  }
+  .ALLOT_VL{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    color: #5c5c5c;
+    font-size: 1.1vw;
+    margin-left: -27%;
+    
+  }
+  .ALLOT_VL:hover{
+  color: #000;
+  text-decoration: none;
+  }
+  .ALLOT_APS{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    color: #5C5C5C;
+    font-size: 1.1vw;
+}
+  .ALLOT_VPS:hover{
+    color:#000;
+    text-decoration: none;
+  }
+  .ALLOT_APS:hover{
+    color:#000;
+    text-decoration: none;
+  }
   
+   .ALLOT_INP_BORDER{
+    background: #FFFFFF;
+border: 2px solid #14335D;
+box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+border-radius: 8px;
+   } 
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   .avsocietyname {
@@ -203,7 +263,7 @@ html {
     font-size: 12px;
   }
 
-  .btnAddVeh {
+  .BTNADDVeh {
     background-color: #0A8996;
     color: #fff;
     border-radius: 14px;
@@ -214,8 +274,11 @@ html {
     margin-top: 4%;
     margin-right: 35%;
     padding-top: 0%;
+    border: none;
   }
-
+  .BTNADDVeh:hover{
+    background-color: #14335D;
+  }
   #avsociety label {
     margin-top: 14%;
     margin-left: -68%;
@@ -293,7 +356,7 @@ html {
     margin-left: 78%;
 }
 
-.btnAddVeh {
+.BTNADDVeh {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
