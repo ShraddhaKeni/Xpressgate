@@ -69,7 +69,7 @@ const Blocklist = () => {
                       <a href='/updateblock' className='Pencilicon'><img src='./images/pencil_icon.png'></img></a>
                       <label className='blblock'>Block {item.block}</label><br></br>
                       <label className='blflat'>Flats - {item.flat !== [] ? parseInt(item.flat) : 0}</label><br></br><br></br>
-                      <Button type="button" className="btnView" onClick={() => { navigateToList(item._id,item.block) }} >View</Button><br></br>
+                      <button type="button" className="btnView" onClick={() => { navigateToList(item._id,item.block) }} >View</button><br></br>
                     </div>
                   </div>
                 )

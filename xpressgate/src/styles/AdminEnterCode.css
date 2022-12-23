@@ -12,30 +12,20 @@ html{
     background-color: #0A8996;
     color: #fff;
     border-radius: 14px;
-    width: 12vw;
-    height: 5vh;
+    width: 10vw;
+    height: 6vh;
     font-size: 1.5vw;
     font-weight: 500;
-    margin-left: 0%;
-    margin-bottom: -1%;
-    padding: 1%;
-    
+    margin-top: 6%;
+    padding: 2%;
+    font-family: 'Rubik';
+    font-style: normal;
+    margin-left: -3%;
+    border: none;
   }
-  
- 
-  .adminentercode{
-    position: relative;
-    margin-left: -68%;
-    font-family: 'Rubik', sans-serif;
-    font-size: 1.4vw;
-    margin-bottom: 0%;
-    margin-top: 3%;
+  .adminverifybtn:hover{
+    background-color: #14335D;
   }
-
-  
-  
-  
-  
   @media only screen  and (min-device-width : 768px) and (max-device-width : 1024px) {
 
   
@@ -44,34 +34,27 @@ html{
     background-color: #0A8996;
     color: #fff;
     border-radius: 14px;
-    width: 12vw;
-    height: 5vh;
+    width: 10vw;
+    height: 6vh;
     font-size: 1.5vw;
     font-weight: 500;
-    margin-left: 0%;
-    margin-bottom: -1%;
-    padding: 1%;
+    margin-top: 30%;
+    padding: 2%;
+    font-family: 'Rubik';
+    font-style: normal;
+    margin-left: 17%;
+    border: none;
 }
-
-
-.adminentercode {
-    position: relative;
-    margin-left: -55%;
-    font-family: 'Rubik', sans-serif;
-    font-size: 1.4vw;
-    margin-bottom: 1%;
-    margin-top: 3%;
+.adminverifybtn:hover{
+  background-color: #14335D;
 }
- 
-
-
 } 
   
   
   /* Media query for mobile */
   @media only screen  and (min-device-width : 320px) and (max-device-width : 425px) {
   
-   
+  
     .signin {
       width: 270px;
       height: 76px;

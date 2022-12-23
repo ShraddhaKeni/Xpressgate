@@ -107,6 +107,7 @@ margin-bottom: 3.5%;
   padding-top: 0.5%;
   font-family: 'Rubik';
 font-style: normal;
+border: none;
 }
 .AEN_btnAdd:hover{
   background-color:  #14335D;
@@ -181,6 +182,7 @@ margin-right: 32%;
 padding-top: 1%;
 font-family: 'Rubik';
 font-style: normal;
+border: none;
 
 }
 .AEN_btnAdd:hover{

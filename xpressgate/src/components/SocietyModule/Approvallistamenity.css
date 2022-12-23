@@ -106,8 +106,10 @@ html {
   font-size: 1vw;
   font-weight: 700;
   padding: 1%;
- 
+ border: none;
   margin-right: 36%;
+ margin-bottom: 4%;
+ margin-top: -4%;
 }
 
 .ALAbtnApprove:hover {
@@ -122,9 +124,11 @@ html {
   height: 5vh;
   font-size: 1vw;
   font-weight: 700;
-  margin-top: -20%;
-  padding: 1%;
-  margin-left: 38%;
+  margin-top: -1%;
+  padding: 0%;
+  margin-left: -7%;
+  border: none;
+  position: absolute;
 }
 
 .ALAbtnDeny:hover {

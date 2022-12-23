@@ -141,7 +141,7 @@ const AddParkingSec = () => {
               <input type="text" id="section" class="form-control input-lg ADDParkBor" defaultValue={parkingSection.section?parkingSection.section:''} name="New Parking"  />
             </div>
           </div>
-          <Button type="submit" onClick={(e)=>{handleSubmit(e)}} className="AP_Button">{type=='edit'?'Add':'Update'} Parking Section</Button>
+          <button type="submit" onClick={(e)=>{handleSubmit(e)}} className="AP_Button">{type=='edit'?'Update':'Update'} Parking</button>
         </Form>
       </div>
     </div>

@@ -89,6 +89,8 @@ const AddPremise = () => {
 
 
     return (
+        <>
+         <img src='/images/side_bar_img.svg' className='AddPremise_side_Img' />
         <div>
             <div className='page-label'>
                 <label>Add New Premises</label>
@@ -110,6 +112,7 @@ const AddPremise = () => {
 
             </div>
         </div>
+        </>
     )
 }
 

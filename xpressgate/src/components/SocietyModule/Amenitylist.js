@@ -122,7 +122,7 @@ const Amenitylist = () => {
           <tbody>
             {currentPosts.map((item,index)=>{
               return(
-                <tr onClick={()=>{navigateToApprove(item._id)}}>
+                <tr style={item.status == false ? { backgroundColor: '#AED8DC' } : { backgroundColor: 'white' }} onClick={()=>{ item.status == false ? navigateToApprove(item._id) : getData() }}>
                   <td>{(currentPage-1)*12+(index+1)}</td>
                   <td>{item.firstname} {item.lastname}</td>
                   <td>{item.aminety}</td>

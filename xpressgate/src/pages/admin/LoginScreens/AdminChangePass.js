@@ -52,23 +52,18 @@ const AdminChangePass= () => {
   }
   return (
     <div className="superadmincontainer">
-      
-        
-
-      <div id="superadminloginimg">
+        <div id="Superadminlogo">
+              <img src="/images/loginlogo.svg" alt="" />
+            <div className="Admin_SignIn">
+              <label className="Admin_SignIn_Label">Reset Password</label>
+            </div>
+            </div>
+        <div id="superadminloginimg">
         <img src="./images/SuperAdminImg.svg" alt="" />
       </div>
       <div id="Superadminloginform">
         <Form>
           <div className="Superadmininputfield">
-          <div id="Superadminlogo">
-            <img src="/images/loginlogo.svg" alt="" />
-          </div>
-         <br/><br/>
-            <div className="signinlabel" disabled>
-            CHANGE PASSWORD
-            </div>
-            <br />
             <div className="email_input">
               <label className="admincurrentpass">Current Password</label>
               <input
@@ -79,7 +74,7 @@ const AdminChangePass= () => {
                   document.getElementById(e.target.id).style.border = "none";
                 }}
                 id="currentpassword"
-                placeholder="New Password"
+                placeholder="Current Password"
               ></input>
             </div>
             <br/>
@@ -88,7 +83,7 @@ const AdminChangePass= () => {
               <input
                 ref={newpassword}
                 type="text"
-                className="form-control adminemailtextbox"
+                className="form-control adminpasswordbox"
                 onKeyPress={(e) => {
                   document.getElementById(e.target.id).style.border = "none";
                 }}
@@ -110,7 +105,7 @@ const AdminChangePass= () => {
                 placeholder="Confirm  Password"
               ></input>
               <br />
-              <Button
+              <button
                 type="button"
                 className="adminresetpasswordbtn"
                 onClick={() => {
@@ -118,7 +113,7 @@ const AdminChangePass= () => {
                 }}
               >
                Change Password
-              </Button>
+              </button>
             </div>
 
           </div>
