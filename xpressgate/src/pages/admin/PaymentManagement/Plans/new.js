@@ -18,7 +18,7 @@ export const AddPlan = () => {
         amount: "",
         description: ""
     }
-    const planTypes = useState([{ id: "1", option: "Type 1" }, { id: "2", option: "Type 2" }])
+    const planTypes = [{ id: 1, option: "Normal" }, { id: 2, option: "Master" }];
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -37,7 +37,7 @@ export const AddPlan = () => {
         <>
         <img src='/images/side_bar_img.svg' className='PAY_Coupans_side_Img' />
         <div>
-            <div className='page-label'>
+            <div className='Page-Label'>
                 <label>Add New Subscription Plan</label>
             </div>
             <div>
@@ -52,7 +52,7 @@ export const AddPlan = () => {
 
 
 
-                    <Button type="button" onClick={(e) => handleSubmit(e)} style={{ marginLeft: '18vw' }} className="hovergreen btnAddVeh">Add</Button>
+                    <button type="button" onClick={(e) => handleSubmit(e)} className="BTN_ADD_premise">Add</button>
 
                 </Form>
 

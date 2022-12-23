@@ -101,6 +101,10 @@ const AdminModuleComponent = () => {
         children = (<AddVideo />)
     }
 
+    if (router.pathname === RouterPath.EDIT_VIDEO) {
+        children = (<EditVideo />)
+    }
+
     return (
         <div className='flex flex-col'>
 

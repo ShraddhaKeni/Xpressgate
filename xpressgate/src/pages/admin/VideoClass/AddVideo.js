@@ -24,8 +24,8 @@ const AddVideo = () => {
   return (
     <>
     <img src='/images/side_bar_img.svg' className='ADDVideo_side_Img' />
-      <div className="AddVideocontainer">
-        <div className="AddVideodisplay">
+      <div>
+        <div className="page-label">
           <label>Add Video</label>
         </div>
         <div className="addvideoform">
