@@ -15,7 +15,8 @@ const Blocklist = () => {
 
   const getBlocks = async () => {
     try {
-      const { data } = await axios.get(`${window.env_var}api/block/blockList`)
+      const { data } = await axios.get(`${window.env_var}api/block/blockList`);
+      console.log(data.data.block);
       setBlocks(data.data.block)
     } catch (error) {
       console.log(error)
@@ -23,6 +24,11 @@ const Blocklist = () => {
   }
   const navigateToList = (id,block) => {
     navigate('/flatList', { state: { id: id,block:block} })
+  }
+
+  function blockDetails(id,name)
+  {
+    navigate('/updateblock',{state:{id:id,type:'edit',name:name}})
   }
   return (
     <>
@@ -42,16 +48,11 @@ const Blocklist = () => {
             <img src="/images/societyicon.svg" alt="society name" />
             <label>Society Name</label>
           </div>
-          {/* <div className='blsidelinks '>
-            <Link to={{pathname: "/flatlist"}}>Flat List</Link><br></br><br></br>
-            <Link to={{pathname: "/addflat"}}>Add Flat</Link>
-          </div> */}
           <div className='nlsidelinks'>
-          <a className='BListsidelink' href="/blockList"><b>Block List</b></a><br></br><br/>
-          <a className='ABlockSidelink' href="/addblock">Add Block</a><br/><br/>
-          {/* <a className='Flatsidelinks' href="/addflat">Flat List</a><br/><br/> */}
-          <a className='Addsidelinks' href="/addflat">Add Flat</a>
-        </div>
+            <a className='BListsidelink' href="/blockList"><b>Block List</b></a><br></br><br/>
+            <a className='ABlockSidelink' href="/addblock">Add Block</a><br/><br/>
+            <a className='Addsidelinks' href="/addflat">Add Flat</a>
+          </div>
           <div className='blsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
         </div>
         <div className='blbackgroundimg'>
@@ -62,11 +63,11 @@ const Blocklist = () => {
           <div id="blcardsection">
             <div className="row row-cols-1 row-cols-md-3 g-4 BLfullcardscss">
 
-              {blocks.map(item => {
+              {blocks.map((item,index) => {
                 return (
                   <div className="col">
                     <div className="blminicard"><br></br>
-                      <a href='/updateblock' className='Pencilicon'><img src='./images/pencil_icon.png'></img></a>
+                      <a><img src='./images/pencil_icon.png' onClick={()=>blockDetails(item._id,item.block)}></img></a>
                       <label className='blblock'>Block {item.block}</label><br></br>
                       <label className='blflat'>Flats - {item.flat !== [] ? parseInt(item.flat) : 0}</label><br></br><br></br>
                       <button type="button" className="btnView" onClick={() => { navigateToList(item._id,item.block) }} >View</button><br></br>
