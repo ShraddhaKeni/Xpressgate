@@ -13,24 +13,31 @@ const Addnotice = () => {
   const location = useLocation()
   const [type, setType] = useState('add')
   const navigate = useNavigate()
-  const purchase_date = useRef([])
+  const notice_date_ref = useRef([])
+  const notice_time_ref = useRef([])
 
   const handleSubmit=async(e)=>{
     e.preventDefault();
     try {
       let date = new Date(document.getElementById('notice_date').value+'T'+document.getElementById('notice_time').value+':00').toISOString()
       if (type == 'edit') {
-        let formdata = new FormData()
-        formdata.append('noticeTitle', document.getElementById('notice_title').value)
-        formdata.append('noticeBody', document.getElementById('notice_description').value)
-        formdata.append('eventDate',date)
-        formdata.append('fromTime', date)
-        formdata.append('toTime', date)
-        formdata.append('community_id', localStorage.getItem('community_id'))
+        let formdata = new FormData();
+        formdata.append('noticeTitle', document.getElementById('notice_title').value);
+        formdata.append('noticeBody', document.getElementById('notice_description').value);
+        formdata.append('eventDate',date);
+        formdata.append('fromTime', date);
+        formdata.append('toTime', date);
+        formdata.append('community_id', localStorage.getItem('community_id'));
         if (document.getElementById('attachment').value) {
-          formdata.append('attachment', document.getElementById('attachment').files[0])
+          formdata.append('attachment', document.getElementById('attachment').files[0]);
         }
-        const { data } = await axios.post(`${window.env_var}api/guard/updateNotice`, formdata)
+        console.log(document.getElementById('notice_title').value);
+        console.log(document.getElementById('notice_description').value);
+        console.log(localStorage.getItem('community_id'));
+        console.log(date);
+
+        const { data } = await axios.post(`${window.env_var}api/notices/updateNotice`, formdata);
+        console.log(data);
         window.location.href = '/noticeList'
       }
       else {
@@ -80,7 +87,11 @@ const Addnotice = () => {
   const getNoticeDetails = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/notices/getOne/${location.state.id}`)
-      setNotice(data.data.notice[0])
+      setNotice(data.data.notice[0]);
+      document.getElementById('notice_date').value=new Date(data.data.notice[0].eventDate).toISOString().split('T')[0];
+      let ntime = data.data.notice[0].eventDate.split('T');
+      let titime  = ntime[1].split('.');
+      document.getElementById('notice_time').value=titime[0];
     } catch (error) {
 
     }
@@ -105,7 +116,7 @@ const Addnotice = () => {
         </div>
         <div className='nlsidelinks'>
           <a className='NLSLink' href="/noticelist">Notice List</a><br></br><br></br>
-          <a className='ANSLink' href="/addNotice"><b>{type=='edit'?'Update':'Add'} Notice</b></a>
+          <a className='ANSLink' href="/addNotice"><b>Add Notice</b></a>
         </div>
         <div className='ansideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
@@ -123,11 +134,11 @@ const Addnotice = () => {
           <div class="form-group row">
             <label class="col-lg-2 col-form-label ADN_label">Date</label>
             <div class="col-lg-2">
-              <input type="date" id='notice_date' class="form-control input-lg AD_input_size" name="date" placeholder="Date" ref={purchase_date}></input>
+              <input type="date" id='notice_date' class="form-control input-lg AD_input_size" name="date" placeholder="Date" ref={notice_date_ref}></input>
             </div>
             <label class="col-lg-2 col-form-label ADN_label">Time</label>
             <div class="col-lg-2">
-              <input type="time" id='notice_time' class="form-control input-lg AD_input_size" name="time" placeholder="Time"  ></input>
+              <input type="time" id='notice_time' class="form-control input-lg AD_input_size" name="time" placeholder="Time" ref={notice_time_ref}></input>
             </div>
           </div>
           <div class="form-group row">
