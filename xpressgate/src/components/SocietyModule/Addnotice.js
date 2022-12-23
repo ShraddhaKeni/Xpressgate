@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './Addnotice.css';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
@@ -13,6 +13,7 @@ const Addnotice = () => {
   const location = useLocation()
   const [type, setType] = useState('add')
   const navigate = useNavigate()
+  const purchase_date = useRef([])
 
   const handleSubmit=async(e)=>{
     e.preventDefault();
@@ -20,8 +21,8 @@ const Addnotice = () => {
       let date = new Date(document.getElementById('notice_date').value+'T'+document.getElementById('notice_time').value+':00').toISOString()
       if (type == 'edit') {
         let formdata = new FormData()
-        formdata.append('noticeTitle', document.getElementById('noticeTitle').value)
-        formdata.append('noticeBody', document.getElementById('noticeBody').value)
+        formdata.append('noticeTitle', document.getElementById('notice_title').value)
+        formdata.append('noticeBody', document.getElementById('notice_description').value)
         formdata.append('eventDate',date)
         formdata.append('fromTime', date)
         formdata.append('toTime', date)
@@ -34,8 +35,8 @@ const Addnotice = () => {
       }
       else {
         let formdata = new FormData()
-        formdata.append('noticeTitle', document.getElementById('noticeTitle').value)
-        formdata.append('noticeBody', document.getElementById('noticeBody').value)
+        formdata.append('noticeTitle', document.getElementById('notice_title').value)
+        formdata.append('noticeBody', document.getElementById('notice_description').value)
         formdata.append('eventDate',date)
         formdata.append('fromTime', date)
         formdata.append('toTime', date)
@@ -104,25 +105,25 @@ const Addnotice = () => {
         </div>
         <div className='nlsidelinks'>
           <a className='NLSLink' href="/noticelist">Notice List</a><br></br><br></br>
-          <a className='ANSLink' href="/addNotice"><b>Add Notice</b></a>
+          <a className='ANSLink' href="/addNotice"><b>{type=='edit'?'Update':'Add'} Notice</b></a>
         </div>
         <div className='ansideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
       <div className='anbackgroundimg'>
         <div className='addnoticedisplay'>
-          <label>Add Notice</label>
+          <label>{type=='edit'?'Update':'Add'} Notice</label>
         </div>
         <Form className='anformclass'>
           <div class="form-group row">
             <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Title</label>
             <div class="col-sm-6 col-md-6 col-lg-6">
-              <input type="text" id='notice_title' class="form-control input-lg AD_input_size" name="title" placeholder="Title"></input>
+              <input type="text" id='notice_title' class="form-control input-lg AD_input_size" name="title" defaultValue={notice.noticeTitle?notice.noticeTitle:''} placeholder="Title"></input>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-2 col-form-label ADN_label">Date</label>
             <div class="col-lg-2">
-              <input type="date" id='notice_date' class="form-control input-lg AD_input_size" name="date" placeholder="Date"></input>
+              <input type="date" id='notice_date' class="form-control input-lg AD_input_size" name="date" placeholder="Date" ref={purchase_date}></input>
             </div>
             <label class="col-lg-2 col-form-label ADN_label">Time</label>
             <div class="col-lg-2">
@@ -132,16 +133,16 @@ const Addnotice = () => {
           <div class="form-group row">
             <label class="col-lg-2 col-form-label ADN_label">Description</label>
             <div class="col-lg-6">
-              <textarea  type="number" id='notice_description' class="form-control input-lg AD_input_size" name="description" placeholder="Description"></textarea >
+              <textarea  type="number" id='notice_description' class="form-control input-lg AD_input_size" defaultValue={notice.noticeBody?notice.noticeBody:''} name="description" placeholder="Description"></textarea >
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-2 col-form-label ADN_label">Attachments</label>
             <div class="col-lg-6">
-              <input type="file" class="form-control input-lg AD_input_size" name="attachments" placeholder="Upload from computer" ></input>
+              <input type="file" class="form-control input-lg AD_input_size" id="attachment" name="attachments" placeholder="Upload from computer" ></input>
             </div>
           </div>
-          <button type="submit" onClick={(e)=>handleSubmit(e)} className="AddNoticeButton">Add Notice</button>
+          <button type="submit" onClick={(e)=>handleSubmit(e)} className="AddNoticeButton">{type=='edit'?'Update':'Add'} Notice</button>
         </Form>
 
       </div>
