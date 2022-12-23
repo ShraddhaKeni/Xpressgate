@@ -86,13 +86,12 @@ export const PlansList = () => {
             <div>
 
                 <div className='table-top-right-content'>
-                    <div className='table-search pl-2'>
+                    <div className='table-srch pl-2'>
                         <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
                         <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
                     </div>
-                    <div className="table-add-new-button" onClick={handleAddPlan}>
-                        <img src="/images/ic_plus.svg" />
-                        <span className='ml-2'> Add New Plan</span>
+                    <div className="table-add-new-butn" onClick={handleAddPlan}>
+                        <span className='ml-2'>&#43; Add New Plan</span>
 
                     </div>
                 </div>
@@ -105,12 +104,12 @@ export const PlansList = () => {
 
                             return <div className="col" key={plan.id}>
                                 <div className="col">
-                                    <div className="card-green">
+                                    <div className="Coupon-card-green ">
                                         <div className='d-flex justify-content-end mr-5'><button className={`${plan.status == true ? 'highlight-active' : 'highlight-inactive'} p-2 px-3`}><span className={`${plan.status == true ? 'dot' : 'dot-inactive'}`}></span>{plan.status == true ? 'Active' : 'Inactive'}</button></div>
                                         <div>
-                                            <p className='dash-heading-sm'>{plan.name}</p>
-                                            <p className='dash-heading'>{plan.code || 'N/A'}</p>
-                                            <p className='dash-heading-md'><b>{plan.type || 'N/A'}</b></p>
+                                            <p className='dash-Coupon_heading-sm'>{plan.name}</p>
+                                            <p className='Coupon-heading'>{plan.code || 'N/A'}</p>
+                                            <p className='dash-Coupon_heading-md'><b>{plan.type || 'N/A'}</b></p>
                                             <Link to={`${RouterPath.PLAN_DETAILS}`} state={{ plan }} type="button" className="btn btn-primary blue-bg">View</Link>
                                         </div>
                                     </div>

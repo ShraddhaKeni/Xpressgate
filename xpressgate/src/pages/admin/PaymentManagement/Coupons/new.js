@@ -92,7 +92,7 @@ export const AddCoupon = () => {
 
 
 
-                        <button type="submit" className="BTN_ADD_premise " >Generate</button>
+                    <button type="submit" className="BTN_ADD_premise " >Generate</button>
 
                     </Form>
 

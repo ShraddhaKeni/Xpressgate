@@ -127,19 +127,38 @@ html {
     width: 100%;
     height: auto;
   }
-  
+
   .page-label {
-    width: 16vw;
-    height: 7vh;
-    background-color: #AED8DC;
-    border-radius: 30px;
-    padding-top: 16px;
-    margin: auto;
-    margin-top: -5%;
-    margin-left: 37%;
+      width: 16vw;
+      height: 7vh;
+      background-color: #AED8DC;
+      border-radius: 30px;
+      padding-top: 18px;
+      margin: auto;
+      margin-top: -4%;
+      margin-left: 37%;
   }
 
   .page-label label {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;  
+      font-size: 1.2vw;
+      text-align: center;  
+      color: #14335D;
+  }
+  .Page-Label {
+      width: 19vw;
+      height: 7vh;
+      background-color: #AED8DC;
+      border-radius: 30px;
+      padding-top: 18px;
+      margin: auto;
+      margin-top: -4%;
+      margin-left: 36%;
+  }
+
+  .Page-Label label {
     font-family: 'Rubik';
     font-style: normal;
     font-weight: 500;  
@@ -157,17 +176,37 @@ html {
 border-radius: 9px;
     color: #fff;
     border-radius: 8px;
-    max-width: 12vw;
+    width: 10vw;
     height: 5.5vh;
-    font-size: 1.2vw;
+    font-size: 1.1vw;
     font-family: 'Rubik';
 font-style: normal;
 font-weight: 700;
     margin-top: 4%;
-    margin-right: -15%;
+    margin-right: 1%;
     border: none;
   }
   .BTN_ADD_premise:hover{
+color: #F9FAFF;
+background-color: #14335D;
+  }
+  
+  .BUTN_ADD_premise {
+    background: #0A8996;
+border-radius: 9px;
+    color: #fff;
+    border-radius: 8px;
+    width: 10vw;
+    height: 5.5vh;
+    font-size: 1.1vw;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 700;
+    margin-top: 4%;
+    margin-right: 38%;
+    border: none;
+  }
+  .BUTN_ADD_premise:hover{
 color: #F9FAFF;
 background-color: #14335D;
   }
@@ -221,8 +260,8 @@ table th {
 }
 .AddPremise_side_Img{
   display: flex;
-  margin-top: 34.9%;
-  margin-left: -42%;
+  margin-top: 35%;
+  margin-left: -31.5%;
   width: 40%;
   height: 24%;
   margin-bottom: 5%; 
@@ -287,6 +326,44 @@ table th {
       margin-top: 7%;
   }
   
+  .Page-Label {
+    width: 16vw;
+    height: 7vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    padding-top: 11px;
+    margin: auto;
+    margin-top: -4%;
+    margin-left: 37%;
+}
+
+.Page-Label label {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;  
+    font-size: 1.2vw;
+    text-align: center;  
+    color: #14335D;
+}
+  .page-label {
+    width: 16vw;
+    height: 7vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    padding-top: 11px;
+    margin: auto;
+    margin-top: -4%;
+    margin-left: 37%;
+}
+
+.page-label label {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;  
+    font-size: 1.2vw;
+    text-align: center;  
+    color: #14335D;
+}
   .avsidelinks {
     margin-right: 38%;
     margin-top: 10%;
@@ -377,6 +454,17 @@ table th {
     margin-top: 1%;
   }
   
+  .Table-Search{
+    border: 2px solid rgba(0, 0, 0  );
+    border-radius: 1.5rem;
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+    color: #14335D;
+    width: 12VW;
+    margin-top: 1%;
+  }
+  
   .table-srch{
     border: 2px solid rgba(0, 0, 0  );
     border-radius: 1.5rem;
@@ -396,6 +484,10 @@ table th {
     color: #14335D;
     margin-left: 50%;
   }
+  .Table-Search img{
+    color: #14335D;
+    margin-left: 50%;
+  }
   .table-srch input{
     margin-left: 15%;
     width: 8vw;
@@ -404,16 +496,20 @@ table th {
     margin-left: 15%;
     width: 8vw;
   }
+  .Table-Search input{
+    margin-left: 15%;
+    width: 8vw;
+  }
   .table-add-new-button {
     border-radius: 14px;
-    padding: 1%;
+    padding:0.6%;
     font-weight: 500;
     color: #0D960A;
     background-color: #E8F5E9;
     margin-top: 3%;
     margin-bottom: 2%;
-    margin-left: 3%;
-    margin-right: -2%;
+    margin-left: 1%;
+    margin-right: 5%;
     cursor: pointer;
     border: none;
     width: 12vw;
@@ -425,14 +521,14 @@ table th {
   }
   .table-add-new-butn{
     border-radius: 14px;
-    padding: 1%;
+    padding: 0.6%;
     font-weight: 500;
     color: #0D960A;
     background-color: #E8F5E9;
     margin-top: 3%;
     margin-bottom: 0%;
-    margin-left: 3%;
-    margin-right: -6%;
+    margin-left: 1%;
+    margin-right: 4%;
     cursor: pointer;
     border: none;
     width: 12vw;

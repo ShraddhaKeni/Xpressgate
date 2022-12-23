@@ -131,6 +131,7 @@ const EditPremise = () => {
     return (
 
         <>
+         <img src='/images/side_bar_img.svg' className='AddPremise_side_Img' />
             {location.state ? <div>
                 <div className='page-label'>
                     <label>{premise.name || "Premise"}</label>
@@ -147,7 +148,7 @@ const EditPremise = () => {
                         <SimpleDropDownComponent items={area} label={'City'} name={'city_id'} id={'city'} selected={premise.city_id} onChange={(e) => { setPremise({ ...premise, city: e.target.value }) }} />
                         <SimpleInputComponent label={'Pincode'} name={'pincode'} type={'number'} id={'pincode'} text={premise.pincode} onChange={(e) => { setPremise({ ...premise, pincode: e.target.value }) }} />
 
-                        <Button type="submit" onClick={(e) => handleSubmit(e)} style={{ marginLeft: '18vw' }} className="hovergreen btnAddVeh">Update Premise</Button>
+                        <button type="submit" onClick={(e) => handleSubmit(e)} style={{ marginLeft: '18vw' }} className=" BUTN_ADD_premise" >Update Premise</button>
                     </Form>
 
                 </div>
