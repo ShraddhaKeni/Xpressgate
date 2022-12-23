@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "../SocietyModule/Addmanagementteam.css";
 import LogOut from './Utils/LogOut'
 import { Button } from "react-bootstrap";
@@ -15,7 +15,8 @@ const Addmanagementteam = () => {
   const [one, setOne] = useState({})
   const [title, setTitle] = useState()
   const [from, setFrom] = useState()
-  const [editdata, seteditdata] = useState() 
+  const [editdata, seteditdata] = useState()
+  //const notice_time_ref = useRef([])
 
   useEffect(() => {
     if (checkSociety()) {
@@ -51,8 +52,10 @@ const Addmanagementteam = () => {
   const getOneData = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/management/getOne/${location.state.mainid}`)
-      console.log(data)
-      //setResidents(data.data.Resident)
+      seteditdata(data.data.managementteam[0])
+      document.getElementById('ToDate').value = new Date(data.data.managementteam[0].to).toISOString().split('T')[0];
+      document.getElementById('ForDate').value = new Date(data.data.managementteam[0].from).toISOString().split('T')[0];
+      //console.log(document.getElementById('ToDate').value);
     } catch (error) {
       console.log(error)
     }
@@ -102,14 +105,6 @@ const Addmanagementteam = () => {
         // }
       }
       else {
-        // let formdata = new FormData()
-        // //formdata.append('id', document.getElementById('location.state.id').value)
-        // id: location.state.id,
-        // formdata.append('resident_id', document.getElementById('resident_id').value)
-        // formdata.append('community_id',localStorage.getItem('community_id')) 
-        // formdata.append('managementTitle', document.getElementById('management_title').value)
-        // formdata.append('to', document.getElementById('ToDate').value)
-        // formdata.append('from', document.getElementById('ForDate').value)
         const sendDataedit = {
           id: location.state.mainid,
           community_id: localStorage.getItem('community_id'),
@@ -137,7 +132,6 @@ const Addmanagementteam = () => {
   return (
     <div className="addguestcontainer4">
       <div id="addflatsection">
-
         <div className="addflatheadersection">
           <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
           <div id="afsociety"><label>Society</label></div>
@@ -215,7 +209,7 @@ const Addmanagementteam = () => {
             <div className="inboxes">
               <span>
                 <label for="ToDate" class="Todate">To</label>
-                <input type="date" id="ToDate" className="Todateinput" min={disablePastDate()}></input>
+                <input type="date" id="ToDate" className="Todateinput" name="date" placeholder="Date" min={disablePastDate()}></input> 
               </span>
               <span>
                 <label for="ForDate" class="Fromdate">From</label>
