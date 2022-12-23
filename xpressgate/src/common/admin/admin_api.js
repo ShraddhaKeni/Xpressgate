@@ -115,3 +115,14 @@ export async function updateCoupon(coupon) {
         return error
     }
 }
+
+
+/// PREMISE ///
+
+export async function deleteCommunity(id) {
+    try {
+        return await postRequest(`community/delete`, { community_id: id });
+    } catch (error) {
+        return error
+    }
+}
