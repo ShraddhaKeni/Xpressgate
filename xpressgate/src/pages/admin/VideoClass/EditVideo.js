@@ -45,15 +45,23 @@ const EditVideo = () => {
     }
   }
 
+  const deleteVideo = async (id) => {
+    try {
+      const { data } = await axios.get(`${window.env_var}api/videolist/remove/${id}`, {})
+      navigate('/admin/video')
+    } catch (error) {
+      console.group(error)
+    }
+  }
+
   return (
     <>
 
-      <div className="EditVideocontainer">
-        <img src="/images/AdminBgImg.svg" className="Editbgimg"></img>
-        <div className="EditVideodisplay">
+      <div >
+        <div className="page-label">
           <label>Edit Video</label>
         </div>
-        <div className="Editvideoform">
+        <div className="addvideoform">
           <div className="inboxes">
             <label for="EVideoName" className="Evideoname">Video Name</label>
             <input type="text" id="EVideoName" ref={title} className="Evideonameinput" defaultValue={video.videoTitle} placeholder="Video Name"></input>
@@ -65,13 +73,13 @@ const EditVideo = () => {
             <label for="EVideoUrl" className="EvideoUrl">Video Url</label>
             <input type="text" id="EVideoURL" ref={url} defaultValue={video.videoURL} className="EvideoUrlinput" placeholder="Video Url"></input>
           </div>
-
+          <div className="d-flex" style={{ marginLeft: '18vw', marginTop: '10%' }}>
+            <div><button type="button" onClick={() => updateVideo(video._id)} className="EditSaveButton">Edit & Save</button></div>
+            <div><button type="button" onClick={() => deleteVideo(video._id)} className="VideoRemoveButton">Remove</button></div>
+          </div>
         </div>
         <br />
-        <div className="VideoButtons">
-          <div><button type="button" onClick={() => updateVideo(video._id)} className="EditSaveButton">Edit & Save</button></div>
-          <div><button type="button" className="VideoRemoveButton">Remove</button></div>
-        </div>
+
       </div>
     </>
 

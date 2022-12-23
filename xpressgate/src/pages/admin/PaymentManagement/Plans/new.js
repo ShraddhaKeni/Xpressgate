@@ -18,7 +18,7 @@ export const AddPlan = () => {
         amount: "",
         description: ""
     }
-    const planTypes = useState([{ id: "1", option: "Type 1" }, { id: "2", option: "Type 2" }])
+    const planTypes = [{ id: 1, option: "Normal" }, { id: 2, option: "Master" }];
 
     const handleSubmit = async (e) => {
         e.preventDefault();

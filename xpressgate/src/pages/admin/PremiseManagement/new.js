@@ -34,24 +34,27 @@ const AddPremise = () => {
             const { data } = await axios.get(`${window.env_var}api/state/get`)
             let array = data.data.map(item => {
                 return {
-                    _id: item._id,
+                    id: item._id,
                     option: item.name,
                     country_id: item.country_id
                 }
             })
             setState(array)
         } catch (error) {
+            console.log(error)
             alert('Data loading Failed')
         }
     }
 
     const getArea = async (value) => {
         try {
-            const id = states.find(item => item.option == value)._id
+            console.log(states.find(item => item.id == value));
+            const id = states.find(item => item.id == value).id
             const { data } = await axios.get(`${window.env_var}api/area/get/${id}`)
             let array = data.data.map(item => {
+                console.log(item);
                 return {
-                    _id: item._id,
+                    id: item._id,
                     option: item.area_name,
                     state_id: item.state_id,
                     pincode: item.pincode
@@ -59,6 +62,7 @@ const AddPremise = () => {
             })
             setArea(array)
         } catch (error) {
+            console.log(error)
             alert('Data loading Failed')
         }
     }
@@ -94,12 +98,12 @@ const AddPremise = () => {
                 <Form className='formclass fcadmin'>
 
                     <SimpleInputComponent label={'Premises Name'} name={'premises_name'} id={'premises'} onChange={(e) => { setPremise({ ...premise, name: e.target.value }) }} />
-                    <SimpleInputComponent label={'Number of Blocks'} name={'number_block'} id={'block'} onChange={(e) => { setPremise({ ...premise, noofblocks: parseInt(e.target.value) }) }} />
+                    <SimpleInputComponent label={'Number of Blocks'} type={'number'} name={'number_block'} id={'block'} onChange={(e) => { setPremise({ ...premise, noofblocks: parseInt(e.target.value) }) }} />
                     <SimpleInputComponent label={'Address'} name={'address_line'} id={'address'} onChange={(e) => { setPremise({ ...premise, address: e.target.value }) }} />
                     <SimpleInputComponent label={'Landmark'} name={'landmark_name'} id={'landmark'} onChange={(e) => { setPremise({ ...premise, landmark: e.target.value }) }} />
                     <SimpleDropDownComponent items={states} label={'State'} name={'state_name'} id={'state'} onChange={(e) => { setPremise({ ...premise, state: e.target.value }); getArea(e.target.value) }} />
-                    <SimpleDropDownComponent items={area} label={'City'} name={'city_name'} id={'city'} onChange={(e) => { setPremise({ ...premise, city: e.target.value }) }} />
-                    <SimpleInputComponent label={'Pincode'} name={'pincode'} id={'pincode'} onChange={(e) => { setPremise({ ...premise, pincode: e.target.value }) }} />
+                    <SimpleDropDownComponent items={area} label={'City'} name={'city_name'} id={'city'} onChange={(e) => { console.log(e.target.value); setPremise({ ...premise, city: e.target.value }) }} />
+                    <SimpleInputComponent label={'Pincode'} name={'pincode'} type={'number'} id={'pincode'} onChange={(e) => { setPremise({ ...premise, pincode: e.target.value }) }} />
                     <Button type="submit" onClick={(e) => handleSubmit(e)} className="hovergreen btnAddVeh " style={{ marginLeft: '18vw' }}>Add Premise</Button>
 
                 </Form>
