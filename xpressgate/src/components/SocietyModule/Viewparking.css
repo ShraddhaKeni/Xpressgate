@@ -47,7 +47,7 @@ text-decoration: none;
 }
 .viewparking_sideimg img {
     display: flex;
-    margin-top: 57%;
+    margin-top: 43%;
     max-width: 90%;
     height: auto;
     margin-left: 8%;
@@ -113,7 +113,7 @@ text-decoration: none;
   font-weight: 500;
   color: #000;
   font-size: 1.1vw;
-  
+  margin-left: 1.5%;
 }
 .ApSec{
   font-family: 'Rubik';

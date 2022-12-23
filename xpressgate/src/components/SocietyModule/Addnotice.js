@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './Addnotice.css';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
@@ -13,29 +13,37 @@ const Addnotice = () => {
   const location = useLocation()
   const [type, setType] = useState('add')
   const navigate = useNavigate()
+  const notice_date_ref = useRef([])
+  const notice_time_ref = useRef([])
 
   const handleSubmit=async(e)=>{
     e.preventDefault();
     try {
       let date = new Date(document.getElementById('notice_date').value+'T'+document.getElementById('notice_time').value+':00').toISOString()
       if (type == 'edit') {
-        let formdata = new FormData()
-        formdata.append('noticeTitle', document.getElementById('noticeTitle').value)
-        formdata.append('noticeBody', document.getElementById('noticeBody').value)
-        formdata.append('eventDate',date)
-        formdata.append('fromTime', date)
-        formdata.append('toTime', date)
-        formdata.append('community_id', localStorage.getItem('community_id'))
+        let formdata = new FormData();
+        formdata.append('noticeTitle', document.getElementById('notice_title').value);
+        formdata.append('noticeBody', document.getElementById('notice_description').value);
+        formdata.append('eventDate',date);
+        formdata.append('fromTime', date);
+        formdata.append('toTime', date);
+        formdata.append('community_id', localStorage.getItem('community_id'));
         if (document.getElementById('attachment').value) {
-          formdata.append('attachment', document.getElementById('attachment').files[0])
+          formdata.append('attachment', document.getElementById('attachment').files[0]);
         }
-        const { data } = await axios.post(`${window.env_var}api/guard/updateNotice`, formdata)
+        console.log(document.getElementById('notice_title').value);
+        console.log(document.getElementById('notice_description').value);
+        console.log(localStorage.getItem('community_id'));
+        console.log(date);
+
+        const { data } = await axios.post(`${window.env_var}api/notices/updateNotice`, formdata);
+        console.log(data);
         window.location.href = '/noticeList'
       }
       else {
         let formdata = new FormData()
-        formdata.append('noticeTitle', document.getElementById('noticeTitle').value)
-        formdata.append('noticeBody', document.getElementById('noticeBody').value)
+        formdata.append('noticeTitle', document.getElementById('notice_title').value)
+        formdata.append('noticeBody', document.getElementById('notice_description').value)
         formdata.append('eventDate',date)
         formdata.append('fromTime', date)
         formdata.append('toTime', date)
@@ -79,7 +87,11 @@ const Addnotice = () => {
   const getNoticeDetails = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/notices/getOne/${location.state.id}`)
-      setNotice(data.data.notice[0])
+      setNotice(data.data.notice[0]);
+      document.getElementById('notice_date').value=new Date(data.data.notice[0].eventDate).toISOString().split('T')[0];
+      let ntime = data.data.notice[0].eventDate.split('T');
+      let titime  = ntime[1].split('.');
+      document.getElementById('notice_time').value=titime[0];
     } catch (error) {
 
     }
@@ -110,38 +122,38 @@ const Addnotice = () => {
       </div>
       <div className='anbackgroundimg'>
         <div className='addnoticedisplay'>
-          <label>Add Notice</label>
+          <label>{type=='edit'?'Update':'Add'} Notice</label>
         </div>
         <Form className='anformclass'>
           <div class="form-group row">
             <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Title</label>
             <div class="col-sm-6 col-md-6 col-lg-6">
-              <input type="text" id='notice_title' class="form-control input-lg AD_input_size" name="title" placeholder="Title"></input>
+              <input type="text" id='notice_title' class="form-control input-lg AD_input_size" name="title" defaultValue={notice.noticeTitle?notice.noticeTitle:''} placeholder="Title"></input>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-2 col-form-label ADN_label">Date</label>
             <div class="col-lg-2">
-              <input type="date" id='notice_date' class="form-control input-lg AD_input_size" name="date" placeholder="Date"></input>
+              <input type="date" id='notice_date' class="form-control input-lg AD_input_size" name="date" placeholder="Date" ref={notice_date_ref}></input>
             </div>
             <label class="col-lg-2 col-form-label ADN_label">Time</label>
             <div class="col-lg-2">
-              <input type="time" id='notice_time' class="form-control input-lg AD_input_size" name="time" placeholder="Time"  ></input>
+              <input type="time" id='notice_time' class="form-control input-lg AD_input_size" name="time" placeholder="Time" ref={notice_time_ref}></input>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-2 col-form-label ADN_label">Description</label>
             <div class="col-lg-6">
-              <textarea  type="number" id='notice_description' class="form-control input-lg AD_input_size" name="description" placeholder="Description"></textarea >
+              <textarea  type="number" id='notice_description' class="form-control input-lg AD_input_size" defaultValue={notice.noticeBody?notice.noticeBody:''} name="description" placeholder="Description"></textarea >
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-2 col-form-label ADN_label">Attachments</label>
             <div class="col-lg-6">
-              <input type="file" class="form-control input-lg AD_input_size" name="attachments" placeholder="Upload from computer" ></input>
+              <input type="file" class="form-control input-lg AD_input_size" id="attachment" name="attachments" placeholder="Upload from computer" ></input>
             </div>
           </div>
-          <button type="submit" onClick={(e)=>handleSubmit(e)} className="AddNoticeButton">Add Notice</button>
+          <button type="submit" onClick={(e)=>handleSubmit(e)} className="AddNoticeButton">{type=='edit'?'Update':'Add'} Notice</button>
         </Form>
 
       </div>

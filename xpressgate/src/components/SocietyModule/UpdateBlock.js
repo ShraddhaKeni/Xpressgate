@@ -1,29 +1,42 @@
 import '../SocietyModule/UpdateBlock.css';
 import { Button } from 'react-bootstrap';
 import LogOut from '../../components/SocietyModule/Utils/LogOut';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from "react-router-dom";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const UpdateBlock = () => {
-//   const [blocks, setBlocks] = useState([])
-//   const navigate = useNavigate()
-//   useEffect(() => {
-//     getBlocks()
-//   }, [])
+   const [blocks, setBlocks] = useState({})
+   const navigate = useNavigate()
+   const location = useLocation()
+   const [type, setType] = useState('add')
+   useEffect(() => {
+    if (location.state) {
+      setType(location.state.type)
+    }
+    else{
 
-//   const getBlocks = async () => {
-//     try {
-//       const { data } = await axios.get(`${window.env_var}api/block/blockList`)
-//       setBlocks(data.data.block)
-//     } catch (error) {
-//       console.log(error)
-//     }
-//   }
-//   const navigateToList = (id,block) => {
-//     navigate('/flatList', { state: { id: id,block:block} })
-//   }
+    }
+   }, [])
+
+   const handleSubmit = async(e)=>{
+    e.preventDefault()
+    try {
+        const sendData = {
+          id: location.state.id,
+          name: document.getElementById('block_name').value,
+          community_id: localStorage.getItem('community_id')
+        }
+        const {data} = await axios.post(`${window.env_var}api/block/update`,sendData);
+        window.location.href='/blockList'
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <>
       <div className="blcontainer">
@@ -42,10 +55,6 @@ const UpdateBlock = () => {
             <img src="/images/societyicon.svg" alt="society name" />
             <label>Society Name</label>
           </div>
-          {/* <div className='blsidelinks '>
-            <Link to={{pathname: "/flatlist"}}>Flat List</Link><br></br><br></br>
-            <Link to={{pathname: "/addflat"}}>Add Flat</Link>
-          </div> */}
           <div className='nlsidelinks'>
           <a className='UDT_BListsidelink' href="/blockList">Block List</a><br></br><br/>
           <a className='UDT_ABlockSidelink' href="/addblock">Add Block</a><br/><br/>
@@ -60,10 +69,10 @@ const UpdateBlock = () => {
           </div>
         <div className='addblock_form'>
             <label for="block_name" className='ABl_label'>Block Name</label>
-            <input type="text" id="block_name" className='ABl_input'></input>
+            <input type="text" id="block_name" className='ABl_input' defaultValue={location.state.name}></input>
         </div><br/>
           <div className='ADDB_BtN'>
-            <button type='button' className='BtnADDBlock'>Update</button>
+            <button type='button' onClick={(e)=>{handleSubmit(e)}} className='BtnADDBlock'>Update</button>
           </div>
 
 

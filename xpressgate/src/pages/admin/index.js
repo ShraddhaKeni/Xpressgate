@@ -112,7 +112,7 @@ const AdminModuleComponent = () => {
             <div className='flex'>
                 <SideLayOut />
                 <div className='flex-1 d-flex' style={{ width: "100%", height: '100%' }}>
-                    <div className='main-container px-5 mx-2 my-4'>
+                    <div className='main-container'>
                         <main>
 
                             {children}

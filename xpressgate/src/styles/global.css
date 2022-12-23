@@ -81,10 +81,12 @@
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
-    width: 100%;
-    height: 90vh;
+    width: 88%;
+    height: 81vh;
     padding-left: 10%;
     padding-right: 10%;
+    margin-top: 1%;
+    margin-left: 5%;
   }
 
   #table-header{
@@ -104,7 +106,7 @@
 .m-b-8{
     margin-bottom: 8rem;
 }
-.card-green {
+/* .card-green {
     margin-top: 12px;
     padding-bottom: 1rem;
     padding-top: 1rem;
@@ -116,13 +118,16 @@
     /* width: 15vw;
     margin-left: 16%;
     padding-right: -94%; */
-}
-.card-green-border{
-    border: 7px solid rgba(10, 137, 150, 1);
-    border-radius: 22px;
-    margin-top: 12px;
-    justify-content: center;
-}
+
+    .card-green-border {
+        border: 7px solid rgba(10, 137, 150, 1);
+        border-radius: 22px;
+        margin-top: 12px;
+        justify-content: center;
+        margin-left: -51%;
+        margin-right: 50%;
+        background: #F9FBFF;
+    }
 .card-green-empty{
     margin-top: 12px;
 }
@@ -160,7 +165,18 @@
 
 
 .dash-heading{
-    font-size: 2.8rem;
+    font-size: 1.2vw;
+    font-weight: 700;
+    font-family: Inter;
+    color: white;
+    line-height: 0.8;
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.Coupon_heading{
+    font-size: 1.4vw;
     font-weight: 700;
     font-family: Inter;
     color: white;
@@ -172,6 +188,12 @@
 }
 
 .dash-heading-md{
+    font-size: 1vw;
+    font-weight: 500;
+    font-family: Inter;
+    line-height: 0.8;
+}
+.dash-Coupon_heading-md{
     font-size: 25px;
     font-weight: 500;
     font-family: Inter;
@@ -179,10 +201,18 @@
 }
 
 .dash-heading-sm{
-    font-size: 16px;
+    font-size: 1.1vw;
     font-weight: 700;
     font-family: Inter;
     line-height: 2rem;
+    margin-top: 10%;
+}
+.dash-Coupon_heading-sm{
+    font-size: 1vw;
+    font-weight: 700;
+    font-family: Inter;
+    line-height: 0.7;
+    margin-top: 1%;
 }
 
 .dash-heading-lg{
@@ -194,15 +224,16 @@
 
 .float-left{
     text-align: left;
-    margin-left: 1rem;
+    /* margin-right: 7% ; */
+    margin-left:1rem;
 }
 .dash-icon{
     height: 6rem;
     width: 6rem;
 }
 .dash-icon-big{
-    height: 10rem;
-    width: 10rem;
+    height: 7vh;
+    width: 8vw;
 }
 
 .icon-bg-white-round{
@@ -213,16 +244,18 @@
     width: 9rem;
     border-radius: 100%;
     background-color: white;
+    margin-top: 5%;
 }
 
 .icon-bg-white-round-big{
     justify-content: center;
     align-items: center;
     display: flex;
-    height: 14rem;
-    width: 14rem;
+    height: 10vh;
+    width:10vh;
     border-radius: 100%;
     background-color: white;
+    margin-top: 4%;
 }
 
 .btn-bg-white {
@@ -246,40 +279,44 @@
   }
   
   .highlight-active {
-    background-color: #E8F5E9;
+   background-color: #E8F5E9;
     border-radius: 150px;
     color: #0D960A;
     font-weight: 700;
-    display: flex;
+    display : flex;
     align-items: center;
     border-width: 0;
-    font-size: 12px;
-   
+    font-size: 0.8vw;
+    margin-right: -7%;
+    width: 5.5vw;
+    height: 3.5vh;
 }
-
 .dot {
-    height: 20px;
-    width: 20px;
+    height: 12px;
+    width: 10px;
     margin-right: 8px;
     border-radius: 50%;
     display: inline-block;
     background-color: #0D960A;
-  }
+}
 
 .highlight-inactive{
     background-color: #FFDBDB;
     border-radius: 150px;
     color: #FF0000;
     font-weight: 700;
-    display: flex;
+    display : flex;
     align-items: center;
     border-width: 0;
-    font-size: 12px;
+    font-size: 0.8vw;
+    margin-right: -7%;
+    width: 5.5vw;
+    height: 3.5vh;
 }
 
 .dot-inactive {
-    height: 20px;
-    width: 20px;
+    height: 12px;
+    width: 28px;
     margin-right: 8px;
     border-radius: 50%;
     display: inline-block;
@@ -295,6 +332,9 @@
     font-weight: 700;
     color: white;
    
+  }
+  .blue-bg:hover{
+    background-color: #14335D;
   }
 
   .btn-add-from {
@@ -447,7 +487,7 @@
     margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 5%;
+  margin-top: 6%;
 }
 .AdminSideImg {
     position: absolute;
@@ -540,38 +580,70 @@
 }
 .DashBoard_side_Img{
     display: flex;
-    margin-top: 32.2%;
-    margin-left: -32%;
+    margin-top: 32.1%;
+    margin-left: -42%;
     /* max-width: 30%; */
     width: 40%;
     height: 24%;
     margin-bottom: 5%; 
     position: absolute;  
   }
-.DashBoard_side_Img{
-    display: flex;
-    margin-top: 32.2%;
-    margin-left: -32%;
-    /* max-width: 30%; */
-    width: 40%;
-    height: 24%;
-    margin-bottom: 5%; 
-    position: absolute;  
-  }
+
 .Premise_side_Img{
     display: flex;
-    margin-top: 34.5%;
-    margin-left: -32%;
+    margin-top: 34.8%;
+    margin-left: -42%;
     /* max-width: 30%; */
     width: 40%;
     height: 24%;
     margin-bottom: 5%; 
     position: absolute;  
   }
+  /* .card-green {
+    margin-top: 8%;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+    flex-direction: column;
+    display: flex;
+    background-color: #0A8996;
+    border-radius: 18px;
+    color: white;
+    width: 16vw;
+    margin-bottom: 10%;
+    margin-left: -48%;
+} */
+.card-green {
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+    flex-direction: column;
+    display: flex;
+    background-color: #0A8996;
+    border-radius: 18px;
+    color: white;
+    width: 18vw;
+    height: 10vw;
+    margin-left: -45%;
+    margin-top: 10%;
+   
+}
+.Coupon-card-green {
+    padding-bottom: 63%;
+    padding-top: 2%;
+    flex-direction: column;
+    display: flex;
+    background-color: #0A8996;
+    border-radius: 18px;
+    color: white;
+    width: 18vw;
+    height: 10vw;
+    margin-left: 4%;
+    margin-top: 10%;
+    /* margin-right: -188%; */
+}
 .PAY_Coupans_side_Img{
     display: flex;
-    margin-top: 34.5%;
-    margin-left: -32%;
+    margin-top: 34.8%;
+    margin-left: -42%;
     /* max-width: 30%; */
     width: 40%;
     height: 24%;
@@ -779,7 +851,7 @@
   font-weight: 500;
   color: #14335D;
   margin-left: 4%;
-  margin-top: 14%;
+  margin-top: 12%;
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
@@ -789,7 +861,7 @@
     display: flex;
     flex-direction: column;
     padding: 12px;
-    height: 95vh;
+    height: 83.5vh;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
 .nav-item{

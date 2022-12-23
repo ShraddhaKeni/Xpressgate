@@ -69,8 +69,8 @@ const Inoutbookcard = () => {
   }
 
   const dateConvert =(date)=>{
-    const d = new Date(date)
-    return d.getDay()+'/'+d.getMonth()+'/'+d.getFullYear()
+     const d = new Date(date)
+     return (d.getDay()+18)+'/'+ (d.getMonth()+1)+'/'+d.getFullYear()
   } 
   const timeConvert =(date)=>{
     const d = new Date(date)
@@ -135,8 +135,8 @@ const Inoutbookcard = () => {
             </div>
             <br></br>
             {console.log(listData.status)}
-            {listData.status==1? <Button type="submit" onClick={(e)=>{handleSubmit(e,listData.booking_id)}} id='inout'  className="btnOut">Out</Button>
-              : <Button type="button" onClick={()=>navigate('/inoutbook')} id='inout' className="btnOut">Back</Button>
+            {listData.status==1? <button type="submit" onClick={(e)=>{handleSubmit(e,listData.booking_id)}} id='inout'  className="btnOut">Out</button>
+              : <button type="button" onClick={()=>navigate('/inoutbook')} id='inout' className="btnOut">Back</button>
             }
            
             <br></br>
