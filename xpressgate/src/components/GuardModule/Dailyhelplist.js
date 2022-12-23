@@ -114,7 +114,7 @@ const Dailyhelplist = () => {
           </div>
           
         </div>
-        <div style={{marginTop:'25%'}}>
+        <div style={{marginTop:'4%'}}>
 
           <PaginationCalculate totalPages={dailyhelpdata.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
         </div>
