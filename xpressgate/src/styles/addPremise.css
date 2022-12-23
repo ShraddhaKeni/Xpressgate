@@ -377,9 +377,28 @@ table th {
     margin-top: 1%;
   }
   
+  .table-srch{
+    border: 2px solid rgba(0, 0, 0  );
+    border-radius: 1.5rem;
+    margin-right: 1%;
+    display: flex;
+    align-items: center;
+    color: #14335D;
+    width: 12VW;
+    margin-top: 3%;
+  }
+  
+  .table-srch img{
+    color: #14335D;
+    margin-left: 50%;
+  }
   .table-search img{
     color: #14335D;
     margin-left: 50%;
+  }
+  .table-srch input{
+    margin-left: 15%;
+    width: 8vw;
   }
   .table-search input{
     margin-left: 15%;
@@ -403,6 +422,29 @@ table th {
     word-wrap: break-word;
     overflow:hidden;
     font-size: 1.1vw;
+  }
+  .table-add-new-butn{
+    border-radius: 14px;
+    padding: 1%;
+    font-weight: 500;
+    color: #0D960A;
+    background-color: #E8F5E9;
+    margin-top: 3%;
+    margin-bottom: 0%;
+    margin-left: 3%;
+    margin-right: -6%;
+    cursor: pointer;
+    border: none;
+    width: 12vw;
+    height: 4.5vh;
+   white-space: nowrap;
+    word-wrap: break-word;
+    overflow:hidden;
+    font-size: 1.1vw;
+  }
+  .table-add-new-butn:hover{
+    color: #F9F9FF;
+    background-color: #14335D;
   }
   .table-add-new-button:hover{
     color: #F9F9FF;

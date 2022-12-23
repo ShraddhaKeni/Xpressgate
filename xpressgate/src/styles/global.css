@@ -165,6 +165,17 @@
 
 
 .dash-heading{
+    font-size: 1.2vw;
+    font-weight: 700;
+    font-family: Inter;
+    color: white;
+    line-height: 0.8;
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.Coupon_heading{
     font-size: 1.4vw;
     font-weight: 700;
     font-family: Inter;
@@ -177,6 +188,12 @@
 }
 
 .dash-heading-md{
+    font-size: 1vw;
+    font-weight: 500;
+    font-family: Inter;
+    line-height: 0.8;
+}
+.dash-Coupon_heading-md{
     font-size: 25px;
     font-weight: 500;
     font-family: Inter;
@@ -189,6 +206,13 @@
     font-family: Inter;
     line-height: 2rem;
     margin-top: 10%;
+}
+.dash-Coupon_heading-sm{
+    font-size: 1vw;
+    font-weight: 700;
+    font-family: Inter;
+    line-height: 0.7;
+    margin-top: 1%;
 }
 
 .dash-heading-lg{
@@ -254,40 +278,44 @@
   }
   
   .highlight-active {
-    background-color: #E8F5E9;
+   background-color: #E8F5E9;
     border-radius: 150px;
     color: #0D960A;
     font-weight: 700;
-    display: flex;
+    display : flex;
     align-items: center;
     border-width: 0;
-    font-size: 12px;
-   
+    font-size: 0.8vw;
+    margin-right: -7%;
+    width: 5.5vw;
+    height: 3.5vh;
 }
-
 .dot {
-    height: 20px;
-    width: 20px;
+    height: 12px;
+    width: 10px;
     margin-right: 8px;
     border-radius: 50%;
     display: inline-block;
     background-color: #0D960A;
-  }
+}
 
 .highlight-inactive{
     background-color: #FFDBDB;
     border-radius: 150px;
     color: #FF0000;
     font-weight: 700;
-    display: flex;
+    display : flex;
     align-items: center;
     border-width: 0;
-    font-size: 12px;
+    font-size: 0.8vw;
+    margin-right: -7%;
+    width: 5.5vw;
+    height: 3.5vh;
 }
 
 .dot-inactive {
-    height: 20px;
-    width: 20px;
+    height: 12px;
+    width: 28px;
     margin-right: 8px;
     border-radius: 50%;
     display: inline-block;
@@ -303,6 +331,9 @@
     font-weight: 700;
     color: white;
    
+  }
+  .blue-bg:hover{
+    background-color: #14335D;
   }
 
   .btn-add-from {
@@ -593,6 +624,20 @@
     margin-left: -45%;
     margin-top: 10%;
    
+}
+.Coupon-card-green {
+    padding-bottom: 63%;
+    padding-top: 2%;
+    flex-direction: column;
+    display: flex;
+    background-color: #0A8996;
+    border-radius: 18px;
+    color: white;
+    width: 18vw;
+    height: 10vw;
+    margin-left: 4%;
+    margin-top: 10%;
+    /* margin-right: -188%; */
 }
 .PAY_Coupans_side_Img{
     display: flex;
