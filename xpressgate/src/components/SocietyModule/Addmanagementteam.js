@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "../SocietyModule/Addmanagementteam.css";
 import LogOut from './Utils/LogOut'
 import { Button } from "react-bootstrap";
@@ -16,6 +16,7 @@ const Addmanagementteam = () => {
   const [title, setTitle] = useState()
   const [from, setFrom] = useState()
   const [editdata, seteditdata] = useState()
+  //const notice_time_ref = useRef([])
 
   useEffect(() => {
     if (checkSociety()) {
@@ -52,8 +53,9 @@ const Addmanagementteam = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/management/getOne/${location.state.mainid}`)
       seteditdata(data.data.managementteam[0])
-      //console.log(data.data.managementteam[0])
-      //console.log(editdata.from)
+      document.getElementById('ToDate').value = new Date(data.data.managementteam[0].to).toISOString().split('T')[0];
+      document.getElementById('ForDate').value = new Date(data.data.managementteam[0].from).toISOString().split('T')[0];
+      //console.log(document.getElementById('ToDate').value);
     } catch (error) {
       console.log(error)
     }
@@ -207,7 +209,7 @@ const Addmanagementteam = () => {
             <div className="inboxes">
               <span>
                 <label for="ToDate" class="Todate">To</label>
-                {location.state ? <input type="date" id="ToDate" defaultValue={editdata.to} className="Todateinput" min={disablePastDate()}></input> : <input type="date" id="ToDate" className="Todateinput" min={disablePastDate()}></input>}
+                <input type="date" id="ToDate" className="Todateinput" name="date" placeholder="Date" min={disablePastDate()}></input> 
               </span>
               <span>
                 <label for="ForDate" class="Fromdate">From</label>
