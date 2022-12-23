@@ -71,8 +71,11 @@ html {
   font-weight: 500;
   padding-top: 0%;
   margin: auto;
+  border: none;
 }
-
+.btnOut:hover{
+  background-color: #14335D;
+}
 .btn:hover{
   background-color: #96230A
 }
@@ -316,6 +319,10 @@ color: #14335D;
     font-weight: 500;
     padding-top: 1%;
     margin: auto;
+    border: none;
+  }
+  .btnOut:hover{
+    background-color: #14335D;
   }
 }
 

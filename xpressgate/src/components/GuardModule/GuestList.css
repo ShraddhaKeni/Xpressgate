@@ -31,6 +31,22 @@
     margin-left: 8%;
     margin-bottom: 3%;  
   }
+  .BTN_Approve {
+    background-color: #017069;
+    color: #fff;
+    border-radius: 14px;
+    width: 7vw;
+    height: 5vh;
+    font-size: 1.1vw;
+    font-weight: 500;
+    padding-top: 0%;
+    margin-right: 42%;
+    border: none;
+    margin-bottom: 6%;
+}
+.BTN_Approve:hover{
+  background-color: #14335D;
+}
   .GuestL_display {
     width: 16vw;
     height: 7vh;
@@ -48,9 +64,30 @@
     text-align: center;  
     color: #14335D;
   }
+  .BTN_Deny {
+    background-color: #96230A;
+    color: #fff;
+    border-radius: 14px;
+    width: 7vw;
+    height: 5vh;
+    font-size: 1.1vw;
+    font-weight: 500;
+    margin-top: 0%;
+    padding-top: 0%;
+    margin-left: -8.5%;
+    border: none;
+    position: absolute;
+}
+.BTN_Deny:hover{
+  background-color: #14335D;
+
+}
    /* Media query for laptop */
    @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
-
+    .BTN_Deny:hover{
+      background-color: #14335D;
+    
+    }
     .GuestLsideimage img {
         display: flex;
         margin-top: 93%;
@@ -78,5 +115,7 @@
     font-weight: 500;
     color: #14335D;
     }
-
+    .BTN_Approve:hover{
+      background-color: #14335D;
+    }
    }

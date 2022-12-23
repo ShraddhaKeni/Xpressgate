@@ -76,11 +76,10 @@ function navigatetoEdit(name,section)
           <label>Society Name</label>
         </div>
         <div className='vmsidelinks'>
-          <label>Vehicle list</label><br></br>
-          <a href='/addvehicle' className='apssec'>Assign parking section</a><br/><br/>
         <a href='/vehiclemanagement' className='VLsecLink'><b>Vehicle List</b></a><br/><br/>
-          <a href='/viewparking' className='VPsec'>View parking section</a><br/><br/>
-          <a href='/addparking' className='APsec'>Add parking section</a>
+          <a href='/viewparking' className='VPsec'>View Parking Section</a><br/><br/>
+          <a href='/addparking' className='APsec'>Add Parking Section</a><br/><br/>
+          <a href='/addvehicle' className='apssec'>Assign Parking Section</a>
         </div>
         <div className='VMsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
