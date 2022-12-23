@@ -9,7 +9,7 @@ export const SimpleInputComponent = ({ name, id, label, onChange, type = 'text',
     return (
         <div class="form-group row align-items-center">
             <label class="col-lg-2 col-form-label float-left ADN_label">
-                {" "}
+                 {" "}
                 {label}
             </label>
             <div class="col-lg-8">
@@ -25,7 +25,7 @@ export const SimpleInputComponent = ({ name, id, label, onChange, type = 'text',
                     fullWidth
                     disableUnderline
                     required={required}
-                    InputProps={{ style: { fontSize: '1.5rem' } }}
+                    InputProps={{ style: { fontSize: '1.2rem' } }}
                 ></TextField>}
                 {type === 'textarea' && <textarea
                     type={type}
@@ -52,7 +52,7 @@ export const SimpleInputComponent = ({ name, id, label, onChange, type = 'text',
                         fullWidth
                         required={required}
                         inputProps={{
-                            style: { fontSize: '1.4rem' },
+                            style: { fontSize: '1.2rem' },
                             min: new Date().toISOString().slice(0, 16),
                         }}
                     ></TextField>
