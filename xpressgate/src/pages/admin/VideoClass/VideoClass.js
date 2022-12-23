@@ -55,9 +55,9 @@ const VideoClass = () => {
           <div className="table-top-right-content">
 
             <div className="VideoButton">
-              <div className="table-add-new-button mt-3" onClick={() => { navigate('/admin/addvideo') }}>
-                <img src="/images/ic_plus.svg" />
-                <span className='ml-2'> Add New Video</span>
+              <div className="Video_AddBTN mt-3" onClick={() => { navigate('/admin/addvideo') }}>
+                
+                <span className='ml-2'>&#43; Add New Video</span>
               </div>
             </div>
           </div>

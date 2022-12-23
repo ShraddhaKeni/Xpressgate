@@ -92,8 +92,7 @@ export const CouponsList = () => {
                         <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
                     </div>
                     <div className="table-add-new-button" onClick={handleAddPremise}>
-                        <img src="/images/ic_plus.svg" />
-                        <span className='ml-2'> Add New Coupon</span>
+                        <span className='ml-2'>&#43; Add New Coupon</span>
                     </div>
                 </div>
 

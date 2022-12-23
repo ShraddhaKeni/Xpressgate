@@ -143,7 +143,7 @@ html {
     font-family: 'Rubik';
     font-style: normal;
     font-weight: 500;  
-      font-size: 1.3vw;
+      font-size: 1.2vw;
       text-align: center;  
       color: #14335D;
   }
@@ -152,16 +152,24 @@ html {
     font-size: 20px;
   }
   
-  .btnAddVeh {
-    background-color: #304B71;
+  .BTN_ADD_premise {
+    background: #0A8996;
+border-radius: 9px;
     color: #fff;
     border-radius: 8px;
-    max-width: fit-content;
-    height: 44px;
-    font-size: 1.8rem;
-    font-weight: 500;
+    max-width: 12vw;
+    height: 5.5vh;
+    font-size: 1.2vw;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 700;
     margin-top: 4%;
-    margin-right: 34%;
+    margin-right: -15%;
+    border: none;
+  }
+  .BTN_ADD_premise:hover{
+color: #F9FAFF;
+background-color: #14335D;
   }
 
 .btn:hover {
@@ -213,8 +221,8 @@ table th {
 }
 .AddPremise_side_Img{
   display: flex;
-  margin-top: 34.5%;
-  margin-left: -32%;
+  margin-top: 34.9%;
+  margin-left: -42%;
   width: 40%;
   height: 24%;
   margin-bottom: 5%; 
@@ -361,34 +369,45 @@ table th {
   .table-search{
     border: 2px solid rgba(0, 0, 0  );
     border-radius: 1.5rem;
-    margin-right: 1rem;
+    margin-right: 1%;
     display: flex;
     align-items: center;
     color: #14335D;
+    width: 12VW;
+    margin-top: 1%;
   }
   
   .table-search img{
     color: #14335D;
+    margin-left: 50%;
   }
-  
+  .table-search input{
+    margin-left: 15%;
+    width: 8vw;
+  }
   .table-add-new-button {
-    border-radius: 150px;
-    padding: 1rem;
+    border-radius: 14px;
+    padding: 1%;
     font-weight: 500;
     color: #0D960A;
     background-color: #E8F5E9;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
+    margin-top: 3%;
+    margin-bottom: 2%;
+    margin-left: 3%;
+    margin-right: -2%;
     cursor: pointer;
-    border: 0;
-    max-height: 50%;
-    white-space: nowrap;
+    border: none;
+    width: 12vw;
+    height: 4.5vh;
+   white-space: nowrap;
     word-wrap: break-word;
     overflow:hidden;
+    font-size: 1.1vw;
   }
-  
+  .table-add-new-button:hover{
+    color: #F9F9FF;
+    background-color: #14335D;
+  }
   .approve-active{
     border-radius: 1rem;
     padding: 0.5rem;

@@ -102,7 +102,7 @@ const AddPremise = () => {
                     <SimpleDropDownComponent items={states} label={'State'} name={'state_name'} id={'state'} onChange={(e) => { setPremise({ ...premise, state: e.target.value }); getArea(e.target.value) }} />
                     <SimpleDropDownComponent items={area} label={'City'} name={'city_name'} id={'city'} onChange={(e) => { setPremise({ ...premise, city: e.target.value }) }} />
                     <SimpleInputComponent label={'Pincode'} name={'pincode'} id={'pincode'} onChange={(e) => { setPremise({ ...premise, pincode: e.target.value }) }} />
-                    <Button type="submit" onClick={(e) => handleSubmit(e)} className="hovergreen btnAddVeh " style={{ marginLeft: '18vw' }}>Add Premise</Button>
+                    <button type="submit" onClick={(e) => handleSubmit(e)} className="BTN_ADD_premise ">Add Premise</button>
 
                 </Form>
 

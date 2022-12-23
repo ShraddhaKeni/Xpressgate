@@ -106,7 +106,7 @@
 .m-b-8{
     margin-bottom: 8rem;
 }
-.card-green {
+/* .card-green {
     margin-top: 12px;
     padding-bottom: 1rem;
     padding-top: 1rem;
@@ -118,13 +118,16 @@
     /* width: 15vw;
     margin-left: 16%;
     padding-right: -94%; */
-}
-.card-green-border{
-    border: 7px solid rgba(10, 137, 150, 1);
-    border-radius: 22px;
-    margin-top: 12px;
-    justify-content: center;
-}
+
+    .card-green-border {
+        border: 7px solid rgba(10, 137, 150, 1);
+        border-radius: 22px;
+        margin-top: 12px;
+        justify-content: center;
+        margin-left: -51%;
+        margin-right: 50%;
+        background: #F9FBFF;
+    }
 .card-green-empty{
     margin-top: 12px;
 }
@@ -162,7 +165,7 @@
 
 
 .dash-heading{
-    font-size: 2.8rem;
+    font-size: 1.4vw;
     font-weight: 700;
     font-family: Inter;
     color: white;
@@ -181,10 +184,11 @@
 }
 
 .dash-heading-sm{
-    font-size: 16px;
+    font-size: 1.1vw;
     font-weight: 700;
     font-family: Inter;
     line-height: 2rem;
+    margin-top: 10%;
 }
 
 .dash-heading-lg{
@@ -196,15 +200,15 @@
 
 .float-left{
     text-align: left;
-    margin-left: 1rem;
+    margin-right: 7% ;
 }
 .dash-icon{
     height: 6rem;
     width: 6rem;
 }
 .dash-icon-big{
-    height: 10rem;
-    width: 10rem;
+    height: 7vh;
+    width: 8vw;
 }
 
 .icon-bg-white-round{
@@ -215,16 +219,18 @@
     width: 9rem;
     border-radius: 100%;
     background-color: white;
+    margin-top: 5%;
 }
 
 .icon-bg-white-round-big{
     justify-content: center;
     align-items: center;
     display: flex;
-    height: 14rem;
-    width: 14rem;
+    height: 10vh;
+    width:10vh;
     border-radius: 100%;
     background-color: white;
+    margin-top: 4%;
 }
 
 .btn-bg-white {
@@ -449,7 +455,7 @@
     margin-left: 10%;
   width: 25%;
   height: 70%;
-  margin-top: 5%;
+  margin-top: 6%;
 }
 .AdminSideImg {
     position: absolute;
@@ -574,6 +580,20 @@
     margin-bottom: 10%;
     margin-left: -48%;
 } */
+.card-green {
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+    flex-direction: column;
+    display: flex;
+    background-color: #0A8996;
+    border-radius: 18px;
+    color: white;
+    width: 18vw;
+    height: 10vw;
+    margin-left: -45%;
+    margin-top: 10%;
+   
+}
 .PAY_Coupans_side_Img{
     display: flex;
     margin-top: 34.8%;
@@ -785,7 +805,7 @@
   font-weight: 500;
   color: #14335D;
   margin-left: 4%;
-  margin-top: 14%;
+  margin-top: 12%;
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
