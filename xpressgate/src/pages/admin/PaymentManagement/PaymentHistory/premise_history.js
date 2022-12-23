@@ -89,7 +89,7 @@ export const PremisesPayHistory = ({ route }) => {
             <div>
 
                 <div className='table-top-right-content search-right mb-5'>
-                    <div className='table-search pl-2'>
+                    <div className='Table-Search pl-2'>
                         <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
                         <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
                     </div>
