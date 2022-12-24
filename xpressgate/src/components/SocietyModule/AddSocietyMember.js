@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../SocietyModule/AddSocietyMember.css";
 import LogOut from './Utils/LogOut'
 import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
@@ -94,7 +95,7 @@ const AddSocietyMember = () => {
                   </input>
                 </div>
               </div>
-              <button type="submit" className="VPay_Add">
+              <button type="submit" className="ASMBtn_Add">
                   Add Member
               </button>
         </Form>

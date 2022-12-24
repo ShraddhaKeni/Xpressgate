@@ -1,0 +1,44 @@
+
+
+
+.ASocMSideIMG img {
+    display: flex;
+    margin-top: 99%;
+    max-width: 90%;
+    height: auto;
+    margin-left: 8%;
+    margin-bottom: 3%;
+}
+
+.ASMBtn_Add {
+    width: 9vw;
+    height: 5vh;
+    font-size: 1.1vw;
+    font-weight: 700;
+    padding: 0%;
+    border-radius: 9px;
+    background: #0A8996;
+    color: #FFFFFF;
+    margin-top: 5%;
+    margin-left: -33%;
+    border: none;
+}
+
+.ASMBtn_Add:hover{
+    background-color: #14335D;
+}
+
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
+.ASocMSideIMG img {
+    display: flex;
+    margin-top: 53%;
+    max-width: 95%;
+    height: auto;
+    margin-left: 2%;
+}
+.ASMBtn_Add:hover{
+    background-color: #14335D;
+}
+
+}
