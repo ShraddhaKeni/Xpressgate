@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "../SocietyModule/AddSocietyMember.css";
 import LogOut from './Utils/LogOut'
 import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
