@@ -9,6 +9,9 @@
     padding-right: 1%;
     margin-top: 1%;
     margin-left: 1%;
+    background: rgba(255, 255, 255, 0.78);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 45px;
   
 }
 .Adminpolicydisplay {
@@ -32,14 +35,24 @@
         font-weight: 700;
     
     }
+    .Ppolicy_side_Img{
+        display: flex;
+        margin-top: 31%;
+        margin-left: -31.5%;
+        /* max-width: 30%; */
+        width: 40%;
+        height: 24%;
+        margin-bottom: 5%;
+        position: absolute;
+    }
     .policiestextbox {
         box-sizing: border-box;
-        max-width: 85%;
+        max-width: 90%;
         justify-content: center;
         text-align: justify;
         /* margin-right: -158%; */
-        margin-left: 7%;
-        margin-top: 6%;
+        margin-left: 10%;
+        margin-top: 3%;
         position: absolute;
         
     }

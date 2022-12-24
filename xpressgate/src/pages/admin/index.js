@@ -90,12 +90,12 @@ const AdminModuleComponent = () => {
         children = (<PremisesPayHistory />)
     }
 
-    if (router.pathname === RouterPath.PRIVACY_POLICY) {
-        children = (<PrivacyPolicy />)
-    }
-    if (router.pathname === RouterPath.TERMS) {
-        children = (<Terms />)
-    }
+    // if (router.pathname === RouterPath.PRIVACY_POLICY) {
+    //     children = (<PrivacyPolicy />)
+    // }
+    // if (router.pathname === RouterPath.TERMS) {
+    //     children = (<Terms />)
+    // }
 
     if (router.pathname === RouterPath.ADD_VIDEO) {
         children = (<AddVideo />)

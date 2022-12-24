@@ -208,6 +208,9 @@ function App() {
           <Route path='/updateblock' element={<UpdateBlock />}></Route>
           <Route path='/socreports' element={<SocReport />}></Route>
           <Route path='/addsocietymember' element={<AddSocietyMember/>}></Route>
+          <Route path='/privacypolicy' element={<PrivacyPolicy/>}></Route>
+          <Route path='/privacypolicy' element={<PrivacyPolicy/>}></Route>
+          <Route path='/terms' element={<Terms/>}></Route>
 
 
 

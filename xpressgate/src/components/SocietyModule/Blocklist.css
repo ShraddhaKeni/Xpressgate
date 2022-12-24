@@ -251,7 +251,7 @@ text-decoration: none;
   height: 95%;
   border-radius: 20px;
 }
-.Pencilicon img{ 
+.Pencilicon{ 
   margin-left: 80%;
   width: 8%;
 }
@@ -261,7 +261,25 @@ text-decoration: none;
   color: #fff;
   font-weight: 600;
 }
-
+.AddBlist{
+  border-radius: 18px;
+  background: #E8F5E9;
+  border: none;
+  width: 12vw;
+  height: 5vh;
+  margin-right: -49%;
+  margin-top: 2%;
+  margin-bottom: -20%;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1vw;
+  color: #0D960A;
+}
+.AddBlist:hover{
+background-color: #14335D;
+color: #F9F9FF;
+}
 .blflat {
   width: 40%;
   height: fit-content;
