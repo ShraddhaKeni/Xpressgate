@@ -67,7 +67,7 @@ export const CouponDetails = () => {
                             <p className='h3 bold mb-5'><b>{coupon.name || "n/a"}</b></p>
                             <p className='bg-light-green-rounded px-4 h4'>Amount: {coupon.amount}</p>
                             <p className='h5 text-center px-5 my-4'><b>{coupon.description || "n/a"}</b></p>
-                            <button type='button' className='CD_btn' onClick={() => handleDelete()}>Delete Coupon</button>
+                            <button type='button' className='CD_btn' onClick={() => handleDelete()}>DELETE COUPON</button>
                         </div>
                     </div>
                 </div>
