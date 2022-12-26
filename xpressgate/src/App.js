@@ -82,6 +82,9 @@ import Report from './components/SocietyModule/Report';
 import AddBlock from './components/SocietyModule/AddBlock';
 import UpdateBlock from './components/SocietyModule/UpdateBlock';
 import SocReport from './components/SocietyModule/SocReport';
+import PrivacyPolicy from './pages/admin/LoginScreens/PrivacyPolicy';
+import Terms from './pages/admin/LoginScreens/Terms';
+import AddSocietyMember from './components/SocietyModule/AddSocietyMember';
 
 function App() {
 
@@ -204,6 +207,9 @@ function App() {
           <Route path='/addblock' element={<AddBlock />}></Route>
           <Route path='/updateblock' element={<UpdateBlock />}></Route>
           <Route path='/socreports' element={<SocReport />}></Route>
+          <Route path='/addsocietymember' element={<AddSocietyMember/>}></Route>
+          <Route path='/privacypolicy' element={<PrivacyPolicy/>}></Route>
+         
 
 
 

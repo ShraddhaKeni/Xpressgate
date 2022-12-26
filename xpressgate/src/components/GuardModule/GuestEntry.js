@@ -71,14 +71,14 @@ const GuestEntry = () => {
       <GuardHeader/>
     </div>
     <div id="guardnamesection"> 
-      <div className='guardname'>
+      <div className='GuestLName'>
         <img src="/images/guardnameicon.svg" alt="guard name" />
         <label>Guard Name</label>
       </div>
-      <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
+      <div className='GuestLsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
     </div>
     <div className='fvbackgroundimg'>
-      <div className='frequentvisitordisplay'>
+      <div className='GuestL_display'>
         <label>Guest Details</label>
       </div>
       {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}
@@ -103,8 +103,8 @@ const GuestEntry = () => {
             <div><label className='vehicleno'>Vehicle No: <input ref={vehical} type='text'></input></label></div>
           </div>
           <br></br>
-          <Button type="button" onClick={()=>{handleSubmit()}} className="btnApprove">APPROVE</Button>
-          <Button type="submit" className="btnDeny" onClick={()=>window.location.href="/dashboard"}>DENY</Button>
+          <button type="button" onClick={()=>{handleSubmit()}} className="BTN_Approve">APPROVE</button>
+          <button type="submit" className="BTN_Deny" onClick={()=>window.location.href="/dashboard"}>DENY</button>
           <br></br>
         </div>
       </div>

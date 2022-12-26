@@ -60,7 +60,7 @@ html {
 #dashboardsetting img {
   margin-top: 100%;
 }
-
+/* 
 .btnApprove {
   background-color: #017069;
   color: #fff;
@@ -93,7 +93,7 @@ html {
 
 .btnDeny:hover {
   background-color: #96230A;
-}
+} */
 
 .guardname {
   display: flex;
@@ -319,7 +319,7 @@ html {
     border-radius: 20px;
   }
 
-  .btnDeny {
+  /* .btnDeny {
     background-color: #96230A;
     color: #fff;
     border-radius: 14px;
@@ -330,5 +330,5 @@ html {
     margin-top: -13%;
     padding-top: 0%;
     margin-left: 60%;
-  }
+  } */
 }

@@ -10,7 +10,7 @@ html {
     color: #14335D;
     font-family: 'Rubik';
 font-style: normal;
-font-weight: 500;
+font-weight: 700;
 }
 .SD_societyname label {
     color: #14335D;
@@ -45,7 +45,7 @@ font-weight: 500;
     color: #14335D;
     font-family: 'Rubik';
 font-style: normal;
-font-weight: 500;
+font-weight: 700;
     
 }
 .Society_Block{
@@ -55,7 +55,7 @@ font-weight: 500;
     color: #14335D;
     font-family: 'Rubik';
 font-style: normal;
-font-weight: 500;
+font-weight: 700;
 }
 .Society_Residentnames{
     margin-right: 5.2%;
@@ -64,7 +64,7 @@ font-weight: 500;
     color: #14335D;
     font-family: 'Rubik';
 font-style: normal;
-font-weight: 500;
+font-weight: 700;
 }
 .Society_Amount{
     margin-right: 7.2%;
@@ -73,7 +73,7 @@ font-weight: 500;
     color: #14335D;
     font-family: 'Rubik';
 font-style: normal;
-font-weight: 500;
+font-weight: 700;
 }
 .ButtonsContainer2{
     max-width: 100%;
@@ -95,7 +95,7 @@ font-weight: 500;
 }
 .SocietyDSideIMG img {
     display: flex;
-    margin-top: 93%;
+    margin-top: 99%;
     max-width: 90%;
     height: auto;
     margin-left: 8%;
@@ -129,7 +129,7 @@ font-weight: 500;
     color: #14335D;
     font-family: 'Rubik';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 700;
     
 }
 .Paymentdateinput{
@@ -148,7 +148,7 @@ font-weight: 500;
     color: #14335D;
     font-family: 'Rubik';
 font-style: normal;
-font-weight: 500;
+font-weight: 700;
 }
 .Duedateinput{
     width: 9vw;

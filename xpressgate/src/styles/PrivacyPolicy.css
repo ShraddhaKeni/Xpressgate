@@ -2,17 +2,16 @@
     /* background-image: url(../../../public/images/dashboardbackground.svg); */
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
-    position: relative;
-    box-sizing: border-box;
-    /* text-align: center; */
-    background: #FFFFFF;
+    background-size: cover;
+    width: 102.5%;
+    height: 81vh;
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-top: -0.5%;
+    margin-left: -1.5%;
+    background: rgba(255, 255, 255, 0.9);
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-    border-radius: 35px;
-    height: 90vh;
-    width: 100%;
-   
-  
+    border-radius: 45px;
 }
 .Adminpolicydisplay {
     position: absolute;
@@ -26,7 +25,25 @@
     margin-left: 27%;
     padding: 1%;
 }
-
+.policy_page-label {
+    width: 16vw;
+    height: 7vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    padding-top: 18px;
+    margin: auto;
+    margin-top: -2.5%;
+    margin-left: 30%;
+    position: absolute;
+}
+.policy_page-label label {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;  
+      font-size: 1.2vw;
+      text-align: center;  
+      color: #14335D;
+  }
     .Adminpolicydisplay label{
     
         display: inline-block;
@@ -35,14 +52,24 @@
         font-weight: 700;
     
     }
+    .Ppolicy_side_Img {
+        display: flex;
+        margin-top: 32.5%;
+        margin-left: -31.1%;
+        /* max-width: 30%; */
+        width: 40%;
+        height: 24%;
+        margin-bottom: 5%;
+        position: absolute;
+    }
     .policiestextbox {
         box-sizing: border-box;
-        max-width: 85%;
+        max-width: 90%;
         justify-content: center;
         text-align: justify;
         /* margin-right: -158%; */
-        margin-left: 7%;
-        margin-top: 6%;
+        margin-left: 10%;
+        margin-top: 3%;
         position: absolute;
         
     }

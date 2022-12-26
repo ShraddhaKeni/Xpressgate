@@ -58,8 +58,9 @@ const Viewparking = () => {
         </div>
         <div className='vpsidelinks'>
         <a href='/vehiclemanagement' className='VLsLink'><b>Vehicle List</b></a><br/><br/>
-          <a href='/viewparking' className='VpSec'><b>View parking section</b></a><br/><br/>
-          <a href='/addparking' className='ApSec'>Add parking section</a>
+          <a href='/viewparking' className='VpSec'><b>View Parking Section</b></a><br/><br/>
+          <a href='/addparking' className='ApSec'>Add Parking Section</a><br/><br/>
+          <a href='/addvehicle' className='apssec'>Assign Parking Section</a>
         </div>
         <div className="viewparking_sideimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />

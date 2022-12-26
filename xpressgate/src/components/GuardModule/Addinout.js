@@ -211,7 +211,7 @@ const Addinout = () => {
           <div className="form-group row">
             <label className="col-lg-2 col-form-label ADN_label">Resident</label>
             <div className="col-lg-4">
-              <select className="form-control input-lg" id="resident" placeholder="Resident">
+              <select className="form-control input-lg AIOBorder" id="resident" placeholder="Resident">
                 <option value="" selected disabled>Select Resident</option>
                 {flatno.map(item => {
                   return <option value={item._id}>{item.firstname}{item.lastname}</option>
