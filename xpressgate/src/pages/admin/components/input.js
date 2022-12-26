@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 //import { DatePicker } from '@mui/x-date-pickers';
 // import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { TextField } from '@mui/material';
 
 export const SimpleInputComponent = ({ name, id, label, onChange, type = 'text', text = '', required = false, placeholder = '', value = '', defaultValue = '' }) => {
+    const [t, setValue] = useState(text);
     return (
         <div class="form-group row align-items-center">
             <label class="col-lg-2 col-form-label float-left GForm_label">
@@ -15,11 +16,10 @@ export const SimpleInputComponent = ({ name, id, label, onChange, type = 'text',
                 {(type == 'text' || type == 'number') && <TextField
                     type={type}
                     name={name}
-                    text={text}
                     placeholder={placeholder}
-                    onChange={onChange}
+                    onChange={(e) => { onChange(e); setValue(e.target.value) }}
                     sx={{ background: 'white', "& .MuiOutlinedInput-root": { "& > fieldset": { border: '2px solid #14335D', borderRadius: '8px', } } }}
-                    value={text}
+                    value={t || text}
                     id={id}
                     fullWidth
                     disableUnderline

@@ -120,7 +120,6 @@ const Managementteam = () => {
           </thead>
           <tbody>
             {currentPosts.map((items,index)=>{
-              console.log(items)
               return(
                 <tr id={items._id} onClick={()=>managementDetails(items._id,items.resident._id,items.managementTitle)}>
                   <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>

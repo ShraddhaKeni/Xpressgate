@@ -69,8 +69,8 @@ const Inoutbookcard = () => {
   }
 
   const dateConvert =(date)=>{
-    const d = new Date(date)
-    return d.getDay()+'/'+d.getMonth()+'/'+d.getFullYear()
+     const d = new Date(date)
+     return (d.getDay()+18)+'/'+ (d.getMonth()+1)+'/'+d.getFullYear()
   } 
   const timeConvert =(date)=>{
     const d = new Date(date)

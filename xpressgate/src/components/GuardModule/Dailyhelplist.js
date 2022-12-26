@@ -73,6 +73,10 @@ const Dailyhelplist = () => {
   const routeChange = (id)=>{
     navigate('/dailyservice',{state:{id:id}})
   }
+
+  // if(currentPosts!==0)
+  //   return <div>No Records Found </div>
+
   return (
     <div className="dailyhelplistcontainer">
       <div id="dhlheadersection">
@@ -92,13 +96,10 @@ const Dailyhelplist = () => {
           </div>
           <div className="row row-cols-1 row-cols-md-3 g-4 dhfullcardscss">
             {currentPosts.map((dailydata) => {
-              if(dailydata.booking_id.length<1)
-              {
-                return null
-              }
-              else
+              console.log(dailyhelpdata)
+             
                 return (
-               
+                  
                   <div className="col" onClick={()=>routeChange(dailydata._id)}>
                     <div className="dailyhelpminicard"><br></br>
                       <img className="dhcard-img-top" src={`${window.env_var}` +dailydata.helper_image} alt="profile"></img><br></br>

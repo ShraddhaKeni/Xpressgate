@@ -14,6 +14,16 @@ export const AddCoupon = () => {
 
     const [couponType, setCouponType] = useState(0)
 
+    const [coupon, setCoupon] = useState({
+        name: "",
+        code: "",
+        valid: "",
+        type: 1,
+        amount: undefined,
+        limit: undefined,
+        status: true
+    })
+
     const [value, setValue] = useState(new Date().toLocaleString());
 
     const handleChange = (e) => {
@@ -28,22 +38,15 @@ export const AddCoupon = () => {
 
     };
 
-    let coupon = {
-        name: "",
-        code: "",
-        valid: "",
-        type: 1,
-        amount: undefined,
-        limit: undefined,
-        status: true
-    }
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         //Validate the data by regex before submit
-        console.log(value.value);
-        coupon.valid = value;
+
+        let c = { ...coupon, valid: value }
+        c.type = couponType;
 
         if (couponType === 0) {
             alert("Please select Coupon Type");
@@ -52,8 +55,7 @@ export const AddCoupon = () => {
 
 
 
-        const res = await addCoupon(coupon)
-        console.log(res);
+        const res = await addCoupon(c)
         if (res.data && res.data?.status_code == 200) {
             navigate(RouterPath.COUPONS_LIST);
         } else if (res.data?.status_code == 201) {
@@ -69,33 +71,33 @@ export const AddCoupon = () => {
 
     return (
         <>
-          <img src='/images/side_bar_img.svg' className='PAY_Coupans_side_Img' />
-        <div>
-            <div className='page-label'>
-                <label>Generate Coupon</label>
-            </div>
+            <img src='/images/side_bar_img.svg' className='PAY_Coupans_side_Img' />
             <div>
+                <div className='page-label'>
+                    <label>Generate Coupon</label>
+                </div>
+                <div>
 
-                <Form className='formclass fcadmin' method='POST' onSubmit={handleSubmit}>
+                    <Form className='formclass fcadmin' method='POST' onSubmit={handleSubmit}>
 
-                    <SimpleInputComponent label={'Coupon Name'} name={'name'} onChange={(e) => coupon.name = e.target.value} required />
-                    <SimpleInputComponent label={'Validity'} type={'datepicker'} name={'valid'} required onChange={(e) => handleChange(e)} />
-                    <SimpleInputComponent label={'Code'} name={'code'} required onChange={(e) => coupon.code = e.target.value} />
-                    <SimpleDropDownComponent items={[{ id: 1, option: 'Flat' }, { id: 2, option: 'Percentage' }]} label={'Type'} name={'type'} id={'state'} onChange={(e) => { handleTypeChange(e) }} />
-                    < SimpleInputComponent label={'Amount'} name={'amount'} required onChange={(e) => coupon.amount = e.target.value} type={'number'} />
-                    {couponType > 1 &&
-                        <SimpleInputComponent label={'Limit'} name={'limit'} required onChange={(e) => coupon.amount = e.target.value} type={'number'} />
-                    }
-                    <SimpleInputComponent label={'Description'} type={'textarea'} name={'description'} onChange={(e) => coupon.description = e.target.value} />
+                        <SimpleInputComponent label={'Coupon Name'} name={'name'} onChange={(e) => { setCoupon({ ...coupon, name: e.target.value }) }} required />
+                        <SimpleInputComponent label={'Validity'} type={'datepicker'} name={'valid'} required onChange={(e) => handleChange(e)} />
+                        <SimpleInputComponent label={'Code'} name={'code'} required onChange={(e) => setCoupon({ ...coupon, code: e.target.value })} />
+                        <SimpleDropDownComponent items={[{ id: 1, option: 'Flat' }, { id: 2, option: 'Percentage' }]} label={'Type'} name={'type'} id={'state'} onChange={(e) => { handleTypeChange(e) }} />
+                        < SimpleInputComponent label={'Amount'} name={'amount'} required onChange={(e) => setCoupon({ ...coupon, amount: e.target.value })} type={'number'} />
+                        {couponType > 1 &&
+                            <SimpleInputComponent label={'Limit'} name={'limit'} required onChange={(e) => setCoupon({ ...coupon, limit: e.target.value })} type={'number'} />
+                        }
+                        <SimpleInputComponent label={'Description'} type={'textarea'} name={'description'} onChange={(e) => setCoupon({ ...coupon, description: e.target.value })} />
 
 
 
                     <button type="submit" className="BTN_ADD_premise " >Generate</button>
 
-                </Form>
+                    </Form>
 
+                </div>
             </div>
-        </div>
         </>
     )
 }
