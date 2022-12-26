@@ -29,30 +29,31 @@ const PrivacyPolicy = () => {
   }
   return (
     <>
-       <div className='flex flex-col'>
+       {/* <div className='flex flex-col'>
 
 <Header />
 <div className='flex'>
 
-    <SideLayOut/>
-
-    <div className='flex-1 d-flex' style={{ width: "100%", height: '100%' }}>
-        <div className='Policycontainer'>
-        <div className="page-label" >
+    <SideLayOut/> */}
+    <div className="policy_page-label " >
           <label>Privacy Policy</label>
         </div>
+    {/* <div className='flex-1 d-flex' style={{ width: "100%", height: '100%' }}> */}
+        <div className='Policycontainer'>
+       
 
         <img src='/images/side_bar_img.svg' className='Ppolicy_side_Img' />
         <div className="policiestextbox">
         <div className="editor">
+          <br/>
               <CKEditor editor={ClassicEditor} data={policydata.rn} onchange={(e, editor) => { handleChange(e, editor) }} />
             </div>
             </div>
         </div>
 
-    </div>
+    {/* </div>
 </div>
-</div>
+</div> */}
     </>
   );
 };

@@ -32,8 +32,8 @@ const RouterPath = {
     ADD_VIDEO: "/admin/addvideo",
     EDIT_VIDEO: "/admin/editvideo",
     REPORTS: "/admin/reports",
-    // TERMS: "/admin/configurations/terms",
-    // PRIVACY_POLICY: "/admin/configurations/privacypolicy"
+    TERMS: "/admin/configurations/terms",
+    PRIVACY_POLICY: "/admin/configurations/privacypolicy"
 
 
 };

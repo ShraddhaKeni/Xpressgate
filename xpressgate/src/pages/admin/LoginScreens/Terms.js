@@ -12,30 +12,32 @@ const Terms = () => {
   }
   return (
     <>
- <div className='flex flex-col'>
+ {/* <div className='flex flex-col'>
 
 <Header/>
 <div className='flex'>
 
     <SideLayOut/>
 
-    <div className='flex-1 d-flex' style={{ width: "100%", height: '100%' }}>
-        <div className='Policycontainer'>
-        <div className="page-label" >
+    <div className='flex-1 d-flex' style={{ width: "100%", height: '100%' }}> */}
+       <div className="policy_page-label" >
           <label>Terms & Conditions</label>
         </div>
+        <div className='Policycontainer'>
+        
 
         <img src='/images/side_bar_img.svg' className='Ppolicy_side_Img' />
         <div className="policiestextbox">
         <div className="editor">
+          <br/>
         <CKEditor editor={ClassicEditor} onchange={(e, editor) => { handleChange(e, editor) }} />
             </div>
             </div>
         </div>
-
+{/* 
     </div>
 </div>
-</div>
+</div> */}
     </>
   );
 };
