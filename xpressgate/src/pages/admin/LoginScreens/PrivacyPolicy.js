@@ -3,6 +3,8 @@ import React, { Component, useState, useEffect } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import axios from "axios";
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import SideLayOut from "../../../components/base/Layout/SideLayOut";
+import Header from "../../../components/base/Layout/Header";
 
 const PrivacyPolicy = () => {
   const [policydata, setdata] = useState({});
@@ -27,21 +29,31 @@ const PrivacyPolicy = () => {
   }
   return (
     <>
-     <img src='/images/side_bar_img.svg' className='Premise_side_Img' />
-      <div>
-        <div className="page-label" >
+       {/* <div className='flex flex-col'>
+
+<Header />
+<div className='flex'>
+
+    <SideLayOut/> */}
+    <div className="policy_page-label " >
           <label>Privacy Policy</label>
         </div>
+    {/* <div className='flex-1 d-flex' style={{ width: "100%", height: '100%' }}> */}
+        <div className='Policycontainer'>
+       
 
-        <div className="Policycontainer" >
-          <div className="policiestextbox">
-            <div className="editor">
+        <img src='/images/side_bar_img.svg' className='Ppolicy_side_Img' />
+        <div className="policiestextbox">
+        <div className="editor">
+          <br/>
               <CKEditor editor={ClassicEditor} data={policydata.rn} onchange={(e, editor) => { handleChange(e, editor) }} />
             </div>
-          </div>
+            </div>
         </div>
-      </div>
 
+    {/* </div>
+</div>
+</div> */}
     </>
   );
 };

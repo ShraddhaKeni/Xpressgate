@@ -30,7 +30,6 @@ const Plumber = () => {
     }
   },[flag])
 
-
   const getServices=async()=>{
     try {
       const {data} = await axios.get(`${window.env_var}api/admin/localservices/getAll`)
@@ -80,9 +79,7 @@ const Plumber = () => {
     {
       paginate(0)
     }
-  
 }
-
 
 const autoSelect = ()=>{
   var tags = document.getElementsByClassName('sidebar_h6')
@@ -104,38 +101,40 @@ const navigateTo =e=>{
   navigate('/servicevendors',{state:{id:e.target.id,serviceName: document.getElementById(e.target.id).innerHTML}})
 }
 
+function navigatetoEdit(id)
+{
+  navigate('/addlocalservice',{state:{type:'edit',id:id}})
+}
+
   return (
     <div className="addguestcontainer4" onLoad={()=>autoSelect()}>
-    <div id="addflatsection">
-        <Societyheader/>
-    </div>
+      <div id="addflatsection">
+          <Societyheader/>
+      </div>
       <div id="societynamesection">
         <div className="Plum_societyname">
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div><br></br>
         <div>
-        <a href="/localservices" className="LOcalSLINK">Local Services</a>
+          <a href="/localservices" className="LOcalSLINK">Local Services</a>
         </div>
         <div class="noticelist">
-        
-        <div className="sidebar_classes">
-          {services.map(item=>{
-
-            if(item.serviceName===location.state.serviceName)
-            {
-              return <h5 id={item.id} onClick={(e)=>{navigateTo(e)}} className="sidebar_h6 fontstyle">{item.serviceName}</h5>
-            }
-            else
-            {
-              return <h5 id={item.id} onClick={(e)=>{navigateTo(e)}} className="sidebar_h6 fontstyle">{item.serviceName}</h5>
-            }
-           
-          
-          })}
-           </div>
-          {/* <a href="abcd" class="Notice">Electrician</a> */}
+          <div className="sidebar_classes">
+            {services.map(item=>{
+              if(item.serviceName===location.state.serviceName)
+              {
+                return <h5 id={item.id} onClick={(e)=>{navigateTo(e)}} className="sidebar_h6 fontstyle">{item.serviceName}</h5>
+              }
+              else
+              {
+                return <h5 id={item.id} onClick={(e)=>{navigateTo(e)}} className="sidebar_h6 fontstyle">{item.serviceName}</h5>
+              }
+              }
+            )}
           </div>
+          {/* <a href="abcd" class="Notice">Electrician</a> */}
+        </div>
         <div className="P_sideimage">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
@@ -144,21 +143,14 @@ const navigateTo =e=>{
         <div className="P_display">
           <label>{location.state.serviceName}</label>
         </div>
-
         <div className="row">
-        <div className='vmsearchbox'>
+          <div className='vmsearchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
               <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
           </div>
         </div>
 
-
-        <table
-          id="plumbertable"
-          class="table table-striped table-bordered table-sm "
-          cellspacing="0"
-          // style={{ border: '2px solid #14335D;;'}}
-        >
+        <table id="plumbertable" class="table table-striped table-bordered table-sm" cellspacing="0">
           <thead>
             <tr>
               <th class="th-sm">Name</th>
@@ -167,26 +159,20 @@ const navigateTo =e=>{
             </tr>
           </thead>
           <tbody>
-
             {currentPosts.map(item=>{
-
               return(
-                <tr>
+                <tr onClick={() => navigatetoEdit(item._id)}>
                   <td>{item.vendor_name}</td>
                   <td>{item.vendorBy.firstname} {item.vendorBy.lastname}</td>
                   <td>{item.status==true?'Active':'Inactive'} </td>
-            </tr>
+                </tr>
               )
             })}
           </tbody>
         </table>
         <PaginationCalculate totalPages={vendors.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
-
       </div>
     </div>
   );
 };
-
 export default Plumber;
-
-

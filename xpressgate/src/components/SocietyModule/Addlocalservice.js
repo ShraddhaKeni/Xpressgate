@@ -11,8 +11,8 @@ import { mobileValidation } from '../auth/validation';
 const Addlocalservice = () => {
   const [addeddata, setAddedData] = useState([])
   const [service, setService] = useState([])
-
   // const navigate = useNavigate()
+  
   useEffect(() => {
     if (checkSociety()) {
       const config = {
@@ -33,16 +33,12 @@ const Addlocalservice = () => {
     else {
       window.location.href = '/'
     }
-
-
-
   }, [])
 
   const getAddedByData = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/management/getAll`)
       setAddedData(data.data.managementteam)
-      // setServices(data.data.localservices)
     } catch (error) {
       console.log(error)
     }
@@ -52,7 +48,6 @@ const Addlocalservice = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/admin/localservices/getAll`)
       setService(data.data.localservices)
-      // setServices(data.data.localservices)
     } catch (error) {
       console.log(error)
     }
@@ -75,9 +70,6 @@ const Addlocalservice = () => {
       else {
         alert('Enter valid mobile number')
       }
-
-      // const {data} = await axios.post(`${window.env_var}api/vendor/add`,sendData)
-      // window.location.href='/localservices'
     } catch (error) {
       console.log(error)
     }
@@ -93,11 +85,7 @@ const Addlocalservice = () => {
           <img src="/images/societyicon.svg" alt="society name" />
           <label>Society Name</label>
         </div>
-        {/* <div className='alssidelinks'>
-          <Link>Local Services</Link><br></br><br></br>
-          <Link to='/addlocalservice'>Add Local Services</Link>
-        </div> */}
-          <div className='AddLSsidelinks'>
+        <div className='AddLSsidelinks'>
           <a className='LSsidelinks' href="/localservices">Local Service</a><br></br><br></br>
           <a className='ALSsidelinks' href="/addlocalservice"><b>Add Local Services</b></a>
         </div>
@@ -125,32 +113,16 @@ const Addlocalservice = () => {
               <input type="text" class="form-control input-lg inputborder" id='vendor_name' name="flatNo" placeholder="Vendor Name"></input>
             </div>
           </div>
-          {/* <div class="form-group row">
-            <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Added By</label>
-            <div class="col-sm-4 col-md-4 col-lg-4">
-              <select class="form-control input-lg inputborder" id='added_by'>
-                <option value={null} disabled selected>Added By</option>
-                {addeddata.map(item => {
-                  return <option value={item.resident._id}>{item.resident.firstname + ' ' + item.resident.lastname}</option>
-                })}
-              </select>
-            </div>
-          </div> */}
-        
           <div class="form-group row">
             <label class="col-lg-2 col-form-label ADN_label">Contact No.</label>
             <div class="col-lg-4">
               <input type="text" class="form-control input-lg inputborder" id='contact_no' name="flatNo" placeholder="Contact No." maxLength="10"></input>
             </div>
           </div>
-
           <button type="submit" onClick={(e) => { handleSubmit(e) }} className="btnAddV" on>Add Vendor</button>
         </Form>
-
       </div>
     </div>
   )
 }
-
 export default Addlocalservice
-
