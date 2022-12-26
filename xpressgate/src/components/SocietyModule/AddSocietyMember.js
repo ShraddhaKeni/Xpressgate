@@ -1,15 +1,16 @@
-import React, { useEffect, useState, useNavigate } from "react";
+import React, { useEffect, useState } from "react";
 import "../SocietyModule/AddSocietyMember.css";
 import LogOut from './Utils/LogOut'
 import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 const AddSocietyMember = () => {
   const [member, setMember] = useState({})
   const [file, setProfilePicFile] = useState()
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const [communities, setCommunity] = useState([])
   useEffect(() => {
     getCommunities()
@@ -42,9 +43,9 @@ const AddSocietyMember = () => {
         }
       }
       const { data } = await axios.post(`${window.env_var}api/community/addResident`, formData, config);
-      navigate(-1);
+      navigate('/admin/dashboard');
     } catch (error) {
-      alert('Unable to add Society Member');
+      alert(error);
     }
   }
 
@@ -76,7 +77,7 @@ const AddSocietyMember = () => {
         <div className="AMM_display">
           <label>Add Society Member</label>
         </div>
-        <Form className="formclass" onSubmit={handleAddSocietyMember}>
+        <Form className="ASM_formclass" onSubmit={handleAddSocietyMember}>
           <div class="form-group row">
             <label class="col-lg-2 col-form-label ADN_label">Community</label>
             <div class="col-lg-4">
@@ -164,12 +165,55 @@ const AddSocietyMember = () => {
               </input>
             </div>
           </div>
+
+
+          <div class="form-group row">
+            <label class="col-lg-2 col-form-label ADN_label">Designation</label>
+            <div class="col-lg-4">
+              <input type="text" class="form-control input-lg SideB" id='picture' name="managementTitle"
+                onChange={(e) => {
+                  setMember({ ...member, managementTitle: e.target.value });
+                }
+                }
+              >
+              </input>
+            </div>
+          </div>
+
+          <div className="AMM_form">
+            <div className="inboxes">
+              <span>
+                <label for="ToDate" class="STodate">To</label>
+                <input type="date" id="ToDate" className="STodateinput" name="date" placeholder="Date"
+                  onChange={(e) => {
+                    setMember({ ...member, to: e.target.value });
+                  }
+                  }
+                ></input>
+              </span>
+              <span>
+                <label for="ForDate" class="SFromdate">From</label>
+                <input type="date" id="ForDate" className="SFromdateinput"
+                  onChange={(e) => {
+                    setMember({ ...member, from: e.target.value });
+                  }
+                  }
+                ></input>
+              </span>
+
+
+
+            </div>
+
+          </div>
+
+
           <button type="submit" className="ASMBtn_Add">
             Add Member
           </button>
         </Form>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 
