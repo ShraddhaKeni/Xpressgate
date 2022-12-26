@@ -16,7 +16,7 @@
   border: 2px solid #14335D;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
-  height: 6vh;
+  height: 5vh;
 }
 
 .logoutBtn {
@@ -33,6 +33,7 @@
   padding: 2%;
   border: none;
   }
+  
   .logoutBtn img{     
         padding-left: 10%;
         padding-bottom: 5%;
@@ -225,7 +226,7 @@
 }
 
 .float-left{
-    text-align: left;
+    text-align: center;
     /* margin-right: 7% ; */
     margin-left:1rem;
 }
@@ -650,11 +651,12 @@ border-radius: 25px;
     margin-left: -48%;
 } */
 .GForm_label {
-    font-size: 0.8vw;
+    font-size: 1.1vw;
     font-family: 'Rubik';
     font-style: normal;
     color: #14335D;
 }
+
 .card-green {
     padding-bottom: 2rem;
     padding-top: 1rem;
