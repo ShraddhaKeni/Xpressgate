@@ -133,7 +133,7 @@ font-weight: 700;
         margin-left: 31%;
     }
     .VideoaddButton{
-        background: #14335D;
+        background:  #0A8996;
         border-radius: 9px;
         width: 9vw;
         height: 5vh;
@@ -271,6 +271,6 @@ font-weight: 700;
            
         }
         .VideoaddButton:hover{
-            background: #4e73a8;
+            background: #14335D;
         }
     }
