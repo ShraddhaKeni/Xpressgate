@@ -35,7 +35,7 @@ const AddSocietyMember = () => {
         <div className="AMM_display">
           <label>Add Society Member</label>
         </div>
-        <Form className="formclass">
+        <Form className="ASM_formclass">
           <div class="form-group row">
                 <label class="col-lg-2 col-form-label ADN_label">Community id</label>
                 <div class="col-lg-4">
@@ -95,6 +95,26 @@ const AddSocietyMember = () => {
                   </input>
                 </div>
               </div>
+              <div class="form-group row">
+                <label class="col-lg-2 col-form-label ADN_label">Designation</label>
+                <div class="col-lg-4">
+                  <input type="text" class="form-control input-lg SideB" id='picture' name="Profile pic"> 
+                  </input>
+                </div>
+              </div>
+              <div className="AMM_form">
+            <div className="inboxes">
+              <span>
+                <label for="ToDate" class="STodate">To</label>
+                <input type="date" id="ToDate" className="STodateinput" name="date" placeholder="Date"></input> 
+              </span>
+              <span>
+                <label for="ForDate" class="SFromdate">From</label>
+                <input type="date" id="ForDate" className="SFromdateinput" ></input>
+              </span>
+
+            </div>
+          </div>
               <button type="submit" className="ASMBtn_Add">
                   Add Member
               </button>
