@@ -13,9 +13,9 @@ import GuardHeader from './Utils/GuardHeader';
 const Dailyhelplist = () => {
   const [dailyhelpdata, setDailyhelpdata] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
-  const [postPerPage, setPostPerPage] = useState(6)
+  const [postPerPage, setPostPerPage] = useState(0)
   const [currentPosts,setCurrentPosts] = useState([])
-
+  const [allowed, setAllowed] = useState([])
 
   //const [flatdata, setFlatdata] = useState([])
   useEffect(() => {
@@ -49,9 +49,13 @@ const Dailyhelplist = () => {
 
       const {data} = await axios.get(`${window.env_var}api/helperlist/getAll`)
       setDailyhelpdata(data.data.list)
-      const indexoflast = currentPage*postPerPage  //endoffset
-      const indexoffirst = indexoflast - postPerPage //startoffset
-      setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
+      console.log(dailyhelpdata[0])
+      let perPage = Math.ceil(data.data.list.length / 6)
+      setPostPerPage(perPage)
+      //console.log(perPage)
+      const indexoflast = currentPage*perPage  //endoffset
+      const indexoffirst = indexoflast - perPage //startoffset
+      setCurrentPosts(data.data.list.filter(x=>x.booking_id.length!=0).slice(indexoffirst,indexoflast))
       //setFlatdata(data.data.data.list[0].booking_id)
       //console.log(data.data.data.list[0].booking_id);
     } catch {
@@ -63,9 +67,11 @@ const Dailyhelplist = () => {
   async function  paginate(event)
   {
     setCurrentpage(event.selected+1)
-    const indexoflast = (event.selected+1)*postPerPage  //endoffset
-    const indexoffirst = (indexoflast - postPerPage) //startoffset
-    setCurrentPosts(dailyhelpdata.slice(indexoffirst,indexoflast))
+    let perPage = Math.ceil(dailyhelpdata.length / 6)
+    setPostPerPage(perPage)
+    const indexoflast = (event.selected+1)*perPage  //endoffset
+    const indexoffirst = (indexoflast - perPage) //startoffset
+    setCurrentPosts(dailyhelpdata.filter(x=>x.booking_id.length!=0).slice(indexoffirst,indexoflast))
   }
 
   const navigate = useNavigate();
@@ -95,8 +101,8 @@ const Dailyhelplist = () => {
             <label>Daily Help List</label>
           </div>
           <div className="row row-cols-1 row-cols-md-3 g-4 dhfullcardscss">
+            
             {currentPosts.map((dailydata) => {
-              console.log(dailyhelpdata)
              
                 return (
                   
@@ -116,7 +122,7 @@ const Dailyhelplist = () => {
         </div>
         <div style={{marginTop:'25%'}}>
 
-          <PaginationCalculate totalPages={dailyhelpdata.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+          <PaginationCalculate totalPages={dailyhelpdata.filter(x=>x.booking_id.length!=0).length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
         </div>
       </div>
       
