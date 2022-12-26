@@ -25,6 +25,7 @@ const Addflat = () => {
       axios.get(`${window.env_var}api/society/checkLogin`, config)
         .then(async({ data }) => {
           await getDetails()
+          await getBlocks()
           //  let comm_select = document.getElementById('community_select').options
           //  let options = Array.from(comm_select)
           //  console.log(options)
@@ -55,13 +56,13 @@ const Addflat = () => {
 
   const getBlocks = async (e) => {
     try {
-      const param = {
-        community_id: e.target.value
-      }
+      // const param = {
+      //   community_id: e.target.value
+      // }
       const { data } = await axios.post(`${window.env_var}api/block/get`, {
-        community_id: e.target.value
+        community_id: localStorage.getItem('community_id')
       })
-      //console.log(data.data.block)
+      console.log(data)
       setBlock(data.data.block)
     } catch (error) {
       console.log(error)
@@ -72,7 +73,7 @@ const Addflat = () => {
     e.preventDefault()
     try {
       const sendData = {
-        community_id: document.getElementById('community_select').value,
+        community_id: localStorage.getItem('community_id'),
         block: document.getElementById('block_select').value,
         number: document.getElementById('flat_no').value,
         description: document.getElementById('description').value,
@@ -108,7 +109,7 @@ const Addflat = () => {
           <label>Add Flat</label>
         </div>
         <Form className='formclass'>
-          <div class="form-group row">
+          {/* <div class="form-group row">
             <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Community</label>
             <div class="col-sm-4 col-md-4 col-lg-4">
               <select class="form-control input-lg ADTBorder" id='community_select' onChange={(e) => { getBlocks(e) }}>
@@ -120,11 +121,11 @@ const Addflat = () => {
                 })}  
               </select>
             </div>
-          </div>
+          </div> */}
           <div class="form-group row">
             <label class="col-lg-2 col-form-label ADN_label">Blocks</label>
             <div class="col-lg-4">
-              <select class="form-control input-lg ADTBorder" id="block_select" placeholder="Block">
+              <select class="form-control input-lg ADTBorder" id="block_select" onChange={(e) => { getBlocks(e) }} placeholder="Block">
                 <option value={null} disabled selected>Select Block</option>
                 {block.map(item => {
                   return (
