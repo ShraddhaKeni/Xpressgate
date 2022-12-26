@@ -59,7 +59,7 @@ const Blocklist = () => {
           <div className='BL_display'>
             <label>Block List</label>
           </div>
-          <button type="button" onClick={()=>{window.location.href='/addblock'}} className="AddLS">&#10011; Add New Block</button>
+          <button type="button" onClick={()=>{window.location.href='/addblock'}} className="AddBlist">&#10011; Add New Block</button>
           <div id="blcardsection">
             <div className="row row-cols-1 row-cols-md-3 g-4 BLfullcardscss">
 
@@ -67,7 +67,7 @@ const Blocklist = () => {
                 return (
                   <div className="col">
                     <div className="blminicard"><br></br>
-                      <a><img src='./images/pencil_icon.png' onClick={()=>blockDetails(item._id,item.block)}></img></a>
+                      <a><img src='./images/pencil_icon.png' className='Pencilicon' onClick={()=>blockDetails(item._id,item.block)}></img></a>
                       <label className='blblock'>Block {item.block}</label><br></br>
                       <label className='blflat'>Flats - {item.flat !== [] ? parseInt(item.flat) : 0}</label><br></br><br></br>
                       <button type="button" className="btnView" onClick={() => { navigateToList(item._id,item.block) }} >View</button><br></br>

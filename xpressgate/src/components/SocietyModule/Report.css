@@ -24,7 +24,7 @@ input::-webkit-inner-spin-button {
   align-items: center;
 }
 
-.dashboard_passcode {
+/* .dashboard_passcode {
   position: relative;
   top: 30px;
   border: none;
@@ -34,7 +34,7 @@ input::-webkit-inner-spin-button {
   width: 40px;
   border-bottom: 5px solid #000000;
 
-}
+} */
 
 #srheadersection {
   /* background-color: aquamarine; */
@@ -390,7 +390,7 @@ input::-webkit-inner-spin-button {
   .dbcard-img-top {
     width: 150%;
   }
-
+/* 
   .dashboard_passcode {
     position: relative;
     top: 36px;
@@ -400,7 +400,7 @@ input::-webkit-inner-spin-button {
     text-align: center;
     width: 14px;
     border-bottom: 5px solid #000000;
-  }
+  } */
 
   .enterpasscodesearch {
     width: 35%;

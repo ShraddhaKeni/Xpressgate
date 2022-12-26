@@ -175,6 +175,7 @@
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-top: 5%;
 }
 .Coupon_heading{
     font-size: 1.4vw;
