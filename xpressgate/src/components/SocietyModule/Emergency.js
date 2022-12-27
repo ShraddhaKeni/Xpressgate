@@ -92,7 +92,7 @@ const Emergency = () => {
         <div >
         <button type="button" className="EN_Add" onClick={() => {
                 window.location.href = "/addemergency";
-              }}>&#10011; Add New Number</button>
+              }}>&#10011; Add Emergency Number</button>
 
         </div>
         <div className="row">
