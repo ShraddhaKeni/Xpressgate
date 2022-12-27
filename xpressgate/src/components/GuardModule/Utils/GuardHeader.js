@@ -10,7 +10,7 @@ const GuardHeader = () => {
         <div id="sdashboardguard"><label>Guard</label></div>
         <div id="sdashboardspace"></div>
         <div id="sdashboardnotification"><a href="abc"><img className='bell_icon' src="/images/notification.svg" alt="notificationicon" /></a></div>
-        <div id="sdashboardsetting"><Link to='/changeguardpass'><img src="/images/setting.svg" className='cog_wheel' alt="settingicon" /></Link></div>
+        <div id="sdashboardsetting"><Link to='/editguarddetails'><img src="/images/setting.svg" className='cog_wheel' alt="settingicon" /></Link></div>
         <div id="sdashboardlogoutbutton"><LogOut/></div>
   </div>
   )
