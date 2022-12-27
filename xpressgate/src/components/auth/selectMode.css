@@ -6,3 +6,131 @@
     margin: 50vh;
     gap: 20px;
 }
+.Page_Container{
+    width: 100vw;
+    height: 100vh;
+    /* background-image: url("../../../public/images/dashboardbackground.svg"); */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    background-color: rgb(188, 182, 182);
+}
+.page_header{
+    width: 100vw;
+    height: 12vh;
+    background: #FAFAFF;
+    align-items: center;
+}
+#PageLogo{
+    display: flex;
+    float: left;
+   margin-left: 4%;
+   margin-top: 1%;
+}
+.Pagelogoimg{
+    position: relative;
+    width: 4.5vw;
+    height: auto;
+}
+.UserSuplogo{
+    display: flex;
+    float: right;
+   margin-right: 1%;
+   margin-top: 2%;
+}
+.supportlogoimg{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.pagelabels{
+    float: right;
+    margin-top: 2%;
+    margin-right: 5%;
+}
+.Welcomepagelables{
+    margin-top: 3%;
+}
+.welcomelabel{
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #ffffff;
+text-align: center;
+font-size: 2vw;
+}
+.WLabelSize{
+    font-size: 3.5vw;
+    color: #ffffff;
+}
+.modulesboxes{
+    display: flex;
+    margin-top: 2%;
+    justify-content: center;
+}
+.GuardMod_box{
+    background: #EEF5FF;
+border: 4px solid #14335D;
+border-radius: 21px;
+width: 13vw;
+height: 18vh;
+justify-content: center;
+}
+.BOXESMargin{
+    margin-right: 3%;
+margin-left: 4%;
+
+}
+.GM_image{
+    width: 16vw;
+    height: 11vh;
+    margin-top: 2%;
+    margin-left: -21%;
+}
+.GM_label{
+    
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+text-align: center;
+margin-top: 7%;
+color: #060606;
+font-size: 1vw;
+}
+.LP_SideImage{
+    position: absolute;
+    margin-left: -65%;
+    margin-top: 19.4%;
+}
+.Sideimagesize{
+    width: 21.5vw;
+    height: auto;
+}
+.LP_RSideImage{
+    position: absolute;
+    margin-left: 56%;
+    margin-top: 16.8%;
+}
+.Right_Sideimagesize{
+    width: 13vw;
+    height: auto;
+}
+.LP_CSideImage{
+    position: absolute;
+    margin-left: -7%;
+    margin-top: 16.5%;
+}
+.Center_Sideimagesize{
+    width: 9.7vw;
+    height: auto;
+}
+.LP_CMAnSideImage{
+    position: absolute;
+    margin-left: 4%;
+    margin-top: 18.6%;
+}
+.CenterMan_Sideimagesize{
+    width: 7.5vw;
+    height: auto;
+}

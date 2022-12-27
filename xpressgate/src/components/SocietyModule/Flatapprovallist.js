@@ -58,14 +58,14 @@ const approveFlat=async(id)=>{
         </div>
       </div>
       <div id="guardnamesection"> 
-        <div className='guardname'>
+        <div className='FA_SOCNAme'>
           <img src="/images/societyicon.svg" alt="guard name" />
           <label>Society Name</label>
         </div>
-        <div className='sideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
+        <div className='FA_SiDeImG'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='fvbackgroundimg'>
-        <div className='frequentvisitordisplay'>
+        <div className='FLATApp_Display'>
           <label>Flat Approval</label>
         </div>
         {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}
@@ -87,8 +87,8 @@ const approveFlat=async(id)=>{
               <div><label className='intime'>No of Vehicle: {flat.vehical}</label></div>
             </div>
             <br></br>
-            <Button type="button" onClick={()=>approveFlat(flat._id)} className="btnApprove">APPROVE</Button>
-            <Button type="button" className="btnDenyFlat" onClick={()=>{ window.location.href = '/blockList'  }}>DENY</Button>
+            <button type="button" onClick={()=>approveFlat(flat._id)} className="FABtnApprove">APPROVE</button>
+            <button type="button" className="btnDenyFlat" onClick={()=>{ window.location.href = '/blockList'  }}>DENY</button>
             <br></br>
           </div>
         </div>

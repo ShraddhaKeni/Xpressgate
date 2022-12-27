@@ -82,10 +82,7 @@ import Report from './components/SocietyModule/Report';
 import AddBlock from './components/SocietyModule/AddBlock';
 import UpdateBlock from './components/SocietyModule/UpdateBlock';
 import SocReport from './components/SocietyModule/SocReport';
-import PrivacyPolicy from './pages/admin/LoginScreens/PrivacyPolicy';
-import Terms from './pages/admin/LoginScreens/Terms';
 import AddSocietyMember from './components/SocietyModule/AddSocietyMember';
-import LandingPage from './components/LandingPage/LandingPage';
 import EditGuard from './components/GuardModule/EditGuard';
 
 function App() {
@@ -210,8 +207,6 @@ function App() {
           <Route path='/updateblock' element={<UpdateBlock />}></Route>
           <Route path='/socreports' element={<SocReport />}></Route>
           <Route path='/addsocietymember' element={<AddSocietyMember/>}></Route>
-          <Route path='/privacypolicy' element={<PrivacyPolicy/>}></Route>
-          <Route path='/landingpage' element={<LandingPage/>}></Route>
           <Route path='/editguarddetails' element={<EditGuard/>}></Route>
          
 

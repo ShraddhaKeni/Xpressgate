@@ -156,7 +156,7 @@ const Addeditamenity = () => {
             <label class="col-lg-2 col-form-label ADN_label">Rent</label>
             <div class="col-lg-4">
               {type=='edit'?<input type="number" class="form-control input-lg sideBord" defaultValue={amenity.rent} ref={rent} name="inputnoofpeople" placeholder="Rent"></input>:
-              <input type="number" class="form-control input-lg" ref={rent} name="inputnoofpeople" placeholder="Rent"></input>}
+              <input type="number" class="form-control input-lg sideBord" ref={rent} name="inputnoofpeople" placeholder="Rent"></input>}
               
             </div>
           </div>

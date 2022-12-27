@@ -221,7 +221,7 @@ font-weight: 500;
 }
 
 .amnts_img_top {
-  width: 50%;
+  width: 40%;
   height: 50%;
   margin: auto;
   border-radius: 50px;
@@ -340,7 +340,7 @@ color: #14335D;
   }
 
   .amnts_img_top {
-    width: 76%;
+    width: 50%;
     height: 50%;
     margin: auto;
     border-radius: 50px;
