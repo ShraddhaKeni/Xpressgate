@@ -23,6 +23,7 @@ const Addguard = () => {
       if (type == 'edit') {
         if (await mobileValidation(document.getElementById('phone').value)) {
           let formdata = new FormData()
+          formdata.append('community_id', localStorage.getItem('community_id'))
           formdata.append('firstname', document.getElementById('firstname').value)
           formdata.append('lastname', document.getElementById('lastname').value)
           formdata.append('username', document.getElementById('username').value)
@@ -41,8 +42,10 @@ const Addguard = () => {
         }
       }
       else {
+        
         if (await mobileValidation(document.getElementById('phone').value)) {
           let formdata = new FormData()
+          formdata.append('community_id', localStorage.getItem('community_id'))
           formdata.append('firstname', document.getElementById('firstname').value)
           formdata.append('lastname', document.getElementById('lastname').value)
           formdata.append('username', document.getElementById('username').value)
@@ -51,6 +54,7 @@ const Addguard = () => {
           formdata.append('email', document.getElementById('email').value)
           formdata.append('profile_pic', document.getElementById('profilePic').files[0])
           const { data } = await axios.post(`${window.env_var}api/guard/add`, formdata)
+          console.log('hi')
           window.location.href = '/guardList'
         } else {
           alert('Enter valid mobile number')
