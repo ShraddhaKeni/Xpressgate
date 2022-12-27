@@ -67,7 +67,7 @@ const Blocklist = () => {
                 return (
                   <div className="col">
                     <div className="blminicard"><br></br>
-                      <a><img src='./images/pencil_icon.png' className='Pencilicon' onClick={()=>blockDetails(item._id,item.block)}></img></a>
+                    <a><img src="/images/pencilicon.png" className="pencilicon" onClick={()=>blockDetails(item._id,item.block)}></img></a>
                       <label className='blblock'>Block {item.block}</label><br></br>
                       <label className='blflat'>Flats - {item.flat !== [] ? parseInt(item.flat) : 0}</label><br></br><br></br>
                       <button type="button" className="btnView" onClick={() => { navigateToList(item._id,item.block) }} >View</button><br></br>
