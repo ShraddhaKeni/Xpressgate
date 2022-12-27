@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 // import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { TextField } from '@mui/material';
+import { Padding } from '@mui/icons-material';
 
 export const SimpleInputComponent = ({ name, id, label, onChange, type = 'text', text = '', required = false, placeholder = '', value = '', defaultValue = '' }) => {
     const [t, setValue] = useState(text);
@@ -18,7 +19,7 @@ export const SimpleInputComponent = ({ name, id, label, onChange, type = 'text',
                     name={name}
                     placeholder={placeholder}
                     onChange={(e) => { onChange(e); setValue(e.target.value) }}
-                    sx={{ background: 'white', "& .MuiOutlinedInput-root": { "& > fieldset": { border: '2px solid #14335D', borderRadius: '8px', height: '5vh'} } }}
+                    sx={{ background: 'white', "& .MuiOutlinedInput-root": { "& > fieldset": { border: '2px solid #14335D', borderRadius: '8px', height: '5vh' } } }}
                     value={t || text}
                     id={id}
                     fullWidth
