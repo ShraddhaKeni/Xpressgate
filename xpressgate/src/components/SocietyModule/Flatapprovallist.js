@@ -39,7 +39,7 @@ const approveFlat=async(id)=>{
       community_id:localStorage.getItem('community_id')
     }
     const {data} = await axios.post(`${window.env_var}api/approveresidents/approve`,sendData)
-    window.location.href='/flatList'
+    window.location.href='/blockList'
   } catch (error) {
     console.log(error)
   }
