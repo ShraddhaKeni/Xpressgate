@@ -52,7 +52,7 @@ const EditGuard = () => {
               <div class="form-group row">
                 <label class="col-lg-2 col-form-label ADN_label">User Name</label>
                 <div class="col-lg-4">
-                  <input type="text" class="form-control input-lg SideB" id='Guard_User_Name' name="User name" placeholder="First name"/>
+                  <input type="text" class="form-control input-lg SideB" id='Guard_User_Name' name="User name" placeholder="User name"/>
                 </div>
               </div>
               <div class="form-group row">
