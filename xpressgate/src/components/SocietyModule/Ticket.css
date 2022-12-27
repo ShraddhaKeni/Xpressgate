@@ -217,6 +217,7 @@ font-weight: 500;
   padding-top: 2%;
   padding-bottom: 4%;
   text-align: left;
+
 }
 
 .flatnodisplay {
@@ -302,32 +303,32 @@ background-color: #14335D;
 .date {
   font-size: 20px;
   font-family: 'Rubik', sans-serif;
-  font-weight: 100;
+  font-weight: 400;
   text-align: left;
 }
 
 .intime {
   font-size: 20px;
   font-family: 'Rubik', sans-serif;
-  font-weight: 100;
+  font-weight: 400;
 }
 
 .outtime {
   font-size: 20px;
   font-family: 'Rubik', sans-serif;
-  font-weight: 100;
+  font-weight: 400;
 }
 
 .noofpeople {
   font-size: 20px;
   font-family: 'Rubik', sans-serif;
-  font-weight: 100;
+  font-weight: 400;
 }
 
 .vehicleno {
   font-size: 20px;
   font-family: 'Rubik', sans-serif;
-  font-weight: 100;
+  font-weight: 400;
 }
 
 .tktlabel {

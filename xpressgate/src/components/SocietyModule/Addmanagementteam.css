@@ -107,7 +107,7 @@ html {
 .Todateinput{
   width: 10vw;
   height: 5vh;
-  padding: 0%;
+  padding: 1%;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border: 2px solid #14335D;
   border-radius: 8px;
