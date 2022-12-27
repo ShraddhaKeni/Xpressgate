@@ -87,8 +87,8 @@ import EditGuard from './components/GuardModule/EditGuard';
 
 function App() {
 
-  window.env_var = "http://143.110.187.80:5050/"
-  //window.env_var = "http://localhost:5050/"
+  //window.env_var = "http://143.110.187.80:5050/"
+  window.env_var = "http://localhost:5050/"
   useEffect(() => {
 
   }, [])

@@ -14,6 +14,7 @@ const Addvehicle = () => {
   const [sections, setSections] = useState([])
   const [resident, setResident] = useState({})
   const [vehicles, setVehicles] = useState([])
+  const [pdetails, setAssignedParkingDetails] = useState({});
   const [name, setName] = useState()
   const [section, setSection] = useState()
   const [type, setType] = useState()
@@ -21,10 +22,13 @@ const Addvehicle = () => {
 
 
   useEffect(() => {
-    getBlocks()
+    getBlocks();
     if (location.state) {
-      setName(location.state.name)
-      setSection(location.state.section)
+      setType(location.state.type);
+      getAssignedParkingDetails();
+    }
+    else{
+
     }
   }, [])
   const getBlocks = async () => {
@@ -39,8 +43,17 @@ const Addvehicle = () => {
     try {
       document.getElementById('vehicle_id').selectedIndex = '0'
       document.getElementById('flat_id').selectedIndex = '0'
-      document.getElementById('resident_name').value = null
+      document.getElementById('resident_name').value = null;
       const { data } = await axios.get(`${window.env_var}api/flats/getList/${e.target.value}`)
+      setFlats(data.data.list)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getFlatsUpdate = async (e) => {
+    try {
+      const { data } = await axios.get(`${window.env_var}api/flats/getList/${e}`)
       setFlats(data.data.list)
     } catch (error) {
       console.log(error)
@@ -82,6 +95,18 @@ const Addvehicle = () => {
     } catch (error) {
       //console.log(resident)
       alert("Parking is already assigned")
+    }
+  }
+
+  const getAssignedParkingDetails=async()=>{
+    try {
+      const {data} = await axios.get(`${window.env_var}api/assigns/getOne/${location.state.id}`)
+      setAssignedParkingDetails(data.data.ParkingDet[0]);
+      console.log(data.data.ParkingDet[0]);
+      getFlatsUpdate();
+      
+    } catch (error) {
+      console.log('in error',error);
     }
   }
 
