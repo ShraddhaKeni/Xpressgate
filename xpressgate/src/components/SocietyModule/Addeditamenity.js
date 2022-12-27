@@ -39,7 +39,8 @@ const Addeditamenity = () => {
               }
               else
               {
-                window.history.back(-1)
+                //window.location.href='/addeditamenity'
+                
               }
             })
             .catch(err=>{
@@ -76,6 +77,7 @@ const Addeditamenity = () => {
         formData.append('rule',rule.current.value)
         formData.append('rent',rent.current.value)
         formData.append('status',status.current.value)
+        
         if(document.getElementById('amenity_image').value)
         {
           formData.append('image',document.getElementById('amenity_image').files[0])

@@ -47,8 +47,8 @@ const Ticketlist = () => {
     
   }
 
-  const navigateToTicket=(id)=>{
-    navigate('/ticket',{state:{id:id}})
+  const navigateToTicket=(id,ticketreply)=>{
+    navigate('/ticket',{state:{id:id,ticketreply:ticketreply}})
   }
 
 
@@ -115,7 +115,7 @@ const Ticketlist = () => {
           <tbody>
             {currentPosts.map((items,index)=>{
               return(
-                <tr onClick={()=>{navigateToTicket(items._id)}}>
+                <tr onClick={()=>{navigateToTicket(items._id, items.ticket_reply)}}>
                   <td>{items.ticketNo}</td>
                   <td >{items.ticketRaisedBy.firstname} {items.ticketRaisedBy.lastname}</td>
                   <td>{items.tickettype}</td>

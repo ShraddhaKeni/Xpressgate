@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './Ticket.css';
 import { Button } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
@@ -6,32 +6,51 @@ import axios from 'axios';
 import LogOut from './Utils/LogOut';
 
 const Ticket = () => {
-  const location= useLocation()
-  const [ticket,setTicket] = useState({})
-  const [firstname,setFname] = useState()
-  const [lastname,setLname] = useState()
-  useEffect(()=>{
-    if(location.state)
-    {
+  const location = useLocation()
+  const [ticket, setTicket] = useState({})
+  const [firstname, setFname] = useState()
+  const [lastname, setLname] = useState()
+  const [msg, setMsg] = useState()
+  const ticketreply = useRef([])
+
+  useEffect(() => {
+    if (location.state) {
       getTicket()
     }
-    else
-    {
-      window.location.href='/ticketlist'
+    else {
+      window.location.href = '/ticketlist'
     }
   })
 
-  const getTicket=async()=>{
+  const getTicket = async () => {
     try {
-      const {data} = await axios.get(`${window.env_var}api/tickets/findTicket/${location.state.id}`)
+      const { data } = await axios.get(`${window.env_var}api/tickets/findTicket/${location.state.id}`)
       setTicket(data.data.tickets[0])
       setFname(data.data.tickets[0].ticketRaisedBy.firstname)
       setLname(data.data.tickets[0].ticketRaisedBy.lastname)
+      //console.log(data.data.tickets[0].ticket_reply)
+      setMsg(location.state.ticketreply)
     } catch (error) {
       console.log(error)
     }
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    try {
+
+      const senddata = {
+        id: location.state.id,
+        ticket_reply: document.getElementById('message').value
+      }
+      const { data } = await axios.post(`${window.env_var}api/tickets/resolveTicket`, senddata)
+      // console.log(senddata)
+      window.location.href = '/ticketlist'
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
 
   return (
@@ -44,7 +63,7 @@ const Ticket = () => {
           <div id="tktspace"></div>
           <div id="tktnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
           <div id="tktsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="tktlogoutbutton"> <LogOut/></div>
+          <div id="tktlogoutbutton"> <LogOut /></div>
         </div>
       </div>
       <div id="tktsection">
@@ -62,7 +81,7 @@ const Ticket = () => {
           <div className="tktcard">
             <br></br>
             <label className="tktlabel">{ticket.ticketNo}</label>
-            
+
             <div className="name ticket_name">{firstname} {lastname}</div>
             <div><label className='tktIssuelabels'>Issue</label></div>
             <div className='tktclass'>
@@ -81,10 +100,12 @@ const Ticket = () => {
             <br></br>
             <div><label className='tktailabels'>Attached images</label></div>
             <br></br>
-            <br/>
+            <br />
             <div className='tktmsgbox'>
-              <input type="text" className='tktmsgs' placeholder='Message'></input>
-              <button className='tktMsgBtn'>Resolved</button></div>
+             {location.state ? <input type="text" id="message" defaultValue={msg} name="Phone Number" className="tktmsgs" placeholder="Message"></input> : <input type='text' id="message" className='tktmsgs' placeholder='Message'></input>}
+              {/* <input type='text' id="message" ref={ticketreply} className='tktmsgs' placeholder='Message'>{location.state.ticketreply}</input> */}
+              <button className='tktMsgBtn' onClick={(e) => { handleSubmit(e) }}>Resolved</button>
+            </div>
             <br></br>
           </div>
         </div>
