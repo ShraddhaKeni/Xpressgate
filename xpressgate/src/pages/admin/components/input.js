@@ -8,17 +8,17 @@ export const SimpleInputComponent = ({ name, id, label, onChange, type = 'text',
     const [t, setValue] = useState(text);
     return (
         <div class="form-group row align-items-center">
-            <label class="col-lg-2 col-form-label float-left GForm_label">
+            <label class="col-lg-4 col-form-label float-left GForm_label">
                  {" "}
                 {label}
             </label>
-            <div class="col-lg-8">
+            <div class="col-lg-4 col-md-4 col-sm-4">
                 {(type == 'text' || type == 'number') && <TextField
                     type={type}
                     name={name}
                     placeholder={placeholder}
                     onChange={(e) => { onChange(e); setValue(e.target.value) }}
-                    sx={{ background: 'white', "& .MuiOutlinedInput-root": { "& > fieldset": { border: '2px solid #14335D', borderRadius: '8px', } } }}
+                    sx={{ background: 'white', "& .MuiOutlinedInput-root": { "& > fieldset": { border: '2px solid #14335D', borderRadius: '8px', height: '5vh'} } }}
                     value={t || text}
                     id={id}
                     fullWidth
@@ -65,8 +65,8 @@ export const SimpleInputComponent = ({ name, id, label, onChange, type = 'text',
 export const SimpleDropDownComponent = ({ name, id, label, onChange, items = [], selected = '' }) => {
     return (
         <div class="form-group row">
-            <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label float-left GForm_label" >{label}</label>
-            <div class="col-sm-4 col-md-4 col-lg-8">
+            <label for="inputentryno" class="col-lg-4 col-form-label float-left GForm_label" >{label}</label>
+            <div class="col-sm-4 col-md-4 col-lg-4">
                 <select type="text" class="form-control form-input-bg" name={name} id={id} onChange={onChange}>
                     <option disabled selected value={null}>Select {label}</option>
                     {items.map((item) => {

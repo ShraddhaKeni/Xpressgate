@@ -1,0 +1,69 @@
+.Page_Container{
+    width: 100vw;
+    height: 100vh;
+    /* background-image: url("../../../public/images/dashboardbackground.svg"); */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    background-color: rgb(188, 182, 182);
+}
+.page_header{
+    width: 100vw;
+    height: 12vh;
+    background: #FAFAFF;
+    align-items: center;
+}
+#PageLogo{
+    display: flex;
+    float: left;
+   margin-left: 4%;
+   margin-top: 1%;
+}
+.Pagelogoimg{
+    position: relative;
+    width: 4.5vw;
+    height: auto;
+}
+.UserSuplogo{
+    display: flex;
+    float: right;
+   margin-right: 1%;
+   margin-top: 2%;
+}
+.supportlogoimg{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.pagelabels{
+    float: right;
+    margin-top: 2%;
+    margin-right: 5%;
+}
+.Welcomepagelables{
+    margin-top: 3%;
+}
+.welcomelabel{
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #ffffff;
+text-align: center;
+font-size: 2vw;
+}
+.WLabelSize{
+    font-size: 3.5vw;
+}
+.modulesboxes{
+    display: flex;
+    margin-top: 2%;
+    justify-content: center;
+}
+.GuardMod_box{
+    background: #EEF5FF;
+border: 4px solid #14335D;
+border-radius: 21px;
+width: 13vw;
+height: 18vh;
+}
