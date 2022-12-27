@@ -7,6 +7,7 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { checkSociety } from '../auth/Auth'
 import { useNavigate } from 'react-router-dom';
+import { mobileValidation } from '../auth/validation';
 
 const Addguard = () => {
   const [guard, setGuard] = useState({})
@@ -20,34 +21,41 @@ const Addguard = () => {
     try {
 
       if (type == 'edit') {
-        let formdata = new FormData()
-        formdata.append('firstname', document.getElementById('firstname').value)
-        formdata.append('lastname', document.getElementById('lastname').value)
-        formdata.append('username', document.getElementById('username').value)
-        formdata.append('mobileno', document.getElementById('phone').value)
-        formdata.append('email', document.getElementById('email').value)
-        formdata.append('guard_id', location.state.id)
-        if (document.getElementById('profilePic').value) {
-          formdata.append('profile_pic', document.getElementById('profilePic').files[0])
+        if (await mobileValidation(document.getElementById('phone').value)) {
+          let formdata = new FormData()
+          formdata.append('firstname', document.getElementById('firstname').value)
+          formdata.append('lastname', document.getElementById('lastname').value)
+          formdata.append('username', document.getElementById('username').value)
+          formdata.append('mobileno', document.getElementById('phone').value)
+          formdata.append('email', document.getElementById('email').value)
+          formdata.append('guard_id', location.state.id)
+          if (document.getElementById('profilePic').value) {
+            formdata.append('profile_pic', document.getElementById('profilePic').files[0])
+          }
+
+          const { data } = await axios.post(`${window.env_var}api/guard/update`, formdata)
+
+          window.location.href = '/guardList'
+        } else {
+          alert('Enter valid mobile number')
         }
-
-        const { data } = await axios.post(`${window.env_var}api/guard/update`, formdata)
-
-        window.location.href = '/guardList'
       }
       else {
-        let formdata = new FormData()
-        formdata.append('firstname', document.getElementById('firstname').value)
-        formdata.append('lastname', document.getElementById('lastname').value)
-        formdata.append('username', document.getElementById('username').value)
-        formdata.append('password', document.getElementById('password').value)
-        formdata.append('mobileno', document.getElementById('phone').value)
-        formdata.append('email', document.getElementById('email').value)
-        formdata.append('profile_pic', document.getElementById('profilePic').files[0])
-        const { data } = await axios.post(`${window.env_var}api/guard/add`, formdata)
-        window.location.href = '/guardList'
+        if (await mobileValidation(document.getElementById('phone').value)) {
+          let formdata = new FormData()
+          formdata.append('firstname', document.getElementById('firstname').value)
+          formdata.append('lastname', document.getElementById('lastname').value)
+          formdata.append('username', document.getElementById('username').value)
+          formdata.append('password', document.getElementById('password').value)
+          formdata.append('mobileno', document.getElementById('phone').value)
+          formdata.append('email', document.getElementById('email').value)
+          formdata.append('profile_pic', document.getElementById('profilePic').files[0])
+          const { data } = await axios.post(`${window.env_var}api/guard/add`, formdata)
+          window.location.href = '/guardList'
+        } else {
+          alert('Enter valid mobile number')
+        }
       }
-
     } catch (error) {
       console.log(error)
     }
@@ -111,10 +119,10 @@ const Addguard = () => {
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
-       
+
         <div className='GLsidelinks'>
           <a className='noticegll' href="/guardlist">Guard list</a><br></br><br></br>
-          <a className='aggnotice' onClick={()=>navigate('/addGuard')}><b>  Add Guard</b></a>
+          <a className='aggnotice' onClick={() => navigate('/addGuard')}><b>  Add Guard</b></a>
         </div>
         <div className="AGSideimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
@@ -157,29 +165,29 @@ const Addguard = () => {
             </div>
             : ''
           }
-         <div class="form-group form-group6 row">
-           <label class="col-lg-2 col-form-label ADN_label">Phone No</label>
-           <div class="col-lg-4">
-             {type=='edit'?<input type="text" class="form-control input-lg SideB" name="Phone No" id="phone" defaultValue={guard.mobileno} placeholder="Phone No" />:
-             <input type="text" class="form-control input-lg input-lg1 SideB" name="Phone No" id="phone" placeholder="Phone No" />}
-           </div>
-         </div>
-         <div class="form-group form-group6 row">
-           <label class="col-lg-2 col-form-label ADN_label">Email </label>
-           <div class="col-lg-4">
-             {type=='edit'?<input type="email" class="form-control input-lg SideB" name="Email" id='email' defaultValue={guard.email} placeholder="Email" />:
-             <input type="email" class="form-control input-lg input-lg1 SideB" name="Email" id='email' placeholder="Email" />}
-           </div>
-         </div>
-         <div class="form-group form-group6 row">
-           <label class="col-lg-2 col-form-label ADN_label">Add Profile Picture</label>
-           <div class="col-lg-4">
-             <input type="file" class="form-control input-lg input-lg1 SideB" name="Add Profile Picture" id="profilePic" placeholder=""></input>
-           </div>
-         </div>
+          <div class="form-group form-group6 row">
+            <label class="col-lg-2 col-form-label ADN_label">Phone No</label>
+            <div class="col-lg-4">
+              {type == 'edit' ? <input type="text" class="form-control input-lg SideB" name="Phone No" id="phone" defaultValue={guard.mobileno} placeholder="Phone No" /> :
+                <input type="text" class="form-control input-lg input-lg1 SideB" name="Phone No" id="phone" placeholder="Phone No" />}
+            </div>
+          </div>
+          <div class="form-group form-group6 row">
+            <label class="col-lg-2 col-form-label ADN_label">Email </label>
+            <div class="col-lg-4">
+              {type == 'edit' ? <input type="email" class="form-control input-lg SideB" name="Email" id='email' defaultValue={guard.email} placeholder="Email" /> :
+                <input type="email" class="form-control input-lg input-lg1 SideB" name="Email" id='email' placeholder="Email" />}
+            </div>
+          </div>
+          <div class="form-group form-group6 row">
+            <label class="col-lg-2 col-form-label ADN_label">Add Profile Picture</label>
+            <div class="col-lg-4">
+              <input type="file" class="form-control input-lg input-lg1 SideB" name="Add Profile Picture" id="profilePic" placeholder=""></input>
+            </div>
+          </div>
 
-         <button type="submit" onClick={(e)=>handleSubmit(e)} className="AGBtn">{type=='edit'?'Update Guard':'Add Guard'}</button>
-         </Form>
+          <button type="submit" onClick={(e) => handleSubmit(e)} className="AGBtn">{type == 'edit' ? 'Update Guard' : 'Add Guard'}</button>
+        </Form>
 
       </div>
     </div>
