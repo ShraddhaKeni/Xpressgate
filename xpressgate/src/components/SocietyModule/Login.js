@@ -18,6 +18,7 @@ const Login_society = () => {
       localStorage.setItem("accesstoken", data.data.accessToken);
       localStorage.setItem("community_id", data.data.community_id);
       localStorage.setItem("member_id", data.data.id);
+      localStorage.setItem("resident_id", data.data.resident_id);
       localStorage.setItem('mode', 'society')
       window.location.href = "/scDashboard";
     } catch (err) {

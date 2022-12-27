@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './Addlocalservice.css';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import axios from 'axios';
 import Societyheader from './Utils/Societyheader';
 import { Link } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 import { checkSociety } from '../auth/Auth'
 import { mobileValidation } from '../auth/validation';
 
 const Addlocalservice = () => {
   const [addeddata, setAddedData] = useState([])
   const [service, setService] = useState([])
+  const [vendorData, setvendorData] = useState({})
+  const [type, setType] = useState('add')
+  const location = useLocation()
   // const navigate = useNavigate()
   
   useEffect(() => {
@@ -22,8 +26,14 @@ const Addlocalservice = () => {
       }
       axios.get(`${window.env_var}api/society/checkLogin`, config)
         .then(({ data }) => {
-          getAddedByData()
-          getServiceData()
+          getServiceData();
+          if (location.state) {
+            getVendorDetails()
+            setType(location.state.type)
+          }
+          else {
+            getAddedByData()
+          }
         })
         .catch(err => {
           localStorage.clear();
@@ -56,22 +66,46 @@ const Addlocalservice = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const sendData = {
-        vendorName: document.getElementById('vendor_name').value,
-        addedBy: document.getElementById('added_by').value,
-        service: document.getElementById('service').value,
-        contact: document.getElementById('contact_no').value,
-      }
-
       if (await mobileValidation(document.getElementById('contact_no').value)) {
-        const { data } = await axios.post(`${window.env_var}api/vendor/add`, sendData)
-        window.location.href = '/localservices'
+        if(type=='edit')
+        {
+          const sendData = {
+            id:location.state.id,
+            vendorName: document.getElementById('vendor_name').value,
+            addedBy: localStorage.getItem('resident_id'),
+            service: document.getElementById('service').value,
+            contact: document.getElementById('contact_no').value,
+          }
+          console.log(sendData);
+          const { data } = await axios.post(`${window.env_var}api/vendor/update`, sendData)
+          window.location.href = '/localservices'
+        }
+        else{
+          const sendData = {
+            vendorName: document.getElementById('vendor_name').value,
+            addedBy: localStorage.getItem('resident_id'),
+            service: document.getElementById('service').value,
+            contact: document.getElementById('contact_no').value,
+          }
+          const { data } = await axios.post(`${window.env_var}api/vendor/add`, sendData)
+          window.location.href = '/localservices'
+        }
       }
       else {
-        alert('Enter valid mobile number')
+        alert('Enter valid mobile number');
       }
     } catch (error) {
       console.log(error)
+    }
+  }
+
+  const getVendorDetails = async () => {
+    try {
+      const { data } = await axios.get(`${window.env_var}api/vendor/find/${location.state.id}`);
+      setvendorData(data.data.vendors[0]);
+      document.getElementById('service').value=data.data.vendors[0].service;
+    } catch (error) {
+
     }
   }
 
@@ -110,13 +144,13 @@ const Addlocalservice = () => {
           <div class="form-group row">
             <label class="col-lg-2 col-form-label ADN_label">Vendor Name</label>
             <div class="col-lg-4">
-              <input type="text" class="form-control input-lg inputborder" id='vendor_name' name="flatNo" placeholder="Vendor Name"></input>
+              <input type="text" class="form-control input-lg inputborder" id='vendor_name' name="vendor_name" placeholder="Vendor Name" defaultValue={vendorData.vendorName?vendorData.vendorName:''}></input>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-2 col-form-label ADN_label">Contact No.</label>
             <div class="col-lg-4">
-              <input type="text" class="form-control input-lg inputborder" id='contact_no' name="flatNo" placeholder="Contact No." maxLength="10"></input>
+              <input type="text" class="form-control input-lg inputborder" id='contact_no' name="contact_no" placeholder="Contact No." maxLength="10" defaultValue={vendorData.contact?vendorData.contact:''}></input>
             </div>
           </div>
           <button type="submit" onClick={(e) => { handleSubmit(e) }} className="btnAddV" on>Add Vendor</button>

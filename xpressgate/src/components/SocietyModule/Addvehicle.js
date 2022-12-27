@@ -23,7 +23,6 @@ const Addvehicle = () => {
   useEffect(() => {
     getBlocks()
     if (location.state) {
-      
       setName(location.state.name)
       setSection(location.state.section)
     }
