@@ -53,8 +53,20 @@ const Addvehicle = () => {
 
   const getFlatsUpdate = async (e) => {
     try {
-      const { data } = await axios.get(`${window.env_var}api/flats/getList/${e}`)
-      setFlats(data.data.list)
+      const { data } = await axios.get(`${window.env_var}api/flats/getList/${e}`);
+      setFlats(data.data.list);
+      document.getElementById('flat_id').value=pdetails.flat_id;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const getSectionsupdate = async (e) => {
+    try {
+      const { data } = await axios.get(`${window.env_var}api/parkingsection/getAll/${e}`)
+      setSections(data.data)
+      console.log(data.data);
+      document.getElementById('section').value=pdetails.section_id;
     } catch (error) {
       console.log(error)
     }
@@ -81,17 +93,48 @@ const Addvehicle = () => {
       console.log(error)
     }
   }
+
+  const getResidentUpdate = async (e) => {
+    try {
+      const { data } = await axios.get(`${window.env_var}api/flats/single/${e}`)
+      setResident(data.data.list[0])
+      document.getElementById('resident_name').value = data.data.list[0].firstname + ' ' + data.data.list[0].lastname;
+  
+      const vehicle = await axios.get(`${window.env_var}api/resident/vehicle/getResidentVehicle/${data.data.list[0].resident_id}`)
+      setVehicles(vehicle.data.data.vehical);
+      document.getElementById('vehicle_id').value=pdetails.vehicle_id;
+    } catch (error) {
+      
+    }
+    
+  }
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const sendData = {
-        section_id: document.getElementById('section').value,
-        resident_id: resident.resident_id,
-        flat_id: document.getElementById('flat_id').value,
-        vehicle_id: document.getElementById('vehicle_id').value
+      if(type=='edit')
+      {
+        const sendData = {
+          id:location.state.id,
+          section_id: document.getElementById('section').value,
+          resident_id: resident.resident_id,
+          flat_id: document.getElementById('flat_id').value,
+          vehicle_id: document.getElementById('vehicle_id').value
+        }
+        const data = await axios.post(`${window.env_var}api/assigns/update`, sendData)
+        console.log(sendData)
+        window.location.href = '/vehiclemanagement'
       }
-      const data = await axios.post(`${window.env_var}api/assigns/post`, sendData)
-      console.log(sendData)
+      else{
+        const sendData = {
+          section_id: document.getElementById('section').value,
+          resident_id: resident.resident_id,
+          flat_id: document.getElementById('flat_id').value,
+          vehicle_id: document.getElementById('vehicle_id').value
+        }
+        const data = await axios.post(`${window.env_var}api/assigns/post`, sendData)
+        console.log(sendData)
+        window.location.href = '/vehiclemanagement'
+      }
     } catch (error) {
       //console.log(resident)
       alert("Parking is already assigned")
@@ -102,9 +145,12 @@ const Addvehicle = () => {
     try {
       const {data} = await axios.get(`${window.env_var}api/assigns/getOne/${location.state.id}`)
       setAssignedParkingDetails(data.data.ParkingDet[0]);
-      console.log(data.data.ParkingDet[0]);
-      getFlatsUpdate();
+      document.getElementById('block_id').value=data.data.ParkingDet[0].block_id;
+      getFlatsUpdate(data.data.ParkingDet[0].block_id);
+      getSectionsupdate(data.data.ParkingDet[0].block_id);
+      getResidentUpdate(data.data.ParkingDet[0].flat_id);
       
+     
     } catch (error) {
       console.log('in error',error);
     }
@@ -140,7 +186,7 @@ const Addvehicle = () => {
           <div class="form-group row">
             <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Block</label>
             <div class="col-sm-4 col-md-4 col-lg-4">
-              <select type="text" className="form-control input-lg ALLOT_INP_BORDER" name="community"  id='block_id' onChange={(e) => { getFlats(e); getSections(e) }}>
+              <select type="text" className="form-control input-lg ALLOT_INP_BORDER" name="block_id"  id='block_id' onChange={(e) => { getFlats(e); getSections(e) }}>
                 <option disabled selected value={null}>Select Block</option>
                 {blocks.map((item) => {
                   return (
@@ -153,7 +199,7 @@ const Addvehicle = () => {
           <div class="form-group row">
             <label class="col-lg-2 col-form-label ADN_label">Flat</label>
             <div class="col-lg-4">
-              <select  type="text" className="form-control input-lg ALLOT_INP_BORDER" id='flat_id' name="community" onChange={(e) => getResident(e)}>
+              <select  type="text" className="form-control input-lg ALLOT_INP_BORDER" id='flat_id' name="flat_id" onChange={(e) => getResident(e)}>
                 <option disabled selected value={null}>Select Flat</option>
                 {flats.map((item) => {
                   return (
