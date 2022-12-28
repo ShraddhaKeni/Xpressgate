@@ -31,10 +31,7 @@ const Addnotice = () => {
         if (document.getElementById('attachment').value) {
           formdata.append('attachment', document.getElementById('attachment').files[0]);
         }
-        console.log(document.getElementById('notice_title').value);
-        console.log(document.getElementById('notice_description').value);
-        console.log(localStorage.getItem('community_id'));
-        console.log(date);
+        formdata.append('id', location.state.id);
 
         const { data } = await axios.post(`${window.env_var}api/notices/updateNotice`, formdata);
         console.log(data);

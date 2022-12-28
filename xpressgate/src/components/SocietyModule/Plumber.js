@@ -119,7 +119,7 @@ function navigatetoEdit(id)
         <div>
           <a href="/localservices" className="LOcalSLINK">Local Services</a>
         </div>
-        <div class="noticelist">
+        <div class="lnoticelist">
           <div className="sidebar_classes">
             {services.map(item=>{
               if(item.serviceName===location.state.serviceName)
