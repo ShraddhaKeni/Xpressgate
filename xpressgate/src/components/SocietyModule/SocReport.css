@@ -33,6 +33,7 @@ font-style: normal;
 font-weight: 500;
 line-height: 28px;
 font-size: 1.1vw ;
+color: #14335D;
 }
 .ActSRUPReport{
     margin-top: 5%;
@@ -44,6 +45,7 @@ font-weight: 500;
 line-height: 28px;
 font-size: 1.1vw ;
 text-align: justify;
+color: #14335D;
 }
 .VReportBtn{
     position: absolute;
@@ -108,6 +110,7 @@ color: #000000;
         font-weight: 500;
         line-height: 12px;
         font-size: 1.1vw;
+        color: #14335D;
     }
 
     .ActSRUPReport {
@@ -120,6 +123,7 @@ color: #000000;
         line-height: 12px;
         font-size: 1.1vw;
         text-align: justify;
+        color: #14335D;
     }
     .VReportBtn {
         position: absolute;
