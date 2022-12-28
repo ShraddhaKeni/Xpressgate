@@ -60,9 +60,9 @@ const Vehiclemanagement = () => {
 
   }
 
-function navigatetoEdit(name,section)
+function navigatetoEdit(id)
   {
-    navigate('/addvehicle',{state:{type:'edit',name,section}})
+    navigate('/addvehicle',{state:{id:id,type:'edit'}})
   }
 
   return (
@@ -113,7 +113,7 @@ function navigatetoEdit(name,section)
             {currentPosts.map(item => {
               console.log(item)
               return (
-                <tr onClick={() => navigatetoEdit(item.firstname, item.section )}>
+                <tr onClick={() => navigatetoEdit(item._id)}>
                   <td>{item.firstname} {item.lastname}</td>
                   <td >{item.vehicle_number}</td>
                   <td>{item.vehicle_make}</td>
