@@ -36,6 +36,9 @@ const SelectMode = () => {
    <div className='Welcomepagelables'>
     <label className='welcomelabel'>Welcome to <br/><span className='WLabelSize'>Xpress Gate</span></label>
    </div>
+   <div className='LP_SideImage'>
+  <img src="/images/animation.gif" alt=" Man Riding" className='Sideimagesize'/>
+ </div>
    <div className='modulesboxes'>
     <div className='BOXESMargin' >
     <Button onClick={()=>{setMode('guard')}} className='GuardMod_box'>
@@ -58,10 +61,10 @@ const SelectMode = () => {
       <label className='GM_label'>Super Admin </label>
       </Button>
     </div> </div>
-    <div className='LP_SideImage'>
-  <img src="/images/ManRiding.svg" alt=" Man Riding" className='Sideimagesize'/>
- </div>
- <div className='LP_CSideImage'>
+    {/* <div className='LP_SideImage'>
+  <img src="/images/animation.gif" alt=" Man Riding" className='Sideimagesize'/>
+ </div> */}
+ {/* <div className='LP_CSideImage'>
   <img src="/images/MobileImg.svg" alt=" Man Riding" className='Center_Sideimagesize'/>
  </div>
  <div className='LP_CMAnSideImage'>
@@ -70,7 +73,7 @@ const SelectMode = () => {
  <div className='LP_RSideImage'>
   <img src="/images/womanimg.svg" alt=" Man Riding" className='Right_Sideimagesize'/>
  </div>
-   
+    */}
   </div>
 
     </>

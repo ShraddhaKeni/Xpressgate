@@ -21,7 +21,8 @@ export const AddCoupon = () => {
         type: 1,
         amount: undefined,
         limit: undefined,
-        status: true
+        status: true,
+        description: ""
     })
 
     const [value, setValue] = useState(new Date().toLocaleString());
@@ -92,7 +93,7 @@ export const AddCoupon = () => {
 
 
 
-                    <button type="submit" className="BTN_ADD_premise " >Generate</button>
+                    <button type="submit" className="BTN_ADD_premise "  onClick={(e) => handleSubmit(e)} >Generate</button>
 
                     </Form>
 

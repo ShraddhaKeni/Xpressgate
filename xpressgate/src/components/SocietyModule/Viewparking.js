@@ -40,7 +40,27 @@ const Viewparking = () => {
     const indexoffirst = (indexoflast - postPerPage) //startoffset
     setCurrentPosts(data.data.block_list.slice(indexoffirst,indexoflast))
   }
+  function findText(e) {
+    let search = e.target.value.toLowerCase()
+    let arr = parkingSection.filter(x => {
+      if (x.section.toLowerCase().includes(search)) {
+        return true
+      }
+      else if (x.section.toLowerCase().includes(search)) {
+        return true
+      }
+    })
+    if (arr) {
+      const indexoflast = currentPage * postPerPage  //endoffset
+      const indexoffirst = (indexoflast - postPerPage)
+      setCurrentPosts(arr.slice(indexoffirst, indexoflast))
+    }
+    else {
+      paginate(0)
+    }
 
+  } 
+  
   function parkingSectionDetails(id)
   {
     navigate('/addparking',{state:{id:id,type:'edit'}})
@@ -81,8 +101,7 @@ const Viewparking = () => {
         <div className='row'>
          <div className='VP_searchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-              <input placeholder='Search' id="search_input" onKeyPress={(e) => {
-                  document.getElementById('search_input').style.border = "none"}}></input></span>
+              <input placeholder='Search' id="search_input" onChange={(e) => { findText(e) }}></input></span>
           </div>
         </div>
         <br/>
