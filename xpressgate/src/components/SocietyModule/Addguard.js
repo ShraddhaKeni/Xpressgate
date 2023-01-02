@@ -179,8 +179,8 @@ const Addguard = () => {
           <div class="form-group form-group6 row">
             <label class="col-lg-2 col-form-label ADN_label">Email </label>
             <div class="col-lg-4">
-              {type == 'edit' ? <input type="email" class="form-control input-lg SideB" name="Email" id='email' defaultValue={guard.email} placeholder="Email" /> :
-                <input type="email" class="form-control input-lg input-lg1 SideB" name="Email" id='email' placeholder="Email" />}
+              {type == 'edit' ? <input type="email" class="form-control input-lg SideB" name="Email" id='email' defaultValue={guard.email} placeholder="Email" required /> :
+                <input type="email" class="form-control input-lg input-lg1 SideB" name="Email" id='email' placeholder="Email" required/>}
             </div>
           </div>
           <div class="form-group form-group6 row">
