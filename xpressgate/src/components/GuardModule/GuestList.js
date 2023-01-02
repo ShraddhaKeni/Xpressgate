@@ -51,14 +51,14 @@ const GuestList = () => {
   }
   const dateTimeFormat = (date) => {
     var d = new Date(date)
-    return d.getHours() + ':' + d.getMinutes()
+    return (d.getHours()-5) + ':' + d.getMinutes()
 
   }
 
 
   const dateFormat = (date) => {
     var d = new Date(date)
-    return d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate()
+    return d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate()
 
   }
 
