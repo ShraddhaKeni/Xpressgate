@@ -148,7 +148,7 @@ const EditPremise = () => {
                         <SimpleDropDownComponent items={area} label={'City'} name={'city_id'} id={'city'} selected={premise.city_id} onChange={(e) => { setPremise({ ...premise, city: e.target.value }) }} />
                         <SimpleInputComponent label={'Pincode'} name={'pincode'} type={'number'} id={'pincode'} text={premise.pincode} onChange={(e) => { setPremise({ ...premise, pincode: e.target.value }) }} />
 
-                        <button type="submit" onClick={(e) => handleSubmit(e)} style={{ marginLeft: '18vw' }} className=" BUTN_ADD_premise" >Update Premise</button>
+                        <button type="submit" onClick={(e) => handleSubmit(e)}  className=" BUTN_ADD_premise" >Update Premise</button>
                     </Form>
 
                 </div>

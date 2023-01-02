@@ -80,13 +80,13 @@ html {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  width: 8vw;
+  width: 9vw;
   height: 5vh;
   font-size: 1vw;
   font-family: 'Rubik';
   font-style: normal;
   margin-top: 4%;
-  margin-right: 34%;
+  margin-right: 32%;
   padding: 1%;
   font-weight: 700;
   border: none;
@@ -99,8 +99,8 @@ html {
   margin-top: 3%;
 }
 .Todate{
-  margin-right: 10%;
-  margin-left: -37.5%;
+  margin-right: 8.5%;
+  margin-left: -39%;
   font-size: 1.1vw;
   color: #14335D;
 }
@@ -112,10 +112,10 @@ html {
   border: 2px solid #14335D;
   border-radius: 8px;
   margin-top: 0%;
-  margin-right: 4.5%;
+  margin-right: 6%;
 }
 .Fromdate{
-  margin-right: 4%;
+  margin-right: 5%;
   font-size: 1.1vw;
   color: #14335D;
 }

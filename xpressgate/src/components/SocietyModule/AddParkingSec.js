@@ -111,7 +111,7 @@ const AddParkingSec = () => {
         <div className='AddParksidelinks'>
         <a href='/vehiclemanagement' className='VLSECLink'>Vehicle List</a><br/><br/>
           <a href='/viewparking' className='Viewpsec'>View Parking Section</a><br/><br/>
-          <a href='/addparking' className='Addpsec'><b>Add Parking Section</b></a><br/><br/>
+          <a href='/addparking' className='Addpsec'><b>{type=='edit'? 'Update':'Add'} Parking Section</b></a><br/><br/>
           <a href='/addvehicle' className='apssec'>Assign Parking Section</a>
         </div>
         <div className="AP_sideimg">
@@ -120,7 +120,7 @@ const AddParkingSec = () => {
       </div>
       <div className="addguestbackgroundimg">
         <div className='APdisplay'>
-          <label>Update Parking Section</label>
+          <label>{type=='edit'?'Update':'Add'} Parking Section</label>
         </div>
         <Form className='formclass'> 
           <div className="form-group row">
@@ -142,7 +142,7 @@ const AddParkingSec = () => {
               <input type="text" id="section" class="form-control input-lg ADDParkBor" defaultValue={parkingSection.section?parkingSection.section:''} name="New Parking"  />
             </div>
           </div>
-          <button type="submit" onClick={(e)=>{handleSubmit(e)}} className="AP_Button">{type=='edit'?'Update':'Update'} Parking</button>
+          <button type="submit" onClick={(e)=>{handleSubmit(e)}} className="AP_Button">{type=='edit'?'Update':'Add'} Parking</button>
         </Form>
       </div>
     </div>

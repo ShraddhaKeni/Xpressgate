@@ -99,8 +99,8 @@ const Ticket = () => {
             </div>
             <br></br>
             <div><label className='tktailabels'>Attached images</label></div>
-            <br></br>
-            <br />
+           
+            <br /> 
             <div className='tktmsgbox'>
              {location.state ? <input type="text" id="message" defaultValue={msg} name="Phone Number" className="tktmsgs" placeholder="Message"></input> : <input type='text' id="message" className='tktmsgs' placeholder='Message'></input>}
               {/* <input type='text' id="message" ref={ticketreply} className='tktmsgs' placeholder='Message'>{location.state.ticketreply}</input> */}
