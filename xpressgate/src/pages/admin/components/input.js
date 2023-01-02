@@ -13,13 +13,13 @@ export const SimpleInputComponent = ({ name, id, label, onChange, type = 'text',
                  {" "}
                 {label}
             </label>
-            <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="col-lg-5 col-md-2 col-sm-2">
                 {(type == 'text' || type == 'number') && <TextField
                     type={type}
                     name={name}
                     placeholder={placeholder}
                     onChange={(e) => { onChange(e); setValue(e.target.value) }}
-                    sx={{ background: 'white', "& .MuiOutlinedInput-root": { "& > fieldset": { border: '2px solid #14335D', borderRadius: '8px', height: '5vh' } } }}
+                    sx={{ background: 'white', "& .MuiOutlinedInput-root": { "& > fieldset": { border: '2px solid #14335D', borderRadius: '8px', padding: '3%', height: '2vh' } } }}
                     value={t || text}
                     id={id}
                     fullWidth
@@ -67,7 +67,7 @@ export const SimpleDropDownComponent = ({ name, id, label, onChange, items = [],
     return (
         <div class="form-group row">
             <label for="inputentryno" class="col-lg-4 col-form-label float-left GForm_label" >{label}</label>
-            <div class="col-sm-4 col-md-4 col-lg-4">
+            <div class="col-sm-2 col-md-2 col-lg-5">
                 <select type="text" class="form-control form-input-bg" name={name} id={id} onChange={onChange}>
                     <option disabled selected value={null}>Select {label}</option>
                     {items.map((item) => {

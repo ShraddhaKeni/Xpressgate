@@ -219,11 +219,12 @@ font-weight: 500;
 .card-titlename {
   font-size: 18px;
   font-family: 'Rubik', sans-serif;
-  color: #000;
+  color: #14335D;
   font-weight: 600;
   text-align: left;
   padding-top: 5%;
   position: relative;
+  cursor: pointer;
 }
 
 .card-profession {
@@ -324,9 +325,10 @@ color: #14335D;
   .card-titlename {
     font-size: 18px;
     font-family: 'Rubik', sans-serif;
-    color: #000;
+    color: #14335D;
     font-weight: 600;
     text-align: left;
+    cursor: pointer;
   }
   
   .card-profession {

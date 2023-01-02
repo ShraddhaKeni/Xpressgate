@@ -56,7 +56,7 @@ const EditVideo = () => {
 
   return (
     <>
-
+   <img src='/images/side_bar_img.svg' className='ADDVideo_side_Img' />
       <div >
         <div className="page-label">
           <label>Edit Video</label>
