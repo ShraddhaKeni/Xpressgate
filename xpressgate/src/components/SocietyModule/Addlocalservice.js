@@ -121,13 +121,13 @@ const Addlocalservice = () => {
         </div>
         <div className='AddLSsidelinks'>
           <a className='LSsidelinks' href="/localservices">Local Service</a><br></br><br></br>
-          <a className='ALSsidelinks' href="/addlocalservice"><b>Add Local Services</b></a>
+          <a className='ALSsidelinks' href="/addlocalservice"><b>{type=='edit'?'Update':'Add'} Local Services</b></a>
         </div>
         <div className='alssideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
       <div className='alsbackgroundimg'>
         <div className='alsdisplay'>
-          <label>Add Local Service</label>
+          <label>{type=='edit'?'Update':'Add'} Local Service</label>
         </div>
         <Form className='formclass'>
         <div class="form-group row">
@@ -153,7 +153,7 @@ const Addlocalservice = () => {
               <input type="text" class="form-control input-lg inputborder" id='contact_no' name="contact_no" placeholder="Contact No." maxLength="10" defaultValue={vendorData.contact?vendorData.contact:''}></input>
             </div>
           </div>
-          <button type="submit" onClick={(e) => { handleSubmit(e) }} className="btnAddV" on>Add Vendor</button>
+          <button type="submit" onClick={(e) => { handleSubmit(e) }} className="btnAddV" on>{type=='edit'?'Update':'Add'} Vendor</button>
         </Form>
       </div>
     </div>

@@ -23,6 +23,7 @@ const SelectMode = () => {
   return (
     <>
     <div className='Page_Container'>
+      <img src='/images/Ellipse.svg' alt='Ellipse' className='ellipseimg'></img>
     <div className='page_header'>
     <div id="PageLogo"><img src="/images/loginlogo.svg" alt="header logo" className='Pagelogoimg' /></div>
     <div className='pagelabels'>
@@ -31,9 +32,13 @@ const SelectMode = () => {
     </div>
     <div className='UserSuplogo'><img src="/images/supportimg.svg" alt="User Support logo" className='supportlogoimg'></img> </div>
     </div>
+    <img src='/images/landingBg.svg' alt='background' className='LBackGimg'></img>
    <div className='Welcomepagelables'>
     <label className='welcomelabel'>Welcome to <br/><span className='WLabelSize'>Xpress Gate</span></label>
    </div>
+   <div className='LP_SideImage'>
+  <img src="/images/animation.gif" alt=" Man Riding" className='Sideimagesize'/>
+ </div>
    <div className='modulesboxes'>
     <div className='BOXESMargin' >
     <Button onClick={()=>{setMode('guard')}} className='GuardMod_box'>
@@ -55,11 +60,11 @@ const SelectMode = () => {
       <br/>
       <label className='GM_label'>Super Admin </label>
       </Button>
-    </div>
-    <div className='LP_SideImage'>
-  <img src="/images/ManRiding.svg" alt=" Man Riding" className='Sideimagesize'/>
- </div>
- <div className='LP_CSideImage'>
+    </div> </div>
+    {/* <div className='LP_SideImage'>
+  <img src="/images/animation.gif" alt=" Man Riding" className='Sideimagesize'/>
+ </div> */}
+ {/* <div className='LP_CSideImage'>
   <img src="/images/MobileImg.svg" alt=" Man Riding" className='Center_Sideimagesize'/>
  </div>
  <div className='LP_CMAnSideImage'>
@@ -68,7 +73,7 @@ const SelectMode = () => {
  <div className='LP_RSideImage'>
   <img src="/images/womanimg.svg" alt=" Man Riding" className='Right_Sideimagesize'/>
  </div>
-   </div>
+    */}
   </div>
 
     </>

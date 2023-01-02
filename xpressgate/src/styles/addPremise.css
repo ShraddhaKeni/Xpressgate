@@ -182,9 +182,10 @@ border-radius: 9px;
     font-family: 'Rubik';
 font-style: normal;
 font-weight: 700;
-    margin-top: 4%;
+    margin-top: 2%;
     margin-right: -9%;
     border: none;
+    margin-bottom: 4%;
   }
   .BTN_ADD_premise:hover{
 color: #F9FAFF;
@@ -203,8 +204,9 @@ border-radius: 9px;
 font-style: normal;
 font-weight: 700;
     margin-top: 4%;
-    margin-right: 38%;
+    margin-right: -8%;
     border: none;
+   
   }
   .BUTN_ADD_premise:hover{
 color: #F9FAFF;

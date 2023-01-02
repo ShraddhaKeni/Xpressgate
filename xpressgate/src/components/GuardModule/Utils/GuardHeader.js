@@ -24,12 +24,16 @@ const GuardHeader = () => {
       <div id="sdashboardguard"><label>Guard</label></div>
       <div id="sdashboardspace"></div>
       <div id="sdashboardnotification"><a href="abc"><img className='bell_icon' src="/images/notification.svg" alt="notificationicon" /></a></div>
-      <div id="sdashboardsetting"><img src="/images/setting.svg" className='cog_wheel' id="imgDropdown" alt="settingicon" onClick={() => handleclick()} /></div>
+      <div id="sdashboardsetting" className='cog_menu'>
+      <img src="/images/setting.svg" className='cog_wheel' id="imgDropdown" alt="settingicon" onClick={() => handleclick()} />
+      <div className='menu'>
+       <a href="/changeguardpass">Change Password</a>
+       <a href="/editguarddetails">Update Guard</a>
+    
+      </div>
+      </div>
 
-      <ul id="menu">
-        <li><a href="/changeguardpass">Change Password</a></li>
-        <li><a href="/editguarddetails">Update Guard</a></li>
-      </ul>
+     
       <div id="sdashboardlogoutbutton"><LogOut /></div>
     </div>
   )

@@ -149,7 +149,7 @@ const Addmanagementteam = () => {
         </div>
         <div class="MM_notice">
           <a href="/management" class="AMt_Link">Management Team</a><br></br><br />
-          <a href="/addManagement" class="Amm_Link"><b>Add Management Member</b></a>
+          <a href="/addManagement" class="Amm_Link"><b>{type=='edit'?'Update':'Add'} Management Member</b></a>
         </div>
         <div className="AMTSideIMG">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
@@ -157,7 +157,7 @@ const Addmanagementteam = () => {
       </div>
       <div className="addguestbackgroundimg">
         <div className="AMM_display">
-          <label>Add Management Team</label>
+          <label>{type=='edit'?'Update':'Add'} Management Team</label>
         </div>
         <Form className="formclass">
           {/* <div class="form-group form-group5 row">
@@ -208,19 +208,18 @@ const Addmanagementteam = () => {
           <div className="AMM_form">
             <div className="inboxes">
               <span>
-                <label for="ToDate" class="Todate">To</label>
+                <label for="ToDate" class="Todate">From</label>
                 <input type="date" id="ToDate" className="Todateinput" name="date" placeholder="Date" min={disablePastDate()}></input> 
               </span>
               <span>
-                <label for="ForDate" class="Fromdate">From</label>
+                <label for="ForDate" class="Fromdate">To</label>
                 <input type="date" id="ForDate" className="Fromdateinput" min={disablePastDate()}></input>
               </span>
 
             </div>
           </div>
 
-          <button type="submit" onClick={(e) => handleSubmit(e)} className="AMM_Add_btn">
-            Add Number
+          <button type="submit" onClick={(e) => handleSubmit(e)} className="AMM_Add_btn">{type=='edit'?'Update':'Add'} Number
           </button>
         </Form>
       </div>

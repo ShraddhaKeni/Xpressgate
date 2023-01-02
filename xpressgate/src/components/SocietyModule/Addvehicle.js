@@ -172,7 +172,7 @@ const Addvehicle = () => {
       <a href='/vehiclemanagement' className='ALLOT_VL'>Vehicle List</a><br/><br/>
         <a href='/viewparking' className='ALLOT_VPS'>View Parking Section</a><br/><br/>
         <a href='/addparking' className='ALLOT_APS'>Add Parking Section</a><br/><br/>
-        <a href='/addvehicle' className='ALLOT_ASPS'><b>Assign Parking Section</b></a>
+        <a href='/addvehicle' className='ALLOT_ASPS'><b>{type=='edit'?'Update':'Assign'} Parking Section</b></a>
       </div>
       <div className="AP_sideimg">
         <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
@@ -180,7 +180,7 @@ const Addvehicle = () => {
     </div>
     <div className="addguestbackgroundimg">
       <div className='APdisplay'>
-        <label>Allot vehicle</label>
+        <label>{type=='edit'?'Update':'Allot'} vehicle</label>
       </div>
         <Form className='formclass'>
           <div class="form-group row">
@@ -241,7 +241,7 @@ const Addvehicle = () => {
               </select>
             </div>
           </div>
-          <button type="submit" onClick={(e) => handleSubmit(e)} className="BTNADDVeh">Allot Parking</button>
+          <button type="submit" onClick={(e) => handleSubmit(e)} className="BTNADDVeh">{type=='edit'?'Update':'Allot'} Parking</button>
         </Form>
 
       </div>

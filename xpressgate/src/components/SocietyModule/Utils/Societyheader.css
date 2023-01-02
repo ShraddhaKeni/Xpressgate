@@ -83,10 +83,9 @@ font-weight: 500;
 }
 
 
-
-.cog_wheel{
+/* .cog_wheel{
   transition: .5s ease all;
-}
+} */
 
 
 .cog_wheel:hover

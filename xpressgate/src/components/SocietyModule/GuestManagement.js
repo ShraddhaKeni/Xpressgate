@@ -35,7 +35,10 @@ const GuestManagement = () => {
     setCurrentPosts(guests.slice(indexoffirst,indexoflast))
   }
 
-
+  // function getDate(value) {
+  //   let date = new Date(value)
+  //   return date.getDay() + '/' + date.getMonth() + '/' + date.getFullYear()
+  // }
 
   function findText(e)
   {
@@ -102,7 +105,7 @@ const GuestManagement = () => {
                 <tr>
                   <td>{item.guestFirstName} {item.guestLastName}</td>
                   <td >{item.flat_number}</td>
-                  <td>09-9-2022</td>
+                  <td>9/09/2022</td>
                   <td>2232</td>
               </tr>
               )
