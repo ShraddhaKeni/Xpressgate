@@ -40,8 +40,9 @@ const Noticelist = () => {
   }
 
   function getDate(value) {
-    let date = new Date(value)
-    return date.getDay() + '/' + date.getMonth() + '/' + date.getFullYear()
+    let ntime = value.split('T');
+    let date = new Date(ntime[0]);
+    return date.getDate() + '/' + (1+date.getMonth()) + '/' + date.getFullYear()
   }
 
   function findText(e)
