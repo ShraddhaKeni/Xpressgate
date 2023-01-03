@@ -48,12 +48,17 @@ const Amenitylist = () => {
   const  dateTimeFormat=(date)=>
   {
     var d = new Date(date)
-    return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()
+    return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()
   }
 
-  const getTime=(date)=>{
-    var d = new Date(date)
-    return d.getHours()+':'+d.getMinutes()
+  const getTime=(time)=>{
+    // var d = new Date(date)
+    // return d.getHours()+':'+d.getMinutes()
+    //console.log(date)
+     let ntime = time.split('T');
+     let titime = ntime[1].split('.');
+     //console.log(titime[0])
+     return titime[0]
   }
   const navigateToApprove=(id)=>{
     navigate('/approvallistamenity',{state:{id:id}})
@@ -127,7 +132,7 @@ const Amenitylist = () => {
                   <td>{item.firstname} {item.lastname}</td>
                   <td>{item.aminety}</td>
                   <td>{dateTimeFormat(item.date)}</td>
-                  <td>{getTime(item.date)}</td>
+                  <td>{getTime(item.time)}</td>
                   <td>{item.status==true?'Approved':'Unapproved'}</td>
               </tr>
               )

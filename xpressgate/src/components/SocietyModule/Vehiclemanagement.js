@@ -113,7 +113,7 @@ function navigatetoEdit(id)
             {currentPosts.map(item => {
               console.log(item)
               return (
-                <tr onClick={() => navigatetoEdit(item._id)}>
+                <tr onClick={() => navigatetoEdit(item._id,item.vehicle_number)}>
                   <td>{item.firstname} {item.lastname}</td>
                   <td >{item.vehicle_number}</td>
                   <td>{item.vehicle_make}</td>
