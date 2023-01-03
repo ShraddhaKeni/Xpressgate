@@ -108,7 +108,7 @@ const Dailyhelplist = () => {
                   
                   <div className="col" onClick={()=>routeChange(dailydata._id)}>
                     <div className="dailyhelpminicard"><br></br>
-                      <img className="dhcard-img-top" src={`${window.env_var}` +dailydata.helper_image} alt="profile"></img><br></br>
+                      <img className="dhcard-img-top" src={`${window.env_var}` + dailydata.helper_image} alt="profile"></img><br></br>
                       <label className='dhlcard-titlename'>{dailydata.helper_name}</label><br></br>
                       <label className='dhlcard-profession'>{dailydata.service}</label><br></br><br></br>
                       <label className='dhcard-allowedhouses'>Allowed in {dailydata.booking_id.length} Houses</label><br></br>
@@ -120,7 +120,7 @@ const Dailyhelplist = () => {
           </div>
           
         </div>
-        <div style={{marginTop:'1.5%'}}>
+        <div style={{marginTop:'0.5%'}}>
 
           <PaginationCalculate totalPages={dailyhelpdata.filter(x=>x.booking_id.length!=0).length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
         </div>
