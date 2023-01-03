@@ -21,7 +21,7 @@ const Addguard = () => {
     try {
 
       if (type == 'edit') {
-        if (await mobileValidation(document.getElementById('phone').value)) {
+        if (await mobileValidation(document.getElementById('phone').value) && emailValidation(document.getElementById('email').value)) {
           let formdata = new FormData()
           formdata.append('community_id', localStorage.getItem('community_id'))
           formdata.append('firstname', document.getElementById('firstname').value)
@@ -38,12 +38,12 @@ const Addguard = () => {
 
           window.location.href = '/guardList'
         } else {
-          alert('Enter valid mobile number')
+          alert('Enter valid mobile number/ Email Id')
         }
       }
       else {
         
-        if (await mobileValidation(document.getElementById('phone').value)) {
+        if (await mobileValidation(document.getElementById('phone').value) && emailValidation(document.getElementById('email').value)) {
           let formdata = new FormData()
           formdata.append('community_id', localStorage.getItem('community_id'))
           formdata.append('firstname', document.getElementById('firstname').value)
@@ -57,52 +57,7 @@ const Addguard = () => {
           console.log('hi')
           window.location.href = '/guardList'
         } else {
-          alert('Enter valid mobile number')
-        }
-      }
-    } catch (error) {
-      console.log(error)
-    }
-    try {
-
-      if (type == 'edit') {
-        if (await emailValidation(document.getElementById('email').value)) {
-          let formdata = new FormData()
-          formdata.append('community_id', localStorage.getItem('community_id'))
-          formdata.append('firstname', document.getElementById('firstname').value)
-          formdata.append('lastname', document.getElementById('lastname').value)
-          formdata.append('username', document.getElementById('username').value)
-          formdata.append('mobileno', document.getElementById('phone').value)
-          formdata.append('email', document.getElementById('email').value)
-          formdata.append('guard_id', location.state.id)
-          if (document.getElementById('profilePic').value) {
-            formdata.append('profile_pic', document.getElementById('profilePic').files[0])
-          }
-
-          const { data } = await axios.post(`${window.env_var}api/guard/update`, formdata)
-
-          window.location.href = '/guardList'
-        } else {
-          alert('Enter valid Email id')
-        }
-      }
-      else {
-        
-        if (await emailValidation(document.getElementById('email').value)) {
-          let formdata = new FormData()
-          formdata.append('community_id', localStorage.getItem('community_id'))
-          formdata.append('firstname', document.getElementById('firstname').value)
-          formdata.append('lastname', document.getElementById('lastname').value)
-          formdata.append('username', document.getElementById('username').value)
-          formdata.append('password', document.getElementById('password').value)
-          formdata.append('mobileno', document.getElementById('phone').value)
-          formdata.append('email', document.getElementById('email').value)
-          formdata.append('profile_pic', document.getElementById('profilePic').files[0])
-          const { data } = await axios.post(`${window.env_var}api/guard/add`, formdata)
-          console.log('hi')
-          window.location.href = '/guardList'
-        } else {
-          alert('Enter valid Email id')
+          alert('Enter valid mobile number/Email id')
         }
       }
     } catch (error) {
