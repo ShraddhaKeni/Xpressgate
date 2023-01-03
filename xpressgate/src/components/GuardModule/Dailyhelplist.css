@@ -168,7 +168,7 @@ font-weight: 500;
   border: none;
   background-color: #0A8996;
   width: 14.5vw;
-  height: 20vh;
+  height: 25vh;
   border-radius: 20px;
 }
 
@@ -208,10 +208,10 @@ margin-top: -5%;
 }
 
 .dhfullcardscss {
-  margin-top: 4%;
+  margin-top: 2%;
   padding-left: 0%;
   padding-right: 16%;
-  margin-left: 5%;
+  margin-left: 2%;
 }
 
 .dailyhelpminicard:hover {

@@ -120,7 +120,7 @@ const Dailyhelplist = () => {
           </div>
           
         </div>
-        <div style={{marginTop:'1.5%'}}>
+        <div style={{marginTop:'0.5%'}}>
 
           <PaginationCalculate totalPages={dailyhelpdata.filter(x=>x.booking_id.length!=0).length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
         </div>
