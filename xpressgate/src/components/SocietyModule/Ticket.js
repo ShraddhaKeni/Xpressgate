@@ -12,6 +12,7 @@ const Ticket = () => {
   const [lastname, setLname] = useState()
   const [msg, setMsg] = useState()
   const ticketreply = useRef([])
+  const [imageList,setimageList] = useState([])
 
   useEffect(() => {
     if (location.state) {
@@ -28,6 +29,8 @@ const Ticket = () => {
       setTicket(data.data.tickets[0])
       setFname(data.data.tickets[0].ticketRaisedBy.firstname)
       setLname(data.data.tickets[0].ticketRaisedBy.lastname)
+      //console.log(data.data.tickets[0].ticket_pics.split(','));
+      setimageList(data.data.tickets[0].ticket_pics.split(','));
       //console.log(data.data.tickets[0].ticket_reply)
       setMsg(location.state.ticketreply)
     } catch (error) {
@@ -99,6 +102,17 @@ const Ticket = () => {
             </div>
             <br></br>
             <div><label className='tktailabels'>Attached images</label></div>
+            <div>
+              {imageList.map((items,index)=>{
+                if(items == '')
+                {}
+                else{
+                return(
+                  <img src={`${window.env_var}` + items} alt='Ticket issue image' width="100px" height="100px"></img>
+                )
+                }
+              })}
+            </div>
            
             <br /> 
             <div className='tktmsgbox'>
