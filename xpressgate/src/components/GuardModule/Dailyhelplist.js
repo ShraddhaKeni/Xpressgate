@@ -76,8 +76,8 @@ const Dailyhelplist = () => {
 
   const navigate = useNavigate();
 
-  const routeChange = (id)=>{
-    navigate('/dailyservice',{state:{id:id}})
+  const routeChange = (id,image)=>{
+    navigate('/dailyservice',{state:{id:id, image}})
   }
 
   // if(currentPosts!==0)
@@ -106,9 +106,9 @@ const Dailyhelplist = () => {
              
                 return (
                   
-                  <div className="col" onClick={()=>routeChange(dailydata._id)}>
+                  <div className="col" onClick={()=>routeChange(dailydata._id,dailydata.helper_image)}>
                     <div className="dailyhelpminicard"><br></br>
-                      <img className="dhcard-img-top" src={`${window.env_var}` +dailydata.helper_image} alt="profile"></img><br></br>
+                      <img className="dhcard-img-top" src={`${window.env_var}` + dailydata.helper_image} alt="profile"></img><br></br>
                       <label className='dhlcard-titlename'>{dailydata.helper_name}</label><br></br>
                       <label className='dhlcard-profession'>{dailydata.service}</label><br></br><br></br>
                       <label className='dhcard-allowedhouses'>Allowed in {dailydata.booking_id.length} Houses</label><br></br>
@@ -120,7 +120,7 @@ const Dailyhelplist = () => {
           </div>
           
         </div>
-        <div style={{marginTop:'1.5%'}}>
+        <div style={{marginTop:'0.5%'}}>
 
           <PaginationCalculate totalPages={dailyhelpdata.filter(x=>x.booking_id.length!=0).length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
         </div>

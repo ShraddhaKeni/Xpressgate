@@ -28,6 +28,7 @@ const Login = () => {
         localStorage.clear()
         localStorage.setItem('accesstoken',data.data.accessToken)
         localStorage.setItem('community_id',data.data.community_id)
+        localStorage.setItem('name',data.data.firstname+' '+data.data.lastname)
         localStorage.setItem('guard_id',data.data.id)
         localStorage.setItem('mode','guard')  
         window.location.href='/dashboard'
