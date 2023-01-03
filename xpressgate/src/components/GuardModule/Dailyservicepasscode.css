@@ -185,6 +185,7 @@ color: #14335D;
 .profileimage img{
   padding-top: 5%;
   width: 50%;
+  border-radius: 55%;
 }
 
 .flatclass {

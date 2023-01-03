@@ -147,7 +147,7 @@ const navigate = useNavigate()
         <div className="col-sm-6 col-md-6 col-lg-6">
           <div className="dailycard">
             <br></br>
-            <div className='profileimage'><img src="/images/dailyservicepasscodeimage.svg" alt="profile" /></div>
+            <div className='profileimage'><img src={`${window.env_var}` +location.state.image} alt="profile" /></div>
             <br></br>
             {props ? <label className="dailyhelpnamelabel">{staff.staffName}</label> : <label className="dailyhelpnamelabel">{details.helper_name}</label>}
             <br />
