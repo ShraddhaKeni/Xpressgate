@@ -36,7 +36,7 @@ export const getResidents=async()=>{
 
 export const getGuestList=async()=>{
     try {
-        const {data}= await axios.post(`${window.env_var}api/guard/getallguest`,{community_id:localStorage.getItem('community_id')})
+        const {data}= await axios.post(`${window.env_var}api/guard/getallguestSC`,{community_id:localStorage.getItem('community_id')})
         return (data.data.guests_list)
     } catch (error) {
         console.log(error)

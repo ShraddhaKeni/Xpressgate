@@ -7,6 +7,8 @@ import LogOut from './Utils/LogOut'
 
 const Flatapprovallist = () => {
   const [flat,setFlat] = useState({})
+  const [family,setFamily] = useState({})
+  const [vehicle,setVehicle] = useState({})
 const location = useLocation()
 const navigate = useNavigate()
 
@@ -14,6 +16,8 @@ useEffect(()=>{
   if(location.state)
   {
     getFlatDetails()
+    setFamily(location.state.family)
+    setVehicle(location.state.vehicle)
   }
   else
   {
@@ -83,8 +87,8 @@ const approveFlat=async(id)=>{
             <div><label className='falallowedclass'>Other Details</label></div>
 
             <div className='detailsclass'>
-              <div><label className='date text-right'>No of Family Members: {flat.family} </label></div>
-              <div><label className='intime'>No of Vehicle: {flat.vehical}</label></div>
+              <div><label className='date text-right'>No of Family Members: {location.state.family} </label></div>
+              <div><label className='intime'>No of Vehicle: {location.state.vehicle}</label></div>
             </div>
             <br></br>
             <button type="button" onClick={()=>approveFlat(flat._id)} className="FABtnApprove">APPROVE</button>
