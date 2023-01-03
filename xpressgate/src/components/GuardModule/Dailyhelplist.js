@@ -76,8 +76,8 @@ const Dailyhelplist = () => {
 
   const navigate = useNavigate();
 
-  const routeChange = (id)=>{
-    navigate('/dailyservice',{state:{id:id}})
+  const routeChange = (id,image)=>{
+    navigate('/dailyservice',{state:{id:id, image}})
   }
 
   // if(currentPosts!==0)
@@ -106,7 +106,7 @@ const Dailyhelplist = () => {
              
                 return (
                   
-                  <div className="col" onClick={()=>routeChange(dailydata._id)}>
+                  <div className="col" onClick={()=>routeChange(dailydata._id,dailydata.helper_image)}>
                     <div className="dailyhelpminicard"><br></br>
                       <img className="dhcard-img-top" src={`${window.env_var}` + dailydata.helper_image} alt="profile"></img><br></br>
                       <label className='dhlcard-titlename'>{dailydata.helper_name}</label><br></br>

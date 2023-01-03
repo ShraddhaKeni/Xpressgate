@@ -19,7 +19,7 @@ const Addvehicle = () => {
   const [section, setSection] = useState()
   const [type, setType] = useState()
   const location = useLocation()
-
+  const [resid, setResid] = useState()
 
   useEffect(() => {
     getBlocks();
@@ -83,12 +83,14 @@ const Addvehicle = () => {
   const getResident = async (e) => {
     try {
       const { data } = await axios.get(`${window.env_var}api/flats/single/${e.target.value}`)
-      console.log(data)
+      
       setResident(data.data.list[0])
       document.getElementById('resident_name').value = data.data.list[0].firstname + ' ' + data.data.list[0].lastname
-
       const vehicle = await axios.get(`${window.env_var}api/resident/vehicle/getResidentVehicle/${data.data.list[0].resident_id}`)
+      //console.log(data.data.list[0].resident_id)
+      setResid(data.data.list[0].resident_id)
       setVehicles(vehicle.data.data.vehical)
+      console.log(vehicle.data.data.vehical)
     } catch (error) {
       console.log(error)
     }
@@ -116,7 +118,7 @@ const Addvehicle = () => {
         const sendData = {
           id:location.state.id,
           section_id: document.getElementById('section').value,
-          resident_id: resident.resident_id,
+          resident_id: resid,
           flat_id: document.getElementById('flat_id').value,
           vehicle_id: document.getElementById('vehicle_id').value
         }
@@ -125,19 +127,22 @@ const Addvehicle = () => {
         window.location.href = '/vehiclemanagement'
       }
       else{
+        
         const sendData = {
           section_id: document.getElementById('section').value,
-          resident_id: resident.resident_id,
+          resident_id: resid,
           flat_id: document.getElementById('flat_id').value,
           vehicle_id: document.getElementById('vehicle_id').value
         }
         const data = await axios.post(`${window.env_var}api/assigns/post`, sendData)
+        console.log(data)
         console.log(sendData)
         window.location.href = '/vehiclemanagement'
       }
     } catch (error) {
-      //console.log(resident)
-      alert("Parking is already assigned")
+      console.log(error)
+      //alert("Parking is already assigned")
+
     }
   }
 

@@ -35,10 +35,12 @@ const GuestManagement = () => {
     setCurrentPosts(guests.slice(indexoffirst,indexoflast))
   }
 
-  // function getDate(value) {
-  //   let date = new Date(value)
-  //   return date.getDay() + '/' + date.getMonth() + '/' + date.getFullYear()
-  // }
+
+  const  dateTimeFormat=(date)=>
+  {
+    var d = new Date(date)
+    return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()
+  }
 
   function findText(e)
   {
@@ -100,12 +102,12 @@ const GuestManagement = () => {
           </thead>
           <tbody>
             {currentPosts.map(item=>{
-              
+              console.log(item)
               return(
                 <tr>
                   <td>{item.guestFirstName} {item.guestLastName}</td>
                   <td >{item.flat_number}</td>
-                  <td>9/09/2022</td>
+                  <td>{dateTimeFormat(item.time)}</td>
                   <td>2232</td>
               </tr>
               )

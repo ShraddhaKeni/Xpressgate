@@ -43,7 +43,7 @@ const Ticketlist = () => {
   const  dateTimeFormat=(date)=>
   {
     var d = new Date(date)
-    return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()
+    return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()
     
   }
 
