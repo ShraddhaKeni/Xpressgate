@@ -49,16 +49,21 @@ const GuestList = () => {
       console.log(error)
     }
   }
-  const dateTimeFormat = (date) => {
-    var d = new Date(date)
-    return (d.getHours()-5) + ':' + d.getMinutes()
+  const dateTimeFormat = (time) => {
+    // var d = new Date(date)
+    // return (d.getHours()-5) + ':' + d.getMinutes()
+    //console.log(time) //2022-11-24 T 12:09:03.184 Z
+    let ntime = time.split('T');
+    let titime = ntime[1].split('.');
+    console.log(titime[0])
+    return titime[0]
 
   }
 
 
   const dateFormat = (date) => {
     var d = new Date(date)
-    return d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate()
+    return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate()
 
   }
 
