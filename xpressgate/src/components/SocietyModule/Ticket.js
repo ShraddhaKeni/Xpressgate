@@ -108,7 +108,7 @@ const Ticket = () => {
                 {}
                 else{
                 return(
-                  <img src={`${window.env_var}` + items} alt='Ticket issue image' width="100px" height="100px"></img>
+                  <img src={`${window.env_var}` + items} alt='Ticket issue image' width="100px" height="100px" className='AttacHedImg'></img>
                 )
                 }
               })}

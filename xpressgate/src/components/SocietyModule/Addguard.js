@@ -7,7 +7,7 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { checkSociety } from '../auth/Auth'
 import { useNavigate } from 'react-router-dom';
-import { mobileValidation } from '../auth/validation';
+import { mobileValidation, emailValidation } from '../auth/validation';
 
 const Addguard = () => {
   const [guard, setGuard] = useState({})
@@ -66,7 +66,7 @@ const Addguard = () => {
     try {
 
       if (type == 'edit') {
-        if (await mobileValidation(document.getElementById('email').value)) {
+        if (await emailValidation(document.getElementById('email').value)) {
           let formdata = new FormData()
           formdata.append('community_id', localStorage.getItem('community_id'))
           formdata.append('firstname', document.getElementById('firstname').value)
@@ -88,7 +88,7 @@ const Addguard = () => {
       }
       else {
         
-        if (await mobileValidation(document.getElementById('email').value)) {
+        if (await emailValidation(document.getElementById('email').value)) {
           let formdata = new FormData()
           formdata.append('community_id', localStorage.getItem('community_id'))
           formdata.append('firstname', document.getElementById('firstname').value)
@@ -171,7 +171,7 @@ const Addguard = () => {
 
         <div className='GLsidelinks'>
           <a className='noticegll' href="/guardlist">Guard list</a><br></br><br></br>
-          <a className='aggnotice' onClick={() => navigate('/addGuard')}><b>  Add Guard</b></a>
+          <a className='aggnotice' onClick={() => navigate('/addGuard')}><b>{type == 'edit' ? 'Update Guard' : 'Add Guard'}</b></a>
         </div>
         <div className="AGSideimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
@@ -224,8 +224,8 @@ const Addguard = () => {
           <div class="form-group form-group6 row">
             <label class="col-lg-2 col-form-label ADN_label">Email </label>
             <div class="col-lg-4">
-              {type == 'edit' ? <input type="email" class="form-control input-lg SideB" name="Email" id='email' defaultValue={guard.email} placeholder="Email" required /> :
-                <input type="email" class="form-control input-lg input-lg1 SideB" name="Email" id='email' placeholder="Email" required/>}
+              {type == 'edit' ? <input type="email" class="form-control input-lg SideB" name="Email" id='email' defaultValue={guard.email} placeholder="Email" /> :
+                <input type="email" class="form-control input-lg input-lg1 SideB" name="Email" id='email' placeholder="Email" />}
             </div>
           </div>
           <div class="form-group form-group6 row">

@@ -1,3 +1,4 @@
+import { Email } from "@mui/icons-material";
 import validator from "validator";
 
 
@@ -57,3 +58,18 @@ export const passcodeValidation = async (passcode) => {
         console.log(error)
     }
 }
+
+export const emailValidation = (values ) => {
+   
+    try {
+        const regEx = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        if (regEx.test(values)) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+

@@ -182,12 +182,11 @@ color: #14335D;
   color: #fff;
 }
 
-.profileimage img{
-  padding-top: 5%;
+.profileimage img {
   width: 50%;
+  height: auto;
   border-radius: 55%;
 }
-
 .flatclass {
   display: block;
   background-color: #fff;
