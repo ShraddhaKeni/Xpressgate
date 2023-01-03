@@ -8,11 +8,13 @@ import axios from 'axios';
 
 const Approvallistamenity = () => {
   const [booking,setBooking] = useState({})
+  const [time,setTime] = useState({})
   const location = useLocation()
   useEffect(()=>{
     if(location.state)
     {
       getBookedEmenity(location.state.id)
+      setTime(location.state.time)
     }
     else
     {
@@ -24,7 +26,7 @@ const Approvallistamenity = () => {
     try {
       const {data} = await axios.get(`${window.env_var}api/resident/booking/getSingle/${id}`);
       setBooking(data.data.amenities[0])
-      
+      //console.log(booking)
     } catch (error) {
       console.log(error)
     }
@@ -33,13 +35,18 @@ const Approvallistamenity = () => {
   const  dateTimeFormat=(date)=>
   {
     var d = new Date(date)
-    return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()
+    return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()
     
   }
 
-  const getTime=(date)=>{
-    var d = new Date(date)
-    return d.getHours()+':'+d.getMinutes()
+  const getTime=(time)=>{
+    console.log(time)
+    // var d = new Date(date)
+    // return d.getHours()+':'+d.getMinutes()
+       let ntime = time.split('T');
+       let titime = ntime[1].split('.');
+      
+       return titime[0]
     
   }
 
@@ -97,7 +104,7 @@ const Approvallistamenity = () => {
             <div><label className='alalabels'>{booking.aminety}</label></div>
             <div className='alaclass'>
               <div><label className='aladate'>Date:{dateTimeFormat(booking.date)}</label></div>
-              <div><label className='alatime'>Time: {getTime(booking.time)}</label></div>
+              <div><label className='alatime'>Time: {getTime(location.state.time)}</label></div>
             </div>
             <br></br>
             <br></br>

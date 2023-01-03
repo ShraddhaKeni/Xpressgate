@@ -60,8 +60,8 @@ const Amenitylist = () => {
      //console.log(titime[0])
      return titime[0]
   }
-  const navigateToApprove=(id)=>{
-    navigate('/approvallistamenity',{state:{id:id}})
+  const navigateToApprove=(id,time)=>{
+    navigate('/approvallistamenity',{state:{id:id,time}})
   }
 
   function findText(e)
@@ -127,7 +127,8 @@ const Amenitylist = () => {
           <tbody>
             {currentPosts.map((item,index)=>{
               return(
-                <tr style={item.status == false ? { backgroundColor: '#AED8DC' } : { backgroundColor: 'white' }} onClick={()=>{ item.status == false ? navigateToApprove(item._id) : getData() }}>
+                <tr style={item.status == false ? { backgroundColor: '#AED8DC' } : { backgroundColor: 'white' }} onClick={()=>{ item.status == false ? navigateToApprove(item._id,item.time) : getData() } }>
+                                                                                                               
                   <td>{(currentPage-1)*12+(index+1)}</td>
                   <td>{item.firstname} {item.lastname}</td>
                   <td>{item.aminety}</td>
