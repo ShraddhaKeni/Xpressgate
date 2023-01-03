@@ -21,7 +21,7 @@ const Addemergencyno = () => {
   const [etype, setetype] = useState()
   const [econtact, setecontact] = useState()
   const [one, setOne] = useState({})
-  
+
 
   useEffect(() => {
     if (checkSociety()) {
@@ -136,7 +136,7 @@ const Addemergencyno = () => {
 
         <div class="EN_noticelist">
         <a href="/emergencyList" class="AENLNotice">Emergency Number List</a><br/><br/>
-          <a href="/addemergency" class="AAENNotice"><b>Add Emergency Number</b></a>
+          <a href="/addemergency" class="AAENNotice"><b>{addedittype=='edit'?'Update':'Add'} Emergency Number</b></a>
         </div>
         <div className="AEN_sideimage">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
@@ -144,7 +144,7 @@ const Addemergencyno = () => {
       </div>
       <div className="addguestbackgroundimg">
         <div className="AEN_display">
-          <label>Add Emergency Number</label>
+          <label>{addedittype=='edit'?'Update':'Add'} Emergency Number</label>
         </div>
         <Form className='formclass'>
         <div class="form-group  form-group5 row">
@@ -172,7 +172,7 @@ const Addemergencyno = () => {
           </div>
           
 
-          <button type="submit" onClick={(e) => handleSubmit(e)} className="AEN_btnAdd">Add Number</button>
+          <button type="submit" onClick={(e) => handleSubmit(e)} className="AEN_btnAdd">{addedittype=='edit'?'Update':'Add'} Number</button>
         </Form>
 
 
