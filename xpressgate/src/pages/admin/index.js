@@ -34,6 +34,8 @@ import { PremisesPayHistory } from './PaymentManagement/PaymentHistory/premise_h
 
 
 
+
+
 const AdminModuleComponent = () => {
 
     const router = useLocation()
@@ -104,7 +106,7 @@ const AdminModuleComponent = () => {
     if (router.pathname === RouterPath.EDIT_VIDEO) {
         children = (<EditVideo />)
     }
-
+   
     return (
         <div className='flex flex-col'>
 
