@@ -138,7 +138,7 @@ const navigate = useNavigate()
       <div id="dspguardnamesection">
         <div className='DSPName'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
-          <label>Guard Name</label>
+          <label>{localStorage.getItem('name')}</label>
         </div>
        <div className='DSPSImg'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>

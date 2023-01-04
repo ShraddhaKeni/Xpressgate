@@ -126,7 +126,7 @@ const Vendorlist = () => {
       <div id="guardnamesection">
         <div className='VendorLname'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
-          <label>Guard Name</label>
+          <label>{localStorage.getItem('name')}</label>
         </div>
         <div className='VendorLSImg'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>

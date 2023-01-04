@@ -67,7 +67,7 @@ const ChangePassword = () => {
       <div id="cpnamesection">
         <div className='CP_GName'>
           <img src="/images/guardnameicon.svg" alt="Guard image" />
-          <label>Guard Name</label>
+          <label>{localStorage.getItem('name')}</label>
         </div>
         <div className='CP_SideIMG'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
