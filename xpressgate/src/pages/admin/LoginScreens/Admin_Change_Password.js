@@ -1,41 +1,61 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Form, Button } from "react-bootstrap";
 import Header from '../../../components/base/Layout/Header';
-import SideLayOut from '../../../components/base/Layout/SideLayOut';
 
 
 const Admin_Change_Password = () => {
  
   return (
-    <>
-    <img src='/images/side_bar_img.svg' className='ADDVideo_side_Img' />
-      <div >
-        <div className="page-label">
-          <label>Edit Video</label>
+    <div className="changesocContainer">
+      <div id="changesocsection">
+        <Header />
+      </div>
+      <div id="scpnamesection">
+        <div className='CPSName'>
+          <img src="/images/AdminSideicon.svg" alt="Society image" />
+          <label>User Name</label>
         </div>
-        <div className="addvideoform">
-          <div className="inboxes">
-            <label for="EVideoName" className="Evideoname">Video Name</label>
-            <input type="text" id="EVideoName"  className="Evideonameinput"  placeholder="Video Name"></input>
-          </div>
-          <br />
-
-          <br />
-          <div className="inboxes">
-            <label for="EVideoUrl" className="EvideoUrl">Video Url</label>
-            <input type="text" id="EVideoURL" className="EvideoUrlinput" placeholder="Video Url"></input>
-          </div>
-          <div className="d-flex" style={{ marginLeft: '18vw', marginTop: '10%' }}>
-            <div><button type="button"  className="EditSaveButton">Edit & Save</button></div>
-            <div><button type="button" className="VideoRemoveButton">Remove</button></div>
-          </div>
+        <div className='ADCPpsideimage'><img src="/images/side_bar_img.svg" alt="dashboard sideimage" /></div>
+      </div>
+      <div className='scpbackgroundimg'>
+        <div className='scpmaintitle'>
+          <label>Change Password</label>
         </div>
-        <br />
+        <Form className='scpclass'>
+          <div className="scpinput_fields">
+            <div className="scppassword">
+              <div class="form-group row">
+                <div class="col-lg-6">
+                  <label className="scpcppassword">Current Password</label>
+                  <input type="text" className="form-control input-lg CP_Border"  placeholder="Current Password"></input>
+                </div>
+              </div>
+            </div>
+            <br></br>
+            <div className="scppassword">
+              <div class="form-group row">
+                <div class="col-lg-6">
+                  <label className="ncppassword">New Password</label>
+                  <input  type="password" className="form-control input-lg CP_Border" placeholder="New Password"></input>
+                </div>
+              </div>
+            </div>
+            <br></br>
+            <div className="scppassword">
+              <div class="form-group row">
+                <div class="col-lg-6">
+                  <label className="cscppassword">Confirm Password</label>
+                  <input type="password" className="form-control input-lg CP_Border"  placeholder="Confirm Password"></input>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" className="btnUpdatecp">Update</button>
+        </Form>
 
       </div>
-</>
-  
+    </div>
   )
 }
 
-export default Admin_Change_Password;
+export default Admin_Change_Password
