@@ -294,13 +294,7 @@ input::-webkit-inner-spin-button {
   margin-top: -8%;
 }
 
-.blcard {
-  width: fit-content;
-  margin-left: 24%;
-  margin-bottom: 10%;
-  border: none;
-  cursor: pointer;
-}
+
 
 .srfullcardscss {
   margin-top: 5%;
@@ -309,7 +303,7 @@ input::-webkit-inner-spin-button {
   width: 100%;
 }
 
-
+/* 
 .blblock {
   font-size: 19px;
   font-family: 'Rubik', sans-serif;
@@ -323,18 +317,8 @@ input::-webkit-inner-spin-button {
   margin: auto;
   font-family: 'Rubik', sans-serif;
   color: #fff;
-}
+} */
 
-.btnView {
-  background-color: #14335D;
-  color: #fff;
-  border-radius: 14px;
-  width: 100px;
-  height: 50px;
-  font-size: 20px;
-  font-weight: 500;
-  margin-top: 4%;
-}
 
 /* Media query for laptop */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {

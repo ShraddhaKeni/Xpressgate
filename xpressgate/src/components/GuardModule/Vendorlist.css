@@ -101,6 +101,56 @@ color: #14335D;
   margin-bottom: 3%;  
 }
 
+.VED_Name {
+  display: flex;
+  width: 80%;
+  height: 12%;
+  background-color: rgba(10, 137, 150, 0.33);
+  margin-left: 10%;
+  margin-top: 12%;
+  border-radius: 24px;
+}
+.VED_Name img {
+  margin-left: 10%;
+  width: 25%;
+  height: 70%;
+  margin-top: 5%;
+}
+.VED_Name label {
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+  margin-left: 4%;
+  margin-top: 12%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
+}
+.VED_sideimage img {
+  display: flex;
+  margin-top: 99%;
+  max-width: 90%;
+  height: auto;
+  margin-left: 8%;
+  margin-bottom: 3%;  
+}
+.VED_Display {
+  width: 16vw;
+  height: 7vh;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  padding-top: 16px;
+  margin: auto;
+  margin-top: -3%;
+}
+.VED_Display label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;  
+  font-size: 1.3vw;
+  text-align: center;  
+  color: #14335D;
+}
 .VendorL_display {
   width: 16vw;
   height: 7vh;
@@ -200,7 +250,42 @@ table th {
   margin: 10px;
   font-size: 14px;
 }
+.VEDbtnApprove {
+  background-color: #017069;
+  color: #fff;
+  border-radius: 14px;
+  width: 7vw;
+  height: 5vh;
+  font-size: 1.1vw;
+  font-weight: 500;
+  padding-top: 0%;
+ border: none;
+  margin-right: 40%;
+  margin-bottom: 5%;
+}
 
+.VEDbtnApprove:hover {
+  background-color: #14335D;
+}
+
+.VEDbtnDeny {
+  background-color: #96230A;
+  color: #fff;
+  border-radius: 14px;
+  width: 7vw;
+  height: 5vh;
+  font-size: 1.1vw;
+  font-weight: 500;
+  margin-top: 0%;
+  padding-top: 0%;
+  margin-left: -8%;
+  border: none;
+  position: absolute;
+}
+
+.VEDbtnDeny:hover {
+  background-color: #14335D;
+}
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   .AddVendor:hover{
@@ -227,6 +312,26 @@ table th {
   .labelsize {
     font-size: 12px;
   }
+  .VED_Display {
+    width: 17vw;
+    height: 7vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 1.4vw;
+    padding: 1%;
+    margin: auto;
+    margin-top: -15%;
+    margin-left: 38%;
+}
+.VED_Display label {
+  
+    font-size: 1.5vw;
+    text-align: center;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+}
   .VendorL_display {
     width: 17vw;
     height: 7vh;

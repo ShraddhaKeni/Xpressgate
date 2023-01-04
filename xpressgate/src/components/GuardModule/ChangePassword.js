@@ -104,7 +104,7 @@ const ChangePassword = () => {
               </div>
             </div>
           </div>
-          <Button type="submit" onClick={(e) => handleSubmit(e)} className="CHPASS_BTN">Update</Button>
+          <button type="submit" onClick={(e) => handleSubmit(e)} className="CHPASS_BTN">Update</button>
         </Form>
 
       </div>

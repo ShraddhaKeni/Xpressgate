@@ -12,14 +12,7 @@ const Terms = () => {
   }
   return (
     <>
- {/* <div className='flex flex-col'>
 
-<Header/>
-<div className='flex'>
-
-    <SideLayOut/>
-
-    <div className='flex-1 d-flex' style={{ width: "100%", height: '100%' }}> */}
        <div className="policy_page-label" >
           <label>Terms & Conditions</label>
         </div>
@@ -34,10 +27,7 @@ const Terms = () => {
             </div>
             </div>
         </div>
-{/* 
-    </div>
-</div>
-</div> */}
+
     </>
   );
 };
