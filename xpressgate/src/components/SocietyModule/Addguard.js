@@ -7,7 +7,7 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { checkSociety } from '../auth/Auth'
 import { useNavigate } from 'react-router-dom';
-import { mobileValidation } from '../auth/validation';
+import { mobileValidation, emailValidation } from '../auth/validation';
 
 const Addguard = () => {
   const [guard, setGuard] = useState({})
@@ -21,7 +21,7 @@ const Addguard = () => {
     try {
 
       if (type == 'edit') {
-        if (await mobileValidation(document.getElementById('phone').value)) {
+        if (await mobileValidation(document.getElementById('phone').value) && emailValidation(document.getElementById('email').value)) {
           let formdata = new FormData()
           formdata.append('community_id', localStorage.getItem('community_id'))
           formdata.append('firstname', document.getElementById('firstname').value)
@@ -38,12 +38,12 @@ const Addguard = () => {
 
           window.location.href = '/guardList'
         } else {
-          alert('Enter valid mobile number')
+          alert('Enter valid mobile number/ Email Id')
         }
       }
       else {
         
-        if (await mobileValidation(document.getElementById('phone').value)) {
+        if (await mobileValidation(document.getElementById('phone').value) && emailValidation(document.getElementById('email').value)) {
           let formdata = new FormData()
           formdata.append('community_id', localStorage.getItem('community_id'))
           formdata.append('firstname', document.getElementById('firstname').value)
@@ -57,52 +57,7 @@ const Addguard = () => {
           console.log('hi')
           window.location.href = '/guardList'
         } else {
-          alert('Enter valid mobile number')
-        }
-      }
-    } catch (error) {
-      console.log(error)
-    }
-    try {
-
-      if (type == 'edit') {
-        if (await mobileValidation(document.getElementById('email').value)) {
-          let formdata = new FormData()
-          formdata.append('community_id', localStorage.getItem('community_id'))
-          formdata.append('firstname', document.getElementById('firstname').value)
-          formdata.append('lastname', document.getElementById('lastname').value)
-          formdata.append('username', document.getElementById('username').value)
-          formdata.append('mobileno', document.getElementById('phone').value)
-          formdata.append('email', document.getElementById('email').value)
-          formdata.append('guard_id', location.state.id)
-          if (document.getElementById('profilePic').value) {
-            formdata.append('profile_pic', document.getElementById('profilePic').files[0])
-          }
-
-          const { data } = await axios.post(`${window.env_var}api/guard/update`, formdata)
-
-          window.location.href = '/guardList'
-        } else {
-          alert('Enter valid Email id')
-        }
-      }
-      else {
-        
-        if (await mobileValidation(document.getElementById('email').value)) {
-          let formdata = new FormData()
-          formdata.append('community_id', localStorage.getItem('community_id'))
-          formdata.append('firstname', document.getElementById('firstname').value)
-          formdata.append('lastname', document.getElementById('lastname').value)
-          formdata.append('username', document.getElementById('username').value)
-          formdata.append('password', document.getElementById('password').value)
-          formdata.append('mobileno', document.getElementById('phone').value)
-          formdata.append('email', document.getElementById('email').value)
-          formdata.append('profile_pic', document.getElementById('profilePic').files[0])
-          const { data } = await axios.post(`${window.env_var}api/guard/add`, formdata)
-          console.log('hi')
-          window.location.href = '/guardList'
-        } else {
-          alert('Enter valid Email id')
+          alert('Enter valid mobile number/Email id')
         }
       }
     } catch (error) {
@@ -171,7 +126,7 @@ const Addguard = () => {
 
         <div className='GLsidelinks'>
           <a className='noticegll' href="/guardlist">Guard list</a><br></br><br></br>
-          <a className='aggnotice' onClick={() => navigate('/addGuard')}><b>  Add Guard</b></a>
+          <a className='aggnotice' onClick={() => navigate('/addGuard')}><b>{type == 'edit' ? 'Update Guard' : 'Add Guard'}</b></a>
         </div>
         <div className="AGSideimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
@@ -224,8 +179,8 @@ const Addguard = () => {
           <div class="form-group form-group6 row">
             <label class="col-lg-2 col-form-label ADN_label">Email </label>
             <div class="col-lg-4">
-              {type == 'edit' ? <input type="email" class="form-control input-lg SideB" name="Email" id='email' defaultValue={guard.email} placeholder="Email" required /> :
-                <input type="email" class="form-control input-lg input-lg1 SideB" name="Email" id='email' placeholder="Email" required/>}
+              {type == 'edit' ? <input type="email" class="form-control input-lg SideB" name="Email" id='email' defaultValue={guard.email} placeholder="Email" /> :
+                <input type="email" class="form-control input-lg input-lg1 SideB" name="Email" id='email' placeholder="Email" />}
             </div>
           </div>
           <div class="form-group form-group6 row">

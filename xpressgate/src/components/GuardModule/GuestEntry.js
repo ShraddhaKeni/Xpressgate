@@ -101,7 +101,7 @@ const GuestEntry = () => {
             <div><label className='date text-right'>Date:{date}</label></div>
             <div><label className='intime'>In-Time: </label></div>
             <div><label className='outtime'>Out-Time: </label></div>
-            <div><label className='noofpeople'>No of People: 1</label></div>
+            <div><label className='noofpeople'>No of People: {guestDetails.numberOfGuest}</label></div>
             <div><label className='vehicleno'>Vehicle No: <input ref={vehical} id='veh_id' type='text'></input></label></div>
           </div>
           <br></br>

@@ -157,7 +157,7 @@ const Addnotice = () => {
         </div>
         <div className='nlsidelinks'>
           <a className='NLSLink' href="/noticelist">Notice List</a><br></br><br></br>
-          <a className='ANSLink' href="/addNotice"><b>Add Notice</b></a>
+          <a className='ANSLink' href="/addNotice"><b>{type=='edit'?'Update':'Add'} Notice</b></a>
         </div>
         <div className='ansideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>

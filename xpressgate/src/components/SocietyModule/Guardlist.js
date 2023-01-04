@@ -83,7 +83,6 @@ const Guardlist = () => {
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
-        <br />
 
   
         <div className='GLsidelinks'>
