@@ -69,8 +69,9 @@ const Inoutbookcard = () => {
   }
 
   const dateConvert =(date)=>{
-     const d = new Date(date)
-     return (d.getDay()+18)+'/'+ (d.getMonth()+1)+'/'+d.getFullYear()
+    const d = new Date(date)
+    //console.log(d)
+    return d.getDate()+'/'+ (d.getMonth()+1)+'/'+d.getFullYear()
   } 
   const timeConvert =(date)=>{
     const d = new Date(date)
@@ -131,7 +132,7 @@ const Inoutbookcard = () => {
               <div><label className='intine'>In-Time: {timeConvert(listData.intime)}</label></div>
               <div><label className='outtime'>Out-Time: {listData.outtime?dateConvert(listData.outtime):'N/A'}</label></div>
               <div><label className='noofpeople'>No of People: 1</label></div>
-              <div><label className='vehicleno'>Vehicle No: MH-29-2901</label></div>
+              <div><label className='vehicleno'>Vehicle No: {listData.vehicle_no}</label></div>
             </div>
             <br></br>
             {console.log(listData.status)}
