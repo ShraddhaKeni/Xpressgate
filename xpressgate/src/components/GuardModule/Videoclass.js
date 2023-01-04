@@ -50,7 +50,7 @@ const Videoclass = () => {
       <div id="videoguardnamesection">
         <div className='VG_Name'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
-          <label>Guard Name</label>
+          <label>{localStorage.getItem('name')}</label>
         </div>
         <div className='VG_SImG'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
