@@ -34,7 +34,10 @@ const SelectMode = () => {
           <label className='welcomelabel'>Welcome to <br /><span className='WLabelSize'>Xpress Gate</span></label>
         </div>
 
+        <div className='LP_SideImage'>
+          <img src="/images/animation.gif" alt=" Man Riding" className='Sideimagesize' />
 
+        </div>
         <div className='modulesboxes'>
           <div className='BOXESMargin' >
             <Button onClick={() => { setMode('guard') }} className='GuardMod_box'>
@@ -57,13 +60,10 @@ const SelectMode = () => {
               <label className='GM_label'>Super Admin </label>
             </Button>
           </div> </div>
-        <div className='LP_SideImage'>
-          <img src="/images/animation.gif" alt=" Man Riding" className='Sideimagesize' />
-
-        </div>
-        <div className='copyright'>
+      
+         <div className='copyright'>
           © Copyright 2023 Designed by <a href="https://www.axzoragroup.com/" target="_blank">Axzora Private Limited</a>
-        </div>
+        </div> 
 
         {/* <div className='LP_SideImage'>
   <img src="/images/animation.gif" alt=" Man Riding" className='Sideimagesize'/>
