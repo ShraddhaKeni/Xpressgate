@@ -199,10 +199,10 @@ function App() {
           <Route path={RouterPath.REPORTS} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.TERMS} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.PRIVACY_POLICY} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.ADMIN_CHANGE_PASSWORD} element={<Admin_Change_Password />}></Route>
         
         
 
-          <Route path='/adminchangepassword' element={<Admin_Change_Password />}></Route>
           <Route path='/superadminlogin' element={<SuperAdminLogin />}></Route>
           <Route path='/enternewpass' element={<AdminEnterNewPass />}></Route>
           <Route path='/adminentercode' element={<AdminEnterCode />}></Route>

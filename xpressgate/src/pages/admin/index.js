@@ -31,6 +31,7 @@ import { EditPlan } from './PaymentManagement/Plans/edit';
 import { DatePicker } from '@mui/x-date-pickers';
 import { PaymentHistory } from './PaymentManagement/PaymentHistory';
 import { PremisesPayHistory } from './PaymentManagement/PaymentHistory/premise_history';
+import Admin_Change_Password from './LoginScreens/Admin_Change_Password';
 
 
 
@@ -105,6 +106,10 @@ const AdminModuleComponent = () => {
 
     if (router.pathname === RouterPath.EDIT_VIDEO) {
         children = (<EditVideo />)
+    }
+
+    if (router.pathname === RouterPath.ADMIN_CHANGE_PASSWORD) {
+        children = (<Admin_Change_Password />)
     }
    
     return (
