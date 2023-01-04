@@ -208,7 +208,7 @@ input::-webkit-inner-spin-button {
 .blsocietyname {
   display: flex;
   width: 80%;
-  height: 4%;
+  height: 12%;
   background-color: rgba(10, 137, 150, 0.33);
   margin-left: 10%;
   margin-top: 12%;
@@ -248,19 +248,19 @@ input::-webkit-inner-spin-button {
 }
 
 .BLfullcardscss {
-  margin-top: 4%;
+  margin-top: 2.5%;
   margin-right: 1%;
   margin-left: 1%;
   padding-right: 20%;
 }
 
 .blminicard {
-  margin-left: 50%;
-  margin-bottom: 10%;
+  margin-left: 30%;
+  margin-bottom: 9%;
   border: none;
   background-color: #0A8996;
-  width: 80%;
-  height: 95%;
+  width: 50%;
+  height: 90%;
   border-radius: 20px;
 }
 
@@ -269,7 +269,7 @@ input::-webkit-inner-spin-button {
   width: 8%;
 }
 
-.blblock {
+.Blblock {
   font-size: 25px;
   font-family: 'Rubik', sans-serif;
   color: #fff;
@@ -297,10 +297,10 @@ input::-webkit-inner-spin-button {
   color: #F9F9FF;
 }
 
-.blflat {
+.Blflat {
   width: 40%;
   height: fit-content;
-  margin: auto;
+  margin: auto ;
   font-family: 'Rubik', sans-serif;
   color: #fff;
   font-size: 16px;
@@ -310,11 +310,11 @@ input::-webkit-inner-spin-button {
   background-color: #14335D;
   color: #fff;
   border-radius: 14px;
-  width: 100px;
-  height: 50px;
+  width: 90px;
+  height: 45px;
   font-size: 20px;
   font-weight: 500;
-  margin-top: 4%;
+  margin-top: 0%;
   border: none;
   
 }
@@ -350,9 +350,9 @@ input::-webkit-inner-spin-button {
   }
 
   .BLfullcardscss {
-    margin-top: 5%;
+    margin-top: 2%;
     margin-right: 4%;
-  }
+}
 
   .dbcard-img-top {
     width: 150%;
@@ -370,18 +370,20 @@ input::-webkit-inner-spin-button {
     border-bottom: 5px solid #000000;
   } */
 
-
-  .blminicard {
+  /* .blminicard {
     margin-left: 50%;
     margin-bottom: 10%;
     border: none;
     background-color: #0A8996;
     width: 90%;
-    height: 95%;
+    height: 65%;
     border-radius: 20px;
-  }
-
-
+} */
+.pencilicon {
+  margin-left: 68%;
+  width: 9%;
+  margin-top: -15%;
+}
   .BL_display {
     width: 17vw;
     height: 7vh;
@@ -455,7 +457,7 @@ input::-webkit-inner-spin-button {
     margin-left: 50%;
   }
 
-  .blminicard {
+  /* .blminicard {
     margin-left: 50%;
     margin-bottom: 10%;
     border: none;
@@ -463,6 +465,6 @@ input::-webkit-inner-spin-button {
     width: 128%;
     height: 95%;
     border-radius: 20px;
-  }
+  } */
 
 }
