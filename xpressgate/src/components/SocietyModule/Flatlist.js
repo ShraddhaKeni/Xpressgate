@@ -96,8 +96,8 @@ const Flatlist = () => {
   
 }
 
-  const aprroveFlatScreen = (id) => {
-    navigate('/approveFlat', { state: { id: id } })
+  const aprroveFlatScreen = (id,family,vehicle) => {
+    navigate('/approveFlat', { state: { id: id ,family,vehicle} })
   }
 
 
@@ -158,7 +158,7 @@ const Flatlist = () => {
           <tbody>
             {currentPosts.map(item => {
               return (
-                <tr style={item.status == false ? { backgroundColor: '#AED8DC' } : { backgroundColor: 'white' }} onClick={() => { item.status == false ? aprroveFlatScreen(item._id) : getFlats() }}>
+                <tr style={item.status == false ? { backgroundColor: '#AED8DC' } : { backgroundColor: 'white' }} onClick={() => { item.status == false ? aprroveFlatScreen(item._id,item.family,item.vehical) : getFlats()}}>
                   <td>{item.flat_number}</td>
                   <td >{item.firstname} {item.lastname}</td>
                   <td>{item.family}</td>

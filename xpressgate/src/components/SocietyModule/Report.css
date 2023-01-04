@@ -8,7 +8,7 @@ html {
   grid-template-columns: 0.5fr 2fr;
   grid-template-rows: 0.2fr 2fr;
   grid-template-areas: "srheadersection srheadersection"
-    "srsocietynamesection blcardsection"
+    "srsocietynamesection ablcardsection"
 }
 
 input::-webkit-outer-spin-button,
@@ -50,9 +50,9 @@ input::-webkit-inner-spin-button {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-#blcardsection {
+#ablcardsection {
   /* background-color: blue; */
-  grid-area: blcardsection;
+  grid-area: ablcardsection;
   position: relative;
 
 }
@@ -309,15 +309,6 @@ input::-webkit-inner-spin-button {
   width: 100%;
 }
 
-.blminicard {
-  margin-left: 50%;
-  margin-bottom: 10%;
-  border: none;
-  background-color: #0A8996;
-  width: 70%;
-  height: 95%;
-  border-radius: 20px;
-}
 
 .blblock {
   font-size: 19px;
@@ -416,15 +407,6 @@ input::-webkit-inner-spin-button {
     color: #0A8996;
   }
 
-  .blminicard {
-    margin-left: 50%;
-    margin-bottom: 10%;
-    border: none;
-    background-color: #0A8996;
-    width: 90%;
-    height: 95%;
-    border-radius: 20px;
-  }
 
   .srsocietyname img {
     margin-left: 6%;
@@ -510,16 +492,6 @@ input::-webkit-inner-spin-button {
     /* margin: auto; */
     /* margin-top: -2%; */
     margin-left: 50%;
-  }
-
-  .blminicard {
-    margin-left: 50%;
-    margin-bottom: 10%;
-    border: none;
-    background-color: #0A8996;
-    width: 128%;
-    height: 95%;
-    border-radius: 20px;
   }
 
 }

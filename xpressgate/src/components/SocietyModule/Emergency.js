@@ -63,7 +63,7 @@ const Emergency = () => {
   }
 
   function emargencyDetails(id,ename,etype,econtact) {
-    navigate('/addemergency', { state: { id: id, type: 'edit', ename,etype,econtact } })
+    navigate('/addemergency', { state: { id: id, type: 'edit', ename,etype,econtact,update:'update' } })
   }
 
   return (
