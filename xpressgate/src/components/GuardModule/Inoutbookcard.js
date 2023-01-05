@@ -108,7 +108,7 @@ const Inoutbookcard = () => {
       </div>
       <div className='iobcbackgroundimg'>
         <div className= "IOBC_display">
-          <label>In-out Book</label>
+          <label>In-Out Book</label>
         </div>
         {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}
         <div className="col">

@@ -71,7 +71,7 @@ const EditGuard = () => {
       </div>
       <div className="addguestbackgroundimg">
         <div className="VPaydisplay">
-          <label>Edit Guard</label>
+          <label>Update Guard</label>
         </div>
         <Form className="formclass">
           <div class="form-group row">
@@ -114,7 +114,7 @@ const EditGuard = () => {
           </div>
 
           <button type="submit" onClick={(e) => handleSubmit(e)} className="VPay_Add">
-            Edit
+            Update Guard
           </button>
         </Form>
       </div>
