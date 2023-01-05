@@ -51,13 +51,15 @@ const Dashboard = () => {
         }
         let { data } = await axios.post(`${window.env_var}api/inoutentires/getdata`, codeData)
         console.log(data.data)
-        if(data.data.bookingdetails.status===false || dateTimeFormat(data.data.bookingdetails.date)!=dateTimeFormat(Date.now()))
+        if(data.data.bookingdetails.status===false /* || dateTimeFormat(data.data.bookingdetails.date)!=dateTimeFormat(Date.now()) */)
         {
           alert('Expired Entry Code.')
           return
         }
-        setEntryData(data.data.bookingdetails)
-        setMessage(data.message)
+        else{
+          setEntryData(data.data.bookingdetails)
+          setMessage(data.message)
+        }
       }else{
         alert('Enter valid passcode')
       }

@@ -27,9 +27,9 @@ const Frequentvisitor = ({freqvisitordata}) => {
       {
         navigate('/vendorentry',{state:{id:data.data.bookingdetails.booked_id,code:freqvisitordata.code}})
       }
-      else
+      else if(data.message=='Guest')
       {
-        console.log(data)
+        navigate('/guestentry',{state:{id:data.data.bookingdetails.booked_id,code:freqvisitordata.code}})
       }
     } catch (error) {
       console.log(error)
