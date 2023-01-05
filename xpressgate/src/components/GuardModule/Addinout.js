@@ -237,11 +237,11 @@ const Addinout = () => {
               <input type="time" className="form-control input-lg AIOBorder" id='intime' name="intime" placeholder=" In Time" value={details.intime} ></input>
             </div>
           </div>
-          <div className="form-group row">
+          <div className="form-group row hidden">
             <label className="col-lg-2 col-form-label ADN_label">Status</label>
             <div className="col-lg-4">
-              <select class="form-control input-lg AIOBorder" id='status' placeholder="Status">
-                <option value={1}>In</option>
+              <select class="form-control input-lg AIOBorder" id='status' placeholder="Status" disabled>
+                <option value={1} selected>In</option>
                 <option value={2}>Out</option>
               </select>
             </div>
