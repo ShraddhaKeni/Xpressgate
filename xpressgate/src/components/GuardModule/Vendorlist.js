@@ -73,13 +73,18 @@ const Vendorlist = () => {
   const  dateTimeFormat=(date)=>
   {
     var d = new Date(date)
-    return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()
+    return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()
     
   }
 
   const getTime=(date)=>{
-    var d = new Date(date)
-    return d.getHours()+':'+d.getMinutes()
+    console.log(date)
+    // var d = new Date(date)
+    // return d.getHours()+':'+d.getMinutes()
+    let ntime = date.split('T');
+    let titime = ntime[1].split('.');
+    //console.log(titime[0])
+    return titime[0]
     
   }
 
