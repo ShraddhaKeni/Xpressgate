@@ -61,7 +61,7 @@ const EditGuard = () => {
       <div id="societynamesection">
         <div className="VPay_societyname">
           <img src="/images/guardnameicon.svg" alt="Society image" />
-          <label>Guard Name</label>
+          <label>{localStorage.getItem('name')}</label>
         </div>
         <br />
 

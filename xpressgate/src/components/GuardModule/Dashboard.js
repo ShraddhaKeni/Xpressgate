@@ -94,7 +94,7 @@ const Dashboard = () => {
         <div id="guardnamesection">
           <div className='GuardName'>
             <img src="/images/guardnameicon.svg" alt="guard name" />
-            <label>Guard Name</label>
+            <label>{localStorage.getItem('name')}</label>
           </div>
           <div className='GDsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
         </div>

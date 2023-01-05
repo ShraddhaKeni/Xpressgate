@@ -57,8 +57,8 @@ const Addnotice = () => {
             formdata.append('id', location.state.id);
 
             const { data } = await axios.post(`${window.env_var}api/notices/updateNotice`, formdata);
-            console.log(data);
-            //window.location.href = '/noticeList'
+            //console.log(data);
+            window.location.href = '/noticeList'
         }
       }
       else {

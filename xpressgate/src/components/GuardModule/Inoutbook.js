@@ -79,7 +79,7 @@ const Inoutbook = () => {
       <div id="guardnamesection">
         <div className='InOutName'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
-          <label>Guard Name</label>
+          <label>{localStorage.getItem('name')}</label>
         </div>
         <div className='IOBsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>

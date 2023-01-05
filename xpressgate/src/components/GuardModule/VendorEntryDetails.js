@@ -9,6 +9,7 @@ import { checkGuard } from '../auth/Auth';
 const VendorEntryDetails = () => {
     const current = new Date();
     const [date, setDate] = useState(`${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`);
+    const [time, setTime] = useState(`${current.getHours()}/${current.getMinutes()}}`)
     const [vendorData, setVendorData] = useState({})
     const [flats,setFlats] = useState([])
     const [bookings,setBookings] = useState([])
@@ -71,7 +72,7 @@ const VendorEntryDetails = () => {
           navigate('/dashboard')
         }
     } 
-
+   
     const submitData=async()=>{
         
         try {
@@ -121,7 +122,7 @@ const VendorEntryDetails = () => {
           <div id="guardnamesection"> 
             <div className='VED_Name'>
               <img src="/images/guardnameicon.svg" alt="guard name" />
-              <label>Guard Name</label>
+              <label>{localStorage.getItem('name')}</label>
             </div>
             <div className='VED_sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
           </div>
@@ -148,8 +149,8 @@ const VendorEntryDetails = () => {
     
                 <div className='detailsclass'>
                   <div><label className='date text-right'>Date:{date}</label></div>
-                  <div><label className='intime'>In-Time: </label></div>
-                  <div><label className='outtime'>Out-Time: </label></div>
+                  {/* <div><label className='intime'>Booked time: {getTime(vendorData.bookedDate)} </label></div> */}
+                  {/* <div><label className='outtime'>Out-Time: </label></div> */}
                   <div><label className='noofpeople'>No of People: 1</label></div>
                   <div><label className='vehicleno'>Vehicle No: <input type='text' placeholder='Vehicle Number'></input></label></div>
                 </div>

@@ -255,12 +255,12 @@ input::-webkit-inner-spin-button {
 }
 
 .blminicard {
-  margin-left: 50%;
+  margin-left: 30%;
   margin-bottom: 9%;
   border: none;
   background-color: #0A8996;
-  width: 80%;
-  height: 91%;
+  width: 50%;
+  height: 90%;
   border-radius: 20px;
 }
 
@@ -370,7 +370,7 @@ input::-webkit-inner-spin-button {
     border-bottom: 5px solid #000000;
   } */
 
-  .blminicard {
+  /* .blminicard {
     margin-left: 50%;
     margin-bottom: 10%;
     border: none;
@@ -378,7 +378,7 @@ input::-webkit-inner-spin-button {
     width: 90%;
     height: 65%;
     border-radius: 20px;
-}
+} */
 .pencilicon {
   margin-left: 68%;
   width: 9%;
@@ -457,7 +457,7 @@ input::-webkit-inner-spin-button {
     margin-left: 50%;
   }
 
-  .blminicard {
+  /* .blminicard {
     margin-left: 50%;
     margin-bottom: 10%;
     border: none;
@@ -465,6 +465,6 @@ input::-webkit-inner-spin-button {
     width: 128%;
     height: 95%;
     border-radius: 20px;
-  }
+  } */
 
 }

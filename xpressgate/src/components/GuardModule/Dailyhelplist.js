@@ -91,7 +91,7 @@ const Dailyhelplist = () => {
       <div id="dhlguardnamesection">
         <div className='DHL_Name'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
-          <label>Guard Name</label>
+          <label>{localStorage.getItem('name')}</label>
         </div>
         <div className='DHL_SideImg'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>

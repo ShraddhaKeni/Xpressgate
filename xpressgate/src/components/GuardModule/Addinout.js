@@ -134,7 +134,7 @@ const Addinout = () => {
       <div id="aiosocietysection">
         <div className='aiosocietyname'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
-          <label>Guard Name</label>
+          <label>{localStorage.getItem('name')}</label>
         </div>
         <div className='aiosideimage'>
           <img src="/images/sideimage.svg" alt="guard sideimage" />
