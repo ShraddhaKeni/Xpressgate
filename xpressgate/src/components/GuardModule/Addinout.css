@@ -95,7 +95,7 @@ font-weight: 500;
   height: 5.5vh;
   font-size: 1.3vw;
   font-weight: 500;
-  margin-top: 4%;
+  margin-top: 2%;
   margin-right: 34%;
   font-family: 'Rubik';
 font-style: normal;
@@ -106,8 +106,8 @@ border: none;
   background: #14335D;
 }
 
-.formclass {
-  margin-top: 5%;
+.AIOformclass {
+  margin-top: 2%;
   margin-left: 25%;
 }
 .AIOBorder{
@@ -222,7 +222,7 @@ color: #14335D;
   border: none;
 }
 
-.formclass {
+.AIOformclass {
   margin-top: 5%;
   margin-left: 42%;
   width: 170%;

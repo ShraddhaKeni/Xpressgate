@@ -85,7 +85,7 @@ const Inoutbook = () => {
       </div>
       <div className='iobbackgroundimg'>
         <div className='IOB_display'>
-          <label>In-out Book</label>
+          <label>In-Out Book</label>
         </div>
         {/* <div className='InoutBookButton'>
           <a href="/addinout" className='InoutBookADDButton'>&#43; Add In Out</a>

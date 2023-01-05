@@ -123,9 +123,9 @@ color: #14335D;
 
 
 .VPay_Add{
-  width: 9vw;
+  width: 10vw;
   height: 5vh;
-  font-size: 1.3vw;
+  font-size: 1.1vw;
   font-weight: 700;
   padding: 0%;
   border-radius: 9px;
@@ -133,7 +133,7 @@ color: #14335D;
   border: none;
   color: #FFFFFF;
   margin-top: 5%;
-  margin-left: -33%;
+  margin-left: -34%;
 border: none;
 }
 .VPay_Add:hover{
