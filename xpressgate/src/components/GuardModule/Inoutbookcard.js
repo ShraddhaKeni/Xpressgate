@@ -132,7 +132,7 @@ const Inoutbookcard = () => {
               <div><label className='intime'>In-Time: {timeConvert(listData.intime)}</label></div>
               <div><label className='outtime'>Out-Time: {listData.outtime?timeConvert(listData.outtime):'N/A'}</label></div>
               {/* <div><label className='noofpeople'>No of People: 1</label></div> */}
-              <div><label className='vehicleno'>Vehicle No: {listData.vehicle_no}</label></div>
+              <div><label className='vehicleno'>Vehicle No: {listData.vehicle_no ? listData.vehicle_no : 'N/A'}</label></div>
             </div>
             <br></br>
             {console.log(listData.status)}
