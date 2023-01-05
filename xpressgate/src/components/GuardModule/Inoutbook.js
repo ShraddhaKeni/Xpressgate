@@ -67,9 +67,9 @@ const Inoutbook = () => {
   const paginate = async(event)=>{
     const { data } = await axios.get(`${window.env_var}api/inout/getall/` + community_id)
     setCurrentpage(event.selected+1)
-    const indexoflast = currentPage*postPerPage  //endoffset
+    const indexoflast = (event.selected+1)*postPerPage  //endoffset
     const indexoffirst = indexoflast - postPerPage //startoffset
-    setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
+    setCurrentPosts(inoutdata.slice(indexoffirst,indexoflast))
   }
   return (
     <div className="inoutbookcontainer">
@@ -105,7 +105,7 @@ const Inoutbook = () => {
             </tr>
           </thead>
           <tbody>
-            {inoutdata.map((iodata,index) => {
+            {currentPosts.map((iodata,index) => {
               return (
                 <tr onClick={()=>routeNavigate(iodata.booking_id)}>
                   <td>{(currentPage-1)*12+(index+1)}</td>
