@@ -1,37 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import PaginationCalculate from '../../../components/GuardModule/Utils/paginationCalculate';
-import { SimpleInputComponent } from '../components/input';
 import { ButtonBase, Icon, IconButton } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import { ButtonUnstyled } from '@mui/base';
-import { MaterialButton } from '../components/MaterialButton';
 import axios from 'axios';
-import { deleteCommunity } from '../../../common/admin/admin_api';
+import { deleteSMSGateway, deletesmsgateway, getAllSMSGateway } from '../../../../common/admin/admin_api';
+import PaginationCalculate from '../../../../components/GuardModule/Utils/paginationCalculate';
+import RouterPath from '../../../../common/constants/path/routerPath';
 
-const PremiseList = () => {
+const SMSGatewayList = () => {
 
     const navigate = useNavigate();
 
-    const [community, setCommunity] = useState([])
+    const [smsgateway, setSmsgateway] = useState([])
     const [currentPage, setCurrentpage] = useState(0)
     const [postPerPage, setPostPerPage] = useState(10)
     const [currentPosts, setCurrentPosts] = useState([])
 
     useEffect(() => {
-        getCommunities()
+        getSmsGateways()
     }, [])
 
-    const getCommunities = async () => {
+    const getSmsGateways = async () => {
         try {
-            const { data } = await axios.get(`${window.env_var}api/community/get`)
-            setCommunity(data.data.community)
+            const { data } = await getAllSMSGateway();
+            setSmsgateway(data.data.sms_gateway)
             const indexoflast = (currentPage + 1) * postPerPage  //endoffset
             const indexoffirst = (indexoflast - postPerPage) //startoffset
             console.log(data.data);
-            setCurrentPosts(data.data.community.slice(indexoffirst, indexoflast))
+            setCurrentPosts(data.data.sms_gateway.slice(indexoffirst, indexoflast))
         } catch (error) {
-
+            console.log(error)
         }
     }
     async function paginate(event) {
@@ -39,25 +36,25 @@ const PremiseList = () => {
         setCurrentpage(event.selected + 1)
         const indexoflast = (event.selected + 1) * postPerPage  //endoffset
         const indexoffirst = (indexoflast - postPerPage) //startoffset
-        setCurrentPosts(community.slice(indexoffirst, indexoflast))
+        setCurrentPosts(smsgateway.slice(indexoffirst, indexoflast))
     }
 
-    const removePremise = async (id) => {
-        await deleteCommunity(id);
+    const removeGateway = async (id) => {
+        await deleteSMSGateway(id);
         window.location.reload();
     }
 
-    const handleAddPremise = () => {
-        navigate('/admin/premises/add')
+    const handleAddSMSGateway = () => {
+        navigate(RouterPath.ADD_SMS_PROVIDER)
     }
 
-    const handleEditClick = (id) => {
+    const handleEditClick = (data) => {
 
-        navigate('/admin/premises/edit', { state: { id } })
+        navigate(RouterPath.EDIT_SMS_PROVIDER, { state: { data } })
     }
 
     async function findText(e) {
-        let text = community.filter(x => x.name.toLowerCase().includes(e.target.value.toLowerCase()))
+        let text = smsgateway.filter(x => x.gateway_name.toLowerCase().includes(e.target.value.toLowerCase()))
         if (text) {
             setCurrentPosts(text)
         }
@@ -72,7 +69,7 @@ const PremiseList = () => {
             <img src='/images/side_bar_img.svg' className='Premise_side_Img' />
             <div>
                 <div className='page-label'>
-                    <label>Premise Management</label>
+                    <label>Manage SMS Gateway</label>
                 </div>
                 <div>
                     <div className='table-top-right-content'>
@@ -81,9 +78,9 @@ const PremiseList = () => {
                             <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
                         </div>
 
-                        <div className="table-add-new-button" onClick={handleAddPremise}>
+                        <div className="table-add-new-button" onClick={handleAddSMSGateway}>
 
-                            <span className='ml-2'>&#43; Add New Premise</span>
+                            <span className='ml-2'>&#43; Add New</span>
                         </div>
                     </div>
 
@@ -91,9 +88,8 @@ const PremiseList = () => {
                         <thead className='table-th'>
                             <tr>
                                 <th class="th-sm" >ID No.</th>
-                                <th class="th-sm">Premise Name</th>
-                                <th class="th-sm">No of Blocks</th>
-                                <th class="th-sm">Status</th>
+                                <th class="th-sm">SMS Gateway Name</th>
+                                <th class="th-sm">API Key</th>
                                 <th class="th-sm">Actions</th>
                             </tr>
                         </thead>
@@ -102,18 +98,17 @@ const PremiseList = () => {
                                 return (
                                     <tr>
                                         <td>{(currentPage ? currentPage : 1 - 1) * 12 + (index + 1)}</td>
-                                        <td>{item.name}</td>
-                                        <td>{item.noofblocks}</td>
-                                        <td><ButtonUnstyled className='approve-active'>{item.status == true ? 'Unapprove' : 'Approve'}</ButtonUnstyled></td>
+                                        <td>{item.gateway_name}</td>
+                                        <td>{item.api_key?.slice(0, 7)}***</td>
                                         <td>
                                             <div>
-                                                <IconButton onClick={() => { handleEditClick(item.id) }}>
+                                                <IconButton onClick={() => { handleEditClick(item) }}>
                                                     <img src="/images/icon_edit.svg" />
                                                 </IconButton>
 
-                                                {item.status === true ? <IconButton onClick={() => removePremise(item._id)}>
+                                                <IconButton onClick={() => removeGateway(item.id)}>
                                                     <img src="/images/icon_delete.svg" />
-                                                </IconButton> : ''}
+                                                </IconButton>
 
                                             </div>
                                         </td>
@@ -125,7 +120,7 @@ const PremiseList = () => {
                         </tbody>
                     </table>
                     {currentPosts.length > postPerPage && <div className='paginate'>
-                        <PaginationCalculate totalPages={community.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+                        <PaginationCalculate totalPages={smsgateway.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
                     </div>}
                 </div >
             </div >
@@ -133,5 +128,5 @@ const PremiseList = () => {
         </>)
 }
 
-export default PremiseList
+export default SMSGatewayList
 

@@ -17,7 +17,7 @@ const SideLayOut = () => {
   const router = useLocation()
 
   return (
-    <aside className='sidelayout' style={{ position: 'relative' }}>
+    <aside className='sidelayout' style={{ position: 'relative' }} >
 
       <Link to={"/admin"} className='admin-profile' style={{ textDecoration: 'none' }} >
         <img src="/images/AdminSideicon.svg" alt="logo" className='adminsidelogo'></img>
@@ -86,6 +86,32 @@ const SideLayOut = () => {
           <span className='ml-3 Labelfont'>Reports</span>
         </div>
       </Link>
+
+      <Link to={RouterPath.MANAGE_PAYMENT_GATEWAY} style={{ textDecoration: 'none' }} >
+        <div className={`nav-item ${router.pathname.includes("/pg") && 'font-weight-bold'}`}>
+          <SmartDisplayIcon className='side-nav-icon margin_icons' fontSize='large' />
+          <span className='ml-3 Labelfont'>Manage Payment Gateway</span>
+        </div>
+
+      </Link>
+
+      <Link to={RouterPath.MANAGE_SLIDERS} style={{ textDecoration: 'none' }} >
+        <div className={`nav-item ${router.pathname.includes("sliders") && 'font-weight-bold'}`}>
+          <SmartDisplayIcon className='side-nav-icon margin_icons' fontSize='large' />
+          <span className='ml-3 Labelfont'>Manage Sliders</span>
+        </div>
+
+      </Link>
+
+      <Link to={RouterPath.MANAGE_SMS_PROVIDER} style={{ textDecoration: 'none' }} >
+        <div className={`nav-item ${router.pathname.includes("sms") && 'font-weight-bold'}`}>
+          <SmartDisplayIcon className='side-nav-icon margin_icons' fontSize='large' />
+          <span className='ml-3 Labelfont'>Manage SMS Gateway</span>
+        </div>
+
+      </Link>
+
+
       <Link to={RouterPath.PRIVACY_POLICY} style={{ textDecoration: 'none' }} >
         <div className={`nav-item ${router.pathname.includes("configurations") && 'font-weight-bold'}`}>
           <SettingsOutlinedIcon className='side-nav-icon margin_icons' fontSize='large' />

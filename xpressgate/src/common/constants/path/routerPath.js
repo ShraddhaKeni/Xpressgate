@@ -33,7 +33,18 @@ const RouterPath = {
     EDIT_VIDEO: "/admin/editvideo",
     REPORTS: "/admin/reports",
     TERMS: "/admin/configurations/terms",
-    PRIVACY_POLICY: "/admin/configurations/privacypolicy"
+    PRIVACY_POLICY: "/admin/configurations/privacypolicy",
+
+    MANAGE_PAYMENT_GATEWAY: "/admin/manage/pg",
+    ADD_PAYMENT_GATEWAY: "/admin/manage/pg/add",
+    EDIT_PAYMENT_GATEWAY: "/admin/manage/pg/:id",
+
+
+    MANAGE_SMS_PROVIDER: "/admin/manage/sms",
+    ADD_SMS_PROVIDER: "/admin/manage/sms/add",
+    EDIT_SMS_PROVIDER: "/admin/manage/sms/:id",
+
+    MANAGE_SLIDERS: "/admin/manage/sliders"
 
 
 };

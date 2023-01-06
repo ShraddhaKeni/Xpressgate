@@ -198,6 +198,18 @@ function App() {
           <Route path={RouterPath.TERMS} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.PRIVACY_POLICY} element={<AdminModuleComponent />}></Route>
 
+
+          <Route path={RouterPath.MANAGE_PAYMENT_GATEWAY} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.ADD_PAYMENT_GATEWAY} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.EDIT_PAYMENT_GATEWAY} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.MANAGE_SMS_PROVIDER} element={<AdminModuleComponent />}></Route>
+
+          <Route path={RouterPath.ADD_SMS_PROVIDER} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.EDIT_SMS_PROVIDER} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.MANAGE_SLIDERS} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.ADD_SLIDER} element={<AdminModuleComponent />}></Route>
+
+
           <Route path='/superadminlogin' element={<SuperAdminLogin />}></Route>
           <Route path='/enternewpass' element={<AdminEnterNewPass />}></Route>
           <Route path='/adminentercode' element={<AdminEnterCode />}></Route>
@@ -206,17 +218,17 @@ function App() {
           <Route path='/addblock' element={<AddBlock />}></Route>
           <Route path='/updateblock' element={<UpdateBlock />}></Route>
           <Route path='/socreports' element={<SocReport />}></Route>
-          <Route path='/addsocietymember' element={<AddSocietyMember/>}></Route>
-          <Route path='/editguarddetails' element={<EditGuard/>}></Route>
-         
+          <Route path='/addsocietymember' element={<AddSocietyMember />}></Route>
+          <Route path='/editguarddetails' element={<EditGuard />}></Route>
+
 
 
 
           <Route path="/packagelist" element={<PackageList />} exact></Route>
           <Route path="/paymenthistory" element={<SocietyPaymentHistory />} exact></Route>
           {/* <Route path="/societyduesrecord" element={<SocietyDuesTable />} exact></Route> */}
-            <Route path="/vendorpaymentrecord" element={<VendorPaymentTable />} exact></Route>
-            <Route path="/utilitypaymentrecord" element={<UtilityPaymentTable />} exact></Route>
+          <Route path="/vendorpaymentrecord" element={<VendorPaymentTable />} exact></Route>
+          <Route path="/utilitypaymentrecord" element={<UtilityPaymentTable />} exact></Route>
         </Routes>
       </Router>
     </div>

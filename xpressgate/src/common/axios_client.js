@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const axiosClient = axios.create({ baseURL: 'http://143.110.187.80:5050/api/' });
+export const DOMAIN = 'http://143.110.187.80:5050/'
+const axiosClient = axios.create({ baseURL: DOMAIN + 'api/' });
 
 axiosClient.defaults.headers = {
     Accept: 'application/json',
