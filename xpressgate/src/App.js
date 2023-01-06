@@ -202,6 +202,15 @@ function App() {
           {/* <Route path={RouterPath.ADMIN_CHANGE_PASSWORD} element={<Admin_Change_Password />}></Route> */}
 
 
+          <Route path={RouterPath.MANAGE_PAYMENT_GATEWAY} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.ADD_PAYMENT_GATEWAY} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.EDIT_PAYMENT_GATEWAY} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.MANAGE_SMS_PROVIDER} element={<AdminModuleComponent />}></Route>
+
+          <Route path={RouterPath.ADD_SMS_PROVIDER} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.EDIT_SMS_PROVIDER} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.MANAGE_SLIDERS} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.ADD_SLIDER} element={<AdminModuleComponent />}></Route>
 
           <Route path='/adminchangepassword' element={<Admin_Change_Password />}></Route>
           <Route path='/superadminlogin' element={<SuperAdminLogin />}></Route>
