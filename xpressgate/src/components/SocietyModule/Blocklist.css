@@ -221,7 +221,10 @@ input::-webkit-inner-spin-button {
   height: 70%;
   margin-top: 5%;
 }
-
+.threerows{
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
 .blsideimage img {
   display: flex;
   margin-top: 55%;
@@ -249,17 +252,16 @@ input::-webkit-inner-spin-button {
 
 .BLfullcardscss {
   margin-top: 2.5%;
-  margin-right: 1%;
-  margin-left: 1%;
-  padding-right: 20%;
+  margin-left: 10%;
+
 }
 
 .blminicard {
-  margin-left: 30%;
+ 
   margin-bottom: 9%;
   border: none;
   background-color: #0A8996;
-  width: 50%;
+  width: 60%;
   height: 90%;
   border-radius: 20px;
 }
@@ -270,7 +272,7 @@ input::-webkit-inner-spin-button {
 }
 
 .Blblock {
-  font-size: 25px;
+  font-size: 1.5vw;
   font-family: 'Rubik', sans-serif;
   color: #fff;
   font-weight: 600;
@@ -282,7 +284,7 @@ input::-webkit-inner-spin-button {
   border: none;
   width: 12vw;
   height: 5vh;
-  margin-right: -49%;
+  margin-right: -61%;
   margin-top: 2%;
   margin-bottom: -20%;
   font-family: 'Rubik';
@@ -298,7 +300,7 @@ input::-webkit-inner-spin-button {
 }
 
 .Blflat {
-  width: 40%;
+  max-width: 90%;
   height: fit-content;
   margin: auto ;
   font-family: 'Rubik', sans-serif;

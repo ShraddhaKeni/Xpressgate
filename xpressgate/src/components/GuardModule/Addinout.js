@@ -144,7 +144,7 @@ const Addinout = () => {
         <div className='aiodisplay'>
           <label>Add In Out</label>
         </div>
-        <Form className='formclass'>
+        <Form className='AIOformclass'>
           <div className="form-group row">
             <label className="col-lg-2 col-form-label ADN_label">Name</label>
             <div className="col-lg-4">
@@ -164,7 +164,7 @@ const Addinout = () => {
           <div className="form-group row" id='fullvendor'>
             <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Select Vendor</label>
             <div className="col-sm-4 col-md-4 col-lg-4">
-              <select className="form-control input-lg" id="vendor" placeholder="Vendor">
+              <select className="form-control input-lg AIOBorder" id="vendor" placeholder="Vendor">
                 <option value="" selected disabled>Select Vendor</option>
                 {vendor.map(item => {
                   return <option value={item._id}>{item.vendorName}</option>
@@ -175,7 +175,7 @@ const Addinout = () => {
           <div className="form-group row" id='fulldailyhelp'>
             <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Select Daily Helper</label>
             <div className="col-sm-4 col-md-4 col-lg-4">
-              <select className="form-control input-lg" id="dailyhelp" placeholder="Daily Helper">
+              <select className="form-control input-lg AIOBorder" id="dailyhelp" placeholder="Daily Helper">
                 <option value="" selected disabled>Select Daily Helper</option>
                 {dailyhelp.map(item => {
                   return <option value={item.id}>{item.serviceType}</option>
