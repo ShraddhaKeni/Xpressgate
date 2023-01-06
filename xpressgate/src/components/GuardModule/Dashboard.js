@@ -51,13 +51,15 @@ const Dashboard = () => {
         }
         let { data } = await axios.post(`${window.env_var}api/inoutentires/getdata`, codeData)
         console.log(data.data)
-        if(data.data.bookingdetails.status===false || dateTimeFormat(data.data.bookingdetails.date)!=dateTimeFormat(Date.now()))
+        if(data.data.bookingdetails.status===false /* || dateTimeFormat(data.data.bookingdetails.date)!=dateTimeFormat(Date.now()) */)
         {
           alert('Expired Entry Code.')
           return
         }
-        setEntryData(data.data.bookingdetails)
-        setMessage(data.message)
+        else{
+          setEntryData(data.data.bookingdetails)
+          setMessage(data.message)
+        }
       }else{
         alert('Enter valid passcode')
       }
@@ -94,7 +96,7 @@ const Dashboard = () => {
         <div id="guardnamesection">
           <div className='GuardName'>
             <img src="/images/guardnameicon.svg" alt="guard name" />
-            <label>Guard Name</label>
+            <label>{localStorage.getItem('name')}</label>
           </div>
           <div className='GDsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
         </div>

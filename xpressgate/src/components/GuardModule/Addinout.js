@@ -134,7 +134,7 @@ const Addinout = () => {
       <div id="aiosocietysection">
         <div className='aiosocietyname'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
-          <label>Guard Name</label>
+          <label>{localStorage.getItem('name')}</label>
         </div>
         <div className='aiosideimage'>
           <img src="/images/sideimage.svg" alt="guard sideimage" />
@@ -144,7 +144,7 @@ const Addinout = () => {
         <div className='aiodisplay'>
           <label>Add In Out</label>
         </div>
-        <Form className='formclass'>
+        <Form className='AIOformclass'>
           <div className="form-group row">
             <label className="col-lg-2 col-form-label ADN_label">Name</label>
             <div className="col-lg-4">
@@ -164,7 +164,7 @@ const Addinout = () => {
           <div className="form-group row" id='fullvendor'>
             <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Select Vendor</label>
             <div className="col-sm-4 col-md-4 col-lg-4">
-              <select className="form-control input-lg" id="vendor" placeholder="Vendor">
+              <select className="form-control input-lg AIOBorder" id="vendor" placeholder="Vendor">
                 <option value="" selected disabled>Select Vendor</option>
                 {vendor.map(item => {
                   return <option value={item._id}>{item.vendorName}</option>
@@ -175,7 +175,7 @@ const Addinout = () => {
           <div className="form-group row" id='fulldailyhelp'>
             <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Select Daily Helper</label>
             <div className="col-sm-4 col-md-4 col-lg-4">
-              <select className="form-control input-lg" id="dailyhelp" placeholder="Daily Helper">
+              <select className="form-control input-lg AIOBorder" id="dailyhelp" placeholder="Daily Helper">
                 <option value="" selected disabled>Select Daily Helper</option>
                 {dailyhelp.map(item => {
                   return <option value={item.id}>{item.serviceType}</option>
@@ -237,11 +237,11 @@ const Addinout = () => {
               <input type="time" className="form-control input-lg AIOBorder" id='intime' name="intime" placeholder=" In Time" value={details.intime} ></input>
             </div>
           </div>
-          <div className="form-group row">
+          <div className="form-group row hidden">
             <label className="col-lg-2 col-form-label ADN_label">Status</label>
             <div className="col-lg-4">
-              <select class="form-control input-lg AIOBorder" id='status' placeholder="Status">
-                <option value={1}>In</option>
+              <select class="form-control input-lg AIOBorder" id='status' placeholder="Status" disabled>
+                <option value={1} selected>In</option>
                 <option value={2}>Out</option>
               </select>
             </div>

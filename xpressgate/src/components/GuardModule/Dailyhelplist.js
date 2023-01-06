@@ -50,9 +50,9 @@ const Dailyhelplist = () => {
       const {data} = await axios.get(`${window.env_var}api/helperlist/getAll`)
       setDailyhelpdata(data.data.list)
       console.log(dailyhelpdata[0])
-      let perPage = Math.ceil(data.data.list.length / 6)
+      let perPage = Math.ceil(data.data.list.length / 10)
       setPostPerPage(perPage)
-      //console.log(perPage)
+      console.log(perPage)
       const indexoflast = currentPage*perPage  //endoffset
       const indexoffirst = indexoflast - perPage //startoffset
       setCurrentPosts(data.data.list.filter(x=>x.booking_id.length!=0).slice(indexoffirst,indexoflast))
@@ -67,7 +67,7 @@ const Dailyhelplist = () => {
   async function  paginate(event)
   {
     setCurrentpage(event.selected+1)
-    let perPage = Math.ceil(dailyhelpdata.length / 6)
+    let perPage = Math.ceil(dailyhelpdata.length / 10)
     setPostPerPage(perPage)
     const indexoflast = (event.selected+1)*perPage  //endoffset
     const indexoffirst = (indexoflast - perPage) //startoffset
@@ -91,7 +91,7 @@ const Dailyhelplist = () => {
       <div id="dhlguardnamesection">
         <div className='DHL_Name'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
-          <label>Guard Name</label>
+          <label>{localStorage.getItem('name')}</label>
         </div>
         <div className='DHL_SideImg'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
@@ -106,9 +106,9 @@ const Dailyhelplist = () => {
              
                 return (
                   
-                  <div className="col" onClick={()=>routeChange(dailydata._id,dailydata.helper_image)}>
-                    <div className="dailyhelpminicard"><br></br>
-                      <img className="dhcard-img-top" src={`${window.env_var}` + dailydata.helper_image} alt="profile"></img><br></br>
+                  <div className="col" onClick={()=>routeChange(dailydata._id,dailydata.helper_image)}><br></br>
+                    <div className="dailyhelpminicard"><br></br><br></br>
+                      <img className="dhcard-img-top" src={`${window.env_var}` +dailydata.helper_image} alt="profile"></img><br></br>
                       <label className='dhlcard-titlename'>{dailydata.helper_name}</label><br></br>
                       <label className='dhlcard-profession'>{dailydata.service}</label><br></br><br></br>
                       <label className='dhcard-allowedhouses'>Allowed in {dailydata.booking_id.length} Houses</label><br></br>

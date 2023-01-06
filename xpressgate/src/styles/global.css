@@ -407,7 +407,13 @@ border-radius: 25px;
     display: inline-block;
     padding: 1rem;
   }
-
+.ADCPpsideimage img {
+    display: flex;
+    margin-top: 123%;
+    max-width: 95%;
+    height: auto;
+    margin-left: 2%;
+}
   .search-right{
     display: flex;
     flex-direction: row-reverse;

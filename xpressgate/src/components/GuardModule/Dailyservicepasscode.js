@@ -39,7 +39,6 @@ const navigate = useNavigate()
           if (location.state) {
             console.log(location.state)
             getdailyhelp()
-      
           }
           else {
             getData()
@@ -70,7 +69,7 @@ const navigate = useNavigate()
     try {
       const codeData = {
         code: props.code,
-        community_id: "632970d054edb049bcd0f0b4"
+        community_id: localStorage.getItem('community_id')
       }
       let { data } = await axios.post(`${window.env_var}api/inoutentires/getdata`, codeData)
       if(data.message=='Guest')
@@ -138,7 +137,7 @@ const navigate = useNavigate()
       <div id="dspguardnamesection">
         <div className='DSPName'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
-          <label>Guard Name</label>
+          <label>{localStorage.getItem('name')}</label>
         </div>
        <div className='DSPSImg'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
@@ -147,7 +146,7 @@ const navigate = useNavigate()
         <div className="col-sm-6 col-md-6 col-lg-6">
           <div className="dailycard">
             <br></br>
-            <div className='profileimage'><img src={`${window.env_var}` +location.state.image} alt="profile" /></div>
+            {props ? <div className='profileimage'><img src={`${window.env_var}` +staff.staffDP} alt="profile"/></div>: <div className='profileimage'><img src={`${window.env_var}` +details.img} alt="profile" /></div>}
             <br></br>
             {props ? <label className="dailyhelpnamelabel">{staff.staffName}</label> : <label className="dailyhelpnamelabel">{details.helper_name}</label>}
             <br />

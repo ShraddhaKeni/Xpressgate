@@ -20,6 +20,7 @@ const Addvehicle = () => {
   const [type, setType] = useState()
   const location = useLocation()
   const [resid, setResid] = useState()
+  //const [vehiclenumber, setvehiclenumber] = useState()
 
   useEffect(() => {
     getBlocks();
@@ -28,7 +29,8 @@ const Addvehicle = () => {
       getAssignedParkingDetails();
     }
     else{
-
+      // setvehiclenumber(location.state.vehiclenumber)
+      // console.log(vehiclenumber)
     }
   }, [])
   const getBlocks = async () => {
@@ -127,7 +129,9 @@ const Addvehicle = () => {
         window.location.href = '/vehiclemanagement'
       }
       else{
-        
+        // if{
+        //   document.getElementById('vehicle_id').value ==
+        // }
         const sendData = {
           section_id: document.getElementById('section').value,
           resident_id: resid,

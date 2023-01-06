@@ -112,33 +112,6 @@ const AdminModuleComponent = () => {
         children = (<EditVideo />)
     }
 
-    if (router.pathname === RouterPath.MANAGE_PAYMENT_GATEWAY) {
-        children = (<PaymentGateways />)
-    }
-
-    if (router.pathname === RouterPath.ADD_PAYMENT_GATEWAY) {
-        children = (<AddPaymentGateway />)
-    }
-
-
-    if (router.pathname === RouterPath.EDIT_PAYMENT_GATEWAY) {
-        children = (<EditPaymentGateway />)
-    }
-
-    if (router.pathname === RouterPath.MANAGE_SMS_PROVIDER) {
-        children = (<SMSGatewayList />)
-    }
-    if (router.pathname === RouterPath.ADD_SMS_PROVIDER) {
-        children = (<SMSProvider />)
-    }
-    if (router.pathname === RouterPath.EDIT_SMS_PROVIDER) {
-        children = (<EditSMSGateway />)
-    }
-
-    if (router.pathname === RouterPath.MANAGE_SLIDERS) {
-        children = (<Sliders />)
-    }
-
     return (
         <div className='flex flex-col'>
 

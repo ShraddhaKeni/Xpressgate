@@ -73,13 +73,18 @@ const Vendorlist = () => {
   const  dateTimeFormat=(date)=>
   {
     var d = new Date(date)
-    return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()
+    return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()
     
   }
 
   const getTime=(date)=>{
-    var d = new Date(date)
-    return d.getHours()+':'+d.getMinutes()
+    console.log(date)
+    // var d = new Date(date)
+    // return d.getHours()+':'+d.getMinutes()
+    let ntime = date.split('T');
+    let titime = ntime[1].split('.');
+    //console.log(titime[0])
+    return titime[0]
     
   }
 
@@ -126,7 +131,7 @@ const Vendorlist = () => {
       <div id="guardnamesection">
         <div className='VendorLname'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
-          <label>Guard Name</label>
+          <label>{localStorage.getItem('name')}</label>
         </div>
         <div className='VendorLSImg'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>

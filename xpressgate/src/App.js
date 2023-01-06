@@ -84,6 +84,8 @@ import UpdateBlock from './components/SocietyModule/UpdateBlock';
 import SocReport from './components/SocietyModule/SocReport';
 import AddSocietyMember from './components/SocietyModule/AddSocietyMember';
 import EditGuard from './components/GuardModule/EditGuard';
+import Admin_Change_Password from './pages/admin/LoginScreens/Admin_Change_Password';
+
 
 function App() {
 
@@ -197,19 +199,11 @@ function App() {
           <Route path={RouterPath.REPORTS} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.TERMS} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.PRIVACY_POLICY} element={<AdminModuleComponent />}></Route>
+          {/* <Route path={RouterPath.ADMIN_CHANGE_PASSWORD} element={<Admin_Change_Password />}></Route> */}
 
 
-          <Route path={RouterPath.MANAGE_PAYMENT_GATEWAY} element={<AdminModuleComponent />}></Route>
-          <Route path={RouterPath.ADD_PAYMENT_GATEWAY} element={<AdminModuleComponent />}></Route>
-          <Route path={RouterPath.EDIT_PAYMENT_GATEWAY} element={<AdminModuleComponent />}></Route>
-          <Route path={RouterPath.MANAGE_SMS_PROVIDER} element={<AdminModuleComponent />}></Route>
 
-          <Route path={RouterPath.ADD_SMS_PROVIDER} element={<AdminModuleComponent />}></Route>
-          <Route path={RouterPath.EDIT_SMS_PROVIDER} element={<AdminModuleComponent />}></Route>
-          <Route path={RouterPath.MANAGE_SLIDERS} element={<AdminModuleComponent />}></Route>
-          <Route path={RouterPath.ADD_SLIDER} element={<AdminModuleComponent />}></Route>
-
-
+          <Route path='/adminchangepassword' element={<Admin_Change_Password />}></Route>
           <Route path='/superadminlogin' element={<SuperAdminLogin />}></Route>
           <Route path='/enternewpass' element={<AdminEnterNewPass />}></Route>
           <Route path='/adminentercode' element={<AdminEnterCode />}></Route>
@@ -220,6 +214,7 @@ function App() {
           <Route path='/socreports' element={<SocReport />}></Route>
           <Route path='/addsocietymember' element={<AddSocietyMember />}></Route>
           <Route path='/editguarddetails' element={<EditGuard />}></Route>
+
 
 
 

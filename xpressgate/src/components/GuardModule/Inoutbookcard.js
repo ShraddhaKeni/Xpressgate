@@ -69,8 +69,9 @@ const Inoutbookcard = () => {
   }
 
   const dateConvert =(date)=>{
-     const d = new Date(date)
-     return (d.getDay()+18)+'/'+ (d.getMonth()+1)+'/'+d.getFullYear()
+    const d = new Date(date)
+    //console.log(d)
+    return d.getDate()+'/'+ (d.getMonth()+1)+'/'+d.getFullYear()
   } 
   const timeConvert =(date)=>{
     const d = new Date(date)
@@ -101,13 +102,13 @@ const Inoutbookcard = () => {
       <div id="guardnamesection">
         <div className='IOBC_GName'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
-          <label>Guard Name</label>
+          <label>{localStorage.getItem('name')}</label>
         </div>
         <div className='IOBC_SImg'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='iobcbackgroundimg'>
         <div className= "IOBC_display">
-          <label>In-out Book</label>
+          <label>In-Out Book</label>
         </div>
         {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}
         <div className="col">
@@ -128,10 +129,10 @@ const Inoutbookcard = () => {
             <br></br>
             <div className='detailsclass'>
               <div><label className='date'>Date:{dateConvert(listData.intime)}</label></div>
-              <div><label className='intine'>In-Time: {timeConvert(listData.intime)}</label></div>
-              <div><label className='outtime'>Out-Time: {listData.outtime?dateConvert(listData.outtime):'N/A'}</label></div>
-              <div><label className='noofpeople'>No of People: 1</label></div>
-              <div><label className='vehicleno'>Vehicle No: MH-29-2901</label></div>
+              <div><label className='intime'>In-Time: {timeConvert(listData.intime)}</label></div>
+              <div><label className='outtime'>Out-Time: {listData.outtime?timeConvert(listData.outtime):'N/A'}</label></div>
+              {/* <div><label className='noofpeople'>No of People: 1</label></div> */}
+              <div><label className='vehicleno'>Vehicle No: {listData.vehicle_no ? listData.vehicle_no : 'N/A'}</label></div>
             </div>
             <br></br>
             {console.log(listData.status)}

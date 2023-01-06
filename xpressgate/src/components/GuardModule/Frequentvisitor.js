@@ -27,9 +27,9 @@ const Frequentvisitor = ({freqvisitordata}) => {
       {
         navigate('/vendorentry',{state:{id:data.data.bookingdetails.booked_id,code:freqvisitordata.code}})
       }
-      else
+      else if(data.message=='Guest')
       {
-        console.log(data)
+        navigate('/guestentry',{state:{id:data.data.bookingdetails.booked_id,code:freqvisitordata.code}})
       }
     } catch (error) {
       console.log(error)
@@ -55,7 +55,7 @@ const Frequentvisitor = ({freqvisitordata}) => {
       <div id="guardnamesection"> 
         <div className='guardname'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
-          <label>Guard Name</label>
+          <label>{localStorage.getItem('name')}</label>
         </div>
         <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>

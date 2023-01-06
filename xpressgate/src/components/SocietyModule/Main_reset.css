@@ -158,6 +158,11 @@ margin-left: -45%;
   width: 26vw;
   height: auto;
   margin-left: 1%;
+  
+background: #FFFFFF;
+border: 2px solid #14335D;
+box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+border-radius: 8px;
 }
 .CHP_input{
   position: absolute;
@@ -165,6 +170,11 @@ margin-left: -45%;
   width: 26vw;
   height: auto;
   margin-left: 1%;
+  
+background: #FFFFFF;
+border: 2px solid #14335D;
+box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+border-radius: 8px;
 }
 .NP_input{
   position: absolute;
@@ -172,6 +182,11 @@ margin-left: -45%;
   width: 26vw;
   height: auto;
   margin-left: 1%;
+  
+background: #FFFFFF;
+border: 2px solid #14335D;
+box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+border-radius: 8px;
 }
 .CHPASS {
   position: absolute;
@@ -217,6 +232,7 @@ font-weight: 500;
   position: absolute;
   font-family: 'Rubik';
 font-style: normal;
+border: none;
 }
 
 .CHPASS_BTN:hover{
@@ -317,6 +333,7 @@ color: #14335D;
     position: absolute;
     font-family: 'Rubik';
     font-style: normal;
+    border: none;
 }
   .CHPASS_BTN:hover{
     background-color: #14335D;
@@ -415,6 +432,10 @@ color: #14335D;
     width: 26vw;
     height: 6vh;
     margin-left: 41%;
+    background: #FFFFFF;
+    border: 2px solid #14335D;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
 }
 .NP_input {
   position: absolute;
@@ -422,6 +443,10 @@ color: #14335D;
     width: 26vw;
     height: 6vh;
     margin-left: 41%;
+    background: #FFFFFF;
+    border: 2px solid #14335D;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
 }
 .CHP_input {
   position: absolute;
@@ -429,6 +454,10 @@ color: #14335D;
     width: 26vw;
     height: 6vh;
     margin-left: 41%;
+    background: #FFFFFF;
+    border: 2px solid #14335D;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
 }
 }
 

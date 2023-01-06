@@ -108,7 +108,7 @@ const GuestManagement = () => {
                   <td>{item.guestFirstName} {item.guestLastName}</td>
                   <td >{item.flat_number}</td>
                   <td>{dateTimeFormat(item.time)}</td>
-                  <td>2232</td>
+                  <td>{item.vehicle_no}</td>
               </tr>
               )
             })}

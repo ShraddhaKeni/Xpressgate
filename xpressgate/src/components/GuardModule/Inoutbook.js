@@ -67,9 +67,9 @@ const Inoutbook = () => {
   const paginate = async(event)=>{
     const { data } = await axios.get(`${window.env_var}api/inout/getall/` + community_id)
     setCurrentpage(event.selected+1)
-    const indexoflast = currentPage*postPerPage  //endoffset
+    const indexoflast = (event.selected+1)*postPerPage  //endoffset
     const indexoffirst = indexoflast - postPerPage //startoffset
-    setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
+    setCurrentPosts(inoutdata.slice(indexoffirst,indexoflast))
   }
   return (
     <div className="inoutbookcontainer">
@@ -79,13 +79,13 @@ const Inoutbook = () => {
       <div id="guardnamesection">
         <div className='InOutName'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
-          <label>Guard Name</label>
+          <label>{localStorage.getItem('name')}</label>
         </div>
         <div className='IOBsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='iobbackgroundimg'>
         <div className='IOB_display'>
-          <label>In-out Book</label>
+          <label>In-Out Book</label>
         </div>
         {/* <div className='InoutBookButton'>
           <a href="/addinout" className='InoutBookADDButton'>&#43; Add In Out</a>
@@ -105,7 +105,7 @@ const Inoutbook = () => {
             </tr>
           </thead>
           <tbody>
-            {inoutdata.map((iodata,index) => {
+            {currentPosts.map((iodata,index) => {
               return (
                 <tr onClick={()=>routeNavigate(iodata.booking_id)}>
                   <td>{(currentPage-1)*12+(index+1)}</td>

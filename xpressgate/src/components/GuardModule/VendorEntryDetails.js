@@ -9,6 +9,7 @@ import { checkGuard } from '../auth/Auth';
 const VendorEntryDetails = () => {
     const current = new Date();
     const [date, setDate] = useState(`${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`);
+    const [time, setTime] = useState(`${current.getHours()}/${current.getMinutes()}}`)
     const [vendorData, setVendorData] = useState({})
     const [flats,setFlats] = useState([])
     const [bookings,setBookings] = useState([])
@@ -71,7 +72,7 @@ const VendorEntryDetails = () => {
           navigate('/dashboard')
         }
     } 
-
+   
     const submitData=async()=>{
         
         try {
@@ -119,14 +120,14 @@ const VendorEntryDetails = () => {
             <GuardHeader/>
           </div>
           <div id="guardnamesection"> 
-            <div className='guardname'>
+            <div className='VED_Name'>
               <img src="/images/guardnameicon.svg" alt="guard name" />
-              <label>Guard Name</label>
+              <label>{localStorage.getItem('name')}</label>
             </div>
-            <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
+            <div className='VED_sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
           </div>
           <div className='fvbackgroundimg'>
-            <div className='frequentvisitordisplay'>
+            <div className='VED_Display'>
               <label>{code?code:'Details'}</label>
             </div>
             {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}
@@ -148,14 +149,14 @@ const VendorEntryDetails = () => {
     
                 <div className='detailsclass'>
                   <div><label className='date text-right'>Date:{date}</label></div>
-                  <div><label className='intime'>In-Time: </label></div>
-                  <div><label className='outtime'>Out-Time: </label></div>
+                  {/* <div><label className='intime'>Booked time: {getTime(vendorData.bookedDate)} </label></div> */}
+                  {/* <div><label className='outtime'>Out-Time: </label></div> */}
                   <div><label className='noofpeople'>No of People: 1</label></div>
                   <div><label className='vehicleno'>Vehicle No: <input type='text' placeholder='Vehicle Number'></input></label></div>
                 </div>
                 <br></br>
-                <Button type="button" onClick={()=>{submitData()}} className="btnApprove">APPROVE</Button>
-                <Button type="submit" className="btnDeny" onClick={()=>window.location.href="/dashboard"}>DENY</Button>
+                <button type="button" onClick={()=>{submitData()}} className="VEDbtnApprove">APPROVE</button>
+                <button type="submit" className="VEDbtnDeny" onClick={()=>window.location.href="/dashboard"}>DENY</button>
                 <br></br>
                 
               </div>

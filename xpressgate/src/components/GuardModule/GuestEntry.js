@@ -56,8 +56,10 @@ const GuestEntry = () => {
                 type:1,
                 bookedID:guestDetails._id,
                 status:1,
-                allowed_by:localStorage.getItem('guard_id')
+                allowed_by:localStorage.getItem('guard_id'),
+                vehicle_no:document.getElementById('veh_id').value
             }
+            console.log(submitData)
             const {data} = await axios.post(`${window.env_var}api/inout/add`,submitData);
             const bookingUpdate = await axios.get(`${window.env_var}api/resident/guest/deleteGuest/${guestDetails._id}`)
             navigate('/guestlist')
@@ -73,7 +75,7 @@ const GuestEntry = () => {
     <div id="guardnamesection"> 
       <div className='GuestLName'>
         <img src="/images/guardnameicon.svg" alt="guard name" />
-        <label>Guard Name</label>
+        <label>{localStorage.getItem('name')}</label>
       </div>
       <div className='GuestLsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
     </div>
@@ -97,10 +99,10 @@ const GuestEntry = () => {
 
           <div className='detailsclass'>
             <div><label className='date text-right'>Date:{date}</label></div>
-            <div><label className='intime'>In-Time: </label></div>
-            <div><label className='outtime'>Out-Time: </label></div>
-            <div><label className='noofpeople'>No of People: 1</label></div>
-            <div><label className='vehicleno'>Vehicle No: <input ref={vehical} type='text'></input></label></div>
+            {/* <div><label className='intime'>In-Time: </label></div>
+            <div><label className='outtime'>Out-Time: </label></div> */}
+            <div><label className='noofpeople'>No of People: {guestDetails.numberOfGuest}</label></div>
+            <div><label className='vehicleno'>Vehicle No: <input ref={vehical} id='veh_id' type='text'></input></label></div>
           </div>
           <br></br>
           <button type="button" onClick={()=>{handleSubmit()}} className="BTN_Approve">APPROVE</button>

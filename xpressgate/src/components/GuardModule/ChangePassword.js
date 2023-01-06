@@ -67,7 +67,7 @@ const ChangePassword = () => {
       <div id="cpnamesection">
         <div className='CP_GName'>
           <img src="/images/guardnameicon.svg" alt="Guard image" />
-          <label>Guard Name</label>
+          <label>{localStorage.getItem('name')}</label>
         </div>
         <div className='CP_SideIMG'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
@@ -104,7 +104,7 @@ const ChangePassword = () => {
               </div>
             </div>
           </div>
-          <Button type="submit" onClick={(e) => handleSubmit(e)} className="CHPASS_BTN">Update</Button>
+          <button type="submit" onClick={(e) => handleSubmit(e)} className="CHPASS_BTN">Update</button>
         </Form>
 
       </div>

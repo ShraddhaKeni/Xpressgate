@@ -164,12 +164,13 @@ font-weight: 500;
 
 .dailyhelpminicard{
   margin-left: 42%;
-  margin-bottom: 10%;
+  margin-bottom: 3%;
   border: none;
   background-color: #0A8996;
   width: 14.5vw;
-  height: 20vh;
+  height: 21vh;
   border-radius: 20px;
+ 
 }
 
 .dhlcard-titlename {
@@ -203,12 +204,13 @@ margin-top: -5%;
 .dhcard-img-top {
   width: 4.5vw;
   height: 7.5vh;
-  margin: auto;
+  margin-top: -7%;
   border-radius: 100px;
+  margin-bottom: 2%;
 }
 
 .dhfullcardscss {
-  margin-top: 2%;
+  margin-top: 0%;
   padding-left: 0%;
   padding-right: 16%;
   margin-left: 2%;
