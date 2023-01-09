@@ -34,8 +34,18 @@ const RouterPath = {
     REPORTS: "/admin/reports",
     TERMS: "/admin/configurations/terms",
     PRIVACY_POLICY: "/admin/configurations/privacypolicy",
-//    ADMIN_CHANGE_PASSWORD: "/admin/adminchangepassword"
+    //    ADMIN_CHANGE_PASSWORD: "/admin/adminchangepassword"
 
+    MANAGE_PAYMENT_GATEWAY: "/admin/manage/pg",
+    ADD_PAYMENT_GATEWAY: "/admin/manage/pg/add",
+    EDIT_PAYMENT_GATEWAY: "/admin/manage/pg/:id",
+
+
+    MANAGE_SMS_PROVIDER: "/admin/manage/sms",
+    ADD_SMS_PROVIDER: "/admin/manage/sms/add",
+    EDIT_SMS_PROVIDER: "/admin/manage/sms/:id",
+
+    MANAGE_SLIDERS: "/admin/manage/sliders"
 
 };
 export default RouterPath;

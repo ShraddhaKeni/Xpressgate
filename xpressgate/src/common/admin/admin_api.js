@@ -126,3 +126,92 @@ export async function deleteCommunity(id) {
         return error
     }
 }
+
+
+/// Payment Gateways ///
+export async function getAllPaymentGateways() {
+    try {
+        return await getRequest(`paymentgateway/getall`);
+    } catch (error) {
+        return error
+    }
+}
+
+export async function addPaymentGateway(data) {
+    try {
+        return await postRequest(`paymentgateway/add`, data);
+    } catch (error) {
+        return error
+    }
+}
+
+export async function updatePaymentGateway(data) {
+    try {
+        return await postRequest(`paymentgateway/update`, data);
+    } catch (error) {
+        return error
+    }
+}
+
+export async function deletePaymentGateway(id) {
+    try {
+        return await postRequest(`paymentgateway/remove`, { id: id });
+    } catch (error) {
+        return error
+    }
+}
+
+
+/// SMS ///
+
+export async function getAllSMSGateway() {
+    try {
+        return await getRequest(`smsgateway/getall`);
+    } catch (error) {
+        return error
+    }
+}
+
+export async function addSMSGateway(data) {
+    try {
+        return await postRequest(`smsgateway/add`, data);
+    } catch (error) {
+        return error
+    }
+}
+
+export async function updateSMSGateway(data) {
+    try {
+        return await postRequest(`smsgateway/update`, data);
+    } catch (error) {
+        return error
+    }
+}
+
+export async function deleteSMSGateway(id) {
+    try {
+        return await postRequest(`smsgateway/remove`, { id: id });
+    } catch (error) {
+        return error
+    }
+}
+
+
+/// SLIDERS  ///
+
+
+export async function getAllSliders() {
+    try {
+        return await getRequest(`slider/getall`);
+    } catch (error) {
+        return error
+    }
+}
+
+export async function deleteSlider(id) {
+    try {
+        return await postRequest(`slider/remove`, { id: id });
+    } catch (error) {
+        return error
+    }
+}

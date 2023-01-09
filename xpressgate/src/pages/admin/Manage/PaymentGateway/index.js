@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import PaginationCalculate from '../../../components/GuardModule/Utils/paginationCalculate';
-import { SimpleInputComponent } from '../components/input';
 import { ButtonBase, Icon, IconButton } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import { ButtonUnstyled } from '@mui/base';
-import { MaterialButton } from '../components/MaterialButton';
 import axios from 'axios';
-import { deleteCommunity } from '../../../common/admin/admin_api';
+import { deleteCommunity, deletePaymentGateway, getAllPaymentGateways } from '../../../../common/admin/admin_api';
+import PaginationCalculate from '../../../../components/GuardModule/Utils/paginationCalculate';
+import RouterPath from '../../../../common/constants/path/routerPath';
 
-const PremiseList = () => {
+const PaymentGateways = () => {
 
     const navigate = useNavigate();
 
@@ -24,12 +21,12 @@ const PremiseList = () => {
 
     const getCommunities = async () => {
         try {
-            const { data } = await axios.get(`${window.env_var}api/community/get`)
-            setCommunity(data.data.community)
+            const { data } = await getAllPaymentGateways();
+            setCommunity(data.data.payment_gateway)
             const indexoflast = (currentPage + 1) * postPerPage  //endoffset
             const indexoffirst = (indexoflast - postPerPage) //startoffset
             console.log(data.data);
-            setCurrentPosts(data.data.community.slice(indexoffirst, indexoflast))
+            setCurrentPosts(data.data.payment_gateway.slice(indexoffirst, indexoflast))
         } catch (error) {
 
         }
@@ -43,21 +40,21 @@ const PremiseList = () => {
     }
 
     const removePremise = async (id) => {
-        await deleteCommunity(id);
+        await deletePaymentGateway(id);
         window.location.reload();
     }
 
     const handleAddPremise = () => {
-        navigate('/admin/premises/add')
+        navigate(RouterPath.ADD_PAYMENT_GATEWAY)
     }
 
-    const handleEditClick = (id) => {
+    const handleEditClick = (data) => {
 
-        navigate('/admin/premises/edit', { state: { id } })
+        navigate(RouterPath.EDIT_PAYMENT_GATEWAY, { state: { data } })
     }
 
     async function findText(e) {
-        let text = community.filter(x => x.name.toLowerCase().includes(e.target.value.toLowerCase()))
+        let text = community.filter(x => x.payment_gateway_name.toLowerCase().includes(e.target.value.toLowerCase()))
         if (text) {
             setCurrentPosts(text)
         }
@@ -72,7 +69,7 @@ const PremiseList = () => {
             <img src='/images/side_bar_img.svg' className='Premise_side_Img' />
             <div>
                 <div className='page-label'>
-                    <label>Premise Management</label>
+                    <label>Manage Payment Gateway</label>
                 </div>
                 <div>
                     <div className='table-top-right-content'>
@@ -83,7 +80,7 @@ const PremiseList = () => {
 
                         <div className="table-add-new-button" onClick={handleAddPremise}>
 
-                            <span className='ml-2'>&#43; Add New Premise</span>
+                            <span className='ml-2'>&#43; Add New Gateway</span>
                         </div>
                     </div>
 
@@ -91,9 +88,8 @@ const PremiseList = () => {
                         <thead className='table-th'>
                             <tr>
                                 <th class="th-sm" >ID No.</th>
-                                <th class="th-sm">Premise Name</th>
-                                <th class="th-sm">No of Blocks</th>
-                                <th class="th-sm">Status</th>
+                                <th class="th-sm">Payment Gateway Name</th>
+                                <th class="th-sm">API Key</th>
                                 <th class="th-sm">Actions</th>
                             </tr>
                         </thead>
@@ -102,18 +98,17 @@ const PremiseList = () => {
                                 return (
                                     <tr>
                                         <td>{(currentPage ? currentPage : 1 - 1) * 12 + (index + 1)}</td>
-                                        <td>{item.name}</td>
-                                        <td>{item.noofblocks}</td>
-                                        <td><ButtonUnstyled className='approve-active'>{item.status == true ? 'Unapprove' : 'Approve'}</ButtonUnstyled></td>
+                                        <td>{item.payment_gateway_name}</td>
+                                        <td>{item.payment_api_key?.slice(0, 5)}***</td>
                                         <td>
                                             <div>
-                                                <IconButton onClick={() => { handleEditClick(item.id) }}>
+                                                <IconButton onClick={() => { handleEditClick(item) }}>
                                                     <img src="/images/icon_edit.svg" />
                                                 </IconButton>
 
-                                                {item.status === true ? <IconButton onClick={() => removePremise(item._id)}>
+                                                <IconButton onClick={() => removePremise(item.id)}>
                                                     <img src="/images/icon_delete.svg" />
-                                                </IconButton> : ''}
+                                                </IconButton>
 
                                             </div>
                                         </td>
@@ -133,5 +128,5 @@ const PremiseList = () => {
         </>)
 }
 
-export default PremiseList
+export default PaymentGateways
 

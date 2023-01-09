@@ -31,10 +31,13 @@ import { EditPlan } from './PaymentManagement/Plans/edit';
 import { DatePicker } from '@mui/x-date-pickers';
 import { PaymentHistory } from './PaymentManagement/PaymentHistory';
 import { PremisesPayHistory } from './PaymentManagement/PaymentHistory/premise_history';
-// import Admin_Change_Password from './LoginScreens/Admin_Change_Password';
-
-
-
+import PaymentGateways from './Manage/PaymentGateway';
+import AddPaymentGateway from './Manage/PaymentGateway/new';
+import SMSProvider from './Manage/SMSProvider/new';
+import SMSGatewayList from './Manage/SMSProvider';
+import Sliders from './Manage/Sliders';
+import EditPaymentGateway from './Manage/PaymentGateway/edit';
+import EditSMSGateway from './Manage/SMSProvider/edit';
 
 
 const AdminModuleComponent = () => {
@@ -108,16 +111,41 @@ const AdminModuleComponent = () => {
         children = (<EditVideo />)
     }
 
-    // if (router.pathname === RouterPath.ADMIN_CHANGE_PASSWORD) {
-    //     children = (<Admin_Change_Password />)
-    // }
-   
+    if (router.pathname === RouterPath.MANAGE_PAYMENT_GATEWAY) {
+        children = (<PaymentGateways />)
+    }
+
+    if (router.pathname === RouterPath.ADD_PAYMENT_GATEWAY) {
+        children = (<AddPaymentGateway />)
+    }
+
+
+    if (router.pathname === RouterPath.EDIT_PAYMENT_GATEWAY) {
+        children = (<EditPaymentGateway />)
+    }
+
+    if (router.pathname === RouterPath.MANAGE_SMS_PROVIDER) {
+        children = (<SMSGatewayList />)
+    }
+    if (router.pathname === RouterPath.ADD_SMS_PROVIDER) {
+        children = (<SMSProvider />)
+    }
+    if (router.pathname === RouterPath.EDIT_SMS_PROVIDER) {
+        children = (<EditSMSGateway />)
+    }
+
+    if (router.pathname === RouterPath.MANAGE_SLIDERS) {
+        children = (<Sliders />)
+    }
+
     return (
         <div className='flex flex-col'>
 
             <Header />
             <div className='flex'>
-                <SideLayOut />
+
+                <SideLayOut style={{ overflow: 'visible' }} />
+
                 <div className='flex-1 d-flex' style={{ width: "100%", height: '100%' }}>
                     <div className='main-container'>
                         <main>
