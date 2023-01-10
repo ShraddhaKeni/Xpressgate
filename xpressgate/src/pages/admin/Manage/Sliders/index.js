@@ -40,7 +40,7 @@ const Sliders = () => {
     }
     async function paginate(event) {
 
-        setCurrentpage(event.selected + 1)
+        setCurrentpage(event.selected)
         const indexoflast = (event.selected + 1) * postPerPage  //endoffset
         const indexoffirst = (indexoflast - postPerPage) //startoffset
         setCurrentPosts(sliders.slice(indexoffirst, indexoflast))
@@ -127,7 +127,7 @@ const Sliders = () => {
                             {currentPosts.map((item, index) => {
                                 return (
                                     <tr>
-                                        <td>{(currentPage ? currentPage : 1 - 1) * 12 + (index + 1)}</td>
+                                        <td>{index + 1 + (currentPage * postPerPage)}</td>
                                         <td><img style={{ width: '80px;', height: '60px' }} src={DOMAIN + item.slider_pic} /></td>
                                         <td>
                                             <div>

@@ -5,12 +5,14 @@ import axios from "axios";
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import SideLayOut from "../../../components/base/Layout/SideLayOut";
 import Header from "../../../components/base/Layout/Header";
+import { Button } from "@mui/material";
 
 const PrivacyPolicy = () => {
   const [policydata, setdata] = useState({});
-  const ckdata = '<h1>This is test</h1>'
+  const [editedData, setEditedData] = useState("");
   const handleChange = (e, editor) => {
     let edited_data = editor.getData();
+    setEditedData(edited_data);
     console.log(e, 'In handleChange', edited_data);
   }
 
@@ -20,40 +22,68 @@ const PrivacyPolicy = () => {
 
   const getPrivacyPolicy = async () => {
     try {
-      const { data } = await axios.post(`${window.env_var}api/legal/getone`, { type: 'term' });
+      const { data } = await axios.post(`${window.env_var}api/legal/getone`, { type: 'privacy' });
       setdata(data.data[0]);
       console.log(data.data[0]);
     } catch (error) {
       console.log(error);
     }
   }
+
+  const updatePrivacyPolicy = async (e) => {
+    e.preventDefault();
+    if (editedData) {
+      try {
+        const { data } = await axios.post(`${window.env_var}api/legal/update`, { id: policydata.id, type: 'privacy', content: editedData, status: 1 });
+        //setdata(data.data[0]);
+        //console.log(data.data[0]);
+        window.location.reload();
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      alert("Add Some text First!")
+    }
+
+  }
+
   return (
     <>
-       {/* <div className='flex flex-col'>
+      {/* <div className='flex flex-col'>
 
 <Header />
 <div className='flex'>
 
     <SideLayOut/> */}
-    <div className="policy_page-label " >
-          <label>Privacy Policy</label>
-        </div>
-    {/* <div className='flex-1 d-flex' style={{ width: "100%", height: '100%' }}> */}
-        <div className='Policycontainer'>
-       
+      <div className="policy_page-label " >
+        <label>Privacy Policy</label>
+      </div>
+      {/* <div className='flex-1 d-flex' style={{ width: "100%", height: '100%' }}> */}
+
+      <div className='Policycontainer'>
+
 
         <img src='/images/side_bar_img.svg' className='Ppolicy_side_Img' />
-        <div className="policiestextbox">
-        <div className="editor">
-          <br/>
-              <CKEditor editor={ClassicEditor} data={policydata.rn} onchange={(e, editor) => { handleChange(e, editor) }} />
-            </div>
-            </div>
-        </div>
 
-    {/* </div>
+        <div className="policiestextbox">
+          <div className='table-top-right-content'>
+            <button type="submit" onClick={updatePrivacyPolicy} className="BTN_ADD_premise" >Update</button>
+          </div>
+
+          <div className="editor">
+            <br />
+
+            <CKEditor editor={ClassicEditor} data={policydata.rn} onChange={(e, editor) => { handleChange(e, editor) }} />
+
+
+          </div>
+        </div>
+      </div>
+
+      {/* </div>
 </div>
 </div> */}
+
     </>
   );
 };

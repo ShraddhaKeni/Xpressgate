@@ -33,7 +33,7 @@ const SMSGatewayList = () => {
     }
     async function paginate(event) {
 
-        setCurrentpage(event.selected + 1)
+        setCurrentpage(event.selected)
         const indexoflast = (event.selected + 1) * postPerPage  //endoffset
         const indexoffirst = (indexoflast - postPerPage) //startoffset
         setCurrentPosts(smsgateway.slice(indexoffirst, indexoflast))
@@ -97,7 +97,7 @@ const SMSGatewayList = () => {
                             {currentPosts.map((item, index) => {
                                 return (
                                     <tr>
-                                        <td>{(currentPage ? currentPage : 1 - 1) * 12 + (index + 1)}</td>
+                                        <td>{index + 1 + (currentPage * postPerPage)}</td>
                                         <td>{item.gateway_name}</td>
                                         <td>{item.api_key?.slice(0, 7)}***</td>
                                         <td>
