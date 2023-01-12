@@ -46,7 +46,7 @@ const EditPaymentGateway = () => {
             <img src='/images/side_bar_img.svg' className='AddPremise_side_Img' />
             <div>
                 <div className='page-label'>
-                    <label>Edit Payment Gateway</label>
+                    <label>Update Payment Gateway</label>
                 </div>
                 <div>
 
