@@ -36,7 +36,7 @@ const PremiseList = () => {
     }
     async function paginate(event) {
 
-        setCurrentpage(event.selected + 1)
+        setCurrentpage(event.selected)
         const indexoflast = (event.selected + 1) * postPerPage  //endoffset
         const indexoffirst = (indexoflast - postPerPage) //startoffset
         setCurrentPosts(community.slice(indexoffirst, indexoflast))
@@ -101,7 +101,7 @@ const PremiseList = () => {
                             {currentPosts.map((item, index) => {
                                 return (
                                     <tr>
-                                        <td>{(currentPage ? currentPage : 1 - 1) * 12 + (index + 1)}</td>
+                                        <td>{index + 1 + (currentPage * postPerPage)}</td>
                                         <td>{item.name}</td>
                                         <td>{item.noofblocks}</td>
                                         <td><ButtonUnstyled className='approve-active'>{item.status == true ? 'Unapprove' : 'Approve'}</ButtonUnstyled></td>
@@ -124,7 +124,7 @@ const PremiseList = () => {
 
                         </tbody>
                     </table>
-                    {currentPosts.length > postPerPage && <div className='paginate'>
+                    {community.length > postPerPage && <div className='paginate'>
                         <PaginationCalculate totalPages={community.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
                     </div>}
                 </div >
