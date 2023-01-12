@@ -33,7 +33,7 @@ const PaymentGateways = () => {
     }
     async function paginate(event) {
 
-        setCurrentpage(event.selected + 1)
+        setCurrentpage(event.selected)
         const indexoflast = (event.selected + 1) * postPerPage  //endoffset
         const indexoffirst = (indexoflast - postPerPage) //startoffset
         setCurrentPosts(community.slice(indexoffirst, indexoflast))
@@ -97,7 +97,7 @@ const PaymentGateways = () => {
                             {currentPosts.map((item, index) => {
                                 return (
                                     <tr>
-                                        <td>{(currentPage ? currentPage : 1 - 1) * 12 + (index + 1)}</td>
+                                        <td>{index + 1 + (currentPage * postPerPage)}</td>
                                         <td>{item.payment_gateway_name}</td>
                                         <td>{item.payment_api_key?.slice(0, 5)}***</td>
                                         <td>
