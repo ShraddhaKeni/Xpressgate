@@ -34,7 +34,11 @@ const UtilityPaymentLink = () => {
             <label class="col-lg-2 col-form-label ADN_label">Utility Type</label>
             <div class="col-lg-4">
               <select class="form-control input-lg inputborder" id="service" placeholder="Service">
-                <option value={null} disabled selected> </option>
+                <option value={null} disabled selected> Select </option>
+                <option value="Electricity"> Electricity </option>
+                <option value="Water"> Water </option>
+                <option value="LPG"> LPG </option>
+                <option value="Landline"> Landline </option>
                 
               </select>
             </div>
