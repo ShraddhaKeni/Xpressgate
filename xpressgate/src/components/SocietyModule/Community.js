@@ -88,6 +88,18 @@ const Community = () => {
               ></img>
             </div>
           </div>
+          <div className="col">
+            <div className="Cdashboardcard">
+              <img
+                src="/images/reportbox.svg"
+                className="dbcard-img-top"
+                onClick={() => {
+                  window.location.href = "/utilitypaymentlink";
+                }}
+                alt="utilitypaymentlink"
+              ></img>
+            </div>
+          </div>
         </div>
       </div>
     </div>
