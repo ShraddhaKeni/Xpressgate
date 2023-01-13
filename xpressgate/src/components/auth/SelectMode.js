@@ -35,7 +35,7 @@ const SelectMode = () => {
         </div>
 
         <div className='LP_SideImage'>
-          <img src="/images/Animation.svg" alt=" Man Riding" className='Sideimagesize' />
+          <img src="/images/animation.gif" alt=" Man Riding" className='Sideimagesize' />
 
         </div>
         <div className='modulesboxes'>
