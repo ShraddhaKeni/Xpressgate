@@ -65,19 +65,7 @@ const SelectMode = () => {
           © Copyright 2023 Designed by <a href="https://www.axzoragroup.com/" target="_blank">Axzora Private Limited</a>
         </div> 
 
-        {/* <div className='LP_SideImage'>
-  <img src="/images/animation.gif" alt=" Man Riding" className='Sideimagesize'/>
- </div> */}
-        {/* <div className='LP_CSideImage'>
-  <img src="/images/MobileImg.svg" alt=" Man Riding" className='Center_Sideimagesize'/>
- </div>
- <div className='LP_CMAnSideImage'>
-  <img src="/images/ManImg.svg" alt=" Man Riding" className='CenterMan_Sideimagesize'/>
- </div>
- <div className='LP_RSideImage'>
-  <img src="/images/womanimg.svg" alt=" Man Riding" className='Right_Sideimagesize'/>
- </div>
-    */}
+    
       </div>
 
     </>
