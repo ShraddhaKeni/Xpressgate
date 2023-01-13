@@ -8,15 +8,18 @@ import { Link } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
 import { checkSociety } from '../auth/Auth'
 import { mobileValidation } from '../auth/validation';
+import { ToastMessage } from '../ToastMessage';
 
 const Addlocalservice = () => {
+  const [toast, setToast] = useState({ show: false })
+
   const [addeddata, setAddedData] = useState([])
   const [service, setService] = useState([])
   const [vendorData, setvendorData] = useState({})
   const [type, setType] = useState('add')
   const location = useLocation()
   // const navigate = useNavigate()
-  
+
   useEffect(() => {
     if (checkSociety()) {
       const config = {
@@ -67,32 +70,36 @@ const Addlocalservice = () => {
     e.preventDefault()
     try {
       if (await mobileValidation(document.getElementById('contact_no').value)) {
-        if(type=='edit')
-        {
+        if (type == 'edit') {
+          setToast({ show: true, type: "success", message: "Vendor updated successfully" })
           const sendData = {
-            id:location.state.id,
+            id: location.state.id,
             vendorName: document.getElementById('vendor_name').value,
             addedBy: localStorage.getItem('resident_id'),
             service: document.getElementById('service').value,
             contact: document.getElementById('contact_no').value,
+            address: document.getElementById('address').value,
           }
           console.log(sendData);
           const { data } = await axios.post(`${window.env_var}api/vendor/update`, sendData)
           window.location.href = '/localservices'
         }
-        else{
+        else {
+          setToast({ show: true, type: "success", message: "Vendor added successfully" })
+
           const sendData = {
             vendorName: document.getElementById('vendor_name').value,
             addedBy: localStorage.getItem('resident_id'),
             service: document.getElementById('service').value,
             contact: document.getElementById('contact_no').value,
+            address: document.getElementById('address').value,
           }
           const { data } = await axios.post(`${window.env_var}api/vendor/add`, sendData)
           window.location.href = '/localservices'
         }
       }
       else {
-        alert('Enter valid mobile number');
+        setToast({ show: true, type: "error", message: "Enter valid mobile number" });
       }
     } catch (error) {
       console.log(error)
@@ -103,7 +110,7 @@ const Addlocalservice = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/vendor/find/${location.state.id}`);
       setvendorData(data.data.vendors[0]);
-      document.getElementById('service').value=data.data.vendors[0].service;
+      document.getElementById('service').value = data.data.vendors[0].service;
     } catch (error) {
 
     }
@@ -111,6 +118,8 @@ const Addlocalservice = () => {
 
   return (
     <div className="alscontainer">
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+
       <div id="alssection">
         <Societyheader />
       </div>
@@ -121,16 +130,16 @@ const Addlocalservice = () => {
         </div>
         <div className='AddLSsidelinks'>
           <a className='LSsidelinks' href="/localservices">Local Service</a><br></br><br></br>
-          <a className='ALSsidelinks' href="/addlocalservice"><b>{type=='edit'?'Update':'Add'} Local Services</b></a>
+          <a className='ALSsidelinks' href="/addlocalservice"><b>{type == 'edit' ? 'Update' : 'Add'} Local Services</b></a>
         </div>
         <div className='alssideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
       <div className='alsbackgroundimg'>
         <div className='alsdisplay'>
-          <label>{type=='edit'?'Update':'Add'} Local Service</label>
+          <label>{type == 'edit' ? 'Update' : 'Add'} Local Service</label>
         </div>
         <Form className='formclass'>
-        <div class="form-group row">
+          <div class="form-group row">
             <label class="col-lg-2 col-form-label ADN_label">Service</label>
             <div class="col-lg-4">
               <select class="form-control input-lg inputborder" id="service" placeholder="Service">
@@ -144,16 +153,22 @@ const Addlocalservice = () => {
           <div class="form-group row">
             <label class="col-lg-2 col-form-label ADN_label">Vendor Name</label>
             <div class="col-lg-4">
-              <input type="text" class="form-control input-lg inputborder" id='vendor_name' name="vendor_name" placeholder="Vendor Name" defaultValue={vendorData.vendorName?vendorData.vendorName:''}></input>
+              <input type="text" class="form-control input-lg inputborder" id='vendor_name' name="vendor_name" placeholder="Vendor Name" defaultValue={vendorData.vendorName ? vendorData.vendorName : ''}></input>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-lg-2 col-form-label ADN_label">Address</label>
+            <div class="col-lg-4">
+              <textarea type="textarea" class="form-control input-lg inputborder" id='address' name="address" placeholder="Address" defaultValue={vendorData.address ? vendorData.address : ''}></textarea>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-2 col-form-label ADN_label">Contact No.</label>
             <div class="col-lg-4">
-              <input type="text" class="form-control input-lg inputborder" id='contact_no' name="contact_no" placeholder="Contact No." maxLength="10" defaultValue={vendorData.contact?vendorData.contact:''}></input>
+              <input type="text" class="form-control input-lg inputborder" id='contact_no' name="contact_no" placeholder="Contact No." maxLength="10" defaultValue={vendorData.contact ? vendorData.contact : ''}></input>
             </div>
           </div>
-          <button type="submit" onClick={(e) => { handleSubmit(e) }} className="btnAddV" on>{type=='edit'?'Update':'Add'} Vendor</button>
+          <button type="submit" onClick={(e) => { handleSubmit(e) }} className="btnAddV" on>{type == 'edit' ? 'Update' : 'Add'} Vendor</button>
         </Form>
       </div>
     </div>
