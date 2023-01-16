@@ -4,24 +4,41 @@ import LogOut from '../../components/SocietyModule/Utils/LogOut';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 
 const Blocklist = () => {
   const [blocks, setBlocks] = useState([])
+  const [currentPage, setCurrentpage] = useState(1)
+  const [postPerPage, setPostPerPage] = useState(9)
+  const [currentPosts,setCurrentPosts] = useState([])
   const navigate = useNavigate()
   useEffect(() => {
     getBlocks()
+    
   }, [])
 
   const getBlocks = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/block/blockList`);
-      console.log(data.data.block);
-      setBlocks(data.data.block)
+      let dummyblock = data.data.block
+      setBlocks(dummyblock)
+      const indexoflast = currentPage*postPerPage  //endoffset
+      const indexoffirst = indexoflast - postPerPage //startoffset
+      setCurrentPosts(dummyblock.slice(indexoffirst,indexoflast))
     } catch (error) {
       console.log(error)
     }
   }
+
+  async function  paginate(event)
+  {
+    const { data } = await axios.get(`${window.env_var}api/block/blockList`);
+    setCurrentpage(event.selected+1)
+    const indexoflast = (event.selected+1)*postPerPage  //endoffset
+    const indexoffirst = (indexoflast - postPerPage) //startoffset
+    setCurrentPosts(data.data.block.slice(indexoffirst,indexoflast))
+  }
+
   const navigateToList = (id, block) => {
     navigate('/flatList', { state: { id: id, block: block } })
   }
@@ -62,7 +79,7 @@ const Blocklist = () => {
           <div id="blcardsection">
           
               <div className="row row-cols-3 d-f BLfullcardscss">
-                {blocks.map((item, index) => {
+                {currentPosts.map((item, index) => {
                   return (
                     <div className="col">
                       <div className="blminicard"><br></br>
@@ -77,6 +94,9 @@ const Blocklist = () => {
               </div>
            
           </div>
+          <div style={{marginTop:'0.5%'}}>
+          <PaginationCalculate totalPages={blocks.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+        </div>
         </div>
       </div>
     </>

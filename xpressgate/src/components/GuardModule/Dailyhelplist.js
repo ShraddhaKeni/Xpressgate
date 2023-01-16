@@ -13,7 +13,7 @@ import GuardHeader from './Utils/GuardHeader';
 const Dailyhelplist = () => {
   const [dailyhelpdata, setDailyhelpdata] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
-  const [postPerPage, setPostPerPage] = useState(0)
+  const [postPerPage, setPostPerPage] = useState(9)
   const [currentPosts,setCurrentPosts] = useState([])
   const [allowed, setAllowed] = useState([])
 
@@ -49,15 +49,10 @@ const Dailyhelplist = () => {
 
       const {data} = await axios.get(`${window.env_var}api/helperlist/getAll`)
       setDailyhelpdata(data.data.list)
-      console.log(dailyhelpdata[0])
-      let perPage = Math.ceil(data.data.list.length / 10)
-      setPostPerPage(perPage)
-      console.log(perPage)
-      const indexoflast = currentPage*perPage  //endoffset
-      const indexoffirst = indexoflast - perPage //startoffset
+      
+      const indexoflast = currentPage*postPerPage  //endoffset
+      const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.list.filter(x=>x.booking_id.length!=0).slice(indexoffirst,indexoflast))
-      //setFlatdata(data.data.data.list[0].booking_id)
-      //console.log(data.data.data.list[0].booking_id);
     } catch {
       console.log('Please try again');
     }
@@ -66,12 +61,12 @@ const Dailyhelplist = () => {
 
   async function  paginate(event)
   {
+    const {data} = await axios.get(`${window.env_var}api/helperlist/getAll`)
     setCurrentpage(event.selected+1)
-    let perPage = Math.ceil(dailyhelpdata.length / 10)
-    setPostPerPage(perPage)
-    const indexoflast = (event.selected+1)*perPage  //endoffset
-    const indexoffirst = (indexoflast - perPage) //startoffset
-    setCurrentPosts(dailyhelpdata.filter(x=>x.booking_id.length!=0).slice(indexoffirst,indexoflast))
+    const indexoflast = (event.selected+1)*postPerPage  //endoffset
+    const indexoffirst = (indexoflast - postPerPage) //startoffset
+    //setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
+    setCurrentPosts(data.data.list.filter(x=>x.booking_id.length!=0).slice(indexoffirst,indexoflast))
   }
 
   const navigate = useNavigate();
@@ -131,4 +126,3 @@ const Dailyhelplist = () => {
 }
 
 export default Dailyhelplist
-
