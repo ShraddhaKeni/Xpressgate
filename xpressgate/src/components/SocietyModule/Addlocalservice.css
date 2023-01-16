@@ -146,6 +146,31 @@ color: #14335D;
   margin-left: 8%;
   margin-bottom: 3%;  
 }
+.UPL_SideImage img {
+  display: flex;
+  margin-top: 99%;
+  max-width: 90%;
+  height: auto;
+  margin-left: 8%;
+  margin-bottom: 3%;  
+}
+.UPL_DisPlay {
+  width: 16vw;
+  height: 7vh;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  padding-top: 16px;
+  margin: auto;
+  margin-top: -3%;
+}
+.UPL_DisPlay label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;  
+  font-size: 1.2vw;
+  text-align: center;  
+  color: #14335D;
+}
 .alsdisplay {
   width: 16vw;
   height: 7vh;
@@ -222,6 +247,13 @@ border-radius: 8px;
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
 
 
+  .UPL_SideImage img {
+    display: flex;
+    margin-top: 110%;
+    max-width: 95%;
+    height: auto;
+    margin-left: 2%;
+  }
   .alssideimage img {
     display: flex;
     margin-top: 43%;
@@ -269,6 +301,18 @@ border-radius: 8px;
     margin-left: 2%;
   }
   .alsdisplay {
+      width: 17vw;
+      height: 7vh;
+      background-color: #AED8DC;
+      border-radius: 30px;
+      font-size: 1.4vw;
+      padding: 1%;
+      margin: auto;
+      margin-top: -15%;
+      margin-left: 38%;
+  }
+ 
+  .UPL_DisPlay {
       width: 17vw;
       height: 7vh;
       background-color: #AED8DC;
