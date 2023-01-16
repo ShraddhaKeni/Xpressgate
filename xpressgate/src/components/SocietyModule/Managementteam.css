@@ -119,7 +119,8 @@ html {
   border: 2px solid #000;
   border-radius: 15px;
   margin-left: 70%;
-  margin-top: 1%;
+  margin-top: 2%;
+  margin-bottom: 1%;
   
 }
   .MM_display {
@@ -147,10 +148,10 @@ html {
   }
   #managementtable {
     margin-Left: 10%;
-    margin-Top: 2%;
+    margin-Top: 0%;
     max-Width: 75%;
     background-color: #F9FAFF;
-   
+   height: auto;
     border-radius: 14px;
     border-collapse: separate;
     font-family: 'Rubik', sans-serif;
@@ -161,6 +162,9 @@ html {
     color: #fff;
   }
   
+  #managementtable td{
+   padding: 0%;
+  }
   #managementtable td:hover{
     color: #0A8996;
   }

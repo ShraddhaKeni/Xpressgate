@@ -692,6 +692,13 @@ border-radius: 25px;
     margin-top: 4%;
     margin-bottom: 4%;
 }
+#Table-Header{
+    background-color: #F9FAFF;
+    border-radius: 14px;
+    border-collapse: separate;
+    width: 70%;
+    margin-left: 14.5%;
+}
 .PAY_Coupans_side_Img{
     display: flex;
     margin-top: 40.7%;

@@ -86,6 +86,7 @@ import AddSocietyMember from './components/SocietyModule/AddSocietyMember';
 import EditGuard from './components/GuardModule/EditGuard';
 import Admin_Change_Password from './pages/admin/LoginScreens/Admin_Change_Password';
 import UtilityPaymentLink from './components/SocietyModule/UtilityPaymentLink';
+import UtilityPyamentLinkList from './components/SocietyModule/UtilityPyamentLinkList';
 
 
 function App() {
@@ -224,6 +225,7 @@ function App() {
           <Route path='/socreports' element={<SocReport />}></Route>
           <Route path='/addsocietymember' element={<AddSocietyMember />}></Route>
           <Route path='/editguarddetails' element={<EditGuard />}></Route>
+          <Route path='/utilitypaymentlinklist' element={<UtilityPyamentLinkList />}></Route>
 
 
 

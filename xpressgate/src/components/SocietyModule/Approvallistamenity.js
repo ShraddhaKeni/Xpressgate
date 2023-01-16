@@ -103,7 +103,7 @@ const Approvallistamenity = () => {
             <br></br>
             <div><label className='alalabels'>{booking.aminety}</label></div>
             <div className='alaclass'>
-              <div><label className='aladate'>Date:{dateTimeFormat(booking.date)}</label></div>
+              <div><label className='aladate'>Date: {dateTimeFormat(booking.date)}</label></div>
               <div><label className='alatime'>Time: {getTime(location.state.time)}</label></div>
             </div>
             <br></br>

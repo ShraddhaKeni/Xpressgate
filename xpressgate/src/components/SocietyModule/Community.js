@@ -94,7 +94,7 @@ const Community = () => {
                 src="/images/reportbox.svg"
                 className="dbcard-img-top"
                 onClick={() => {
-                  window.location.href = "/utilitypaymentlink";
+                  window.location.href = "/utilitypaymentlinklist";
                 }}
                 alt="utilitypaymentlink"
               ></img>
