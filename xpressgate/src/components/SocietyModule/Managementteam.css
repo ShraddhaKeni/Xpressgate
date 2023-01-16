@@ -163,7 +163,7 @@ html {
   }
   
   #managementtable td{
-   
+   padding: 0%;
   }
   #managementtable td:hover{
     color: #0A8996;
