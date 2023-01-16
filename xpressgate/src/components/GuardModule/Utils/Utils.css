@@ -191,7 +191,7 @@ html {
 }
 .pagination_ul
 {
-  position: sticky;
+  position: relative;
   display: flex;
   justify-content: center;
   top: 0;
