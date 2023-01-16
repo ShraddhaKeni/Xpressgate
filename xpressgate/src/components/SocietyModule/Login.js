@@ -22,7 +22,7 @@ const Login_society = () => {
       localStorage.setItem('mode', 'society')
       window.location.href = "/scDashboard";
     } catch (err) {
-      document.getElementById("loginemailid").style.border = "2px solid red";
+      document.getElementById("socloginemailid").style.border = "2px solid red";
       document.getElementById("loginpassword").style.border = "2px solid red";
     }
   };

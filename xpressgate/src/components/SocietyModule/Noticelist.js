@@ -115,7 +115,7 @@ const Noticelist = () => {
             {currentPosts.map((item, index) => {
               return (
                 <tr onClick={()=>noticeDetails(item.id)}>
-                  <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1 + 1) + (index + 1)}</td>
+                  <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1) * 12 + (index + 1)}</td>
                   <td >{item.noticeTitle}</td>
                   <td>{getDate(item.eventDate)}</td>
                 </tr>
