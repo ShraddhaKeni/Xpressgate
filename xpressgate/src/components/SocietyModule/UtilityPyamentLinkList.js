@@ -26,15 +26,13 @@ const UtilityPyamentLinkList = () => {
     //console.log(localStorage.getItem('community_id'));
     try {
       const { data } = await axios.get(`${window.env_var}api/paymentlink/getall/${localStorage.getItem("community_id")}`)
-      setTimeout(() => {
-        setLoading(false)
-      }, 600)
+      
       setCommunity(data.data.links)
       const indexoflast = (currentPage + 1) * postPerPage  //endoffset
       const indexoffirst = (indexoflast - postPerPage) //startoffset
       console.log(data.data);
       setCurrentPosts(data.data.links.slice(indexoffirst, indexoflast))
-
+      setLoading(false);
     } catch (error) {
       console.log(error)
     }
@@ -85,6 +83,8 @@ const UtilityPyamentLinkList = () => {
     }
 
   }
+  if(loading)
+  return <Loader loading={loading}></Loader>
 
   return (
     <div className="addguestcontainer2">
@@ -115,7 +115,7 @@ const UtilityPyamentLinkList = () => {
         <div className="SC_display">
           <label>Utility Payment Link List</label>
         </div>
-        <Loader loading={loading}>
+        {/* <Loader loading={loading}> */}
           <div> <button type="submit" className="btnAddnotice" onClick={() => {
             window.location.href = "/utilitypaymentlink";
           }}>&#10011; Add New Link</button></div>
@@ -167,7 +167,7 @@ const UtilityPyamentLinkList = () => {
 
 
 
-        </Loader>
+        {/* </Loader> */}
 
       </div>
     </div>
