@@ -4,6 +4,7 @@ import "../SocietyModule/Vendor_Payment.css";
 import LogOut from "./Utils/LogOut";
 import axios from 'axios'
 import { getBlocks,getVendors } from "./common/common";
+import { Loader } from "../Loader";
 
 const Vendor_Payment = () => {
    
@@ -16,9 +17,8 @@ const Vendor_Payment = () => {
   const payment_due = useRef([])
   const payment_date = useRef([])
   const vendor_id = useRef([])
+  const [loading, setLoading] = useState(true)
   useEffect(()=>{
-    // getBlockss()
-    // getVendors()
     combineFunctions()
   },[])
 
@@ -29,30 +29,11 @@ const Vendor_Payment = () => {
       setBlock(blocks)
       const vendor = await getVendors()
       setVendors(vendor)
+      setLoading(false);
     } catch (error) {
       
     }
   }
-  
-  // const getVendors=async()=>{
-  //   try {
-  //     const {data} = await axios.get(`${window.env_var}api/vendor/getAll`)
-  //     setVendors(data.data.vendors)
-  //   } catch (error) {
-      
-  //   }
-  // }
-  // const getBlockss=async()=>{
-  //   try {
-     
-  //     const {data} = await axios.post(`${window.env_var}api/block/get`,{   //will be changed
-  //       community_id:'632970d054edb049bcd0f0b4'
-  //     })
-  //     setBlock(data.data.block)
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
 
   const getFlats=async(e)=>{
     try {
@@ -93,7 +74,7 @@ const Vendor_Payment = () => {
 
   return (
     <div className="addguestcontainer4">
-    <div id="addflatsection">
+      <div id="addflatsection">
         <div className="addflatheadersection">
           <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
           <div id="afsociety"><label>Society</label></div>
@@ -102,15 +83,14 @@ const Vendor_Payment = () => {
           <div id="afsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
           <div id="aflogoutbutton"><LogOut/></div>
         </div>
-    
-    </div>
+      </div>
+
       <div id="societynamesection">
         <div className="VPay_societyname">
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
         <br/>
-        
         <div className="VPay_sideimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
@@ -119,76 +99,75 @@ const Vendor_Payment = () => {
         <div className="VPaydisplay">
           <label>Vendor</label>
         </div>
-        <Form className="formclass">
-          <div class="form-group row">
-                <label class="col-lg-2 col-form-label ADN_label">Vendor</label>
-                <div class="col-lg-4">
-                  <select type="text" class="form-control input-lg SideB" ref={vendor_id} id='vendor_id' name="First name" >
-                    <option  disabled value={null} selected>Select Vendor</option>
-                      {vendors.map(item=>{
-                        return <option value={item._id}>{item.vendorName}</option>
-                      })}
-                  </select>
-                </div>
+        <Loader loading={loading}>
+          <Form className="formclass">
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label ADN_label">Vendor</label>
+              <div class="col-lg-4">
+                <select type="text" class="form-control input-lg SideB" ref={vendor_id} id='vendor_id' name="First name" >
+                  <option  disabled value={null} selected>Select Vendor</option>
+                  {vendors.map(item=>{
+                    return <option value={item._id}>{item.vendorName}</option>
+                  })}
+                </select>
               </div>
-              <div class="form-group row">
-                <label class="col-lg-2 col-form-label ADN_label">Block</label>
-                <div class="col-lg-4">
-                  <select type="text" class="form-control input-lg SideB" onChange={(e)=>getFlats(e)} id='block_id' name="First name" >
-                    <option  disabled value={null} selected>Select Block</option>
-                      {blocks.map(item=>{
-                        return <option value={item.id}>{item.name}</option>
-                      })}
-                  </select>
-                </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label ADN_label">Block</label>
+              <div class="col-lg-4">
+                <select type="text" class="form-control input-lg SideB" onChange={(e)=>getFlats(e)} id='block_id' name="First name" >
+                  <option  disabled value={null} selected>Select Block</option>
+                  {blocks.map(item=>{
+                    return <option value={item.id}>{item.name}</option>
+                  })}
+                </select>
               </div>
-              <div class="form-group row">
-                <label class="col-lg-2 col-form-label ADN_label">Flat</label>
-                <div class="col-lg-4">
-                  <select type="text" class="form-control input-lg SideB" id='flat_id' ref={flat_id} onChange={(e)=>{getResident(e)}} name="First name" >
-                    <option  disabled value={null} selected>Select Flat</option>
-                      {flats.map(item=>{
-                          return <option value={item._id}>{item.flat_number}</option>
-                        })}
-                  </select>
-                </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label ADN_label">Flat</label>
+              <div class="col-lg-4">
+                <select type="text" class="form-control input-lg SideB" id='flat_id' ref={flat_id} onChange={(e)=>{getResident(e)}} name="First name" >
+                  <option  disabled value={null} selected>Select Flat</option>
+                  {flats.map(item=>{
+                    return <option value={item._id}>{item.flat_number}</option>
+                  })}
+                </select>
               </div>
-              <div class="form-group row">
-                <label class="col-lg-2 col-form-label ADN_label">Resident</label>
-                <div class="col-lg-4">
-                  {resident.firstname?<input type="text" class="form-control input-lg SideB" id='resident_id' disabled name="First name" placeholder="Resident name" value={resident.firstname+' '+resident.lastname} > 
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label ADN_label">Resident</label>
+              <div class="col-lg-4">
+                {resident.firstname?<input type="text" class="form-control input-lg SideB" id='resident_id' disabled name="First name" placeholder="Resident name" value={resident.firstname+' '+resident.lastname} > 
                   </input>:<input type="text" class="form-control input-lg SideB" id='resident_id' disabled name="First name" placeholder="Resident name" ></input>}
-                  
-                </div>
+                    
               </div>
-              <div class="form-group row">
-                <label class="col-lg-2 col-form-label ADN_label">Payment Date</label>
-                <div class="col-lg-4">
-                  <input type="date" class="form-control input-lg SideB" ref={payment_date} id='payment_date' name="First name" />
-                </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label ADN_label">Payment Date</label>
+              <div class="col-lg-4">
+                <input type="date" class="form-control input-lg SideB" ref={payment_date} id='payment_date' name="First name" />
               </div>
-              <div class="form-group row">
-                <label class="col-lg-2 col-form-label ADN_label">Due Date</label>
-                <div class="col-lg-4">
-                  <input type="date" class="form-control input-lg SideB" ref={payment_due}  id='due_date' name="First name" />
-                </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label ADN_label">Due Date</label>
+              <div class="col-lg-4">
+                <input type="date" class="form-control input-lg SideB" ref={payment_due}  id='due_date' name="First name" />
               </div>
-              <div class="form-group row">
-                <label class="col-lg-2 col-form-label ADN_label">Amount</label>
-                <div class="col-lg-4">
-                  <input type="number" class="form-control input-lg SideB" id='resident_id' ref={amount} name="First name" > 
-                  </input>
-                </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label ADN_label">Amount</label>
+              <div class="col-lg-4">
+                <input type="number" class="form-control input-lg SideB" id='resident_id' ref={amount} name="First name" > 
+                </input>
               </div>
-              <button type="submit" onClick={(e)=>handleSubmit(e)} className="VPay_Add">
-                  Add 
-              </button>
-        </Form>
+            </div>
+            <button type="submit" onClick={(e)=>handleSubmit(e)} className="VPay_Add">
+              Add 
+            </button>
+          </Form>
+        </Loader>
       </div>
     </div>
-       
-       
-    
   );
 };
 

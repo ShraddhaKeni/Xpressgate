@@ -6,10 +6,10 @@ import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
+
 const UtilityPyamentLinkList = () => {
 
   const navigate = useNavigate();
-
   const [loading, setLoading] = useState(true)
   const [community, setCommunity] = useState([])
   const [currentPage, setCurrentpage] = useState(0)
@@ -23,7 +23,6 @@ const UtilityPyamentLinkList = () => {
   }, [])
 
   const getDetails = async () => {
-    //console.log(localStorage.getItem('community_id'));
     try {
       const { data } = await axios.get(`${window.env_var}api/paymentlink/getall/${localStorage.getItem("community_id")}`)
       
@@ -83,8 +82,6 @@ const UtilityPyamentLinkList = () => {
     }
 
   }
-  if(loading)
-  return <Loader loading={loading}></Loader>
 
   return (
     <div className="addguestcontainer2">
@@ -115,7 +112,7 @@ const UtilityPyamentLinkList = () => {
         <div className="SC_display">
           <label>Utility Payment Link List</label>
         </div>
-        {/* <Loader loading={loading}> */}
+        <Loader loading={loading}>
           <div> <button type="submit" className="btnAddnotice" onClick={() => {
             window.location.href = "/utilitypaymentlink";
           }}>&#10011; Add New Link</button></div>
@@ -167,7 +164,7 @@ const UtilityPyamentLinkList = () => {
 
 
 
-        {/* </Loader> */}
+        </Loader>
 
       </div>
     </div>
