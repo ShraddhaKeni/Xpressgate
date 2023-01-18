@@ -134,7 +134,7 @@ const SocietyDues = () => {
         <div className="Payment_form">
             <div className="inboxes">
                 <label for="SocietyAmount" className="Society_Amount">Amount</label>
-                <input type="text" ref={amount}  id="SocietyAmount"  className="VendorInp"></input> 
+                <input type="text" ref={amount}  id="SocietyAmount"  className="VendorInp" placeholder="Amount"></input> 
             </div>
         </div>
         <div className="Payment_form">

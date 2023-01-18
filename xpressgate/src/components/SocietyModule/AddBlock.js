@@ -66,7 +66,7 @@ const AddBlock = () => {
           </div>
         <div className='addblock_form'>
             <label for="block_name" className='ABl_label'>Block Name</label>
-            <input type="text" id="block_name" className='ABl_input'></input>
+            <input type="text" id="block_name" className='ABl_input' placeholder='Block Name'></input>
         </div><br/>
           <div className='ADDB_BtN'>
             <button type='button' onClick={(e) => handleSubmit(e)} className='BtnADDBlock'>Add</button>

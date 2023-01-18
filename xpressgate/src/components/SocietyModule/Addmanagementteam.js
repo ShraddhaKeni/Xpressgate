@@ -200,7 +200,7 @@ const Addmanagementteam = () => {
           <div className="AMM_form">
             <div className="inboxes">
               <label for="Designation" className="AMMDesignation">Designation</label>
-              {title ? <input type="text" id="management_title" defaultValue={title} className="AMMinput"></input> : <input type="text" id="management_title" className="AMMinput"></input>}
+              {title ? <input type="text" id="management_title" defaultValue={title} className="AMMinput" placeholder="Designation"></input> : <input type="text" id="management_title" className="AMMinput" placeholder="Designation"></input>}
 
             </div>
           </div>
