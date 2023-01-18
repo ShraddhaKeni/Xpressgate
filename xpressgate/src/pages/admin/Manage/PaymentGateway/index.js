@@ -119,10 +119,11 @@ const PaymentGateways = () => {
 
                         </tbody>
                     </table>
-                    {currentPosts.length > postPerPage && <div className='paginate'>
-                        <PaginationCalculate totalPages={community.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
-                    </div>}
+
                 </div >
+                {community.length > postPerPage && <div className='paginate'>
+                    <PaginationCalculate totalPages={community.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+                </div>}
             </div >
 
         </>)
