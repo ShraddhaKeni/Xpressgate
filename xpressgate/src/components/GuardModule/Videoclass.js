@@ -9,7 +9,7 @@ import Loader from '../../common/Loader';
 import ErrorScreen from '../../common/ErrorScreen';
 const Videoclass = () => {
   const [videodata, setVideodata] = useState([])
-
+ 
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(6)
   const [currentPosts,setCurrentPosts] = useState([])
@@ -40,8 +40,9 @@ const Videoclass = () => {
     }
       
     //console.log("sk" + JSON.stringify(videodata))
+    setLoading(false);
   }
-  
+ 
   async function  paginate(event)
   {
     const {data} = await axios.get(`${window.env_var}api/videolist/getAll`)
@@ -99,6 +100,7 @@ const Videoclass = () => {
           </div>
           <PaginationCalculate totalPages={videodata.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
         </div>
+        
       </div>
     </div>
   )

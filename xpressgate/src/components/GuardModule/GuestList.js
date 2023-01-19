@@ -12,7 +12,7 @@ import Loader from '../../common/Loader';
 import ErrorScreen from '../../common/ErrorScreen.js';
 
 const GuestList = () => {
-
+  
   const [guests, setGuests] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
@@ -50,12 +50,9 @@ const GuestList = () => {
       const indexoflast = currentPage * postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.guests_list.slice(indexoffirst, indexoflast))
-
       setTimeout(()=>{
         setLoading(false)
       },2000)
-
-      
 
     } catch (error) {
       setLoading(false)

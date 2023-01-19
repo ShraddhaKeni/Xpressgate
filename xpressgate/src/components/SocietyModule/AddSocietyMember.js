@@ -5,13 +5,14 @@ import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { Loader } from "../Loader";
 
 const AddSocietyMember = () => {
   const [member, setMember] = useState({})
   const [file, setProfilePicFile] = useState()
   const navigate = useNavigate();
   const [communities, setCommunity] = useState([])
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
     getCommunities()
   }, [])
@@ -20,6 +21,7 @@ const AddSocietyMember = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/community/get`)
       setCommunity(data.data.community);
+      //setLoading(false);
     } catch (error) {
 
     }
@@ -74,6 +76,7 @@ const AddSocietyMember = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
+      <Loader loading={loading}>
         <div className="AMM_display">
           <label>Add Society Member</label>
         </div>
@@ -212,6 +215,7 @@ const AddSocietyMember = () => {
             Add Member
           </button>
         </Form>
+        </Loader>
       </div >
     </div >
   );

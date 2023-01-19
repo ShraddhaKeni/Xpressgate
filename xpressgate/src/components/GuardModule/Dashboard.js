@@ -9,8 +9,10 @@ import Dailyservicepasscode from './Dailyservicepasscode';
 import { checkGuard } from '../auth/Auth';
 import { passcodeValidation } from '../auth/validation';
 import GuardHeader from './Utils/GuardHeader';
+import { Loader } from "../Loader";
 
 const Dashboard = () => {
+  const [loading, setLoading] = useState(true)
   const [entryData, setEntryData] = useState({})
   const [message, setMessage] = useState({})
   const [stat, setStat] = useState(false)
@@ -29,6 +31,7 @@ const Dashboard = () => {
           localStorage.clear();
           window.location.href = '/guardLogin'
         })
+        setLoading(false);
     } else {
       window.location.href = '/'
     }
@@ -61,9 +64,11 @@ const Dashboard = () => {
           setEntryData(data.data.bookingdetails)
           setMessage(data.message)
         }
+      
       }else{
         alert('Enter valid passcode')
       }
+     
     } catch (error) {
       console.log('Please check again');
     }
@@ -104,6 +109,7 @@ const Dashboard = () => {
           <div className='GDsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
         </div>
         <div className='dashboardbackgroundimg'>
+        <Loader loading={loading}>
           <div id="cardsection">
             <div className='enterpasscodesearch'>
               <label>ENTER PASSCODE</label>
@@ -146,6 +152,7 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
+          </Loader>
         </div>
       </div>}
     </>

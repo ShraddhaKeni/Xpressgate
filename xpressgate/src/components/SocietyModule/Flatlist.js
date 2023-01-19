@@ -4,9 +4,11 @@ import { Button } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
+import { Loader } from "../Loader";
 
 const Flatlist = () => {
 
+  const [loading, setLoading] = useState(true)
   const [flats, setFlats] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
@@ -44,8 +46,10 @@ const Flatlist = () => {
       const indexoflast = currentPage * postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.list.slice(indexoffirst, indexoflast))
+      setLoading(false);
     } catch (error) {
       console.log(error)
+      setLoading(false);
     }
   }
 
@@ -128,6 +132,7 @@ const Flatlist = () => {
         <div className='flsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='flbackgroundimg'>
+      <Loader loading={loading}>
         <div className='fldisplay'>
           <label>Block {location.state.block}</label>
 
@@ -171,6 +176,7 @@ const Flatlist = () => {
           </tbody>
         </table>
         <PaginationCalculate totalPages={flats.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+        </Loader>
       </div>
     </div>
   )

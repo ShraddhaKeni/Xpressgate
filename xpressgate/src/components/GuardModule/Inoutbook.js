@@ -44,6 +44,7 @@ const Inoutbook = () => {
           localStorage.clear();
           window.location.href = '/guardLogin'
         })
+        
     } else {
       window.location.href = '/'
     }  
@@ -101,6 +102,7 @@ const Inoutbook = () => {
         <div className='IOB_display'>
           <label>In-Out Book</label>
         </div>
+       
         {/* <div className='InoutBookButton'>
           <a href="/addinout" className='InoutBookADDButton'>&#43; Add In Out</a>
         </div> */}

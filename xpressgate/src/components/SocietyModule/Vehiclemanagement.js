@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './Vehiclemanagement.css';
 import LogOut from './Utils/LogOut';
-// import { Link } from 'react-router-dom';
 import axios from 'axios'
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import Societyheader from './Utils/Societyheader';
 import { useNavigate } from "react-router-dom";
+import { Loader } from "../Loader";
 
 const Vehiclemanagement = () => {
 
@@ -13,6 +13,7 @@ const Vehiclemanagement = () => {
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts, setCurrentPosts] = useState([])
+  const [loading, setLoading] = useState(true)
   const navigate= useNavigate()
 
   useEffect(() => {
@@ -26,8 +27,10 @@ const Vehiclemanagement = () => {
       const indexoflast = currentPage * postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.vehicle.slice(indexoffirst, indexoflast))
+      setLoading(false);
     } catch (error) {
       console.log(error)
+      setLoading(false);
     }
   }
 
@@ -87,45 +90,47 @@ function navigatetoEdit(id)
         <div className='VMdisplay'>
           <label>Vehicle Management</label>
         </div>
-        <div className='row'>
-          <div className='parkingsection'>
-            <select className="form-control input-lg psection parksection">
-              <option value={null} disabled selected>Parking Section</option>
-            </select>
+        <Loader loading={loading}>
+          <div className='row'>
+            <div className='parkingsection'>
+              <select className="form-control input-lg psection parksection">
+                <option value={null} disabled selected>Parking Section</option>
+              </select>
+            </div>
+            <div className='vmsearchbox'>
+              <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+                <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
+            </div>
           </div>
-          <div className='vmsearchbox'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-              <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
-          </div>
-        </div>
 
-        <table id="vmtable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
-          <thead>
-            <tr>
-              <th class="th-sm">Resident Name</th>
-              <th class="th-sm">Vehicle No</th>
-              <th class="th-sm">Vehicle Make</th>
-              <th class="th-sm">Vehicle Model</th>
-              <th class="th-sm">Parking Section</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentPosts.map(item => {
-              console.log(item)
-              return (
-                <tr onClick={() => navigatetoEdit(item._id,item.vehicle_number)}>
-                  <td>{item.firstname} {item.lastname}</td>
-                  <td >{item.vehicle_number}</td>
-                  <td>{item.vehicle_make}</td>
-                  <td >{item.vehicle_model}</td>
-                  <td>{item.section}</td>
-                </tr>
-              )
-            })}
+          <table id="vmtable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
+            <thead>
+              <tr>
+                <th class="th-sm">Resident Name</th>
+                <th class="th-sm">Vehicle No</th>
+                <th class="th-sm">Vehicle Make</th>
+                <th class="th-sm">Vehicle Model</th>
+                <th class="th-sm">Parking Section</th>
+              </tr>
+            </thead>
+            <tbody>
+              {currentPosts.map(item => {
+                console.log(item)
+                return (
+                  <tr onClick={() => navigatetoEdit(item._id,item.vehicle_number)}>
+                    <td>{item.firstname} {item.lastname}</td>
+                    <td >{item.vehicle_number}</td>
+                    <td>{item.vehicle_make}</td>
+                    <td >{item.vehicle_model}</td>
+                    <td>{item.section}</td>
+                  </tr>
+                )
+              })}
 
-          </tbody>
-        </table>
-        <PaginationCalculate totalPages={entry.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+            </tbody>
+          </table>
+          <PaginationCalculate totalPages={entry.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+        </Loader>
       </div>
     </div>
   )

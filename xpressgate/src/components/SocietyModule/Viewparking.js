@@ -5,12 +5,14 @@ import LogOut from './Utils/LogOut';
 import { useNavigate } from "react-router-dom";
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import Societyheader from './Utils/Societyheader';
+import { Loader } from "../Loader";
 
 const Viewparking = () => {
   const [parkingSection,setParkingSections] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts,setCurrentPosts] = useState([])
+  const [loading, setLoading] = useState(true)
   const navigate= useNavigate()
 
   useEffect(()=>{
@@ -26,6 +28,7 @@ const Viewparking = () => {
       const indexoflast = currentPage*postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.block_list.slice(indexoffirst,indexoflast))
+      setLoading(false);
     } catch (error) {
       console.log(error)
     }
@@ -40,6 +43,7 @@ const Viewparking = () => {
     const indexoffirst = (indexoflast - postPerPage) //startoffset
     setCurrentPosts(data.data.block_list.slice(indexoffirst,indexoflast))
   }
+
   function findText(e) {
     let search = e.target.value.toLowerCase()
     let arr = parkingSection.filter(x => {
@@ -50,6 +54,7 @@ const Viewparking = () => {
         return true
       }
     })
+
     if (arr) {
       const indexoflast = currentPage * postPerPage  //endoffset
       const indexoffirst = (indexoflast - postPerPage)
@@ -58,7 +63,6 @@ const Viewparking = () => {
     else {
       paginate(0)
     }
-
   } 
   
   function parkingSectionDetails(id)
@@ -77,7 +81,7 @@ const Viewparking = () => {
           <label>Society Name</label>
         </div>
         <div className='vpsidelinks'>
-        <a href='/vehiclemanagement' className='VLsLink'><b>Vehicle List</b></a><br/><br/>
+          <a href='/vehiclemanagement' className='VLsLink'><b>Vehicle List</b></a><br/><br/>
           <a href='/viewparking' className='VpSec'><b>View Parking Section</b></a><br/><br/>
           <a href='/addparking' className='ApSec'>Add Parking Section</a><br/><br/>
           <a href='/addvehicle' className='apssec'>Assign Parking Section</a>
@@ -90,45 +94,41 @@ const Viewparking = () => {
         <div className='VPdisplay'>
           <label>View Parking Section</label>
         </div>
-        {/* <div className='row'>
-          <div className='search3'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon' className="SearchIconImg"></img></span>
-            <span><input className='GL_search_input' id="search_input" placeholder="Search" onKeyPress={(e) => {
-                  document.getElementById('search_input').style.border = "none";
-                }}></input></span>
+        <Loader loading={loading}>
+          <div className='row'>
+            <div className='VP_searchbox'>
+              <span>
+                <img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+                <input placeholder='Search' id="search_input" onChange={(e) => { findText(e) }}></input>
+              </span>
+            </div>
           </div>
-        </div> */}
-        <div className='row'>
-         <div className='VP_searchbox'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-              <input placeholder='Search' id="search_input" onChange={(e) => { findText(e) }}></input></span>
-          </div>
-        </div>
-        <br/>
-        <table id="viewparkingtable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
-          <thead>
-            <tr>
-              <th class="th-sm">Sr No.</th>
-              <th class="th-sm">Parking Section</th>
-              <th class="th-sm">Block</th>
-              <th class="th-sm">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentPosts.map((item,index)=>{
-              return(
-                <tr onClick={()=>parkingSectionDetails(item._id)}>
-                  <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
-                  <td>{item.section}</td>
-                  <td>{item.blocks}</td>
-                  <td>{item.status==false?'Inactive':'Active'}</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-        <br/><br/>
-        <PaginationCalculate totalPages={parkingSection.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+          <br/>
+          <table id="viewparkingtable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
+            <thead>
+              <tr>
+                <th class="th-sm">Sr No.</th>
+                <th class="th-sm">Parking Section</th>
+                <th class="th-sm">Block</th>
+                <th class="th-sm">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {currentPosts.map((item,index)=>{
+                return(
+                  <tr onClick={()=>parkingSectionDetails(item._id)}>
+                    <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
+                    <td>{item.section}</td>
+                    <td>{item.blocks}</td>
+                    <td>{item.status==false?'Inactive':'Active'}</td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+          <br/><br/>
+          <PaginationCalculate totalPages={parkingSection.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+        </Loader>
       </div>
     </div>     
   );

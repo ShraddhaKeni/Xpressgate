@@ -7,6 +7,7 @@ import axios from 'axios'
 import { useLocation } from "react-router-dom";
 import { checkSociety } from '../auth/Auth'
 import { useNavigate } from 'react-router-dom';
+import { Loader } from "../Loader";
 
 const Addnotice = () => {
   const [notice, setNotice] = useState({})
@@ -15,7 +16,7 @@ const Addnotice = () => {
   const navigate = useNavigate()
   const notice_date_ref = useRef([])
   const notice_time_ref = useRef([])
-  
+  const [loading, setLoading] = useState(true)
 
   const handleSubmit=async(e)=>{
     e.preventDefault();
@@ -107,6 +108,7 @@ const Addnotice = () => {
           localStorage.clear();
           window.location.href = '/societylogin'
         })
+        setLoading(false);
     }
     else {
       window.location.href = '/'
@@ -162,6 +164,7 @@ const Addnotice = () => {
         <div className='ansideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
       <div className='anbackgroundimg'>
+      <Loader loading={loading}>
         <div className='addnoticedisplay'>
           <label>{type=='edit'?'Update':'Add'} Notice</label>
         </div>
@@ -196,7 +199,7 @@ const Addnotice = () => {
           </div>
           <button type="submit" onClick={(e)=>handleSubmit(e)} className="AddNoticeButton">{type=='edit'?'Update':'Add'} Notice</button>
         </Form>
-
+      </Loader>
       </div>
     </div>
   )

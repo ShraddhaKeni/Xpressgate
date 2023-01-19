@@ -6,14 +6,16 @@ import LogOut from './Utils/LogOut';
 import axios from 'axios';
 import Societyheader from './Utils/Societyheader';
 import { checkSociety } from '../auth/Auth';
+import { Loader } from '../Loader';
 
 const Addflat = () => {
   const [community, setCommunity] = useState([])
   const [block, setBlock] = useState([])
   const [community_id, setCommunityid] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    let community_id= localStorage.getItem('community_id')
+    let community_id = localStorage.getItem('community_id')
     setCommunityid(community_id)
 
     if (checkSociety()) {
@@ -23,7 +25,7 @@ const Addflat = () => {
         }
       }
       axios.get(`${window.env_var}api/society/checkLogin`, config)
-        .then(async({ data }) => {
+        .then(async ({ data }) => {
           await getDetails()
           await getBlocks()
           //  let comm_select = document.getElementById('community_select').options
@@ -36,6 +38,7 @@ const Addflat = () => {
           localStorage.clear();
           window.location.href = '/societylogin'
         })
+      setLoading(false);
     }
     else {
       window.location.href = '/'
@@ -105,11 +108,12 @@ const Addflat = () => {
         <div className='afsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
       <div className='afbackgroundimg'>
-        <div className='Addflatdisplay'>
-          <label>Add Flat</label>
-        </div>
-        <Form className='formclass'>
-          {/* <div class="form-group row">
+        <Loader loading={loading}>
+          <div className='Addflatdisplay'>
+            <label>Add Flat</label>
+          </div>
+          <Form className='formclass'>
+            {/* <div class="form-group row">
             <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Community</label>
             <div class="col-sm-4 col-md-4 col-lg-4">
               <select class="form-control input-lg ADTBorder" id='community_select' onChange={(e) => { getBlocks(e) }}>
@@ -122,46 +126,46 @@ const Addflat = () => {
               </select>
             </div>
           </div> */}
-          <div class="form-group row">
-            <label class="col-lg-2 col-form-label ADN_label">Blocks</label>
-            <div class="col-lg-4">
-              <select class="form-control input-lg ADTBorder" id="block_select" onChange={(e) => { getBlocks(e) }} placeholder="Block">
-                <option value={null} disabled selected>Select Block</option>
-                {block.map(item => {
-                  return (
-                    <option value={item.id}>{item.name}</option>
-                  )
-                })}
-              </select>
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label ADN_label">Blocks</label>
+              <div class="col-lg-4">
+                <select class="form-control input-lg ADTBorder" id="block_select" onChange={(e) => { getBlocks(e) }} placeholder="Block">
+                  <option value={null} disabled selected>Select Block</option>
+                  {block.map(item => {
+                    return (
+                      <option value={item.id}>{item.name}</option>
+                    )
+                  })}
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="form-group row">
-            <label class="col-lg-2 col-form-label ADN_label">Flat No</label>
-            <div class="col-lg-4">
-              <input type="text" class="form-control input-lg ADTBorder" id='flat_no' name="flatNo" placeholder="Flat No"></input>
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label ADN_label">Flat No</label>
+              <div class="col-lg-4">
+                <input type="text" class="form-control input-lg ADTBorder" id='flat_no' name="flatNo" placeholder="Flat No"></input>
+              </div>
             </div>
-          </div>
-          <div class="form-group row">
-            <label class="col-lg-2 col-form-label ADN_label">Description</label>
-            <div class="col-lg-4">
-              <textarea type="text" id='description' class="form-control input-lg ADTBorder" name="description" placeholder="Description"></textarea>
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label ADN_label">Description</label>
+              <div class="col-lg-4">
+                <textarea type="text" id='description' class="form-control input-lg ADTBorder" name="description" placeholder="Description"></textarea>
+              </div>
             </div>
-          </div>
-          <div class="form-group row">
-            <label class="col-lg-2 col-form-label ADN_label">Status</label>
-            <div class="col-lg-4">
-              <select class="form-control input-lg ADTBorder" id="status" placeholder="Status">
-                <option value={null} disabled selected>Select Status</option>
-                <option value={1}>Occupied</option>
-                <option value={0}>Empty</option>
-              </select>
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label ADN_label">Status</label>
+              <div class="col-lg-4">
+                <select class="form-control input-lg ADTBorder" id="status" placeholder="Status">
+                  <option value={null} disabled selected>Select Status</option>
+                  <option value={1}>Occupied</option>
+                  <option value={0}>Empty</option>
+                </select>
 
+              </div>
             </div>
-          </div>
 
-          <button type="submit" onClick={(e) => { handleSubmit(e) }} className="btnAddflat">Add Flat</button>
-        </Form>
-
+            <button type="submit" onClick={(e) => { handleSubmit(e) }} className="btnAddflat">Add Flat</button>
+          </Form>
+        </Loader>
       </div>
     </div>
   )

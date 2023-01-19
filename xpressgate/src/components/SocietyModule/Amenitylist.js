@@ -6,9 +6,10 @@ import './Amenitylist.css';
 import { getAmenitiesBooked } from './common/common';
 import LogOut from './Utils/LogOut';
 import Societyheader from './Utils/Societyheader';
+import { Loader } from "../Loader";
 
 const Amenitylist = () => {
-
+  const [loading, setLoading] = useState(true)
   const [bookedAmenities,setBookedAmenities] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
@@ -30,6 +31,7 @@ const Amenitylist = () => {
   const getData=async()=>{
     setBookedAmenities(await getAmenitiesBooked(location.state.id))
     setPaginate(await getAmenitiesBooked(location.state.id))
+    setLoading(false);
   }
  const setPaginate= async(list)=>{
     const indexoflast = currentPage*postPerPage  //endoffset
@@ -104,6 +106,7 @@ const Amenitylist = () => {
         <div className='alsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='albackgroundimg'>
+      <Loader loading={loading}>
         <div className='aldisplay'>
           <label>Amenity Bookings</label>
         </div>
@@ -141,6 +144,7 @@ const Amenitylist = () => {
           </tbody>
         </table>
         <PaginationCalculate totalPages={bookedAmenities.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+        </Loader>
       </div>
     </div>
   )

@@ -7,6 +7,7 @@ import { Form } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import SocietyHeader from './Utils/Societyheader';
 import {checkSociety} from '../auth/Auth'
+import { Loader } from "../Loader";
 
 const AddParkingSec = () => {
  
@@ -14,6 +15,7 @@ const AddParkingSec = () => {
   const [block,setBlock] = useState([]);
   const location = useLocation();
   const [type,setType] = useState('add');
+  const [loading, setLoading] = useState(true)
 
   const handleSubmit = async(e)=>{
     e.preventDefault()
@@ -67,6 +69,7 @@ const AddParkingSec = () => {
         localStorage.clear();
         window.location.href='/societylogin'
       }) 
+      setLoading(false);
     }
     else
     {
@@ -119,6 +122,7 @@ const AddParkingSec = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
+      <Loader loading={loading}>
         <div className='APdisplay'>
           <label>{type=='edit'?'Update':'Add'} Parking Section</label>
         </div>
@@ -139,11 +143,12 @@ const AddParkingSec = () => {
           <div class="form-group form-group6 row">
             <label class="col-lg-2 col-form-label ADN_label">Name</label>
             <div class="col-lg-4">
-              <input type="text" id="section" class="form-control input-lg ADDParkBor" defaultValue={parkingSection.section?parkingSection.section:''} name="New Parking"  />
+              <input type="text" id="section" class="form-control input-lg ADDParkBor" defaultValue={parkingSection.section?parkingSection.section:''} name="New Parking" placeholder='Name' />
             </div>
           </div>
           <button type="submit" onClick={(e)=>{handleSubmit(e)}} className="AP_Button">{type=='edit'?'Update':'Add'} Parking</button>
         </Form>
+        </Loader>
       </div>
     </div>
   );

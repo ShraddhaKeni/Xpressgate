@@ -12,7 +12,7 @@ import Loader from '../../common/Loader';
 import ErrorScreen from '../../common/ErrorScreen'
 
 const Vendorlist = () => {
-
+ 
   const [vendorData,setData]= useState([])
   const [vendorBooking,setBookingData] = useState()
   const [inout,setInOut] = useState([])
@@ -45,7 +45,7 @@ const Vendorlist = () => {
               localStorage.clear();
               window.location.href='/guardLogin'
             })
-           
+              
     }
     else
     {
@@ -155,6 +155,7 @@ const Vendorlist = () => {
         <div className='VendorL_display'>
           <label>Vendor List</label>
         </div>
+       
         <div className='row'>
           <div className='Vsearchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
@@ -208,6 +209,7 @@ const Vendorlist = () => {
           </tbody>
         </table>
         <PaginationCalculate totalPages={vendorData.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+       
       </div>
     </div>
   )

@@ -9,6 +9,7 @@ import { useLocation } from "react-router-dom";
 import { checkSociety } from '../auth/Auth'
 import { mobileValidation } from '../auth/validation';
 import { ToastMessage } from '../ToastMessage';
+import { Loader } from "../Loader";
 
 const Addlocalservice = () => {
   const [toast, setToast] = useState({ show: false })
@@ -19,6 +20,7 @@ const Addlocalservice = () => {
   const [type, setType] = useState('add')
   const location = useLocation()
   // const navigate = useNavigate()
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     if (checkSociety()) {
@@ -42,6 +44,7 @@ const Addlocalservice = () => {
           localStorage.clear();
           window.location.href = '/societylogin'
         })
+        setLoading(false);
     }
     else {
       window.location.href = '/'
@@ -135,6 +138,7 @@ const Addlocalservice = () => {
         <div className='alssideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
       <div className='alsbackgroundimg'>
+      <Loader loading={loading}>
         <div className='alsdisplay'>
           <label>{type == 'edit' ? 'Update' : 'Add'} Local Service</label>
         </div>
@@ -170,6 +174,7 @@ const Addlocalservice = () => {
           </div>
           <button type="submit" onClick={(e) => { handleSubmit(e) }} className="btnAddV" on>{type == 'edit' ? 'Update' : 'Add'} Vendor</button>
         </Form>
+        </Loader>
       </div>
     </div>
   )
