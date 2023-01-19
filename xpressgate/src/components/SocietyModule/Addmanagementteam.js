@@ -6,6 +6,7 @@ import { Form } from "react-bootstrap";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { checkSociety } from "../auth/Auth";
+import { Loader } from "../Loader";
 
 const Addmanagementteam = () => {
 
@@ -17,6 +18,7 @@ const Addmanagementteam = () => {
   const [from, setFrom] = useState()
   const [editdata, seteditdata] = useState()
   //const notice_time_ref = useRef([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     if (checkSociety()) {
@@ -43,6 +45,7 @@ const Addmanagementteam = () => {
           window.location.href = '/societylogin'
           //console.log(err)
         })
+        setLoading(false);
     }
     else {
       window.location.href = '/'
@@ -156,6 +159,7 @@ const Addmanagementteam = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
+      <Loader loading={loading}>
         <div className="AMM_display">
           <label>{type=='edit'?'Update':'Add'} Management Team</label>
         </div>
@@ -200,7 +204,7 @@ const Addmanagementteam = () => {
           <div className="AMM_form">
             <div className="inboxes">
               <label for="Designation" className="AMMDesignation">Designation</label>
-              {title ? <input type="text" id="management_title" defaultValue={title} className="AMMinput"></input> : <input type="text" id="management_title" className="AMMinput"></input>}
+              {title ? <input type="text" id="management_title" placeholder="Designation" defaultValue={title} className="AMMinput"></input> : <input type="text" placeholder="Designation" id="management_title" className="AMMinput"></input>}
 
             </div>
           </div>
@@ -222,6 +226,7 @@ const Addmanagementteam = () => {
           <button type="submit" onClick={(e) => handleSubmit(e)} className="AMM_Add_btn">{type=='edit'?'Update':'Add'} Number
           </button>
         </Form>
+        </Loader>
       </div>
     </div>
   );

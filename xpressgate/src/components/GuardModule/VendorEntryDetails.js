@@ -6,7 +6,12 @@ import GuardHeader from './Utils/GuardHeader';
 import HeaderSection from './Utils/HeaderSection';
 import LogOut from './Utils/LogOut';
 import { checkGuard } from '../auth/Auth';
+import { Loader } from "../Loader";
+import { ToastMessage } from '../ToastMessage';
+
 const VendorEntryDetails = () => {
+  const [toast, setToast] = useState({ show: false })
+    const [loading, setLoading] = useState(true)
     const current = new Date();
     const [date, setDate] = useState(`${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`);
     const [time, setTime] = useState(`${current.getHours()}/${current.getMinutes()}}`)
@@ -41,7 +46,7 @@ const VendorEntryDetails = () => {
                   localStorage.clear();
                   window.location.href='/guardLogin'
                 })
-              
+                setLoading(false);   
         }
         else
         {
@@ -81,6 +86,7 @@ const VendorEntryDetails = () => {
           console.log(location.state.code)
           bookings.map(async(items)=>{
             try {
+              setToast({ show: true, type: "success", message: "Approved" })
               let submitData = {
                 firstname:items.vendor_name,
                 lastname:'',
@@ -92,14 +98,18 @@ const VendorEntryDetails = () => {
                 type:2,
                 bookedID:location.state.id,
                 status:1,
-                allowed_by:localStorage.getItem('guard_id')
+                allowed_by:localStorage.getItem('guard_id'),
+                vehicle_no: document.getElementById('vehicle_id').value
             }
             
 
                const {data} = await axios.post(`${window.env_var}api/inout/add`,submitData)
               console.log(data)
               const bookingUpdate = await axios.get(`${window.env_var}api/bookvendor/removeBooking/${items.booking_id}`) 
-             navigate('/vendorlist')
+              setTimeout(() => {
+                window.location.href='/vendorlist'
+              }, 1500);
+            //  navigate('/vendorlist')
             } catch (error) {
               console.log(error)
             }
@@ -111,6 +121,14 @@ const VendorEntryDetails = () => {
         } catch (error) {
             console.log(error)
         }
+    }
+    const deny=async()=>{
+
+      setToast({ show: true, type: "success", message: "Entry deny " })
+      setTimeout(() => {
+        window.location.href="/dashboard"
+      }, 1500);
+     
     }
    
       return (
@@ -127,9 +145,11 @@ const VendorEntryDetails = () => {
             <div className='VED_sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
           </div>
           <div className='fvbackgroundimg'>
+          <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
             <div className='VED_Display'>
               <label>{code?code:'Details'}</label>
             </div>
+            <Loader loading={loading}>
             {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}
             <div className="col">
               <div className="frequentvisitorcard">
@@ -152,17 +172,17 @@ const VendorEntryDetails = () => {
                   {/* <div><label className='intime'>Booked time: {getTime(vendorData.bookedDate)} </label></div> */}
                   {/* <div><label className='outtime'>Out-Time: </label></div> */}
                   <div><label className='noofpeople'>No of People: 1</label></div>
-                  <div><label className='vehicleno'>Vehicle No: <input type='text' placeholder='Vehicle Number'></input></label></div>
+                  <div><label className='vehicleno'>Vehicle No: <input type='text' placeholder='Vehicle Number' id="vehicle_id"></input></label></div>
                 </div>
                 <br></br>
                 <button type="button" onClick={()=>{submitData()}} className="VEDbtnApprove">APPROVE</button>
-                <button type="submit" className="VEDbtnDeny" onClick={()=>window.location.href="/dashboard"}>DENY</button>
+                <button type="submit" className="VEDbtnDeny"  onClick={()=>{deny()}}>DENY</button>
                 <br></br>
                 
               </div>
              
             </div>
-          
+            </Loader>
             {/* </div> */}
           </div>
         </div>

@@ -5,9 +5,10 @@ import { validatePassword } from "../auth/validation";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import GuardHeader from './Utils/GuardHeader';
-
+import { Loader } from "../Loader";
 
 const ChangePassword = () => {
+  const [loading, setLoading] = useState(true)
   const password = useRef([])
   const confirmPass = useRef([])
   const oldpass = useRef([])
@@ -22,6 +23,7 @@ const ChangePassword = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/guard/getone/${localStorage.getItem('guard_id')}`)
       setGuard(data.data)
+      setLoading(false);
     } catch (error) {
       console.log(error)
     }
@@ -75,6 +77,7 @@ const ChangePassword = () => {
         <div className='CPass_dsplay'>
           <label>Change Password</label>
         </div>
+        <Loader loading={loading}>
         <Form className='CPForm'>
           <div className="cpinput_fields">
             <div className="password">
@@ -106,7 +109,7 @@ const ChangePassword = () => {
           </div>
           <button type="submit" onClick={(e) => handleSubmit(e)} className="CHPASS_BTN">Update</button>
         </Form>
-
+        </Loader>
       </div>
     </div>
   )

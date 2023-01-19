@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import LogOut from './Utils/LogOut'
+import { Loader } from "../Loader";
 
 const Flatapprovallist = () => {
   const [flat,setFlat] = useState({})
@@ -11,6 +12,8 @@ const Flatapprovallist = () => {
   const [vehicle,setVehicle] = useState({})
 const location = useLocation()
 const navigate = useNavigate()
+
+const [loading, setLoading] = useState(true)
 
 useEffect(()=>{
   if(location.state)
@@ -29,9 +32,10 @@ const getFlatDetails=async()=>{
   try {
     const {data} = await axios.get(`${window.env_var}api/flats/single/${location.state.id}`)
     setFlat(data.data.list[0])
-    
+    setLoading(false);
   } catch (error) {
     console.log(error)
+    setLoading(false);
   }
 }
 
@@ -69,6 +73,7 @@ const approveFlat=async(id)=>{
         <div className='FA_SiDeImG'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='fvbackgroundimg'>
+      <Loader loading={loading}>
         <div className='FLATApp_Display'>
           <label>Flat Approval</label>
         </div>
@@ -96,7 +101,7 @@ const approveFlat=async(id)=>{
             <br></br>
           </div>
         </div>
-        {/* </div> */}
+      </Loader>
       </div>
     </div>
   )

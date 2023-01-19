@@ -8,9 +8,10 @@ import axios from "axios";
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import Societyheader from "./Utils/Societyheader";
 import { useNavigate } from "react-router-dom";
+import { Loader } from "../Loader";
 
 const Emergency = () => {
-
+  const [loading, setLoading] = useState(true)
   const [contacts, setContacts] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
@@ -28,12 +29,13 @@ const Emergency = () => {
       const indexoflast = currentPage * postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.contacts.slice(indexoffirst, indexoflast))
+      setLoading(false);
     } catch (error) {
 
     }
   }
 
-  const paginate =  (event) => {
+  const paginate = (event) => {
 
     setCurrentpage(event.selected + 1)
     const indexoflast = (event.selected + 1) * postPerPage  //endoffset
@@ -62,8 +64,8 @@ const Emergency = () => {
 
   }
 
-  function emargencyDetails(id,ename,etype,econtact) {
-    navigate('/addemergency', { state: { id: id, type: 'edit', ename,etype,econtact,update:'update' } })
+  function emargencyDetails(id, ename, etype, econtact) {
+    navigate('/addemergency', { state: { id: id, type: 'edit', ename, etype, econtact, update: 'update' } })
   }
 
   return (
@@ -76,9 +78,9 @@ const Emergency = () => {
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
-        
+
         <div class="EN_noticelist">
-        <a href="/emergencyList" class="ENLNotice"><b>Emergency Number List</b></a><br/><br/>
+          <a href="/emergencyList" class="ENLNotice"><b>Emergency Number List</b></a><br /><br />
           <a href="/addemergency" class="AENNotice">Add Emergency Number</a>
         </div>
         <div className="EN_sideimg">
@@ -86,54 +88,55 @@ const Emergency = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="EN_display">
-          <label>Emergency Numbers</label>
-        </div>
-        <div >
-        <button type="button" className="EN_Add" onClick={() => {
-                window.location.href = "/addemergency";
-              }}>&#10011; Add Emergency Number</button>
-
-        </div>
-        <div className="row">
-        <div className='EMMsearchbox'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-              <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
+        <Loader loading={loading}>
+          <div className="EN_display">
+            <label>Emergency Numbers</label>
           </div>
-        </div>
-        <table
-          id="inoutbooktable"
-          class="table table-striped table-bordered table-sm "
-          cellspacing="0"
-        // style={{ border: '2px solid #14335D;;'}}
-        >
-          <thead>
-            <tr>
-              <th class="th-sm">Type</th>
-              <th class="th-sm">Name</th>
-              <th class="th-sm">Phone No</th>
-            </tr>
-          </thead>
-          <tbody>
+          <div >
+            <button type="button" className="EN_Add" onClick={() => {
+              window.location.href = "/addemergency";
+            }}>&#10011; Add Emergency Number</button>
 
-            {currentPosts.map(item => {
-              return (
-                <tr id={item._id} onClick={() => emargencyDetails(item._id, item.name, item.type,item.contact)}>
-                  <td>{item.type}</td>
-                  <td>{item.name}</td>
-                  {console.log(item)}
-                  <td>{item.contact} </td>
-                </tr>
-              )
-            })}
+          </div>
+          <div className="row">
+            <div className='EMMsearchbox'>
+              <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+                <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
+            </div>
+          </div>
+          <table
+            id="inoutbooktable"
+            class="table table-striped table-bordered table-sm "
+            cellspacing="0"
+          // style={{ border: '2px solid #14335D;;'}}
+          >
+            <thead>
+              <tr>
+                <th class="th-sm">Type</th>
+                <th class="th-sm">Name</th>
+                <th class="th-sm">Phone No</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              {currentPosts.map(item => {
+                return (
+                  <tr id={item._id} onClick={() => emargencyDetails(item._id, item.name, item.type, item.contact)}>
+                    <td>{item.type}</td>
+                    <td>{item.name}</td>
+                    {console.log(item)}
+                    <td>{item.contact} </td>
+                  </tr>
+                )
+              })}
 
 
-          </tbody>
-        </table>
-        {/* <div className="App">
+            </tbody>
+          </table>
+          {/* <div className="App">
       {data} */}
-        <PaginationCalculate totalPages={contacts.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
-
+          <PaginationCalculate totalPages={contacts.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+        </Loader>
       </div>
     </div>
 

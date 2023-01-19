@@ -142,7 +142,7 @@ const UtilityPayment = () => {
         <div className="Payment_form">
             <div className="inboxes">
                 <label for="UtilityAmount"  className="Utility_Amount">Amount</label>
-                <input type="text"  id="UtilityAmount" ref={amount} className="VenDorInp"></input> 
+                <input type="text"  id="UtilityAmount" ref={amount} className="VenDorInp" placeholder="Amount"></input> 
             </div>
         </div>
         <div className="Payment_form">

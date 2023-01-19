@@ -162,13 +162,13 @@ const PackageList = () => {
               <div class="form-group row">
                 <label class="col-lg-2 col-form-label ADN_label">Payment Date</label>
                 <div class="col-lg-4">
-                  <input type="date" class="form-control input-lg SBorder" onChange={()=>ChangeDate(purchase_date.current.value)} ref={purchase_date} id='payment_date' name="First name" />
+                  <input type="date" class="form-control input-lg SBorder" onChange={()=>ChangeDate(purchase_date.current.value)} ref={purchase_date} id='payment_date' name="Payment Date" />
                 </div>
               </div>
               <div class="form-group row">
                 <label class="col-lg-2 col-form-label ADN_label">Due Date</label>
                 <div class="col-lg-4">
-                  <input type="text" disabled class="form-control input-lg SBorder" ref={payment_due}  id='due_date' name="First name" />
+                  <input type="text" disabled class="form-control input-lg SBorder" ref={payment_due}  id='due_date' name="First name" placeholder='Due Date'/>
                 </div>
               </div>
               <button type="submit" onClick={(e)=>{handleSubmit(e)}} className="CPACKBtn">
