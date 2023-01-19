@@ -8,9 +8,9 @@ import PaginationCalculate from './Utils/paginationCalculate';
 import { useNavigate } from 'react-router-dom';
 import GuardHeader from './Utils/GuardHeader';
 import { checkGuard } from '../auth/Auth'
-
+import { Loader } from "../Loader";
 const GuestList = () => {
-
+  const [loading, setLoading] = useState(true)
   const [guests, setGuests] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
@@ -32,6 +32,7 @@ const GuestList = () => {
           localStorage.clear();
           window.location.href = '/guardLogin'
         })
+        setLoading(false);
     } else {
       window.location.href = '/'
     }
@@ -94,6 +95,7 @@ const GuestList = () => {
         <div className='GuestL_display'>
           <label>Guest List</label>
         </div>
+        <Loader loading={loading}>
         {/* <div class="table-responsive"> */}
         <table id="inoutbooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
@@ -129,6 +131,7 @@ const GuestList = () => {
       {data} */}
         <PaginationCalculate totalPages={guests.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
 
+        </Loader>
         {/* </div> */}
       </div>
     </div>

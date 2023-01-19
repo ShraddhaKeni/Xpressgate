@@ -6,9 +6,11 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import LogOut from './Utils/LogOut';
 import { checkGuard } from '../auth/Auth';
 import GuardHeader from './Utils/GuardHeader';
+import { Loader } from "../Loader";
+import { ToastMessage } from '../ToastMessage';
 const Dailyservicepasscode = ({ props }) => {
-
-
+  const [toast, setToast] = useState({ show: false })
+  const [loading, setLoading] = useState(true)
   const [flats, setFlats] = useState([])
   const [staff, setStaff] = useState({})
   const [service, setService] = useState()
@@ -42,7 +44,8 @@ const navigate = useNavigate()
           }
           else {
             getData()
-          }  
+          } 
+          setLoading(false); 
   }
   else
   {
@@ -105,6 +108,7 @@ const navigate = useNavigate()
 
   const handleclick =async()=>{
     try {
+      setToast({ show: true, type: "success", message: "Approved" })
      dailyhelp.map(async(item)=>{
       let submitData = {
         firstname:item.helper_name,
@@ -121,11 +125,22 @@ const navigate = useNavigate()
     }
     const saveData = await axios.post(`${window.env_var}api/inout/add`,submitData)
     console.log(saveData.data.data)
-    window.location.href="/dailyhelp"
+    setTimeout(() => {
+      window.location.href='/dailyhelp'
+    }, 1500);
+    // window.location.href="/dailyhelp"
      })
     } catch (error) {
       
     }
+  }
+  const deny=async()=>{
+
+    setToast({ show: true, type: "success", message: "Entry deny " })
+    setTimeout(() => {
+      window.location.href="/dashboard"
+    }, 1500);
+   
   }
 
   return (
@@ -142,6 +157,8 @@ const navigate = useNavigate()
        <div className='DSPSImg'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='dspbackgroundimg'>
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+      <Loader loading={loading}>
         {props ? <div className='dailyservicepasscodedisplay'><label>{props.code} </label> </div> : " "}
         <div className="col-sm-6 col-md-6 col-lg-6">
           <div className="dailycard">
@@ -172,9 +189,10 @@ const navigate = useNavigate()
           <div className='buttons_dailyservice'>
             <div>
               <Button type="button" onClick={()=> handleclick()} id='approve_entry'  className="btnAddDSP">APPROVE</Button>
-              <Button type="button" onClick={()=>window.location.href="/dailyhelp"} id='deny_entry' className="btnDenyDSP ">DENY</Button>
+              <Button type="button" onClick={()=>{deny()}} id='deny_entry' className="btnDenyDSP ">DENY</Button>
             </div>
           </div>
+          </Loader>
       </div>
     </div>
   )

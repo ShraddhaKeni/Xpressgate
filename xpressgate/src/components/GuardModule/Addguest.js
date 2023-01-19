@@ -1,11 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Addguest.css';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import LogOut from './Utils/LogOut';
 import { checkGuard } from '../auth/Auth';
 import axios from 'axios';
+import { Loader } from "../Loader";
+import { ToastMessage } from '../ToastMessage';
+
+
 const Addguest = () => {
+  const [toast, setToast] = useState({ show: false })
+  const [loading, setLoading] = useState(true)
   useEffect(()=>{
     if(checkGuard())
     {
@@ -21,7 +27,8 @@ const Addguest = () => {
               localStorage.clear();
               window.location.href='/guardLogin'
             })  
-    }
+            setLoading(false);
+    } 
     else
     {
       window.location.href='/'
@@ -50,6 +57,7 @@ const Addguest = () => {
         <div className='AGuest_display'>
           <label>Add Guest</label>
         </div>
+        <Loader loading={loading}>
         <Form className='formclass'>
           <div class="form-group row">
               <label for="inputentryno" class="col-sm-2 col-md-2 col-lg-2 col-form-label labelsize">Entry No</label>
@@ -89,7 +97,7 @@ const Addguest = () => {
             </div>
             <button type="submit" className="btnAddguest">Add</button>
         </Form>
-
+        </Loader>
       </div>  
     </div>
   )

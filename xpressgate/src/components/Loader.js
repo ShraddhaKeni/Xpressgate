@@ -5,7 +5,7 @@ import { Alert } from "@mui/material";
 
 export const Loader = ({ children, loading = true }) => {
     return loading === true ? (
-        <div className="loading" style={{ width: "100%", height: "100%", marginTop: "30%" }}>
+        <div className="loading" style={{ width: "100%", height: "100%", marginTop: "25%" }}>
             <CircularProgress />
         </div>
     ) : children;

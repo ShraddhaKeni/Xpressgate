@@ -83,8 +83,8 @@ const UtilityPyamentLinkList = () => {
     }
 
   }
-  if(loading)
-  return <Loader loading={loading}></Loader>
+  // if(loading)
+  // return <Loader loading={loading}></Loader>
 
   return (
     <div className="addguestcontainer2">
@@ -115,7 +115,7 @@ const UtilityPyamentLinkList = () => {
         <div className="SC_display">
           <label>Utility Payment Link List</label>
         </div>
-        {/* <Loader loading={loading}> */}
+        <Loader loading={loading}>
           <div> <button type="submit" className="btnAddnotice" onClick={() => {
             window.location.href = "/utilitypaymentlink";
           }}>&#10011; Add New Link</button></div>
@@ -167,7 +167,7 @@ const UtilityPyamentLinkList = () => {
 
 
 
-        {/* </Loader> */}
+        </Loader>
 
       </div>
     </div>

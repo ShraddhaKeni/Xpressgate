@@ -8,8 +8,9 @@ import PaginationCalculate from './Utils/paginationCalculate';
 import LogOut from './Utils/LogOut';
 import GuardHeader from './Utils/GuardHeader';
 import { checkGuard } from '../auth/Auth';
-
+import { Loader } from "../Loader";
 const Inoutbook = () => {
+  const [loading, setLoading] = useState(true)
   const [inoutdata, setInoutdata] = useState([])
   const navigate = useNavigate()
   const [currentPage, setCurrentpage] = useState(1)
@@ -41,6 +42,7 @@ const Inoutbook = () => {
           localStorage.clear();
           window.location.href = '/guardLogin'
         })
+        setLoading(false);
     } else {
       window.location.href = '/'
     }  
@@ -87,6 +89,7 @@ const Inoutbook = () => {
         <div className='IOB_display'>
           <label>In-Out Book</label>
         </div>
+        <Loader loading={loading}>
         {/* <div className='InoutBookButton'>
           <a href="/addinout" className='InoutBookADDButton'>&#43; Add In Out</a>
         </div> */}
@@ -121,7 +124,7 @@ const Inoutbook = () => {
           </tbody>
         </table>
         <PaginationCalculate totalPages={inoutdata.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
-
+        </Loader>
       </div>
     </div>
   )

@@ -2,10 +2,12 @@ import LogOut from "./Utils/LogOut";
 import { Form } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import { Loader } from "../Loader";
+import { ToastMessage } from '../ToastMessage';
 const EditGuard = () => {
+  const [toast, setToast] = useState({ show: false })
   const [guard, setGuard] = useState({})
-
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
     getGuardDetails()
   }, [])
@@ -14,6 +16,7 @@ const EditGuard = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/guard/getone/${localStorage.getItem('guard_id')}`)
       setGuard(data.data)
+      setLoading(false);
     } catch (error) {
 
     }
@@ -23,7 +26,7 @@ const EditGuard = () => {
     e.preventDefault()
 
     try {
-
+      setToast({ show: true, type: "success", message: "Update Successfully" })
       let formdata = new FormData()
       formdata.append('firstname', document.getElementById('firstname').value)
       formdata.append('lastname', document.getElementById('lastname').value)
@@ -37,8 +40,10 @@ const EditGuard = () => {
       }
 
       const { data } = await axios.post(`${window.env_var}api/guard/update`, formdata)
-
-      window.location.href = '/dashboard'
+      setTimeout(() => {
+        window.location.href='/dashboard'
+      }, 1500);
+      // window.location.href = '/dashboard'
 
     } catch (error) {
       console.log(error)
@@ -70,9 +75,11 @@ const EditGuard = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <div className="VPaydisplay">
           <label>Update Guard</label>
         </div>
+        <Loader loading={loading}>
         <Form className="formclass">
           <div class="form-group row">
             <label class="col-lg-2 col-form-label ADN_label">First Name</label>
@@ -117,6 +124,7 @@ const EditGuard = () => {
             Update Guard
           </button>
         </Form>
+        </Loader>
       </div>
     </div>
 

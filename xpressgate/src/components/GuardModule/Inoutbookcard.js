@@ -5,9 +5,11 @@ import axios from 'axios';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { checkGuard } from '../auth/Auth';
 import GuardHeader from './Utils/GuardHeader';
-
+import { Loader } from "../Loader";
+import { ToastMessage } from '../ToastMessage';
 const Inoutbookcard = () => {
-
+  const [toast, setToast] = useState({ show: false })
+  const [loading, setLoading] = useState(true)
   const [listData, setInOutData] = useState({})
   const [flats, setFlats] = useState([])
   const location = useLocation()
@@ -29,6 +31,7 @@ const Inoutbookcard = () => {
           localStorage.clear();
           window.location.href = '/guardLogin'
         })
+        setLoading(false);
     } else {
       window.location.href = '/'
     }  
@@ -81,6 +84,7 @@ const Inoutbookcard = () => {
   const handleSubmit = async(e,id)=>{
     e.preventDefault()
     try {
+      setToast({ show: true, type: "success", message: "Out Successfully" })
       const sendData = {
         outtime:Date.now(),
         status:2,
@@ -88,12 +92,22 @@ const Inoutbookcard = () => {
       }
 
       const {data} = await axios.post(`${window.env_var}api/inout/addout`,sendData)
-      navigate('/inoutbook')
+      setTimeout(() => {
+        window.location.href='/inoutbook'
+      }, 1500);
+      // navigate('/inoutbook')
     } catch (error) {
       console.log(error)
     }
   }
+  const deny=async()=>{
 
+    setToast({ show: true, type: "success", message: "Back" })
+    setTimeout(() => {
+      window.location.href="/inoutbook"
+    }, 1500);
+   
+  }
   return (
     <div className="inoutbookcardcontainer">
       <div id="headersection">
@@ -107,9 +121,11 @@ const Inoutbookcard = () => {
         <div className='IOBC_SImg'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='iobcbackgroundimg'>
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <div className= "IOBC_display">
           <label>In-Out Book</label>
         </div>
+        <Loader loading={loading}>
         {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}
         <div className="col">
           <div className="inoutbookcard">
@@ -137,13 +153,14 @@ const Inoutbookcard = () => {
             <br></br>
             {console.log(listData.status)}
             {listData.status==1? <button type="submit" onClick={(e)=>{handleSubmit(e,listData.booking_id)}} id='inout'  className="btnOut">Out</button>
-              : <button type="button" onClick={()=>navigate('/inoutbook')} id='inout' className="btnOut">Back</button>
+              : <button type="button" onClick={()=>{deny()}} id='inout' className="btnOut">Back</button>
             }
            
             <br></br>
           </div>
         </div>
         {/* </div> */}
+        </Loader>
       </div>
     </div>
   )

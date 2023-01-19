@@ -8,9 +8,10 @@ import './otp.css';
 import { checkGuard } from '../auth/Auth';
 import PaginationCalculate from './Utils/paginationCalculate';
 import GuardHeader from './Utils/GuardHeader';
-
+import { Loader } from "../Loader";
 
 const Dailyhelplist = () => {
+  const [loading, setLoading] = useState(true)
   const [dailyhelpdata, setDailyhelpdata] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(9)
@@ -34,7 +35,7 @@ const Dailyhelplist = () => {
               localStorage.clear();
               window.location.href='/guardLogin'
             })
-              
+            setLoading(false);      
     }
     else
     {
@@ -91,10 +92,12 @@ const Dailyhelplist = () => {
         <div className='DHL_SideImg'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='dhlbackgroundimg'>
-        <div id="cardsection">
+        {/* <div id="cardsection"> */}
           <div className='DHL_display'>
             <label>Daily Help List</label>
           </div>
+          <Loader loading={loading}>
+          <div id="cardsection">
           <div className="row row-cols-1 row-cols-md-3 g-4 dhfullcardscss">
             
             {currentPosts.map((dailydata) => {
@@ -113,14 +116,15 @@ const Dailyhelplist = () => {
               )
             })}
           </div>
-          
+          {/* </Loader> */}
         </div>
         <div style={{marginTop:'0.5%'}}>
 
           <PaginationCalculate totalPages={dailyhelpdata.filter(x=>x.booking_id.length!=0).length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
         </div>
+        </Loader>
       </div>
-      
+     
     </div>
   )
 }
