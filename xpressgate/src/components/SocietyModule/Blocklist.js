@@ -82,14 +82,15 @@ const Blocklist = () => {
           <button type="button" onClick={() => { window.location.href = '/addblock' }} className="AddBlist">&#10011; Add New Block</button>
           <div id="blcardsection">
           
-              <div className="row row-cols-3 d-f BLfullcardscss">
+              <div className="row row-cols-3 d-f BLfullcardscss allcards">
                 {currentPosts.map((item, index) => {
+                  console.log(item.flat)
                   return (
-                    <div className="col">
+                    <div className="col card_hover_animation ">
                       <div className="blminicard"><br></br>
                         <a><img src="/images/pencilicon.png" className="pencilicon" onClick={() => blockDetails(item._id, item.block)}></img></a>
                         <label className='Blblock'>Block {item.block}</label><br></br>
-                        <label className='Blflat'>Flats - {item.flat !== [] ? parseInt(item.flat) : 0}</label><br></br><br></br>
+                        <label className='Blflat'>Flats - {item.flat.length>0 ? parseInt(item.flat) : 0}</label><br></br><br></br>
                         <button type="button" className="btnView" onClick={() => { navigateToList(item._id, item.block) }} >View</button><br></br>
                       </div>
                     </div>

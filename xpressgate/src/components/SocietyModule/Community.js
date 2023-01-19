@@ -41,8 +41,8 @@ const Community = () => {
           <label>Community Management</label>
         </div>
 
-        <div className="row row-cols-1 row-cols-md-3 g-4 cfullcardscss">
-          <div className="col">
+        <div className="row row-cols-1 row-cols-md-3 g-4 cfullcardscss allcards">
+          <div className="col card_hover_animation">
             <div className="Cdashboardcard">
               <a href="/management">
                 <img
@@ -53,7 +53,7 @@ const Community = () => {
               </a>
             </div>
           </div>
-          <div className="col">
+          <div className="col card_hover_animation">
             <div className="Cdashboardcard">
               <img
                 src="/images/Lservices.svg"
@@ -65,7 +65,7 @@ const Community = () => {
               ></img>
             </div>
           </div>
-          <div className="col">
+          <div className="col card_hover_animation">
             <div className="Cdashboardcard">
               <img
                 src="/images/emergency.svg"
@@ -77,7 +77,7 @@ const Community = () => {
               ></img>
             </div>
           </div>
-          <div className="col">
+          <div className="col card_hover_animation">
             <div className="Cdashboardcard">
               <img
                 src="/images/reportbox.svg"
@@ -89,7 +89,7 @@ const Community = () => {
               ></img>
             </div>
           </div>
-          <div className="col">
+          <div className="col card_hover_animation">
             <div className="Cdashboardcard">
               <img
                 src="/images/reportbox.svg"
