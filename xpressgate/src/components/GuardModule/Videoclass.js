@@ -5,9 +5,10 @@ import ReactPlayer from 'react-player'
 import PaginationCalculate from './Utils/paginationCalculate';
 import LogOut from './Utils/LogOut';
 import GuardHeader from './Utils/GuardHeader';
+import { Loader } from "../Loader";
 const Videoclass = () => {
   const [videodata, setVideodata] = useState([])
-
+  const [loading, setLoading] = useState(true)
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(6)
   const [currentPosts,setCurrentPosts] = useState([])
@@ -23,8 +24,9 @@ const Videoclass = () => {
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.data.videolist.slice(indexoffirst,indexoflast))
     //console.log("sk" + JSON.stringify(videodata))
+    setLoading(false);
   }
-  
+ 
   async function  paginate(event)
   {
     const {data} = await axios.get(`${window.env_var}api/videolist/getAll`)
@@ -59,6 +61,7 @@ const Videoclass = () => {
           <div className='VG_Display'>
             <label>Video class List</label>
           </div>
+          <Loader loading={loading}>
           <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
             {currentPosts.map(vdata => {
               return (
@@ -74,7 +77,9 @@ const Videoclass = () => {
             })}
           </div>
           <PaginationCalculate totalPages={videodata.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+          </Loader>
         </div>
+        
       </div>
     </div>
   )

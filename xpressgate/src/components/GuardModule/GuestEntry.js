@@ -5,10 +5,12 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { checkGuard } from '../auth/Auth';
 import GuardHeader from './Utils/GuardHeader';
-
-
+import { Loader } from "../Loader";
+import { ToastMessage } from '../ToastMessage';
 
 const GuestEntry = () => {
+  const [toast, setToast] = useState({ show: false })
+  const [loading, setLoading] = useState(true)
     const current = new Date();
     const[date, setDate] = useState(`${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`);
     const location = useLocation()
@@ -30,6 +32,7 @@ const GuestEntry = () => {
             localStorage.clear();
             window.location.href = '/guardLogin'
           })
+          setLoading(false);
       } else {
         window.location.href = '/'
       } 
@@ -45,6 +48,7 @@ const GuestEntry = () => {
     }
     const handleSubmit=async()=>{
         try {
+          setToast({ show: true, type: "success", message: "Enter Allowed" })
             var submitData = {
                 firstname:guestDetails.guestFirstName,
                 lastname:guestDetails.guestLastName,
@@ -57,15 +61,28 @@ const GuestEntry = () => {
                 bookedID:guestDetails._id,
                 status:1,
                 allowed_by:localStorage.getItem('guard_id'),
-                vehicle_no:document.getElementById('veh_id').value
+                vehicle_no:document.getElementById('veh_id').value,
+                
             }
             console.log(submitData)
             const {data} = await axios.post(`${window.env_var}api/inout/add`,submitData);
             const bookingUpdate = await axios.get(`${window.env_var}api/resident/guest/deleteGuest/${guestDetails._id}`)
-            navigate('/guestlist')
+            setTimeout(() => {
+              window.location.href='/guestlist'
+            }, 1500);
+            // navigate('/guestlist')
         } catch (error) {
             console.log(error)
         }
+      
+    }
+    const deny=async()=>{
+
+      setToast({ show: true, type: "success", message: "Entry deny " })
+      setTimeout(() => {
+        window.location.href="/dashboard"
+      }, 1500);
+     
     }
   return (
     <div className="frequentvisitorcontainer">
@@ -80,9 +97,11 @@ const GuestEntry = () => {
       <div className='GuestLsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
     </div>
     <div className='fvbackgroundimg'>
+    <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
       <div className='GuestL_display'>
         <label>Guest Details</label>
       </div>
+      <Loader loading={loading}>
       {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}
       <div className="col">
         <div className="frequentvisitorcard">
@@ -106,11 +125,12 @@ const GuestEntry = () => {
           </div>
           <br></br>
           <button type="button" onClick={()=>{handleSubmit()}} className="BTN_Approve">APPROVE</button>
-          <button type="submit" className="BTN_Deny" onClick={()=>window.location.href="/dashboard"}>DENY</button>
+          <button type="submit" className="BTN_Deny" onClick={()=>{deny()}}>DENY</button>
           <br></br>
         </div>
       </div>
       {/* </div> */}
+      </Loader>
     </div>
   </div>
   )

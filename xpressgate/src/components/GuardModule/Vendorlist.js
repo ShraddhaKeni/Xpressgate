@@ -8,9 +8,9 @@ import { Link, Navigate, useLocation,useNavigate } from 'react-router-dom';
 import HeaderSection from './Utils/HeaderSection';
 import { checkGuard } from '../auth/Auth';
 import GuardHeader from './Utils/GuardHeader';
-
+import { Loader } from "../Loader";
 const Vendorlist = () => {
-
+  const [loading, setLoading] = useState(true)
   const [vendorData,setData]= useState([])
   const [vendorBooking,setBookingData] = useState()
   const [inout,setInOut] = useState([])
@@ -41,7 +41,7 @@ const Vendorlist = () => {
               localStorage.clear();
               window.location.href='/guardLogin'
             })
-           
+            setLoading(false);  
     }
     else
     {
@@ -139,6 +139,7 @@ const Vendorlist = () => {
         <div className='VendorL_display'>
           <label>Vendor List</label>
         </div>
+        <Loader loading={loading}>
         <div className='row'>
           <div className='Vsearchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
@@ -192,6 +193,7 @@ const Vendorlist = () => {
           </tbody>
         </table>
         <PaginationCalculate totalPages={vendorData.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+        </Loader>
       </div>
     </div>
   )

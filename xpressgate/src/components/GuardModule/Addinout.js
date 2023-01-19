@@ -6,8 +6,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { checkGuard } from '../auth/Auth';
 import './Addinout.css';
 import { useNavigate } from 'react-router-dom'
-
+import { Loader } from "../Loader";
+import { ToastMessage } from '../ToastMessage';
 const Addinout = () => {
+  const [toast, setToast] = useState({ show: false })
+  const [loading, setLoading] = useState(true)
   const [details, setDetails] = useState({})
   const [block, setBlock] = useState([])
   const [visitor_type, setVisitorType] = useState([])
@@ -35,6 +38,7 @@ const Addinout = () => {
           localStorage.clear();
           window.location.href = '/guardLogin'
         })
+        setLoading(false);
     } else {
       window.location.href = '/'
     }
@@ -90,7 +94,7 @@ const Addinout = () => {
         const { data } = await axios.get(`${window.env_var}api/admin/dailyhelp/getAll`)
         setDailyhelp(data.data.dailyhelp)
       }
-
+      
     } catch (error) {
       console.log(error)
     }
@@ -101,7 +105,7 @@ const Addinout = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-    
+      setToast({ show: true, type: "success", message: "Added Successfully" })
       let date = new Date(document.getElementById('date').value + 'T' + document.getElementById('intime').value + ':00').toISOString()
       const sendData = {
         firstname: document.getElementById('name').value,
@@ -120,7 +124,10 @@ const Addinout = () => {
 
       const { data } = await axios.post(`${window.env_var}api/inout/addbyguard`, sendData)
       console.log(data)
-      window.location.href = '/inoutbook'
+      setTimeout(() => {
+        window.location.href='/inoutbook'
+      }, 1500);
+      // window.location.href = '/inoutbook'
     } catch (error) {
       console.log(error)
     }
@@ -141,11 +148,16 @@ const Addinout = () => {
         </div>
       </div>
       <div className='aiobackgroundimg'>
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <div className='aiodisplay'>
           <label>Add In Out</label>
         </div>
+        {/* <Loader loading={loading}> */}
+
         <Form className='AIOformclass'>
+        
           <div className="form-group row">
+         
             <label className="col-lg-2 col-form-label ADN_label">Name</label>
             <div className="col-lg-4">
               <input type="text" className="form-control input-lg AIOBorder" id='name' name="addinoutname" placeholder="Name" value={details.name}></input>
@@ -248,8 +260,9 @@ const Addinout = () => {
           </div>
 
           <button type="submit" onClick={(e) => { handleSubmit(e) }} className="btnInOut" on>Add In Out</button>
+         
         </Form>
-
+        {/* </Loader> */}
       </div>
     </div>
   )
