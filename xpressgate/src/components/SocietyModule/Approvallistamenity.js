@@ -4,63 +4,60 @@ import { Button } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import { getDefaultNormalizer } from '@testing-library/react';
 import axios from 'axios';
-
+import { Loader } from "../Loader";
 
 const Approvallistamenity = () => {
-  const [booking,setBooking] = useState({})
-  const [time,setTime] = useState({})
+  const [booking, setBooking] = useState({})
+  const [time, setTime] = useState({})
   const location = useLocation()
-  useEffect(()=>{
-    if(location.state)
-    {
+  const [loading, setLoading] = useState(true)
+  useEffect(() => {
+    if (location.state) {
       getBookedEmenity(location.state.id)
       setTime(location.state.time)
     }
-    else
-    {
-      window.location.href='/amenitylist'
+    else {
+      window.location.href = '/amenitylist'
     }
-  },[])
+  }, [])
 
-  const getBookedEmenity=async(id)=>{
+  const getBookedEmenity = async (id) => {
     try {
-      const {data} = await axios.get(`${window.env_var}api/resident/booking/getSingle/${id}`);
+      const { data } = await axios.get(`${window.env_var}api/resident/booking/getSingle/${id}`);
       setBooking(data.data.amenities[0])
       //console.log(booking)
+      setLoading(false);
     } catch (error) {
       console.log(error)
     }
   }
 
-  const  dateTimeFormat=(date)=>
-  {
+  const dateTimeFormat = (date) => {
     var d = new Date(date)
-    return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()
-    
+    return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate()
+
   }
 
-  const getTime=(time)=>{
+  const getTime = (time) => {
     console.log(time)
     // var d = new Date(date)
     // return d.getHours()+':'+d.getMinutes()
-       let ntime = time.split('T');
-       let titime = ntime[1].split('.');
-      
-       return titime[0]
-    
+    let ntime = time.split('T');
+    let titime = ntime[1].split('.');
+
+    return titime[0]
+
   }
 
-  const approveBooking= async(id,value)=>{
+  const approveBooking = async (id, value) => {
     try {
-      if(value=='accept')
-      {
-        const {data} = await axios.get(`${window.env_var}api/resident/booking/approveBooking/${id}`)
-        window.location.href='/amenitylist'
+      if (value == 'accept') {
+        const { data } = await axios.get(`${window.env_var}api/resident/booking/approveBooking/${id}`)
+        window.location.href = '/amenitylist'
       }
-      else if(value=='reject')
-      {
-        const {data} = await axios.get(`${window.env_var}api/resident/booking/removeBooking/${id}`)
-        window.location.href='/amenitylist'
+      else if (value == 'reject') {
+        const { data } = await axios.get(`${window.env_var}api/resident/booking/removeBooking/${id}`)
+        window.location.href = '/amenitylist'
       }
     } catch (error) {
       console.log(error)
@@ -87,14 +84,15 @@ const Approvallistamenity = () => {
         <div className='ALASimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='alabackgroundimg'>
+      <Loader loading={loading}>
         <div className='ALAdisplay'>
           <label>Amenity Booking Approval</label>
         </div>
         <div className="col">
           <div className="alacard">
-            <br></br>   
+            <br></br>
             <label className="alalabel">{booking.firstname} {booking.lastname}</label>
-            
+
             <div className="alaowner">Owner</div><br></br>
             <div className='alaclass'>
               <label>Flat No</label>
@@ -108,13 +106,14 @@ const Approvallistamenity = () => {
             </div>
             <br></br>
             <br></br>
-            {booking.status==false?<> 
-          <button type="button" onClick={()=>{approveBooking(booking._id,'accept')}} className="ALAbtnApprove">APPROVE</button>  
-            <button type="button" onClick={()=>{approveBooking(booking._id,'reject')}} className="ALAbtnDeny">DENY</button></>: <Button type="button" onClick={()=>{approveBooking(booking._id,'reject')}} className="ALAbtnDeny">DENY</Button>}
-           
+            {booking.status == false ? <>
+              <button type="button" onClick={() => { approveBooking(booking._id, 'accept') }} className="ALAbtnApprove">APPROVE</button>
+              <button type="button" onClick={() => { approveBooking(booking._id, 'reject') }} className="ALAbtnDeny">DENY</button></> : <Button type="button" onClick={() => { approveBooking(booking._id, 'reject') }} className="ALAbtnDeny">DENY</Button>}
+
             <br></br>
           </div>
         </div>
+        </Loader>
       </div>
     </div>
   )

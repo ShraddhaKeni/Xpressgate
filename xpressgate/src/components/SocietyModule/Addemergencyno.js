@@ -8,6 +8,7 @@ import { checkSociety } from '../auth/Auth'
 import SocietyHeader from './Utils/Societyheader'
 import { mobileValidation } from "../auth/validation";
 import { useLocation } from "react-router-dom";
+import { Loader } from "../Loader";
 
 const Addemergencyno = () => {
 
@@ -22,6 +23,7 @@ const Addemergencyno = () => {
   const [econtact, setecontact] = useState()
   const [one, setOne] = useState({})
   const [update, setUpdate] = useState('add')
+  const [loading, setLoading] = useState(true)
 
 
   useEffect(() => {
@@ -43,7 +45,7 @@ const Addemergencyno = () => {
             setType(location.state.addedittype)
             setUpdate(location.state.update)
             //console.log(location.state.update)
-          } else { 
+          } else {
             getTypes()
           }
 
@@ -52,13 +54,14 @@ const Addemergencyno = () => {
           localStorage.clear();
           window.location.href = '/societylogin'
         })
+      setLoading(false);
     }
     else {
       window.location.href = '/'
     }
 
   }, [])
- 
+
   const getTypes = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/admin/emergencycontactstype/getAlltype`)
@@ -77,9 +80,9 @@ const Addemergencyno = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      
+
       if (addedittype == 'add') {
-        
+
         if (name.current.value !== "" && type.current.value !== "" && contact.current.value !== "") {
           if (await mobileValidation(contact.current.value)) {
             document.getElementById('contact_name').style.border = 'none'
@@ -111,7 +114,7 @@ const Addemergencyno = () => {
           }
         }
       } else {
-       
+
         const sendData = {
           id: location.state.id,
           contactName: document.getElementById('contact_name').value,
@@ -137,47 +140,48 @@ const Addemergencyno = () => {
           <label>Society Name</label>
         </div>
         <div class="EN_noticelist">
-        <a href="/emergencyList" class="AENLNotice">Emergency Number List</a><br/><br/>
-          <a href="/addemergency" class="AAENNotice"><b>{update=='update'?'Update':'Add'} Emergency Number</b></a>
+          <a href="/emergencyList" class="AENLNotice">Emergency Number List</a><br /><br />
+          <a href="/addemergency" class="AAENNotice"><b>{update == 'update' ? 'Update' : 'Add'} Emergency Number</b></a>
         </div>
         <div className="AEN_sideimage">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
-        <div className="AEN_display">
-          <label>{update=='update'?'Update':'Add'} Emergency Number</label>
-        </div>
-        <Form className='formclass'>
-        <div class="form-group  form-group5 row">
-            <label class="col-lg-2 col-form-label ADN_label">Type</label>
-            <div class="col-lg-4">
-              <select class="form-control input-lg input-lg1 AEN_border" ref={type} id="emergencytype" name="Type">
-                <option value={null} selected disabled>Select Type</option>
-                {contactTypes.map((items) => {
-                  return <option value={items.id}>{items.emgContactType}</option>
-                })}
-              </select>
-            </div>
+        <Loader loading={loading}>
+          <div className="AEN_display">
+            <label>{update == 'update' ? 'Update' : 'Add'} Emergency Number</label>
           </div>
-          <div class="form-group form-group5 row">
-            <label class="col-lg-2 col-form-label ADN_label ">Name</label>
-            <div class="col-lg-4">
-              {ename ? <input type="text" id="contact_name" ref={name} defaultValue={ename} name="Name" className="form-control input-lg input-lg1 AEN_border" placeholder="Name"></input> : <input type="text" class="form-control input-lg input-lg1 AEN_border" id="contact_name" ref={name} name="Name" placeholder="Name"></input>}
+          <Form className='formclass'>
+            <div class="form-group  form-group5 row">
+              <label class="col-lg-2 col-form-label ADN_label">Type</label>
+              <div class="col-lg-4">
+                <select class="form-control input-lg input-lg1 AEN_border" ref={type} id="emergencytype" name="Type">
+                  <option value={null} selected disabled>Select Type</option>
+                  {contactTypes.map((items) => {
+                    return <option value={items.id}>{items.emgContactType}</option>
+                  })}
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="form-group form-group5 row">
-            <label class="col-lg-2 col-form-label ADN_label ">Phone Number</label>
-            <div class="col-lg-4">
-              {econtact ? <input type="number" id="contact_number" ref={contact} defaultValue={econtact} name="Phone Number" className="form-control input-lg input-lg1 AEN_border" placeholder="Contact"></input> : <input type="number" class="form-control input-lg input-lg1 AEN_border" id="contact_number" ref={contact} name="Phone Number" placeholder="Contact"></input>}
+            <div class="form-group form-group5 row">
+              <label class="col-lg-2 col-form-label ADN_label ">Name</label>
+              <div class="col-lg-4">
+                {ename ? <input type="text" id="contact_name" ref={name} defaultValue={ename} name="Name" className="form-control input-lg input-lg1 AEN_border" placeholder="Name"></input> : <input type="text" class="form-control input-lg input-lg1 AEN_border" id="contact_name" ref={name} name="Name" placeholder="Name"></input>}
+              </div>
             </div>
-          </div>
-          
-
-          <button type="submit" onClick={(e) => handleSubmit(e)} className="AEN_btnAdd">{update=='update'?'Update':'Add'} Number</button>
-        </Form>
+            <div class="form-group form-group5 row">
+              <label class="col-lg-2 col-form-label ADN_label ">Phone Number</label>
+              <div class="col-lg-4">
+                {econtact ? <input type="number" id="contact_number" ref={contact} defaultValue={econtact} name="Phone Number" className="form-control input-lg input-lg1 AEN_border" placeholder="Contact"></input> : <input type="number" class="form-control input-lg input-lg1 AEN_border" id="contact_number" ref={contact} name="Phone Number" placeholder="Contact"></input>}
+              </div>
+            </div>
 
 
+            <button type="submit" onClick={(e) => handleSubmit(e)} className="AEN_btnAdd">{update == 'update' ? 'Update' : 'Add'} Number</button>
+          </Form>
+
+        </Loader>
       </div>
     </div>
   );

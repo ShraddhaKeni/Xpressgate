@@ -92,7 +92,8 @@ const VendorEntryDetails = () => {
                 type:2,
                 bookedID:location.state.id,
                 status:1,
-                allowed_by:localStorage.getItem('guard_id')
+                allowed_by:localStorage.getItem('guard_id'),
+                vehicle_no: document.getElementById('vehicle_id').value
             }
             
 
@@ -152,7 +153,7 @@ const VendorEntryDetails = () => {
                   {/* <div><label className='intime'>Booked time: {getTime(vendorData.bookedDate)} </label></div> */}
                   {/* <div><label className='outtime'>Out-Time: </label></div> */}
                   <div><label className='noofpeople'>No of People: 1</label></div>
-                  <div><label className='vehicleno'>Vehicle No: <input type='text' placeholder='Vehicle Number'></input></label></div>
+                  <div><label className='vehicleno'>Vehicle No: <input type='text' placeholder='Vehicle Number' id="vehicle_id"></input></label></div>
                 </div>
                 <br></br>
                 <button type="button" onClick={()=>{submitData()}} className="VEDbtnApprove">APPROVE</button>

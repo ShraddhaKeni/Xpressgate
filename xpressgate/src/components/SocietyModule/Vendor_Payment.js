@@ -153,12 +153,12 @@ const Vendor_Payment = () => {
               <div class="col-lg-4">
                 <input type="date" class="form-control input-lg SideB" ref={payment_due}  id='due_date' name="First name" />
               </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-2 col-form-label ADN_label">Amount</label>
-              <div class="col-lg-4">
-                <input type="number" class="form-control input-lg SideB" id='resident_id' ref={amount} name="First name" > 
-                </input>
+              <div class="form-group row">
+                <label class="col-lg-2 col-form-label ADN_label">Amount</label>
+                <div class="col-lg-4">
+                  <input type="number" class="form-control input-lg SideB" id='resident_id' ref={amount} name="First name" placeholder="Amount"> 
+                  </input>
+                </div>
               </div>
             </div>
             <button type="submit" onClick={(e)=>handleSubmit(e)} className="VPay_Add">

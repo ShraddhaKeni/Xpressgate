@@ -5,12 +5,14 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
+import { Loader } from "../Loader";
 
 const Blocklist = () => {
   const [blocks, setBlocks] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(9)
   const [currentPosts,setCurrentPosts] = useState([])
+  const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
   useEffect(() => {
     getBlocks()
@@ -25,6 +27,7 @@ const Blocklist = () => {
       const indexoflast = currentPage*postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(dummyblock.slice(indexoffirst,indexoflast))
+      setLoading(false);
     } catch (error) {
       console.log(error)
     }
@@ -72,6 +75,7 @@ const Blocklist = () => {
           <div className='blsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
         </div>
         <div className='blbackgroundimg'>
+        <Loader loading={loading}>
           <div className='BL_display'>
             <label>Block List</label>
           </div>
@@ -97,6 +101,7 @@ const Blocklist = () => {
           <div style={{marginTop:'0.5%'}}>
           <PaginationCalculate totalPages={blocks.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
         </div>
+        </Loader>
         </div>
       </div>
     </>

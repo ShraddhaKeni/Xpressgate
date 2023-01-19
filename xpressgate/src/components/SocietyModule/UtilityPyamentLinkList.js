@@ -82,7 +82,7 @@ const UtilityPyamentLinkList = () => {
     }
 
   }
-
+ 
   return (
     <div className="addguestcontainer2">
       <div id="addflatsection">
@@ -154,24 +154,14 @@ const UtilityPyamentLinkList = () => {
                   </tr>
                 )
               })}
-
-
             </tbody>
           </table>
           {community.length > postPerPage && <div className='paginate'>
             <PaginationCalculate totalPages={community.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
           </div>}
-
-
-
         </Loader>
-
       </div>
     </div>
-
-
-
-
   );
 };
 

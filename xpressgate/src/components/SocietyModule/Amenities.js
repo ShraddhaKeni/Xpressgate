@@ -6,9 +6,10 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import Societyheader from './Utils/Societyheader';
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import axios from 'axios';
+import { Loader } from "../Loader";
 
 const Amenities = () => {
-
+  const [loading, setLoading] = useState(true)
   const [amenities,setAmenities] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(9)
@@ -25,6 +26,7 @@ const Amenities = () => {
     const indexoflast = currentPage*postPerPage  //endoffset
     const indexoffirst = indexoflast - postPerPage //startoffset
     setCurrentPosts(data.data.amenities.slice(indexoffirst,indexoflast))
+    setLoading(false);
   }
 
   async function  paginate(event)
@@ -52,6 +54,7 @@ const Amenities = () => {
         <div className='AMSideIMG'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='amntsbackgroundimg'>
+      <Loader loading={loading}>
         <div id="amntscard">
           <div className='Amendisplay'>
             <label>Amenities</label>
@@ -74,6 +77,7 @@ const Amenities = () => {
         <div style={{marginTop:'0.5%'}}>
           <PaginationCalculate totalPages={amenities.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
         </div>
+        </Loader>
       </div>
     </div>
   )

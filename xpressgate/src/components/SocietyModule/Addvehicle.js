@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios'
 import { useLocation } from "react-router-dom";
 import SocietyHeader from './Utils/Societyheader';
+import { Loader } from "../Loader";
 
 const Addvehicle = () => {
 
@@ -20,6 +21,7 @@ const Addvehicle = () => {
   const [type, setType] = useState()
   const location = useLocation()
   const [resid, setResid] = useState()
+  const [loading, setLoading] = useState(true)
   //const [vehiclenumber, setvehiclenumber] = useState()
 
   useEffect(() => {
@@ -37,6 +39,7 @@ const Addvehicle = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/block/blockList`)
       setBlocks(data.data.block)
+      setLoading(false);
     } catch (error) {
       console.log(error)
     }
@@ -188,6 +191,7 @@ const Addvehicle = () => {
       </div>
     </div>
     <div className="addguestbackgroundimg">
+    <Loader loading={loading}>
       <div className='APdisplay'>
         <label>{type=='edit'?'Update':'Allot'} vehicle</label>
       </div>
@@ -252,7 +256,7 @@ const Addvehicle = () => {
           </div>
           <button type="submit" onClick={(e) => handleSubmit(e)} className="BTNADDVeh">{type=='edit'?'Update':'Allot'} Parking</button>
         </Form>
-
+       </Loader>
       </div>
     </div>
   )
