@@ -5,23 +5,40 @@ import ReactPlayer from 'react-player'
 import PaginationCalculate from './Utils/paginationCalculate';
 import LogOut from './Utils/LogOut';
 import GuardHeader from './Utils/GuardHeader';
+import Loader from '../../common/Loader';
+import ErrorScreen from '../../common/ErrorScreen';
 const Videoclass = () => {
   const [videodata, setVideodata] = useState([])
 
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(6)
   const [currentPosts,setCurrentPosts] = useState([])
+  const [isLoading,setLoading] = useState(true)
+  const [isError,setError] = useState(false)
 
   useEffect(() => {
     getData()
   }, [])
 
   const getData = async () => {
-    let data = await axios.get(`${window.env_var}api/videolist/getAll`)
+
+    try {
+      let data = await axios.get(`${window.env_var}api/videolist/getAll`)
       setVideodata(data.data.data.videolist)
       const indexoflast = currentPage*postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.data.videolist.slice(indexoffirst,indexoflast))
+      setTimeout(()=>{
+        setLoading(false)
+      },2000)
+      setError(false)
+    } catch (error) {
+      setTimeout(()=>{
+        setLoading(false)
+      },2000)
+      setError(true)
+    }
+      
     //console.log("sk" + JSON.stringify(videodata))
   }
   
@@ -34,6 +51,13 @@ const Videoclass = () => {
     setCurrentPosts(data.data.videolist.slice(indexoffirst,indexoflast))
   }
   
+  if(isLoading)
+    return <Loader/>
+
+  if(isError)
+    return <ErrorScreen/>
+
+
   return (
     <div className="videoclasscontainer">
       <div id="videoheadersection">
@@ -59,7 +83,7 @@ const Videoclass = () => {
           <div className='VG_Display'>
             <label>Video class List</label>
           </div>
-          <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss">
+          <div className="row row-cols-1 row-cols-md-3 g-4 fullcardscss allcards">
             {currentPosts.map(vdata => {
               return (
               <div className="col">

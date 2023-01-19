@@ -8,6 +8,8 @@ import PaginationCalculate from './Utils/paginationCalculate';
 import LogOut from './Utils/LogOut';
 import GuardHeader from './Utils/GuardHeader';
 import { checkGuard } from '../auth/Auth';
+import Loader from '../../common/Loader';
+import ErrorScreen from '../../common/ErrorScreen';
 
 const Inoutbook = () => {
   const [inoutdata, setInoutdata] = useState([])
@@ -16,7 +18,8 @@ const Inoutbook = () => {
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts,setCurrentPosts] = useState([])
   const [community_id, setID] = useState("632970d054edb049bcd0f0b4")
-
+  const [isLoading,setLoading] = useState(true)
+  const [isError,setError] = useState(false)
   const current = new Date();
   const[date, setDate] = useState(`${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`);
  
@@ -54,9 +57,13 @@ const Inoutbook = () => {
       const indexoflast = currentPage*postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
-      console.log(data.data.list)
+      setTimeout(()=>{
+        setLoading(false)
+      },2000)
+      setError(false)
     } catch (err) {
-      console.log(err)
+      setLoading(false)
+      setError(true)
     }
   }
   const routeNavigate=(id)=>{
@@ -71,6 +78,13 @@ const Inoutbook = () => {
     const indexoffirst = indexoflast - postPerPage //startoffset
     setCurrentPosts(inoutdata.slice(indexoffirst,indexoflast))
   }
+
+  if(isLoading)
+      return <Loader/>
+  if(isError)
+      return <ErrorScreen/>
+
+
   return (
     <div className="inoutbookcontainer">
       <div id="headersection">

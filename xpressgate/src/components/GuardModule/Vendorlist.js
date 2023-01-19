@@ -8,6 +8,8 @@ import { Link, Navigate, useLocation,useNavigate } from 'react-router-dom';
 import HeaderSection from './Utils/HeaderSection';
 import { checkGuard } from '../auth/Auth';
 import GuardHeader from './Utils/GuardHeader';
+import Loader from '../../common/Loader';
+import ErrorScreen from '../../common/ErrorScreen'
 
 const Vendorlist = () => {
 
@@ -17,6 +19,8 @@ const Vendorlist = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const [stat,setStat] = useState(false)
+  const [isLoading,setLoading] = useState(true)
+  const [isError,setError] = useState(false)
   //pagination states 
 
   const [currentPage, setCurrentpage] = useState(1)
@@ -58,13 +62,18 @@ const Vendorlist = () => {
       setInOut(response.data.data.list)
       setData(data.data.list.filter(x=>x.bookingstatus==true))
       checkNavigate()
+      setError(false)
+      setTimeout(()=>{
+        setLoading(false)
+      },2000)
       const indexoflast = currentPage*postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
     }
     catch(err)
     {
-      console.log(err)
+      setLoading(false)
+      setError(true)
     }
   }
  
@@ -78,7 +87,7 @@ const Vendorlist = () => {
   }
 
   const getTime=(date)=>{
-    console.log(date)
+   
     // var d = new Date(date)
     // return d.getHours()+':'+d.getMinutes()
     let ntime = date.split('T');
@@ -121,6 +130,13 @@ const Vendorlist = () => {
  }
 
   var srno = 1 
+
+  if(isLoading)
+    return <Loader/>
+
+  if(isError)
+  return <ErrorScreen/>
+
   return (
     
     <div className="vendorlistcontainer">
