@@ -144,7 +144,7 @@ const SocietyPaymentHistory = () => {
             })}
           </select>
         </div>
-        <Button style={{backgroundColor:'#0A8996', marginLeft:'12px'}} className="GeTAllBTN" onClick={()=>getBills()}>Get All</Button>
+        <button className="GeTAllBTN" onClick={()=>getBills()}>Get All</button>
        </div>
        <div className='row'>
        <div className='PHsearchbox'>

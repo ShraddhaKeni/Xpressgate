@@ -40,7 +40,7 @@ const Login = () => {
     }
     catch(err)
     { 
-      setToast({ show: true, type: "error", message: "Invalid details" })
+      setToast({ show: true, type: "error", message: "Username or password is incorrect" })
       document.getElementById('loginemailid').style.border='2px solid red'
       document.getElementById('loginpassword').style.border='2px solid red'
     }
