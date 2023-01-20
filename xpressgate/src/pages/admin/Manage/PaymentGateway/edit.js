@@ -8,6 +8,8 @@ import { getDefaultNormalizer } from '@testing-library/react';
 import RouterPath from '../../../../common/constants/path/routerPath';
 import { SimpleDropDownComponent, SimpleInputComponent } from '../../components/input';
 import { getAllPaymentGateways, updatePaymentGateway } from '../../../../common/admin/admin_api';
+import { ToastMessage } from '../../../../components/ToastMessage';
+import { goBackInOneSec, TOAST } from '../../../../common/utils';
 
 const EditPaymentGateway = () => {
 
@@ -19,6 +21,7 @@ const EditPaymentGateway = () => {
 
     const [paymentgateway, setPaymentGateway] = useState(location.state.data);
 
+    const [toast, setToast] = useState({ show: false })
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -26,14 +29,19 @@ const EditPaymentGateway = () => {
 
             if (paymentgateway.payment_gateway_name != '' && paymentgateway.payment_api_key != '') {
                 const { data } = await updatePaymentGateway(paymentgateway);
-                navigate(RouterPath.MANAGE_PAYMENT_GATEWAY)
+                if (data && data?.status_code == 200) {
+                    setToast(TOAST.SUCCESS(data?.message));
+                    goBackInOneSec(navigate)
+                } else if (data?.status_code == 201) {
+                    setToast(TOAST.ERROR(data?.message));
+                }
             }
             else {
-                alert('Fields Empty !')
+                setToast(TOAST.ERROR("Fields Empty!"));
             }
 
         } catch (error) {
-            alert('Could not add Payment Gateway!')
+            setToast(TOAST.ERROR('Could not update Payment Gateway!'));
         }
 
     }
@@ -43,6 +51,8 @@ const EditPaymentGateway = () => {
 
     return (
         <>
+            <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+
             <img src='/images/side_bar_img.svg' className='AddPremise_side_Img' />
             <div>
                 <div className='page-label'>
