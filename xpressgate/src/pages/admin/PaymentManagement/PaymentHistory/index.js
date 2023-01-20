@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { getAllPlans, getPaymentHistory } from '../../../../common/admin/admin_api';
 import RouterPath from '../../../../common/constants/path/routerPath';
 import PaginationCalculate from '../../../../components/GuardModule/Utils/paginationCalculate';
+import { Loader } from '../../../../components/Loader';
 
 const PageSize = 10;
 export const PaymentHistory = ({ route }) => {
@@ -14,6 +15,7 @@ export const PaymentHistory = ({ route }) => {
     const [history, setHistory] = useState();
     const [allHistory, setAllHistory] = useState();
     const [currentPage, setCurrentPage] = useState(0);
+    const [loading, setLoading] = useState(true);
 
     const openInNewTab = (url) => {
 
@@ -43,6 +45,7 @@ export const PaymentHistory = ({ route }) => {
                 setAllHistory(res.data.data);
                 setHistory(getCurrentHistory(res.data.data))
             }
+            setLoading(false);
         }
 
         getPayments();
@@ -86,53 +89,55 @@ export const PaymentHistory = ({ route }) => {
 
     return (
         <>
-         <img src='/images/side_bar_img.svg' className='PAY_Coupans_side_Img' />
-        <div>
-            <div className='page-label'>
-                <label>Payment History</label>
-            </div>
-            <div>
-
-                <div className='table-top-right-content search-right mb-5'>
-                    <div className='Table-Search pl-2'>
-                        <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-                        <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
+            <img src='/images/side_bar_img.svg' className='PAY_Coupans_side_Img' />
+            <Loader loading={loading}>
+                <div>
+                    <div className='page-label'>
+                        <label>Payment History</label>
                     </div>
-                </div>
+                    <div>
 
-                <table id="table-header" class="table table-striped table-bordered table-sm " style={{ border: '2px solid black' }} cellspacing="0">
-                    <thead className='table-th'>
-                        <tr>
-                            <th class="th-sm">ID No.</th>
-                            <th class="th-sm">Premise Name</th>
-                            <th class="th-sm">Date</th>
-                            <th class="th-sm">Amount</th>
-                            <th class="th-sm">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {history && history.map((item) => {
-                            return <tr>
-                                <td>{item.pg_transection_id}</td>
-                                <td onClick={() => handlePremiseHistory(item)} style={{ cursor: 'pointer' }}>{item.community_name}</td>
-                                <td>{item.date?.slice(0, 10) || "n/a"}</td>
-                                <td>{item.amount}</td>
-                                <td> <p className={`status-${item.status_name.toLowerCase()}`}>{item.status_name}</p></td>
+                        <div className='table-top-right-content search-right mb-5'>
+                            <div className='Table-Search pl-2'>
+                                <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
+                                <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
+                            </div>
+                        </div>
 
-                            </tr>
-                        })}
+                        <table id="table-header" class="table table-striped table-bordered table-sm " style={{ border: '2px solid black' }} cellspacing="0">
+                            <thead className='table-th'>
+                                <tr>
+                                    <th class="th-sm">ID No.</th>
+                                    <th class="th-sm">Premise Name</th>
+                                    <th class="th-sm">Date</th>
+                                    <th class="th-sm">Amount</th>
+                                    <th class="th-sm">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {history && history.map((item) => {
+                                    return <tr>
+                                        <td>{item.pg_transection_id}</td>
+                                        <td onClick={() => handlePremiseHistory(item)} style={{ cursor: 'pointer' }}>{item.community_name}</td>
+                                        <td>{item.date?.slice(0, 10) || "n/a"}</td>
+                                        <td>{item.amount}</td>
+                                        <td> <p className={`status-${item.status_name.toLowerCase()}`}>{item.status_name}</p></td>
 
-                    </tbody>
-                </table>
-                {allHistory && <div className='paginate'>
+                                    </tr>
+                                })}
 
-                    {/* <PaginationCalculate totalPages={Math.ceil(allCoupons.length / PageSize)} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} /> */}
-                    <PaginationCalculate totalPages={Math.ceil(allHistory.length / PageSize)} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} />
+                            </tbody>
+                        </table>
+                        {allHistory && <div className='paginate'>
 
-                </div>}
+                            {/* <PaginationCalculate totalPages={Math.ceil(allCoupons.length / PageSize)} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} /> */}
+                            <PaginationCalculate totalPages={Math.ceil(allHistory.length / PageSize)} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} />
 
-            </div >
-        </div >
+                        </div>}
+
+                    </div >
+                </div >
+            </Loader>
         </>
     )
 }

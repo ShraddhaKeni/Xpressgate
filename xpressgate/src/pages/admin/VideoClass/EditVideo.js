@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { goBackInOneSec, TOAST } from "../../../common/utils";
+import { ToastMessage } from "../../../components/ToastMessage";
 import "../../../styles/EditVideo.css";
 
 const EditVideo = () => {
@@ -8,6 +10,7 @@ const EditVideo = () => {
   const [video, setVideo] = useState({})
   const location = useLocation()
   const navigate = useNavigate()
+  const [toast, setToast] = useState({ show: false })
 
   const title = useRef([])
   const url = useRef([])
@@ -39,7 +42,12 @@ const EditVideo = () => {
         videoURL: url.current.value
       }
       const { data } = await axios.post(`${window.env_var}api/videolist/update`, sendData)
-      navigate('/admin/video')
+      if (data && data?.status_code == 200) {
+        setToast(TOAST.SUCCESS(data?.message));
+        goBackInOneSec(navigate)
+      } else if (data?.status_code == 201) {
+        setToast(TOAST.ERROR(data?.message));
+      }
     } catch (error) {
       console.group(error)
     }
@@ -48,7 +56,12 @@ const EditVideo = () => {
   const deleteVideo = async (id) => {
     try {
       const { data } = await axios.get(`${window.env_var}api/videolist/remove/${id}`, {})
-      navigate('/admin/video')
+      if (data && data?.status_code == 200) {
+        setToast(TOAST.SUCCESS(data?.message));
+        goBackInOneSec(navigate)
+      } else if (data?.status_code == 201) {
+        setToast(TOAST.ERROR(data?.message));
+      }
     } catch (error) {
       console.group(error)
     }
@@ -56,7 +69,9 @@ const EditVideo = () => {
 
   return (
     <>
-   <img src='/images/side_bar_img.svg' className='ADDVideo_side_Img' />
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+
+      <img src='/images/side_bar_img.svg' className='ADDVideo_side_Img' />
       <div >
         <div className="page-label">
           <label>Edit Video</label>

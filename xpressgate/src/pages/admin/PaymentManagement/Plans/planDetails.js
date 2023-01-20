@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { deletePlan, deleteplan, getAllplans, getPlanById, getplanById, updatePlan, updateplan } from '../../../../common/admin/admin_api';
 import RouterPath from '../../../../common/constants/path/routerPath';
+import { goBackInOneSec, TOAST } from '../../../../common/utils';
+import { ToastMessage } from '../../../../components/ToastMessage';
 
 export const PlanDetails = () => {
 
@@ -11,6 +13,7 @@ export const PlanDetails = () => {
 
 
 
+    const [toast, setToast] = useState({ show: false })
 
     const [plan, setplans] = useState(location?.state?.plan);
 
@@ -20,7 +23,10 @@ export const PlanDetails = () => {
         const res = await deletePlan(plan.id)
         console.log(res)
         if (res && res.data?.status_code == 200) {
-            navigate(RouterPath.PRLANS_LIST)
+            setToast(TOAST.SUCCESS(res?.data?.message));
+            goBackInOneSec(navigate)
+        } else {
+            setToast(TOAST.ERROR(res?.data?.message));
         }
     }
 
@@ -38,7 +44,9 @@ export const PlanDetails = () => {
     return (
 
         <>
-         <img src='/images/side_bar_img.svg' className='PAY_Coupans_side_Img' />
+            <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+
+            <img src='/images/side_bar_img.svg' className='PAY_Coupans_side_Img' />
             {!plan && <Navigate to={RouterPath.PRLANS_LIST} />}
             {plan &&
                 <div>
