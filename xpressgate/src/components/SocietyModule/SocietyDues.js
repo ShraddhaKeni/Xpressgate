@@ -4,9 +4,9 @@ import LogOut from "../SocietyModule/Utils/LogOut";
 import { getBlocks } from "./common/common";
 import axios from "axios";
 import Societyheader from "./Utils/Societyheader";
-
+import { ToastMessage } from '../ToastMessage';
 const SocietyDues = () => {
-   
+  const [toast, setToast] = useState({ show: false })
   const [block,setBlock] = useState([])
   const [flats,setFlats] = useState([])
   const [resident,setResident] =useState({})
@@ -51,6 +51,7 @@ const SocietyDues = () => {
   const handleSubmit=async(e)=>{
     e.preventDefault()
     try {
+      setToast({ show: true, type: "success", message: "Added successfully" })
       const sendData={
         payment_type:payment.current.value=='1'?1:2,
         resident_id:resident.resident_id,
@@ -61,7 +62,10 @@ const SocietyDues = () => {
       }
 
       const {data} = await axios.post(`${window.env_var}api/maintenancepayment/addBill`,sendData);
-      window.location.href='/societyduesrecord'
+      setTimeout(() => {
+        window.location.href='/societyduesrecord'
+      }, 1500);
+      // window.location.href='/societyduesrecord'
       console.log(data)
     } catch (error) {
       console.log(error)
@@ -88,6 +92,7 @@ const SocietyDues = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <div className="SD_display">
           <label>Society Dues</label>
         </div>

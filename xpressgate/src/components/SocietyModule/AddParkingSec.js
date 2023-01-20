@@ -8,9 +8,9 @@ import { useLocation } from 'react-router-dom';
 import SocietyHeader from './Utils/Societyheader';
 import {checkSociety} from '../auth/Auth'
 import { Loader } from "../Loader";
-
+import { ToastMessage } from '../ToastMessage';
 const AddParkingSec = () => {
- 
+  const [toast, setToast] = useState({ show: false })
   const [parkingSection,setParkingSections] = useState({});
   const [block,setBlock] = useState([]);
   const location = useLocation();
@@ -22,22 +22,29 @@ const AddParkingSec = () => {
     try {
       if(type=='edit')
       {
+        setToast({ show: true, type: "success", message: "Updated successfully" })
         const sendData = {
           id: location.state.id,
           block_id: document.getElementById('block_id').value,
           section: document.getElementById('section').value
         }
         const {data} = await axios.post(`${window.env_var}api/parkingsection/update`,sendData);
-        window.location.href='/viewparking'
+        setTimeout(() => {
+          window.location.href='/viewparking'
+        }, 1500);
       }
       else
       {
+        setToast({ show: true, type: "success", message: "Added successfully" })
         const sendData = {
           block_id: document.getElementById('block_id').value,
           section: document.getElementById('section').value
         }
         const {data} = await axios.post(`${window.env_var}api/parkingsection/post`,sendData);
-        window.location.href='/viewparking'
+        setTimeout(() => {
+          window.location.href='/viewparking'
+        }, 1500);
+        // window.location.href='/viewparking'
       }
     } catch (error) {
       console.log(error)
@@ -122,6 +129,7 @@ const AddParkingSec = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
       <Loader loading={loading}>
         <div className='APdisplay'>
           <label>{type=='edit'?'Update':'Add'} Parking Section</label>

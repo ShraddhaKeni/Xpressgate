@@ -6,8 +6,9 @@ import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import Societyheader from './Utils/Societyheader';
 import { Loader } from "../Loader";
-
+import { ToastMessage } from '../ToastMessage';
 const ChangePassword = () => {
+  const [toast, setToast] = useState({ show: false })
   const password = useRef([])
   const confirmPass = useRef([])
   const oldpass = useRef([])
@@ -33,6 +34,7 @@ const ChangePassword = () => {
     e.preventDefault()
     try {
       if (await validatePassword(password.current.value)) {
+        setToast({ show: true, type: "success", message: "Password changed successfully" });
         if ((password.current.value === confirmPass.current.value) && (password.current.value !== "" && confirmPass.current.value !== "")) {
           const config = {
             headers: {
@@ -52,7 +54,7 @@ const ChangePassword = () => {
         }
       }
       else {
-        alert('Wrong password')
+        setToast({ show: true, type: "error", message: "Password must be at least 8 characters long must contain a number, uppercase lowercase and a special character." });
         document.querySelector('input').style.border = '1px solid red'
       }
 
@@ -74,6 +76,7 @@ const ChangePassword = () => {
         <div className='scpsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='scpbackgroundimg'>
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <Loader loading={loading}>
           <div className='scpmaintitle'>
             <label>Change Password</label>
@@ -88,6 +91,7 @@ const ChangePassword = () => {
                   </div>
                 </div>
               </div>
+              <label className='SocMessage'>*Password must be at least 8 characters long must contain<br/>a number, uppercase lowercase and a special character.</label>
               <br></br>
               <div className="scppassword">
                 <div class="form-group row">

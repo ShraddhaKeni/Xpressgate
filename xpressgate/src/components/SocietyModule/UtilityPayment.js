@@ -4,9 +4,9 @@ import "../SocietyModule/UtilityPayment.css";
 import LogOut from "../SocietyModule/Utils/LogOut";
 import { getBlocks } from "./common/common";
 import Societyheader from './Utils/Societyheader'
-
+import { ToastMessage } from '../ToastMessage';
 const UtilityPayment = () => {
-  
+  const [toast, setToast] = useState({ show: false })
   const [utility,setUtility] = useState([])
   const [block,setBlock] = useState([])
   const [flats,setFlats] = useState([])
@@ -54,6 +54,7 @@ const UtilityPayment = () => {
 
   const handleSubmit=async()=>{
     try {
+      setToast({ show: true, type: "success", message: "Added successfully" })
       if(utility_id!==""&&flat_id!==""&&payment_date!==""&&payment_due!==""&amount!=="")
       {
         const sendData = {
@@ -65,15 +66,20 @@ const UtilityPayment = () => {
           residentID:resident.resident_id
         }
         const {data} = await axios.post(`${window.env_var}api/admin/utilitypayment/addBill`,sendData)
-        window.location.href='/payment'
+        setTimeout(() => {
+          window.location.href='/payment'
+        }, 1500);
+        // window.location.href='/payment'
       }
       else
       {
+        setToast({ show: true, type: "error", message: "Fields empty" });
         alert('Fields Empty.')
       }
       
     } catch (error) {
-      alert('Fields Empty.')
+      setToast({ show: true, type: "error", message: "Fields empty" });
+     
     }
   }
   
@@ -96,6 +102,7 @@ const UtilityPayment = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <div className="UPdisplay">
           <label>Utility Payment</label>
         </div>

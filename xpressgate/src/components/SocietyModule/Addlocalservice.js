@@ -85,7 +85,9 @@ const Addlocalservice = () => {
           }
           console.log(sendData);
           const { data } = await axios.post(`${window.env_var}api/vendor/update`, sendData)
-          window.location.href = '/localservices'
+          setTimeout(() => {
+            window.location.href = '/localservices'
+          }, 1500);
         }
         else {
           setToast({ show: true, type: "success", message: "Vendor added successfully" })
@@ -98,7 +100,10 @@ const Addlocalservice = () => {
             address: document.getElementById('address').value,
           }
           const { data } = await axios.post(`${window.env_var}api/vendor/add`, sendData)
-          window.location.href = '/localservices'
+          setTimeout(() => {
+            window.location.href = '/localservices'
+          }, 1500);
+          // window.location.href = '/localservices'
         }
       }
       else {

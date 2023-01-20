@@ -86,7 +86,7 @@ const VendorEntryDetails = () => {
           console.log(location.state.code)
           bookings.map(async(items)=>{
             try {
-              setToast({ show: true, type: "success", message: "Approved" })
+              setToast({ show: true, type: "success", message: "Vendor entry has been Approved" })
               let submitData = {
                 firstname:items.vendor_name,
                 lastname:'',
@@ -124,7 +124,7 @@ const VendorEntryDetails = () => {
     }
     const deny=async()=>{
 
-      setToast({ show: true, type: "success", message: "Entry deny " })
+      setToast({ show: true, type: "success", message: "Vendor entry has been denied " })
       setTimeout(() => {
         window.location.href="/dashboard"
       }, 1500);

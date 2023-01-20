@@ -7,9 +7,10 @@ import axios from 'axios'
 import { useLocation } from "react-router-dom";
 import SocietyHeader from './Utils/Societyheader';
 import { Loader } from "../Loader";
+import { ToastMessage } from '../ToastMessage';
 
 const Addvehicle = () => {
-
+  const [toast, setToast] = useState({ show: false })
   const [blocks, setBlocks] = useState([])
   const [flats, setFlats] = useState([])
   const [sections, setSections] = useState([])
@@ -120,6 +121,7 @@ const Addvehicle = () => {
     try {
       if(type=='edit')
       {
+        setToast({ show: true, type: "success", message: "Updated parking successfully" })
         const sendData = {
           id:location.state.id,
           section_id: document.getElementById('section').value,
@@ -129,12 +131,16 @@ const Addvehicle = () => {
         }
         const data = await axios.post(`${window.env_var}api/assigns/update`, sendData)
         console.log(sendData)
-        window.location.href = '/vehiclemanagement'
+        setTimeout(() => {
+          window.location.href = '/vehiclemanagement'
+        }, 1500);
+        // window.location.href = '/vehiclemanagement'
       }
       else{
         // if{
         //   document.getElementById('vehicle_id').value ==
         // }
+        setToast({ show: true, type: "success", message: "Alloted parking successfully" })
         const sendData = {
           section_id: document.getElementById('section').value,
           resident_id: resid,
@@ -144,7 +150,9 @@ const Addvehicle = () => {
         const data = await axios.post(`${window.env_var}api/assigns/post`, sendData)
         console.log(data)
         console.log(sendData)
-        window.location.href = '/vehiclemanagement'
+        setTimeout(() => {
+          window.location.href = '/vehiclemanagement'
+        }, 1500);
       }
     } catch (error) {
       console.log(error)
@@ -191,6 +199,7 @@ const Addvehicle = () => {
       </div>
     </div>
     <div className="addguestbackgroundimg">
+    <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
     <Loader loading={loading}>
       <div className='APdisplay'>
         <label>{type=='edit'?'Update':'Allot'} vehicle</label>

@@ -136,7 +136,7 @@ const navigate = useNavigate()
   }
   const deny=async()=>{
 
-    setToast({ show: true, type: "success", message: "Entry deny " })
+    setToast({ show: true, type: "success", message: "Denied " })
     setTimeout(() => {
       window.location.href="/dashboard"
     }, 1500);

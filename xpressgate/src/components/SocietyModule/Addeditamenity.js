@@ -7,7 +7,7 @@ import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import { checkSociety } from '../auth/Auth'
 import { Loader } from '../Loader';
-
+import { ToastMessage } from '../ToastMessage';
 const Addeditamenity = () => {
 
   //to store data
@@ -23,7 +23,7 @@ const Addeditamenity = () => {
   const rent = useRef([])
   const status = useRef([])
   const [loading, setLoading] = useState(true)
-
+  const [toast, setToast] = useState({ show: false })
   useEffect(() => {
     if (checkSociety()) {
       const config = {
@@ -69,6 +69,7 @@ const Addeditamenity = () => {
 
     try {
       if (type == 'edit') {
+        setToast({ show: true, type: "success", message: "Edited amenity successfully" })
         let formData = new FormData()
         formData.append('amenityType', amenityType.current.value)
         formData.append('id', location.state.id)
@@ -80,9 +81,13 @@ const Addeditamenity = () => {
           formData.append('image', document.getElementById('amenity_image').files[0])
         }
         const { data } = await axios.post(`${window.env_var}api/society/amenities/updateAmenities`, formData)
-        window.location.href = '/amenities'
+        setTimeout(() => {
+          window.location.href = '/amenities'
+        }, 1500);
+        // window.location.href = '/amenities'
       }
       else {
+        setToast({ show: true, type: "success", message: "Added amenity successfully" })
         let formData = new FormData()
         formData.append('amenityType', amenityType.current.value)
         formData.append('image', document.getElementById('amenity_image').files[0])
@@ -90,7 +95,9 @@ const Addeditamenity = () => {
         formData.append('rent', rent.current.value)
         formData.append('status', status.current.value)
         const { data } = await axios.post(`${window.env_var}api/society/amenities/addAmenities`, formData)
-        window.location.href = '/amenities'
+        setTimeout(() => {
+          window.location.href = '/amenities'
+        }, 1500);
       }
 
     } catch (error) {
@@ -117,6 +124,7 @@ const Addeditamenity = () => {
         <div className='aeasideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
       <div className='aeabackgroundimg'>
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <Loader loading={loading}>
           <div className='aeadisplay'>
             <label>{type == 'edit' ? 'Edit Amenity' : 'New Amenity'}</label>

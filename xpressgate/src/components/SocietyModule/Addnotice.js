@@ -8,8 +8,9 @@ import { useLocation } from "react-router-dom";
 import { checkSociety } from '../auth/Auth'
 import { useNavigate } from 'react-router-dom';
 import { Loader } from "../Loader";
-
+import { ToastMessage } from '../ToastMessage';
 const Addnotice = () => {
+  const [toast, setToast] = useState({ show: false })
   const [notice, setNotice] = useState({})
   const location = useLocation()
   const [type, setType] = useState('add')
@@ -21,19 +22,23 @@ const Addnotice = () => {
   const handleSubmit=async(e)=>{
     e.preventDefault();
     try {
+
       var tzoffset = (new Date()).getTimezoneOffset() * 60000;
       let date = new Date(document.getElementById('notice_date').value+'T'+document.getElementById('notice_time').value+':00');//.toISOString();
       var localISOTime = (new Date(date - tzoffset)).toISOString().slice(0, -1);
       console.log(date);
       console.log(localISOTime);
       if (type == 'edit') {
+        setToast({ show: true, type: "success", message: "Updated Successfully" })
         let formdata = new FormData();
         if (document.getElementById('attachment').value) {
+         
           const file = document.getElementById('attachment').files[0];
           if (file.type != "application/pdf") {
             document.getElementById("attachment").style.border = "2px solid red";
           }
           else{
+            
             document.getElementById("attachment").style.border = "2px solid #14335D";
             formdata.append('attachment', document.getElementById('attachment').files[0]);
             formdata.append('noticeTitle', document.getElementById('notice_title').value);
@@ -45,7 +50,9 @@ const Addnotice = () => {
             formdata.append('id', location.state.id);
             
             const { data } = await axios.post(`${window.env_var}api/notices/updateNotice`, formdata);
-            window.location.href = '/noticeList'
+            setTimeout(() => {
+              window.location.href = '/noticeList'
+            }, 1500);
           }
         }
         else{
@@ -59,11 +66,15 @@ const Addnotice = () => {
 
             const { data } = await axios.post(`${window.env_var}api/notices/updateNotice`, formdata);
             //console.log(data);
-            window.location.href = '/noticeList'
+            setTimeout(() => {
+              window.location.href = '/noticeList'
+            }, 1500);
+            // window.location.href = '/noticeList'
         }
       }
       else {
         const file = document.getElementById('attachment').files[0];
+        setToast({ show: true, type: "success", message: "Added successfully" })
         if (file.type != "application/pdf") {
           document.getElementById("attachment").style.border = "2px solid red";
           //return;
@@ -164,6 +175,7 @@ const Addnotice = () => {
         <div className='ansideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
       <div className='anbackgroundimg'>
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
       <Loader loading={loading}>
         <div className='addnoticedisplay'>
           <label>{type=='edit'?'Update':'Add'} Notice</label>

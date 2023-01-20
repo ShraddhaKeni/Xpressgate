@@ -5,9 +5,9 @@ import LogOut from "./Utils/LogOut";
 import axios from 'axios'
 import { getBlocks,getVendors } from "./common/common";
 import { Loader } from "../Loader";
-
+import { ToastMessage } from '../ToastMessage';
 const Vendor_Payment = () => {
-   
+  const [toast, setToast] = useState({ show: false })
   const [blocks,setBlock] = useState([])
   const [flats,setFlats] = useState([])
   const [resident,setResident] =useState({})
@@ -56,6 +56,7 @@ const Vendor_Payment = () => {
   const handleSubmit=async(e)=>{
     e.preventDefault()
     try {
+      setToast({ show: true, type: "success", message: "Added successfully" })
       const sendData= {
         vendor_id:vendor_id.current.value,
         flat_id:flat_id.current.value,
@@ -65,7 +66,9 @@ const Vendor_Payment = () => {
         resident_id:resident.resident_id,
       }
       const {data} = await axios.post(`${window.env_var}api/vendorpayment/addBill`,sendData)
-      window.location.href='/payment'
+      setTimeout(() => {
+        window.location.href='/payment'
+      }, 1500);
     } catch (error) {
       console.log(error)
     }
@@ -96,6 +99,7 @@ const Vendor_Payment = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <div className="VPaydisplay">
           <label>Vendor</label>
         </div>
@@ -153,6 +157,7 @@ const Vendor_Payment = () => {
               <div class="col-lg-4">
                 <input type="date" class="form-control input-lg SideB" ref={payment_due}  id='due_date' name="First name" />
               </div>
+              </div>
               <div class="form-group row">
                 <label class="col-lg-2 col-form-label ADN_label">Amount</label>
                 <div class="col-lg-4">
@@ -160,7 +165,7 @@ const Vendor_Payment = () => {
                   </input>
                 </div>
               </div>
-            </div>
+           
             <button type="submit" onClick={(e)=>handleSubmit(e)} className="VPay_Add">
               Add 
             </button>

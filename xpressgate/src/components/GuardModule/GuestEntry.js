@@ -48,7 +48,7 @@ const GuestEntry = () => {
     }
     const handleSubmit=async()=>{
         try {
-          setToast({ show: true, type: "success", message: "Enter Allowed" })
+          setToast({ show: true, type: "success", message: "Guest entry has been approved" })
             var submitData = {
                 firstname:guestDetails.guestFirstName,
                 lastname:guestDetails.guestLastName,
@@ -78,7 +78,7 @@ const GuestEntry = () => {
     }
     const deny=async()=>{
 
-      setToast({ show: true, type: "success", message: "Entry deny " })
+      setToast({ show: true, type: "success", message: "Guest entry has been Denied " })
       setTimeout(() => {
         window.location.href="/dashboard"
       }, 1500);
