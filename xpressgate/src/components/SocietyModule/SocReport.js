@@ -37,8 +37,8 @@ const SocReport = () => {
           <label>Reports</label>
         </div>
         <Loader loading={loading}>
-          <div className="row row-cols-1 row-cols-md-2 g-4 REPfullcardscss">
-            <div className="col">
+          <div className="row row-cols-1 row-cols-md-2 g-4 REPfullcardscss allcards">
+            <div className="col card_hover_animation">
               <div className="REPdashboardcard">
               <span><img src="/images/report.svg" alt="report logo" className="REP_img"></img></span>
               <span><label className="ActReport">Activity Reports</label></span>
@@ -46,28 +46,28 @@ const SocReport = () => {
 
               </div>
             </div>
-            <div className="col">
+            <div className="col card_hover_animation">
               <div className="REPdashboardcard">
               <span><img src="/images/report.svg" alt="report logo" className="REP_img"></img></span>
               <span><label className="ActReport">In out Reports</label></span>
               <span><button type="button" className="VReportBtn">View Report</button></span>
               </div>
             </div>
-            <div className="col">
+            <div className="col card_hover_animation">
               <div className="REPdashboardcard">
               <span><img src="/images/report.svg" alt="report logo" className="REP_img"></img></span>
               <span><label className="ActReport">Payment Reports</label></span>
               <span><button type="button" className="VReportBtn">View Report</button></span>
               </div>
             </div>
-            <div className="col">
+            <div className="col card_hover_animation">
               <div className="REPdashboardcard">
               <span><img src="/images/report.svg" alt="report logo" className="REP_img"></img></span>
               <span><label className="ActSRUPReport">Security Round up <br/>Reports</label></span>
               <span><button type="button" className="VReportBtn">View Report</button></span>
               </div>
             </div>
-            <div className="col">
+            <div className="col card_hover_animation">
               <div className="REPdashboardcard">
               <span><img src="/images/report.svg" alt="report logo" className="REP_img"></img></span>
               <span><label className="ActReport">Complaints Reports</label></span>

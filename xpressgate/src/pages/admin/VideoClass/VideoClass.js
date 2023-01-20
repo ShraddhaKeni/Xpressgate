@@ -65,14 +65,14 @@ const VideoClass = () => {
                 </div>
               </div>
             </div>
-            <div className="row row-cols-1 row-cols-md-3 mt-5">
+            <div className="row row-cols-1 row-cols-md-3 mt-5 allcards">
 
               {console.log(currentPosts)}
               {currentPosts.map(item => {
                 return (
                   <div className="col">
 
-                    <div className="videocard ">
+                    <div className="videocard card_hover_animation">
                       {/* <video className='videoclass' src={vdata.videoURL} controls></video> */}
                       <ReactPlayer className='player' url={item.videoURL} />
                       <label className='card-titlename' onClick={() => { navigate('/admin/editvideo', { state: { id: item._id } }) }}>{item.videoTitle}</label>
