@@ -8,16 +8,22 @@ import PaginationCalculate from './Utils/paginationCalculate';
 import { useNavigate } from 'react-router-dom';
 import GuardHeader from './Utils/GuardHeader';
 import { checkGuard } from '../auth/Auth'
-import { Loader } from "../Loader";
+import Loader from '../../common/Loader';
+import ErrorScreen from '../../common/ErrorScreen.js';
+
 const GuestList = () => {
-  const [loading, setLoading] = useState(true)
+  
   const [guests, setGuests] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts, setCurrentPosts] = useState([])
   const [pageCount, setpageCount] = useState(0)
+  const [isLoading,setLoading] = useState(true)
+  const [isError,setError] = useState(false)
+
   const navigate = useNavigate()
   useEffect(() => {
+   
     if (checkGuard()) {
       const config = {
         headers: {
@@ -32,7 +38,6 @@ const GuestList = () => {
           localStorage.clear();
           window.location.href = '/guardLogin'
         })
-        setLoading(false);
     } else {
       window.location.href = '/'
     }
@@ -45,8 +50,13 @@ const GuestList = () => {
       const indexoflast = currentPage * postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.guests_list.slice(indexoffirst, indexoflast))
+      setTimeout(()=>{
+        setLoading(false)
+      },2000)
 
     } catch (error) {
+      setLoading(false)
+      setError(true)
       console.log(error)
     }
   }
@@ -79,6 +89,11 @@ const GuestList = () => {
     navigate('/guestentry', { state: { id: id } })
   }
 
+  if(isLoading)
+    return <Loader/>
+  if(isError)
+    return <ErrorScreen/>
+
   return (
     <div className="inoutbookcontainer">
       <div id="headersection">
@@ -95,9 +110,7 @@ const GuestList = () => {
         <div className='GuestL_display'>
           <label>Guest List</label>
         </div>
-        <Loader loading={loading}>
-        {/* <div class="table-responsive"> */}
-        <table id="inoutbooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
+       <table id="inoutbooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>
               <th class="th-sm">Sr No.</th>
@@ -110,6 +123,7 @@ const GuestList = () => {
               <th class="th-sm">Status</th>
             </tr>
           </thead>
+         
           <tbody>
             {currentPosts.map((items, index) => {
               return (
@@ -130,9 +144,9 @@ const GuestList = () => {
         {/* <div className="App">
       {data} */}
         <PaginationCalculate totalPages={guests.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+        
 
-        </Loader>
-        {/* </div> */}
+       
       </div>
     </div>
   )

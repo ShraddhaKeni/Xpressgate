@@ -8,6 +8,7 @@ import LogOut from './Utils/LogOut';
 import { checkGuard } from '../auth/Auth';
 import { Loader } from "../Loader";
 import { ToastMessage } from '../ToastMessage';
+import ErrorScreen from '../../common/ErrorScreen';
 
 const VendorEntryDetails = () => {
   const [toast, setToast] = useState({ show: false })
@@ -21,6 +22,7 @@ const VendorEntryDetails = () => {
     const location = useLocation()
     const [code,setCode] = useState()
     const navigate = useNavigate()
+    const [isError,setError] = useState(false)
 
     useEffect(()=>{
 
@@ -46,7 +48,7 @@ const VendorEntryDetails = () => {
                   localStorage.clear();
                   window.location.href='/guardLogin'
                 })
-                setLoading(false);   
+                
         }
         else
         {
@@ -72,6 +74,8 @@ const VendorEntryDetails = () => {
             setFlats(data.data.list)
             setBookings(data.data.list)
             setCode(location.state.code)
+            setLoading(false)
+            setError(false)
             // console.log(data)
         } catch (error) {
           navigate('/dashboard')
@@ -82,8 +86,6 @@ const VendorEntryDetails = () => {
         
         try {
           const sendRequest = await axios.get(`${window.env_var}api/inoutentires/update/${location.state.code}`)
-
-          console.log(location.state.code)
           bookings.map(async(items)=>{
             try {
               setToast({ show: true, type: "success", message: "Approved" })
@@ -104,14 +106,14 @@ const VendorEntryDetails = () => {
             
 
                const {data} = await axios.post(`${window.env_var}api/inout/add`,submitData)
-              console.log(data)
               const bookingUpdate = await axios.get(`${window.env_var}api/bookvendor/removeBooking/${items.booking_id}`) 
+              setError(false)
               setTimeout(() => {
                 window.location.href='/vendorlist'
               }, 1500);
             //  navigate('/vendorlist')
             } catch (error) {
-              console.log(error)
+              setError(true)
             }
             
           })
@@ -119,7 +121,7 @@ const VendorEntryDetails = () => {
             
             
         } catch (error) {
-            console.log(error)
+            setError(true)
         }
     }
     const deny=async()=>{
@@ -130,6 +132,10 @@ const VendorEntryDetails = () => {
       }, 1500);
      
     }
+
+    if(isError)
+      return <ErrorScreen/>
+
    
       return (
       

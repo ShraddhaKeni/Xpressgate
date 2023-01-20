@@ -25,6 +25,7 @@ const Dashboard = () => {
       }
       axios.get(`${window.env_var}api/guard/checkLogin`, config)
         .then(({ data }) => {
+
         })
         .catch(err => {
           localStorage.clear();
@@ -91,6 +92,8 @@ const Dashboard = () => {
   }
 
 
+
+
   return (
     <>
       {entryData.booked ? message == 'Vendor' ? <Frequentvisitor freqvisitordata={entryData} /> : <Dailyservicepasscode props={entryData} /> : <div className="dashboardcontainer">
@@ -121,30 +124,30 @@ const Dashboard = () => {
 
               <img src="/images/searchicon.svg" className='search_icon' onClick={() => { checkInputs() }} alt="search" />
             </div>
-            <div className="row row-cols-1 row-cols-md-3 g-4 FullCardsCss">
+            <div className="row row-cols-1 row-cols-md-3 g-4 FullCardsCss allcards">
               <div className="col">
                 <div className="DashBoardCard">
-                  <img src="/images/guestcard.svg" onClick={() => { window.location.href = '/guestlist' }} className="dbcard-img-top" alt="guest card"></img>
+                  <img src="/images/guestcard.svg" onClick={() => { window.location.href = '/guestlist' }} className="dbcard-img-top card_hover_animation" alt="guest card"></img>
                 </div>
               </div>
               <div className="col">
                 <div className="DashBoardCard">
-                  <img src="/images/vendorcard.svg" className="dbcard-img-top" alt="vendor card" onClick={() => { window.location.href = '/vendorlist' }}></img>
+                  <img src="/images/vendorcard.svg" className="dbcard-img-top card_hover_animation" alt="vendor card" onClick={() => { window.location.href = '/vendorlist' }}></img>
                 </div>
               </div>
               <div className="col">
                 <div className="DashBoardCard">
-                  <img src="/images/dailyhelpcard.svg" className="dbcard-img-top" onClick={() => { window.location.href = '/dailyhelp' }} alt="dailyhelp card"></img>
+                  <img src="/images/dailyhelpcard.svg" className="dbcard-img-top card_hover_animation" onClick={() => { window.location.href = '/dailyhelp' }} alt="dailyhelp card"></img>
                 </div>
               </div>
               <div className="col">
                 <div className="DashBoardCard">
-                  <img src="/images/inoutbookcard.svg" className="dbcard-img-top" onClick={() => { window.location.href = '/inoutbook' }} alt="inout book card"></img>
+                  <img src="/images/inoutbookcard.svg" className="dbcard-img-top card_hover_animation" onClick={() => { window.location.href = '/inoutbook' }} alt="inout book card"></img>
                 </div>
               </div>
               <div className="col">
                 <div className="DashBoardCard">
-                  <img src="/images/videoclass.svg" className="dbcard-img-top" onClick={() => { window.location.href = '/videoclass' }} alt="video class"></img>
+                  <img src="/images/videoclass.svg" className="dbcard-img-top card_hover_animation" onClick={() => { window.location.href = '/videoclass' }} alt="video class"></img>
                 </div>
               </div>
             </div>
