@@ -5,6 +5,9 @@ import axios from 'axios';
 import { deleteSMSGateway, deletesmsgateway, getAllSMSGateway } from '../../../../common/admin/admin_api';
 import PaginationCalculate from '../../../../components/GuardModule/Utils/paginationCalculate';
 import RouterPath from '../../../../common/constants/path/routerPath';
+import { Loader } from '../../../../components/Loader';
+import { ToastMessage } from '../../../../components/ToastMessage';
+import { TOAST } from '../../../../common/utils';
 
 const SMSGatewayList = () => {
 
@@ -14,6 +17,9 @@ const SMSGatewayList = () => {
     const [currentPage, setCurrentpage] = useState(0)
     const [postPerPage, setPostPerPage] = useState(10)
     const [currentPosts, setCurrentPosts] = useState([])
+    const [loading, setLoading] = useState(true);
+    const [toast, setToast] = useState({ show: false })
+
 
     useEffect(() => {
         getSmsGateways()
@@ -27,6 +33,7 @@ const SMSGatewayList = () => {
             const indexoffirst = (indexoflast - postPerPage) //startoffset
             console.log(data.data);
             setCurrentPosts(data.data.sms_gateway.slice(indexoffirst, indexoflast))
+            setLoading(false);
         } catch (error) {
             console.log(error)
         }
@@ -40,8 +47,13 @@ const SMSGatewayList = () => {
     }
 
     const removeGateway = async (id) => {
-        await deleteSMSGateway(id);
-        window.location.reload();
+        const { data } = await deleteSMSGateway(id);
+        if (data && data?.status_code == 200) {
+            setToast(TOAST.SUCCESS(data?.message));
+            getSmsGateways();
+        } else if (data?.status_code == 201) {
+            setToast(TOAST.ERROR(data?.message));
+        }
     }
 
     const handleAddSMSGateway = () => {
@@ -66,65 +78,70 @@ const SMSGatewayList = () => {
 
     return (
         <>
+            <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+
             <img src='/images/side_bar_img.svg' className='Premise_side_Img' />
-            <div>
-                <div className='page-label'>
-                    <label>Manage SMS Gateway</label>
-                </div>
+            <Loader loading={loading}>
+
                 <div>
-                    <div className='table-top-right-content'>
-                        <div className='table-search pl-2'>
-                            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-                            <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
-                        </div>
-
-                        <div className="table-add-new-button" onClick={handleAddSMSGateway}>
-
-                            <span className='ml-2'>&#43; Add New</span>
-                        </div>
+                    <div className='page-label'>
+                        <label>Manage SMS Gateway</label>
                     </div>
+                    <div>
+                        <div className='table-top-right-content'>
+                            <div className='table-search pl-2'>
+                                <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
+                                <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
+                            </div>
 
-                    <table id="table-header" class="table table-striped table-bordered table-sm " cellspacing="0">
-                        <thead className='table-th'>
-                            <tr>
-                                <th class="th-sm" >ID No.</th>
-                                <th class="th-sm">SMS Gateway Name</th>
-                                <th class="th-sm">API Key</th>
-                                <th class="th-sm">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {currentPosts.map((item, index) => {
-                                return (
-                                    <tr>
-                                        <td>{index + 1 + (currentPage * postPerPage)}</td>
-                                        <td>{item.gateway_name}</td>
-                                        <td>{item.api_key?.slice(0, 7)}***</td>
-                                        <td>
-                                            <div>
-                                                <IconButton onClick={() => { handleEditClick(item) }}>
-                                                    <img src="/images/icon_edit.svg" />
-                                                </IconButton>
+                            <div className="table-add-new-button" onClick={handleAddSMSGateway}>
 
-                                                <IconButton onClick={() => removeGateway(item.id)}>
-                                                    <img src="/images/icon_delete.svg" />
-                                                </IconButton>
+                                <span className='ml-2'>&#43; Add New</span>
+                            </div>
+                        </div>
 
-                                            </div>
-                                        </td>
-                                    </tr>
-                                )
-                            })}
+                        <table id="table-header" class="table table-striped table-bordered table-sm " cellspacing="0">
+                            <thead className='table-th'>
+                                <tr>
+                                    <th class="th-sm" >ID No.</th>
+                                    <th class="th-sm">SMS Gateway Name</th>
+                                    <th class="th-sm">API Key</th>
+                                    <th class="th-sm">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {currentPosts.map((item, index) => {
+                                    return (
+                                        <tr>
+                                            <td>{index + 1 + (currentPage * postPerPage)}</td>
+                                            <td>{item.gateway_name}</td>
+                                            <td>{item.api_key?.slice(0, 7)}***</td>
+                                            <td>
+                                                <div>
+                                                    <IconButton onClick={() => { handleEditClick(item) }}>
+                                                        <img src="/images/icon_edit.svg" />
+                                                    </IconButton>
+
+                                                    <IconButton onClick={() => removeGateway(item.id)}>
+                                                        <img src="/images/icon_delete.svg" />
+                                                    </IconButton>
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    )
+                                })}
 
 
-                        </tbody>
-                    </table>
-                    {currentPosts.length > postPerPage && <div className='paginate'>
-                        <PaginationCalculate totalPages={smsgateway.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
-                    </div>}
+                            </tbody>
+                        </table>
+                        {currentPosts.length > postPerPage && <div className='paginate'>
+                            <PaginationCalculate totalPages={smsgateway.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+                        </div>}
+                    </div >
                 </div >
-            </div >
 
+            </Loader>
         </>)
 }
 

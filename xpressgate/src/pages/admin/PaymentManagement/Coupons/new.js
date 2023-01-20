@@ -6,6 +6,8 @@ import { addCoupon } from '../../../../common/admin/admin_api';
 import RouterPath from '../../../../common/constants/path/routerPath';
 import { SimpleDropDownComponent, SimpleInputComponent } from '../../components/input';
 import dayjs from 'dayjs';
+import { goBackInOneSec, TOAST } from '../../../../common/utils';
+import { ToastMessage } from '../../../../components/ToastMessage';
 
 
 export const AddCoupon = () => {
@@ -24,6 +26,8 @@ export const AddCoupon = () => {
         status: true,
         description: ""
     })
+
+    const [toast, setToast] = useState({ show: false })
 
     const [value, setValue] = useState(new Date().toLocaleString());
 
@@ -57,10 +61,11 @@ export const AddCoupon = () => {
 
 
         const res = await addCoupon(c)
-        if (res.data && res.data?.status_code == 200) {
-            navigate(RouterPath.COUPONS_LIST);
+        if (res && res.data?.status_code == 200) {
+            setToast(TOAST.SUCCESS(res?.data?.message));
+            goBackInOneSec(navigate)
         } else if (res.data?.status_code == 201) {
-            alert(res.data?.message);
+            setToast(TOAST.ERROR(res?.data?.message));
         }
         else {
             alert(res.message);
@@ -72,6 +77,8 @@ export const AddCoupon = () => {
 
     return (
         <>
+            <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+
             <img src='/images/side_bar_img.svg' className='PAY_Coupans_side_Img' />
             <div>
                 <div className='page-label'>
@@ -93,7 +100,7 @@ export const AddCoupon = () => {
 
 
 
-                    <button type="submit" className="BTN_ADD_premise "  >Generate</button>
+                        <button type="submit" className="BTN_ADD_premise "  >Generate</button>
 
                     </Form>
 

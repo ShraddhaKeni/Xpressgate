@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { deleteCoupon, getAllCoupons, getCouponById, updateCoupon } from '../../../../common/admin/admin_api';
 import RouterPath from '../../../../common/constants/path/routerPath';
+import { goBackInOneSec, MESSAGES, TOAST } from '../../../../common/utils';
+import { ToastMessage } from '../../../../components/ToastMessage';
 
 export const CouponDetails = () => {
 
@@ -11,6 +13,7 @@ export const CouponDetails = () => {
 
 
 
+    const [toast, setToast] = useState({ show: false })
 
     const [coupon, setCoupons] = useState(location?.state?.coupon);
     const [allCoupons, setAllCoupons] = useState();
@@ -33,7 +36,11 @@ export const CouponDetails = () => {
         const res = await deleteCoupon(coupon.id)
         console.log(res)
         if (res && res.data?.status_code == 200) {
-            navigate(RouterPath.COUPONS_LIST)
+            setToast(TOAST.SUCCESS(res?.data?.message));
+            goBackInOneSec(navigate)
+
+        } else {
+            setToast(TOAST.ERROR(res?.data?.message));
         }
     }
 
@@ -50,7 +57,9 @@ export const CouponDetails = () => {
     return (
 
         <>
-         <img src='/images/side_bar_img.svg' className='PAY_Coupans_side_Img' />
+            <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+
+            <img src='/images/side_bar_img.svg' className='PAY_Coupans_side_Img' />
             {!coupon && <Navigate to={RouterPath.COUPONS_LIST} />}
             {coupon &&
                 <div>

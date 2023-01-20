@@ -8,15 +8,19 @@ import { ButtonUnstyled } from '@mui/base';
 import { MaterialButton } from '../components/MaterialButton';
 import axios from 'axios';
 import { deleteCommunity } from '../../../common/admin/admin_api';
+import { Loader } from '../../../components/Loader';
+import { ToastMessage } from '../../../components/ToastMessage';
 
 const PremiseList = () => {
 
     const navigate = useNavigate();
+    const [toast, setToast] = useState({ show: false })
 
     const [community, setCommunity] = useState([])
     const [currentPage, setCurrentpage] = useState(0)
     const [postPerPage, setPostPerPage] = useState(10)
     const [currentPosts, setCurrentPosts] = useState([])
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         getCommunities()
@@ -30,6 +34,7 @@ const PremiseList = () => {
             const indexoffirst = (indexoflast - postPerPage) //startoffset
             console.log(data.data);
             setCurrentPosts(data.data.community.slice(indexoffirst, indexoflast))
+            setLoading(false);
         } catch (error) {
 
         }
@@ -44,7 +49,8 @@ const PremiseList = () => {
 
     const removePremise = async (id) => {
         await deleteCommunity(id);
-        window.location.reload();
+        setToast({ show: true, type: "success", message: "Deleted Successfully!" });
+        getCommunities();
     }
 
     const handleAddPremise = () => {
@@ -69,66 +75,70 @@ const PremiseList = () => {
 
     return (
         <>
+            <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+
             <img src='/images/side_bar_img.svg' className='Premise_side_Img' />
-            <div>
-                <div className='page-label'>
-                    <label>Premise Management</label>
-                </div>
+            <Loader loading={loading}>
                 <div>
-                    <div className='table-top-right-content'>
-                        <div className='table-search pl-2'>
-                            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-                            <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
-                        </div>
-
-                        <div className="table-add-new-button" onClick={handleAddPremise}>
-
-                            <span className='ml-2'>&#43; Add New Premise</span>
-                        </div>
+                    <div className='page-label'>
+                        <label>Premise Management</label>
                     </div>
+                    <div>
+                        <div className='table-top-right-content'>
+                            <div className='table-search pl-2'>
+                                <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
+                                <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
+                            </div>
 
-                    <table id="table-header" class="table table-striped table-bordered table-sm " cellspacing="0">
-                        <thead className='table-th'>
-                            <tr>
-                                <th class="th-sm" >ID No.</th>
-                                <th class="th-sm">Premise Name</th>
-                                <th class="th-sm">No of Blocks</th>
-                                <th class="th-sm">Status</th>
-                                <th class="th-sm">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {currentPosts.map((item, index) => {
-                                return (
-                                    <tr>
-                                        <td>{index + 1 + (currentPage * postPerPage)}</td>
-                                        <td>{item.name}</td>
-                                        <td>{item.noofblocks}</td>
-                                        <td><ButtonUnstyled className='approve-active'>{item.status == true ? 'Unapprove' : 'Approve'}</ButtonUnstyled></td>
-                                        <td>
-                                            <div>
-                                                <IconButton onClick={() => { handleEditClick(item.id) }}>
-                                                    <img src="/images/icon_edit.svg" />
-                                                </IconButton>
+                            <div className="table-add-new-button" onClick={handleAddPremise}>
 
-                                                {item.status === true ? <IconButton onClick={() => removePremise(item._id)}>
-                                                    <img src="/images/icon_delete.svg" />
-                                                </IconButton> : ''}
+                                <span className='ml-2'>&#43; Add New Premise</span>
+                            </div>
+                        </div>
 
-                                            </div>
-                                        </td>
-                                    </tr>
-                                )
-                            })}
+                        <table id="table-header" class="table table-striped table-bordered table-sm " cellspacing="0">
+                            <thead className='table-th'>
+                                <tr>
+                                    <th class="th-sm" >ID No.</th>
+                                    <th class="th-sm">Premise Name</th>
+                                    <th class="th-sm">No of Blocks</th>
+                                    <th class="th-sm">Status</th>
+                                    <th class="th-sm">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {currentPosts.map((item, index) => {
+                                    return (
+                                        <tr>
+                                            <td>{index + 1 + (currentPage * postPerPage)}</td>
+                                            <td>{item.name}</td>
+                                            <td>{item.noofblocks}</td>
+                                            <td><ButtonUnstyled className='approve-active'>{item.status == true ? 'Unapprove' : 'Approve'}</ButtonUnstyled></td>
+                                            <td>
+                                                <div>
+                                                    <IconButton onClick={() => { handleEditClick(item.id) }}>
+                                                        <img src="/images/icon_edit.svg" />
+                                                    </IconButton>
+
+                                                    {item.status === true ? <IconButton onClick={() => removePremise(item._id)}>
+                                                        <img src="/images/icon_delete.svg" />
+                                                    </IconButton> : ''}
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    )
+                                })}
 
 
-                        </tbody>
-                    </table>
-                    {community.length > postPerPage && <div className='paginate'>
-                        <PaginationCalculate totalPages={community.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
-                    </div>}
+                            </tbody>
+                        </table>
+                        {community.length > postPerPage && <div className='paginate'>
+                            <PaginationCalculate totalPages={community.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+                        </div>}
+                    </div >
                 </div >
-            </div >
+            </Loader>
 
         </>)
 }

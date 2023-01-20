@@ -5,12 +5,14 @@ import ReactPlayer from 'react-player'
 import { getAccordionDetailsUtilityClass } from "@mui/material";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Loader } from "../../../components/Loader";
 const VideoClass = () => {
 
   const [videos, setVideos] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(6)
   const [currentPosts, setCurrentPosts] = useState([])
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate()
 
@@ -27,6 +29,7 @@ const VideoClass = () => {
       const indexoflast = (currentPage) * postPerPage  //endoffset
       const indexoffirst = (indexoflast - postPerPage) //startoffset
       setCurrentPosts(data.data.videolist.slice(indexoffirst, indexoflast))
+      setLoading(false);
     } catch (error) {
       console.log(error)
     }
@@ -45,47 +48,49 @@ const VideoClass = () => {
 
   return (
     <>
-       <img src='/images/side_bar_img.svg' className='Premise_side_Img' />
-      <div >
-        <div className="page-label">
-          <label>Video Class</label>
-        </div>
+      <img src='/images/side_bar_img.svg' className='Premise_side_Img' />
+      <Loader loading={loading}>
+        <div >
+          <div className="page-label">
+            <label>Video Class</label>
+          </div>
 
-        <div style={{ marginLeft: '0' }}>
-          <div className="table-top-right-content">
+          <div style={{ marginLeft: '0' }}>
+            <div className="table-top-right-content">
 
-            <div className="VideoButton">
-              <div className="Video_AddBTN mt-3" onClick={() => { navigate('/admin/addvideo') }}>
-                
-                <span className='ml-2'>&#43; Add New Video</span>
+              <div className="VideoButton">
+                <div className="Video_AddBTN mt-3" onClick={() => { navigate('/admin/addvideo') }}>
+
+                  <span className='ml-2'>&#43; Add New Video</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="row row-cols-1 row-cols-md-3 mt-5">
+            <div className="row row-cols-1 row-cols-md-3 mt-5">
 
-            {console.log(currentPosts)}
-            {currentPosts.map(item => {
-              return (
-                <div className="col">
+              {console.log(currentPosts)}
+              {currentPosts.map(item => {
+                return (
+                  <div className="col">
 
-                  <div className="videocard ">
-                    {/* <video className='videoclass' src={vdata.videoURL} controls></video> */}
-                    <ReactPlayer className='player' url={item.videoURL} />
-                    <label className='card-titlename' onClick={() => { navigate('/admin/editvideo', { state: { id: item._id } }) }}>{item.videoTitle}</label>
-                    {/* <p className='card-content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p> */}
+                    <div className="videocard ">
+                      {/* <video className='videoclass' src={vdata.videoURL} controls></video> */}
+                      <ReactPlayer className='player' url={item.videoURL} />
+                      <label className='card-titlename' onClick={() => { navigate('/admin/editvideo', { state: { id: item._id } }) }}>{item.videoTitle}</label>
+                      {/* <p className='card-content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p> */}
+                    </div>
                   </div>
-                </div>
-              )
-            })}
+                )
+              })}
 
+            </div>
+            <div className="paginate" style={{ marginTop: '2%' }}>
+              <PaginationCalculate totalPages={videos.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+            </div>
           </div>
-          <div className="paginate" style={{ marginTop: '2%' }}>
-            <PaginationCalculate totalPages={videos.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
-          </div>
+
         </div>
 
-      </div>
-
+      </Loader>
     </>
 
   );

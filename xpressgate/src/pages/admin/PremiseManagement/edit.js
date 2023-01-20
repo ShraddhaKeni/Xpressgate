@@ -7,6 +7,8 @@ import axios from 'axios'
 import { SimpleDropDownComponent, SimpleInputComponent } from '../components/input';
 import { getDefaultNormalizer } from '@testing-library/react';
 import { StraightenSharp } from '@mui/icons-material';
+import { ToastMessage } from '../../../components/ToastMessage';
+import { goBackInOneSec, waitOneSec } from '../../../common/utils';
 
 const EditPremise = () => {
 
@@ -23,6 +25,8 @@ const EditPremise = () => {
         pincode: '',
         status: true
     })
+    const [toast, setToast] = useState({ show: false })
+
     const [states, setState] = useState([])
     const [area, setArea] = useState([])
     const [re_render, setRender] = useState(false)
@@ -88,7 +92,7 @@ const EditPremise = () => {
             setState(array)
 
         } catch (error) {
-            alert('Data loading Failed')
+            setToast({ show: true, type: "error", message: "Data loading Failed" });
         }
     }
 
@@ -106,7 +110,8 @@ const EditPremise = () => {
 
             await setArea(array)
         } catch (error) {
-            alert('Data loading Failed')
+            setToast({ show: true, type: "error", message: "Data loading Failed" });
+
         }
     }
 
@@ -115,14 +120,21 @@ const EditPremise = () => {
         try {
             if (premise.name != '' && premise.address != '' && premise.noofblocks != 0 && premise.state != '' && premise.landmark != '' && premise.address != '' && premise.city != '') {
                 const { data } = await axios.post(`${window.env_var}api/community/update`, premise)
-                navigate('/admin/premises')
+                if (data.status_code == 200) {
+                    setToast({ show: true, type: "success", message: "Updated Successfully!" });
+                    goBackInOneSec(navigate)
+                } else {
+                    setToast({ show: true, type: "error", message: data.message });
+                }
             }
             else {
-                alert('Fields Empty !')
+                setToast({ show: true, type: "error", message: "Fields Empty!" });
+
             }
 
         } catch (error) {
-            alert('Could not add Community.!')
+            setToast({ show: true, type: "error", message: "Could not add Community.!" });
+
         }
 
     }
@@ -131,7 +143,9 @@ const EditPremise = () => {
     return (
 
         <>
-         <img src='/images/side_bar_img.svg' className='AddPremise_side_Img' />
+            <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+
+            <img src='/images/side_bar_img.svg' className='AddPremise_side_Img' />
             {location.state ? <div>
                 <div className='page-label'>
                     <label>{premise.name || "Premise"}</label>
@@ -148,7 +162,7 @@ const EditPremise = () => {
                         <SimpleDropDownComponent items={area} label={'City'} name={'city_id'} id={'city'} selected={premise.city_id} onChange={(e) => { setPremise({ ...premise, city: e.target.value }) }} />
                         <SimpleInputComponent label={'Pincode'} name={'pincode'} type={'number'} id={'pincode'} text={premise.pincode} onChange={(e) => { setPremise({ ...premise, pincode: e.target.value }) }} />
 
-                        <button type="submit" onClick={(e) => handleSubmit(e)}  className=" BUTN_ADD_premise" >Update Premise</button>
+                        <button type="submit" onClick={(e) => handleSubmit(e)} className=" BUTN_ADD_premise" >Update Premise</button>
                     </Form>
 
                 </div>

@@ -8,6 +8,8 @@ import { getDefaultNormalizer } from '@testing-library/react';
 import RouterPath from '../../../../common/constants/path/routerPath';
 import { SimpleDropDownComponent, SimpleInputComponent } from '../../components/input';
 import { addSMSGateway } from '../../../../common/admin/admin_api';
+import { ToastMessage } from '../../../../components/ToastMessage';
+import { goBackInOneSec, TOAST } from '../../../../common/utils';
 
 const SMSProvider = () => {
 
@@ -16,6 +18,7 @@ const SMSProvider = () => {
         api_key: ''
     })
     const navigate = useNavigate()
+    const [toast, setToast] = useState({ show: false })
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -23,14 +26,19 @@ const SMSProvider = () => {
 
             if (sms.api_key != '' && sms.gateway_name != '') {
                 const { data } = await addSMSGateway(sms)
-                navigate(-1)
+                if (data && data?.status_code == 200) {
+                    setToast(TOAST.SUCCESS(data?.message));
+                    goBackInOneSec(navigate)
+                } else if (data?.status_code == 201) {
+                    setToast(TOAST.ERROR(data?.message));
+                }
             }
             else {
-                alert('Fields Empty !')
+                setToast(TOAST.ERROR("Fields Empty!"));
             }
 
         } catch (error) {
-            alert('Could not add SMS Gateway!')
+            setToast(TOAST.ERROR("Could Not add SMS Gateway"));
         }
 
     }
@@ -39,6 +47,8 @@ const SMSProvider = () => {
 
     return (
         <>
+            <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+
             <img src='/images/side_bar_img.svg' className='AddPremise_side_Img' />
             <div>
                 <div className='page-label'>
