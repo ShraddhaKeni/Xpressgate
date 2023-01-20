@@ -346,3 +346,111 @@ font-weight: 500;
   margin-left: 56%;
 }
 }
+
+
+.society_login_middleLayer_image
+{
+  position: absolute;
+  left: 35%;
+  transform: scale(0.8);
+}
+
+.society_login_middleLayer_image_face
+{
+  position: absolute;
+  left: 54%;
+  top: 37%;
+  width: 20vh !important;
+  height: 23vh !important;
+  /* background-color: #F9FAFF; */
+  border-radius: 50%;
+  animation: moveFace 5s infinite ease-in-out;
+  
+}
+
+.society_login_middleLayer_circle
+{
+  position: absolute;
+  left: 71.6%;
+  top: 29%;
+  width: 20vh !important;
+  height: 23vh !important;
+  animation: moveCircle 15s infinite linear;
+}
+
+.society_login_middleLayer_pen{
+  position: absolute;
+  left: 75%;
+  top: 55%;
+  width: 18vh !important;
+  height: 23vh !important;
+  animation: movePen 5s infinite ease-in-out;
+}
+
+
+@keyframes moveCircle {
+  from{
+    transform:rotate(0deg);
+  }
+  /* 25%{
+    transform:rotate(180deg); 
+  }
+  50%{
+    transform:rotate(270deg);
+  }
+  75%{
+    transform:rotate(360deg);
+  } */
+  to{
+    transform:rotate(359deg);
+  }
+}
+
+@keyframes movePen {
+  0%{
+    transform:rotate(-2deg) ;
+    transform-origin:bottom;
+  }
+  25%{
+    transform:rotate(2deg) ; 
+    transform-origin: bottom;
+  }
+  50%{
+    transform:rotate(-2deg) ;
+    transform-origin:  1bottom;
+  }
+  75%{
+    transform:rotate(2deg);
+    transform-origin:  bottom ;
+
+  }
+  100%{
+    transform:rotate(-2deg);
+    transform-origin:  bottom;
+  }
+}
+
+
+@keyframes moveFace {
+  0%{
+    transform:rotate(-3deg) scale(1.2);
+    transform-origin:bottom;
+  }
+  25%{
+    transform:rotate(3deg) scale(1.2); 
+    transform-origin: bottom;
+  }
+  50%{
+    transform:rotate(-3deg) scale(1.2);
+    transform-origin: bottom;
+  }
+  75%{
+    transform:rotate(3deg) scale(1.2);
+    transform-origin:  bottom ;
+
+  }
+  100%{
+    transform:rotate(-3deg) scale(1.2);
+    transform-origin:  bottom;
+  }
+}

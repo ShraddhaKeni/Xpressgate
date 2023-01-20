@@ -29,17 +29,17 @@ const AdminDashboard = () => {
             <Loader loading={loading}>
 
 
-                {dashboard && <Container fluid className='dashboard-card-row'>
+                {dashboard && <Container fluid className='dashboard-card-row allcards'>
 
                     <Col>
-                        <div className='card-green w-40 py-4'>
+                        <div className='card-green w-40 py-4 card_hover_animation'>
                             <div className='d-flex flex-column align-items-center px-4 py-4'>
                                 <p className='dash-heading pt-4'>Total Revenue</p>
                                 <span className='dash-heading'>₹{dashboard.revenue[0].total_amount}</span>
                             </div>
 
                         </div>
-                        <div className='card-green-border w-40 mt-5'>
+                        <div className='card-green-border w-40 mt-5 card_hover_animation'>
                             <div className='card-green mx-4 px-4'>
                                 <div className='d-flex flex-column align-items-center'>
                                     <div className='icon-bg-white-round-big'>
@@ -48,7 +48,7 @@ const AdminDashboard = () => {
                                     <p className='dash-heading-lg pl-4 font-weight-bold mt-4'>Latest Premises</p>
                                 </div>
                             </div>
-                            <div className='ml-8 last-space'>
+                            <div className='ml-8 last-space '>
 
                                 {dashboard.Communities.list && dashboard.Communities.list.map((premise) => {
                                     return <div className='dashboard-space-between'><p>{premise.name}</p><p><VisibilityOutlinedIcon fontSize='large' /></p></div>
@@ -63,7 +63,7 @@ const AdminDashboard = () => {
 
 
                     <Col>
-                        <div className='card-green w-40'>
+                        <div className='card-green w-40 card_hover_animation'>
                             <div className='d-flex align-items-center px-4 py-4'>
                                 <div className='icon-bg-white-round'>
                                     <img className='dash-icon' src='../images/icon_premises.svg' />
@@ -78,7 +78,7 @@ const AdminDashboard = () => {
                             </div>
 
                         </div>
-                        <div className='card-green-border w-40  mt-5'>
+                        <div className='card-green-border w-40  mt-5 card_hover_animation'>
                             <div className='card-green mx-4 px-4'>
                                 <div className='d-flex flex-column align-items-center'>
                                     <div className='icon-bg-white-round-big'>
@@ -88,7 +88,7 @@ const AdminDashboard = () => {
                                 </div>
 
                             </div>
-                            <div className='ml-8 last-space'>
+                            <div className='ml-8 last-space card_hover_animation'>
                                 {dashboard.latestPayment.length && dashboard.latestPayment.map((payment) => {
                                     return <div className='dashboard-space-between'><p>{payment.community_name}</p><p className='black-bg  pl-4 pr-2'>₹ {payment.amount}</p></div>
                                 }
@@ -100,7 +100,7 @@ const AdminDashboard = () => {
                     </Col>
 
                     <Col>
-                        <div className='card-green w-40'>
+                        <div className='card-green w-40 card_hover_animation'>
 
                             <div className='d-flex align-items-center px-4 py-4'>
                                 <div className='icon-bg-white-round'>
@@ -116,7 +116,7 @@ const AdminDashboard = () => {
                             </div>
                         </div>
 
-                        <div className='card-green w-40 ml-12 align-items-center  mt-5 m-b-8'>
+                        <div className='card-green w-40 ml-12 align-items-center  mt-5 m-b-8 card_hover_animation' >
                             <div className="btn-bg-white">
                                 <span className='dash-heading-sm '>Recent Report</span>
                             </div>
@@ -127,7 +127,7 @@ const AdminDashboard = () => {
                                 )}
                             </div>
                         </div>
-                        <div className='card-green w-40 ml-12 align-items-center mt-8'>
+                        <div className='card-green w-40 ml-12 align-items-center mt-8 card_hover_animation'>
                             <div className="btn-bg-white">
                                 <span className='dash-heading-sm'>Recent Coupon</span>
                             </div>

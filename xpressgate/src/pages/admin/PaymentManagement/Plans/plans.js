@@ -101,12 +101,12 @@ export const PlansList = () => {
                         </div>
 
                         <div id="cardsection">
-                            <div className="row row-cols-1 row-cols-md-3 g-3 mb-5">
+                            <div className="row row-cols-1 row-cols-md-3 g-3 mb-5 allcards">
 
                                 {console.log("Main", plans)}
                                 {plans && plans.map((plan) => {
 
-                                    return <div className="col" key={plan.id}>
+                                    return <div className="col card_hover_animation" key={plan.id}>
                                         <div className="col">
                                             <div className="Coupon-card-green ">
                                                 <div className='d-flex justify-content-end mr-5'><button className={`${plan.status == true ? 'highlight-active' : 'highlight-inactive'} p-2 px-3`}><span className={`${plan.status == true ? 'dot' : 'dot-inactive'}`}></span>{plan.status == true ? 'Active' : 'Inactive'}</button></div>

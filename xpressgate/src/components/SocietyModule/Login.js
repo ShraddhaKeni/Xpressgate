@@ -38,7 +38,12 @@ const Login_society = () => {
 
 
       <div id="SC_LOGIN_IMG">
-        <img src="./images/societylogin.svg" alt="" />
+        {/* <img src="./images/societylogin.svg" alt="" /> */}
+        <img src="./images/background.svg" alt="" />
+        <img className="society_login_middleLayer_image" src="./images/other.svg" alt="" />
+        <img className="society_login_middleLayer_image_face" src="./images/group_206.svg" alt="" />
+        <img className="society_login_middleLayer_circle" src="./images/starburst.svg" alt="" />
+        <img className="society_login_middleLayer_pen" src="./images/hand.svg" alt="" />
       </div>
       <div id="SOC_Login_FormId">
         <Form>
