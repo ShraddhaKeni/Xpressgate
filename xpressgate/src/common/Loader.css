@@ -20,15 +20,51 @@
 
 
 .box {
-    background: red;
+    background: rgb(230, 230, 230);
     border-radius: 30px;
-    width: 150px;
-    height: 150px;
     position: absolute;
-    top: calc(50% - 150px / 2);
-    left: calc(50% - 150px / 2);
+    /* top: calc(50% - 150px / 2);
+    left: calc(50% - 150px / 2); */
     display: flex;
     justify-content: center;
-    color: white;
+    
     align-items: center;
+    filter: drop-shadow(1px 1px 1.75rem #14335D);
+  }
+
+  .box h3{
+   
+    color: black;
+    position: absolute;
+    top:35%;
+    font-size: 30px;
+    font-family: 'Poppins';
+  }
+
+
+  .box h4{
+    font-size: 24px;
+    font-family: 'Poppins';
+    color: black;
+    position: absolute;
+    
+  }
+  .dismiss_error
+  {
+    position: absolute;
+    top: 82%;
+    height: 100px;
+    width: 100%;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: #0A8996;
+    border: none;
+    color: white;
+  }
+
+  .error_icon
+  {
+    transform: scale(7.8);
+    position: absolute;
+    top: 25%;
   }

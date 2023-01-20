@@ -8,6 +8,7 @@ import { checkGuard } from '../auth/Auth';
 import GuardHeader from './Utils/GuardHeader';
 import { Loader } from "../Loader";
 import { ToastMessage } from '../ToastMessage';
+import ErrorScreen from '../../common/ErrorScreen';
 const Dailyservicepasscode = ({ props }) => {
   const [toast, setToast] = useState({ show: false })
   const [loading, setLoading] = useState(true)
@@ -17,6 +18,7 @@ const Dailyservicepasscode = ({ props }) => {
   const [dailyhelp, setDailyhelp] = useState([])
   const [details, setDetails] = useState({})
   const location = useLocation();
+  const [isError,setError] = useState(false)
   //console.log(location);
 
 const navigate = useNavigate()
@@ -60,11 +62,12 @@ const navigate = useNavigate()
       const dailyhelpdata = await axios.get(`${window.env_var}api/helperlist/getHelper/${location.state.id}`)
       setDailyhelp(dailyhelpdata.data.data.list)
       setDetails(dailyhelpdata.data.data.list[0])
+      setError(false)
       //console.log(dailyhelpdata.data.data.list)
       //console.log(dailyhelpdata.data.data.list[0])
     } catch (error) {
-      
-      console.log('Try again after sometime')
+      setError(true)
+      // console.log('Try again after sometime')
     }
   }
 
@@ -84,12 +87,12 @@ const navigate = useNavigate()
         const { data } = await axios.get(`${window.env_var}api/resident/helperstaff/getOne/${props.booked_id}`)
         setFlats(props.flatID)
         setStaff(data.data.staff[0])
-        console.log(data.data.staff)
         const serviceType = await axios.get(`${window.env_var}api/admin/dailyhelp/getStafftype/${data.data.staff[0].serviceType}`)
         setService(serviceType.data.data.dailyhelp.serviceType)
+        setError(false)
       }
     } catch (error) {
-      
+      setError(true)
     }
   }
 
@@ -131,7 +134,7 @@ const navigate = useNavigate()
     // window.location.href="/dailyhelp"
      })
     } catch (error) {
-      
+
     }
   }
   const deny=async()=>{
@@ -142,6 +145,9 @@ const navigate = useNavigate()
     }, 1500);
    
   }
+
+  if(isError)
+    return <ErrorScreen/>
 
   return (
     <div className="dailyservicepasscodecontainer">

@@ -135,7 +135,7 @@ const Vendorlist = () => {
     return <Loader/>
 
   if(isError)
-  return <ErrorScreen/>
+    return <ErrorScreen/>
 
   return (
     

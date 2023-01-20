@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import { checkSociety } from '../auth/Auth'
 import { Loader } from '../Loader';
+import ErrorScreen from '../../common/ErrorScreen'
 
 const Addeditamenity = () => {
 
@@ -23,6 +24,7 @@ const Addeditamenity = () => {
   const rent = useRef([])
   const status = useRef([])
   const [loading, setLoading] = useState(true)
+  const [isError,setError] = useState(false)
 
   useEffect(() => {
     if (checkSociety()) {
@@ -59,8 +61,9 @@ const Addeditamenity = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/society/amenities/getEach/${id}`)
       setAmenity(data.data.amenity[0])
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -97,6 +100,11 @@ const Addeditamenity = () => {
       console.log(error)
     }
   }
+
+  if(isError)
+    return <ErrorScreen/>
+
+
   return (
     <div className="aeacontainer">
       <div id="aeasection">

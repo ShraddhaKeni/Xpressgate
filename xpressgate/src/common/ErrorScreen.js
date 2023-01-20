@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import {motion,useTransform,useMotionValue} from 'framer-motion'
 import './Loader.css'
+import ErrorOutlinedIcon from '@mui/icons-material/ErrorOutlined';
 
 const ErrorScreen = () => {
 
@@ -26,19 +27,28 @@ const ErrorScreen = () => {
 
   return (
    
-      <motion.div
+      <div
      
       className="box"
-      style={{width:'250px',height:'250px',borderRadius:'50%',fontSize:'20px',textAlign:'center',position:'relative'}}
+      style={{width:'550px',height:'550px',fontSize:'20px',textAlign:'center',position:'relative',top:'150px',left:'35%'}}
       ref={motionRef}
-      animate={{x:point.x,y:point.y}}
-      onClick={()=>window.history.back(-1)}
+     
       >
-        <h3 style={{position:'absolute',top:'40%'}}>
-            404: Click To Go Back.
-        </h3>
+        <ErrorOutlinedIcon className='error_icon'> </ErrorOutlinedIcon>
+        <h3>Oh snap !</h3>
+        <br/>
+        <br/>
+        <h4>
+            An Error has occured while loading the page.
+        </h4>
+        <motion.button 
+          whileHover={{background:'red'}}
+          onClick={()=>window.history.back(-1)}
+          transition={{ type: "spring", stiffness: 100 }}
+
+         className='dismiss_error'>Dismiss</motion.button>
         
-      </motion.div>
+      </div>
   )
 }
 
