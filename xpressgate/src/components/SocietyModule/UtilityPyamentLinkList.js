@@ -6,6 +6,7 @@ import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
+import Societyheader from './Utils/Societyheader'
 
 const UtilityPyamentLinkList = () => {
 
@@ -34,6 +35,7 @@ const UtilityPyamentLinkList = () => {
       setLoading(false);
     } catch (error) {
       console.log(error)
+      setLoading(false);
     }
   }
 

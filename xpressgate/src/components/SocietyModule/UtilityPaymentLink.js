@@ -8,11 +8,12 @@ import axios from 'axios';
 import { checkSociety } from '../auth/Auth';
 import { useLocation } from 'react-router-dom';
 import { ToastMessage } from '../ToastMessage';
+import { Loader } from "../Loader";
 
 
 const UtilityPaymentLink = () => {
+  const [loading, setLoading] = useState(true)
   const [toast, setToast] = useState({ show: false })
-
   const [linkData, setLinkData] = useState();
   const location = useLocation()
 
@@ -26,16 +27,18 @@ const UtilityPaymentLink = () => {
         }
       }
       axios.get(`${window.env_var}api/society/checkLogin`, config)
-        .then(({ data }) => {
-
-          if (location.state) {
-            getLinkDetails()
-          }
-        })
-        .catch(err => {
-          localStorage.clear();
-          window.location.href = '/societylogin'
-        })
+      .then(({ data }) => {
+        if (location.state) {
+          getLinkDetails()
+        }
+        else{
+          setLoading(false);
+        }
+      })
+      .catch(err => {
+        localStorage.clear();
+        window.location.href = '/societylogin'
+      })
     }
     else {
       window.location.href = '/'
@@ -53,15 +56,15 @@ const UtilityPaymentLink = () => {
       setLinkData(data.data.links[0]);
       document.getElementById('link').value = data.data.links[0].link;
       document.getElementById('type').value = data.data.links[0].type;
+      setLoading(false);
     } catch (error) {
-
+      setLoading(false);
     }
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-
       if (location.state?.id) {
         setToast({ show: true, type: "success", message: "Link updated successfully" })
         const sendData = {
@@ -82,13 +85,11 @@ const UtilityPaymentLink = () => {
         }
       }
       else {
-
         const sendData = {
           community_id: localStorage.getItem("community_id"),
           type: document.getElementById('type').value,
           link: document.getElementById('link').value,
           status: "1",
-
         }
         const { data } = await axios.post(`${window.env_var}api/paymentlink/add`, sendData)
         if (data.status_code == 200) {
@@ -98,9 +99,7 @@ const UtilityPaymentLink = () => {
           console.log(data.status_code)
           setToast({ show: true, type: "error", message: `${data.message}` })
         }
-
       }
-
     } catch (error) {
       console.log(error)
     }
@@ -116,10 +115,6 @@ const UtilityPaymentLink = () => {
           <img src="/images/societyicon.svg" alt="society name" />
           <label>Society Name</label>
         </div>
-        {/* <div className='AddLSsidelinks'>
-          <a className='LSsidelinks' href="/localservices">Local Service</a><br></br><br></br>
-          <a className='ALSsidelinks' href="/addlocalservice"><b>Local Services</b></a>
-        </div> */}
         <div className='UPL_SideImage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
       <div className='alsbackgroundimg'>
@@ -128,29 +123,30 @@ const UtilityPaymentLink = () => {
         <div className='UPL_DisPlay'>
           <label>{pagePrefix} Utility Payment Link</label>
         </div>
-        <Form className='formclass'>
-          <div class="form-group row">
-            <label class="col-lg-2 col-form-label ADN_label">Utility Type</label>
-            <div class="col-lg-4">
-              <select class="form-control input-lg inputborder" id="type" name="type" placeholder="Service" required>
-                <option value={null} disabled selected> Select Utility Type </option>
-                <option value="Electricity"> Electricity </option>
-                <option value="Water"> Water </option>
-                <option value="LPG"> LPG </option>
-                <option value="Landline"> Landline </option>
-
-              </select>
+        <Loader loading={loading}>
+          <Form className='formclass'>
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label ADN_label">Utility Type</label>
+              <div class="col-lg-4">
+                <select class="form-control input-lg inputborder" id="type" name="type" placeholder="Service" required>
+                  <option value={null} disabled selected> Select Utility Type </option>
+                  <option value="Electricity"> Electricity </option>
+                  <option value="Water"> Water </option>
+                  <option value="LPG"> LPG </option>
+                  <option value="Landline"> Landline </option>
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="form-group row">
-            <label class="col-lg-2 col-form-label ADN_label">Payment Link</label>
-            <div class="col-lg-4">
-              <input type="text" class="form-control input-lg inputborder" id='link' name="link" placeholder="Payment Link" required></input>
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label ADN_label">Payment Link</label>
+              <div class="col-lg-4">
+                <input type="text" class="form-control input-lg inputborder" id='link' name="link" placeholder="Payment Link" required></input>
+              </div>
             </div>
-          </div>
 
-          <button type="submit" className="btnAddV" onClick={handleSubmit}>{pagePrefix} Link</button>
-        </Form>
+            <button type="submit" className="btnAddV" onClick={handleSubmit}>{pagePrefix} Link</button>
+          </Form>
+        </Loader>
       </div>
     </div>
   )
