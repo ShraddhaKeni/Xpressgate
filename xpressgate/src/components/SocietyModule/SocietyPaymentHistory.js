@@ -8,6 +8,8 @@ import { useLocation } from "react-router-dom";
 import Societyheader from "./Utils/Societyheader";
 import { getBlocks } from "./common/common";
 import { Button } from "react-bootstrap";
+import { Loader } from "../Loader";
+
 const SocietyPaymentHistory = () => {
  
   const [utilities,setUtility]= useState([])
@@ -17,12 +19,13 @@ const SocietyPaymentHistory = () => {
   const [currentPosts,setCurrentPosts] = useState([])
   const location = useLocation()
   const [bills,setBills] = useState([])
+  const [loading, setLoading] = useState(true)
 
   const block_id = useRef([])
   const utility_id = useRef([])
   useEffect(()=>{
-      getUtilities()
-      getBills()
+    getUtilities()
+    getBills()
   },[])
 
   const getUtilities=async()=>{
@@ -45,8 +48,9 @@ const SocietyPaymentHistory = () => {
       setCurrentPosts(data.data.bills.slice(indexoffirst,indexoflast))
       document.getElementById("Blocks").selectedIndex = 0
       document.getElementById("bills").selectedIndex = 0
+      //setLoading(false);
     } catch (error) {
-      
+      setLoading(false);
     }
   }
 
@@ -67,10 +71,8 @@ const SocietyPaymentHistory = () => {
   }
   const  dateTimeFormat=(date)=>
   {
-   
     var d = new Date(date)
     return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()
-    
   }
     
   async function  paginate(event)
@@ -104,20 +106,18 @@ const SocietyPaymentHistory = () => {
     {
       paginate(0)
     }
-  
-}
+  }
 
   return (
     <div className="addguestcontainer4">
-    <div id="addflatsection">
-      <Societyheader/>
-    </div>
+      <div id="addflatsection">
+        <Societyheader/>
+      </div>
       <div id="societynamesection">
         <div className="PH_societyname">
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
-        
         <div className="PHSimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
@@ -126,89 +126,69 @@ const SocietyPaymentHistory = () => {
         <div className="PH_display">
           <label> Payment History</label>
         </div>
-       <div className="dropboxes">
-        <div>
-          <select id="bills" onChange={()=>getData()} ref={utility_id} className="form-control input-lg ">
-            <option value={null} disabled selected>Select Type</option>
-            {utilities.map(item=>{
-              
-                return <option value={item._id}>{item.utilityType}</option>
-            })}
-          </select>
-        </div>
-        <div>
-          <select id="Blocks" style={{ marginLeft:'20px'}} onChange={()=>getData()} ref={block_id} className="form-control input-lg">
-            <option value={null} disabled selected>Select Block</option>
-            {block.map(item=>{
+        <Loader loading={loading}>
+          <div className="dropboxes">
+            <div>
+              <select id="bills" onChange={()=>getData()} ref={utility_id} className="form-control input-lg ">
+                <option value={null} disabled selected>Select Type</option>
+                {utilities.map(item=>{
+                  return <option value={item._id}>{item.utilityType}</option>
+                })}
+              </select>
+            </div>
+            <div>
+              <select id="Blocks" style={{ marginLeft:'20px'}} onChange={()=>getData()} ref={block_id} className="form-control input-lg">
+                <option value={null} disabled selected>Select Block</option>
+                {block.map(item=>{
                   return <option value={item.id}>{item.name}</option>
-            })}
-          </select>
-        </div>
-        <Button style={{backgroundColor:'#0A8996', marginLeft:'12px'}} className="GeTAllBTN" onClick={()=>getBills()}>Get All</Button>
-       </div>
-       <div className='row'>
-       <div className='PHsearchbox'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-              <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
+                })}
+              </select>
+            </div>
+            <Button style={{backgroundColor:'#0A8996', marginLeft:'12px'}} className="GeTAllBTN" onClick={()=>getBills()}>Get All</Button>
           </div>
-       </div>
-        {/* <input
-          type=" search"
-          className="paymentsearch"
-          name="Search"
-          placeholder="&#128269; Search"
-
-          onChange={(e)=>findText(e)}
-        ></input> */}
-
-        <table
-          id="inoutbooktable"
-          class="table table-striped table-bordered table-sm  "
-          cellspacing="0"
-          // style={{ border: '2px solid #14335D;;'}}
-        >
-          <thead>
-            <tr>
-              <th class="th-sm">Bill NO</th>
-              <th class="th-sm">Flat No</th>
-              <th class="th-sm">Resident Name</th>
-              <th class="th-sm">Payment Date</th>
-              <th class="th-sm">Due Date</th>
-              <th class="th-sm">Amount</th>
-              <th class="th-sm">Status</th>
-              <th class="th-sm">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-
-            {bills?currentPosts.map((item,index)=>{
-
-              return(
-               
-                <tr>
-                  <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
-                  <td>{item.flat}</td>
-                  <td>{item.firstname} {item.lastname}</td>
-                  <td>{dateTimeFormat(item.payment_date)} </td>
-                  <td>{dateTimeFormat(item.due_date)} </td>
-                  <td>Rs.{item.paymentAmount} </td>
-                  <td>{item.paid==true?<h8 style={{color:'green'}}>Paid</h8>:<h8 style={{color:'red'}}>Unpaid</h8>}</td>
-                  <td>{item.paid==true?'':<button className="send_reminder">Send Reminder</button>}</td>
+          <div className='row'>
+            <div className='PHsearchbox'>
+              <span>
+                <img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+                <input placeholder='Search' onChange={(e) => { findText(e) }}></input>
+              </span>
+            </div>
+          </div>
+        
+          <table id="inoutbooktable" class="table table-striped table-bordered table-sm " cellspacing="0" >
+            <thead>
+              <tr>
+                <th class="th-sm">Bill NO</th>
+                <th class="th-sm">Flat No</th>
+                <th class="th-sm">Resident Name</th>
+                <th class="th-sm">Payment Date</th>
+                <th class="th-sm">Due Date</th>
+                <th class="th-sm">Amount</th>
+                <th class="th-sm">Status</th>
+                <th class="th-sm">Actions</th>
               </tr>
-              )
-              
-            }) : <tr>No Data Found</tr>}
-            
-          
-
-            
-          </tbody>
-        </table>
-        <PaginationCalculate totalPages={bills.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
-
+            </thead>
+            <tbody>
+              {bills?currentPosts.map((item,index)=>{
+                return(
+                  <tr>
+                    <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
+                    <td>{item.flat}</td>
+                    <td>{item.firstname} {item.lastname}</td>
+                    <td>{dateTimeFormat(item.payment_date)} </td>
+                    <td>{dateTimeFormat(item.due_date)} </td>
+                    <td>Rs.{item.paymentAmount} </td>
+                    <td>{item.paid==true?<h8 style={{color:'green'}}>Paid</h8>:<h8 style={{color:'red'}}>Unpaid</h8>}</td>
+                    <td>{item.paid==true?'':<button className="send_reminder">Send Reminder</button>}</td>
+                  </tr>
+                )
+              }) : <tr>No Data Found</tr>}
+            </tbody>
+          </table>
+          <PaginationCalculate totalPages={bills.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+        </Loader>
       </div>
     </div>
   );
 };
-
 export default SocietyPaymentHistory;
