@@ -151,6 +151,16 @@ color: #14335D;
   height: auto;
 }
 
+.search_icon
+{
+  transition: .3s ease-in-out all;
+}
+
+.search_icon:hover
+{
+  transform: scale(1.15);
+}
+
 .DashBoardCard {
   width: fit-content;
   margin-left: 42%;
@@ -163,13 +173,22 @@ color: #14335D;
 .DashBoardCard img {
   width: 15vw;
   padding-right: -10%;
+  /* transition: .2s all ease-in-out; */
 }
+
+
+
 .FullCardsCss {
   margin-top: 6%;
   padding: 0%;
   margin-right: 60%;
   width: 65vw;
+  
 }
+
+
+
+
 
 /* .DashBoardCard:hover{
   transition: .5s ease all;

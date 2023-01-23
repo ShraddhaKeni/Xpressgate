@@ -15,6 +15,7 @@ const Vehiclemanagement = () => {
   const [currentPosts, setCurrentPosts] = useState([])
   const [loading, setLoading] = useState(true)
   const navigate= useNavigate()
+  const [filterArr,setFilter] = useState([])
 
   useEffect(() => {
     getVehicleParkDetails()
@@ -39,7 +40,15 @@ const Vehiclemanagement = () => {
     setCurrentpage(event.selected + 1)
     const indexoflast = (event.selected + 1) * postPerPage  //endoffset
     const indexoffirst = (indexoflast - postPerPage) //startof
-    setCurrentPosts(data.data.vehicle.slice(indexoffirst, indexoflast))
+    if(filterArr.length>0)
+    {
+      setCurrentPosts(data.data.vehicle.slice(indexoffirst, indexoflast))
+    }
+    else
+    {
+      setCurrentPosts(entry.slice(indexoffirst, indexoflast))
+    }
+    
   }
 
   function findText(e) {
@@ -52,12 +61,14 @@ const Vehiclemanagement = () => {
         return true
       }
     })
-    if (arr) {
+    if (arr.length>0) {
+      setFilter(arr)
       const indexoflast = currentPage * postPerPage  //endoffset
       const indexoffirst = (indexoflast - postPerPage)
       setCurrentPosts(arr.slice(indexoffirst, indexoflast))
     }
     else {
+      setFilter([])
       paginate(0)
     }
 
@@ -73,6 +84,7 @@ function navigatetoEdit(id)
       <div id="vmheadersection">
         <Societyheader />
       </div>
+      
       <div id="vmsection">
         <div className='VMsocietyname'>
           <img src="/images/societyicon.svg" alt="society name" />
@@ -92,7 +104,7 @@ function navigatetoEdit(id)
         </div>
         <Loader loading={loading}>
           <div className='row'>
-            <div className='parkingsection'>
+            <div className='parkingsection' style={{display:'none'}}>
               <select className="form-control input-lg psection parksection">
                 <option value={null} disabled selected>Parking Section</option>
               </select>
@@ -115,7 +127,7 @@ function navigatetoEdit(id)
             </thead>
             <tbody>
               {currentPosts.map(item => {
-                console.log(item)
+                
                 return (
                   <tr onClick={() => navigatetoEdit(item._id,item.vehicle_number)}>
                     <td>{item.firstname} {item.lastname}</td>
@@ -129,7 +141,7 @@ function navigatetoEdit(id)
 
             </tbody>
           </table>
-          <PaginationCalculate totalPages={entry.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+          <PaginationCalculate totalPages={filterArr.length>0?filterArr.length:entry.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
         </Loader>
       </div>
     </div>

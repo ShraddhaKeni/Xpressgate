@@ -9,6 +9,7 @@ import { checkSociety } from '../auth/Auth'
 import { useNavigate } from 'react-router-dom';
 import { mobileValidation, emailValidation } from '../auth/validation';
 import { Loader } from "../Loader";
+import ErrorScreen from "../../common/ErrorScreen";
 
 const Addguard = () => {
   const [loading, setLoading] = useState(true)
@@ -16,6 +17,7 @@ const Addguard = () => {
   const location = useLocation()
   const [type, setType] = useState('add')
   const navigate = useNavigate()
+  const [isError,setError] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -63,7 +65,7 @@ const Addguard = () => {
         }
       }
     } catch (error) {
-      console.log(error)
+      
     }
   }
 
@@ -103,10 +105,14 @@ const Addguard = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/guard/getone/${location.state.id}`)
       setGuard(data.data)
+      setError(false)
     } catch (error) {
-
+      setError(true)
     }
   }
+
+  if(isError)
+    return <ErrorScreen/>
 
   return (
     <div className="addguestcontainer4">

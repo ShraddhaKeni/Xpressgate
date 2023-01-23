@@ -101,12 +101,12 @@ export const CouponsList = () => {
                             </div>
                         </div>
 
-                        <div id="cardsection pt-5">
-                            <div className="row row-cols-1 row-cols-md-3 g-3 mb-5">
+                        <div id="cardsection pt-5 ">
+                            <div className="row row-cols-1 row-cols-md-3 g-3 mb-5 allcards">
 
                                 {coupons && coupons.map((coupon) => {
 
-                                    return <div className="col" key={coupon.id}>
+                                    return <div className="col  card_hover_animation" key={coupon.id}>
                                         <div className="Coupon-card-green ">
                                             <div className='d-flex justify-content-end mr-5'><button className={`${coupon.status == 1 ? 'highlight-active' : 'highlight-inactive'} p-2 px-3`}><span className={`${coupon.status == 1 ? 'dot' : 'dot-inactive'}`}></span>{coupon.status == 1 ? 'Active' : 'Inactive'}</button></div>
                                             <div>

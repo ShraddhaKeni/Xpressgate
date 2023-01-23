@@ -7,6 +7,7 @@ import { checkGuard } from '../auth/Auth';
 import GuardHeader from './Utils/GuardHeader';
 import { Loader } from "../Loader";
 import { ToastMessage } from '../ToastMessage';
+import ErrorScreen from '../../common/ErrorScreen';
 const Inoutbookcard = () => {
   const [toast, setToast] = useState({ show: false })
   const [loading, setLoading] = useState(true)
@@ -14,8 +15,9 @@ const Inoutbookcard = () => {
   const [flats, setFlats] = useState([])
   const location = useLocation()
   const navigate = useNavigate()
+  const [isError,setError] = useState(false)
 
-  console.log(location.state)
+
   useEffect(() => {
     if (checkGuard()) {
       const config = {
@@ -31,14 +33,10 @@ const Inoutbookcard = () => {
           localStorage.clear();
           window.location.href = '/guardLogin'
         })
-        setLoading(false);
+        
     } else {
       window.location.href = '/'
-    }  
-
-
-
-
+    } 
    
   }, [])
 
@@ -49,11 +47,12 @@ const Inoutbookcard = () => {
     }
     try {
       const { data } = await axios.post(`${window.env_var}api/inout/getone`, id);
-      console.log(id);
       setInOutData(data.data)
       setFlats(data.data.flat_details)
+      setLoading(false)
+      setError(false)
     } catch (error) {
-      console.log(error);
+      setError(true)
     }
   }
 
@@ -92,12 +91,13 @@ const Inoutbookcard = () => {
       }
 
       const {data} = await axios.post(`${window.env_var}api/inout/addout`,sendData)
+      setError(false)
       setTimeout(() => {
         window.location.href='/inoutbook'
       }, 1500);
       // navigate('/inoutbook')
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
   const deny=async()=>{
@@ -108,6 +108,11 @@ const Inoutbookcard = () => {
     }, 1500);
    
   }
+
+  if(isError)
+    return <ErrorScreen/>
+
+
   return (
     <div className="inoutbookcardcontainer">
       <div id="headersection">
