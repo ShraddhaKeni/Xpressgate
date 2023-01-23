@@ -88,15 +88,15 @@ export const AddCoupon = () => {
 
                     <Form className='formclass fcadmin' method='POST' onSubmit={handleSubmit}>
 
-                        <SimpleInputComponent label={'Coupon Name'} name={'name'} onChange={(e) => { setCoupon({ ...coupon, name: e.target.value }) }} required />
+                        <SimpleInputComponent label={'Coupon Name'} placeholder={'Enter Coupon Name'} name={'name'} onChange={(e) => { setCoupon({ ...coupon, name: e.target.value }) }} required />
                         <SimpleInputComponent label={'Validity'} type={'datepicker'} name={'valid'} required onChange={(e) => handleChange(e)} />
-                        <SimpleInputComponent label={'Code'} name={'code'} required onChange={(e) => setCoupon({ ...coupon, code: e.target.value })} />
+                        <SimpleInputComponent label={'Code'} placeholder={'Enter Coupon Code'} name={'code'} required onChange={(e) => setCoupon({ ...coupon, code: e.target.value })} />
                         <SimpleDropDownComponent items={[{ id: 1, option: 'Flat' }, { id: 2, option: 'Percentage' }]} label={'Type'} name={'type'} id={'state'} onChange={(e) => { handleTypeChange(e) }} />
-                        < SimpleInputComponent label={'Amount'} name={'amount'} required onChange={(e) => setCoupon({ ...coupon, amount: e.target.value })} type={'number'} />
+                        < SimpleInputComponent label={'Amount'} name={'amount'} placeholder={'Enter Amount'} required onChange={(e) => setCoupon({ ...coupon, amount: e.target.value })} type={'number'} />
                         {couponType > 1 &&
                             <SimpleInputComponent label={'Limit'} name={'limit'} required onChange={(e) => setCoupon({ ...coupon, limit: e.target.value })} type={'number'} />
                         }
-                        <SimpleInputComponent label={'Description'} type={'textarea'} name={'description'} onChange={(e) => setCoupon({ ...coupon, description: e.target.value })} />
+                        <SimpleInputComponent label={'Description'} placeholder={'Enter Description'} type={'textarea'} name={'description'} onChange={(e) => setCoupon({ ...coupon, description: e.target.value })} />
 
 
 

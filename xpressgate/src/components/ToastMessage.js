@@ -11,7 +11,7 @@ export const ToastMessage = ({ show, message, type, handleClose }) => {
             open={show || false}
             autoHideDuration={3000}
             key="bottomcenter"
-            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            anchorOrigin={{ vertical: "top", horizontal: "center" }}
             onClose={handleClose}
             TransitionComponent={TransitionLeft}
         >
