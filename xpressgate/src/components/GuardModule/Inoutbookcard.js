@@ -83,7 +83,7 @@ const Inoutbookcard = () => {
   const handleSubmit = async(e,id)=>{
     e.preventDefault()
     try {
-      setToast({ show: true, type: "success", message: "Exited successfully" })
+    
       const sendData = {
         outtime:Date.now(),
         status:2,
@@ -92,6 +92,7 @@ const Inoutbookcard = () => {
 
       const {data} = await axios.post(`${window.env_var}api/inout/addout`,sendData)
       setError(false)
+      setToast({ show: true, type: "success", message: "Exited successfully" })
       setTimeout(() => {
         window.location.href='/inoutbook'
       }, 1500);

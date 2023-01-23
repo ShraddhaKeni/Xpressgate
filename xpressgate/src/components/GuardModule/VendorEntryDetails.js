@@ -88,7 +88,7 @@ const VendorEntryDetails = () => {
           const sendRequest = await axios.get(`${window.env_var}api/inoutentires/update/${location.state.code}`)
           bookings.map(async(items)=>{
             try {
-              setToast({ show: true, type: "success", message: "Vendor entry has been Approved" })
+            
               let submitData = {
                 firstname:items.vendor_name,
                 lastname:'',
@@ -108,6 +108,7 @@ const VendorEntryDetails = () => {
                const {data} = await axios.post(`${window.env_var}api/inout/add`,submitData)
               const bookingUpdate = await axios.get(`${window.env_var}api/bookvendor/removeBooking/${items.booking_id}`) 
               setError(false)
+              setToast({ show: true, type: "success", message: "Vendor entry has been Approved" })
               setTimeout(() => {
                 window.location.href='/vendorlist'
               }, 1500);

@@ -52,7 +52,7 @@ const GuestEntry = () => {
     }
     const handleSubmit=async()=>{
         try {
-          setToast({ show: true, type: "success", message: "Guest entry has been approved" })
+       
             var submitData = {
                 firstname:guestDetails.guestFirstName,
                 lastname:guestDetails.guestLastName,
@@ -71,6 +71,7 @@ const GuestEntry = () => {
             setError(false)
             const {data} = await axios.post(`${window.env_var}api/inout/add`,submitData);
             const bookingUpdate = await axios.get(`${window.env_var}api/resident/guest/deleteGuest/${guestDetails._id}`)
+            setToast({ show: true, type: "success", message: "Guest entry has been approved" })
             setTimeout(() => {
               window.location.href='/guestlist'
             }, 1500);

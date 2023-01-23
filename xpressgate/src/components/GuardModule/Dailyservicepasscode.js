@@ -111,7 +111,7 @@ const navigate = useNavigate()
 
   const handleclick =async()=>{
     try {
-      setToast({ show: true, type: "success", message: "Approved" })
+    
      dailyhelp.map(async(item)=>{
       let submitData = {
         firstname:item.helper_name,
@@ -128,6 +128,7 @@ const navigate = useNavigate()
     }
     const saveData = await axios.post(`${window.env_var}api/inout/add`,submitData)
     console.log(saveData.data.data)
+    setToast({ show: true, type: "success", message: "Approved" })
     setTimeout(() => {
       window.location.href='/dailyhelp'
     }, 1500);
