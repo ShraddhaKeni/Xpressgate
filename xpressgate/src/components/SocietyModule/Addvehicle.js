@@ -8,6 +8,7 @@ import { useLocation } from "react-router-dom";
 import SocietyHeader from './Utils/Societyheader';
 import { Loader } from "../Loader";
 import { ToastMessage } from '../ToastMessage';
+import ErrorScreen from '../../common/ErrorScreen';
 
 const Addvehicle = () => {
   const [toast, setToast] = useState({ show: false })
@@ -23,6 +24,7 @@ const Addvehicle = () => {
   const location = useLocation()
   const [resid, setResid] = useState()
   const [loading, setLoading] = useState(true)
+  const [isError,setError] = useState(false)
   //const [vehiclenumber, setvehiclenumber] = useState()
 
   useEffect(() => {
@@ -41,8 +43,9 @@ const Addvehicle = () => {
       const { data } = await axios.get(`${window.env_var}api/block/blockList`)
       setBlocks(data.data.block)
       setLoading(false);
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
   const getFlats = async (e) => {
@@ -52,8 +55,9 @@ const Addvehicle = () => {
       document.getElementById('resident_name').value = null;
       const { data } = await axios.get(`${window.env_var}api/flats/getList/${e.target.value}`)
       setFlats(data.data.list)
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -62,8 +66,9 @@ const Addvehicle = () => {
       const { data } = await axios.get(`${window.env_var}api/flats/getList/${e}`);
       setFlats(data.data.list);
       document.getElementById('flat_id').value=pdetails.flat_id;
+      setError(false)
     } catch (error) {
-      console.log(error);
+      setError(true)
     }
   }
 
@@ -73,8 +78,9 @@ const Addvehicle = () => {
       setSections(data.data)
       console.log(data.data);
       document.getElementById('section').value=pdetails.section_id;
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -82,8 +88,9 @@ const Addvehicle = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/parkingsection/getAll/${e.target.value}`)
       setSections(data.data)
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
   const getResident = async (e) => {
@@ -97,8 +104,9 @@ const Addvehicle = () => {
       setResid(data.data.list[0].resident_id)
       setVehicles(vehicle.data.data.vehical)
       console.log(vehicle.data.data.vehical)
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -111,8 +119,9 @@ const Addvehicle = () => {
       const vehicle = await axios.get(`${window.env_var}api/resident/vehicle/getResidentVehicle/${data.data.list[0].resident_id}`)
       setVehicles(vehicle.data.data.vehical);
       document.getElementById('vehicle_id').value=pdetails.vehicle_id;
+      setError(false)
     } catch (error) {
-      
+      setError(true)
     }
     
   }
@@ -121,7 +130,7 @@ const Addvehicle = () => {
     try {
       if(type=='edit')
       {
-        setToast({ show: true, type: "success", message: "Updated parking successfully" })
+       
         const sendData = {
           id:location.state.id,
           section_id: document.getElementById('section').value,
@@ -131,6 +140,7 @@ const Addvehicle = () => {
         }
         const data = await axios.post(`${window.env_var}api/assigns/update`, sendData)
         console.log(sendData)
+        setToast({ show: true, type: "success", message: "Updated parking successfully" })
         setTimeout(() => {
           window.location.href = '/vehiclemanagement'
         }, 1500);
@@ -140,7 +150,7 @@ const Addvehicle = () => {
         // if{
         //   document.getElementById('vehicle_id').value ==
         // }
-        setToast({ show: true, type: "success", message: "Alloted parking successfully" })
+        
         const sendData = {
           section_id: document.getElementById('section').value,
           resident_id: resid,
@@ -150,12 +160,13 @@ const Addvehicle = () => {
         const data = await axios.post(`${window.env_var}api/assigns/post`, sendData)
         console.log(data)
         console.log(sendData)
+        setToast({ show: true, type: "success", message: "Alloted parking successfully" })
         setTimeout(() => {
           window.location.href = '/vehiclemanagement'
         }, 1500);
       }
     } catch (error) {
-      console.log(error)
+      setToast({ show: true, type: "error", message: "Check Data." });
       //alert("Parking is already assigned")
 
     }
@@ -171,12 +182,14 @@ const Addvehicle = () => {
       getResidentUpdate(data.data.ParkingDet[0].flat_id);
       
      
+      setError(false)
     } catch (error) {
-      console.log('in error',error);
+      setError(true)
     }
   }
 
-
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="addguestcontainer4">
     <div id="addflatsection">

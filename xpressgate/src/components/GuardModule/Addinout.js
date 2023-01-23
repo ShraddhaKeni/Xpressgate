@@ -8,6 +8,7 @@ import './Addinout.css';
 import { useNavigate } from 'react-router-dom'
 import { Loader } from "../Loader";
 import { ToastMessage } from '../ToastMessage';
+import ErrorScreen from '../../common/ErrorScreen';
 const Addinout = () => {
   const [toast, setToast] = useState({ show: false })
   const [loading, setLoading] = useState(true)
@@ -18,6 +19,7 @@ const Addinout = () => {
   const [vendor, setVendor] = useState([])
   const [dailyhelp, setDailyhelp] = useState([])
   const [residents, setResidents] = useState([])
+  const [isError,setError] = useState(false)
 
   // let blockid = document.getElementById('item').value
   const visitortype = useRef([])
@@ -53,8 +55,9 @@ const Addinout = () => {
       const { data } = await axios.post(`${window.env_var}api/block/get`, param)
       //console.log(data.data.block)
       setBlock(data.data.block)
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -63,8 +66,9 @@ const Addinout = () => {
       const { data } = await axios.get(`${window.env_var}api/flats/getList/${e.target.value}`)
       //console.log(data)
       setFlatNo(data.data.list)
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -75,8 +79,9 @@ const Addinout = () => {
       }
       const { data } = await axios.get(`${window.env_var}api/resident/getResidentByFlatId/${e.target.value}`,config)
       //setResidents(data.data.list)
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -88,15 +93,17 @@ const Addinout = () => {
         document.getElementById('fulldailyhelp').classList.add('select_visibility')
         const { data } = await axios.get(`${window.env_var}api/vendor/getAll`)
         setVendor(data.data.vendors)
+        setError(false)
       } else if (visitortype.current.value == 3) {
         document.getElementById('fullvendor').classList.add('select_visibility')
         document.getElementById('fulldailyhelp').classList.remove('select_visibility')
         const { data } = await axios.get(`${window.env_var}api/admin/dailyhelp/getAll`)
         setDailyhelp(data.data.dailyhelp)
+        setError(false)
       }
       
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -132,6 +139,9 @@ const Addinout = () => {
       console.log(error)
     }
   }
+
+  if(isError)
+    return <ErrorScreen/>
 
   return (
     <div className="aiocontainer">

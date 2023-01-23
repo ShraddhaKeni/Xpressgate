@@ -3,6 +3,7 @@ import "../SocietyModule/SocietyDuesTable.css";
 import Societyheader from "./Utils/Societyheader";
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import axios from "axios";
+import ErrorScreen from "../../common/ErrorScreen";
 
 const SocietyDuesTable = () => {
   const [societydues,setsocietydues] = useState()
@@ -11,7 +12,7 @@ const SocietyDuesTable = () => {
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts,setCurrentPosts] = useState([])
-
+  const [isError,setError] = useState(false)
   useEffect(() => {
     getSocietyDetails()
   }, [])
@@ -31,8 +32,9 @@ const SocietyDuesTable = () => {
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.society_dues.slice(indexoffirst,indexoflast))
       //console.log(data.data.society_dues)
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -43,7 +45,8 @@ const SocietyDuesTable = () => {
     const indexoffirst = indexoflast - postPerPage //startoffset
     setCurrentPosts(currentsociety.slice(indexoffirst,indexoflast))
   }
-
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="addguestcontainer4">
       <div id="addflatsection">

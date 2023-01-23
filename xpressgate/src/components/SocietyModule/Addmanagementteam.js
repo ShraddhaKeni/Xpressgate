@@ -9,6 +9,7 @@ import { checkSociety } from "../auth/Auth";
 import { Loader } from "../Loader";
 import { ToastMessage } from '../ToastMessage';
 import { hi } from "date-fns/locale";
+import ErrorScreen from "../../common/ErrorScreen";
 const Addmanagementteam = () => {
   const [toast, setToast] = useState({ show: false })
   const [residents, setResidents] = useState([])
@@ -20,6 +21,7 @@ const Addmanagementteam = () => {
   const [editdata, seteditdata] = useState()
   //const notice_time_ref = useRef([])
   const [loading, setLoading] = useState(true)
+  const [isError,setError] = useState(false)
 
   useEffect(() => {
     if (checkSociety()) {
@@ -47,6 +49,7 @@ const Addmanagementteam = () => {
           //console.log(err)
         })
         setLoading(false);
+        setError(false)
     }
     else {
       window.location.href = '/'
@@ -60,8 +63,9 @@ const Addmanagementteam = () => {
       document.getElementById('ToDate').value = new Date(data.data.managementteam[0].to).toISOString().split('T')[0];
       document.getElementById('ForDate').value = new Date(data.data.managementteam[0].from).toISOString().split('T')[0];
       //console.log(document.getElementById('ToDate').value);
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -72,8 +76,9 @@ const Addmanagementteam = () => {
       document.getElementById('resident_id').value = resident_1.id
       //setOne(data.data.Resident.find(x=>x.id===location.state.id))
       setResidents(data.data.Resident)
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -82,8 +87,9 @@ const Addmanagementteam = () => {
       const { data } = await axios.get(`${window.env_var}api/resident/getall`)
 
       setResidents(data.data.Resident)
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -95,7 +101,7 @@ const Addmanagementteam = () => {
     e.preventDefault()
     try {
       if (type == 'add') {
-        setToast({ show: true, type: "success", message: "Added successfully" })
+     
         //if (document.getElementById('management_title').value !== "" && document.getElementById('from').value != "" && document.getElementById('to').value !== "") {
         const sendData = {
           // community_id: '632970d054edb049bcd0f0b4',
@@ -106,13 +112,14 @@ const Addmanagementteam = () => {
           to: document.getElementById('ToDate').value
         }
         const { data } = await axios.post(`${window.env_var}api/management/add`, sendData)
+        setToast({ show: true, type: "success", message: "Added successfully" })
         setTimeout(() => {
           window.location.href = '/management'
         }, 1500);
         // }
       }
       else {
-        setToast({ show: true, type: "success", message: "Updated successfully" })
+      
         const sendDataedit = {
           id: location.state.mainid,
           community_id: localStorage.getItem('community_id'),
@@ -122,6 +129,7 @@ const Addmanagementteam = () => {
           to: document.getElementById('ToDate').value
         }
         const { data } = await axios.post(`${window.env_var}api/management/update`, sendDataedit)
+        setToast({ show: true, type: "success", message: "Updated successfully" })
         setTimeout(() => {
           window.location.href = '/management'
         }, 1500);
@@ -129,7 +137,7 @@ const Addmanagementteam = () => {
        
       }
     } catch (error) {
-      console.log(error)
+      setToast({ show: true, type: "error", message: "Check Data." });
     }
   }
 
@@ -140,6 +148,9 @@ const Addmanagementteam = () => {
     const yyyy = today.getFullYear();
     return yyyy + "-" + mm + "-" + dd;
   };
+
+  if(isError)
+    return <ErrorScreen/>
 
   return (
     <div className="addguestcontainer4">

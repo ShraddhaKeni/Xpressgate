@@ -6,9 +6,10 @@ import "../SocietyModule/Package.css";
 import Societyheader from "./Utils/Societyheader";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import ErrorScreen from "../../common/ErrorScreen";
 
 const Package = () => {
-
+  const [isError,setError] = useState(false)
   const [booked,setPackage] = useState({})
   const navigate = useNavigate()
 
@@ -28,8 +29,9 @@ const Package = () => {
       {
         setPackage(data.data.booked[0])
       }
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -42,7 +44,8 @@ const Package = () => {
     
     return(`${date.getDate()-1}/${date.getUTCMonth()+1}/${date.getFullYear()+1}`)
   }
-
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="addguestcontainer4">
     <div id="addflatsection">

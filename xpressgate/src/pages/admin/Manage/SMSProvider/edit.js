@@ -8,6 +8,8 @@ import { getDefaultNormalizer } from '@testing-library/react';
 import RouterPath from '../../../../common/constants/path/routerPath';
 import { SimpleDropDownComponent, SimpleInputComponent } from '../../components/input';
 import { getAllPaymentGateways, updatePaymentGateway, updateSMSGateway } from '../../../../common/admin/admin_api';
+import { ToastMessage } from '../../../../components/ToastMessage';
+import { goBackInOneSec, TOAST } from '../../../../common/utils';
 
 const EditSMSGateway = () => {
 
@@ -18,22 +20,30 @@ const EditSMSGateway = () => {
     const navigate = useNavigate()
 
     const [smsgateway, setPaymentGateway] = useState(location.state.data);
+    const [toast, setToast] = useState({ show: false })
 
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
 
-            if (smsgateway.payment_gateway_name != '' && smsgateway.payment_api_key != '') {
+            if (smsgateway.gateway_name != '' && smsgateway.api_key != '') {
                 const { data } = await updateSMSGateway(smsgateway);
-                navigate(RouterPath.MANAGE_SMS_PROVIDER)
+                if (data && data?.status_code == 200) {
+                    setToast(TOAST.SUCCESS(data?.message));
+                    goBackInOneSec(navigate)
+                } else if (data?.status_code == 201) {
+                    setToast(TOAST.ERROR(data?.message));
+                }
             }
             else {
-                alert('Fields Empty !')
+                setToast(TOAST.ERROR('Fields Empty !'));
+
             }
 
         } catch (error) {
-            alert('Could not add Payment Gateway!')
+            setToast(TOAST.ERROR('Could not add SMS Gateway!'));
+
         }
 
     }
@@ -43,6 +53,8 @@ const EditSMSGateway = () => {
 
     return (
         <>
+            <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+
             <img src='/images/side_bar_img.svg' className='AddPremise_side_Img' />
             <div>
                 <div className='page-label'>
@@ -53,7 +65,7 @@ const EditSMSGateway = () => {
                     <Form className='formclass fcadmin'>
 
                         <SimpleInputComponent label={'Payment Gateway Name'} name={'payment_gateway_name'} id={'premises'} text={smsgateway?.gateway_name} onChange={(e) => { setPaymentGateway({ ...smsgateway, gateway_name: e.target.value }) }} />
-                        <SimpleInputComponent label={'API Key'} name={'payment_api_key'} id={'address'} text={smsgateway?.api_key} onChange={(e) => { setPaymentGateway({ ...smsgateway, api_key: e.target.value }) }} />
+                        <SimpleInputComponent label={'API Key'} name={'payment_api_key'} id={'address'} text={smsgateway?.api_key} onChange={(e) => { setPaymentGateway({ ...smsgateway, api_key: e.target.value }) }} required />
                         <button type="submit" onClick={(e) => handleSubmit(e)} className="BTN_ADD_premise ">Save</button>
 
                     </Form>

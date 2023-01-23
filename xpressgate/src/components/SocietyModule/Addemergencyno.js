@@ -10,6 +10,8 @@ import { mobileValidation } from "../auth/validation";
 import { useLocation } from "react-router-dom";
 import { Loader } from "../Loader";
 import { ToastMessage } from '../ToastMessage';
+import ErrorScreen from "../../common/ErrorScreen";
+
 const Addemergencyno = () => {
   const [toast, setToast] = useState({ show: false })
   const [contactTypes, setTypes] = useState([])
@@ -24,7 +26,7 @@ const Addemergencyno = () => {
   const [one, setOne] = useState({})
   const [update, setUpdate] = useState('add')
   const [loading, setLoading] = useState(true)
-
+  const [isError,setError] = useState(false)
 
   useEffect(() => {
     if (checkSociety()) {
@@ -67,9 +69,10 @@ const Addemergencyno = () => {
       const { data } = await axios.get(`${window.env_var}api/admin/emergencycontactstype/getAlltype`)
       //setOne(data.data.emergencycontacttypes.find(x => x.id === location.state.id))
       //console.log(location.state.id)
+      setError(false)
       setTypes(data.data.emergencycontacttypes)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -137,6 +140,12 @@ const Addemergencyno = () => {
       console.log(error)
     }
   }
+
+  if(isError)
+    return <ErrorScreen/>
+
+
+
   return (
     <div className="addguestcontainer4">
       <div id="addflatsection">

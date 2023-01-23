@@ -7,6 +7,7 @@ import { checkGuard } from '../auth/Auth';
 import GuardHeader from './Utils/GuardHeader';
 import { Loader } from "../Loader";
 import { ToastMessage } from '../ToastMessage';
+import ErrorScreen from '../../common/ErrorScreen';
 
 const GuestEntry = () => {
   const [toast, setToast] = useState({ show: false })
@@ -17,6 +18,7 @@ const GuestEntry = () => {
     const [guestDetails,setDetails] = useState({})
     const vehical = useRef([])
     const navigate = useNavigate()
+    const [isError,setError] = useState(false)
     useEffect(()=>{
       if (checkGuard()) {
         const config = {
@@ -42,8 +44,10 @@ const GuestEntry = () => {
         try {
             const {data} = await axios.get(`${window.env_var}api/resident/guest/getSingleGuest/${id}`)
             setDetails(data.data.guests[0])
+            setLoading(false)
+            setError(false)
         } catch (error) {
-            
+            setError(true)
         }
     }
     const handleSubmit=async()=>{
@@ -64,7 +68,7 @@ const GuestEntry = () => {
                 vehicle_no:document.getElementById('veh_id').value,
                 
             }
-            console.log(submitData)
+            setError(false)
             const {data} = await axios.post(`${window.env_var}api/inout/add`,submitData);
             const bookingUpdate = await axios.get(`${window.env_var}api/resident/guest/deleteGuest/${guestDetails._id}`)
             setTimeout(() => {
@@ -72,7 +76,7 @@ const GuestEntry = () => {
             }, 1500);
             // navigate('/guestlist')
         } catch (error) {
-            console.log(error)
+          setError(true)
         }
       
     }
@@ -84,6 +88,11 @@ const GuestEntry = () => {
       }, 1500);
      
     }
+
+    if(isError)
+      return <ErrorScreen/>
+
+
   return (
     <div className="frequentvisitorcontainer">
     <div id="headersection">

@@ -8,6 +8,7 @@ import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import { getAllByPlaceholderText } from '@testing-library/react';
 import SocietyHeader from './Utils/Societyheader'
 import { useNavigate } from 'react-router-dom';
+import ErrorScreen from '../../common/ErrorScreen';
 
 const Noticelist = () => {
   const [notice, setNotice] = useState([])
@@ -16,6 +17,7 @@ const Noticelist = () => {
   const [currentPosts, setCurrentPosts] = useState([])
   const [pageCount, setpageCount] = useState(0)
   const navigate = useNavigate()
+  const [isError,setError] = useState(false)
   useEffect(() => {
     getNotices()
   }, [])
@@ -27,8 +29,9 @@ const Noticelist = () => {
       const indexoflast = currentPage * postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.notice.slice(indexoffirst, indexoflast))
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
   async function paginate(event) {
@@ -70,7 +73,8 @@ const Noticelist = () => {
   {
     navigate('/addNotice',{state:{id:id,type:'edit'}})
   }
-
+  if(isError)
+  return <ErrorScreen/>
   return (
     <div className="nlcontainer">
       <div id="nlheadersection">

@@ -96,15 +96,13 @@ const Dailyhelplist = () => {
           <div className='DHL_display'>
             <label>Daily Help List</label>
           </div>
-          <Loader loading={loading}>
-          <div id="cardsection">
-          <div className="row row-cols-1 row-cols-md-3 g-4 dhfullcardscss">
+          <div className="row row-cols-1 row-cols-md-3 g-4 dhfullcardscss allcards ">
             
             {currentPosts.map((dailydata) => {
              
                 return (
                   
-                  <div className="col" onClick={()=>routeChange(dailydata._id,dailydata.helper_image)}><br></br>
+                  <div className="col card_hover_animation" onClick={()=>routeChange(dailydata._id,dailydata.helper_image)}><br></br>
                     <div className="dailyhelpminicard"><br></br><br></br>
                       <img className="dhcard-img-top" src={`${window.env_var}` +dailydata.helper_image} alt="profile"></img><br></br>
                       <label className='dhlcard-titlename'>{dailydata.helper_name}</label><br></br>
@@ -116,16 +114,17 @@ const Dailyhelplist = () => {
               )
             })}
           </div>
+          <div style={{marginTop:'0.5%'}}>
+
+<PaginationCalculate totalPages={dailyhelpdata.filter(x=>x.booking_id.length!=0).length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+</div>
           {/* </Loader> */}
         </div>
-        <div style={{marginTop:'0.5%'}}>
-
-          <PaginationCalculate totalPages={dailyhelpdata.filter(x=>x.booking_id.length!=0).length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
-        </div>
-        </Loader>
+       
+        
       </div>
      
-    </div>
+   
   )
 }
 

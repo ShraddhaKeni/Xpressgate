@@ -8,15 +8,19 @@ import { Link, Navigate, useLocation,useNavigate } from 'react-router-dom';
 import HeaderSection from './Utils/HeaderSection';
 import { checkGuard } from '../auth/Auth';
 import GuardHeader from './Utils/GuardHeader';
-import { Loader } from "../Loader";
+import Loader from '../../common/Loader';
+import ErrorScreen from '../../common/ErrorScreen'
+
 const Vendorlist = () => {
-  const [loading, setLoading] = useState(true)
+ 
   const [vendorData,setData]= useState([])
   const [vendorBooking,setBookingData] = useState()
   const [inout,setInOut] = useState([])
   const location = useLocation()
   const navigate = useNavigate()
   const [stat,setStat] = useState(false)
+  const [isLoading,setLoading] = useState(true)
+  const [isError,setError] = useState(false)
   //pagination states 
 
   const [currentPage, setCurrentpage] = useState(1)
@@ -41,7 +45,7 @@ const Vendorlist = () => {
               localStorage.clear();
               window.location.href='/guardLogin'
             })
-            setLoading(false);  
+              
     }
     else
     {
@@ -58,13 +62,18 @@ const Vendorlist = () => {
       setInOut(response.data.data.list)
       setData(data.data.list.filter(x=>x.bookingstatus==true))
       checkNavigate()
+      setError(false)
+      setTimeout(()=>{
+        setLoading(false)
+      },2000)
       const indexoflast = currentPage*postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
     }
     catch(err)
     {
-      console.log(err)
+      setLoading(false)
+      setError(true)
     }
   }
  
@@ -78,7 +87,7 @@ const Vendorlist = () => {
   }
 
   const getTime=(date)=>{
-    console.log(date)
+   
     // var d = new Date(date)
     // return d.getHours()+':'+d.getMinutes()
     let ntime = date.split('T');
@@ -121,6 +130,13 @@ const Vendorlist = () => {
  }
 
   var srno = 1 
+
+  if(isLoading)
+    return <Loader/>
+
+  if(isError)
+    return <ErrorScreen/>
+
   return (
     
     <div className="vendorlistcontainer">
@@ -139,7 +155,7 @@ const Vendorlist = () => {
         <div className='VendorL_display'>
           <label>Vendor List</label>
         </div>
-        <Loader loading={loading}>
+       
         <div className='row'>
           <div className='Vsearchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
@@ -193,7 +209,7 @@ const Vendorlist = () => {
           </tbody>
         </table>
         <PaginationCalculate totalPages={vendorData.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
-        </Loader>
+       
       </div>
     </div>
   )

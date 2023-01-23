@@ -23,13 +23,32 @@ html{
 #Gloginimgid img{
   height: 100vh;
   width: 65vw;
- 
+  animation: moveImage 5s infinite ;
 }
 
 #Gloginformid {
  
   grid-area: Gloginformid;
   position: relative;
+}
+
+
+@keyframes moveImage {
+  0%{
+    transform: translateY(10px);
+  }
+  25%{
+    transform: translateY(-10px);
+  }
+  50%{
+    transform: translateY(10px);
+  }
+  75%{
+    transform: translateY(-10px);
+  }
+  100%{
+    transform: translateY(10px);
+  }
 }
 
 .Guardsignin {

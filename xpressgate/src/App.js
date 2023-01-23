@@ -214,7 +214,7 @@ function App() {
           <Route path={RouterPath.MANAGE_SLIDERS} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.ADD_SLIDER} element={<AdminModuleComponent />}></Route>
 
-          <Route path='/adminchangepassword' element={<Admin_Change_Password />}></Route>
+          <Route path='/adminchangepassword' element={<AdminChangePass />}></Route>
           <Route path='/superadminlogin' element={<SuperAdminLogin />}></Route>
           <Route path='/enternewpass' element={<AdminEnterNewPass />}></Route>
           <Route path='/adminentercode' element={<AdminEnterCode />}></Route>

@@ -7,13 +7,15 @@ import axios from 'axios';
 import Societyheader from './Utils/Societyheader';
 import { checkSociety } from '../auth/Auth';
 import { Loader } from '../Loader';
-
+import ErrorScreen from '../../common/ErrorScreen';
+import { ToastMessage } from '../ToastMessage';
 const Addflat = () => {
   const [community, setCommunity] = useState([])
   const [block, setBlock] = useState([])
   const [community_id, setCommunityid] = useState([])
   const [loading, setLoading] = useState(true)
-
+  const [isError,setError] = useState(false)
+  const [toast, setToast] = useState({ show: false })
   useEffect(() => {
     let community_id = localStorage.getItem('community_id')
     setCommunityid(community_id)
@@ -50,10 +52,11 @@ const Addflat = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/community/get`)
       setCommunity(data.data.community)
+      setError(false)
       //console.log(data.data.community.filter(x=>x.name))
       //setCommunityid(data.data.community[0].name)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -65,10 +68,10 @@ const Addflat = () => {
       const { data } = await axios.post(`${window.env_var}api/block/get`, {
         community_id: localStorage.getItem('community_id')
       })
-      console.log(data)
+      setError(false)
       setBlock(data.data.block)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -83,11 +86,18 @@ const Addflat = () => {
         status: document.getElementById('status').value
       }
       const { data } = await axios.post(`${window.env_var}api/flat/add`, sendData)
-      window.location.href = '/blockList'
+      setToast({ show: true, type: "success", message: "Added successfully" })
+      setTimeout(() => {
+        window.location.href = '/blockList'
+      }, 1500);
+     
     } catch (error) {
-      console.log(error)
+      setToast({ show: true, type: "error", message: "Check Data." });
     }
   }
+
+  if(isError)
+    return <ErrorScreen/>
 
   return (
     <div className="addflatcontainer">
@@ -108,6 +118,7 @@ const Addflat = () => {
         <div className='afsideimage'><img src="/images/societysideimg.svg" alt="society sideimage" /></div>
       </div>
       <div className='afbackgroundimg'>
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <Loader loading={loading}>
           <div className='Addflatdisplay'>
             <label>Add Flat</label>

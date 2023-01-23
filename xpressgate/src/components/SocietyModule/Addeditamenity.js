@@ -8,6 +8,8 @@ import { useLocation } from 'react-router-dom';
 import { checkSociety } from '../auth/Auth'
 import { Loader } from '../Loader';
 import { ToastMessage } from '../ToastMessage';
+import ErrorScreen from '../../common/ErrorScreen'
+
 const Addeditamenity = () => {
 
   //to store data
@@ -24,6 +26,8 @@ const Addeditamenity = () => {
   const status = useRef([])
   const [loading, setLoading] = useState(true)
   const [toast, setToast] = useState({ show: false })
+  const [isError,setError] = useState(false)
+
   useEffect(() => {
     if (checkSociety()) {
       const config = {
@@ -59,8 +63,9 @@ const Addeditamenity = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/society/amenities/getEach/${id}`)
       setAmenity(data.data.amenity[0])
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -69,7 +74,7 @@ const Addeditamenity = () => {
 
     try {
       if (type == 'edit') {
-        setToast({ show: true, type: "success", message: "Edited amenity successfully" })
+       
         let formData = new FormData()
         formData.append('amenityType', amenityType.current.value)
         formData.append('id', location.state.id)
@@ -81,13 +86,14 @@ const Addeditamenity = () => {
           formData.append('image', document.getElementById('amenity_image').files[0])
         }
         const { data } = await axios.post(`${window.env_var}api/society/amenities/updateAmenities`, formData)
+        setToast({ show: true, type: "success", message: "Edited amenity successfully" })
         setTimeout(() => {
           window.location.href = '/amenities'
         }, 1500);
         // window.location.href = '/amenities'
       }
       else {
-        setToast({ show: true, type: "success", message: "Added amenity successfully" })
+        
         let formData = new FormData()
         formData.append('amenityType', amenityType.current.value)
         formData.append('image', document.getElementById('amenity_image').files[0])
@@ -95,15 +101,21 @@ const Addeditamenity = () => {
         formData.append('rent', rent.current.value)
         formData.append('status', status.current.value)
         const { data } = await axios.post(`${window.env_var}api/society/amenities/addAmenities`, formData)
+        setToast({ show: true, type: "success", message: "Added amenity successfully" })
         setTimeout(() => {
           window.location.href = '/amenities'
         }, 1500);
       }
 
     } catch (error) {
-      console.log(error)
+      setToast({ show: true, type: "error", message: "Check Data." });
     }
   }
+
+  if(isError)
+    return <ErrorScreen/>
+
+
   return (
     <div className="aeacontainer">
       <div id="aeasection">

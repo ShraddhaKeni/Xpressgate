@@ -7,6 +7,7 @@ import Societyheader from './Utils/Societyheader';
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import axios from 'axios';
 import { Loader } from "../Loader";
+import ErrorScreen from '../../common/ErrorScreen';
 
 const Amenities = () => {
   const [loading, setLoading] = useState(true)
@@ -14,6 +15,7 @@ const Amenities = () => {
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(9)
   const [currentPosts,setCurrentPosts] = useState([])
+  const [isError,setError] = useState(false)
   const navigate = useNavigate()
   useEffect(()=>{
     getDetails()
@@ -21,13 +23,19 @@ const Amenities = () => {
 
 
   const getDetails=async()=>{
+    try {
     const {data} = await axios.get(`${window.env_var}api/society/amenities/getAll`)
     setAmenities(data.data.amenities)
     const indexoflast = currentPage*postPerPage  //endoffset
     const indexoffirst = indexoflast - postPerPage //startoffset
     setCurrentPosts(data.data.amenities.slice(indexoffirst,indexoflast))
     setLoading(false);
+    setError(false)
   }
+  catch (error) {
+    setError(true)
+  }
+}
 
   async function  paginate(event)
   {
@@ -40,6 +48,8 @@ const Amenities = () => {
   const navigateToList=(id,type)=>{
     navigate('/amenitylist',{state:{id:id,type:type}})
   }
+  if(isError)
+  return <ErrorScreen/>
   return (
 
     <div className="amenitiescontainer">
@@ -60,10 +70,10 @@ const Amenities = () => {
             <label>Amenities</label>
           </div>
           <button type="button" onClick={()=>{window.location.href='/addeditamenity'}} className="AddNAmenity">&#10011; Add New Amenities</button>
-          <div className="row row-cols-1 row-cols-md-3 g-4 amntscss">
+          <div className="row row-cols-1 row-cols-md-3 g-4 amntscss allcards">
             {currentPosts.map(items=>{
               return(
-                <div className="col" id={items.id} onClick={()=>{navigateToList(items.id,items.amenityType)}}>
+                <div className="col card_hover_animation" id={items.id} onClick={()=>{navigateToList(items.id,items.amenityType)}}>
                   <div className="amntsminicard"><br></br>
                     <img className="amnts_img_top" src={window.env_var+items.image} alt="profile"></img><br></br><br></br>
                     <label className='amntstitle'>{items.amenityType}</label>

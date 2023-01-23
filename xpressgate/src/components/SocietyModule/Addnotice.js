@@ -9,6 +9,7 @@ import { checkSociety } from '../auth/Auth'
 import { useNavigate } from 'react-router-dom';
 import { Loader } from "../Loader";
 import { ToastMessage } from '../ToastMessage';
+import ErrorScreen from '../../common/ErrorScreen';
 const Addnotice = () => {
   const [toast, setToast] = useState({ show: false })
   const [notice, setNotice] = useState({})
@@ -18,7 +19,7 @@ const Addnotice = () => {
   const notice_date_ref = useRef([])
   const notice_time_ref = useRef([])
   const [loading, setLoading] = useState(true)
-
+  const [isError,setError] = useState(false)
   const handleSubmit=async(e)=>{
     e.preventDefault();
     try {
@@ -29,7 +30,7 @@ const Addnotice = () => {
       console.log(date);
       console.log(localISOTime);
       if (type == 'edit') {
-        setToast({ show: true, type: "success", message: "Updated Successfully" })
+     
         let formdata = new FormData();
         if (document.getElementById('attachment').value) {
          
@@ -50,6 +51,7 @@ const Addnotice = () => {
             formdata.append('id', location.state.id);
             
             const { data } = await axios.post(`${window.env_var}api/notices/updateNotice`, formdata);
+           
             setTimeout(() => {
               window.location.href = '/noticeList'
             }, 1500);
@@ -66,6 +68,7 @@ const Addnotice = () => {
 
             const { data } = await axios.post(`${window.env_var}api/notices/updateNotice`, formdata);
             //console.log(data);
+            setToast({ show: true, type: "success", message: "Updated Successfully" })
             setTimeout(() => {
               window.location.href = '/noticeList'
             }, 1500);
@@ -74,7 +77,7 @@ const Addnotice = () => {
       }
       else {
         const file = document.getElementById('attachment').files[0];
-        setToast({ show: true, type: "success", message: "Added successfully" })
+       
         if (file.type != "application/pdf") {
           document.getElementById("attachment").style.border = "2px solid red";
           //return;
@@ -90,11 +93,14 @@ const Addnotice = () => {
           formdata.append('attachment', document.getElementById('attachment').files[0])
 
           const { data } = await axios.post(`${window.env_var}api/notices/addNotice`, formdata)
-          window.location.href = '/noticeList'
+          setToast({ show: true, type: "success", message: "Added successfully" })
+          setTimeout(() => {
+            window.location.href = '/noticeList'
+          }, 1500);
         }
       }
     } catch (error) {
-      console.log(error)
+      setToast({ show: true, type: "error", message: "Check Data." });
     }
   }
 
@@ -120,8 +126,10 @@ const Addnotice = () => {
           window.location.href = '/societylogin'
         })
         setLoading(false);
+        
     }
     else {
+    
       window.location.href = '/'
     }
   }, [])
@@ -136,8 +144,9 @@ const Addnotice = () => {
       let for_time = titime[0].split(':');
       let nt = for_time[0]+':'+for_time[1];
       document.getElementById('notice_time').value=nt;
+      setError(false)
     } catch (error) {
-
+      setError(true)
     }
   }
 
@@ -151,6 +160,8 @@ const Addnotice = () => {
     }
   }
 
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="ancontainer">
       <div id="ansection">

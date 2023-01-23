@@ -9,6 +9,7 @@ import Societyheader from "./Utils/Societyheader";
 import { useNavigate } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import { ToastMessage } from "../ToastMessage";
+import ErrorScreen from "../../common/ErrorScreen";
 
 const Managementteam = () => {
 
@@ -20,7 +21,7 @@ const Managementteam = () => {
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts, setCurrentPosts] = useState([])
   const navigate = useNavigate()
-
+  const [isError,setError] = useState(false)
 
   useEffect(() => {
     getDetails()
@@ -35,15 +36,17 @@ const Managementteam = () => {
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.managementteam.slice(indexoffirst, indexoflast))
       //console.log(data)
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
   const handleDelete = async (id) => {
-    setToast({ show: true, message: "Team Member Deleted Successfully", type: "error" })
+
     try {
       await axios.get(`${window.env_var}api/management/remove/${id}`)
+      setToast({ show: true, message: "Team Member Deleted Successfully", type: "error" })
       setTimeout(() => {
         window.location.reload()
       }, 2000)
@@ -84,7 +87,8 @@ const Managementteam = () => {
     }
 
   }
-
+  if(isError)
+    return <ErrorScreen/>
   return (
 
     <div className="addguestcontainer4">

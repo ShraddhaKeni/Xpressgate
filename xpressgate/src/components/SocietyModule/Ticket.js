@@ -4,7 +4,10 @@ import { Button } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import LogOut from './Utils/LogOut';
-
+import { Loader } from "../Loader";
+import Societyheader from './Utils/Societyheader'
+import ErrorScreen from '../../common/ErrorScreen';
+import { ToastMessage } from '../ToastMessage';
 const Ticket = () => {
   const location = useLocation()
   const [ticket, setTicket] = useState({})
@@ -13,7 +16,9 @@ const Ticket = () => {
   const [msg, setMsg] = useState()
   const ticketreply = useRef([])
   const [imageList,setimageList] = useState([])
-
+  const [loading, setLoading] = useState(true)
+  const [isError,setError] = useState(false)
+  const [toast, setToast] = useState({ show: false })
   useEffect(() => {
     if (location.state) {
       getTicket()
@@ -29,45 +34,39 @@ const Ticket = () => {
       setTicket(data.data.tickets[0])
       setFname(data.data.tickets[0].ticketRaisedBy.firstname)
       setLname(data.data.tickets[0].ticketRaisedBy.lastname)
-      //console.log(data.data.tickets[0].ticket_pics.split(','));
       setimageList(data.data.tickets[0].ticket_pics.split(','));
-      //console.log(data.data.tickets[0].ticket_reply)
       setMsg(location.state.ticketreply)
+      setLoading(false);
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
+      setLoading(false);
     }
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
     try {
-
       const senddata = {
         id: location.state.id,
         ticket_reply: document.getElementById('message').value
       }
-      const { data } = await axios.post(`${window.env_var}api/tickets/resolveTicket`, senddata)
-      // console.log(senddata)
-      window.location.href = '/ticketlist'
+      const { data } = await axios.post(`${window.env_var}api/tickets/resolveTicket`, senddata);
+      setToast({ show: true, type: "success", message: "Resolved successfully" })
+      setTimeout(() => {
+        window.location.href = '/ticketlist'
+      }, 1500);
+     
     } catch (error) {
-      console.log(error)
+      setToast({ show: true, type: "error", message: "Check Data." });
     }
   }
-
-
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="ticketcontainer">
       <div id="tktheadersection">
-        <div class="tktfirstheadersection">
-
-          <div id="tktlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="tktsociety"><label>Society</label></div>
-          <div id="tktspace"></div>
-          <div id="tktnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="tktsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="tktlogoutbutton"> <LogOut /></div>
-        </div>
+        <Societyheader/>
       </div>
       <div id="tktsection">
         <div className='tktname'>
@@ -77,56 +76,54 @@ const Ticket = () => {
         <div className='tktsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='tktbackgroundimg'>
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <div className='tktdisplay'>
           <label>{ticket.ticketNo}</label>
         </div>
-        <div className="col">
-          <div className="tktcard">
-            <br></br>
-            <label className="tktlabel">{ticket.ticketNo}</label>
-
-            <div className="name ticket_name">{firstname} {lastname}</div>
-            <div><label className='tktIssuelabels'>Issue</label></div>
-            <div className='tktclass'>
-              <label>{ticket.tickettype}</label>
-              <div className='flatnodisplay'></div>
+        <Loader loading={loading}>
+          <div className="col">
+            <div className="tktcard">
+              <br></br>
+              <label className="tktlabel">{ticket.ticketNo}</label>
+              <div className="name ticket_name">{firstname} {lastname}</div>
+              <div><label className='tktIssuelabels'>Issue</label></div>
+              <div className='tktclass'>
+                <label>{ticket.tickettype}</label>
+                <div className='flatnodisplay'></div>
+              </div>
+              <br></br>
+              <div><label className='tktdesclabels'>Description</label></div>
+              <div className='detailsclass'>
+                <div><label className='date text-right'>{ticket.ticketDescription}</label></div>
+                <div><label className='intime'></label></div>
+                <div><label className='outtime'></label></div>
+                <div><label className='noofpeople'></label></div>
+                <div><label className='vehicleno'></label></div>
+              </div>
+              <br></br>
+              <div><label className='tktailabels'>Attached images</label></div>
+              <div>
+                {imageList.map((items,index)=>{
+                  if(items == '')
+                  {}
+                  else{
+                    return(
+                      <img src={`${window.env_var}` + items} alt='Ticket issue image' width="100px" height="100px" className='AttacHedImg'></img>
+                    )
+                  }
+                })}
+              </div>
+              <br /> 
+              <div className='tktmsgbox'>
+                {location.state ? <input type="text" id="message" defaultValue={msg} name="Phone Number" className="tktmsgs" placeholder="Message"></input> : <input type='text' id="message" className='tktmsgs' placeholder='Message'></input>}
+                <button className='tktMsgBtn' onClick={(e) => { handleSubmit(e) }}>Resolved</button>
+              </div>
+              <br></br>
             </div>
-            <br></br>
-            <div><label className='tktdesclabels'>Description</label></div>
-            <div className='detailsclass'>
-              <div><label className='date text-right'>{ticket.ticketDescription}</label></div>
-              <div><label className='intime'></label></div>
-              <div><label className='outtime'></label></div>
-              <div><label className='noofpeople'></label></div>
-              <div><label className='vehicleno'></label></div>
-            </div>
-            <br></br>
-            <div><label className='tktailabels'>Attached images</label></div>
-            <div>
-              {imageList.map((items,index)=>{
-                if(items == '')
-                {}
-                else{
-                return(
-                  <img src={`${window.env_var}` + items} alt='Ticket issue image' width="100px" height="100px" className='AttacHedImg'></img>
-                )
-                }
-              })}
-            </div>
-           
-            <br /> 
-            <div className='tktmsgbox'>
-             {location.state ? <input type="text" id="message" defaultValue={msg} name="Phone Number" className="tktmsgs" placeholder="Message"></input> : <input type='text' id="message" className='tktmsgs' placeholder='Message'></input>}
-              {/* <input type='text' id="message" ref={ticketreply} className='tktmsgs' placeholder='Message'>{location.state.ticketreply}</input> */}
-              <button className='tktMsgBtn' onClick={(e) => { handleSubmit(e) }}>Resolved</button>
-            </div>
-            <br></br>
           </div>
-        </div>
+        </Loader>
       </div>
     </div>
   )
 }
-
-export default Ticket
-
+export default Ticket;

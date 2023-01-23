@@ -4,6 +4,7 @@ import LogOut from '../../components/SocietyModule/Utils/LogOut';
 import { getGuestList } from './common/common';
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import Societyheader from './Utils/Societyheader';
+import ErrorScreen from '../../common/ErrorScreen';
 
 const GuestManagement = () => {
 
@@ -11,6 +12,7 @@ const GuestManagement = () => {
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts,setCurrentPosts] = useState([])
+  const [isError,setError] = useState(false)
   useEffect(()=>{
       getData()
       
@@ -67,7 +69,8 @@ const GuestManagement = () => {
     }
   
 }
-
+if(isError)
+return <ErrorScreen/>
   return (
     <div className="gmcontainer">
       <div id="gmheadersection">

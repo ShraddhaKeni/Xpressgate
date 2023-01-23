@@ -6,11 +6,14 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Loader } from "../Loader";
-
+import { ToastMessage } from '../ToastMessage';
+import ErrorScreen from '../../common/ErrorScreen';
 const AddBlock = () => {
   const [loading, setLoading] = useState(true)
   const [blocks, setBlocks] = useState([])
   const navigate = useNavigate()
+  const [toast, setToast] = useState({ show: false })
+  const [isError,setError] = useState(false)
   useEffect(() => {
     setLoading(false);
   }, [])
@@ -25,13 +28,17 @@ const AddBlock = () => {
       }
       const { data } = await axios.post(`${window.env_var}api/block/add`, sendData)
       setBlocks(data.data)
-      window.location.href = '/blockList'
+      setToast({ show: true, type: "success", message: "Added successfully" })
+      setTimeout(() => {
+        window.location.href = '/blockList'
+      }, 1500);
 
     } catch (error) {
-      console.log(error)
+      setToast({ show: true, type: "error", message: "Check Data." });
     }
   }
-
+  if(isError)
+    return <ErrorScreen/>
   return (
     <>
       <div className="blcontainer">
@@ -65,6 +72,7 @@ const AddBlock = () => {
          
         </div>
         <div className='blbackgroundimg'>
+        <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
           <div className='BL_display'>
             <label>Add Block</label>
           </div>

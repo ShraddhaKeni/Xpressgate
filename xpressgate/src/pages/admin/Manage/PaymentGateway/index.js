@@ -5,6 +5,9 @@ import axios from 'axios';
 import { deleteCommunity, deletePaymentGateway, getAllPaymentGateways } from '../../../../common/admin/admin_api';
 import PaginationCalculate from '../../../../components/GuardModule/Utils/paginationCalculate';
 import RouterPath from '../../../../common/constants/path/routerPath';
+import { Loader } from '../../../../components/Loader';
+import { ToastMessage } from '../../../../components/ToastMessage';
+import { reloadInOneSec, TOAST } from '../../../../common/utils';
 
 const PaymentGateways = () => {
 
@@ -14,6 +17,8 @@ const PaymentGateways = () => {
     const [currentPage, setCurrentpage] = useState(0)
     const [postPerPage, setPostPerPage] = useState(10)
     const [currentPosts, setCurrentPosts] = useState([])
+    const [loading, setLoading] = useState(true);
+    const [toast, setToast] = useState({ show: false })
 
     useEffect(() => {
         getCommunities()
@@ -27,6 +32,7 @@ const PaymentGateways = () => {
             const indexoffirst = (indexoflast - postPerPage) //startoffset
             console.log(data.data);
             setCurrentPosts(data.data.payment_gateway.slice(indexoffirst, indexoflast))
+            setLoading(false);
         } catch (error) {
 
         }
@@ -40,8 +46,14 @@ const PaymentGateways = () => {
     }
 
     const removePremise = async (id) => {
-        await deletePaymentGateway(id);
-        window.location.reload();
+        const { data } = await deletePaymentGateway(id);
+        console.log(data);
+        if (data && data?.status_code == 200) {
+            setToast(TOAST.SUCCESS(data?.message));
+            getCommunities();
+        } else if (data?.status_code == 201) {
+            setToast(TOAST.ERROR(data?.message));
+        }
     }
 
     const handleAddPremise = () => {
@@ -66,66 +78,69 @@ const PaymentGateways = () => {
 
     return (
         <>
+            <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+
             <img src='/images/side_bar_img.svg' className='Premise_side_Img' />
-            <div>
-                <div className='page-label'>
-                    <label>Manage Payment Gateway</label>
-                </div>
+            <Loader loading={loading}>
                 <div>
-                    <div className='table-top-right-content'>
-                        <div className='table-search pl-2'>
-                            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-                            <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
-                        </div>
-
-                        <div className="table-add-new-button" onClick={handleAddPremise}>
-
-                            <span className='ml-2'>&#43; Add New Gateway</span>
-                        </div>
+                    <div className='page-label'>
+                        <label>Manage Payment Gateway</label>
                     </div>
+                    <div>
+                        <div className='table-top-right-content'>
+                            <div className='table-search pl-2'>
+                                <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
+                                <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
+                            </div>
 
-                    <table id="table-header" class="table table-striped table-bordered table-sm " cellspacing="0">
-                        <thead className='table-th'>
-                            <tr>
-                                <th class="th-sm" >ID No.</th>
-                                <th class="th-sm">Payment Gateway Name</th>
-                                <th class="th-sm">API Key</th>
-                                <th class="th-sm">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {currentPosts.map((item, index) => {
-                                return (
-                                    <tr>
-                                        <td>{index + 1 + (currentPage * postPerPage)}</td>
-                                        <td>{item.payment_gateway_name}</td>
-                                        <td>{item.payment_api_key?.slice(0, 5)}***</td>
-                                        <td>
-                                            <div>
-                                                <IconButton onClick={() => { handleEditClick(item) }}>
-                                                    <img src="/images/icon_edit.svg" />
-                                                </IconButton>
+                            <div className="table-add-new-button" onClick={handleAddPremise}>
 
-                                                <IconButton onClick={() => removePremise(item.id)}>
-                                                    <img src="/images/icon_delete.svg" />
-                                                </IconButton>
+                                <span className='ml-2'>&#43; Add New Gateway</span>
+                            </div>
+                        </div>
 
-                                            </div>
-                                        </td>
-                                    </tr>
-                                )
-                            })}
+                        <table id="table-header" class="table table-striped table-bordered table-sm " cellspacing="0">
+                            <thead className='table-th'>
+                                <tr>
+                                    <th class="th-sm" >ID No.</th>
+                                    <th class="th-sm">Payment Gateway Name</th>
+                                    <th class="th-sm">API Key</th>
+                                    <th class="th-sm">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {currentPosts.map((item, index) => {
+                                    return (
+                                        <tr>
+                                            <td>{index + 1 + (currentPage * postPerPage)}</td>
+                                            <td>{item.payment_gateway_name}</td>
+                                            <td>{item.payment_api_key?.slice(0, 5)}***</td>
+                                            <td>
+                                                <div>
+                                                    <IconButton onClick={() => { handleEditClick(item) }}>
+                                                        <img src="/images/icon_edit.svg" />
+                                                    </IconButton>
+
+                                                    <IconButton onClick={() => removePremise(item.id)}>
+                                                        <img src="/images/icon_delete.svg" />
+                                                    </IconButton>
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    )
+                                })}
 
 
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
 
+                    </div >
+                    {community.length > postPerPage && <div className='paginate'>
+                        <PaginationCalculate totalPages={community.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+                    </div>}
                 </div >
-                {community.length > postPerPage && <div className='paginate'>
-                    <PaginationCalculate totalPages={community.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
-                </div>}
-            </div >
-
+            </Loader>
         </>)
 }
 

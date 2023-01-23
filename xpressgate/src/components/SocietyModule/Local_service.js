@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ErrorScreen from "../../common/ErrorScreen";
 import "../SocietyModule/Local_service.css";
 import LogOut from './Utils/LogOut'
 
@@ -8,7 +9,7 @@ import LogOut from './Utils/LogOut'
 const Local_service = () => {
 
   const [services,setServices] = useState([])
-
+  const [isError,setError] = useState(false)
   const navigate = useNavigate()
   useEffect(()=>{
     getServices()
@@ -18,15 +19,17 @@ const Local_service = () => {
     try {
       const {data} = await axios.get(`${window.env_var}api/admin/localservices/getAll`)
       setServices(data.data.localservices)
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
   const navigateToList=(id,serviceName)=>{
     navigate('/servicevendors',{state:{id:id,serviceName}})
   }
-
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="addguestcontainer3">
     <div id="addflatsection">

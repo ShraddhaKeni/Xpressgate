@@ -5,6 +5,7 @@ import { getBlocks } from "./common/common";
 import axios from "axios";
 import Societyheader from "./Utils/Societyheader";
 import { ToastMessage } from '../ToastMessage';
+import ErrorScreen from "../../common/ErrorScreen";
 const SocietyDues = () => {
   const [toast, setToast] = useState({ show: false })
   const [block,setBlock] = useState([])
@@ -16,7 +17,7 @@ const SocietyDues = () => {
   const amount = useRef([])
   const flat_id = useRef([])
   const payment = useRef([])
-
+  const [isError,setError] = useState(false)
 
   useEffect(()=>{
     getData()
@@ -26,8 +27,9 @@ const SocietyDues = () => {
   const getData=async()=>{
     try {
       setBlock(await getBlocks())
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
   
@@ -35,23 +37,25 @@ const SocietyDues = () => {
     try {
       const {data} = await axios.get(`${window.env_var}api/flats/getList/${e.target.value}`)
       setFlats(data.data.list)
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
   const getResident=async(e)=>{
     try {
       const {data} = await axios.get(`${window.env_var}api/flats/single/${e.target.value}`)
       setResident(data.data.list[0])
+      setError(false)
     } catch (error) {
-      
+      setError(true)
     }
   }
 
   const handleSubmit=async(e)=>{
     e.preventDefault()
     try {
-      setToast({ show: true, type: "success", message: "Added successfully" })
+      
       const sendData={
         payment_type:payment.current.value=='1'?1:2,
         resident_id:resident.resident_id,
@@ -62,16 +66,19 @@ const SocietyDues = () => {
       }
 
       const {data} = await axios.post(`${window.env_var}api/maintenancepayment/addBill`,sendData);
+      setToast({ show: true, type: "success", message: "Added successfully" })
       setTimeout(() => {
         window.location.href='/societyduesrecord'
       }, 1500);
       // window.location.href='/societyduesrecord'
-      console.log(data)
+     
     } catch (error) {
-      console.log(error)
+      setToast({ show: true, type: "error", message: "Check Data." });
     }
   }
 
+  if(isError)
+    return <ErrorScreen/>
 
   return (
     <div className="addguestcontainer4">

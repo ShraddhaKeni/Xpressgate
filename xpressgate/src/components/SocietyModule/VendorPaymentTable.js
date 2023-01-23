@@ -4,6 +4,7 @@ import Societyheader from "./Utils/Societyheader";
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import axios from "axios";
 import { Loader } from "../Loader";
+import ErrorScreen from "../../common/ErrorScreen";
 
 const VendorPaymentTable = () => {
 
@@ -13,7 +14,7 @@ const VendorPaymentTable = () => {
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts, setCurrentPosts] = useState([])
   const [loading, setLoading] = useState(true)
-
+  const [isError,setError] = useState(false)
   useEffect(() => {
     getVendorDetails()
   }, [])
@@ -31,8 +32,9 @@ const VendorPaymentTable = () => {
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.vendor_bills.slice(indexoffirst, indexoflast))
       setLoading(false);
+      setError(false)
     } catch (error) {
-      console.log(error);
+      setError(true)
       setLoading(false);
     }
   }
@@ -44,6 +46,8 @@ const VendorPaymentTable = () => {
     setCurrentPosts(currentvendor.slice(indexoffirst, indexoflast))
   }
 
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="addguestcontainer4">
       <div id="addflatsection">

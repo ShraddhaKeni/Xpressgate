@@ -6,6 +6,7 @@ import "../SocietyModule/PackageList.css"
 import SocietyHeader from './Utils/Societyheader'
 import { useLocation } from 'react-router-dom';
 import { ToastMessage } from '../ToastMessage';
+import ErrorScreen from '../../common/ErrorScreen';
 const PackageList = () => {
   const [toast, setToast] = useState({ show: false })
   const [plan,setPlan] = useState([])
@@ -17,7 +18,7 @@ const PackageList = () => {
   const payment_due = useRef([])
   const [edit,setEdit] = useState(false)
   const [booked,setBooked] = useState({})
-
+const [isError,setError] = useState(false)
   useEffect(()=>{
     if(location.state)
     {
@@ -32,7 +33,7 @@ const PackageList = () => {
 
   const getBookedPlan= async()=>{
     try {
-      const {data} = await axios.get(`${window.env_var}api/packagebook/get/${localStorage.getItem('community_id')}`)
+      const {data} = await axios.get(`${window.env_var}api/packagebook/getAll/${localStorage.getItem('community_id')}`)
       setBooked(data.data.booked[0])
       await getData()
 
@@ -49,8 +50,9 @@ const PackageList = () => {
       ChangeDate(data.data.booked[0].purchased_date)
       
 
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -67,10 +69,11 @@ const PackageList = () => {
       }
       const {data} = await axios.get(`${window.env_var}api/plan/getall`,config)
       setPlan(data.data.plan)
-      const response = await axios.get(`${window.env_var}api/management/getAll`)
+      const response = await axios.get(`${window.env_var}api/management/get`)
       setMembers(response.data.data.managementteam)
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -80,7 +83,7 @@ const PackageList = () => {
 
       if(edit)
       {
-        setToast({ show: true, type: "success", message: "Package changed" })
+       
         const sendData={
           plan_id:plan_id.current.value,
           booked_by:booked_by.current.value,
@@ -90,6 +93,7 @@ const PackageList = () => {
         }
         console.log(sendData)
         const {data} = await axios.post(`${window.env_var}api/packagebook/update`,sendData)
+        setToast({ show: true, type: "success", message: "Package changed" })
         setTimeout(() => {
           window.location.href='/package'
         }, 1500);
@@ -105,13 +109,14 @@ const PackageList = () => {
           purchased_date:purchase_date.current.value,
         }
         const {data} = await axios.post(`${window.env_var}api/packagebook/post`,sendData)
+        setToast({ show: true, type: "success", message: "Package added" })
         setTimeout(() => {
           window.location.href='/package'
         }, 1500);
       }
      
     } catch (error) {
-      console.log(error)
+      setToast({ show: true, type: "error", message: "Check Data." });
     }
   }
 
@@ -122,6 +127,8 @@ const PackageList = () => {
   }
 
 
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="addguestcontainer4">
     <div id="addflatsection">

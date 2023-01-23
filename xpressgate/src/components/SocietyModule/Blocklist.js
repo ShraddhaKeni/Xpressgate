@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import { Loader } from "../Loader";
+import ErrorScreen from '../../common/ErrorScreen';
 
 const Blocklist = () => {
   const [blocks, setBlocks] = useState([])
@@ -13,6 +14,7 @@ const Blocklist = () => {
   const [postPerPage, setPostPerPage] = useState(9)
   const [currentPosts,setCurrentPosts] = useState([])
   const [loading, setLoading] = useState(true)
+  const [isError,setError] = useState(false)
   const navigate = useNavigate()
   useEffect(() => {
     getBlocks()
@@ -28,8 +30,9 @@ const Blocklist = () => {
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(dummyblock.slice(indexoffirst,indexoflast))
       setLoading(false);
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -49,6 +52,9 @@ const Blocklist = () => {
   function blockDetails(id, name) {
     navigate('/updateblock', { state: { id: id, type: 'edit', name: name } })
   }
+  
+  if(isError)
+    return <ErrorScreen/>
   return (
     <>
       <div className="blcontainer">
@@ -82,14 +88,15 @@ const Blocklist = () => {
           <button type="button" onClick={() => { window.location.href = '/addblock' }} className="AddBlist">&#10011; Add New Block</button>
           <div id="blcardsection">
           
-              <div className="row row-cols-3 d-f BLfullcardscss">
+              <div className="row row-cols-3 d-f BLfullcardscss allcards">
                 {currentPosts.map((item, index) => {
+                  console.log(item.flat)
                   return (
-                    <div className="col">
+                    <div className="col card_hover_animation ">
                       <div className="blminicard"><br></br>
                         <a><img src="/images/pencilicon.png" className="pencilicon" onClick={() => blockDetails(item._id, item.block)}></img></a>
                         <label className='Blblock'>Block {item.block}</label><br></br>
-                        <label className='Blflat'>Flats - {item.flat !== [] ? parseInt(item.flat) : 0}</label><br></br><br></br>
+                        <label className='Blflat'>Flats - {item.flat.length>0 ? parseInt(item.flat) : 0}</label><br></br><br></br>
                         <button type="button" className="btnView" onClick={() => { navigateToList(item._id, item.block) }} >View</button><br></br>
                       </div>
                     </div>
