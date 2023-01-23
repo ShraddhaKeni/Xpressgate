@@ -3,7 +3,7 @@ import { Slide, Snackbar } from "@mui/material";
 import { Alert } from "@mui/material";
 
 function TransitionLeft(props) {
-    return <Slide {...props} direction="up" />;
+    return <Slide {...props} direction="down" />;
 }
 export const ToastMessage = ({ show, message, type, handleClose }) => {
     return (
