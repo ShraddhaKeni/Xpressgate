@@ -60,10 +60,10 @@ const Amenities = () => {
             <label>Amenities</label>
           </div>
           <button type="button" onClick={()=>{window.location.href='/addeditamenity'}} className="AddNAmenity">&#10011; Add New Amenities</button>
-          <div className="row row-cols-1 row-cols-md-3 g-4 amntscss">
+          <div className="row row-cols-1 row-cols-md-3 g-4 amntscss allcards">
             {currentPosts.map(items=>{
               return(
-                <div className="col" id={items.id} onClick={()=>{navigateToList(items.id,items.amenityType)}}>
+                <div className="col card_hover_animation" id={items.id} onClick={()=>{navigateToList(items.id,items.amenityType)}}>
                   <div className="amntsminicard"><br></br>
                     <img className="amnts_img_top" src={window.env_var+items.image} alt="profile"></img><br></br><br></br>
                     <label className='amntstitle'>{items.amenityType}</label>

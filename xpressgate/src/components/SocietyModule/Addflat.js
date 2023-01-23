@@ -7,12 +7,14 @@ import axios from 'axios';
 import Societyheader from './Utils/Societyheader';
 import { checkSociety } from '../auth/Auth';
 import { Loader } from '../Loader';
+import ErrorScreen from '../../common/ErrorScreen';
 
 const Addflat = () => {
   const [community, setCommunity] = useState([])
   const [block, setBlock] = useState([])
   const [community_id, setCommunityid] = useState([])
   const [loading, setLoading] = useState(true)
+  const [isError,setError] = useState(false)
 
   useEffect(() => {
     let community_id = localStorage.getItem('community_id')
@@ -50,10 +52,11 @@ const Addflat = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/community/get`)
       setCommunity(data.data.community)
+      setError(false)
       //console.log(data.data.community.filter(x=>x.name))
       //setCommunityid(data.data.community[0].name)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -65,10 +68,10 @@ const Addflat = () => {
       const { data } = await axios.post(`${window.env_var}api/block/get`, {
         community_id: localStorage.getItem('community_id')
       })
-      console.log(data)
+      setError(false)
       setBlock(data.data.block)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -88,6 +91,9 @@ const Addflat = () => {
       console.log(error)
     }
   }
+
+  if(isError)
+    return <ErrorScreen/>
 
   return (
     <div className="addflatcontainer">

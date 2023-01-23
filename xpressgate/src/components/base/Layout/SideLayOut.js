@@ -18,7 +18,7 @@ const SideLayOut = () => {
   const router = useLocation()
 
   return (
-    <aside className='sidelayout z-10' style={{ position: 'relative' }} >
+    <aside className='sidelayout' style={{ position: 'relative' }} >
 
       <Link to={"/admin"} className='admin-profile' style={{ textDecoration: 'none' }} >
         <img src="/images/AdminSideicon.svg" alt="logo" className='adminsidelogo'></img>
@@ -144,7 +144,6 @@ const SideLayOut = () => {
       </Link>
 
       {/* <img src='/images/side_bar_img.svg' className='Admin_side_Img' /> */}
-
     </aside>
   )
 }
