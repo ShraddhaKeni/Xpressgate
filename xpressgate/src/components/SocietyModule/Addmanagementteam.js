@@ -7,9 +7,10 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { checkSociety } from "../auth/Auth";
 import { Loader } from "../Loader";
-
+import { ToastMessage } from '../ToastMessage';
+import { hi } from "date-fns/locale";
 const Addmanagementteam = () => {
-
+  const [toast, setToast] = useState({ show: false })
   const [residents, setResidents] = useState([])
   const [type, setType] = useState('add')
   const location = useLocation()
@@ -94,6 +95,7 @@ const Addmanagementteam = () => {
     e.preventDefault()
     try {
       if (type == 'add') {
+        setToast({ show: true, type: "success", message: "Added successfully" })
         //if (document.getElementById('management_title').value !== "" && document.getElementById('from').value != "" && document.getElementById('to').value !== "") {
         const sendData = {
           // community_id: '632970d054edb049bcd0f0b4',
@@ -104,10 +106,13 @@ const Addmanagementteam = () => {
           to: document.getElementById('ToDate').value
         }
         const { data } = await axios.post(`${window.env_var}api/management/add`, sendData)
-        window.location.href = '/management'
+        setTimeout(() => {
+          window.location.href = '/management'
+        }, 1500);
         // }
       }
       else {
+        setToast({ show: true, type: "success", message: "Updated successfully" })
         const sendDataedit = {
           id: location.state.mainid,
           community_id: localStorage.getItem('community_id'),
@@ -117,7 +122,11 @@ const Addmanagementteam = () => {
           to: document.getElementById('ToDate').value
         }
         const { data } = await axios.post(`${window.env_var}api/management/update`, sendDataedit)
-        window.location.href = '/management'
+        setTimeout(() => {
+          window.location.href = '/management'
+        }, 1500);
+        // window.location.href = '/management'
+       
       }
     } catch (error) {
       console.log(error)
@@ -159,6 +168,7 @@ const Addmanagementteam = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
       <Loader loading={loading}>
         <div className="AMM_display">
           <label>{type=='edit'?'Update':'Add'} Management Team</label>

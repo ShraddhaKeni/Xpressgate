@@ -11,7 +11,9 @@ import { mobileValidation, emailValidation } from '../auth/validation';
 import { Loader } from "../Loader";
 import ErrorScreen from "../../common/ErrorScreen";
 
+import { ToastMessage } from '../ToastMessage';
 const Addguard = () => {
+  const [toast, setToast] = useState({ show: false })
   const [loading, setLoading] = useState(true)
   const [guard, setGuard] = useState({})
   const location = useLocation()
@@ -25,6 +27,7 @@ const Addguard = () => {
     try {
 
       if (type == 'edit') {
+        setToast({ show: true, type: "success", message: "Updated successfully" })
         if (await mobileValidation(document.getElementById('phone').value) && emailValidation(document.getElementById('email').value)) {
           let formdata = new FormData()
           formdata.append('community_id', localStorage.getItem('community_id'))
@@ -39,14 +42,17 @@ const Addguard = () => {
           }
 
           const { data } = await axios.post(`${window.env_var}api/guard/update`, formdata)
-
-          window.location.href = '/guardList'
+          setTimeout(() => {
+            window.location.href = '/guardList'
+          }, 1500);
+          // window.location.href = '/guardList'
         } else {
-          alert('Enter valid mobile number/ Email Id')
+          setToast({ show: true, type: "error", message: 'Enter valid mobile number/ Email Id' });
+          // alert('Enter valid mobile number/ Email Id')
         }
       }
       else {
-
+        setToast({ show: true, type: "success", message: "Added successfully" })
         if (await mobileValidation(document.getElementById('phone').value) && emailValidation(document.getElementById('email').value)) {
           let formdata = new FormData()
           formdata.append('community_id', localStorage.getItem('community_id'))
@@ -59,9 +65,12 @@ const Addguard = () => {
           formdata.append('profile_pic', document.getElementById('profilePic').files[0])
           const { data } = await axios.post(`${window.env_var}api/guard/add`, formdata)
           console.log('hi')
-          window.location.href = '/guardList'
+          setTimeout(() => {
+            window.location.href = '/guardList'
+          }, 1500);
+          // window.location.href = '/guardList'
         } else {
-          alert('Enter valid mobile number/Email id')
+          setToast({ show: true, type: "error", message: 'Enter valid mobile number/ Email Id' });
         }
       }
     } catch (error) {
@@ -142,6 +151,7 @@ const Addguard = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <Loader loading={loading}>
           <div className='AG_display'>
             <label>{type == 'edit' ? 'Update Guard' : 'Add Guard'}</label>

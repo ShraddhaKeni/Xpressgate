@@ -1,14 +1,16 @@
-import React, { useRef } from "react";
+import React, { useRef, useState} from "react";
 import "../SocietyModule/Login.css";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
-
+import { ToastMessage } from '../ToastMessage';
 const Login_society = () => {
+  const [toast, setToast] = useState({ show: false })
   let username = useRef([]);
   let password = useRef([]);
 
   const loginGuard = async () => {
     try {
+      setToast({ show: true, type: "success", message: "Logged in successfully" })
       const loginCreds = {
         username: username.current.value,
         password: password.current.value,
@@ -22,12 +24,14 @@ const Login_society = () => {
       localStorage.setItem('mode', 'society')
       window.location.href = "/scDashboard";
     } catch (err) {
+      setToast({ show: true, type: "error", message: "Invalid details" })
       document.getElementById("socloginemailid").style.border = "2px solid red";
       document.getElementById("loginpassword").style.border = "2px solid red";
     }
   };
   return (
     <div className="LoginContainer">
+       <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
             <div id="SOC_LogoId">
               <img src="/images/loginlogo.svg" alt="" />
             <div className="SOC_Login_SignIN">

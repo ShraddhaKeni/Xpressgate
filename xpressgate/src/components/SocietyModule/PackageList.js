@@ -5,9 +5,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import "../SocietyModule/PackageList.css"
 import SocietyHeader from './Utils/Societyheader'
 import { useLocation } from 'react-router-dom';
-
+import { ToastMessage } from '../ToastMessage';
 const PackageList = () => {
-
+  const [toast, setToast] = useState({ show: false })
   const [plan,setPlan] = useState([])
   const [members,setMembers] = useState([])
   const location = useLocation()
@@ -80,6 +80,7 @@ const PackageList = () => {
 
       if(edit)
       {
+        setToast({ show: true, type: "success", message: "Package changed" })
         const sendData={
           plan_id:plan_id.current.value,
           booked_by:booked_by.current.value,
@@ -89,10 +90,14 @@ const PackageList = () => {
         }
         console.log(sendData)
         const {data} = await axios.post(`${window.env_var}api/packagebook/update`,sendData)
-        window.location.href='/package'
+        setTimeout(() => {
+          window.location.href='/package'
+        }, 1500);
+        // window.location.href='/package'
       }
       else
       {
+        setToast({ show: true, type: "success", message: "Package added" })
         const sendData={
           plan_id:plan_id.current.value,
           booked_by:booked_by.current.value,
@@ -100,7 +105,9 @@ const PackageList = () => {
           purchased_date:purchase_date.current.value,
         }
         const {data} = await axios.post(`${window.env_var}api/packagebook/post`,sendData)
-        window.location.href='/package'
+        setTimeout(() => {
+          window.location.href='/package'
+        }, 1500);
       }
      
     } catch (error) {
@@ -132,6 +139,7 @@ const PackageList = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <div className="PackL_display">
           <label>Change Package</label>
         </div>

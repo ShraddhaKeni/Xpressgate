@@ -11,8 +11,9 @@ import { useLocation } from "react-router-dom";
 import { Loader } from "../Loader";
 import ErrorScreen from "../../common/ErrorScreen";
 
+import { ToastMessage } from '../ToastMessage';
 const Addemergencyno = () => {
-
+  const [toast, setToast] = useState({ show: false })
   const [contactTypes, setTypes] = useState([])
   const name = useRef([])
   const type = useRef([])
@@ -84,7 +85,7 @@ const Addemergencyno = () => {
     try {
 
       if (addedittype == 'add') {
-
+        setToast({ show: true, type: "success", message: "Added successfully" })
         if (name.current.value !== "" && type.current.value !== "" && contact.current.value !== "") {
           if (await mobileValidation(contact.current.value)) {
             document.getElementById('contact_name').style.border = 'none'
@@ -97,26 +98,32 @@ const Addemergencyno = () => {
             }
 
             const { data } = await axios.post(`${window.env_var}api/emergencycontacts/addContact`, sendData)
-            window.location.href = '/emergencyList'
+            setTimeout(() => {
+              window.location.href = '/emergencyList'
+            }, 1500);
+            // window.location.href = '/emergencyList'
           }
           else {
-
+            setToast({ show: true, type: "error", message: "Enter valid mobile number" });
             document.getElementById('contact_number').style.border = '1px solid red'
           }
 
         }
         else {
+
           if (name.current.value == "") {
+            setToast({ show: true, type: "error", message: "Enter Name" });
             document.getElementById('contact_number').style.border = 'none'
             document.getElementById('contact_name').style.border = '1px solid red'
           }
           else if (contact.current.value == "") {
+            setToast({ show: true, type: "error", message: "Enter mobile number" });
             document.getElementById('contact_name').style.border = 'none'
             document.getElementById('contact_number').style.border = '1px solid red'
           }
         }
       } else {
-
+        setToast({ show: true, type: "success", message: "Updated successfully" })
         const sendData = {
           id: location.state.id,
           contactName: document.getElementById('contact_name').value,
@@ -125,7 +132,9 @@ const Addemergencyno = () => {
         }
         const { data } = await axios.post(`${window.env_var}api/emergencycontacts/update`, sendData)
         //console.log(data)
-        window.location.href = '/emergencyList'
+        setTimeout(() => {
+          window.location.href = '/emergencyList'
+        }, 1500);
       }
     } catch (error) {
       console.log(error)
@@ -156,6 +165,7 @@ const Addemergencyno = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <Loader loading={loading}>
           <div className="AEN_display">
             <label>{update == 'update' ? 'Update' : 'Add'} Emergency Number</label>

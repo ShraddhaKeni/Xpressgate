@@ -6,8 +6,9 @@ import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import GuardHeader from './Utils/GuardHeader';
 import { Loader } from "../Loader";
-
+import { ToastMessage } from '../ToastMessage';
 const ChangePassword = () => {
+  const [toast, setToast] = useState({ show: false })
   const [loading, setLoading] = useState(true)
   const password = useRef([])
   const confirmPass = useRef([])
@@ -33,6 +34,7 @@ const ChangePassword = () => {
     e.preventDefault()
     try {
       if (await validatePassword(password.current.value)) {
+        setToast({ show: true, type: "success", message: "Password changed successfully" });
         if ((password.current.value === confirmPass.current.value) && (password.current.value !== "" && confirmPass.current.value !== "")) {
           const config = {
             headers: {
@@ -52,12 +54,14 @@ const ChangePassword = () => {
         }
       }
       else {
-        alert('Wrong password')
+        // alert('Wrong password')
+        setToast({ show: true, type: "error", message: "Password must be at least 8 characters long must contain a number, uppercase lowercase and a special character." });
         document.querySelector('input').style.border = '1px solid red'
       }
 
 
     } catch (error) {
+    
       document.querySelector('input').style.border = '1px solid red'
     }
   }
@@ -74,6 +78,7 @@ const ChangePassword = () => {
         <div className='CP_SideIMG'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='addguestbackgroundimg'>
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <div className='CPass_dsplay'>
           <label>Change Password</label>
         </div>
@@ -85,6 +90,16 @@ const ChangePassword = () => {
                 <div class="col-lg-6">
                   <label className="CPASS">Current Password</label>
                   <input ref={oldpass} type="text" className="form-control input-lg CP_input" id="oldpass" placeholder="Current Password"></input>
+                  </div>
+              </div>
+            </div>
+            <label className='Message'>*Password must be at least 8 characters long must contain <br/>a number, uppercase lowercase and a special character.</label>
+         
+            <div className="password">
+              <div class="form-group row">
+                <div class="col-lg-6">
+                  <label className="NpPASS">New Password</label>
+                  <input ref={password} type="password" className="form-control input-lg NPp_input" id="loginpassword" placeholder="New Password"></input>
                 </div>
               </div>
             </div>
@@ -92,17 +107,8 @@ const ChangePassword = () => {
             <div className="password">
               <div class="form-group row">
                 <div class="col-lg-6">
-                  <label className="NPASS">New Password</label>
-                  <input ref={password} type="password" className="form-control input-lg NP_input" id="loginpassword" placeholder="New Password"></input>
-                </div>
-              </div>
-            </div>
-            <br></br>
-            <div className="password">
-              <div class="form-group row">
-                <div class="col-lg-6">
-                  <label className="CHPASS">Confirm Password</label>
-                  <input ref={confirmPass} type="password" className="form-control input-lg CHP_input" id="loginpassword" placeholder="Confirm Password"></input>
+                  <label className="CHhPASS">Confirm Password</label>
+                  <input ref={confirmPass} type="password" className="form-control input-lg CHPp_input" id="loginpassword" placeholder="Confirm Password"></input>
                 </div>
               </div>
             </div>
