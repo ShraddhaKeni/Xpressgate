@@ -10,6 +10,7 @@ import { checkSociety } from '../auth/Auth'
 import { mobileValidation } from '../auth/validation';
 import { ToastMessage } from '../ToastMessage';
 import { Loader } from "../Loader";
+import ErrorScreen from '../../common/ErrorScreen';
 
 const Addlocalservice = () => {
   const [toast, setToast] = useState({ show: false })
@@ -21,6 +22,7 @@ const Addlocalservice = () => {
   const location = useLocation()
   // const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
+  const [isError,setError] = useState(false)
 
   useEffect(() => {
     if (checkSociety()) {
@@ -55,8 +57,9 @@ const Addlocalservice = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/management/getAll`)
       setAddedData(data.data.managementteam)
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -64,8 +67,9 @@ const Addlocalservice = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/admin/localservices/getAll`)
       setService(data.data.localservices)
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -120,11 +124,17 @@ const Addlocalservice = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/vendor/find/${location.state.id}`);
       setvendorData(data.data.vendors[0]);
+      setError(false)
       document.getElementById('service').value = data.data.vendors[0].service;
     } catch (error) {
-
+      setError(true)
     }
   }
+
+  if(isError)
+    return <ErrorScreen/>
+
+
 
   return (
     <div className="alscontainer">
