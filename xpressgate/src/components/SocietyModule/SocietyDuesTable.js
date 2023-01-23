@@ -3,11 +3,12 @@ import "../SocietyModule/SocietyDuesTable.css";
 import Societyheader from "./Utils/Societyheader";
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import axios from "axios";
+import { Loader } from "../Loader";
 
 const SocietyDuesTable = () => {
   const [societydues,setsocietydues] = useState()
   const [currentsociety, setcurrentsociety] = useState([])
-
+  const [loading, setLoading] = useState(true)
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts,setCurrentPosts] = useState([])
@@ -30,9 +31,10 @@ const SocietyDuesTable = () => {
       const indexoflast = currentPage*postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.society_dues.slice(indexoffirst,indexoflast))
-      //console.log(data.data.society_dues)
+      setLoading(false);
     } catch (error) {
-      console.log(error)
+      console.log(error);
+      setLoading(false);
     }
   }
 
@@ -48,7 +50,6 @@ const SocietyDuesTable = () => {
     <div className="addguestcontainer4">
       <div id="addflatsection">
         <Societyheader />
-
       </div>
       <div id="societynamesection">
         <div className="SDT_societyname">
@@ -56,7 +57,6 @@ const SocietyDuesTable = () => {
           <label>Society Name</label>
         </div>
         <br />
-
         <div className="SDT_sideimage">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
@@ -66,51 +66,47 @@ const SocietyDuesTable = () => {
           <label>Society Dues</label>
         </div>
         <br />
-        <div className="AddSDBlock">
-          <button type="button" className="SDAddBTN" onClick={() => {
-            window.location.href = "/societydues";
-          }}>&#10011; Add Society Payment</button>
-        </div>
-        <table id="viewparkingtable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
-          <thead>
-            <tr>
-              <th class="th-sm">Type</th>
-              <th class="th-sm">Block </th>
-              <th class="th-sm">Flat  No</th>
-              <th class="th-sm">Resident Name</th>
-              <th class="th-sm">Amount</th>
-              <th class="th-sm">Payment Date</th>
-              <th class="th-sm">Due Date</th>
-              <th class="th-sm">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-             {currentPosts.map(item => {
-                return(
-                  <tr>
-                   <td>{item.paymentType_name}</td>
-                    <td >{item.block.block_no}</td>
-                    <td>{item.flat.flat_no}</td>
-                    <td>{item.resident.firstname} {item.resident.lastname}</td>
-                    <td>{item.paymentAmount}</td>
-                    <td >{getDate(item.paymentDue)}</td>
-                    <td>{getDate(item.dueDate)}</td>
-                    <td>{item.paid? 'PAID':'NOT PAID'}</td>
-                </tr>
-                )
-              })}
-          </tbody>
-        </table>
-        <br /><br />
-        <PaginationCalculate totalPages={currentsociety.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
-
-
+        <Loader loading={loading}>
+          <div className="AddSDBlock">
+            <button type="button" className="SDAddBTN" onClick={() => {
+              window.location.href = "/societydues";
+            }}>&#10011; Add Society Payment</button>
+          </div>
+          <table id="viewparkingtable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
+            <thead>
+              <tr>
+                <th class="th-sm">Type</th>
+                <th class="th-sm">Block </th>
+                <th class="th-sm">Flat  No</th>
+                <th class="th-sm">Resident Name</th>
+                <th class="th-sm">Amount</th>
+                <th class="th-sm">Payment Date</th>
+                <th class="th-sm">Due Date</th>
+                <th class="th-sm">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {currentPosts.map(item => {
+                  return(
+                    <tr>
+                    <td>{item.paymentType_name}</td>
+                      <td >{item.block.block_no}</td>
+                      <td>{item.flat.flat_no}</td>
+                      <td>{item.resident.firstname} {item.resident.lastname}</td>
+                      <td>{item.paymentAmount}</td>
+                      <td >{getDate(item.paymentDue)}</td>
+                      <td>{getDate(item.dueDate)}</td>
+                      <td>{item.paid? 'PAID':'NOT PAID'}</td>
+                  </tr>
+                  )
+                })}
+            </tbody>
+          </table>
+          <br /><br />
+          <PaginationCalculate totalPages={currentsociety.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+        </Loader>
       </div>
     </div>
-
-
-
   );
 };
-
 export default SocietyDuesTable;

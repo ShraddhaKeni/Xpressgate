@@ -48,7 +48,7 @@ const SocietyPaymentHistory = () => {
       setCurrentPosts(data.data.bills.slice(indexoffirst,indexoflast))
       document.getElementById("Blocks").selectedIndex = 0
       document.getElementById("bills").selectedIndex = 0
-      //setLoading(false);
+      setLoading(false);
     } catch (error) {
       setLoading(false);
     }

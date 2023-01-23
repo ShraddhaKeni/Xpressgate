@@ -4,13 +4,14 @@ import LogOut from "../SocietyModule/Utils/LogOut";
 import { getBlocks } from "./common/common";
 import axios from "axios";
 import Societyheader from "./Utils/Societyheader";
+import { Loader } from "../Loader";
 
 const SocietyDues = () => {
    
   const [block,setBlock] = useState([])
   const [flats,setFlats] = useState([])
   const [resident,setResident] =useState({})
-
+  const [loading, setLoading] = useState(true)
   const payment_due = useRef([])
   const payment_date = useRef([])
   const amount = useRef([])
@@ -26,8 +27,10 @@ const SocietyDues = () => {
   const getData=async()=>{
     try {
       setBlock(await getBlocks())
+      setLoading(false);
     } catch (error) {
       console.log(error)
+      setLoading(false);
     }
   }
   
@@ -73,16 +76,12 @@ const SocietyDues = () => {
     <div className="addguestcontainer4">
     <div id="addflatsection">
         <Societyheader/>
-    
     </div>
       <div id="societynamesection">
         <div className="SD_societyname">
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
-        {/* <div className="SD_SideLinks">
-          <a href="/societyduesrecord" className="SD_SL_SduesRec">Society Dues List</a>
-        </div> */}
         <div className="SocietyDSideIMG">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
@@ -91,75 +90,68 @@ const SocietyDues = () => {
         <div className="SD_display">
           <label>Society Dues</label>
         </div>
-        <div className="Payment_form">
+        <Loader loading={loading}>
+          <div className="Payment_form">
             <div className="inboxes">
-                <label for="Type" className="Typedetails">Type</label>
-                <select  id="Type" ref={payment} className="VendorInp">
-                    <option value={null}>Select Type</option>
-                    <option value="1">Maintenance</option>
-                    <option value="2">Rent</option>
-                </select> 
+              <label for="Type" className="Typedetails">Type</label>
+              <select  id="Type" ref={payment} className="VendorInp">
+                <option value={null}>Select Type</option>
+                <option value="1">Maintenance</option>
+                <option value="2">Rent</option>
+              </select> 
             </div>
-        </div>
-        <div className="Payment_form">
+          </div>
+          <div className="Payment_form">
             <div className="inboxes">
-                <label for="Blockk " className="Society_Block ">Block </label>
-                <select  id="Blockkk"  onChange={(e)=>getFlats(e)}  className="VendorInp">
+              <label for="Blockk " className="Society_Block ">Block </label>
+              <select  id="Blockkk"  onChange={(e)=>getFlats(e)}  className="VendorInp">
                 <option value="" selected disabled>Select Block</option>
-                      {block.map(item=>{
-                        return <option value={item.id}>{item.name}</option>
-                      })}
-                    </select> 
+                {block.map(item=>{
+                  return <option value={item.id}>{item.name}</option>
+                })}
+              </select> 
             </div>
-        </div>
-        <div className="Payment_form">
+          </div>
+          <div className="Payment_form">
             <div className="inboxes">
-                <label for="SocietyFlatNum" className="SocietyFlatNo">Flat No</label>
-                <select  id="UtilityFlatNo" ref={flat_id} onChange={(e)=>{getResident(e)}} className="VendorInp">
+              <label for="SocietyFlatNum" className="SocietyFlatNo">Flat No</label>
+              <select  id="UtilityFlatNo" ref={flat_id} onChange={(e)=>{getResident(e)}} className="VendorInp">
                 <option value="" selected disabled>Select Flat</option>
-                      {flats.map(item=>{
-                        return <option value={item._id}>{item.flat_number}</option>
-                      })}
-                    </select>
+                {flats.map(item=>{
+                  return <option value={item._id}>{item.flat_number}</option>
+                })}
+              </select>
             </div>
-        </div>
-        <div className="Payment_form">
+          </div>
+          <div className="Payment_form">
             <div className="inboxes">
-                <label for="SocietyResidentname" className="Society_Residentnames">Resident Name</label>
-                
-                {resident.firstname?<input type="text"  id="UtilityResidentname" className="VendorInp" disabled name="First name" placeholder="Resident name" value={resident.firstname+' '+resident.lastname}/>:
-                <input type="text"  id="UtilityResidentname" className="VendorInp" disabled name="First name" placeholder="Resident name" />}
+              <label for="SocietyResidentname" className="Society_Residentnames">Resident Name</label>  
+              {resident.firstname?<input type="text"  id="UtilityResidentname" className="VendorInp" disabled name="First name" placeholder="Resident name" value={resident.firstname+' '+resident.lastname}/>:
+              <input type="text"  id="UtilityResidentname" className="VendorInp" disabled name="First name" placeholder="Resident name" />}
             </div>
-        </div>
-        <div className="Payment_form">
+          </div>
+          <div className="Payment_form">
             <div className="inboxes">
-                <label for="SocietyAmount" className="Society_Amount">Amount</label>
-                <input type="text" ref={amount}  id="SocietyAmount" placeholder="Amount" className="VendorInp"></input> 
+              <label for="SocietyAmount" className="Society_Amount">Amount</label>
+              <input type="text" ref={amount}  id="SocietyAmount" placeholder="Amount" className="VendorInp"></input> 
             </div>
-        </div>
-        <div className="Payment_form">
+          </div>
+          <div className="Payment_form">
             <div className="inboxes">
-                <span>
+              <span>
                 <label for="Paydate" class="paymentdate">Payment Date</label>
                 <input type="date" ref={payment_date} id="Paydate" className="Paymentdateinput"></input>
-                </span>
-                <span>
+              </span>
+              <span>
                 <label for="Duedate" class="Duedate">Due Date</label>
                 <input type="date" ref={payment_due} id="Duedate" className="Duedateinput"></input>
-                </span>
+              </span>
             </div>
-        </div>
-       
-          
-                <button type="button" onClick={(e)=>{handleSubmit(e)}} className="SAddButn">Add</button>
-         
-   
+          </div>
+          <button type="button" onClick={(e)=>{handleSubmit(e)}} className="SAddButn">Add</button>
+        </Loader>
       </div>
     </div>
-       
-       
-    
   );
 };
-
 export default SocietyDues;
