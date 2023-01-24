@@ -121,3 +121,10 @@
     color: #E8F5E9;
   }
 }
+
+.vendorpayment_search
+{
+  position: absolute;
+  top: 8.5% !important;
+  left: 54%;
+}

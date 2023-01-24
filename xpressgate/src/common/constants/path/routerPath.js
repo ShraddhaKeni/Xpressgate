@@ -45,7 +45,10 @@ const RouterPath = {
     ADD_SMS_PROVIDER: "/admin/manage/sms/add",
     EDIT_SMS_PROVIDER: "/admin/manage/sms/:id",
 
-    MANAGE_SLIDERS: "/admin/manage/sliders"
+    MANAGE_SLIDERS: "/admin/manage/sliders",
+
+    ADD_SOCIETY_MEMBER: "/addsocietymember"
+
 
 };
 export default RouterPath;

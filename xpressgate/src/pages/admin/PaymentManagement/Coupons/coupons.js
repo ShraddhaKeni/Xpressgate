@@ -61,14 +61,13 @@ export const CouponsList = () => {
     function findText(e) {
         let search = e.target.value.toLowerCase()
         let arr = allCoupons.filter(x => {
-            console.log(x);
             if (x?.code?.toLowerCase()?.includes(search)) {
                 return true
             }
 
         })
-        console.log(arr);
-        if (arr) {
+        
+        if (arr.length>0) {
             getCurrentCoupons(arr);
         }
         else {

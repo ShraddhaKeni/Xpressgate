@@ -3,6 +3,7 @@ import ReactPaginate from 'react-paginate'
 const PaginationCalculate = ({totalPages,postperPage,currentPage,paginate}) => {
 
     var display = Math.ceil(totalPages / postperPage)
+
   return (
     <ReactPaginate
         breakLabel="..."

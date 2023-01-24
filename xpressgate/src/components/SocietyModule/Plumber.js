@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import Societyheader from "./Utils/Societyheader";
+import Pagination from "../../common/Pagination";
 
 const Plumber = () => {
  
@@ -17,6 +18,7 @@ const Plumber = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const [flag,setFlag] = useState(true)
+  const [filterArr,setFilter] = useState([])
 
   useEffect(()=>{
     if(location.state.id)
@@ -69,15 +71,17 @@ const Plumber = () => {
         return true
       }
     })
+    const indexoflast =currentPage*postPerPage  //endoffset
+      const indexoffirst = (indexoflast - postPerPage)
     if(arr)
     {
-      const indexoflast =currentPage*postPerPage  //endoffset
-      const indexoffirst = (indexoflast - postPerPage)
+      setFilter(arr)
       setCurrentPosts(arr.slice(indexoffirst,indexoflast))
     }
     else
     {
-      paginate(0)
+      setFilter([])
+      setCurrentPosts(vendors.slice(indexoffirst,indexoflast))
     }
 }
 
@@ -89,6 +93,8 @@ const autoSelect = ()=>{
   document.getElementById(location.state.id).classList.add('selected')
   setFlag(!flag)
 }
+
+const settingCurrent =value=>setCurrentPosts(value)
 
 
 const navigateTo =e=>{
@@ -170,7 +176,8 @@ function navigatetoEdit(id)
             })}
           </tbody>
         </table>
-        <PaginationCalculate totalPages={vendors.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+        <Pagination totalPages={filterArr.length>0?filterArr.length:vendors.length} data ={filterArr.length>0?filterArr:vendors} settingCurrent={settingCurrent}/>
+
       </div>
     </div>
   );
