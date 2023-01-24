@@ -1,0 +1,206 @@
+html {
+  height: 100vh;
+}
+
+
+#societynamesection {
+  /* background-color: blueviolet; */
+  grid-area: societynamesection;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.AEN_display {
+  width: 17vw;
+  height: 7vh;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  font-size: 1.2vw;
+  margin: auto;
+  margin-top: -3%;
+  padding-top: 1.2%;
+}
+
+.AEN_display label {
+
+  display: inline-block;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
+  margin-bottom: -19%;
+
+
+}
+
+.addmaintenancebackgroundimg {
+  /* background-image: url("../../../public/images/dashboardbackground.svg"); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  margin-top: 0.5%;
+}
+
+.maintenancelist {
+  margin-top: 10%;
+  margin-right: 15%;
+
+}
+
+.AEN_societyname label {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
+  margin-left: 4%;
+  margin-top: 12%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
+}
+
+.AEN_societyname {
+  display: flex;
+  width: 80%;
+  height: 12%;
+  background-color: rgba(10, 137, 150, 0.33);
+  margin-left: 10%;
+  margin-top: 12%;
+  border-radius: 24px;
+}
+
+.AEN_societyname img {
+  margin-left: 10%;
+  width: 25%;
+  height: 70%;
+  margin-top: 5%;
+}
+
+.form-group5 {
+  margin-bottom: 3.5%;
+}
+
+
+.AEN_sideimage img {
+  display: flex;
+  margin-top: 69%;
+  max-width: 90%;
+  height: auto;
+  margin-left: 8%;
+  margin-bottom: 3%;
+}
+
+.AddButton {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 300px;
+  height: 6vh;
+  font-size: 1.1vw;
+  font-weight: 700;
+  margin-top: 3%;
+  margin-right: 34%;
+  padding-top: 0.5%;
+  font-family: 'Rubik';
+  font-style: normal;
+  border: none;
+}
+
+.AddButton:hover {
+  background-color: #14335D;
+}
+
+.AEN_border {
+  background: #FFFFFF;
+  border: 2px solid #14335D;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+
+.MSLList {
+  color: #757575;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.1vw;
+}
+
+.Addmaintenancelink {
+  color: #000;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.1vw;
+}
+
+.MSLList:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
+.Addmaintenancelink:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
+/* Media query for laptop */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  .AEN_display {
+    width: 17vw;
+    height: 7vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 1.3vw;
+    padding-top: 1%;
+    margin: auto;
+    margin-top: -3%;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    color: #14335D;
+  }
+
+  .form-group5 {
+    margin-bottom: 3.5%;
+  }
+
+  .Addguestdisplay3 {
+    width: 24vw;
+    height: 10vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 1.6vw;
+    padding-top: 2.2%;
+    margin: auto;
+    margin-top: -17%;
+  }
+
+  .AddButton {
+    background-color: #0A8996;
+    color: #fff;
+    border-radius: 12px;
+    width: 11vw;
+    height: 7vh;
+    font-size: 1.2vw;
+    font-weight: 700;
+    margin-top: 4%;
+    margin-right: 32%;
+    padding-top: 1%;
+    font-family: 'Rubik';
+    font-style: normal;
+    border: none;
+
+  }
+
+  .AddButton:hover {
+    background-color: #14335D;
+  }
+
+  .AEN_sideimage img {
+    display: flex;
+    margin-top: 88%;
+    max-width: 95%;
+    height: auto;
+    margin-left: 2%;
+  }
+
+}
