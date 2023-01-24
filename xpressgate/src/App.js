@@ -214,6 +214,9 @@ function App() {
           <Route path={RouterPath.MANAGE_SLIDERS} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.ADD_SLIDER} element={<AdminModuleComponent />}></Route>
 
+          <Route path='/addsocietymember' element={<AdminModuleComponent />}></Route>
+
+
           <Route path='/adminchangepassword' element={<AdminChangePass />}></Route>
           <Route path='/superadminlogin' element={<SuperAdminLogin />}></Route>
           <Route path='/enternewpass' element={<AdminEnterNewPass />}></Route>
@@ -223,7 +226,6 @@ function App() {
           <Route path='/addblock' element={<AddBlock />}></Route>
           <Route path='/updateblock' element={<UpdateBlock />}></Route>
           <Route path='/socreports' element={<SocReport />}></Route>
-          <Route path='/addsocietymember' element={<AddSocietyMember />}></Route>
           <Route path='/editguarddetails' element={<EditGuard />}></Route>
           <Route path='/utilitypaymentlinklist' element={<UtilityPyamentLinkList />}></Route>
 
