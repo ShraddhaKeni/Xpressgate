@@ -7,6 +7,8 @@ import axios from "axios";
 import GuardHeader from './Utils/GuardHeader';
 import { Loader } from "../Loader";
 import { ToastMessage } from '../ToastMessage';
+import PasswordNotice from '../PasswordNotice';
+
 const ChangePassword = () => {
   const [toast, setToast] = useState({ show: false })
   const [loading, setLoading] = useState(true)
@@ -93,13 +95,13 @@ const ChangePassword = () => {
                   </div>
               </div>
             </div>
-            <label className='Message'>*Password must be at least 8 characters long must contain <br/>a number, uppercase lowercase and a special character.</label>
-         
+            {/* <label className='Message'>*Password must be at least 8 characters long must contain <br/>a number, uppercase lowercase and a special character.</label> */}
+            <br></br>
             <div className="password">
               <div class="form-group row">
                 <div class="col-lg-6">
-                  <label className="NpPASS">New Password</label>
-                  <input ref={password} type="password" className="form-control input-lg NPp_input" id="loginpassword" placeholder="New Password"></input>
+                  <label className="NPASS">New Password</label>
+                  <input ref={password} type="password" className="form-control input-lg NP_input" id="loginpassword" placeholder="New Password"></input>
                 </div>
               </div>
             </div>
@@ -107,12 +109,13 @@ const ChangePassword = () => {
             <div className="password">
               <div class="form-group row">
                 <div class="col-lg-6">
-                  <label className="CHhPASS">Confirm Password</label>
-                  <input ref={confirmPass} type="password" className="form-control input-lg CHPp_input" id="loginpassword" placeholder="Confirm Password"></input>
+                  <label className="CHPASS">Confirm Password</label>
+                  <input ref={confirmPass} type="password" className="form-control input-lg CHP_input" id="loginpassword" placeholder="Confirm Password"></input>
                 </div>
               </div>
             </div>
           </div>
+    <PasswordNotice/>
           <button type="submit" onClick={(e) => handleSubmit(e)} className="CHPASS_BTN">Update</button>
         </Form>
         </Loader>

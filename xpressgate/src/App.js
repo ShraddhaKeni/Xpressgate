@@ -87,6 +87,8 @@ import EditGuard from './components/GuardModule/EditGuard';
 import Admin_Change_Password from './pages/admin/LoginScreens/Admin_Change_Password';
 import UtilityPaymentLink from './components/SocietyModule/UtilityPaymentLink';
 import UtilityPyamentLinkList from './components/SocietyModule/UtilityPyamentLinkList';
+import ViewGuestParkingSec from './components/SocietyModule/ViewGuestParkingSec';
+import AddGuestParkingSec from './components/SocietyModule/AddGuestParkingSec';
 
 
 function App() {
@@ -226,6 +228,8 @@ function App() {
           <Route path='/addsocietymember' element={<AddSocietyMember />}></Route>
           <Route path='/editguarddetails' element={<EditGuard />}></Route>
           <Route path='/utilitypaymentlinklist' element={<UtilityPyamentLinkList />}></Route>
+          <Route path='/viewguestparkingsection' element={<ViewGuestParkingSec />}></Route>
+          <Route path='/addguestparkingsection' element={<AddGuestParkingSec />}></Route>
 
 
 

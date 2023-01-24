@@ -63,6 +63,10 @@ text-decoration: none;
     margin-bottom: -2%;
     
   }
+  .vgpsidelinks{
+    margin-right: 5%;
+    margin-top: 10%;
+    }
   .vpsidelinks{
     margin-right: 20%;
     margin-top: 10%;
@@ -132,10 +136,23 @@ text-decoration: none;
   color:#000;
   text-decoration: none;
 }
-
-
+.viewGparking_sideimg img {
+  display: flex;
+  margin-top: 64%;
+  max-width: 90%;
+  height: auto;
+  margin-left: 8%;
+  margin-bottom: 3%;
+}
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
 
+  .viewGparking_sideimg img {
+    display: flex;
+    margin-top: 110%;
+    max-width: 86%;
+    height: auto;
+    margin-left: 8%;
+  }
   .vpsidelinks {
         margin-right: 38%;
         margin-top: 10%;

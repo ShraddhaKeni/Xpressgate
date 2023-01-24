@@ -53,6 +53,7 @@ const [isError,setError] = useState(false)
       setError(false)
     } catch (error) {
       setError(true)
+      // setError(false)
     }
   }
 
@@ -70,10 +71,12 @@ const [isError,setError] = useState(false)
       const {data} = await axios.get(`${window.env_var}api/plan/getall`,config)
       setPlan(data.data.plan)
       const response = await axios.get(`${window.env_var}api/management/get`)
+      console.log(response)
       setMembers(response.data.data.managementteam)
       setError(false)
     } catch (error) {
       setError(true)
+      // setError(false)
     }
   }
 
