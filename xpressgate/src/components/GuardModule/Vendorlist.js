@@ -10,6 +10,7 @@ import { checkGuard } from '../auth/Auth';
 import GuardHeader from './Utils/GuardHeader';
 import Loader from '../../common/Loader';
 import ErrorScreen from '../../common/ErrorScreen'
+import Pagination from '../../common/Pagination';
 
 const Vendorlist = () => {
  
@@ -27,7 +28,7 @@ const Vendorlist = () => {
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts,setCurrentPosts] = useState([])
   const [pageCount,setpageCount] = useState(0)
-
+  const [filterArr,setFilter] = useState([])
 
   useEffect(()=>{
     if(checkGuard())
@@ -97,26 +98,35 @@ const Vendorlist = () => {
     
   }
 
-  async function  paginate(event)
-  {
-    const {data} = await axios.get(`${window.env_var}api/vendor/list`)
-    setCurrentpage(event.selected+1)
-    const indexoflast = (event.selected+1)*postPerPage  //endoffset
-    const indexoffirst = (indexoflast - postPerPage) //startoffset
-    setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
-  }
+  // async function  paginate(event)
+  // {
+  //   const {data} = await axios.get(`${window.env_var}api/vendor/list`)
+  //   setCurrentpage(event.selected+1)
+  //   const indexoflast = (event.selected+1)*postPerPage  //endoffset
+  //   const indexoffirst = (indexoflast - postPerPage) //startoffset
+  //   setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
+  // }
   async function findText(e)
   {
     let text = vendorData.filter(x=>x.vendor_name.toLowerCase().includes(e.target.value.toLowerCase()))
-    if(text)
+    const indexoflast = currentPage * postPerPage 
+    const indexoffirst = (indexoflast - postPerPage)
+    if(text.length>0)
     {
-      setCurrentPosts(text)
+      setFilter(text)
+      setCurrentPosts(text.slice(indexoffirst,indexoflast))
     }
     else
     {
-      paginate(0)
+
+      setFilter([])
+      setCurrentPosts(vendorData.slice(indexoffirst,indexoflast))
     }
     
+  }
+  function settingCurrent(value)
+  {
+    setCurrentPosts(value)
   }
 
 
@@ -208,8 +218,7 @@ const Vendorlist = () => {
            
           </tbody>
         </table>
-        <PaginationCalculate totalPages={vendorData.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
-       
+        <Pagination totalPages={filterArr.length>0?filterArr.length:vendorData.length} data ={filterArr.length>0?filterArr:vendorData} settingCurrent={settingCurrent}/>       
       </div>
     </div>
   )

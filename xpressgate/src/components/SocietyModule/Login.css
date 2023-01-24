@@ -352,15 +352,15 @@ font-weight: 500;
 {
   position: absolute;
   left: 35%;
-  transform: scale(0.8);
+  
 }
 
 .society_login_middleLayer_image_face
 {
   position: absolute;
-  left: 54%;
-  top: 37%;
-  width: 20vh !important;
+  left: 58.5%;
+  top: 40%;
+  width: 17vh !important;
   height: 23vh !important;
   /* background-color: #F9FAFF; */
   border-radius: 50%;
@@ -371,20 +371,44 @@ font-weight: 500;
 .society_login_middleLayer_circle
 {
   position: absolute;
-  left: 71.6%;
-  top: 29%;
+  left: 73%;
+  top: 33%;
   width: 20vh !important;
   height: 23vh !important;
   animation: moveCircle 15s infinite linear;
+  z-index: 0
+  ;
 }
 
 .society_login_middleLayer_pen{
   position: absolute;
-  left: 75%;
-  top: 55%;
-  width: 18vh !important;
+  left: 76%;
+  top: 56%;
+  width: 17vh !important;
   height: 23vh !important;
   animation: movePen 5s infinite ease-in-out;
+}
+
+.textOverCircle
+{
+  left: 75%;
+  top: 40%;
+  background-color: transparent;
+  position: absolute;
+  color: white;
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 50px;
+  display: none;
+}
+
+.society_login_middleLayer_middle
+{
+  z-index: 10;
+  position: absolute;
+  left: 74.3%;
+  top: -5.5%;
+  width: 15vh !important;
 }
 
 

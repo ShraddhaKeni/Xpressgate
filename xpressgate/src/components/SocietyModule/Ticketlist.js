@@ -5,6 +5,7 @@ import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import './Ticketlist.css';
 import Societyheader from './Utils/Societyheader';
 import { Loader } from "../Loader";
+import Pagination from '../../common/Pagination';
 
 const Ticketlist = () => {
 
@@ -15,6 +16,7 @@ const Ticketlist = () => {
   const [currentPosts,setCurrentPosts] = useState([])
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
+  const [filterArr,setFilter] = useState([])
 
   useEffect(()=>{
     getTickets()
@@ -33,13 +35,13 @@ const Ticketlist = () => {
     }
   }
 
-  function  paginate(event)
-  {
-    setCurrentpage(event.selected+1)
-    const indexoflast = (event.selected+1)*postPerPage  //endoffset
-    const indexoffirst = (indexoflast - postPerPage) //startoffset
-    setCurrentPosts(tickets.slice(indexoffirst,indexoflast))
-  }
+  // function  paginate(event)
+  // {
+  //   setCurrentpage(event.selected+1)
+  //   const indexoflast = (event.selected+1)*postPerPage  //endoffset
+  //   const indexoffirst = (indexoflast - postPerPage) //startoffset
+  //   setCurrentPosts(tickets.slice(indexoffirst,indexoflast))
+  // }
 
   const  dateTimeFormat=(date)=>
   {
@@ -53,7 +55,7 @@ const Ticketlist = () => {
 
   function findText(e)
   {
-    console.log(currentPosts)
+    
     let search = e.target.value.toLowerCase()
     let arr = tickets.filter(x=>{
       if(x.ticketRaisedBy.firstname.toLowerCase().includes(search))
@@ -65,16 +67,23 @@ const Ticketlist = () => {
         return true
       }
     })
+    const indexoflast =currentPage*postPerPage  //endoffset
+      const indexoffirst = (indexoflast - postPerPage)
     if(arr)
     {
-      const indexoflast =currentPage*postPerPage  //endoffset
-      const indexoffirst = (indexoflast - postPerPage)
+      setFilter(arr)
       setCurrentPosts(arr.slice(indexoffirst,indexoflast))
     }
     else
     {
-      paginate(0)
+      setFilter([])
+      setCurrentPosts(tickets.slice(indexoffirst, indexoflast))
     }
+  }
+
+  function settingCurrent(value)
+  {
+    setCurrentPosts(value)
   }
 
   return (
@@ -123,7 +132,8 @@ const Ticketlist = () => {
             
             </tbody>
           </table>
-          <PaginationCalculate totalPages={tickets.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+          <Pagination totalPages={filterArr.length>0?filterArr.length:tickets.length} data ={filterArr.length>0?filterArr:tickets} settingCurrent={settingCurrent}/>
+          {/* <PaginationCalculate totalPages={tickets.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/> */}
         </Loader>
       </div>
     </div>

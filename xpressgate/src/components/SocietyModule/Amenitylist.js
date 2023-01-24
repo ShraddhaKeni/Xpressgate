@@ -7,6 +7,7 @@ import { getAmenitiesBooked } from './common/common';
 import LogOut from './Utils/LogOut';
 import Societyheader from './Utils/Societyheader';
 import { Loader } from "../Loader";
+import Pagination from '../../common/Pagination';
 
 const Amenitylist = () => {
   const [loading, setLoading] = useState(true)
@@ -16,6 +17,9 @@ const Amenitylist = () => {
   const [currentPosts,setCurrentPosts] = useState([])
   const location = useLocation()
   const navigate = useNavigate()
+  const [filterArr,setFilter] = useState([])
+
+
   useEffect(()=>{
     if(location.state)
     {
@@ -39,13 +43,13 @@ const Amenitylist = () => {
     setCurrentPosts(list.sort().reverse().slice(indexoffirst,indexoflast))
   }
 
-  function  paginate(event)
-  {
-    setCurrentpage(event.selected+1)
-    const indexoflast = (event.selected+1)*postPerPage  //endoffset
-    const indexoffirst = (indexoflast - postPerPage) //startoffset
-    setCurrentPosts(bookedAmenities.sort().reverse().slice(indexoffirst,indexoflast))
-  }
+  // function  paginate(event)
+  // {
+  //   setCurrentpage(event.selected+1)
+  //   const indexoflast = (event.selected+1)*postPerPage  //endoffset
+  //   const indexoffirst = (indexoflast - postPerPage) //startoffset
+  //   setCurrentPosts(bookedAmenities.sort().reverse().slice(indexoffirst,indexoflast))
+  // }
 
   const  dateTimeFormat=(date)=>
   {
@@ -79,14 +83,23 @@ const Amenitylist = () => {
         return true
       }
     })
-    if(arr)
+    const indexoflast = currentPage * postPerPage 
+    const indexoffirst = (indexoflast - postPerPage)
+    if(arr.length>0)
     {
-      setCurrentPosts(arr)
+      setFilter(arr)
+      setCurrentPosts(arr.slice(indexoffirst,indexoflast))
     }
     else
     {
-      paginate(0)
+      setFilter([])
+      setCurrentPosts(bookedAmenities.slice(indexoffirst,indexoflast))
     }
+  }
+
+  function settingCurrent(value)
+  {
+    setCurrentPosts(value)
   }
 
   return (
@@ -143,7 +156,9 @@ const Amenitylist = () => {
             })}
           </tbody>
         </table>
-        <PaginationCalculate totalPages={bookedAmenities.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+        {/* <PaginationCalculate totalPages={bookedAmenities.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/> */}
+        <Pagination totalPages={filterArr.length>0?filterArr.length:bookedAmenities.length} data ={filterArr.length>0?filterArr:bookedAmenities} settingCurrent={settingCurrent}/>
+
         </Loader>
       </div>
     </div>
