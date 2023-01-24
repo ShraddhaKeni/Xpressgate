@@ -62,8 +62,8 @@ const EditPaymentGateway = () => {
 
                     <Form className='formclass fcadmin'>
 
-                        <SimpleInputComponent label={'Payment Gateway Name'} name={'payment_gateway_name'} id={'premises'} text={paymentgateway?.payment_gateway_name} onChange={(e) => { setPaymentGateway({ ...paymentgateway, payment_gateway_name: e.target.value }) }} />
-                        <SimpleInputComponent label={'API Key'} name={'payment_api_key'} id={'address'} text={paymentgateway?.payment_api_key} onChange={(e) => { setPaymentGateway({ ...paymentgateway, payment_api_key: e.target.value }) }} />
+                        <SimpleInputComponent label={'Payment Gateway Name'} placeholder={'Enter Payment Gateway Name'} name={'payment_gateway_name'} id={'premises'} text={paymentgateway?.payment_gateway_name} onChange={(e) => { setPaymentGateway({ ...paymentgateway, payment_gateway_name: e.target.value }) }} />
+                        <SimpleInputComponent label={'API Key'} placeholder={'Enter API Key'} name={'payment_api_key'} id={'address'} text={paymentgateway?.payment_api_key} onChange={(e) => { setPaymentGateway({ ...paymentgateway, payment_api_key: e.target.value }) }} />
                         <button type="submit" onClick={(e) => handleSubmit(e)} className="BTN_ADD_premise ">Save</button>
 
                     </Form>

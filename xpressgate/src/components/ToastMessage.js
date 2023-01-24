@@ -3,7 +3,7 @@ import { Slide, Snackbar } from "@mui/material";
 import { Alert } from "@mui/material";
 
 function TransitionLeft(props) {
-    return <Slide {...props} direction="up" />;
+    return <Slide {...props} direction="down" />;
 }
 export const ToastMessage = ({ show, message, type, handleClose }) => {
     return (
@@ -11,7 +11,7 @@ export const ToastMessage = ({ show, message, type, handleClose }) => {
             open={show || false}
             autoHideDuration={3000}
             key="bottomcenter"
-            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            anchorOrigin={{ vertical: "top", horizontal: "center" }}
             onClose={handleClose}
             TransitionComponent={TransitionLeft}
         >

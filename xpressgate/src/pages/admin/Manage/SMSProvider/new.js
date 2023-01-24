@@ -58,8 +58,8 @@ const SMSProvider = () => {
 
                     <Form className='formclass fcadmin'>
 
-                        <SimpleInputComponent label={'SMS Provider Name'} name={'gateway_name'} id={'smss'} onChange={(e) => { setSMS({ ...sms, gateway_name: e.target.value }) }} />
-                        <SimpleInputComponent label={'API Key'} name={'api_key'} id={'address'} onChange={(e) => { setSMS({ ...sms, api_key: e.target.value }) }} />
+                        <SimpleInputComponent label={'SMS Provider Name'} placeholder={'Enter SMS Gateway Name'} name={'gateway_name'} id={'smss'} onChange={(e) => { setSMS({ ...sms, gateway_name: e.target.value }) }} />
+                        <SimpleInputComponent label={'API Key'} placeholder={'Enter API Key'} name={'api_key'} id={'address'} onChange={(e) => { setSMS({ ...sms, api_key: e.target.value }) }} />
                         <button type="submit" onClick={(e) => handleSubmit(e)} className="BTN_ADD_premise ">Save</button>
 
                     </Form>
