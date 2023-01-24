@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import "../SocietyModule/Login.css";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
+import {motion} from 'framer-motion'
 
 const Login_society = () => {
   let username = useRef([]);
@@ -40,10 +41,12 @@ const Login_society = () => {
       <div id="SC_LOGIN_IMG">
         {/* <img src="./images/societylogin.svg" alt="" /> */}
         <img src="./images/background.svg" alt="" />
-        <img className="society_login_middleLayer_image" src="./images/other.svg" alt="" />
-        <img className="society_login_middleLayer_image_face" src="./images/group_206.svg" alt="" />
-        <img className="society_login_middleLayer_circle" src="./images/starburst.svg" alt="" />
-        <img className="society_login_middleLayer_pen" src="./images/hand.svg" alt="" />
+        <img className="society_login_middleLayer_image" src="./images/backgroundSociety.svg" alt="" />
+        <img className="society_login_middleLayer_image_face" src="./images/face2.svg" alt="" />
+        <img className="society_login_middleLayer_circle" src="./images/rotateCircle.svg" alt="" />
+        <img className="society_login_middleLayer_middle" src="./images/circleCenter.svg" alt="" />
+        
+        <img className="society_login_middleLayer_pen" src="./images/Group 213.svg" alt="" />
       </div>
       <div id="SOC_Login_FormId">
         <Form>
@@ -55,7 +58,7 @@ const Login_society = () => {
                 ref={username}
                 type="text"
                 className="form-control Soc_emailtextBox"
-                onKeyPress={(e) => {
+                onKeyUp={(e) => {
                   document.getElementById(e.target.id).style.border = "none";
                 }}
                 id="socloginemailid"
@@ -69,14 +72,17 @@ const Login_society = () => {
                 ref={password}
                 type="password"
                 className="form-control Soc_Password_textBox"
-                onKeyPress={(e) => {
+                onkeyUp={(e) => {
                   document.getElementById(e.target.id).style.border = "none";
                 }}
                 id="loginpassword"
                 placeholder="Password"
               ></input>
               <br />
-              <button
+              <motion.button
+                 whileHover={{ scale: 1.1 }}
+                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                 whileTap={{scale:0.9}}
                 type="button"
                 className="socbtnlogin"
                 onClick={() => {
@@ -84,10 +90,13 @@ const Login_society = () => {
                 }}
               >
                 Login
-              </button>
+              </motion.button>
             </div>
 
-            <div className="socforgotpassword"><a href="/screset" >Forgot Password?</a></div>
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            className="socforgotpassword"><a href="/screset" >Forgot Password?</a></motion.div>
           </div>
         </Form>
       </div>

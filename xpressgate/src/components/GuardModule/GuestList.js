@@ -10,6 +10,7 @@ import GuardHeader from './Utils/GuardHeader';
 import { checkGuard } from '../auth/Auth'
 import Loader from '../../common/Loader';
 import ErrorScreen from '../../common/ErrorScreen.js';
+import Pagination from '../../common/Pagination';
 
 const GuestList = () => {
   
@@ -20,6 +21,7 @@ const GuestList = () => {
   const [pageCount, setpageCount] = useState(0)
   const [isLoading,setLoading] = useState(true)
   const [isError,setError] = useState(false)
+  const [filterArr,setFilter] = useState([])
 
   const navigate = useNavigate()
   useEffect(() => {
@@ -78,15 +80,20 @@ const GuestList = () => {
 
   }
 
-  async function paginate(event) {
-    setCurrentpage(event.selected + 1)
-    const indexoflast = (event.selected + 1) * postPerPage  //endoffset
-    const indexoffirst = (indexoflast - postPerPage) //startoffset
-    setCurrentPosts(guests.slice(indexoffirst, indexoflast))
-  }
+  // async function paginate(event) {
+  //   setCurrentpage(event.selected + 1)
+  //   const indexoflast = (event.selected + 1) * postPerPage  //endoffset
+  //   const indexoffirst = (indexoflast - postPerPage) //startoffset
+  //   setCurrentPosts(guests.slice(indexoffirst, indexoflast))
+  // }
 
   const guestEntry = async (id) => {
     navigate('/guestentry', { state: { id: id } })
+  }
+
+  function settingCurrent(value)
+  {
+    setCurrentPosts(value)
   }
 
   if(isLoading)
@@ -143,8 +150,9 @@ const GuestList = () => {
         </table>
         {/* <div className="App">
       {data} */}
-        <PaginationCalculate totalPages={guests.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
-        
+        {/* <PaginationCalculate totalPages={guests.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} /> */}
+        <Pagination totalPages={filterArr.length>0?filterArr.length:guests.length} data ={filterArr.length>0?filterArr:guests} settingCurrent={settingCurrent}/>
+
 
        
       </div>
