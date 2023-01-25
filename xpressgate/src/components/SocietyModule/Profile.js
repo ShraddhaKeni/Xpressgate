@@ -4,21 +4,25 @@ import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import axios from 'axios';
 import LogOut from '../SocietyModule/Utils/LogOut';
+import Societyheader from './Utils/Societyheader'
+import { Loader } from "../Loader";
 
 const Profile = () => {
 
-const [residents,setResidents] = useState([])
-const [details,setDetails] = useState({})
-useEffect(()=>{
-  getResidents()
-})
+  const [residents,setResidents] = useState([])
+  const [details,setDetails] = useState({})
+  const [loading, setLoading] = useState(true)
+  useEffect(()=>{
+    getResidents()
+  })
 
   const getResidents=async()=>{
     try {
-        const {data} = await axios.get(`${window.env_var}api/resident/getall`)
-        setResidents(data.data.Resident)
+      const {data} = await axios.get(`${window.env_var}api/resident/getall`)
+      setResidents(data.data.Resident);
+      setLoading(false);
     } catch (error) {
-      
+      setLoading(false);
     }
   }
 
@@ -55,30 +59,21 @@ useEffect(()=>{
   return (
     <div className="addguestcontainer5">
       <div id="addflatsection">
-          <div className="addflatheadersection">
-            <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-            <div id="afsociety"><label>Society</label></div>
-            <div id="afspace"></div>
-            <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-            <div id="afsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-            <div id="aflogoutbutton"><LogOut/></div>
-          </div>
-      
+        <Societyheader />
       </div>
       <div id="guardnamesection5">
         <div className='guardname5'>
           <img src="/images/profileicon.svg" alt="guard name" />
           <label>Society Name</label>
         </div>
-        {/* <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div> */}
       </div>
       <div className='addguestbackgroundimg'>
         <div className='Addguestdisplay5'>
           <label>Profile</label>
         </div>
-        <Form className='formclass form1'>
-          
-        <div class="form-group form-group1 row row1">
+        <Loader loading={loading}>
+          <Form className='formclass form1'> 
+            <div class="form-group form-group1 row row1">
               <label class="col-lg-2 col-form-label  labelsize1">Resident</label>
               <div class="col-lg-4">
                 <select type="text" class="form-control input-lg input-lg1" id='resident_id' onChange={(e)=>getDetails(e)} name="First name" >
@@ -112,7 +107,7 @@ useEffect(()=>{
               <div class="col-lg-4">
                 <input type="number" class="form-control input-lg input-lg1" id='mobileno' name="Mobile Number" placeholder="" disabled value={details.mobileno}></input>
               </div> 
-              </div>
+            </div>
             <div class="form-group form-group1 row row1">
               <label class="col-lg-2 col-form-label labelsize1">User Name</label>
               <div class="col-lg-4">
@@ -128,17 +123,14 @@ useEffect(()=>{
             <div class="form-group form-group1 row row1">
               <label class="col-lg-2 col-form-label labelsize1">Profile Picture</label>
               <div class="col-lg-4">
-                <img src={window.env_var+details.profile_pic}></img>
+                <img src={window.env_var+details.profile_pic} height="100px" width="100px"></img>
               </div>
-            </div>
-           
+            </div> 
             <Button type="submit" onClick={(e)=>handleSubmit(e)} className="btnAddprofile">Save</Button>
-        </Form>
-
+          </Form>
+        </Loader>
       </div>  
     </div>
   )
 }
-
 export default Profile;
-

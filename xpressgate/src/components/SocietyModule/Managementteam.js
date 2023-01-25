@@ -9,16 +9,17 @@ import Societyheader from "./Utils/Societyheader";
 import { useNavigate } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import { ToastMessage } from "../ToastMessage";
+import { Loader } from "../Loader";
 
 const Managementteam = () => {
 
 
   const [toast, setToast] = useState({ show: false })
   const [management, setmanagement] = useState([])
-
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts, setCurrentPosts] = useState([])
+  const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
 
 
@@ -34,9 +35,9 @@ const Managementteam = () => {
       const indexoflast = currentPage * postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.managementteam.slice(indexoffirst, indexoflast))
-      //console.log(data)
+      setLoading(false);
     } catch (error) {
-      console.log(error)
+      setLoading(false);
     }
   }
 
@@ -86,14 +87,10 @@ const Managementteam = () => {
   }
 
   return (
-
     <div className="addguestcontainer4">
-
       <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
-
       <div id="addflatsection">
         <Societyheader />
-
       </div>
       <div id="societynamesection">
         <div className="MM_societyname">
@@ -112,50 +109,46 @@ const Managementteam = () => {
         <div className="MM_display">
           <label>Management Team</label>
         </div>
-
-
-
-        <div className='row'>
-          <div className='mtsearchbox'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-              <input className='vlsearch_input' placeholder='Search' onChange={(e) => findText(e)}></input></span>
+        <Loader loading={loading}>
+          <div className='row'>
+            <div className='mtsearchbox'>
+              <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+                <input className='vlsearch_input' placeholder='Search' onChange={(e) => findText(e)}></input></span>
+            </div>
           </div>
-        </div>
 
-        <table id="managementtable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
-          <thead>
-            <tr>
-              <th class="th-sm">Sr No</th>
-              <th class="th-sm">Resident Name</th>
-              <th class="th-sm">Designation</th>
-              <th class="th-sm">Status</th>
-              <th class="th-sm">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentPosts.map((items, index) => {
-              return (
-                <tr id={items._id}>
-                  <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1 + 1) + (index + 1)}</td>
-                  <td onClick={() => managementDetails(items._id, items.resident._id, items.managementTitle)}>{items.resident.firstname} {items.resident.lastname}</td>
-                  <td>{items.managementTitle}</td>
-                  <td>{items.status == true ? 'Active' : 'Inactive'}</td>
-                  <td><IconButton onClick={(e) => { e.preventDefault(); handleDelete(items._id) }}>
-                    <img src="/images/icon_delete.svg" />
-                  </IconButton>
-                  </td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-        <PaginationCalculate totalPages={management.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+          <table id="managementtable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
+            <thead>
+              <tr>
+                <th class="th-sm">Sr No</th>
+                <th class="th-sm">Resident Name</th>
+                <th class="th-sm">Designation</th>
+                <th class="th-sm">Status</th>
+                <th class="th-sm">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {currentPosts.map((items, index) => {
+                return (
+                  <tr id={items._id}>
+                    <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1 + 1) + (index + 1)}</td>
+                    <td onClick={() => managementDetails(items._id, items.resident._id, items.managementTitle)}>{items.resident.firstname} {items.resident.lastname}</td>
+                    <td>{items.managementTitle}</td>
+                    <td>{items.status == true ? 'Active' : 'Inactive'}</td>
+                    <td>
+                      <IconButton onClick={(e) => { e.preventDefault(); handleDelete(items._id) }}>
+                      <img src="/images/icon_delete.svg" />
+                      </IconButton>
+                    </td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+          <PaginationCalculate totalPages={management.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+        </Loader>
       </div>
     </div>
-
-
-
   );
 };
-
 export default Managementteam;

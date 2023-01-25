@@ -4,6 +4,7 @@ import LogOut from '../../components/SocietyModule/Utils/LogOut';
 import { getGuestList } from './common/common';
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import Societyheader from './Utils/Societyheader';
+import { Loader } from "../Loader";
 
 const GuestManagement = () => {
 
@@ -11,6 +12,7 @@ const GuestManagement = () => {
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts,setCurrentPosts] = useState([])
+  const [loading, setLoading] = useState(true)
   useEffect(()=>{
       getData()
       
@@ -19,6 +21,7 @@ const GuestManagement = () => {
   const getData = async()=>{
     setGuest(await getGuestList())
     setPaginate(await getGuestList())
+    setLoading(false);
   }
 
   const setPaginate= async(list)=>{
@@ -71,7 +74,6 @@ const GuestManagement = () => {
   return (
     <div className="gmcontainer">
       <div id="gmheadersection">
-
         <Societyheader/>
       </div>
       <div id="gmsection">
@@ -85,41 +87,41 @@ const GuestManagement = () => {
         <div className='gmdisplay'>
           <label>Guest Management</label>
         </div>
-        <div className='row'>
-        <div className='vmsearchbox'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+        <Loader loading={loading}>
+          <div className='row'>
+            <div className='vmsearchbox'>
+              <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
               <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
+            </div>
           </div>
-        </div>
-        <table id="gmtable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
-          <thead>
-            <tr>
-              <th class="th-sm">Guest Name</th>
-              <th class="th-sm">Flat No.</th>
-              <th class="th-sm">Date</th>
-              <th class="th-sm">Vehicle No.</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentPosts.map(item=>{
-              console.log(item)
-              return(
-                <tr>
-                  <td>{item.guestFirstName} {item.guestLastName}</td>
-                  <td >{item.flat_number}</td>
-                  <td>{dateTimeFormat(item.time)}</td>
-                  <td>{item.vehicle_no}</td>
+          <table id="gmtable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
+            <thead>
+              <tr>
+                <th class="th-sm">Guest Name</th>
+                <th class="th-sm">Flat No.</th>
+                <th class="th-sm">Date</th>
+                <th class="th-sm">Vehicle No.</th>
               </tr>
-              )
-            })}
-            
-          </tbody>
-        </table>
-        <PaginationCalculate totalPages={guests.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+            </thead>
+            <tbody>
+              {currentPosts.map(item=>{
+                console.log(item)
+                return(
+                  <tr>
+                    <td>{item.guestFirstName} {item.guestLastName}</td>
+                    <td >{item.flat_number}</td>
+                    <td>{dateTimeFormat(item.time)}</td>
+                    <td>{item.vehicle_no}</td>
+                </tr>
+                )
+              })}
+              
+            </tbody>
+          </table>
+          <PaginationCalculate totalPages={guests.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+        </Loader>
       </div>
     </div>
   )
 }
-
-export default GuestManagement
-
+export default GuestManagement;

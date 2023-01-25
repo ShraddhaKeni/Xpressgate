@@ -1,4 +1,4 @@
-import React, { useRef,useState } from "react";
+import React, { useRef,useState, useEffect } from "react";
 import "./Reset.css";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
@@ -9,7 +9,12 @@ import { Loader } from "../Loader";
 const Reset = () => {
   let username = useRef([]);
   const [mobile, setMobile] = useState({})
+  const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    setLoading(false);
+  }, [])
 
   const sendOTP = async () => {
     setMobile(document.getElementById('mobileno').value)
@@ -37,18 +42,20 @@ const Reset = () => {
         <img src="/images/societylogin.svg" alt="" />
       </div>
       <div id="Soc_LOgin_Form_ID">
-        <Form>
-          <div className="SOC_Input_Fields">
-            <div className="email_input">
-              <label className="SOC_EnterMobileNo">Enter Mobile Number</label>
-              <input ref={username} type="text" maxLength="10" className="form-control socfptextbox" onKeyPress={(e) => { document.getElementById(e.target.id).style.border = "none"; }}
-                  id="mobileno" placeholder=""></input>
+        <Loader loading={loading}>
+          <Form>
+            <div className="SOC_Input_Fields">
+              <div className="email_input">
+                <label className="SOC_EnterMobileNo">Enter Mobile Number</label>
+                <input ref={username} type="text" maxLength="10" className="form-control socfptextbox" onKeyPress={(e) => { document.getElementById(e.target.id).style.border = "none"; }}
+                    id="mobileno" placeholder=""></input>
+              </div>
+              <div className="email_input"><br />
+                <button type="button" className="btnsocsendotp" onClick={() => sendOTP()}>Send OTP</button>
+              </div>
             </div>
-            <div className="email_input"><br />
-              <button type="button" className="btnsocsendotp" onClick={() => sendOTP()}>Send OTP</button>
-            </div>
-          </div>
-        </Form>
+          </Form>
+        </Loader>
       </div>
     </div>
   );

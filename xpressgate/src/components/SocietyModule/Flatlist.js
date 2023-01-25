@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import { Loader } from "../Loader";
+import Societyheader from './Utils/Societyheader';
 
 const Flatlist = () => {
 
@@ -54,30 +55,16 @@ const Flatlist = () => {
   }
 
   async function paginate(event) {
-   
     setCurrentpage(event.selected + 1)
     const indexoflast = (event.selected + 1) * postPerPage  //endoffset
     const indexoffirst = (indexoflast - postPerPage) //startoffset
     setCurrentPosts(flats.slice(indexoffirst, indexoflast))
   }
 
-  // async function findText(e) {
-  //   let text = flats.filter(x => x.lastname.toLowerCase().includes(e.target.value.toLowerCase()))
-
-  //   if (text) {
-  //     setCurrentPosts(text)
-  //   }
-  //   else {
-  //     paginate(0)
-  //   }
-
-  // }
-
   function findText(e)
   {
     let search = e.target.value.toLowerCase()
     let arr = flats.filter(x=>{
-
       if(String(x.firstname).toLowerCase().includes(search))
       {
         return true
@@ -97,26 +84,16 @@ const Flatlist = () => {
     {
       paginate(0)
     }
-  
-}
+  }
 
   const aprroveFlatScreen = (id,family,vehicle) => {
     navigate('/approveFlat', { state: { id: id ,family,vehicle} })
   }
 
-
   return (
     <div className="flcontainer">
-      
       <div id="flheadersection">
-        <div class="flfirstheadersection">
-          <div id="fldashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="flsociety"><label>Society</label></div>
-          <div id="sldashboardspace"></div>
-          <div id="flnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="flsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="fllogoutbutton"> <button type="submit" className="btnlogout">Log Out<img src="/images/logout.svg" alt="header logo" /></button></div>
-        </div>
+        <Societyheader/>
       </div>
       <div id="flsection">
         <div className='flname'>
@@ -124,63 +101,52 @@ const Flatlist = () => {
           <label>Society Name</label>
         </div>
         <div className='nlsidelinks'>
-        <a className='AfListsidelink' href="/blockList">Block List</a><br></br><br/>
+          <a className='AfListsidelink' href="/blockList">Block List</a><br></br><br/>
           <a className='AflockSidelink' href="/addblock">Add Block</a><br/><br/>
-          {/* <a className='BlFlatsidelinks' href="/flatList"><b>Flat List</b></a><br></br><br></br> */}
           <a className='BlAddsidelinks' href="/addflat">Add Flat</a>
         </div>
         <div className='flsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='flbackgroundimg'>
-      <Loader loading={loading}>
-        <div className='fldisplay'>
-          <label>Block {location.state.block}</label>
-
-        </div>
-        {/* <div className='row'>
-          <div className='flsearchbox'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-            <span><label className='searchlabel'>Search</label><input className='search_input' onChange={(e)=>findText(e)} ></input></span>
+        <Loader loading={loading}>
+          <div className='fldisplay'>
+            <label>Block {location.state.block}</label>
           </div>
-        </div> */}
-        <button type="button" onClick={()=>{window.location.href='/addflat'}} className="ADDFlaT">&#10011; Add Flat</button>
-        <div className='row'>
-          <div className='flsearchbox'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+          <button type="button" onClick={()=>{window.location.href='/addflat'}} className="ADDFlaT">&#10011; Add Flat</button>
+          <div className='row'>
+            <div className='flsearchbox'>
+              <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
               <input className='flsearch_input' placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
+            </div>
           </div>
-        </div>
-        <table id="fltable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
-          <thead>
-            <tr>
-              <th class="th-sm">Flat No</th>
-              <th class="th-sm">Owner Name</th>
-              <th class="th-sm">Family Members</th>
-              <th class="th-sm">No. of Vehicles</th>
-              <th class="th-sm">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentPosts.map(item => {
-              return (
-                <tr style={item.status == false ? { backgroundColor: '#AED8DC' } : { backgroundColor: 'white' }} onClick={() => { item.status == false ? aprroveFlatScreen(item._id,item.family,item.vehical) : getFlats()}}>
-                  <td>{item.flat_number}</td>
-                  <td >{item.firstname} {item.lastname}</td>
-                  <td>{item.family}</td>
-                  <td>{item.vehical}</td>
-                  <td>{item.status == false ? 'Unoccupied' : 'Occupied'}</td>
-                </tr>
-              )
-            })}
-
-          </tbody>
-        </table>
-        <PaginationCalculate totalPages={flats.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+          <table id="fltable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
+            <thead>
+              <tr>
+                <th class="th-sm">Flat No</th>
+                <th class="th-sm">Owner Name</th>
+                <th class="th-sm">Family Members</th>
+                <th class="th-sm">No. of Vehicles</th>
+                <th class="th-sm">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {currentPosts.map(item => {
+                return (
+                  <tr style={item.status == false ? { backgroundColor: '#AED8DC' } : { backgroundColor: 'white' }} onClick={() => { item.status == false ? aprroveFlatScreen(item._id,item.family,item.vehical) : getFlats()}}>
+                    <td>{item.flat_number}</td>
+                    <td >{item.firstname} {item.lastname}</td>
+                    <td>{item.family}</td>
+                    <td>{item.vehical}</td>
+                    <td>{item.status == false ? 'Unoccupied' : 'Occupied'}</td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+          <PaginationCalculate totalPages={flats.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
         </Loader>
       </div>
     </div>
   )
 }
-
-export default Flatlist
-
+export default Flatlist;
