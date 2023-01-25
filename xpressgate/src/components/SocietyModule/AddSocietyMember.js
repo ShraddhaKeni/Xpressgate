@@ -6,6 +6,7 @@ import { Form } from "react-bootstrap";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
+import ErrorScreen from "../../common/ErrorScreen";
 
 const AddSocietyMember = () => {
   const [member, setMember] = useState({})
@@ -13,6 +14,7 @@ const AddSocietyMember = () => {
   const navigate = useNavigate();
   const [communities, setCommunity] = useState([])
   const [loading, setLoading] = useState(true)
+  const [isError,setError] = useState(false)
   useEffect(() => {
     getCommunities()
   }, [])
@@ -22,8 +24,9 @@ const AddSocietyMember = () => {
       const { data } = await axios.get(`${window.env_var}api/community/get`)
       setCommunity(data.data.community);
       setLoading(false);
+      setError(false)
     } catch (error) {
-
+      setError(true)
     }
   }
 
@@ -50,7 +53,8 @@ const AddSocietyMember = () => {
       alert(error);
     }
   }
-
+  if(isError)
+  return <ErrorScreen/>
   return (
 
     <>

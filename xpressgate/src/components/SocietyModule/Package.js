@@ -1,15 +1,15 @@
 import React, { useEffect,useState } from "react";
 import "../SocietyModule/Package.css";
-// import { Button } from "react-bootstrap";
-
-// import LogOut from "../SocietyModule/Utils/LogOut";
 import Societyheader from "./Utils/Societyheader";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Loader } from "../Loader";
+import ErrorScreen from "../../common/ErrorScreen";
 
 const Package = () => {
-
+  const [isError,setError] = useState(false)
   const [booked,setPackage] = useState({})
+  const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
 
   useEffect(()=>{
@@ -19,7 +19,6 @@ const Package = () => {
   const getData=async()=>{
     try {
       const {data} = await axios.get(`${window.env_var}api/packagebook/get/${localStorage.getItem('community_id')}`)
-      
       if(data.data.booked<1)
       {
         window.location.href='/packagelist'
@@ -28,8 +27,11 @@ const Package = () => {
       {
         setPackage(data.data.booked[0])
       }
+      setLoading(false);
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setLoading(false);
+      setError(true)
     }
   }
 
@@ -42,20 +44,19 @@ const Package = () => {
     
     return(`${date.getDate()-1}/${date.getUTCMonth()+1}/${date.getFullYear()+1}`)
   }
-
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="addguestcontainer4">
-    <div id="addflatsection">
+      <div id="addflatsection">
         <Societyheader/>
-    
-    </div>
+      </div>
       <div id="societynamesection">
         <div className="PACK_Sname">
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
         <br />
-
         <div className="PACK_sideimg">
           <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
         </div>
@@ -64,27 +65,26 @@ const Package = () => {
         <div className="PACK_display">
           <label>{booked.plan_name} </label>
         </div>
-        {/* <Button style={{marginLeft:'50%',backgroundColor:'#0A8996'}} onClick={()=>{navigateToEdit()}}>Edit package</Button> */}
-        <div className="packagedetailscard">
-       
-          <div className="cardimage">
-            <div className="packagelabel">
-              <label className="packagename">{booked.plan_name}</label>
+        <Loader loading={loading}>
+          <div className="packagedetailscard">
+            <div className="cardimage">
+              <div className="packagelabel">
+                <label className="packagename">{booked.plan_name}</label>
+              </div>
             </div>
-          </div>
-          <br/>
-          <div className="aboutpackage">
-            <p>
-            {booked.plan_decp}
-              </p>
-          </div>
-          <br/><br/>
-          <div className="buttonContainer">
+            <br/>
+            <div className="aboutpackage">
+              <p>
+              {booked.plan_decp}
+                </p>
+            </div>
+            <br/><br/>
+            <div className="buttonContainer">
               <button type="button" class="validbtn"><i class="fa fa-circle circle " ></i> { ChangeDate(booked.purchased_date)}</button>
               <button className="ChangePackageBtn"  onClick={()=>{navigateToEdit()}}>Change Package</button>
             </div> 
-
-        </div>
+          </div>
+        </Loader>
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import './Ticketlist.css';
 import Societyheader from './Utils/Societyheader';
 import { Loader } from "../Loader";
 import Pagination from '../../common/Pagination';
+import ErrorScreen from '../../common/ErrorScreen';
 
 const Ticketlist = () => {
 
@@ -15,6 +16,7 @@ const Ticketlist = () => {
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts,setCurrentPosts] = useState([])
   const [loading, setLoading] = useState(true)
+  const [isError,setError] = useState(false)
   const navigate = useNavigate()
   const [filterArr,setFilter] = useState([])
 
@@ -30,7 +32,9 @@ const Ticketlist = () => {
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.tickets.slice(indexoffirst,indexoflast))
       setLoading(false);
+      setError(false)
     } catch (error) {
+      setError(true)
       setLoading(false);
     }
   }
@@ -86,6 +90,8 @@ const Ticketlist = () => {
     setCurrentPosts(value)
   }
 
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="tlcontainer">
       <div id="tlheadersection">

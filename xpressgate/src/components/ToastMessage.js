@@ -15,7 +15,7 @@ export const ToastMessage = ({ show, message, type, handleClose }) => {
             onClose={handleClose}
             TransitionComponent={TransitionLeft}
         >
-            <Alert severity={type} sx={{ width: "100%", fontSize: '1.4rem' }}>
+            <Alert severity={type} sx={{ width: "100%", fontSize: '1.7rem' }}>
                 {message}
             </Alert>
         </Snackbar>

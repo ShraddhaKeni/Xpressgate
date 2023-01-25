@@ -5,9 +5,10 @@ import LogOut from "./Utils/LogOut";
 import axios from 'axios'
 import { getBlocks,getVendors } from "./common/common";
 import { Loader } from "../Loader";
-
+import { ToastMessage } from '../ToastMessage';
+import ErrorScreen from "../../common/ErrorScreen";
 const Vendor_Payment = () => {
-   
+  const [toast, setToast] = useState({ show: false })
   const [blocks,setBlock] = useState([])
   const [flats,setFlats] = useState([])
   const [resident,setResident] =useState({})
@@ -18,6 +19,7 @@ const Vendor_Payment = () => {
   const payment_date = useRef([])
   const vendor_id = useRef([])
   const [loading, setLoading] = useState(true)
+  const [isError,setError] = useState(false)
   useEffect(()=>{
     combineFunctions()
   },[])
@@ -30,8 +32,9 @@ const Vendor_Payment = () => {
       const vendor = await getVendors()
       setVendors(vendor)
       setLoading(false);
+      setError(false)
     } catch (error) {
-      
+      setError(true)
     }
   }
 
@@ -39,8 +42,9 @@ const Vendor_Payment = () => {
     try {
       const {data} = await axios.get(`${window.env_var}api/flats/getList/${e.target.value}`)
       setFlats(data.data.list)
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -48,14 +52,16 @@ const Vendor_Payment = () => {
     try {
       const {data} = await axios.get(`${window.env_var}api/flats/single/${e.target.value}`)
       setResident(data.data.list[0])
+      setError(false)
     } catch (error) {
-      
+      setError(true)
     }
   }
 
   const handleSubmit=async(e)=>{
     e.preventDefault()
     try {
+   
       const sendData= {
         vendor_id:vendor_id.current.value,
         flat_id:flat_id.current.value,
@@ -65,13 +71,17 @@ const Vendor_Payment = () => {
         resident_id:resident.resident_id,
       }
       const {data} = await axios.post(`${window.env_var}api/vendorpayment/addBill`,sendData)
-      window.location.href='/payment'
+      setToast({ show: true, type: "success", message: "Added successfully" })
+      setTimeout(() => {
+        window.location.href='/payment'
+      }, 1500);
     } catch (error) {
-      console.log(error)
+      setToast({ show: true, type: "error", message: "Check Data." });
     }
   }
 
-
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="addguestcontainer4">
       <div id="addflatsection">
@@ -96,6 +106,7 @@ const Vendor_Payment = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <div className="VPaydisplay">
           <label>Vendor</label>
         </div>
@@ -153,6 +164,7 @@ const Vendor_Payment = () => {
               <div class="col-lg-4">
                 <input type="date" class="form-control input-lg SideB" ref={payment_due}  id='due_date' name="First name" />
               </div>
+              </div>
               <div class="form-group row">
                 <label class="col-lg-2 col-form-label ADN_label">Amount</label>
                 <div class="col-lg-4">
@@ -160,7 +172,7 @@ const Vendor_Payment = () => {
                   </input>
                 </div>
               </div>
-            </div>
+           
             <button type="submit" onClick={(e)=>handleSubmit(e)} className="VPay_Add">
               Add 
             </button>

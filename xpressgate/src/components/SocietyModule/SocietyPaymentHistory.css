@@ -36,6 +36,9 @@ font-style: normal;
 font-weight: 500;
 border-radius: 12px;
 padding: 1%;
+color: #FEFEFF;
+background-color: #0A8996;
+border: none;
   }
   .GeTAllBTN:hover{
     background-color: #14335D;
@@ -189,4 +192,7 @@ padding: 2%;
     border: none;
     outline: none;
     font-weight: 500;
+  }
+  .send_reminder:hover{
+background-color: #14335D;
   }

@@ -6,7 +6,8 @@ import axios from 'axios';
 import LogOut from './Utils/LogOut';
 import { Loader } from "../Loader";
 import Societyheader from './Utils/Societyheader'
-
+import ErrorScreen from '../../common/ErrorScreen';
+import { ToastMessage } from '../ToastMessage';
 const Ticket = () => {
   const location = useLocation()
   const [ticket, setTicket] = useState({})
@@ -16,7 +17,8 @@ const Ticket = () => {
   const ticketreply = useRef([])
   const [imageList,setimageList] = useState([])
   const [loading, setLoading] = useState(true)
-
+  const [isError,setError] = useState(false)
+  const [toast, setToast] = useState({ show: false })
   useEffect(() => {
     if (location.state) {
       getTicket()
@@ -35,8 +37,9 @@ const Ticket = () => {
       setimageList(data.data.tickets[0].ticket_pics.split(','));
       setMsg(location.state.ticketreply)
       setLoading(false);
+      setError(false)
     } catch (error) {
-      console.log(error);
+      setError(true)
       setLoading(false);
     }
   }
@@ -49,12 +52,17 @@ const Ticket = () => {
         ticket_reply: document.getElementById('message').value
       }
       const { data } = await axios.post(`${window.env_var}api/tickets/resolveTicket`, senddata);
-      window.location.href = '/ticketlist'
+      setToast({ show: true, type: "success", message: "Resolved successfully" })
+      setTimeout(() => {
+        window.location.href = '/ticketlist'
+      }, 1500);
+     
     } catch (error) {
-      console.log(error);
+      setToast({ show: true, type: "error", message: "Check Data." });
     }
   }
-
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="ticketcontainer">
       <div id="tktheadersection">
@@ -68,6 +76,7 @@ const Ticket = () => {
         <div className='tktsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='tktbackgroundimg'>
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <div className='tktdisplay'>
           <label>{ticket.ticketNo}</label>
         </div>

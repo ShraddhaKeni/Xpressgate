@@ -1,11 +1,17 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "./Main_reset.css";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
+import { Loader } from "../Loader";
 
 const Main_reset = () => {
   let username = useRef([]);
   let password = useRef([]);
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setLoading(false);
+  }, [])
 
   const loginGuard = async () => {
     try {
@@ -26,80 +32,40 @@ const Main_reset = () => {
   };
   return (
     <div className="logincontainer5">
-      {/* <div id="logoid">
-        <img src="/images/loginlogo.svg" alt="" />
-        </div> */}
-        
-
       <div id="loginimgid5">
         <img src="/images/societylogin.svg" alt="" />
       </div>
       <div id="loginformid5">
-        <Form>
-          <div className="input_fields5">
-          <div id="logoid5">
-            <img src="/images/loginlogo.svg" alt="" />
-          </div>
-         <br/>
-            <div className="btsign" disabled>
-              RESET PASSWORD
-            </div>
-            <br/>
-            <div className="email_input">
-              <label className="Currentpswd" >Current Password</label>
-              <input
-                ref={username}
-                type="text"
-                className="form-control emailtextbox"
-                onKeyPress={(e) => {
-                  document.getElementById(e.target.id).style.border = "none";
-                }}
-                id="loginemailid"
-                placeholder="Current Password"
-              ></input>
-            </div>
-            <br></br>
-            <div className="email_input">
-              <label className="password2">New Password</label>
-              <input
-                ref={password}
-                type="password"
-                className="form-control passwordtextbox"
-                onKeyPress={(e) => {
-                  document.getElementById(e.target.id).style.border = "none";
-                }}
-                id="loginpassword"
-                placeholder="New Password"
-              ></input>
+        <Loader loading={loading}>
+          <Form>
+            <div className="input_fields5">
+              <div id="logoid5">
+                <img src="/images/loginlogo.svg" alt="" />
+              </div>
               <br/>
-              
-              <label className="password3">Confirm Password</label>
-              <input
-                ref={password}
-                type="password"
-                className="form-control passwordtextbox"
-                onKeyPress={(e) => {
-                  document.getElementById(e.target.id).style.border = "none";
-                }}
-                id="loginpassword"
-                placeholder="Password"
-              ></input>
-              <br />
-              <Button
-                type="button"
-                className="btlogin6"
-                onClick={() => {
-                  loginGuard();
-                }}
-              >
-                Login
-              </Button>
+              <div className="btsign" disabled>
+                RESET PASSWORD
+              </div>
+              <br/>
+              <div className="email_input">
+                <label className="Currentpswd" >Current Password</label>
+                <input ref={username} type="text" className="form-control emailtextbox" onKeyPress={(e) => { document.getElementById(e.target.id).style.border = "none"; }} id="loginemailid" placeholder="Current Password" ></input>
+              </div>
+              <br></br>
+              <div className="email_input">
+                <label className="password2">New Password</label>
+                <input ref={password} type="password" className="form-control passwordtextbox" onKeyPress={(e) => { document.getElementById(e.target.id).style.border = "none"; }} id="loginpassword" placeholder="New Password" ></input>
+                <br/>
+                <label className="password3">Confirm Password</label>
+                <input ref={password} type="password" className="form-control passwordtextbox" onKeyPress={(e) => { document.getElementById(e.target.id).style.border = "none"; }} id="loginpassword" placeholder="Password" ></input>
+                <br />
+                <Button type="button" className="btlogin6" onClick={() => { loginGuard(); }} > Login </Button>
+              </div>
             </div>
-          </div>
-        </Form>
+          </Form>
+        </Loader>
       </div>
     </div>
   );
 };
-
 export default Main_reset;

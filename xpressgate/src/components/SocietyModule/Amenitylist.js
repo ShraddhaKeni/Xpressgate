@@ -8,6 +8,7 @@ import LogOut from './Utils/LogOut';
 import Societyheader from './Utils/Societyheader';
 import { Loader } from "../Loader";
 import Pagination from '../../common/Pagination';
+import ErrorScreen from '../../common/ErrorScreen'
 
 const Amenitylist = () => {
   const [loading, setLoading] = useState(true)
@@ -20,6 +21,7 @@ const Amenitylist = () => {
   const [filterArr,setFilter] = useState([])
 
 
+  const [isError,setError] = useState(false)
   useEffect(()=>{
     if(location.state)
     {
@@ -33,9 +35,15 @@ const Amenitylist = () => {
   },[])
 
   const getData=async()=>{
+    try{
     setBookedAmenities(await getAmenitiesBooked(location.state.id))
     setPaginate(await getAmenitiesBooked(location.state.id))
     setLoading(false);
+    setError(false)
+    }
+    catch (error) {
+      setError(true)
+    }
   }
  const setPaginate= async(list)=>{
     const indexoflast = currentPage*postPerPage  //endoffset
@@ -102,6 +110,8 @@ const Amenitylist = () => {
     setCurrentPosts(value)
   }
 
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="alcontainer">
       <div id="alheadersection">

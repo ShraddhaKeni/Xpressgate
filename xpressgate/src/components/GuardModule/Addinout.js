@@ -112,7 +112,7 @@ const Addinout = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      setToast({ show: true, type: "success", message: "Added Successfully" })
+     
       let date = new Date(document.getElementById('date').value + 'T' + document.getElementById('intime').value + ':00').toISOString()
       const sendData = {
         firstname: document.getElementById('name').value,
@@ -131,12 +131,13 @@ const Addinout = () => {
 
       const { data } = await axios.post(`${window.env_var}api/inout/addbyguard`, sendData)
       console.log(data)
+      setToast({ show: true, type: "success", message: "Added Successfully" })
       setTimeout(() => {
         window.location.href='/inoutbook'
       }, 1500);
       // window.location.href = '/inoutbook'
     } catch (error) {
-      console.log(error)
+      setToast({ show: true, type: "error", message: "Check Data." });
     }
   }
 
