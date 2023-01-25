@@ -4,6 +4,8 @@ import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { ToastMessage } from '../ToastMessage';
 import { Loader } from "../Loader";
+import {motion} from 'framer-motion'
+
 const Login_society = () => {
   const [toast, setToast] = useState({ show: false })
   const [loading, setLoading] = useState(true)
@@ -46,10 +48,12 @@ const Login_society = () => {
       </div>
       <div id="SC_LOGIN_IMG">
         <img src="./images/background.svg" alt="" />
-        <img className="society_login_middleLayer_image" src="./images/other.svg" alt="" />
-        <img className="society_login_middleLayer_image_face" src="./images/group_206.svg" alt="" />
-        <img className="society_login_middleLayer_circle" src="./images/starburst.svg" alt="" />
-        <img className="society_login_middleLayer_pen" src="./images/hand.svg" alt="" />
+        <img className="society_login_middleLayer_image" src="./images/backgroundSociety.svg" alt="" />
+        <img className="society_login_middleLayer_image_face" src="./images/face2.svg" alt="" />
+        <img className="society_login_middleLayer_circle" src="./images/rotateCircle.svg" alt="" />
+        <img className="society_login_middleLayer_middle" src="./images/circleCenter.svg" alt="" />
+        
+        <img className="society_login_middleLayer_pen" src="./images/Group 213.svg" alt="" />
       </div>
       <div id="SOC_Login_FormId">
         <Loader loading={loading}>

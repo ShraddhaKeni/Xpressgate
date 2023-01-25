@@ -5,6 +5,7 @@ import { getGuestList } from './common/common';
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import Societyheader from './Utils/Societyheader';
 import { Loader } from "../Loader";
+import Pagination from '../../common/Pagination';
 
 const GuestManagement = () => {
 
@@ -13,9 +14,10 @@ const GuestManagement = () => {
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts,setCurrentPosts] = useState([])
   const [loading, setLoading] = useState(true)
+  const [filterArr,setFilter] = useState([])
+
   useEffect(()=>{
       getData()
-      
   },[])
 
   const getData = async()=>{
@@ -58,17 +60,24 @@ const GuestManagement = () => {
         return true
       }
     })
-    if(arr)
+    const indexoflast =currentPage*postPerPage  //endoffset
+    const indexoffirst = (indexoflast - postPerPage)
+    if(arr.length>0)
     {
-      const indexoflast =currentPage*postPerPage  //endoffset
-      const indexoffirst = (indexoflast - postPerPage)
+      setFilter(arr)
       setCurrentPosts(arr.slice(indexoffirst,indexoflast))
     }
     else
     {
-      paginate(0)
+      setFilter([])
+      setCurrentPosts(guests.slice(indexoffirst, indexoflast))
     }
   
+}
+
+function settingCurrent(value)
+{
+  setCurrentPosts(value)
 }
 
   return (
@@ -118,7 +127,8 @@ const GuestManagement = () => {
               
             </tbody>
           </table>
-          <PaginationCalculate totalPages={guests.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+          {/* <PaginationCalculate totalPages={guests.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/> */}
+          <Pagination totalPages={filterArr.length>0?filterArr.length:guests.length} data ={filterArr.length>0?filterArr:guests} settingCurrent={settingCurrent}/>
         </Loader>
       </div>
     </div>
