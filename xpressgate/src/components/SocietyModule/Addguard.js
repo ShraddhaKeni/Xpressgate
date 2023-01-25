@@ -9,9 +9,9 @@ import { checkSociety } from '../auth/Auth'
 import { useNavigate } from 'react-router-dom';
 import { mobileValidation, emailValidation } from '../auth/validation';
 import { Loader } from "../Loader";
+import { ToastMessage } from '../ToastMessage';
 import ErrorScreen from "../../common/ErrorScreen";
 
-import { ToastMessage } from '../ToastMessage';
 const Addguard = () => {
   const [toast, setToast] = useState({ show: false })
   const [loading, setLoading] = useState(true)
@@ -27,7 +27,7 @@ const Addguard = () => {
     try {
 
       if (type == 'edit') {
-        setToast({ show: true, type: "success", message: "Updated successfully" })
+        
         if (await mobileValidation(document.getElementById('phone').value) && emailValidation(document.getElementById('email').value)) {
           let formdata = new FormData()
           formdata.append('community_id', localStorage.getItem('community_id'))
@@ -42,6 +42,7 @@ const Addguard = () => {
           }
 
           const { data } = await axios.post(`${window.env_var}api/guard/update`, formdata)
+          setToast({ show: true, type: "success", message: "Updated successfully" })
           setTimeout(() => {
             window.location.href = '/guardList'
           }, 1500);
@@ -52,7 +53,7 @@ const Addguard = () => {
         }
       }
       else {
-        setToast({ show: true, type: "success", message: "Added successfully" })
+       
         if (await mobileValidation(document.getElementById('phone').value) && emailValidation(document.getElementById('email').value)) {
           let formdata = new FormData()
           formdata.append('community_id', localStorage.getItem('community_id'))
@@ -64,7 +65,8 @@ const Addguard = () => {
           formdata.append('email', document.getElementById('email').value)
           formdata.append('profile_pic', document.getElementById('profilePic').files[0])
           const { data } = await axios.post(`${window.env_var}api/guard/add`, formdata)
-          console.log('hi')
+         
+          setToast({ show: true, type: "success", message: "Added successfully" })
           setTimeout(() => {
             window.location.href = '/guardList'
           }, 1500);
@@ -74,7 +76,7 @@ const Addguard = () => {
         }
       }
     } catch (error) {
-      
+      setToast({ show: true, type: "error", message: "Check Data." });
     }
   }
 

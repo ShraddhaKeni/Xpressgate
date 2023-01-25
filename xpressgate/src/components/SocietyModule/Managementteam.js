@@ -11,6 +11,7 @@ import { IconButton } from "@mui/material";
 import { ToastMessage } from "../ToastMessage";
 import { Loader } from "../Loader";
 import Pagination from "../../common/Pagination";
+import ErrorScreen from "../../common/ErrorScreen";
 
 const Managementteam = () => {
 
@@ -23,6 +24,7 @@ const Managementteam = () => {
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
   const [filterArr,setFilter] = useState([])
+  const [isError,setError] = useState(false)
 
   useEffect(() => {
     getDetails()
@@ -37,15 +39,18 @@ const Managementteam = () => {
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.managementteam.slice(indexoffirst, indexoflast))
       setLoading(false);
+      setError(false)
     } catch (error) {
       setLoading(false);
+      setError(true)
     }
   }
 
   const handleDelete = async (id) => {
-    setToast({ show: true, message: "Team Member Deleted Successfully", type: "error" })
+
     try {
       await axios.get(`${window.env_var}api/management/remove/${id}`)
+      setToast({ show: true, message: "Team Member Deleted Successfully", type: "error" })
       setTimeout(() => {
         window.location.reload()
       }, 2000)
@@ -91,7 +96,8 @@ const Managementteam = () => {
 
   const settingCurrent=value=>setCurrentPosts(value)
 
-
+  if(isError)
+  return <ErrorScreen/>
   return (
     <div className="addguestcontainer4">
       <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />

@@ -7,6 +7,7 @@ import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
 import Societyheader from './Utils/Societyheader'
+import ErrorScreen from "../../common/ErrorScreen";
 
 
 const Guardlist = () => {
@@ -15,6 +16,7 @@ const Guardlist = () => {
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts, setCurrentPosts] = useState([])
   const [loading, setLoading] = useState(true)
+  const [isError,setError] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -31,7 +33,8 @@ const Guardlist = () => {
       setLoading(false);
     } catch (error) {
       setLoading(false);
-    }
+      setError(false)
+    } 
   }
 
   async function paginate(event) {
@@ -65,7 +68,8 @@ const Guardlist = () => {
       paginate(0)
     }
   }
-
+  if(isError)
+    return <ErrorScreen/>
 
   return (
     <div className="addguestcontainer4">

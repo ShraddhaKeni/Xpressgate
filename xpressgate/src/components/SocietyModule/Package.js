@@ -4,9 +4,10 @@ import Societyheader from "./Utils/Societyheader";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
+import ErrorScreen from "../../common/ErrorScreen";
 
 const Package = () => {
-
+  const [isError,setError] = useState(false)
   const [booked,setPackage] = useState({})
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
@@ -27,8 +28,10 @@ const Package = () => {
         setPackage(data.data.booked[0])
       }
       setLoading(false);
+      setError(false)
     } catch (error) {
       setLoading(false);
+      setError(true)
     }
   }
 
@@ -41,7 +44,8 @@ const Package = () => {
     
     return(`${date.getDate()-1}/${date.getUTCMonth()+1}/${date.getFullYear()+1}`)
   }
-
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="addguestcontainer4">
       <div id="addflatsection">

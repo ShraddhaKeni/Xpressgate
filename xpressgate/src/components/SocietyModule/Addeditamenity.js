@@ -7,9 +7,9 @@ import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import { checkSociety } from '../auth/Auth'
 import { Loader } from '../Loader';
+import { ToastMessage } from '../ToastMessage';
 import ErrorScreen from '../../common/ErrorScreen'
 
-import { ToastMessage } from '../ToastMessage';
 const Addeditamenity = () => {
 
   //to store data
@@ -74,7 +74,7 @@ const Addeditamenity = () => {
 
     try {
       if (type == 'edit') {
-        setToast({ show: true, type: "success", message: "Edited amenity successfully" })
+       
         let formData = new FormData()
         formData.append('amenityType', amenityType.current.value)
         formData.append('id', location.state.id)
@@ -86,13 +86,14 @@ const Addeditamenity = () => {
           formData.append('image', document.getElementById('amenity_image').files[0])
         }
         const { data } = await axios.post(`${window.env_var}api/society/amenities/updateAmenities`, formData)
+        setToast({ show: true, type: "success", message: "Edited amenity successfully" })
         setTimeout(() => {
           window.location.href = '/amenities'
         }, 1500);
         // window.location.href = '/amenities'
       }
       else {
-        setToast({ show: true, type: "success", message: "Added amenity successfully" })
+        
         let formData = new FormData()
         formData.append('amenityType', amenityType.current.value)
         formData.append('image', document.getElementById('amenity_image').files[0])
@@ -100,13 +101,14 @@ const Addeditamenity = () => {
         formData.append('rent', rent.current.value)
         formData.append('status', status.current.value)
         const { data } = await axios.post(`${window.env_var}api/society/amenities/addAmenities`, formData)
+        setToast({ show: true, type: "success", message: "Added amenity successfully" })
         setTimeout(() => {
           window.location.href = '/amenities'
         }, 1500);
       }
 
     } catch (error) {
-      console.log(error)
+      setToast({ show: true, type: "error", message: "Check Data." });
     }
   }
 

@@ -7,6 +7,7 @@ import Societyheader from './Utils/Societyheader';
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
 import Pagination from '../../common/Pagination';
+import ErrorScreen from '../../common/ErrorScreen';
 
 const Vehiclemanagement = () => {
 
@@ -17,7 +18,7 @@ const Vehiclemanagement = () => {
   const [loading, setLoading] = useState(true)
   const navigate= useNavigate()
   const [filterArr,setFilter] = useState([])
-
+  const [isError,setError] = useState(false)
   useEffect(() => {
     getVehicleParkDetails()
   }, [])
@@ -30,8 +31,9 @@ const Vehiclemanagement = () => {
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.vehicle.slice(indexoffirst, indexoflast))
       setLoading(false);
+      setError(false)
     } catch (error) {
-      
+      setError(true)
       setLoading(false);
     }
   }
@@ -86,6 +88,8 @@ function navigatetoEdit(id)
     navigate('/addvehicle',{state:{id:id,type:'edit'}})
   }
 
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="vmcontainer">
       <div id="vmheadersection">

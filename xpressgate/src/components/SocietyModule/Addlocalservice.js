@@ -78,7 +78,7 @@ const Addlocalservice = () => {
     try {
       if (await mobileValidation(document.getElementById('contact_no').value)) {
         if (type == 'edit') {
-          setToast({ show: true, type: "success", message: "Vendor updated successfully" })
+         
           const sendData = {
             id: location.state.id,
             vendorName: document.getElementById('vendor_name').value,
@@ -89,12 +89,13 @@ const Addlocalservice = () => {
           }
           console.log(sendData);
           const { data } = await axios.post(`${window.env_var}api/vendor/update`, sendData)
+          setToast({ show: true, type: "success", message: "Vendor updated successfully" })
           setTimeout(() => {
             window.location.href = '/localservices'
           }, 1500);
         }
         else {
-          setToast({ show: true, type: "success", message: "Vendor added successfully" })
+         
 
           const sendData = {
             vendorName: document.getElementById('vendor_name').value,
@@ -104,6 +105,7 @@ const Addlocalservice = () => {
             address: document.getElementById('address').value,
           }
           const { data } = await axios.post(`${window.env_var}api/vendor/add`, sendData)
+          setToast({ show: true, type: "success", message: "Vendor added successfully" })
           setTimeout(() => {
             window.location.href = '/localservices'
           }, 1500);

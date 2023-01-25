@@ -7,6 +7,7 @@ import Societyheader from './Utils/Societyheader';
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import axios from 'axios';
 import { Loader } from "../Loader";
+import ErrorScreen from '../../common/ErrorScreen';
 
 const Amenities = () => {
   const [loading, setLoading] = useState(true)
@@ -14,6 +15,7 @@ const Amenities = () => {
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(9)
   const [currentPosts,setCurrentPosts] = useState([])
+  const [isError,setError] = useState(false)
   const navigate = useNavigate()
   useEffect(()=>{
     getDetails()
@@ -21,13 +23,19 @@ const Amenities = () => {
 
 
   const getDetails=async()=>{
+    try {
     const {data} = await axios.get(`${window.env_var}api/society/amenities/getAll`)
     setAmenities(data.data.amenities)
     const indexoflast = currentPage*postPerPage  //endoffset
     const indexoffirst = indexoflast - postPerPage //startoffset
     setCurrentPosts(data.data.amenities.slice(indexoffirst,indexoflast))
     setLoading(false);
+    setError(false)
   }
+  catch (error) {
+    setError(true)
+  }
+}
 
   async function  paginate(event)
   {
@@ -40,6 +48,8 @@ const Amenities = () => {
   const navigateToList=(id,type)=>{
     navigate('/amenitylist',{state:{id:id,type:type}})
   }
+  if(isError)
+  return <ErrorScreen/>
   return (
 
     <div className="amenitiescontainer">

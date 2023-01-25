@@ -5,12 +5,14 @@ import { useLocation } from 'react-router-dom';
 import { getDefaultNormalizer } from '@testing-library/react';
 import axios from 'axios';
 import { Loader } from "../Loader";
+import ErrorScreen from '../../common/ErrorScreen';
 
 const Approvallistamenity = () => {
   const [booking, setBooking] = useState({})
   const [time, setTime] = useState({})
   const location = useLocation()
   const [loading, setLoading] = useState(true)
+  const [isError,setError] = useState(false)
   useEffect(() => {
     if (location.state) {
       getBookedEmenity(location.state.id)
@@ -27,8 +29,9 @@ const Approvallistamenity = () => {
       setBooking(data.data.amenities[0])
       //console.log(booking)
       setLoading(false);
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -59,11 +62,13 @@ const Approvallistamenity = () => {
         const { data } = await axios.get(`${window.env_var}api/resident/booking/removeBooking/${id}`)
         window.location.href = '/amenitylist'
       }
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
-
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="alacontainer">
       <div id="alaheadersection">

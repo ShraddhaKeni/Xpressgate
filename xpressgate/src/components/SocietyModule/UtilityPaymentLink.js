@@ -16,7 +16,7 @@ const UtilityPaymentLink = () => {
   const [toast, setToast] = useState({ show: false })
   const [linkData, setLinkData] = useState();
   const location = useLocation()
-
+  const [isError,setError] = useState(false)
   const pagePrefix = location.state ? "Update " : "Add "
 
   useEffect(() => {
@@ -57,7 +57,9 @@ const UtilityPaymentLink = () => {
       document.getElementById('link').value = data.data.links[0].link;
       document.getElementById('type').value = data.data.links[0].type;
       setLoading(false);
+      setError(false)
     } catch (error) {
+      setError(true)
       setLoading(false);
     }
   }
@@ -106,7 +108,7 @@ const UtilityPaymentLink = () => {
         }
       }
     } catch (error) {
-      console.log(error)
+      setToast({ show: true, type: "error", message: "Check Data." });
     }
   }
 

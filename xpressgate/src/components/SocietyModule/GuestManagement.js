@@ -6,6 +6,7 @@ import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import Societyheader from './Utils/Societyheader';
 import { Loader } from "../Loader";
 import Pagination from '../../common/Pagination';
+import ErrorScreen from '../../common/ErrorScreen';
 
 const GuestManagement = () => {
 
@@ -15,7 +16,7 @@ const GuestManagement = () => {
   const [currentPosts,setCurrentPosts] = useState([])
   const [loading, setLoading] = useState(true)
   const [filterArr,setFilter] = useState([])
-
+  const [isError,setError] = useState(false)
   useEffect(()=>{
       getData()
   },[])
@@ -80,6 +81,8 @@ function settingCurrent(value)
   setCurrentPosts(value)
 }
 
+if(isError)
+return <ErrorScreen/>
   return (
     <div className="gmcontainer">
       <div id="gmheadersection">

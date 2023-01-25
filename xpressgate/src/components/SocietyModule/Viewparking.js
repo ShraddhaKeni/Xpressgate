@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import Societyheader from './Utils/Societyheader';
 import { Loader } from "../Loader";
+import ErrorScreen from '../../common/ErrorScreen';
 
 const Viewparking = () => {
   const [parkingSection,setParkingSections] = useState([])
@@ -13,6 +14,7 @@ const Viewparking = () => {
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts,setCurrentPosts] = useState([])
   const [loading, setLoading] = useState(true)
+  const [isError,setError] = useState(false)
   const navigate= useNavigate()
 
   useEffect(()=>{
@@ -29,8 +31,9 @@ const Viewparking = () => {
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.block_list.slice(indexoffirst,indexoflast))
       setLoading(false);
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -69,7 +72,8 @@ const Viewparking = () => {
   {
     navigate('/addparking',{state:{id:id,type:'edit'}})
   }
-
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="addguestcontainer4">
       <div id="addflatsection">

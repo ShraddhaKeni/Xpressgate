@@ -5,6 +5,7 @@ import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import axios from "axios";
 import { Loader } from "../Loader";
 import Pagination from "../../common/Pagination";
+import ErrorScreen from "../../common/ErrorScreen";
 
 const SocietyDuesTable = () => {
   const [societydues,setsocietydues] = useState()
@@ -15,6 +16,7 @@ const SocietyDuesTable = () => {
   const [currentPosts,setCurrentPosts] = useState([])
   const [filterArr,setFilter] = useState([])
 
+  const [isError,setError] = useState(false)
   useEffect(() => {
     getSocietyDetails()
   }, [])
@@ -33,9 +35,10 @@ const SocietyDuesTable = () => {
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.society_dues.slice(indexoffirst,indexoflast))
       setLoading(false);
+      setError(false);
     } catch (error) {
-      console.log(error);
       setLoading(false);
+      setError(true)
     }
   }
 
@@ -79,6 +82,8 @@ const SocietyDuesTable = () => {
 
 
 
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="addguestcontainer4">
       <div id="addflatsection">

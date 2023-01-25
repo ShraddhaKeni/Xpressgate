@@ -9,6 +9,7 @@ import { getAllByPlaceholderText } from '@testing-library/react';
 import SocietyHeader from './Utils/Societyheader'
 import { useNavigate } from 'react-router-dom';
 import { Loader } from "../Loader";
+import ErrorScreen from '../../common/ErrorScreen';
 
 const Noticelist = () => {
   const [notice, setNotice] = useState([])
@@ -18,6 +19,7 @@ const Noticelist = () => {
   const [pageCount, setpageCount] = useState(0)
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
+  const [isError,setError] = useState(false)
   useEffect(() => {
     getNotices()
   }, [])
@@ -30,8 +32,10 @@ const Noticelist = () => {
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.notice.slice(indexoffirst, indexoflast))
       setLoading(false);
+      setError(false)
     } catch (error) {
       setLoading(false);
+      setError(true)
     }
   }
   async function paginate(event) {
@@ -73,7 +77,8 @@ const Noticelist = () => {
   {
     navigate('/addNotice',{state:{id:id,type:'edit'}})
   }
-
+  if(isError)
+  return <ErrorScreen/>
   return (
     <div className="nlcontainer">
       <div id="nlheadersection">

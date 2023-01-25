@@ -8,9 +8,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Societyheader from "./Utils/Societyheader";
 import { Loader } from "../Loader";
 import Pagination from "../../common/Pagination";
+import ErrorScreen from "../../common/ErrorScreen";
 
 const Plumber = () => {
- 
+  const [isError,setError] = useState(false)
   const [vendors,setVendors]= useState([])
   const [services,setServices] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
@@ -39,8 +40,10 @@ const Plumber = () => {
       const {data} = await axios.get(`${window.env_var}api/admin/localservices/getAll`)
       setServices(data.data.localservices);
       setLoading(false);
+      setError(false);
     } catch (error) {
       setLoading(false);
+      setError(true);
     }
   }
 
@@ -51,8 +54,9 @@ const Plumber = () => {
       const indexoflast = currentPage*postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.list.slice(indexoffirst,indexoflast))
+      setError(false)
     } catch (error) {
-      window.location.href='/localservices'
+      setError(true)
     }
   }
     
@@ -109,11 +113,12 @@ const settingCurrent =value=>setCurrentPosts(value)
     navigate('/servicevendors',{state:{id:e.target.id,serviceName: document.getElementById(e.target.id).innerHTML}})
   }
 
-  function navigatetoEdit(id)
-  {
-    navigate('/addlocalservice',{state:{type:'edit',id:id}})
-  }
-
+function navigatetoEdit(id)
+{
+  navigate('/addlocalservice',{state:{type:'edit',id:id}})
+}
+if(isError)
+return <ErrorScreen/>
   return (
     <div className="addguestcontainer4" onLoad={()=>autoSelect()}>
       <div id="addflatsection">

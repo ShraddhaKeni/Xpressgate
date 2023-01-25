@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ErrorScreen from "../../common/ErrorScreen";
 import "../SocietyModule/Local_service.css";
 import LogOut from './Utils/LogOut'
 import { Loader } from "../Loader";
@@ -11,6 +12,7 @@ const Local_service = () => {
   const [services,setServices] = useState([])
   const [loading, setLoading] = useState(true)
 
+  const [isError,setError] = useState(false)
   const navigate = useNavigate()
   useEffect(()=>{
     getServices()
@@ -23,13 +25,15 @@ const Local_service = () => {
       setLoading(false);
     } catch (error) {
       setLoading(false);
+      setError(true);
     }
   }
 
   const navigateToList=(id,serviceName)=>{
     navigate('/servicevendors',{state:{id:id,serviceName}})
   }
-
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="addguestcontainer3">
       <div id="addflatsection">
