@@ -3,60 +3,58 @@ import { Button } from 'react-bootstrap';
 import LogOut from './Utils/LogOut';
 import Societyheader from './Utils/Societyheader';
 import { useEffect } from 'react';
-import {checkSociety} from '../auth/Auth'
+import { checkSociety } from '../auth/Auth'
 
 import axios from 'axios'
 const Societydashboard = () => {
-  
-    useEffect(()=>{
-     if(checkSociety())
-     {
+
+  useEffect(() => {
+    if (checkSociety()) {
       const config = {
-        headers:{
-          'x-access-token':localStorage.getItem('accesstoken')
+        headers: {
+          'x-access-token': localStorage.getItem('accesstoken')
         }
       }
-     axios.get(`${window.env_var}api/society/checkLogin`,config)
-            .then(({data})=>{   
-            })
-            .catch(err=>{
-              localStorage.clear();
-              window.location.href='/societylogin'
-            }) 
-     }
-     else
-     {
-      window.location.href='/'
-     }
-    },[])
+      axios.get(`${window.env_var}api/society/checkLogin`, config)
+        .then(({ data }) => {
+        })
+        .catch(err => {
+          localStorage.clear();
+          window.location.href = '/societylogin'
+        })
+    }
+    else {
+      window.location.href = '/'
+    }
+  }, [])
   return (
     <>
       <div className="dashboardcontainer">
-        
-      <div id="headersection">
-        <div id="addflatsection">
-        <Societyheader/>
+
+        <div id="headersection">
+          <div id="addflatsection">
+            <Societyheader />
+          </div>
         </div>
-      </div>
-      <div id="guardnamesection">
-        <div className='SC_Name'>
-          <img src="/images/societyicon.svg" alt="society name" />
-          <label>Society Name</label>
+        <div id="guardnamesection">
+          <div className='SC_Name'>
+            <img src="/images/societyicon.svg" alt="society name" />
+            <label>Society Name</label>
+          </div>
+          <div className='Dasboard_sideLink'>
+            <a href="/scDashboard" className='SL_LabelName'><b>Dashboard</b></a>
+          </div>
+          <div className='sdsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
         </div>
-        <div className='Dasboard_sideLink'>
-          <a href="/scDashboard" className='SL_LabelName'><b>Dashboard</b></a>
-        </div>
-        <div className='sdsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
-      </div>
         <div className='dashboardbackgroundimg'>
-        <div className='sdashdisplay'>
-          <label>Society Dashboard</label>
-        </div>
+          <div className='sdashdisplay'>
+            <label>Society Dashboard</label>
+          </div>
           <div id="cardsection">
             <div className="row row-cols-1 row-cols-md-3 g-4 sdfullcardscss allcards">
               <div className="col card_hover_animation">
                 <div className="sddashboardcard">
-                 <img src="/images/managenoticeboard.svg" className="dbcard-img-top " alt="notice list" onClick={() => { window.location.href = '/noticeList' }}></img>
+                  <img src="/images/managenoticeboard.svg" className="dbcard-img-top " alt="notice list" onClick={() => { window.location.href = '/noticeList' }}></img>
                 </div>
               </div>
               <div className="col card_hover_animation">
@@ -71,7 +69,7 @@ const Societydashboard = () => {
               </div>
               <div className="col card_hover_animation">
                 <div className="sddashboardcard">
-                 <img src="/images/managevehicles.svg" className="dbcard-img-top" alt="manage vehicle" onClick={() => { window.location.href = '/vehiclemanagement' }}></img>
+                  <img src="/images/managevehicles.svg" className="dbcard-img-top" alt="manage vehicle" onClick={() => { window.location.href = '/vehiclemanagement' }}></img>
                 </div>
               </div>
               <div className="col card_hover_animation">
@@ -97,6 +95,11 @@ const Societydashboard = () => {
               <div className="col card_hover_animation">
                 <div className="sddashboardcard">
                   <img src="/images/manageamenities.svg" className="dbcard-img-top" alt="Manage amenities" onClick={() => { window.location.href = '/amenities' }}></img>
+                </div>
+              </div>
+              <div className="col card_hover_animation">
+                <div className="sddashboardcard">
+                  <img src="/images/manageamenities.svg" className="dbcard-img-top" alt="Manage amenities" onClick={() => { window.location.href = '/checklists' }}></img>
                 </div>
               </div>
             </div>

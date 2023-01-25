@@ -87,6 +87,10 @@ import EditGuard from './components/GuardModule/EditGuard';
 import Admin_Change_Password from './pages/admin/LoginScreens/Admin_Change_Password';
 import UtilityPaymentLink from './components/SocietyModule/UtilityPaymentLink';
 import UtilityPyamentLinkList from './components/SocietyModule/UtilityPyamentLinkList';
+import ChecklistSecurity from './components/SocietyModule/ChecklistSecurity';
+import CheckListMaintenance from './components/SocietyModule/ChecklistMaintenance';
+import ChecklistCommunityStaff from './components/SocietyModule/ChecklistCommunityStaff';
+import ChecklistsMain from './components/SocietyModule/ChecklistsMain';
 
 
 function App() {
@@ -227,6 +231,10 @@ function App() {
           <Route path='/editguarddetails' element={<EditGuard />}></Route>
           <Route path='/utilitypaymentlinklist' element={<UtilityPyamentLinkList />}></Route>
 
+          <Route path='/security-checklist' element={<ChecklistSecurity />}></Route>
+          <Route path='/maintenance-checklist' element={<CheckListMaintenance />}></Route>
+          <Route path='/community-staff-checklist' element={<ChecklistCommunityStaff />}></Route>
+          <Route path='/checklists' element={<ChecklistsMain />}></Route>
 
 
 
