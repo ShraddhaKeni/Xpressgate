@@ -127,6 +127,9 @@ const GuestList = () => {
               <th class="th-sm">Flat No.</th>
               <th class="th-sm">Date</th>
               <th class="th-sm">In Time</th>
+              <th class="th-sm">Parking Section</th>
+              <th class="th-sm">Parking Time</th>
+              <th class="th-sm">Vehicle Number</th>
               <th class="th-sm">Status</th>
             </tr>
           </thead>
@@ -142,6 +145,9 @@ const GuestList = () => {
                   <td>{items.flat_number}</td>
                   <td>{dateFormat(items.time)}</td>
                   <td>{dateTimeFormat(items.time)}</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
                   <td>-</td>
                 </tr>)
             })}

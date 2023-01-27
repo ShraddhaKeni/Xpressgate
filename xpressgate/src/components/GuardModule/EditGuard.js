@@ -40,7 +40,7 @@ const EditGuard = () => {
       }
 
       const { data } = await axios.post(`${window.env_var}api/guard/update`, formdata)
-      setToast({ show: true, type: "success", message: "Update Successfully" })
+      setToast({ show: true, type: "success", message: "Guard updated successfully" })
       setTimeout(() => {
         window.location.href='/dashboard'
       }, 1500);
