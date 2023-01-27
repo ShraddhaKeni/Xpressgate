@@ -5,8 +5,8 @@ import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import './Ticketlist.css';
 import Societyheader from './Utils/Societyheader';
 import { Loader } from "../Loader";
-import ErrorScreen from '../../common/ErrorScreen';
 import Pagination from '../../common/Pagination';
+import ErrorScreen from '../../common/ErrorScreen';
 
 const Ticketlist = () => {
 
@@ -84,14 +84,14 @@ const Ticketlist = () => {
       setCurrentPosts(tickets.slice(indexoffirst, indexoflast))
     }
   }
-  if(isError)
-    return <ErrorScreen/>
 
   function settingCurrent(value)
   {
     setCurrentPosts(value)
   }
 
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="tlcontainer">
       <div id="tlheadersection">

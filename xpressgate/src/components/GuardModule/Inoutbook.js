@@ -124,6 +124,9 @@ const Inoutbook = () => {
               <th class="th-sm">Flat No.</th>
               <th class="th-sm">Date</th>
               <th class="th-sm">In Time</th>
+              <th class="th-sm">Parking Section</th>
+              <th class="th-sm">Parking Time</th>
+              <th class="th-sm">Vehicle Number</th>
               <th class="th-sm">Status</th>
             </tr>
           </thead>
@@ -138,6 +141,9 @@ const Inoutbook = () => {
                   <td>{iodata.flat_number}</td>
                   <td>{date}</td>
                   <td>{dateTimeFormat(iodata.intime)}</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
                   <td>{iodata.status == '1' ? 'In' : 'Out'}</td>
                 </tr>)
             })}

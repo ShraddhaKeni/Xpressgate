@@ -5,10 +5,13 @@ import { Form } from 'react-bootstrap';
 import LogOut from '../SocietyModule/Utils/LogOut'
 import axios from 'axios';
 import { validatePassword } from '../auth/validation';
+import { Loader } from "../Loader";
+import Societyheader from './Utils/Societyheader'
 
 const Password = () => {
 
   const [details,setDetails] = useState({})
+  const [loading, setLoading] = useState(true)
   useEffect(()=>{
     getDetails();
   },[])
@@ -21,8 +24,9 @@ const Password = () => {
     try {
       const {data} = await axios.get(`${window.env_var}api/society/getOne/${localStorage.getItem('member_id')}`)
       setDetails(data.data.Member[0])
+      setLoading(false);
     } catch (error) {
-      console.log(error)
+      setLoading(false);
     }
   }
 
@@ -32,7 +36,6 @@ const Password = () => {
       console.log(details)
       if(validatePassword(password.current.value))
       {
-       
         if((password.current.value===confirmPass.current.value)&&(password.current.value!==""&&confirmPass.current.value!==""))
         {
           const config = {
@@ -48,8 +51,7 @@ const Password = () => {
             id:localStorage.getItem('member_id')
           }
           const {data} = await axios.post(`${window.env_var}api/society/changepassword`,sendData,config)
-           window.location.href='/scDashboard'
-
+          window.location.href='/scDashboard'
         }
         else
         {
@@ -60,7 +62,6 @@ const Password = () => {
       {
 
       }
-    
     } catch (error) {
       console.log(error)
     }
@@ -69,69 +70,40 @@ const Password = () => {
   return (
     <div className="addguestcontainer1">
       <div id="addflatsection">
-          <div className="addflatheadersection">
-            <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-            <div id="afsociety"><label>Society</label></div>
-            <div id="afspace"></div>
-            <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-            <div id="afsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-            <div id="aflogoutbutton"><LogOut/></div>
-          </div>
+        <Societyheader />
       </div>
       <div id="societynamesection">
         <div className='societyname'>
           <img src="/images/profileicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
-        {/* <div className='sideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div> */}
       </div>
       <div className='addguestbackgroundimg'>
         <div className='Addguestdisplay1'>
           <label>Change Password</label>
         </div>
-        <Form className='formclass form1'>
-        <div className="passinput_fields">
-            <div className="email_input">
-              <label className="CurrentPass">Current Password</label>
-              <input
-              ref={oldpass}
-                type="text"
-                className="form-control emailtextbox1"
-                id="oldpass"
-                placeholder="Current Password"
-              ></input>
-            </div>
-            <br></br>
-            <div className="email_input">
-              <label className="newpass">New Password</label>
-              <input
-                ref={password}
-                type="password"
-                className="form-control passwordtextbox1"
-                
-                id="loginpassword"
-                placeholder="New Password"
-              ></input>
+        <Loader loading={loading}>
+          <Form className='formclass form1'>
+            <div className="passinput_fields">
+              <div className="email_input">
+                <label className="CurrentPass">Current Password</label>
+                <input ref={oldpass} type="text" className="form-control emailtextbox1" id="oldpass" placeholder="Current Password" ></input>
+              </div>
+              <br></br>
+              <div className="email_input">
+                <label className="newpass">New Password</label>
+                <input ref={password} type="password" className="form-control passwordtextbox1" id="loginpassword" placeholder="New Password" ></input>
               </div>
               <div className="email_input">
-              <label className="confirmpass">Confirm Password</label>
-              <input
-                ref={confirmPass}
-                type="password"
-                className="form-control passwordtextbox1"
-                
-                id="loginpassword"
-                placeholder="Confirm Password"
-              ></input>
+                <label className="confirmpass">Confirm Password</label>
+                <input ref={confirmPass} type="password" className="form-control passwordtextbox1" id="loginpassword" placeholder="Confirm Password" ></input>
               </div>
-          </div>
+            </div>
             <Button type="submit" onClick={(e)=>handleSubmit(e)} className="btnAdd1">Update</Button>
-        </Form>
-
+          </Form>
+        </Loader>
       </div>  
     </div>
   )
 }
-
 export default Password ;
-

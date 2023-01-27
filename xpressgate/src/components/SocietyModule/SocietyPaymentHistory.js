@@ -9,8 +9,8 @@ import Societyheader from "./Utils/Societyheader";
 import { getBlocks } from "./common/common";
 import { Button } from "react-bootstrap";
 import { Loader } from "../Loader";
-import ErrorScreen from "../../common/ErrorScreen";
 import Pagination from "../../common/Pagination";
+import ErrorScreen from "../../common/ErrorScreen";
 
 const SocietyPaymentHistory = () => {
  
@@ -22,9 +22,9 @@ const SocietyPaymentHistory = () => {
   const location = useLocation()
   const [bills,setBills] = useState([])
   const [loading, setLoading] = useState(true)
-  const [isError,setError] = useState(false)
   const [filterArr,setFilter] = useState([])
 
+  const [isError,setError] = useState(false)
   const block_id = useRef([])
   const utility_id = useRef([])
   useEffect(()=>{
@@ -53,8 +53,8 @@ const SocietyPaymentHistory = () => {
       setCurrentPosts(data.data.bills.slice(indexoffirst,indexoflast))
       document.getElementById("Blocks").selectedIndex = 0
       document.getElementById("bills").selectedIndex = 0
-      //setLoading(false);
-      setError(false)
+      setLoading(false);
+      setError(false);
     } catch (error) {
       setLoading(false);
       setError(true)
@@ -117,8 +117,6 @@ const SocietyPaymentHistory = () => {
       setCurrentPosts(bills.slice(indexoffirst, indexoflast))
     }
   }
-  if(isError)
-    return <ErrorScreen/>
 
   function settingCurrent(value)
   {
@@ -126,6 +124,8 @@ const SocietyPaymentHistory = () => {
   }
 
 
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="addguestcontainer4">
       <div id="addflatsection">

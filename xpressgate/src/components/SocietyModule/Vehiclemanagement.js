@@ -6,8 +6,8 @@ import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import Societyheader from './Utils/Societyheader';
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
-import ErrorScreen from '../../common/ErrorScreen';
 import Pagination from '../../common/Pagination';
+import ErrorScreen from '../../common/ErrorScreen';
 
 const Vehiclemanagement = () => {
 
@@ -34,7 +34,6 @@ const Vehiclemanagement = () => {
       setError(false)
     } catch (error) {
       setError(true)
-      
       setLoading(false);
     }
   }

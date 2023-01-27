@@ -25,9 +25,9 @@ const Addeditamenity = () => {
   const rent = useRef([])
   const status = useRef([])
   const [loading, setLoading] = useState(true)
-  const [toast, setToast] = useState({ show: false })
   const [isError,setError] = useState(false)
-
+  const [toast, setToast] = useState({ show: false })
+  
   useEffect(() => {
     if (checkSociety()) {
       const config = {

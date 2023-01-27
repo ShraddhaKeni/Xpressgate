@@ -7,8 +7,8 @@ import { getAmenitiesBooked } from './common/common';
 import LogOut from './Utils/LogOut';
 import Societyheader from './Utils/Societyheader';
 import { Loader } from "../Loader";
-import ErrorScreen from '../../common/ErrorScreen'
 import Pagination from '../../common/Pagination';
+import ErrorScreen from '../../common/ErrorScreen'
 
 const Amenitylist = () => {
   const [loading, setLoading] = useState(true)
@@ -18,10 +18,10 @@ const Amenitylist = () => {
   const [currentPosts,setCurrentPosts] = useState([])
   const location = useLocation()
   const navigate = useNavigate()
-  const [isError,setError] = useState(false)
   const [filterArr,setFilter] = useState([])
 
 
+  const [isError,setError] = useState(false)
   useEffect(()=>{
     if(location.state)
     {
@@ -104,14 +104,14 @@ const Amenitylist = () => {
       setCurrentPosts(bookedAmenities.slice(indexoffirst,indexoflast))
     }
   }
-  if(isError)
-    return <ErrorScreen/>
 
   function settingCurrent(value)
   {
     setCurrentPosts(value)
   }
 
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="alcontainer">
       <div id="alheadersection">

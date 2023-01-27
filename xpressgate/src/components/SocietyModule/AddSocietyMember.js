@@ -23,9 +23,8 @@ const AddSocietyMember = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/community/get`)
       setCommunity(data.data.community);
-      //setLoading(false);
-      setError(false)
       setLoading(false);
+      setError(false)
     } catch (error) {
       setError(true)
     }

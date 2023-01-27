@@ -6,8 +6,15 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import SocietyHeader from './Utils/Societyheader'
+import { Loader } from "../Loader";
 
 const Report = () => {
+
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setLoading(false);
+  }, [])
 
   return (
     <>
@@ -20,7 +27,6 @@ const Report = () => {
             <img src="/images/societyicon.svg" alt="society name" />
             <label>Society Name</label>
           </div>
-
           <div className='srsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
         </div>
         <div className='srbackgroundimg'>
@@ -34,25 +40,22 @@ const Report = () => {
             </div>
           </div>
           <br></br>  <br></br>
-          <div id="srcardsection">
-            <div className="srreportfirst">
-              <label className="srActivityReports">Activity Reports</label>
-              <div className="srViewreportBtn">
-                <button type="button" className="srViewbtn" >View Report</button>
-              </div>
-              <div className="srreportimage">
-                <img src="/images/report.svg"></img>
+          <Loader loading={loading}>
+            <div id="srcardsection">
+              <div className="srreportfirst">
+                <label className="srActivityReports">Activity Reports</label>
+                <div className="srViewreportBtn">
+                  <button type="button" className="srViewbtn" >View Report</button>
+                </div>
+                <div className="srreportimage">
+                  <img src="/images/report.svg"></img>
+                </div>
               </div>
             </div>
-           
-
-          </div>
+          </Loader>
         </div>
       </div>
-
     </>
   )
 }
-
-export default Report
-
+export default Report;

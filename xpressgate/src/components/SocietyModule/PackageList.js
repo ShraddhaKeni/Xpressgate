@@ -6,6 +6,9 @@ import "../SocietyModule/PackageList.css"
 import SocietyHeader from './Utils/Societyheader'
 import { useLocation } from 'react-router-dom';
 import { ToastMessage } from '../ToastMessage';
+import { Loader } from "../Loader";
+import Societyheader from './Utils/Societyheader';
+
 import ErrorScreen from '../../common/ErrorScreen';
 const PackageList = () => {
   const [toast, setToast] = useState({ show: false })
@@ -18,7 +21,9 @@ const PackageList = () => {
   const payment_due = useRef([])
   const [edit,setEdit] = useState(false)
   const [booked,setBooked] = useState({})
-const [isError,setError] = useState(false)
+  const [loading, setLoading] = useState(true)
+  const [isError,setError] = useState(false)
+  
   useEffect(()=>{
     if(location.state)
     {
@@ -36,30 +41,22 @@ const [isError,setError] = useState(false)
       const {data} = await axios.get(`${window.env_var}api/packagebook/getAll/${localStorage.getItem('community_id')}`)
       setBooked(data.data.booked[0])
       await getData()
-
       //setting html data
       const select_plan = document.getElementById("plan_id")
       const plan_options = Array.from(select_plan.options)
       const selected = plan_options.find(x=>x.text===data.data.booked[0].plan_name)
       selected.selected=true
-
       //Member
-
       document.getElementById('block_id').value=data.data.booked[0].member_id
       document.getElementById('payment_date').value=new Date(data.data.booked[0].purchased_date).toISOString().split('T')[0]
-      ChangeDate(data.data.booked[0].purchased_date)
-      
-
-      setError(false)
+      ChangeDate(data.data.booked[0].purchased_date);
+      setLoading(false);
+      setError(false);
     } catch (error) {
+      setLoading(false);
       setError(true)
-      // setError(false)
     }
   }
-
-
-
-
 
   const getData=async()=>{
     try {
@@ -70,13 +67,13 @@ const [isError,setError] = useState(false)
       }
       const {data} = await axios.get(`${window.env_var}api/plan/getall`,config)
       setPlan(data.data.plan)
-      const response = await axios.get(`${window.env_var}api/management/get`)
-      console.log(response)
-      setMembers(response.data.data.managementteam)
-      setError(false)
+      const response = await axios.get(`${window.env_var}api/management/getAll/${localStorage.getItem('community_id')}`)
+      setMembers(response.data.data.managementteam);
+      setLoading(false);
+      setError(false);
     } catch (error) {
+      setLoading(false);
       setError(true)
-      // setError(false)
     }
   }
 
@@ -117,14 +114,12 @@ const [isError,setError] = useState(false)
           window.location.href='/package'
         }, 1500);
       }
-     
     } catch (error) {
       setToast({ show: true, type: "error", message: "Check Data." });
     }
   }
 
   const ChangeDate=(d)=>{
-   
     const date = new Date(d)
     payment_due.current.value=(`${date.getDate()-1}/${date.getUTCMonth()+1}/${date.getFullYear()+1}`)
   }
@@ -134,9 +129,9 @@ const [isError,setError] = useState(false)
     return <ErrorScreen/>
   return (
     <div className="addguestcontainer4">
-    <div id="addflatsection">
-        <SocietyHeader/>
-    </div>
+      <div id="addflatsection">
+          <SocietyHeader/>
+      </div>
       <div id="societynamesection">
         <div className="PackLSname">
           <img src="/images/societyicon.svg" alt="Society image" />
@@ -153,51 +148,49 @@ const [isError,setError] = useState(false)
         <div className="PackL_display">
           <label>Change Package</label>
         </div>
-        <Form className="formclass">
-          <div class="form-group row">
-                <label class="col-lg-2 col-form-label ADN_label">Package</label>
-                <div class="col-lg-4">
-                  <select type="text" class="form-control input-lg SBorder" ref={plan_id} id='plan_id' name="First name" >
-                    <option  disabled value={null} selected>Select Plan</option>
-                      {plan.map(item=>{
-                        return <option value={item.id}>{item.name}</option>
-                      })}
-                  </select>
-                </div>
+        <Loader loading={loading}>
+          <Form className="formclass">
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label ADN_label">Package</label>
+              <div class="col-lg-4">
+                <select type="text" class="form-control input-lg SBorder" ref={plan_id} id='plan_id' name="First name" >
+                  <option  disabled value={null} selected>Select Plan</option>
+                    {plan.map(item=>{
+                      return <option value={item.id}>{item.name}</option>
+                    })}
+                </select>
               </div>
-              <div class="form-group row">
-                <label class="col-lg-2 col-form-label ADN_label">Added By</label>
-                <div class="col-lg-4">
-                  <select type="text" class="form-control input-lg SBorder" ref={booked_by} id='block_id' name="First name" >
-                    <option  disabled value={null} selected>Select Member</option>
-                      {members.map(item=>{
-                        return <option value={item._id}>{item.resident.firstname+' '+item.resident.lastname}</option>
-                      })}
-                  </select>
-                </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label ADN_label">Added By</label>
+              <div class="col-lg-4">
+                <select type="text" class="form-control input-lg SBorder" ref={booked_by} id='block_id' name="First name" >
+                  <option  disabled value={null} selected>Select Member</option>
+                    {members.map(item=>{
+                      return <option value={item._id}>{item.resident.firstname+' '+item.resident.lastname}</option>
+                    })}
+                </select>
               </div>
-             
-              <div class="form-group row">
-                <label class="col-lg-2 col-form-label ADN_label">Payment Date</label>
-                <div class="col-lg-4">
-                  <input type="date" class="form-control input-lg SBorder" onChange={()=>ChangeDate(purchase_date.current.value)} ref={purchase_date} id='payment_date' name="Payment Date" />
-                </div>
+            </div> 
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label ADN_label">Payment Date</label>
+              <div class="col-lg-4">
+                <input type="date" class="form-control input-lg SBorder" onChange={()=>ChangeDate(purchase_date.current.value)} ref={purchase_date} id='payment_date' name="Payment Date" />
               </div>
-              <div class="form-group row">
-                <label class="col-lg-2 col-form-label ADN_label">Due Date</label>
-                <div class="col-lg-4">
-                  <input type="text" disabled class="form-control input-lg SBorder" ref={payment_due}  id='due_date' name="First name" placeholder='Due Date'/>
-                </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label ADN_label">Due Date</label>
+              <div class="col-lg-4">
+                <input type="text" disabled class="form-control input-lg SBorder" ref={payment_due}  id='due_date' name="First name" placeholder='Due Date'/>
               </div>
-              <button type="submit" onClick={(e)=>{handleSubmit(e)}} className="CPACKBtn">
-                 Change
-              </button>
-        </Form>
+            </div>
+            <button type="submit" onClick={(e)=>{handleSubmit(e)}} className="CPACKBtn">
+              Change
+            </button>
+          </Form>
+        </Loader>
       </div>
     </div>
-       
-       
   )
 }
-
-export default PackageList
+export default PackageList;

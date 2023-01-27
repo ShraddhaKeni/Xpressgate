@@ -4,8 +4,8 @@ import Societyheader from "./Utils/Societyheader";
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import axios from "axios";
 import { Loader } from "../Loader";
-import ErrorScreen from "../../common/ErrorScreen";
 import Pagination from "../../common/Pagination";
+import ErrorScreen from "../../common/ErrorScreen";
 
 const VendorPaymentTable = () => {
 
@@ -15,9 +15,9 @@ const VendorPaymentTable = () => {
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts, setCurrentPosts] = useState([])
   const [loading, setLoading] = useState(true)
-  const [isError,setError] = useState(false)
   const [filterArr,setFilter] = useState([])
 
+  const [isError,setError] = useState(false)
   useEffect(() => {
     getVendorDetails()
   }, [])
