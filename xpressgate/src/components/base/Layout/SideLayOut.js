@@ -11,6 +11,7 @@ import DescriptionIcon from '@mui/icons-material/Description';
 import SmartDisplayIcon from '@mui/icons-material/SmartDisplay';
 import PaymentsIcon from '@mui/icons-material/Payments';
 import ApartmentIcon from '@mui/icons-material/Apartment';
+import { Person2Outlined, PersonAddAlt1Outlined } from '@mui/icons-material';
 
 const SideLayOut = () => {
 
@@ -18,7 +19,7 @@ const SideLayOut = () => {
 
   return (
     <aside className='sidelayout' style={{ position: 'relative' }} >
-      
+
       <Link to={"/admin"} className='admin-profile' style={{ textDecoration: 'none' }} >
         <img src="/images/AdminSideicon.svg" alt="logo" className='adminsidelogo'></img>
         <label className='admin-profile-username'>User Name</label>
@@ -72,6 +73,13 @@ const SideLayOut = () => {
         }
       </Link>
 
+      <Link to={RouterPath.ADD_SOCIETY_MEMBER} style={{ textDecoration: 'none' }} >
+        <div className={`nav-item ${router.pathname.includes("addsocietymember") && 'font-weight-bold'}`}>
+          <PersonAddAlt1Outlined className='side-nav-icon margin_icons' fontSize='large' />
+          <span className='ml-3 Labelfont'>Add Society Member</span>
+        </div>
+
+      </Link>
       <Link to={RouterPath.VIDEO_CLASS} style={{ textDecoration: 'none' }} >
         <div className={`nav-item ${router.pathname.includes("video") && 'font-weight-bold'}`}>
           <SmartDisplayIcon className='side-nav-icon margin_icons' fontSize='large' />

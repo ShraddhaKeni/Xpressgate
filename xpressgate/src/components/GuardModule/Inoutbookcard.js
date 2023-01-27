@@ -16,7 +16,7 @@ const Inoutbookcard = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const [isError,setError] = useState(false)
-
+  const [filterArr,setFilter] = useState([])
 
   useEffect(() => {
     if (checkGuard()) {
@@ -64,7 +64,6 @@ const Inoutbookcard = () => {
         booking_id:location.state.id
       }
       const {data} = await axios.post(`${window.env_var}api/inout/addout`,sendData)
-      console.log(data)
     } catch (error) {
       console.log(error)
     }

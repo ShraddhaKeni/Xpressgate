@@ -5,6 +5,7 @@ import { getGuestList } from './common/common';
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import Societyheader from './Utils/Societyheader';
 import ErrorScreen from '../../common/ErrorScreen';
+import Pagination from '../../common/Pagination';
 
 const GuestManagement = () => {
 
@@ -13,6 +14,9 @@ const GuestManagement = () => {
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts,setCurrentPosts] = useState([])
   const [isError,setError] = useState(false)
+  const [filterArr,setFilter] = useState([])
+
+
   useEffect(()=>{
       getData()
       
@@ -57,20 +61,28 @@ const GuestManagement = () => {
         return true
       }
     })
-    if(arr)
+    const indexoflast =currentPage*postPerPage  //endoffset
+    const indexoffirst = (indexoflast - postPerPage)
+    if(arr.length>0)
     {
-      const indexoflast =currentPage*postPerPage  //endoffset
-      const indexoffirst = (indexoflast - postPerPage)
+      setFilter(arr)
       setCurrentPosts(arr.slice(indexoffirst,indexoflast))
     }
     else
     {
-      paginate(0)
+      setFilter([])
+      setCurrentPosts(guests.slice(indexoffirst, indexoflast))
     }
   
 }
 if(isError)
 return <ErrorScreen/>
+
+function settingCurrent(value)
+{
+  setCurrentPosts(value)
+}
+
   return (
     <div className="gmcontainer">
       <div id="gmheadersection">
@@ -118,7 +130,9 @@ return <ErrorScreen/>
             
           </tbody>
         </table>
-        <PaginationCalculate totalPages={guests.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+        {/* <PaginationCalculate totalPages={guests.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/> */}
+        <Pagination totalPages={filterArr.length>0?filterArr.length:guests.length} data ={filterArr.length>0?filterArr:guests} settingCurrent={settingCurrent}/>
+
       </div>
     </div>
   )

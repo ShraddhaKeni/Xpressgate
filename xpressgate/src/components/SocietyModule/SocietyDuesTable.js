@@ -4,6 +4,7 @@ import Societyheader from "./Utils/Societyheader";
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import axios from "axios";
 import ErrorScreen from "../../common/ErrorScreen";
+import Pagination from "../../common/Pagination";
 
 const SocietyDuesTable = () => {
   const [societydues,setsocietydues] = useState()
@@ -13,6 +14,8 @@ const SocietyDuesTable = () => {
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts,setCurrentPosts] = useState([])
   const [isError,setError] = useState(false)
+  const [filterArr,setFilter] = useState([])
+
   useEffect(() => {
     getSocietyDetails()
   }, [])
@@ -26,7 +29,6 @@ const SocietyDuesTable = () => {
   const getSocietyDetails = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/maintenancepayment/getsocietydues/${localStorage.getItem('community_id')}`)
-      console.log(data)
       setcurrentsociety(data.data.society_dues)
       const indexoflast = currentPage*postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
@@ -47,6 +49,39 @@ const SocietyDuesTable = () => {
   }
   if(isError)
     return <ErrorScreen/>
+
+  function findText(e) {
+    let search = e.target.value.toLowerCase()
+    let arr = currentsociety.filter(x => {
+      if (x.resident.firstname.toLowerCase().includes(search)) {
+        return true
+      }
+      else if (x.resident.lastname.toLowerCase().includes(search)) {
+        return true
+      }
+    })
+    const indexoflast = currentPage * postPerPage 
+    const indexoffirst = (indexoflast - postPerPage)
+    if (arr.length>0) {
+      setFilter(arr)
+     
+      setCurrentPosts(arr.slice(indexoffirst, indexoflast))
+    }
+    else {
+      setFilter([])
+      setCurrentPosts(currentsociety.slice(indexoffirst, indexoflast))
+    }
+
+  }
+
+
+  function settingCurrent(value)
+  {
+    setCurrentPosts(value)
+  }
+
+
+
   return (
     <div className="addguestcontainer4">
       <div id="addflatsection">
@@ -74,6 +109,10 @@ const SocietyDuesTable = () => {
             window.location.href = "/societydues";
           }}>&#10011; Add Society Payment</button>
         </div>
+        <div className='vendorpayment_search'>
+              <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+                <input placeholder='Search' onChange={(e)=>findText(e)} ></input></span>
+            </div>
         <table id="viewparkingtable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
           <thead>
             <tr>
@@ -105,8 +144,9 @@ const SocietyDuesTable = () => {
           </tbody>
         </table>
         <br /><br />
-        <PaginationCalculate totalPages={currentsociety.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
-
+        {/* <PaginationCalculate totalPages={currentsociety.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/> */}
+          
+        <Pagination totalPages={filterArr.length>0?filterArr.length:currentsociety.length} data ={filterArr.length>0?filterArr:currentsociety} settingCurrent={settingCurrent}/>
 
       </div>
     </div>

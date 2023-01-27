@@ -38,6 +38,7 @@ import SMSGatewayList from './Manage/SMSProvider';
 import Sliders from './Manage/Sliders';
 import EditPaymentGateway from './Manage/PaymentGateway/edit';
 import EditSMSGateway from './Manage/SMSProvider/edit';
+import AddSocietyMember from '../../components/SocietyModule/AddSocietyMember';
 
 
 const AdminModuleComponent = () => {
@@ -136,6 +137,10 @@ const AdminModuleComponent = () => {
 
     if (router.pathname === RouterPath.MANAGE_SLIDERS) {
         children = (<Sliders />)
+    }
+
+    if (router.pathname === RouterPath.ADD_SOCIETY_MEMBER) {
+        children = (<AddSocietyMember />)
     }
 
     return (

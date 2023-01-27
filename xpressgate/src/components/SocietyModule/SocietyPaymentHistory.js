@@ -10,6 +10,7 @@ import { getBlocks } from "./common/common";
 import { Button } from "react-bootstrap";
 import { Loader } from "../Loader";
 import ErrorScreen from "../../common/ErrorScreen";
+import Pagination from "../../common/Pagination";
 
 const SocietyPaymentHistory = () => {
  
@@ -22,6 +23,8 @@ const SocietyPaymentHistory = () => {
   const [bills,setBills] = useState([])
   const [loading, setLoading] = useState(true)
   const [isError,setError] = useState(false)
+  const [filterArr,setFilter] = useState([])
+
   const block_id = useRef([])
   const utility_id = useRef([])
   useEffect(()=>{
@@ -101,19 +104,28 @@ const SocietyPaymentHistory = () => {
         return true
       }
     })
+    const indexoflast =currentPage*postPerPage  //endoffset
+    const indexoffirst = (indexoflast - postPerPage)
     if(arr)
     {
-      const indexoflast =currentPage*postPerPage  //endoffset
-      const indexoffirst = (indexoflast - postPerPage)
+      setFilter(arr)
       setCurrentPosts(arr.slice(indexoffirst,indexoflast))
     }
     else
     {
-      paginate(0)
+      setFilter([])
+      setCurrentPosts(bills.slice(indexoffirst, indexoflast))
     }
   }
   if(isError)
     return <ErrorScreen/>
+
+  function settingCurrent(value)
+  {
+    setCurrentPosts(value)
+  }
+
+
   return (
     <div className="addguestcontainer4">
       <div id="addflatsection">
@@ -191,7 +203,9 @@ const SocietyPaymentHistory = () => {
               }) : <tr>No Data Found</tr>}
             </tbody>
           </table>
-          <PaginationCalculate totalPages={bills.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+          <Pagination totalPages={filterArr.length>0?filterArr.length:bills.length} data ={filterArr.length>0?filterArr:bills} settingCurrent={settingCurrent}/>
+
+          {/* <PaginationCalculate totalPages={bills.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/> */}
         </Loader>
       </div>
     </div>
