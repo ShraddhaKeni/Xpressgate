@@ -140,7 +140,7 @@ const PackageList = () => {
         <br/>
         
         <div className="PackLSimg">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">

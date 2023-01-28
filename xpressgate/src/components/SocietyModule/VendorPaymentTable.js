@@ -98,7 +98,7 @@ const VendorPaymentTable = () => {
         <br />
 
         <div className="VPT_sideimage">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">

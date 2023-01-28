@@ -149,7 +149,7 @@ const Addguard = () => {
           <a className='aggnotice' onClick={() => navigate('/addGuard')}><b>{type == 'edit' ? 'Update Guard' : 'Add Guard'}</b></a>
         </div>
         <div className="AGSideimg">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">

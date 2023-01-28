@@ -23,7 +23,7 @@ const UtilityPaymentTable = () => {
         </div>
         <br/>
         <div className="UPT_sideimage">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">

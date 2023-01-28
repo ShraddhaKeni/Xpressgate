@@ -208,7 +208,7 @@ const Addvehicle = () => {
         <a href='/addvehicle' className='ALLOT_ASPS'><b>{type=='edit'?'Update':'Assign'} Parking Section</b></a>
       </div>
       <div className="AP_sideimg">
-        <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+        <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
       </div>
     </div>
     <div className="addguestbackgroundimg">

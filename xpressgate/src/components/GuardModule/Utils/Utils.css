@@ -30,7 +30,15 @@ html {
   grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
   grid-template-areas: "dashboardlogo dashboardguard dashboardspace dashboardnotification dashboardsetting dashboardlogoutbutton";
 }
-
+.ParkingSec{
+  font-size: 20px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+}
+.selectInput{
+  width: 98%;
+  height: 3.5vh;
+}
 #dashboardlogo {
   grid-area: dashboardlogo;
 }

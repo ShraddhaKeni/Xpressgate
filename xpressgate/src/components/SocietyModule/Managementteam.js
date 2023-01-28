@@ -114,7 +114,7 @@ const Managementteam = () => {
           <a href="/addManagement" class="AMM_link">Add Management Member</a>
         </div>
         <div className="MM_sideimage">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">

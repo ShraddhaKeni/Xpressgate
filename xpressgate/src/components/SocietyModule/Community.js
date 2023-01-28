@@ -34,7 +34,7 @@ const Community = () => {
           <a className='CANsidelinks' href="/addNotice">Add Notice</a>
         </div> */}
         <div className="SC_sideimage">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
 
       </div>
