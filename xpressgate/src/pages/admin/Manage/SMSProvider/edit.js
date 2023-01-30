@@ -55,7 +55,6 @@ const EditSMSGateway = () => {
         <>
             <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
 
-            <img src='/images/side_bar_img.svg' className='AddPremise_side_Img' />
             <div>
                 <div className='page-label'>
                     <label>Update SMS Gateway</label>

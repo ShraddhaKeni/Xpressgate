@@ -7,6 +7,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
 import ErrorScreen from "../../common/ErrorScreen";
+import { TOAST } from "../../common/utils";
+import { ToastMessage } from "../ToastMessage";
 
 const AddSocietyMember = () => {
   const [member, setMember] = useState({})
@@ -14,10 +16,11 @@ const AddSocietyMember = () => {
   const navigate = useNavigate();
   const [communities, setCommunity] = useState([])
   const [loading, setLoading] = useState(true)
-  const [isError,setError] = useState(false)
+  const [isError, setError] = useState(false)
   useEffect(() => {
     getCommunities()
   }, [])
+  const [toast, setToast] = useState({ show: false })
 
   const getCommunities = async () => {
     try {
@@ -33,7 +36,6 @@ const AddSocietyMember = () => {
 
   const handleAddSocietyMember = async (e) => {
     e.preventDefault();
-    alert(JSON.stringify(member))
     // Pass member to add Society member api - POST
     // What to do with the profile pic?
     try {
@@ -48,17 +50,26 @@ const AddSocietyMember = () => {
         }
       }
       const { data } = await axios.post(`${window.env_var}api/community/addResident`, formData, config);
-      navigate('/admin/dashboard');
+
+      if (data && data?.status_code == 200) {
+        setToast(TOAST.SUCCESS(data?.message));
+        setTimeout(() => {
+          navigate('/admin/dashboard');
+
+        }, 1000)
+      } else if (data?.status_code == 201) {
+        setToast(TOAST.ERROR(data?.message));
+      }
     } catch (error) {
-      alert(error);
+      setToast(TOAST.ERROR(error?.message));
     }
   }
-  if(isError)
-  return <ErrorScreen/>
+  if (isError)
+    return <ErrorScreen />
   return (
 
     <>
-      <img src='/images/side_bar_img.svg' className='AddPremise_side_Img' />
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
 
       <div>
         <div className='page-label'>
@@ -168,33 +179,32 @@ const AddSocietyMember = () => {
               </div>
             </div>
 
-            <div className="AMM_form">
-              <div className="inboxes">
-                <span>
-                  <label for="ToDate" class="STodate">To</label>
-                  <input type="date" id="ToDate" className="STodateinput" name="date" placeholder="Date"
-                    onChange={(e) => {
-                      setMember({ ...member, to: e.target.value });
-                    }
-                    }
-                  ></input>
-                </span>
-                <span>
-                  <label for="ForDate" class="SFromdate">From</label>
-                  <input type="date" id="ForDate" className="SFromdateinput"
-                    onChange={(e) => {
-                      setMember({ ...member, from: e.target.value });
-                    }
-                    }
-                  ></input>
-                </span>
 
-
-
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label ADN_label">From</label>
+              <div class="col-lg-8">
+                <input type="date" class="form-control input-lg SideB" id='ForDate'
+                  onChange={(e) => {
+                    setMember({ ...member, from: e.target.value });
+                  }
+                  }
+                >
+                </input>
               </div>
-
             </div>
 
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label ADN_label">To</label>
+              <div class="col-lg-8">
+                <input type="date" class="form-control input-lg SideB" id='ToDate'
+                  onChange={(e) => {
+                    setMember({ ...member, to: e.target.value });
+                  }
+                  }
+                >
+                </input>
+              </div>
+            </div>
 
             <button type="submit" className="BUTN_ADD_premise">
               Add Member

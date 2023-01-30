@@ -46,7 +46,6 @@ export const PlanDetails = () => {
         <>
             <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
 
-            <img src='/images/side_bar_img.svg' className='PAY_Coupans_side_Img' />
             {!plan && <Navigate to={RouterPath.PRLANS_LIST} />}
             {plan &&
                 <div>
