@@ -262,6 +262,20 @@ color: #14335D;
       margin-left: 31%;
   }
 
+.search_icon
+{
+  cursor: pointer;
+  position: relative !important;
+  bottom:9px !important;
+  transition: .2s ease all;
+}
+
+.search_icon:hover{
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 0.75rem #0a3696)
+}
+
+}
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
   .GDsideimage {
@@ -281,18 +295,19 @@ color: #14335D;
   }
 
   .enterpasscodesearch {
-    width: 58%;
-    height: 10%;
+    width: 24rem;
+    height: 7rem;
     background-color: #CFDBEB;
-    border-radius: 25px;
+    border-radius: 8px;
     border-color: #0A8996;
     border-style: solid;
-    margin: auto;
+    /* margin: auto; */
+    margin-left: 17%;
     margin-top: 5%;
-    font-size: 20px;
+    font-size: 1.6rem;
     font-weight: 600;
     color: #0A8996;
-  }
+}
 
   .DashBoardCard {
     width: -moz-fit-content;
@@ -301,7 +316,22 @@ color: #14335D;
     margin-bottom: 10%;
     border: none;
   }
-
+  .dashboard_passcode {
+    position: relative;
+    margin-top: -9%;
+    border: none;
+    outline: none;
+    background-color: #CFDBEB;
+    text-align: center;
+    width: 1.6rem;
+    border-bottom: 3px solid #000000;
+}
+.enterpasscodesearch img {
+  margin-left: 105%;
+  margin-top: -5.5%;
+  width: 4rem;
+  height: auto;
+}
   .dashboardbackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;
@@ -310,20 +340,10 @@ color: #14335D;
     position: relative;
     margin-top: 10.5%;
   }
-
+  .code {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
 }
-
-.search_icon
-{
-  cursor: pointer;
-  position: relative !important;
-  bottom:9px !important;
-  transition: .2s ease all;
-}
-
-.search_icon:hover{
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 0.75rem #0a3696)
-}
-
 }

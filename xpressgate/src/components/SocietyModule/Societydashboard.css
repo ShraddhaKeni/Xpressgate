@@ -278,6 +278,8 @@ color: #14335D;
     background-size: cover;
     position: relative;
     margin-top: 10.5%;
+    margin-left: 0%;
+    margin-right: -64%;
   }
 
 }

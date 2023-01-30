@@ -336,5 +336,22 @@ font-weight: 400;
   background: #0A8996;
   color: white;
 }
+@media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
+  .btnlogout {
+    background-color: #0A8996;
+    color: #fff;
+    border-radius: 9px;
+    height: 2.5rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    width: 8rem;
+    margin-top: 33%;
+    padding: 2%;
+    border: none;
+    margin-left: -15%;
+}
 
+
+
+}
 
