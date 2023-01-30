@@ -6,29 +6,27 @@ const Invoice = () => {
       <div className="MainContainer">
         <div className="Details">
           <label className="Heading">
-            Rising Landscapes Co-Operative Housing Society Ltd
+            Gerra Imperium
           </label>
           <br />
           <label className="Address">
-            S.No 4, Part No. 6, Near Delhi Public School, Mohammadwadi, Pune
-            411028
+            Patto, Panaji-Goa 
           </label>
           <br />
           <label className="RegistrationNo">
-            Registration No: PNA/PNA/ (4)/HSG/ (TC)/19076/2018-19 Dated
-            31-05-2018
+            Registration No: 
           </label>
           <br />
 
           <div className="NumDetails">
             <div className="GSTNumDetails">
               <label>
-                <b>GST Number:</b> &nbsp; 27AAEAR6306F1ZM
+                <b>GST Number:</b> &nbsp; 
               </label>
             </div>
             <div className="PANNumDetails">
               <label>
-                <b>PAN Number: </b> &nbsp; AAEAR6306F
+                <b>PAN Number: </b> &nbsp; 
               </label>
             </div>
           </div>
@@ -43,18 +41,18 @@ const Invoice = () => {
         <table className="PersonDetails">
           <tr>
             <td>
-              Owner: &nbsp; <b> Mr. Pritam Onsker</b>
+              Owner: &nbsp; <b> Mr. Keshav Methar</b>
             </td>
             <td>
-              Invoice Number: &nbsp; <b># 7394</b>
+              Invoice Number: &nbsp; <b># 0001</b>
             </td>
           </tr>
           <tr>
             <td>
-              House: &nbsp; <b>E-102</b>
+              House: &nbsp; <b>A-101</b>
             </td>
             <td>
-              Invoice Date: &nbsp; <b>25 Dec 2022</b>
+              Invoice Date: &nbsp; <b>27 Jan 2023</b>
             </td>
           </tr>
           <tr>
@@ -62,12 +60,12 @@ const Invoice = () => {
               Area (Sq.ft): &nbsp; <b> - </b>
             </td>
             <td>
-              Due Date: &nbsp; <b>10 Jan 2023</b>
+              Due Date: &nbsp; <b>10 Feb 2023</b>
             </td>
           </tr>
           <tr>
             <td>
-              Owner Address: &nbsp; <b> E-102</b>
+              Owner Address: &nbsp; <b> A-101</b>
             </td>
           </tr>
         </table>
@@ -98,7 +96,7 @@ const Invoice = () => {
         </table>
         <br />
         <div className="AandPLAbel">
-          <label>RLCHS Maintenance Invoice January 2023</label>
+          <label>Maintenance Invoice January 2023</label>
         </div>
         <br />
         <table className="PersonDetails">
@@ -159,20 +157,20 @@ const Invoice = () => {
         <br/>
         <div className="InstructionPara">
        <h4>Note: </h4>
-       <label>1. Cheque in favor of “RISING LANDSCAPES CO-OP HSG SOC LTD”. Due Date for Cheque 10 th of Every Month.</label><br/>
+       <label>1. Cheque in favor of “Gerra Imperium”. Due Date for Cheque 10 th of Every Month.</label><br/>
        <label>2. Bank A/c details:</label><br/>
-       <label>Account Number : 50200034100297</label><br/>
-       <label>Account Name : RISING LAND SCAPES CO-OP HSG SOC LTD</label><br/>
-       <label>Bank IFSC code : HDFC0002454</label><br/>
-       <label>Branch : MOHAMMEDWADI</label><br/>
-       <label>3. Please send email to manager.rlchs@gmail.com to confirm Online Transfer.</label><br/>
+       <label>Account Number : </label><br/>
+       <label>Account Name : </label><br/>
+       <label>Bank IFSC code : </label><br/>
+       <label>Branch : </label><br/>
+       <label>3. Please send email to support@xpressgate.com to confirm Online Transfer.</label><br/>
        <label>4. Online Payment through MyGate App also available.</label><br/>
        <label>5. Bank Charges will be charged if your cheque is issued on a bank outside Pune or cheque bounce.</label><br/>
        <label>6. No exemption can be claimed for non-receipt of bill for regular maintenance Bills.</label><br/>
        <label>7. Please subscribe to Email Bills to save paper waste.</label><br/>
        <label>8. Penalty of dishonored cheque will be charged as per Bank charges.</label><br/>
        <label>9. If payment is not made by due date, Interest @ 12% p.a will be levied.</label><br/>
-       <label>10. Please Contact Society Manager 9172591084 and  manager.rlchs@gmail.com for support.</label><br/>
+       <label>10. Please Contact Society Manager and for support.</label><br/>
         </div>
         <br/>
       </div>
