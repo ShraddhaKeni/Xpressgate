@@ -48,7 +48,6 @@ const VideoClass = () => {
 
   return (
     <>
-      <img src='/images/side_bar_img.svg' className='Premise_side_Img' />
       <Loader loading={loading}>
         <div >
           <div className="page-label">
