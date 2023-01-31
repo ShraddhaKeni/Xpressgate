@@ -13,20 +13,66 @@ const ChangePassword = () => {
   const password = useRef([]);
   const confirmPass = useRef([]);
   const oldpass = useRef([]);
-  const [guard, setGuard] = useState({});
+  const [mem, setMem] = useState({});
   const [loading, setLoading] = useState(true);
+
+  const initialState = {
+    password: "",
+    confirmPass: "",
+  };
+
+  const passVerificationError = {
+    isLenthy: false,
+    hasUpper: false,
+    hasLower: false,
+    hasNumber: false,
+    hasSpclChr: false,
+    confirmPass: false,
+  };
+  const [passwordError, setPasswordError] = useState(passVerificationError);
+  const [newUser, setNewUser] = useState(initialState);
 
   useEffect(() => {
     getDetails();
     setLoading(false);
   }, []);
 
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+
+    setNewUser({ ...newUser, [name]: value });
+
+    if (name === "password") {
+      const isLenthy = value.length > 8;
+      const hasUpper = /[A-Z]/.test(value);
+      const hasLower = /[a-z]/.test(value);
+      const hasNumber = /[0-9]/.test(value);
+      const hasSpclChr = /[@,#,$,%,&]/.test(value);
+
+      setPasswordError({
+        ...passwordError,
+        isLenthy,
+        hasUpper,
+        hasLower,
+        hasNumber,
+        hasSpclChr,
+      });
+    }
+
+    if (name === "confirmPass") {
+      setPasswordError({
+        ...passwordError,
+        confirmPass: newUser.password === value,
+      });
+    }
+  };
+
   const getDetails = async () => {
     try {
       const { data } = await axios.get(
-        `${window.env_var}api/guard/getone/${localStorage.getItem("guard_id")}`
+        `${window.env_var}api/society/getOne/${localStorage.getItem("member_id")}`
       );
-      setGuard(data.data);
+      setMem(data.data.Member[0]);
     } catch (error) {
       console.log(error);
     }
@@ -36,35 +82,31 @@ const ChangePassword = () => {
     e.preventDefault();
     try {
       if (await validatePassword(password.current.value)) {
-        setToast({
-          show: true,
-          type: "success",
-          message: "Password changed successfully",
-        });
-        if (
-          password.current.value === confirmPass.current.value &&
-          password.current.value !== "" &&
-          confirmPass.current.value !== ""
-        ) {
+        if (password.current.value === confirmPass.current.value && password.current.value !== "" && confirmPass.current.value !== "") 
+        {
           const config = {
             headers: {
               "x-access-token": localStorage.getItem("accesstoken"),
             },
           };
           const sendData = {
-            username: guard.username,
+            username: mem.username,
             password: oldpass.current.value,
             newpassword: password.current.value,
             confirmpassword: confirmPass.current.value,
             id: localStorage.getItem("member_id"),
           };
-          const { data } = await axios.post(
-            `${window.env_var}api/guard/changepassword`,
-            sendData,
-            config
-          );
-
-          console.log(data);
+          const { data } = await axios.post(`${window.env_var}api/society/changepassword`, sendData, config );
+          if(data.status_code == 200)
+          {
+            setToast({ show: true, type: "success", message: "Password changed successfully" });
+            setTimeout(() => {
+              window.location.href='/scDashboard'
+            }, 1500);
+          }
+          else{
+            setToast({ show: true, type: "error", message: "Something went wrong, please try again later" });
+          }
         }
       } else {
         setToast({
@@ -76,6 +118,7 @@ const ChangePassword = () => {
         document.querySelector("input").style.border = "1px solid red";
       }
     } catch (error) {
+      console.log(error);
       document.querySelector("input").style.border = "1px solid red";
     }
   };
@@ -134,6 +177,7 @@ const ChangePassword = () => {
                       className="form-control input-lg CP_Border"
                       id="loginpassword"
                       placeholder="New Password"
+                      name="password" value={newUser.password} onChange={handleOnChange}
                     ></input>
                   </div>
                 </div>
@@ -149,6 +193,7 @@ const ChangePassword = () => {
                       className="form-control input-lg CP_Border"
                       id="loginpassword"
                       placeholder="Confirm Password"
+                      name="confirmPass" value={newUser.confirmPass} onChange={handleOnChange}
                     ></input>
                   </div>
                 </div>
@@ -156,14 +201,28 @@ const ChangePassword = () => {
             </div>
             <br/>
             <div className="SocNoticeContainer">
-              <label>Password doesn't match!</label>
-              <ul>
-                <li>Min 8 characters</li>
-                <li>At least one upper case</li>
-                <li>At least one lower case</li>
-                <li>At least one number</li>
-                <li>At least one of the special character i,e (@ # $ % &)</li>
-              </ul>
+              <Form.Text>
+                {!passwordError.confirmPass && (
+                  <div className="text-danger mb-3">Password doesn't match!</div>
+                )}
+              </Form.Text>
+              <ul className="mb-4">
+                <li className={ passwordError.isLenthy ? "text-success" : "text-danger" } >
+                  Min 8 characters
+                </li>
+                <li className={ passwordError.hasUpper ? "text-success" : "text-danger" } >
+                  At least one upper case
+                </li>
+                <li className={ passwordError.hasLower ? "text-success" : "text-danger" } >
+                  At least one lower case
+                </li>
+                <li className={ passwordError.hasNumber ? "text-success" : "text-danger" } >
+                  At least one number
+                </li>
+                <li className={ passwordError.hasSpclChr ? "text-success" : "text-danger" } >
+                  At least on of the special characters i.e @ # $ % &{" "}
+                </li>
+              </ul>  
             </div>
             <Button
               type="submit"

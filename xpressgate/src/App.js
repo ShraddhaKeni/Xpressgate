@@ -95,6 +95,7 @@ import Arrearslist from './components/SocietyModule/Arrearslist'
 import Addarrears from './components/SocietyModule/Addarrears'
 import ViewGuestParkingSec from './components/SocietyModule/ViewGuestParkingSec';
 import AddGuestParkingSec from './components/SocietyModule/AddGuestParkingSec';
+import Invoice from './components/Invoice';
 
 
 function App() {
@@ -244,6 +245,7 @@ function App() {
           <Route path='/utilitypaymentlinklist' element={<UtilityPyamentLinkList />}></Route>
           <Route path='/viewguestparkingsection' element={<ViewGuestParkingSec />}></Route>
           <Route path='/addguestparkingsection' element={<AddGuestParkingSec />}></Route>
+          <Route path='/invoice' element={<Invoice />}></Route>
 
 
 

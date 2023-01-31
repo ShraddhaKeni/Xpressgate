@@ -1,0 +1,154 @@
+html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+.MainContainer{
+    display: flex;
+    margin: 3%;
+    justify-content: space-between;
+}
+.Details{
+    text-align: left;
+}
+.Heading{
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Rubik';
+    font-style: normal;
+    line-height: 2;
+    color: black;
+}
+.Address{
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: 'Rubik';
+    font-style: normal;
+    line-height: 1;
+    color: black;
+}
+.RegistrationNo{
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: 'Rubik';
+    font-style: normal;
+    line-height: 1.5;
+    color: black;
+}
+.LogoOP img{
+    width: 40%;
+    height: auto;
+}
+.NumDetails{
+   display: flex;
+    width: 200%;
+}
+.GSTNumDetails{
+    margin-right: 20%;
+}
+.GSTNumDetails label{
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: 'Rubik';
+    font-style: normal;
+}
+.PANNumDetails label{
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: 'Rubik';
+    font-style: normal;
+}
+
+hr{
+    border: 1.5px solid red;
+}
+.TableDetailsContainer{
+    
+    margin: 3%;
+    justify-content: center;
+}
+.PersonDetails{
+    /* justify-content: space-between; */
+    text-align: justify;
+    width: 100%;
+    border: 2px solid grey;
+}
+.PersonDetails tr td{
+    padding: 0.5% 0.5% 0.5% 6%;
+text-align: left;
+   font-size: 1.5rem;
+   font-weight: 400;
+   font-family: 'Rubik';
+   font-style: normal;
+}
+.PersonDetails tr th{
+    padding: 0.5% 0.5% 0.5% 6%;
+    text-align: left;
+   font-size: 1.7rem;
+   font-weight: 700;
+   font-family: 'Rubik';
+   font-style: normal;
+   color: black;
+   background-color: rgb(207, 202, 202) ;
+   border: 1px solid grey;
+}
+.Persondetails{
+    /* justify-content: space-between; */
+    text-align: justify;
+    width: 100%;
+    border: 2px solid grey;
+}
+.Persondetails tr td{
+    padding: 0.5% 0.5% 0.5% 6%;
+text-align: left;
+   font-size: 1.5rem;
+   font-weight: 400;
+   font-family: 'Rubik';
+   font-style: normal;
+}
+.Persondetails tr th{
+    padding: 0.5% 0.5% 0.5% 6%;
+    text-align: left;
+   font-size: 1.7rem;
+   font-weight: 700;
+   font-family: 'Rubik';
+   font-style: normal;
+   color: white;
+   background-color: rgb(63, 63, 63);
+   border: 1px solid  rgb(63, 63, 63);
+}
+.AandPLAbel{
+background: rgb(63, 63, 63);
+color: white;
+text-align: center;
+align-content: auto;
+padding-top: 0.2%;
+}
+.AandPLAbel label{
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-family: 'Rubik';
+    font-style: normal;
+ }
+.ComputerizedMessage{
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-family: 'Rubik';
+    font-style: italic;
+    color: black;
+    float: right;
+}
+.InstructionPara{
+    width: 100%;
+    border: 2px solid grey;
+    padding: 0.5%;
+    text-align: left;
+}
+.InstructionPara label{
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: 'Rubik';
+    font-style: normal;
+    color: black;
+}

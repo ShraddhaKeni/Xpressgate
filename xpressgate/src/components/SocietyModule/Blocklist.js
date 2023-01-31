@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import { Loader } from "../Loader";
 import ErrorScreen from '../../common/ErrorScreen';
+import Societyheader from "./Utils/Societyheader";
 
 const Blocklist = () => {
   const [blocks, setBlocks] = useState([])
@@ -59,14 +60,7 @@ const Blocklist = () => {
     <>
       <div className="blcontainer">
         <div id="blheadersection">
-          <div className="firstblsection">
-            <div id="bllogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-            <div id="blsociety"><label>Society</label></div>
-            <div id="blspace"></div>
-            <div id="blnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-            <div id="blsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-            <div id="bllogoutbutton"><LogOut /></div>
-          </div>
+          <Societyheader/>
         </div>
         <div id="societynamesection">
           <div className='blsocietyname'>
