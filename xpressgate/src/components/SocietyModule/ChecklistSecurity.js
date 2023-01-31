@@ -85,8 +85,9 @@ const ChecklistSecurity = () => {
                 </div>
 
 
-                <div className='GLsidelinks'>
-
+                <div className='GLsidelinks pl-5'>
+                    <p className='aggnotice float-left' onClick={() => navigate('/security-checklist')}><b>Reports</b></p>
+                    <a className='noticegll float-left' onClick={() => navigate('/add-security-checklist')}><b>Add Checklist</b></a>
                 </div>
                 <div className="GLSimg">
                     <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />

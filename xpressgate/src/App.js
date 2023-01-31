@@ -91,6 +91,7 @@ import ChecklistSecurity from './components/SocietyModule/ChecklistSecurity';
 import CheckListMaintenance from './components/SocietyModule/ChecklistMaintenance';
 import ChecklistCommunityStaff from './components/SocietyModule/ChecklistCommunityStaff';
 import ChecklistsMain from './components/SocietyModule/ChecklistsMain';
+import AddChecklistSecurity from './components/SocietyModule/AddChecklistSecurity';
 
 
 function App() {
@@ -235,6 +236,8 @@ function App() {
           <Route path='/maintenance-checklist' element={<CheckListMaintenance />}></Route>
           <Route path='/community-staff-checklist' element={<ChecklistCommunityStaff />}></Route>
           <Route path='/checklists' element={<ChecklistsMain />}></Route>
+
+          <Route path='/add-security-checklist' element={<AddChecklistSecurity />}></Route>
 
 
 
