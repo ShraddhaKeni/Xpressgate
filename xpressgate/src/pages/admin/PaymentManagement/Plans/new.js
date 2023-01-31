@@ -43,7 +43,6 @@ export const AddPlan = () => {
         <>
             <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
 
-            <img src='/images/side_bar_img.svg' className='PAY_Coupans_side_Img' />
             <div>
                 <div className='Page-Label'>
                     <label>Add New Subscription Plan</label>

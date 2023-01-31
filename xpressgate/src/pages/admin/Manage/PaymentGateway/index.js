@@ -80,7 +80,6 @@ const PaymentGateways = () => {
         <>
             <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
 
-            <img src='/images/side_bar_img.svg' className='Premise_side_Img' />
             <Loader loading={loading}>
                 <div>
                     <div className='page-label'>
