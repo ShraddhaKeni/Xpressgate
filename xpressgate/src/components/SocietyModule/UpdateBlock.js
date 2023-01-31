@@ -39,13 +39,11 @@ const UpdateBlock = () => {
         name: document.getElementById('block_name').value,
         community_id: localStorage.getItem('community_id')
       }
-      const {data} = await axios.post(`${window.env_var}api/block/upda`,sendData);
+      const {data} = await axios.post(`${window.env_var}api/block/update`,sendData);
       setToast({ show: true, type: "success", message: "Updated successfully" })
       setTimeout(() => {
         window.location.href='/blockList'
       }, 1500);
-    
-    
     } catch (error) {
       setToast({ show: true, type: "error", message: "Check Data." });
     }

@@ -5,65 +5,58 @@ import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import LogOut from './Utils/LogOut'
 import { Loader } from "../Loader";
+import Societyheader from './Utils/Societyheader'
 
 const Flatapprovallist = () => {
   const [flat,setFlat] = useState({})
   const [family,setFamily] = useState({})
   const [vehicle,setVehicle] = useState({})
-const location = useLocation()
-const navigate = useNavigate()
+  const location = useLocation()
+  const navigate = useNavigate()
+  const [loading, setLoading] = useState(true)
 
-const [loading, setLoading] = useState(true)
-
-useEffect(()=>{
-  if(location.state)
-  {
-    getFlatDetails()
-    setFamily(location.state.family)
-    setVehicle(location.state.vehicle)
-  }
-  else
-  {
-    navigate('/flatList')
-  }
-},[])
-
-const getFlatDetails=async()=>{
-  try {
-    const {data} = await axios.get(`${window.env_var}api/flats/single/${location.state.id}`)
-    setFlat(data.data.list[0])
-    setLoading(false);
-  } catch (error) {
-    console.log(error)
-    setLoading(false);
-  }
-}
-
-const approveFlat=async(id)=>{
-  try {
-    let sendData = {
-      resident_id:flat.resident_id,
-      flat_id:id,
-      community_id:localStorage.getItem('community_id')
+  useEffect(()=>{
+    if(location.state)
+    {
+      getFlatDetails()
+      setFamily(location.state.family)
+      setVehicle(location.state.vehicle)
     }
-    const {data} = await axios.post(`${window.env_var}api/approveresidents/approve`,sendData)
-    window.location.href='/blockList'
-  } catch (error) {
-    console.log(error)
+    else
+    {
+      navigate('/flatList')
+    }
+  },[])
+
+  const getFlatDetails=async()=>{
+    try {
+      const {data} = await axios.get(`${window.env_var}api/flats/single/${location.state.id}`)
+      setFlat(data.data.list[0])
+      setLoading(false);
+    } catch (error) {
+      console.log(error)
+      setLoading(false);
+    }
   }
-}
+
+  const approveFlat=async(id)=>{
+    try {
+      let sendData = {
+        resident_id:flat.resident_id,
+        flat_id:id,
+        community_id:localStorage.getItem('community_id')
+      }
+      const {data} = await axios.post(`${window.env_var}api/approveresidents/approve`,sendData)
+      window.location.href='/blockList'
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div className="falcontainer">
       <div id="falheadersection">
-        <div class="falfirstheadersection">
-          <div id="faldashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="faldashboardguard"><label>Society</label></div>
-          <div id="faldashboardspace"></div>
-          <div id="faldashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="faldashboardsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="fallogoutbutton"> <LogOut/></div>
-        </div>
+        <Societyheader/>
       </div>
       <div id="guardnamesection"> 
         <div className='FA_SOCNAme'>
@@ -77,7 +70,6 @@ const approveFlat=async(id)=>{
         <div className='FLATApp_Display'>
           <label>Flat Approval</label>
         </div>
-        {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}
         <div className="col">
           <div className="frequentvisitorcard">
             <br></br>
@@ -106,6 +98,4 @@ const approveFlat=async(id)=>{
     </div>
   )
 }
-
-export default Flatapprovallist
-
+export default Flatapprovallist;

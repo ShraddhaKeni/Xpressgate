@@ -17,6 +17,22 @@ const ChangePassword = () => {
   const oldpass = useRef([])
   const [guard, setGuard] = useState({})
 
+  const initialState = {
+    password: "",
+    confirmPass: "",
+  };
+
+  const passVerificationError = {
+    isLenthy: false,
+    hasUpper: false,
+    hasLower: false,
+    hasNumber: false,
+    hasSpclChr: false,
+    confirmPass: false,
+  };
+  const [passwordError, setPasswordError] = useState(passVerificationError);
+  const [newUser, setNewUser] = useState(initialState);
+
 
   useEffect(() => {
     getDetails()
@@ -32,11 +48,40 @@ const ChangePassword = () => {
     }
   }
 
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+
+    setNewUser({ ...newUser, [name]: value });
+
+    if (name === "password") {
+      const isLenthy = value.length > 8;
+      const hasUpper = /[A-Z]/.test(value);
+      const hasLower = /[a-z]/.test(value);
+      const hasNumber = /[0-9]/.test(value);
+      const hasSpclChr = /[@,#,$,%,&]/.test(value);
+
+      setPasswordError({
+        ...passwordError,
+        isLenthy,
+        hasUpper,
+        hasLower,
+        hasNumber,
+        hasSpclChr,
+      });
+    }
+
+    if (name === "confirmPass") {
+      setPasswordError({
+        ...passwordError,
+        confirmPass: newUser.password === value,
+      });
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
       if (await validatePassword(password.current.value)) {
-        setToast({ show: true, type: "success", message: "Password changed successfully" });
         if ((password.current.value === confirmPass.current.value) && (password.current.value !== "" && confirmPass.current.value !== "")) {
           const config = {
             headers: {
@@ -48,15 +93,22 @@ const ChangePassword = () => {
             password: oldpass.current.value,
             newpassword: password.current.value,
             confirmpassword: confirmPass.current.value,
-            id: localStorage.getItem('member_id')
+            id: localStorage.getItem('guard_id')
           }
           const { data } = await axios.post(`${window.env_var}api/guard/changepassword`, sendData, config)
-
-          console.log(data)
+          if(data.status_code == 200)
+          {
+            setToast({ show: true, type: "success", message: "Password changed successfully" });
+            setTimeout(() => {
+              window.location.href='/dashboard'
+            }, 1500);
+          }
+          else{
+            setToast({ show: true, type: "error", message: "Something went wrong, please try again later" });
+          }
         }
       }
       else {
-        // alert('Wrong password')
         setToast({ show: true, type: "error", message: "Password must be at least 8 characters long must contain a number, uppercase lowercase and a special character." });
         document.querySelector('input').style.border = '1px solid red'
       }
@@ -101,7 +153,7 @@ const ChangePassword = () => {
               <div class="form-group row">
                 <div class="col-lg-6">
                   <label className="NPASS">New Password</label>
-                  <input ref={password} type="password" className="form-control input-lg NP_input" id="loginpassword" placeholder="New Password"></input>
+                  <input ref={password} type="password" className="form-control input-lg NP_input" id="loginpassword" placeholder="New Password" name="password" value={newUser.password} onChange={handleOnChange}></input>
                 </div>
               </div>
             </div>
@@ -110,12 +162,35 @@ const ChangePassword = () => {
               <div class="form-group row">
                 <div class="col-lg-6">
                   <label className="CHPASS">Confirm Password</label>
-                  <input ref={confirmPass} type="password" className="form-control input-lg CHP_input" id="loginpassword" placeholder="Confirm Password"></input>
+                  <input ref={confirmPass} type="password" className="form-control input-lg CHP_input" id="loginpassword" placeholder="Confirm Password" name="confirmPass" value={newUser.confirmPass} onChange={handleOnChange}></input>
                 </div>
               </div>
             </div>
           </div>
-    <PasswordNotice/>
+          <div className="NoticeContainer">
+            <Form.Text>
+              {!passwordError.confirmPass && (
+                <div className="text-danger mb-3">Password doesn't match!</div>
+              )}
+            </Form.Text>
+            <ul className="mb-4">
+              <li className={ passwordError.isLenthy ? "text-success" : "text-danger" } >
+                Min 8 characters
+              </li>
+              <li className={ passwordError.hasUpper ? "text-success" : "text-danger" } >
+                At least one upper case
+              </li>
+              <li className={ passwordError.hasLower ? "text-success" : "text-danger" } >
+                At least one lower case
+              </li>
+              <li className={ passwordError.hasNumber ? "text-success" : "text-danger" } >
+                At least one number
+              </li>
+              <li className={ passwordError.hasSpclChr ? "text-success" : "text-danger" } >
+                At least on of the special characters i.e @ # $ % &{" "}
+              </li>
+            </ul>  
+          </div>
           <button type="submit" onClick={(e) => handleSubmit(e)} className="CHPASS_BTN">Update</button>
         </Form>
         </Loader>
