@@ -309,13 +309,11 @@ color: #14335D;
     color: #0A8996;
 }
 
-  .DashBoardCard {
-    width: -moz-fit-content;
-    width: fit-content;
-    margin-left: 6%;
-    margin-bottom: 10%;
-    border: none;
-  }
+.DashBoardCard {
+  width: fit-content;
+  margin-bottom: 10%;
+  border: none;
+}
   .dashboard_passcode {
     position: relative;
     margin-top: -9%;
@@ -333,12 +331,15 @@ color: #14335D;
   height: auto;
 }
   .dashboardbackgroundimg {
-    background-image: url("../../../public/images/dashboardbackground.svg");
+   
+    background-image: url(http://localhost:3000/static/media/dashboardbackground.304b459….svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     position: relative;
     margin-top: 10.5%;
+    margin-left: 0%;
+    margin-right: -64%;
   }
   .code {
     display: flex;
@@ -346,4 +347,14 @@ color: #14335D;
     justify-content: center;
     align-items: center;
 }
+.FullCardsCss {
+  margin-top: 9%;
+  padding: 0%;
+  margin-left: 5%;
+}
+.DashBoardCard img {
+  width: 13rem;
+
+}
+
 }

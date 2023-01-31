@@ -5,14 +5,14 @@ import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import LogOut from './Utils/LogOut'
 import { Loader } from "../Loader";
-
+import { ToastMessage } from '../ToastMessage';
 const Flatapprovallist = () => {
   const [flat,setFlat] = useState({})
   const [family,setFamily] = useState({})
   const [vehicle,setVehicle] = useState({})
 const location = useLocation()
 const navigate = useNavigate()
-
+const [toast, setToast] = useState({ show: false })
 const [loading, setLoading] = useState(true)
 
 useEffect(()=>{
@@ -47,10 +47,20 @@ const approveFlat=async(id)=>{
       community_id:localStorage.getItem('community_id')
     }
     const {data} = await axios.post(`${window.env_var}api/approveresidents/approve`,sendData)
-    window.location.href='/blockList'
+    setToast({ show: true, type: "success", message: "Apporved" })
+    setTimeout(() => {
+      window.location.href='/blockList'
+    }, 1500);
+ 
   } catch (error) {
-    console.log(error)
+    setToast({ show: true, type: "error", message: "Check Data." });
   }
+}
+const deny=async()=>{
+  setToast({ show: true, type: "success", message: "Denied" })
+  setTimeout(() => {
+    window.location.href='/blockList'
+  }, 1500);
 }
 
   return (
@@ -73,6 +83,7 @@ const approveFlat=async(id)=>{
         <div className='FA_SiDeImG'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='fvbackgroundimg'>
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
       <Loader loading={loading}>
         <div className='FLATApp_Display'>
           <label>Flat Approval</label>
@@ -97,7 +108,7 @@ const approveFlat=async(id)=>{
             </div>
             <br></br>
             <button type="button" onClick={()=>approveFlat(flat._id)} className="FABtnApprove">APPROVE</button>
-            <button type="button" className="btnDenyFlat" onClick={()=>{ window.location.href = '/blockList'  }}>DENY</button>
+            <button type="button" className="btnDenyFlat"  onClick={()=>{deny()}}>DENY</button>
             <br></br>
           </div>
         </div>
