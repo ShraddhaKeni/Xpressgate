@@ -4,16 +4,18 @@ import "../SocietyModule/UtilityPayment.css";
 import LogOut from "../SocietyModule/Utils/LogOut";
 import { getBlocks } from "./common/common";
 import Societyheader from './Utils/Societyheader'
+import { ToastMessage } from '../ToastMessage';
 import { Loader } from "../Loader";
+import ErrorScreen from "../../common/ErrorScreen";
 
 const UtilityPayment = () => {
-  
+  const [toast, setToast] = useState({ show: false })
   const [utility,setUtility] = useState([])
   const [block,setBlock] = useState([])
   const [flats,setFlats] = useState([])
   const [resident,setResident] =useState({})
   const [loading, setLoading] = useState(true)
-
+  const [isError,setError] = useState(false)
   const amount = useRef([])
   const flat_id = useRef([])
   const payment_due = useRef([])
@@ -30,8 +32,9 @@ const UtilityPayment = () => {
       setUtility(data.data.utilitieslist);
       setBlock(await getBlocks());
       setLoading(false);
+      setError(false)
     } catch (error) {
-      console.log(error);
+      setError(true)
       setLoading(false);
     }
   }
@@ -40,8 +43,9 @@ const UtilityPayment = () => {
     try {
       const {data} = await axios.get(`${window.env_var}api/flats/getList/${e.target.value}`)
       setFlats(data.data.list)
+      setError(false)
     } catch (error) {
-      console.log(error);
+      setError(true)
     }
   }
 
@@ -49,13 +53,15 @@ const UtilityPayment = () => {
     try {
       const {data} = await axios.get(`${window.env_var}api/flats/single/${e.target.value}`)
       setResident(data.data.list[0])
+      setError(false)
     } catch (error) {
-      console.log(error);
+      setError(true)
     }
   }
 
   const handleSubmit=async()=>{
     try {
+     
       if(utility_id!==""&&flat_id!==""&&payment_date!==""&&payment_due!==""&amount!=="")
       {
         const sendData = {
@@ -67,18 +73,26 @@ const UtilityPayment = () => {
           residentID:resident.resident_id
         }
         const {data} = await axios.post(`${window.env_var}api/admin/utilitypayment/addBill`,sendData)
-        window.location.href='/payment'
+        setToast({ show: true, type: "success", message: "Added successfully" })
+        setTimeout(() => {
+          window.location.href='/payment'
+        }, 1500);
+        // window.location.href='/payment'
       }
       else
       {
-        alert('Fields Empty.')
+        setToast({ show: true, type: "error", message: "Fields empty" });
+        // alert('Fields Empty.')
       }
       
     } catch (error) {
-      alert('Fields Empty.')
+      setToast({ show: true, type: "error", message: "Check Data." });
+     
     }
   }
-
+  if(isError)
+    return <ErrorScreen/>
+    
   return (
     <div className="addguestcontainer4">
       <div id="addflatsection">
@@ -95,6 +109,7 @@ const UtilityPayment = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <div className="UPdisplay">
           <label>Utility Payment</label>
         </div>

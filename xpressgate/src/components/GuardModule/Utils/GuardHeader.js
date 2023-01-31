@@ -1,25 +1,32 @@
-import React from 'react'
+import React , { useState } from 'react'
 import { Link } from 'react-router-dom'
 import LogOut from './LogOut'
 import './styles/GuardHeader.css'
-
+import { ToastMessage } from '../../../components/ToastMessage';
 const GuardHeader = () => {
-
+  const [toast, setToast] = useState({ show: false })
   function myFunction() {
 
   }
 
   const handleclick = async () => {
     try {
+     
       document.getElementById("imgDropdown").classList.remove("showdropdown");
     }
     catch (error) {
 
     }
   }
+  const guardLogout = () => {
+    setToast({ show: true, type: "success", message: "Logged out successfully" })
+    localStorage.clear()
+    window.location.href = '/'
+}
 
   return (
     <div className="sfirstheadersection">
+       <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
       <div id="sdashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
       <div id="sdashboardguard"><label>Guard</label></div>
       <div id="sdashboardspace"></div>
@@ -34,7 +41,7 @@ const GuardHeader = () => {
       </div>
 
      
-      <div id="sdashboardlogoutbutton"><LogOut /></div>
+      <div id="sdashboardlogoutbutton" onClick={() => guardLogout()}><LogOut /></div>
     </div>
   )
 }

@@ -79,7 +79,6 @@ export const AddCoupon = () => {
         <>
             <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
 
-            <img src='/images/side_bar_img.svg' className='PAY_Coupans_side_Img' />
             <div>
                 <div className='page-label'>
                     <label>Generate Coupon</label>

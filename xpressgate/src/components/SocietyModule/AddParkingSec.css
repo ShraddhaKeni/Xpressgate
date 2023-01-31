@@ -51,6 +51,14 @@ background: #14335D;
     margin-left: 8%;
     margin-bottom: 3%;
   }
+  .AddGparking_sideimg img{
+    display: flex;
+    margin-top: 64%;
+    max-width: 90%;
+    height: auto;
+    margin-left: 8%;
+    margin-bottom: 3%;
+  }
   .APdisplay{
     width: 17vw;
     height: 7vh;
@@ -167,6 +175,13 @@ border-radius: 8px;
 .AP_sideimg img {
   display: flex;
   margin-top: 26%;
+  max-width: 88%;
+  height: auto;
+  margin-left: 5%;
+}
+.AddGparking_sideimg img {
+  display: flex;
+  margin-top: 63%;
   max-width: 88%;
   height: auto;
   margin-left: 5%;

@@ -93,6 +93,8 @@ import Addmaintenancebill from './components/SocietyModule/Addmaintenancebill'
 import Maintenancebilllist from './components/SocietyModule/Maintenancebilllist'
 import Arrearslist from './components/SocietyModule/Arrearslist'
 import Addarrears from './components/SocietyModule/Addarrears'
+import ViewGuestParkingSec from './components/SocietyModule/ViewGuestParkingSec';
+import AddGuestParkingSec from './components/SocietyModule/AddGuestParkingSec';
 
 
 function App() {
@@ -240,6 +242,8 @@ function App() {
           <Route path='/socreports' element={<SocReport />}></Route>
           <Route path='/editguarddetails' element={<EditGuard />}></Route>
           <Route path='/utilitypaymentlinklist' element={<UtilityPyamentLinkList />}></Route>
+          <Route path='/viewguestparkingsection' element={<ViewGuestParkingSec />}></Route>
+          <Route path='/addguestparkingsection' element={<AddGuestParkingSec />}></Route>
 
 
 

@@ -8,6 +8,8 @@ import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import { getAllByPlaceholderText } from '@testing-library/react';
 import SocietyHeader from './Utils/Societyheader'
 import { useNavigate } from 'react-router-dom';
+import { Loader } from "../Loader";
+import ErrorScreen from '../../common/ErrorScreen';
 
 const Noticelist = () => {
   const [notice, setNotice] = useState([])
@@ -15,7 +17,9 @@ const Noticelist = () => {
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts, setCurrentPosts] = useState([])
   const [pageCount, setpageCount] = useState(0)
+  const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
+  const [isError,setError] = useState(false)
   useEffect(() => {
     getNotices()
   }, [])
@@ -27,8 +31,11 @@ const Noticelist = () => {
       const indexoflast = currentPage * postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.notice.slice(indexoffirst, indexoflast))
+      setLoading(false);
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setLoading(false);
+      setError(true)
     }
   }
   async function paginate(event) {
@@ -70,7 +77,8 @@ const Noticelist = () => {
   {
     navigate('/addNotice',{state:{id:id,type:'edit'}})
   }
-
+  if(isError)
+  return <ErrorScreen/>
   return (
     <div className="nlcontainer">
       <div id="nlheadersection">
@@ -91,39 +99,41 @@ const Noticelist = () => {
         <div className='NL_display'>
           <label>Notice List</label>
         </div>
-        <div> <button type="submit" className="btnAddnotice"  onClick={() => {
-                window.location.href = "/addNotice";
-              }}><img src="/images/plus.svg" alt="header logo"  />&nbsp;Add New Notice</button></div>
-      
-        <div className='row'>
-          <div className='nlsearchbox'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-              <input className='vlsearch_input' placeholder='Search' onChange={(e)=>findText(e)}></input></span>
+        <Loader loading={loading}>
+          <div> 
+            <button type="submit" className="btnAddnotice"  onClick={() => {window.location.href = "/addNotice";}}>
+              <img src="/images/plus.svg" alt="header logo"/>
+              &nbsp;Add New Notice
+            </button>
           </div>
-        </div>
-
-        <table id="nltable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
-          <thead>
-            <tr>
-              <th class="th-sm">Sr. No.</th>
-              <th class="th-sm">Notice Title</th>
-              <th class="th-sm">Notice Date</th>
-            </tr>
-          </thead>
-          <tbody>
-
-            {currentPosts.map((item, index) => {
-              return (
-                <tr onClick={()=>noticeDetails(item.id)}>
-                  <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1) * 12 + (index + 1)}</td>
-                  <td >{item.noticeTitle}</td>
-                  <td>{getDate(item.eventDate)}</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-        <PaginationCalculate totalPages={notice.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+          <div className='row'>
+            <div className='nlsearchbox'>
+              <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+                <input className='vlsearch_input' placeholder='Search' onChange={(e)=>findText(e)}></input></span>
+            </div>
+          </div>
+          <table id="nltable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
+            <thead>
+              <tr>
+                <th class="th-sm">Sr. No.</th>
+                <th class="th-sm">Notice Title</th>
+                <th class="th-sm">Notice Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {currentPosts.map((item, index) => {
+                return (
+                  <tr onClick={()=>noticeDetails(item.id)}>
+                    <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1) * 12 + (index + 1)}</td>
+                    <td >{item.noticeTitle}</td>
+                    <td>{getDate(item.eventDate)}</td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+          <PaginationCalculate totalPages={notice.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+        </Loader>
       </div>
     </div>
   )

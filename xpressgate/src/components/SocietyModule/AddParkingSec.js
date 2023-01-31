@@ -8,39 +8,49 @@ import { useLocation } from 'react-router-dom';
 import SocietyHeader from './Utils/Societyheader';
 import {checkSociety} from '../auth/Auth'
 import { Loader } from "../Loader";
-
+import { ToastMessage } from '../ToastMessage';
+import ErrorScreen from '../../common/ErrorScreen';
 const AddParkingSec = () => {
- 
+  const [toast, setToast] = useState({ show: false })
   const [parkingSection,setParkingSections] = useState({});
   const [block,setBlock] = useState([]);
   const location = useLocation();
   const [type,setType] = useState('add');
   const [loading, setLoading] = useState(true)
-
+  const [isError,setError] = useState(false)
   const handleSubmit = async(e)=>{
     e.preventDefault()
     try {
       if(type=='edit')
       {
+        
         const sendData = {
           id: location.state.id,
           block_id: document.getElementById('block_id').value,
           section: document.getElementById('section').value
         }
         const {data} = await axios.post(`${window.env_var}api/parkingsection/update`,sendData);
-        window.location.href='/viewparking'
+        setToast({ show: true, type: "success", message: "Updated successfully" })
+        setTimeout(() => {
+          window.location.href='/viewparking'
+        }, 1500);
       }
       else
       {
+        
         const sendData = {
           block_id: document.getElementById('block_id').value,
           section: document.getElementById('section').value
         }
         const {data} = await axios.post(`${window.env_var}api/parkingsection/post`,sendData);
-        window.location.href='/viewparking'
+        setToast({ show: true, type: "success", message: "Added successfully" })
+        setTimeout(() => {
+          window.location.href='/viewparking'
+        }, 1500);
+        // window.location.href='/viewparking'
       }
     } catch (error) {
-      console.log(error)
+      setToast({ show: true, type: "error", message: "Check Data." });
     }
   }
 
@@ -83,8 +93,9 @@ const AddParkingSec = () => {
       setParkingSections(data.data[0]);
       document.getElementById('block_id').value=data.data[0].block_id;
       
+      setError(false)
     } catch (error) {
-      console.log('in error',error);
+      setError(true)
     }
   }
 
@@ -95,11 +106,13 @@ const AddParkingSec = () => {
       }
       const {data} = await axios.post(`${window.env_var}api/block/get`,param);
       setBlock(data.data.block);
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
-
+  if(isError)
+  return <ErrorScreen/>
   return (
     <div className="addguestcontainer4">
       <div id="addflatsection">
@@ -122,6 +135,7 @@ const AddParkingSec = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
       <Loader loading={loading}>
         <div className='APdisplay'>
           <label>{type=='edit'?'Update':'Add'} Parking Section</label>

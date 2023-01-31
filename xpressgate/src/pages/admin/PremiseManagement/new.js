@@ -98,7 +98,6 @@ const AddPremise = () => {
 
     return (
         <>
-            <img src='/images/side_bar_img.svg' className='AddPremise_side_Img' />
             <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
 
             <div>

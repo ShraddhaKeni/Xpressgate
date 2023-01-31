@@ -66,8 +66,8 @@ export const CouponsList = () => {
             }
 
         })
-        
-        if (arr.length>0) {
+
+        if (arr.length > 0) {
             getCurrentCoupons(arr);
         }
         else {
@@ -81,7 +81,6 @@ export const CouponsList = () => {
     }
     return (
         <>
-            <img src='/images/side_bar_img.svg' className='PAY_Coupans_side_Img' />
             <Loader loading={loading}>
                 <div>
                     <div className='page-label'>

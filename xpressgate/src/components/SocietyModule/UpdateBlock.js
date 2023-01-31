@@ -7,7 +7,9 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Loader } from "../Loader";
+import { ToastMessage } from '../ToastMessage';
 import Societyheader from './Utils/Societyheader'
+import ErrorScreen from '../../common/ErrorScreen';
 
 const UpdateBlock = () => {
   const [blocks, setBlocks] = useState({})
@@ -15,14 +17,17 @@ const UpdateBlock = () => {
   const location = useLocation()
   const [type, setType] = useState('add')
   const [loading, setLoading] = useState(true)
-  
+  const [toast, setToast] = useState({ show: false })
+  const [isError,setError] = useState(false)
   useEffect(() => {
     if (location.state) {
       setType(location.state.type)
       setLoading(false);
+      setError(false)
     }
     else{
       setLoading(false);
+      setError(true)
     }
   }, [])
 
@@ -34,12 +39,19 @@ const UpdateBlock = () => {
         name: document.getElementById('block_name').value,
         community_id: localStorage.getItem('community_id')
       }
-      const {data} = await axios.post(`${window.env_var}api/block/update`,sendData);
-      window.location.href='/blockList'
+      const {data} = await axios.post(`${window.env_var}api/block/upda`,sendData);
+      setToast({ show: true, type: "success", message: "Updated successfully" })
+      setTimeout(() => {
+        window.location.href='/blockList'
+      }, 1500);
+    
+    
     } catch (error) {
-      console.log(error)
+      setToast({ show: true, type: "error", message: "Check Data." });
     }
   }
+  if(isError)
+    return <ErrorScreen/>
 
   return (
     <>
@@ -60,6 +72,7 @@ const UpdateBlock = () => {
           <div className='blsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
         </div>
         <div className='blbackgroundimg'>
+        <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
           <div className='BL_display'>
             <label>Update Block</label>
           </div>
