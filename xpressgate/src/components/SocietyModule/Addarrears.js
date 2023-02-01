@@ -102,14 +102,17 @@ const Addarrears = () => {
               </div>
             </div>
          
-            <div class="form-group form-group5 row">
-              <label class="col-lg-2 col-form-label ADN_label ">Invoice Number</label>
+            <div class="form-group  form-group5 row">
+              <label class="col-lg-2 col-form-label ADN_label">Invoice Number</label>
               <div class="col-lg-4">
-                <input type="number" id="reminderdays" name="Phone Number" className="form-control input-lg input-lg1 AEN_border" placeholder="Enter Invoice Number"></input>
+                <select class="form-control input-lg input-lg1 AEN_border" name="Type" type="text">
+                  <option value={null} selected disabled>Select Invoice Number</option>
+                 
+                </select>
               </div>
             </div>
             <div class="form-group form-group5 row">
-              <label class="col-lg-2 col-form-label ADN_label ">Arrears</label>
+              <label class="col-lg-2 col-form-label ADN_label ">Arrears Amount</label>
               <div class="col-lg-4">
                 <input type="number" id="reminderdays" name="Phone Number" className="form-control input-lg input-lg1 AEN_border" placeholder="Enter Arrears"></input>
               </div>

@@ -59,6 +59,11 @@ const Payment = () => {
                 <button type="button" onClick={()=>navigate('/package')} className="societydues_btn">Package Details</button>
               </div>
             </div>
+            <div className="ButtonsContainer">
+              <div className="button1">
+                <button type="button" onClick={()=>navigate('/maintenancebilllist')} className="societydues_btn">Maintenance Amount</button>
+              </div>
+            </div>
           </div>
         </Loader>
       </div>

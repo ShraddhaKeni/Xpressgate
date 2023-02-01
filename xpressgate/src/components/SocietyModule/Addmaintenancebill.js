@@ -92,15 +92,39 @@ const Addmaintenancebill = () => {
                 </select>
               </div>
             </div>
-
+            <div class="form-group  form-group5 row">
+              <label class="col-lg-2 col-form-label ADN_label">Owner</label>
+              <div class="col-lg-4">
+                <select class="form-control input-lg input-lg1 AEN_border" name="Type" type="text">
+                  <option value={null} selected disabled>Select Owner</option>
+                 
+                </select>
+              </div>
+            </div>
             <div class="form-group form-group5 row">
               <label class="col-lg-2 col-form-label ADN_label ">Amount</label>
               <div class="col-lg-4">
-                <input type="number" id="reminderdays" name="Phone Number" className="form-control input-lg input-lg1 AEN_border" placeholder="Enter maintenance amount"></input>
+                <input type="number" id="reminderdays" name="Phone Number" className="form-control input-lg input-lg1 AEN_border" placeholder="Enter Maintenance Amount"></input>
               </div>
             </div>
-
-
+            <div class="form-group form-group5 row">
+              <label class="col-lg-2 col-form-label ADN_label ">Area</label>
+              <div class="col-lg-4">
+                <input type="number" id="area" name="Area" className="form-control input-lg input-lg1 AEN_border" placeholder="Enter Area"></input>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label ADN_label">Bill Date</label>
+              <div class="col-lg-4">
+                <input type="date" class="form-control input-lg SideB" id='bill_date' name="Bill Date" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-2 col-form-label ADN_label">Due Date</label>
+              <div class="col-lg-4">
+                <input type="date" class="form-control input-lg SideB" id='due_date' name="Due Date" />
+              </div>
+            </div>
             <button type="submit" className="AddButton"> Add Maintenance Bill</button>
           </Form>
         </Loader>

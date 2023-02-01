@@ -54,6 +54,9 @@ html {
 .all_payment_buttons div:nth-child(5){
   animation: dropDivs 1.2s ease-in-out;
 }
+.all_payment_buttons div:nth-child(6){
+  animation: dropDivs 1.4s ease-in-out;
+}
 
 @keyframes dropDivs {
   0%{
