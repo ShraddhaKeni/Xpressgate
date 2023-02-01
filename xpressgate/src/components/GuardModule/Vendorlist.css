@@ -392,3 +392,61 @@ table tr td
 .inactive{
   display: none;
 }
+@media only screen  and (min-device-width : 320px) and (max-device-width : 425px) {
+  .VED_sideimage img {
+    display: none;
+    
+}
+.VED_Display {
+  width: 15rem;
+  height: 5rem;
+  background-color: #AED8DC;
+  border-radius: 14px;
+  padding-top: 2.5%;
+  margin: auto;
+  margin-top: -1%;
+  margin-right: 51%;
+}
+.VED_Display label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 600;
+font-size: 1.5rem;
+text-align: center;
+color: #14335D;
+}
+.VEDbtnApprove {
+  background-color: #017069;
+  color: #fff;
+  border-radius: 12px;
+  width: 9rem;
+  height: 3rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding-top: 0%;
+  margin-right: 42%;
+  border: none;
+  margin-bottom: 6%;
+}
+.VEDbtnDeny {
+  background-color: #96230A;
+  color: #fff;
+  border-radius: 12px;
+  width: 9rem;
+  height: 3rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-top: 0%;
+  padding-top: 0%;
+  margin-left: -14.5%;
+  border: none;
+  position: absolute;
+}
+.VEDbtnApprove:hover {
+  background-color: #14335D;
+}
+.VEDbtnDeny:hover {
+  background-color: #14335D;
+}
+
+}

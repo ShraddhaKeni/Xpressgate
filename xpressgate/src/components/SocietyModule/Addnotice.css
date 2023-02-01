@@ -308,7 +308,12 @@ color: #14335D;
     margin-bottom: 5%;
     width: 140%;
   }
-
+  .ADN_label {
+    font-size: 1.5rem;
+  font-family: 'Rubik';
+font-style: normal;
+color: #14335D;
+  }
   .anbackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;

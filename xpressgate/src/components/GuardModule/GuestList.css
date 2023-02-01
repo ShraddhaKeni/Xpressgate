@@ -119,3 +119,67 @@
       background-color: #14335D;
     }
    }
+
+   @media only screen  and (min-device-width : 320px) and (max-device-width : 425px) {
+
+ .GuestLsideimage img {
+    display: none;
+  }
+  #guardnamesection {
+    display: none;
+  }
+
+
+  .GuestL_display {
+    width: 15rem;
+    height: 5rem;
+    background-color: #AED8DC;
+    border-radius: 14px;
+    padding-top: 2.5%;
+    margin: auto;
+    margin-top: -1%;
+    margin-right: 51%;
+}
+.GuestL_display label {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #14335D;
+}
+.BTN_Approve {
+  background-color: #017069;
+  color: #fff;
+  border-radius: 12px;
+  width: 9rem;
+  height: 3rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding-top: 0%;
+  margin-right: 42%;
+  border: none;
+  margin-bottom: 6%;
+}
+.BTN_Deny {
+  background-color: #96230A;
+  color: #fff;
+  border-radius: 12px;
+  width: 9rem;
+  height: 3rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-top: 0%;
+  padding-top: 0%;
+  margin-left: -14.5%;
+  border: none;
+  position: absolute;
+}
+.BTN_Approve:hover{
+  background-color: #14335D;
+}
+.BTN_Deny:hover{
+  background-color: #14335D;
+
+}
+   }

@@ -395,7 +395,16 @@ color: #14335D;
     width: 114%;
 
 }
-
+.fvbackgroundimg {
+  background-image: url(http://localhost:3001/static/media/dashboardbackground.304b459….svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  margin-top: 10.5%;
+  margin-left: 0%;
+  margin-right: -64%;
+}
 .frequentvisitordisplay {
   width: 150px;
   height: 56px;
@@ -412,11 +421,41 @@ color: #14335D;
 }
 
 .frequentvisitorcard {
-  width: 283%;
-  margin-top: 5%;
+  min-width: 33rem;
+  margin-top: 8%;
   background-color: #fff;
   border: 2px solid #14335D;
-  border-radius: 20px;
-  margin-left: 16%;
+  border-radius: 15px;
+  margin-left: 6%;
+  height: auto;
+}
+.flatclass {
+  background-color: #AED8DC;
+  width: 26rem;
+  height: -moz-fit-content;
+  height: fit-content;
+  color: #000;
+  font-family: 'Rubik', sans-serif;
+  font-size: 2rem;
+  border-radius: 8px;
+  margin: auto;
+  padding-left: 4%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+}
+.detailsclass {
+  background-color: #AED8DC;
+  width: 26rem;
+  height: -moz-fit-content;
+  height: fit-content;
+  color: #000;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.8rem;
+  border-radius: 8px;
+  margin: auto;
+  padding-left: 4%;
+  padding-top: 2%;
+  padding-bottom: 4%;
+  text-align: left;
 }
 }

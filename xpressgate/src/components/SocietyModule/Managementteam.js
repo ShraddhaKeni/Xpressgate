@@ -50,7 +50,7 @@ const Managementteam = () => {
 
     try {
       await axios.get(`${window.env_var}api/management/remove/${id}`)
-      setToast({ show: true, message: "Team Member Deleted Successfully", type: "error" })
+      setToast({ show: true, message: "Team Member Deleted Successfully", type: "success" })
       setTimeout(() => {
         window.location.reload()
       }, 2000)

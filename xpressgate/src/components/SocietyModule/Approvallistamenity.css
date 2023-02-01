@@ -415,4 +415,10 @@ color: #14335D;
   padding-top: 0%;
   margin-left: 40%;
 }
+.allowedclass {
+  font-size: 1.8rem;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+}
 }
