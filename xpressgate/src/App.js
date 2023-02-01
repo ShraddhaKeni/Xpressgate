@@ -96,6 +96,7 @@ import Addarrears from './components/SocietyModule/Addarrears'
 import ViewGuestParkingSec from './components/SocietyModule/ViewGuestParkingSec';
 import AddGuestParkingSec from './components/SocietyModule/AddGuestParkingSec';
 import Invoice from './components/Invoice';
+import GuestManagementcard from './components/SocietyModule/GuestManagementcard';
 
 
 function App() {
@@ -191,6 +192,8 @@ function App() {
           <Route path="/maintenancebilllist" element={<Maintenancebilllist />} exact></Route>
           <Route path="/addarrears" element={<Addarrears />} exact></Route>
           <Route path="/arrearslist" element={<Arrearslist />} exact></Route>
+          <Route path="/guestmanagementcard" element={<GuestManagementcard />} exact></Route>
+          
 
           <Route path={RouterPath.ADMIN_DASHBOARD} element={<AdminModuleComponent />}></Route>
 
