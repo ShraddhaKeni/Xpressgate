@@ -17,7 +17,7 @@ const UtilityPyamentLinkList = () => {
   const [currentPage, setCurrentpage] = useState(0)
   const [postPerPage, setPostPerPage] = useState(10)
   const [currentPosts, setCurrentPosts] = useState([])
-  const [isError,setError] = useState(false)
+  const [isError, setError] = useState(false)
 
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const UtilityPyamentLinkList = () => {
   const getDetails = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/paymentlink/getall/${localStorage.getItem("community_id")}`)
-      
+
       setCommunity(data.data.links)
       const indexoflast = (currentPage + 1) * postPerPage  //endoffset
       const indexoffirst = (indexoflast - postPerPage) //startoffset
@@ -66,8 +66,10 @@ const UtilityPyamentLinkList = () => {
     console.log(sendData);
     const { data } = await axios.post(`${window.env_var}api/paymentlink/delete`, sendData)
     if (data.status_code == 200) {
-      //setToast({ show: true, type: "success", message: data.message })
-      window.location.href = '/utilitypaymentlinklist'
+      setToast({ show: true, type: "success", message: data.message })
+      setTimeout(() => {
+        window.location.href = '/utilitypaymentlinklist'
+      }, 1000)
     } else {
       console.log(data.status_code)
       //setToast({ show: true, type: "error", message: `${data.message}` })
@@ -85,8 +87,8 @@ const UtilityPyamentLinkList = () => {
     }
 
   }
-  if(isError)
-  return <ErrorScreen/>
+  if (isError)
+    return <ErrorScreen />
 
   return (
     <div className="addguestcontainer2">
