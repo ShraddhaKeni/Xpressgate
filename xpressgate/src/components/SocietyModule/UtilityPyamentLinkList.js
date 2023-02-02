@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
 import Societyheader from './Utils/Societyheader'
 import ErrorScreen from "../../common/ErrorScreen";
+import { ToastMessage } from "../ToastMessage";
 
 const UtilityPyamentLinkList = () => {
 
@@ -18,6 +19,7 @@ const UtilityPyamentLinkList = () => {
   const [postPerPage, setPostPerPage] = useState(10)
   const [currentPosts, setCurrentPosts] = useState([])
   const [isError, setError] = useState(false)
+  const [toast, setToast] = useState({ show: false })
 
 
   useEffect(() => {
@@ -72,7 +74,7 @@ const UtilityPyamentLinkList = () => {
       }, 1000)
     } else {
       console.log(data.status_code)
-      //setToast({ show: true, type: "error", message: `${data.message}` })
+      setToast({ show: true, type: "error", message: `${data.message}` })
     }
   }
 
@@ -92,6 +94,8 @@ const UtilityPyamentLinkList = () => {
 
   return (
     <div className="addguestcontainer2">
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+
       <div id="addflatsection">
         <Societyheader />
       </div>
