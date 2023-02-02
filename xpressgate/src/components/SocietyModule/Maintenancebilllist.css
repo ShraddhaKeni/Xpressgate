@@ -1,0 +1,203 @@
+html {
+  height: 100vh;
+}
+
+
+.maintenancelist {
+  margin-top: 10%;
+  margin-right: 15%;
+
+}
+
+.MSLList {
+  color: #757575;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.1vw;
+}
+
+.Addmaintenancelink {
+  color: #000;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.1vw;
+}
+
+.MSLList:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
+.Addmaintenancelink:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
+.EN_societyname label {
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+  margin-left: 4%;
+  margin-top: 12%;
+  font-size: 1.2vw;
+  padding-top: 0.5%;
+}
+.EN_societyname {
+  display: flex;
+  width: 80%;
+  height: 12%;
+  background-color: rgba(10, 137, 150, 0.33);
+  margin-left: 10%;
+  margin-top: 12%;
+  border-radius: 24px;
+}
+.EN_societyname img {
+  margin-left: 10%;
+  width: 25%;
+  height: 70%;
+  margin-top: 5%;
+}
+.EN_sideimg img {
+  display: flex;
+  margin-top: 72%;
+  max-width: 90%;
+  height: auto;
+  margin-left: 8%;
+  margin-bottom: 3%;  
+}
+
+.EMMsearchbox{
+  width: 15%;
+  height: 4.5%;
+  border: 2px solid #000;
+  border-radius: 15px;
+  margin-left: 74%;
+  margin-top: -4.5%;
+  
+}
+
+.EMMsearchbox input {
+  outline: none;
+  border: none;
+  height: 5vh;
+  width: 8vw;
+  border-radius: 5px;
+  margin-left: 6%;
+}
+
+.EMMsearchbox img{
+  position: relative;
+  margin-top: 0%;
+  margin-left: -2%;
+}
+
+.EN_Add {
+  
+font-family: 'Rubik';
+font-style: normal;
+
+  border-radius: 18px;
+  background: #E8F5E9;
+  border: none;
+  width: 14vw;
+  height: 5vh;
+  margin-left: 30%;
+  margin-top: 1.5%;
+  margin-bottom: 1%;
+  font-weight: 500;
+  font-size: 1vw;
+  color: #0D960A;
+}
+.EN_display {
+  width: 17vw;
+  height: 7vh;
+  background-color: #AED8DC;
+  border-radius: 30px;
+  margin: auto;
+  margin-top: -3%;
+  padding-top: 1.1%;
+}
+
+.EN_display label{
+  font-size: 1.3vw;
+      display: inline-block;
+      font-family: 'Rubik';
+      font-style: normal;
+      font-weight: 500;
+      color: #14335D;
+      margin-bottom: -19%;
+    }
+  .EN_Add:hover{
+    background-color: #14335D;
+    color: #E8F5E9;
+  }
+
+.search1 {
+  width: 12vw;
+  height: 5vh;
+  padding: 1.5%;
+  border-radius: 15px;
+  border: 1px solid grey;
+  margin-left: 1%;
+  margin-top: 2.5%;
+}
+
+
+.EN_noticelist{
+margin-top: 10%;
+margin-right: 15%;
+
+}
+.ENLNotice {
+  color: #000;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+font-size: 1.1vw;
+}
+.AENNotice {
+  color: #757575;
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+font-size: 1.1vw;
+}
+.ENLNotice:hover{
+  color: #000000;
+  text-decoration: none;
+}
+.AENNotice:hover{
+  color: #000000;
+  text-decoration: none;
+}
+
+/* Media query for laptop */
+@media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
+ 
+ 
+  .EMMsearchbox {
+    width: 15%;
+    height: 5%;
+    border: 2px solid #000;
+    border-radius: 15px;
+    margin-left: 73%;
+    margin-top: -4.5%;
+}
+ .EN_Add:hover{
+    background-color: #14335D;
+    color: #E8F5E9;
+  }
+
+ 
+  .EN_sideimg img {
+    display: flex;
+    margin-top: 53%;
+    max-width: 95%;
+    height: auto;
+    margin-left: 2%;
+}
+
+}
