@@ -195,3 +195,36 @@ color: #14335D;
   border-radius: 8px;
   }
 }
+
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
+  .VPaydisplay {
+    width: 15rem;
+    height: 5rem;
+    background-color: #AED8DC;
+    border-radius: 14px;
+    padding-top: 5.5%;
+    margin: auto;
+    margin-top: 8%;
+    margin-right: -1%;
+}
+.VPaydisplay label {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #14335D;
+}
+.VPay_Add {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 14px;
+  width: 12rem;
+  margin-right: -30%;
+  border: none;
+  height: 4rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+}

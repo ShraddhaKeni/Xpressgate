@@ -6,6 +6,8 @@ import axios from 'axios';
 import LogOut from './Utils/LogOut'
 import { Loader } from "../Loader";
 import { ToastMessage } from '../ToastMessage';
+import Societyheader from './Utils/Societyheader'
+
 const Flatapprovallist = () => {
   const [flat,setFlat] = useState({})
   const [family,setFamily] = useState({})
@@ -66,14 +68,7 @@ const deny=async()=>{
   return (
     <div className="falcontainer">
       <div id="falheadersection">
-        <div class="falfirstheadersection">
-          <div id="faldashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="faldashboardguard"><label>Society</label></div>
-          <div id="faldashboardspace"></div>
-          <div id="faldashboardnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="faldashboardsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="fallogoutbutton"> <LogOut/></div>
-        </div>
+        <Societyheader/>
       </div>
       <div id="guardnamesection"> 
         <div className='FA_SOCNAme'>
@@ -88,7 +83,6 @@ const deny=async()=>{
         <div className='FLATApp_Display'>
           <label>Flat Approval</label>
         </div>
-        {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}
         <div className="col">
           <div className="frequentvisitorcard">
             <br></br>
@@ -117,6 +111,4 @@ const deny=async()=>{
     </div>
   )
 }
-
-export default Flatapprovallist
-
+export default Flatapprovallist;

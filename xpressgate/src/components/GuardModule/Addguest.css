@@ -221,3 +221,18 @@ font-weight: 500;
 color: #14335D;
 }
 }
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
+  .addguestbackgroundimg {
+   
+    background-image: url(http://localhost:3000/static/media/dashboardbackground.304b459….svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    margin-top: 10.5%;
+    margin-left: 0%;
+    margin-right: -94%;
+  }
+
+}

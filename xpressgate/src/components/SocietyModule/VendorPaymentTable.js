@@ -42,27 +42,9 @@ const VendorPaymentTable = () => {
     }
   }
 
-  // function paginate(event) {
-  //   setCurrentpage(event.selected + 1)
-  //   const indexoflast = (event.selected + 1) * postPerPage  //endoffset
-  //   const indexoffirst = indexoflast - postPerPage //startoffset
-  //   if(filterArr.length>0)
-  //   {
-  //     setCurrentPosts(filterArr.slice(indexoffirst, indexoflast))
-  //   }
-  //   else
-  //   {
-  //     setFilter([])
-  //     setCurrentPosts(currentvendor.slice(indexoffirst, indexoflast))
-  //   }
-
-  // }
-
   function findText(e)
   {
-
     let text  = e.target.value.toLowerCase()
-   
     let arr = currentvendor.filter(x=>x.vendorName.toLowerCase().includes(text))
     const indexoflast = currentPage *postPerPage
     const indexoffirst = (indexoflast - postPerPage)

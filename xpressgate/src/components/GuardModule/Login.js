@@ -20,7 +20,6 @@ const Login = () => {
 
   const loginGuard = async()=>{
     try{
-      setToast({ show: true, type: "success", message: "Logged in successfully" })
         const loginCreds={
           username:username.current.value,
           password:password.current.value
@@ -32,11 +31,11 @@ const Login = () => {
         localStorage.setItem('community_id',data.data.community_id)
         localStorage.setItem('name',data.data.firstname+' '+data.data.lastname)
         localStorage.setItem('guard_id',data.data.id)
-        localStorage.setItem('mode','guard')  
+        localStorage.setItem('mode','guard')
+        setToast({ show: true, type: "success", message: "Logged in successfully" })
         setTimeout(() => {
           window.location.href='/dashboard'
         }, 1500);
-       
     }
     catch(err)
     { 

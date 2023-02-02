@@ -44,8 +44,6 @@ const UpdateBlock = () => {
       setTimeout(() => {
         window.location.href='/blockList'
       }, 1500);
-    
-    
     } catch (error) {
       setToast({ show: true, type: "error", message: "Check Data." });
     }
