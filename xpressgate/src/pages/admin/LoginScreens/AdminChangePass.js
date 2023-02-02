@@ -24,8 +24,10 @@ const AdminChangePass = () => {
         console.log(validatePassword(newpassword.current.value))
         if ((newpassword.current.value === confirmpassword.current.value) && (newpassword.current.value !== "" && confirmpassword.current.value !== "")) {
           const sendData = {
+            password: currentpassword.current.value,
             newpassword: confirmpassword.current.value,
-            admin_mem_id: localStorage.admin_id
+            confirmpassword: newpassword.current.value,
+            id: localStorage.admin_id
           }
           const config = {
             headers: {
