@@ -54,6 +54,12 @@ html {
 .all_payment_buttons div:nth-child(5){
   animation: dropDivs 1.2s ease-in-out;
 }
+.all_payment_buttons div:nth-child(6){
+  animation: dropDivs 1.4s ease-in-out;
+}
+.all_payment_buttons div:nth-child(7){
+  animation: dropDivs 1.4s ease-in-out;
+}
 
 @keyframes dropDivs {
   0%{
@@ -111,6 +117,22 @@ font-weight: 500;
   text-align: center;  
   color: #14335D;
 }
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  
+}
+
+
+/* Clear floats after the columns */
+/* .row:after {
+  content: "";
+  display: table;
+  clear: both;
+} */
 
 /* Media query for laptop */
 @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {
