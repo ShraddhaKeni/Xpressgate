@@ -7,6 +7,7 @@ import Societyheader from './Utils/Societyheader';
 import { Loader } from "../Loader";
 import Pagination from '../../common/Pagination';
 import ErrorScreen from '../../common/ErrorScreen';
+import { useNavigate } from "react-router-dom";
 
 const GuestManagement = () => {
 
@@ -17,6 +18,7 @@ const GuestManagement = () => {
   const [loading, setLoading] = useState(true)
   const [filterArr,setFilter] = useState([])
   const [isError,setError] = useState(false)
+  const navigate = useNavigate()
   useEffect(()=>{
       getData()
   },[])
@@ -76,6 +78,10 @@ const GuestManagement = () => {
   
 }
 
+function guestDetails() {
+  navigate('/guestmanagementcard')
+}
+
 function settingCurrent(value)
 {
   setCurrentPosts(value)
@@ -119,7 +125,7 @@ return <ErrorScreen/>
               {currentPosts.map(item=>{
                 console.log(item)
                 return(
-                  <tr>
+                  <tr onClick={() => guestDetails()}>
                     <td>{item.guestFirstName} {item.guestLastName}</td>
                     <td >{item.flat_number}</td>
                     <td>{dateTimeFormat(item.time)}</td>

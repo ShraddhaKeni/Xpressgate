@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import LogOut from './Utils/LogOut';
 import Societyheader from './Utils/Societyheader';
 import { useEffect, useState } from 'react';
-import {checkSociety} from '../auth/Auth'
+import { checkSociety } from '../auth/Auth'
 import { Loader } from "../Loader";
 import axios from 'axios'
 
@@ -11,35 +11,33 @@ const Societydashboard = () => {
 
   const [loading, setLoading] = useState(true);
 
-  useEffect(()=>{
-    if(checkSociety())
-    {
+  useEffect(() => {
+    if (checkSociety()) {
       const config = {
-        headers:{
-          'x-access-token':localStorage.getItem('accesstoken')
+        headers: {
+          'x-access-token': localStorage.getItem('accesstoken')
         }
       }
-      axios.get(`${window.env_var}api/society/checkLogin`,config)
-      .then(({data})=>{  
-        setLoading(false); 
-      })
-      .catch(err=>{
-        localStorage.clear();
-        window.location.href='/societylogin'
-      }) 
+      axios.get(`${window.env_var}api/society/checkLogin`, config)
+        .then(({ data }) => {
+          setLoading(false);
+        })
+        .catch(err => {
+          localStorage.clear();
+          window.location.href = '/societylogin'
+        })
     }
-    else
-    {
-      window.location.href='/'
+    else {
+      window.location.href = '/'
     }
-  },[])
+  }, [])
 
   return (
     <>
       <div className="dashboardcontainer">
         <div id="headersection">
           <div id="addflatsection">
-            <Societyheader/>
+            <Societyheader />
           </div>
         </div>
         <div id="guardnamesection">
@@ -61,7 +59,7 @@ const Societydashboard = () => {
               <div className="row row-cols-1 row-cols-md-3 g-4 sdfullcardscss">
                 <div className="col">
                   <div className="sddashboardcard">
-                  <img src="/images/managenoticeboard.svg" className="dbcard-img-top" alt="notice list" onClick={() => { window.location.href = '/noticeList' }}></img>
+                    <img src="/images/managenoticeboard.svg" className="dbcard-img-top" alt="notice list" onClick={() => { window.location.href = '/noticeList' }}></img>
                   </div>
                 </div>
                 <div className="col">
@@ -76,7 +74,7 @@ const Societydashboard = () => {
                 </div>
                 <div className="col">
                   <div className="sddashboardcard">
-                  <img src="/images/managevehicles.svg" className="dbcard-img-top" alt="manage vehicle" onClick={() => { window.location.href = '/vehiclemanagement' }}></img>
+                    <img src="/images/managevehicles.svg" className="dbcard-img-top" alt="manage vehicle" onClick={() => { window.location.href = '/vehiclemanagement' }}></img>
                   </div>
                 </div>
                 <div className="col">
@@ -103,6 +101,11 @@ const Societydashboard = () => {
                   <div className="sddashboardcard">
                     <img src="/images/manageamenities.svg" className="dbcard-img-top" alt="Manage amenities" onClick={() => { window.location.href = '/amenities' }}></img>
                   </div>
+                </div>
+              </div>
+              <div className="col card_hover_animation">
+                <div className="sddashboardcard">
+                  <img src="/images/manageamenities.svg" className="dbcard-img-top" alt="Manage amenities" onClick={() => { window.location.href = '/checklists' }}></img>
                 </div>
               </div>
             </div>

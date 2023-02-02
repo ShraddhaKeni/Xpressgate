@@ -87,9 +87,21 @@ import EditGuard from './components/GuardModule/EditGuard';
 import Admin_Change_Password from './pages/admin/LoginScreens/Admin_Change_Password';
 import UtilityPaymentLink from './components/SocietyModule/UtilityPaymentLink';
 import UtilityPyamentLinkList from './components/SocietyModule/UtilityPyamentLinkList';
+import ChecklistSecurity from './components/SocietyModule/ChecklistSecurity';
+import CheckListMaintenance from './components/SocietyModule/ChecklistMaintenance';
+import ChecklistCommunityStaff from './components/SocietyModule/ChecklistCommunityStaff';
+import ChecklistsMain from './components/SocietyModule/ChecklistsMain';
+import AddChecklistSecurity from './components/SocietyModule/AddChecklistSecurity';
+import Addmaintenanceschedule from './components/SocietyModule/Addmaintenanceschedule'
+import Maintenancelist from './components/SocietyModule/Maintenancelist'
+import Addmaintenancebill from './components/SocietyModule/Addmaintenancebill'
+import Maintenancebilllist from './components/SocietyModule/Maintenancebilllist'
+import Arrearslist from './components/SocietyModule/Arrearslist'
+import Addarrears from './components/SocietyModule/Addarrears'
 import ViewGuestParkingSec from './components/SocietyModule/ViewGuestParkingSec';
 import AddGuestParkingSec from './components/SocietyModule/AddGuestParkingSec';
 import Invoice from './components/Invoice';
+import GuestManagementcard from './components/SocietyModule/GuestManagementcard';
 
 
 function App() {
@@ -179,6 +191,14 @@ function App() {
           <Route path="/societyduesrecord" element={<SocietyDuesTable />} exact></Route>
           <Route path="/vendorpaymentrecord" element={<VendorPaymentTable />} exact></Route>
           <Route path="/utilitypaymentrecord" element={<UtilityPaymentTable />} exact></Route>
+          <Route path="/addmaintenanceschedule" element={<Addmaintenanceschedule />} exact></Route>
+          <Route path="/maintenancelist" element={<Maintenancelist />} exact></Route>
+          <Route path="/addmaintenancebill" element={<Addmaintenancebill />} exact></Route>
+          <Route path="/maintenancebilllist" element={<Maintenancebilllist />} exact></Route>
+          <Route path="/addarrears" element={<Addarrears />} exact></Route>
+          <Route path="/arrearslist" element={<Arrearslist />} exact></Route>
+          <Route path="/guestmanagementcard" element={<GuestManagementcard />} exact></Route>
+
 
           <Route path={RouterPath.ADMIN_DASHBOARD} element={<AdminModuleComponent />}></Route>
 
@@ -235,6 +255,12 @@ function App() {
           <Route path='/addguestparkingsection' element={<AddGuestParkingSec />}></Route>
           <Route path='/invoice' element={<Invoice />}></Route>
 
+          <Route path='/security-checklist' element={<ChecklistSecurity />}></Route>
+          <Route path='/maintenance-checklist' element={<CheckListMaintenance />}></Route>
+          <Route path='/community-staff-checklist' element={<ChecklistCommunityStaff />}></Route>
+          <Route path='/checklists' element={<ChecklistsMain />}></Route>
+
+          <Route path='/add-security-checklist' element={<AddChecklistSecurity />}></Route>
 
 
 
