@@ -6,6 +6,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import { SimpleDropDownComponent, SimpleInputComponent } from '../components/input';
 import { getDefaultNormalizer } from '@testing-library/react';
+import { ToastMessage } from '../../../components/ToastMessage';
+import { goBackInOneSec, TOAST } from '../../../common/utils';
 
 const AddPremise = () => {
 
@@ -20,6 +22,7 @@ const AddPremise = () => {
         pincode: '',
         status: true
     })
+    const [toast, setToast] = useState({ show: false })
 
     const [states, setState] = useState([])
     const [area, setArea] = useState([])
@@ -74,7 +77,12 @@ const AddPremise = () => {
 
             if (premise.name != '' && premise.address != '' && premise.noofblocks != 0 && premise.state != '' && premise.landmark != '' && premise.address != '' && premise.city != '') {
                 const { data } = await axios.post(`${window.env_var}api/community/add`, premise)
-                navigate('/admin/premises')
+                if (data.status_code == 200) {
+                    setToast(TOAST.SUCCESS(data?.message));
+                    goBackInOneSec(navigate)
+                } else {
+                    setToast(TOAST.ERROR(data?.message));
+                }
             }
             else {
                 alert('Fields Empty !')
@@ -90,7 +98,8 @@ const AddPremise = () => {
 
     return (
         <>
-            <img src='/images/side_bar_img.svg' className='AddPremise_side_Img' />
+            <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+
             <div>
                 <div className='page-label'>
                     <label>Add New Premises</label>
@@ -99,13 +108,13 @@ const AddPremise = () => {
 
                     <Form className='formclass fcadmin'>
 
-                        <SimpleInputComponent label={'Premises Name'} name={'premises_name'} id={'premises'} onChange={(e) => { setPremise({ ...premise, name: e.target.value }) }} />
-                        <SimpleInputComponent label={'Number of Blocks'} type={'number'} name={'number_block'} id={'block'} onChange={(e) => { setPremise({ ...premise, noofblocks: parseInt(e.target.value) }) }} />
-                        <SimpleInputComponent label={'Address'} name={'address_line'} id={'address'} onChange={(e) => { setPremise({ ...premise, address: e.target.value }) }} />
-                        <SimpleInputComponent label={'Landmark'} name={'landmark_name'} id={'landmark'} onChange={(e) => { setPremise({ ...premise, landmark: e.target.value }) }} />
+                        <SimpleInputComponent label={'Premises Name'} placeholder={'Enter Premise Name'} name={'premises_name'} id={'premises'} onChange={(e) => { setPremise({ ...premise, name: e.target.value }) }} />
+                        <SimpleInputComponent label={'Number of Blocks'} placeholder={'Enter Number of Blocks'} type={'number'} name={'number_block'} id={'block'} onChange={(e) => { setPremise({ ...premise, noofblocks: parseInt(e.target.value) }) }} />
+                        <SimpleInputComponent label={'Address'} name={'address_line'} placeholder={'Enter Address'} id={'address'} onChange={(e) => { setPremise({ ...premise, address: e.target.value }) }} />
+                        <SimpleInputComponent label={'Landmark'} name={'landmark_name'} placeholder={'Enter Landmark'} id={'landmark'} onChange={(e) => { setPremise({ ...premise, landmark: e.target.value }) }} />
                         <SimpleDropDownComponent items={states} label={'State'} name={'state_name'} id={'state'} onChange={(e) => { setPremise({ ...premise, state: e.target.value }); getArea(e.target.value) }} />
                         <SimpleDropDownComponent items={area} label={'City'} name={'city_name'} id={'city'} onChange={(e) => { setPremise({ ...premise, city: e.target.value }) }} />
-                        <SimpleInputComponent label={'Pincode'} name={'pincode'} id={'pincode'} onChange={(e) => { setPremise({ ...premise, pincode: e.target.value }) }} />
+                        <SimpleInputComponent label={'Pincode'} name={'pincode'} id={'pincode'} placeholder={'Enter Pincode'} onChange={(e) => { setPremise({ ...premise, pincode: e.target.value }) }} />
                         <button type="submit" onClick={(e) => handleSubmit(e)} className="BTN_ADD_premise ">Add Premise</button>
 
                     </Form>

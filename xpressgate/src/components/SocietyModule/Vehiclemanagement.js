@@ -6,6 +6,8 @@ import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import Societyheader from './Utils/Societyheader';
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
+import Pagination from '../../common/Pagination';
+import ErrorScreen from '../../common/ErrorScreen';
 
 const Vehiclemanagement = () => {
 
@@ -16,7 +18,7 @@ const Vehiclemanagement = () => {
   const [loading, setLoading] = useState(true)
   const navigate= useNavigate()
   const [filterArr,setFilter] = useState([])
-
+  const [isError,setError] = useState(false)
   useEffect(() => {
     getVehicleParkDetails()
   }, [])
@@ -29,27 +31,28 @@ const Vehiclemanagement = () => {
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.vehicle.slice(indexoffirst, indexoflast))
       setLoading(false);
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
       setLoading(false);
     }
   }
 
-  async function paginate(event) {
-    const { data } = await axios.get(`${window.env_var}api/assign/getAll/${localStorage.getItem('community_id')}`) //will replace community with localstorage
-    setCurrentpage(event.selected + 1)
-    const indexoflast = (event.selected + 1) * postPerPage  //endoffset
-    const indexoffirst = (indexoflast - postPerPage) //startof
-    if(filterArr.length>0)
-    {
-      setCurrentPosts(data.data.vehicle.slice(indexoffirst, indexoflast))
-    }
-    else
-    {
-      setCurrentPosts(entry.slice(indexoffirst, indexoflast))
-    }
+  // async function paginate(event) {
+  //   const { data } = await axios.get(`${window.env_var}api/assign/getAll/${localStorage.getItem('community_id')}`) //will replace community with localstorage
+  //   setCurrentpage(event.selected + 1)
+  //   const indexoflast = (event.selected + 1) * postPerPage  //endoffset
+  //   const indexoffirst = (indexoflast - postPerPage) //startof
+  //   if(filterArr.length>0)
+  //   {
+  //     setCurrentPosts(filterArr.slice(indexoffirst, indexoflast))
+  //   }
+  //   else
+  //   {
+  //     setCurrentPosts(entry.slice(indexoffirst, indexoflast))
+  //   }
     
-  }
+  // }
 
   function findText(e) {
     let search = e.target.value.toLowerCase()
@@ -61,17 +64,23 @@ const Vehiclemanagement = () => {
         return true
       }
     })
+    const indexoflast = currentPage * postPerPage 
+    const indexoffirst = (indexoflast - postPerPage)
     if (arr.length>0) {
       setFilter(arr)
-      const indexoflast = currentPage * postPerPage  //endoffset
-      const indexoffirst = (indexoflast - postPerPage)
+     
       setCurrentPosts(arr.slice(indexoffirst, indexoflast))
     }
     else {
       setFilter([])
-      paginate(0)
+      setCurrentPosts(entry.slice(indexoffirst, indexoflast))
     }
 
+  }
+
+  function settingCurrent(value)
+  {
+    setCurrentPosts(value)
   }
 
 function navigatetoEdit(id)
@@ -79,6 +88,8 @@ function navigatetoEdit(id)
     navigate('/addvehicle',{state:{id:id,type:'edit'}})
   }
 
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="vmcontainer">
       <div id="vmheadersection">
@@ -141,7 +152,8 @@ function navigatetoEdit(id)
 
             </tbody>
           </table>
-          <PaginationCalculate totalPages={filterArr.length>0?filterArr.length:entry.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+          {/* <PaginationCalculate totalPages={filterArr.length>0?filterArr.length:entry.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} /> */}
+            <Pagination totalPages={filterArr.length>0?filterArr.length:entry.length} data ={filterArr.length>0?filterArr:entry} settingCurrent={settingCurrent}/>
         </Loader>
       </div>
     </div>

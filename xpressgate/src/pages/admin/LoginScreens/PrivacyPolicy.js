@@ -6,6 +6,8 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import SideLayOut from "../../../components/base/Layout/SideLayOut";
 import Header from "../../../components/base/Layout/Header";
 import { Button } from "@mui/material";
+import { TOAST } from "../../../common/utils";
+import { ToastMessage } from "../../../components/ToastMessage";
 
 const PrivacyPolicy = () => {
   const [policydata, setdata] = useState({});
@@ -15,6 +17,7 @@ const PrivacyPolicy = () => {
     setEditedData(edited_data);
     console.log(e, 'In handleChange', edited_data);
   }
+  const [toast, setToast] = useState({ show: false })
 
   useEffect(() => {
     getPrivacyPolicy()
@@ -37,7 +40,8 @@ const PrivacyPolicy = () => {
         const { data } = await axios.post(`${window.env_var}api/legal/update`, { id: policydata.id, type: 'privacy', content: editedData, status: 1 });
         //setdata(data.data[0]);
         //console.log(data.data[0]);
-        window.location.reload();
+        setToast(TOAST.SUCCESS(data?.message));
+        //window.location.reload();
       } catch (error) {
         console.log(error);
       }
@@ -61,9 +65,9 @@ const PrivacyPolicy = () => {
       {/* <div className='flex-1 d-flex' style={{ width: "100%", height: '100%' }}> */}
 
       <div className='Policycontainer'>
+        <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
 
 
-        <img src='/images/side_bar_img.svg' className='Ppolicy_side_Img' />
 
         <div className="policiestextbox">
           <div className='table-top-right-content'>

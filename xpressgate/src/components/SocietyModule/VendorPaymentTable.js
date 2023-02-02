@@ -4,6 +4,8 @@ import Societyheader from "./Utils/Societyheader";
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import axios from "axios";
 import { Loader } from "../Loader";
+import Pagination from "../../common/Pagination";
+import ErrorScreen from "../../common/ErrorScreen";
 
 const VendorPaymentTable = () => {
 
@@ -13,7 +15,9 @@ const VendorPaymentTable = () => {
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts, setCurrentPosts] = useState([])
   const [loading, setLoading] = useState(true)
+  const [filterArr,setFilter] = useState([])
 
+  const [isError,setError] = useState(false)
   useEffect(() => {
     getVendorDetails()
   }, [])
@@ -31,24 +35,43 @@ const VendorPaymentTable = () => {
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.vendor_bills.slice(indexoffirst, indexoflast))
       setLoading(false);
+      setError(false)
     } catch (error) {
-      console.log(error);
+      setError(true)
       setLoading(false);
     }
   }
 
-  function paginate(event) {
-    setCurrentpage(event.selected + 1)
-    const indexoflast = (event.selected + 1) * postPerPage  //endoffset
-    const indexoffirst = indexoflast - postPerPage //startoffset
-    setCurrentPosts(currentvendor.slice(indexoffirst, indexoflast))
+  function findText(e)
+  {
+    let text  = e.target.value.toLowerCase()
+    let arr = currentvendor.filter(x=>x.vendorName.toLowerCase().includes(text))
+    const indexoflast = currentPage *postPerPage
+    const indexoffirst = (indexoflast - postPerPage)
+    if(arr.length>0)
+    {
+      setFilter(arr)
+      setCurrentPosts(arr.slice(indexoffirst,indexoflast))
+    }
+    else{
+      setFilter([])
+      setCurrentPosts(currentvendor.slice(indexoffirst,indexoflast))
+    }
   }
 
+  function settingCurrent(value)
+  {
+    setCurrentPosts(value)
+  }
+
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="addguestcontainer4">
       <div id="addflatsection">
         <Societyheader />
       </div>
+      {console.log(currentPosts)}
       <div id="societynamesection">
         <div className="VPT_societyname">
           <img src="/images/societyicon.svg" alt="Society image" />
@@ -66,6 +89,10 @@ const VendorPaymentTable = () => {
         </div>
         <br />
         <Loader loading={loading}>
+          <div className='vendorpayment_search'>
+                <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+                  <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
+            </div>
           <div className="AddVPBlock">
             <button type="button" className="VPAddBTN" onClick={() => {
               window.location.href = "/vendorpayment";
@@ -84,7 +111,6 @@ const VendorPaymentTable = () => {
             </thead>
             <tbody>
               {currentPosts.map(item => {
-                console.log(item)
                 return (
                   <tr>
                     <td>{item.vendorName}</td>
@@ -99,7 +125,7 @@ const VendorPaymentTable = () => {
             </tbody>
           </table>
           <br /><br />
-          <PaginationCalculate totalPages={currentvendor.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+          <Pagination totalPages={filterArr.length>0?filterArr.length:currentvendor.length} data ={filterArr.length>0?filterArr:currentvendor} settingCurrent={settingCurrent}/>
         </Loader>
       </div>
     </div>

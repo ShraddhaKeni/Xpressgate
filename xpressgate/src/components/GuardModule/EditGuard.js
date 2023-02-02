@@ -26,7 +26,7 @@ const EditGuard = () => {
     e.preventDefault()
 
     try {
-      setToast({ show: true, type: "success", message: "Update Successfully" })
+ 
       let formdata = new FormData()
       formdata.append('firstname', document.getElementById('firstname').value)
       formdata.append('lastname', document.getElementById('lastname').value)
@@ -40,13 +40,14 @@ const EditGuard = () => {
       }
 
       const { data } = await axios.post(`${window.env_var}api/guard/update`, formdata)
+      setToast({ show: true, type: "success", message: "Guard updated successfully" })
       setTimeout(() => {
         window.location.href='/dashboard'
       }, 1500);
       // window.location.href = '/dashboard'
 
     } catch (error) {
-      console.log(error)
+      setToast({ show: true, type: "error", message: "Check Data." });
     }
   }
 

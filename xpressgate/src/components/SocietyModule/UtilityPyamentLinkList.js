@@ -7,6 +7,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
 import Societyheader from './Utils/Societyheader'
+import ErrorScreen from "../../common/ErrorScreen";
 
 const UtilityPyamentLinkList = () => {
 
@@ -16,7 +17,7 @@ const UtilityPyamentLinkList = () => {
   const [currentPage, setCurrentpage] = useState(0)
   const [postPerPage, setPostPerPage] = useState(10)
   const [currentPosts, setCurrentPosts] = useState([])
-
+  const [isError,setError] = useState(false)
 
 
   useEffect(() => {
@@ -33,9 +34,9 @@ const UtilityPyamentLinkList = () => {
       console.log(data.data);
       setCurrentPosts(data.data.links.slice(indexoffirst, indexoflast))
       setLoading(false);
+      setError(false)
     } catch (error) {
-      console.log(error)
-      setLoading(false);
+      setError(true)
     }
   }
 
@@ -84,19 +85,13 @@ const UtilityPyamentLinkList = () => {
     }
 
   }
- 
+  if(isError)
+  return <ErrorScreen/>
+
   return (
     <div className="addguestcontainer2">
       <div id="addflatsection">
-        <div className="addflatheadersection">
-          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="afsociety"><label>Society</label></div>
-          <div id="afspace"></div>
-          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="afsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="aflogoutbutton"><LogOut /></div>
-        </div>
-
+        <Societyheader />
       </div>
       <div id="societynamesection">
         <div className="SC_societyname">

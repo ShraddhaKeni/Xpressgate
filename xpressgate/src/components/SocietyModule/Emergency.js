@@ -9,6 +9,7 @@ import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import Societyheader from "./Utils/Societyheader";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
+import ErrorScreen from "../../common/ErrorScreen";
 
 const Emergency = () => {
   const [loading, setLoading] = useState(true)
@@ -17,7 +18,7 @@ const Emergency = () => {
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts, setCurrentPosts] = useState([])
   const navigate = useNavigate()
-
+  const [isError,setError] = useState(false)
   useEffect(() => {
     getContacts()
   }, [])
@@ -30,8 +31,9 @@ const Emergency = () => {
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.contacts.slice(indexoffirst, indexoflast))
       setLoading(false);
+      setError(false)
     } catch (error) {
-
+      setError(true)
     }
   }
 
@@ -67,6 +69,8 @@ const Emergency = () => {
   function emargencyDetails(id, ename, etype, econtact) {
     navigate('/addemergency', { state: { id: id, type: 'edit', ename, etype, econtact, update: 'update' } })
   }
+  if(isError)
+    return <ErrorScreen/>
 
   return (
     <div className="addguestcontainer4">

@@ -252,52 +252,88 @@ font-weight: 500;
   #Gloginimgid{
     display: none;
   }
-
   .Guardsignin {
-    width: 270px;
-    height: 76px;
+    width: 66vw;
+    height: 5vh;
     background-color: #14335D;
-    margin-left: 28%;
-    margin-top: 6%;
-    font-size: 36px;
-  }
-
-  #Glogoid img {
+    margin-left: 25%;
     margin-top: 10%;
-    margin-left: 36%;
+}
+.Guardsigninlabel {
+  display: inline-block;
+  margin: 2.5%;
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+}
+  #Glogoid img {
+   width: 40%;
+   height: auto;
+    margin-top: 8%;
+    margin-left: 50%;
 }
 
 .input_fields {
   position: absolute;
   width: 100%;
   height: 50%;
-  left: 27.5%;
+  margin-top: -77%;
+  margin-left: -3%;
 }
-
 .usernameemail {
   position: relative;
-  right: 37%;
   font-family: 'Rubik', sans-serif;
-  font-size: 15px;
+  font-size: 1.8rem;
+font-style: normal;
+font-weight: 500;
+color: #14335D;
 }
 
 .guardpassword {
   position: relative;
-  right: 37%;
   font-family: 'Rubik', sans-serif;
-  font-size: 15px;
+  font-size: 1.8rem;
+font-style: normal;
+font-weight: 500;
+color: #14335D;
+margin-top: -1%;
 }
-
+.emailtextboxguard {
+  width: 100%;
+  height: auto;
+  margin-left: 0%;
+  margin-top: 0%;
+}
+.passwordtextboxguard {
+  width: 100%;
+  height: auto;
+  margin-left: 0%;
+  margin-top: 0%;
+}
 .GuardLoginbtn {
   background-color: #0A8996;
   color: #fff;
-  border-radius: 14px;
-  width: 200px;
-  height: 60px;
-  font-size: 151%;
+  border-radius: 10px;
+  width: 14rem;
+  height: 3.5rem;
   font-weight: 500;
-  margin-top: 4%;
-  padding-bottom: 4%;
+  margin-top: 2%;
+  padding-bottom: 2%;
+  margin-left: 0%;
+  font-size: 1.5rem;
+}
+.Guardforgotpassword {
+  margin-left: 2%;
+  margin-top: 2%;
+  text-decoration: none;
+}
+.Guardforgotpassword a {
+  font-size: 1.2rem;
+  color: #FD6B22;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
 }
 }
 

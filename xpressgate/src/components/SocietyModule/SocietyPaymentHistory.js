@@ -9,6 +9,8 @@ import Societyheader from "./Utils/Societyheader";
 import { getBlocks } from "./common/common";
 import { Button } from "react-bootstrap";
 import { Loader } from "../Loader";
+import Pagination from "../../common/Pagination";
+import ErrorScreen from "../../common/ErrorScreen";
 
 const SocietyPaymentHistory = () => {
  
@@ -20,7 +22,9 @@ const SocietyPaymentHistory = () => {
   const location = useLocation()
   const [bills,setBills] = useState([])
   const [loading, setLoading] = useState(true)
+  const [filterArr,setFilter] = useState([])
 
+  const [isError,setError] = useState(false)
   const block_id = useRef([])
   const utility_id = useRef([])
   useEffect(()=>{
@@ -33,9 +37,10 @@ const SocietyPaymentHistory = () => {
         const {data} = await axios.get(`${window.env_var}api/admin/utilities/getAll`)
         setUtility(data.data.utilitieslist)
         setBlock(await getBlocks())
-    } catch (error) {
-      console.log(error)
-    }
+        setError(false)
+      } catch (error) {
+        setError(true)
+      }
 
   }
 
@@ -48,9 +53,11 @@ const SocietyPaymentHistory = () => {
       setCurrentPosts(data.data.bills.slice(indexoffirst,indexoflast))
       document.getElementById("Blocks").selectedIndex = 0
       document.getElementById("bills").selectedIndex = 0
-      //setLoading(false);
+      setLoading(false);
+      setError(false);
     } catch (error) {
       setLoading(false);
+      setError(true)
     }
   }
 
@@ -65,8 +72,9 @@ const SocietyPaymentHistory = () => {
       const indexoflast = currentPage*postPerPage //endoffset
       const indexoffirst = (indexoflast - postPerPage) //startoffset
       setCurrentPosts(data.data.bills.slice(indexoffirst,indexoflast))
+      setError(false)
     } catch (error) {
-      
+      setError(true)
     }
   }
   const  dateTimeFormat=(date)=>
@@ -96,18 +104,28 @@ const SocietyPaymentHistory = () => {
         return true
       }
     })
+    const indexoflast =currentPage*postPerPage  //endoffset
+    const indexoffirst = (indexoflast - postPerPage)
     if(arr)
     {
-      const indexoflast =currentPage*postPerPage  //endoffset
-      const indexoffirst = (indexoflast - postPerPage)
+      setFilter(arr)
       setCurrentPosts(arr.slice(indexoffirst,indexoflast))
     }
     else
     {
-      paginate(0)
+      setFilter([])
+      setCurrentPosts(bills.slice(indexoffirst, indexoflast))
     }
   }
 
+  function settingCurrent(value)
+  {
+    setCurrentPosts(value)
+  }
+
+
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="addguestcontainer4">
       <div id="addflatsection">
@@ -144,7 +162,7 @@ const SocietyPaymentHistory = () => {
                 })}
               </select>
             </div>
-            <Button style={{backgroundColor:'#0A8996', marginLeft:'12px'}} className="GeTAllBTN" onClick={()=>getBills()}>Get All</Button>
+            <button className="GeTAllBTN" onClick={()=>getBills()}>Get All</button>
           </div>
           <div className='row'>
             <div className='PHsearchbox'>
@@ -185,7 +203,9 @@ const SocietyPaymentHistory = () => {
               }) : <tr>No Data Found</tr>}
             </tbody>
           </table>
-          <PaginationCalculate totalPages={bills.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+          <Pagination totalPages={filterArr.length>0?filterArr.length:bills.length} data ={filterArr.length>0?filterArr:bills} settingCurrent={settingCurrent}/>
+
+          {/* <PaginationCalculate totalPages={bills.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/> */}
         </Loader>
       </div>
     </div>

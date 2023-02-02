@@ -16,7 +16,7 @@ const UtilityPaymentLink = () => {
   const [toast, setToast] = useState({ show: false })
   const [linkData, setLinkData] = useState();
   const location = useLocation()
-
+  const [isError,setError] = useState(false)
   const pagePrefix = location.state ? "Update " : "Add "
 
   useEffect(() => {
@@ -57,7 +57,9 @@ const UtilityPaymentLink = () => {
       document.getElementById('link').value = data.data.links[0].link;
       document.getElementById('type').value = data.data.links[0].type;
       setLoading(false);
+      setError(false)
     } catch (error) {
+      setError(true)
       setLoading(false);
     }
   }
@@ -78,7 +80,9 @@ const UtilityPaymentLink = () => {
         const { data } = await axios.post(`${window.env_var}api/paymentlink/update`, sendData)
         if (data.status_code == 200) {
           setToast({ show: true, type: "success", message: data.message })
-          window.location.href = '/utilitypaymentlinklist'
+          setTimeout(() => {
+            window.location.href = '/utilitypaymentlinklist'
+          }, 1500);
         } else {
           console.log(data.status_code)
           setToast({ show: true, type: "error", message: `${data.message}` })
@@ -94,14 +98,17 @@ const UtilityPaymentLink = () => {
         const { data } = await axios.post(`${window.env_var}api/paymentlink/add`, sendData)
         if (data.status_code == 200) {
           setToast({ show: true, type: "success", message: "Link added successfully" })
-          window.location.href = '/utilitypaymentlinklist'
+          setTimeout(() => {
+            window.location.href = '/utilitypaymentlinklist'
+          }, 1500);
+          // window.location.href = '/utilitypaymentlinklist'
         } else {
           console.log(data.status_code)
           setToast({ show: true, type: "error", message: `${data.message}` })
         }
       }
     } catch (error) {
-      console.log(error)
+      setToast({ show: true, type: "error", message: "Check Data." });
     }
   }
 

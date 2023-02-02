@@ -24,8 +24,10 @@ const AdminChangePass = () => {
         console.log(validatePassword(newpassword.current.value))
         if ((newpassword.current.value === confirmpassword.current.value) && (newpassword.current.value !== "" && confirmpassword.current.value !== "")) {
           const sendData = {
+            password: currentpassword.current.value,
             newpassword: confirmpassword.current.value,
-            admin_mem_id: localStorage.admin_id
+            confirmpassword: newpassword.current.value,
+            id: localStorage.admin_id
           }
           const config = {
             headers: {
@@ -44,7 +46,7 @@ const AdminChangePass = () => {
           }
         }
         else {
-          setToast(TOAST.ERROR("Password not correct"))
+          setToast(TOAST.ERROR("Password do not match"))
 
           document.getElementById('currentpassword').style.border = '2px solid red'
           document.getElementById('newpassword').style.border = '2px solid red'
@@ -52,7 +54,7 @@ const AdminChangePass = () => {
         }
       }
       else {
-        setToast(TOAST.ERROR("Password should be 8 characters alphanumeric with a special character"))
+        setToast(TOAST.ERROR("Password must be atleast 8 characters long must contain a number,uppercase, lowercase and a special character"))
         document.getElementById('currentpassword').style.border = '2px solid red'
         document.getElementById('newpassword').style.border = '2px solid red'
         document.getElementById('confirmpassword').style.border = '2px solid red'

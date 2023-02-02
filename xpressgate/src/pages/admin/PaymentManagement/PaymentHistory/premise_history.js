@@ -81,56 +81,55 @@ export const PremisesPayHistory = ({ route }) => {
 
     return (
         <>
-         <img src='/images/side_bar_img.svg' className='PAY_Coupans_side_Img' />
-        <div>
-            <div className='page-label'>
-                <label>Payment History</label>
-            </div>
             <div>
-
-                <div className='table-top-right-content search-right mb-5'>
-                    <div className='Table-Search pl-2'>
-                        <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-                        <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
-                    </div>
+                <div className='page-label'>
+                    <label>Payment History</label>
                 </div>
+                <div>
 
-                <table id="table-header" class="table table-striped table-bordered table-sm " style={{ border: '2px solid black' }} cellspacing="0">
+                    <div className='table-top-right-content search-right mb-5'>
+                        <div className='Table-Search pl-2'>
+                            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
+                            <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
+                        </div>
+                    </div>
 
-                    <thead className='table-th'>
-                        <tr>
-                            <th class="th-sm">ID No.</th>
-                            <th class="th-sm">Payment Type</th>
-                            <th class="th-sm">Date</th>
-                            <th class="th-sm">Amount</th>
-                            <th class="th-sm">Status</th>
-                            <th class="th-sm"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {history && history.map((item) => {
-                            return <tr>
-                                <td>{item.pg_transection_id}</td>
-                                <td>{item.payment_type_name}</td>
-                                <td>{item.date?.slice(0, 10) || "n/a"}</td>
-                                <td>{item.amount}</td>
-                                <td> <p className={`status-${item.status_name.toLowerCase()}`}>{item.status_name}</p></td>
-                                <td>
-                                    <ButtonUnstyled className='download-invoice' onClick={() => openInNewTab(item.invoice_url)}>Download Invoice</ButtonUnstyled>
-                                </td>
+                    <table id="table-header" class="table table-striped table-bordered table-sm " style={{ border: '2px solid black' }} cellspacing="0">
+
+                        <thead className='table-th'>
+                            <tr>
+                                <th class="th-sm">ID No.</th>
+                                <th class="th-sm">Payment Type</th>
+                                <th class="th-sm">Date</th>
+                                <th class="th-sm">Amount</th>
+                                <th class="th-sm">Status</th>
+                                <th class="th-sm"></th>
                             </tr>
-                        })}
+                        </thead>
+                        <tbody>
+                            {history && history.map((item) => {
+                                return <tr>
+                                    <td>{item.pg_transection_id}</td>
+                                    <td>{item.payment_type_name}</td>
+                                    <td>{item.date?.slice(0, 10) || "n/a"}</td>
+                                    <td>{item.amount}</td>
+                                    <td> <p className={`status-${item.status_name.toLowerCase()}`}>{item.status_name}</p></td>
+                                    <td>
+                                        <ButtonUnstyled className='download-invoice' onClick={() => openInNewTab(item.invoice_url)}>Download Invoice</ButtonUnstyled>
+                                    </td>
+                                </tr>
+                            })}
 
-                    </tbody>
-                </table>
-                {allHistory && <div className='paginate'>
-                    {/* <PaginationCalculate totalPages={Math.ceil(allCoupons.length / PageSize)} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} /> */}
-                    <PaginationCalculate totalPages={allHistory.length} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} />
+                        </tbody>
+                    </table>
+                    {allHistory && <div className='paginate'>
+                        {/* <PaginationCalculate totalPages={Math.ceil(allCoupons.length / PageSize)} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} /> */}
+                        <PaginationCalculate totalPages={allHistory.length} postperPage={PageSize} currentPage={currentPage} paginate={handlePageChange} />
 
-                </div>}
+                    </div>}
 
+                </div >
             </div >
-        </div >
         </>
     )
 }

@@ -43,7 +43,6 @@ export const AddPlan = () => {
         <>
             <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
 
-            <img src='/images/side_bar_img.svg' className='PAY_Coupans_side_Img' />
             <div>
                 <div className='Page-Label'>
                     <label>Add New Subscription Plan</label>
@@ -52,11 +51,11 @@ export const AddPlan = () => {
 
                     <Form className='formclass fcadmin'>
 
-                        <SimpleInputComponent label={'Plan Name'} name={'name'} onChange={(e) => plan.name = e.target.value} required />
-                        <SimpleInputComponent label={'Plan code'} name={'code'} onChange={(e) => plan.code = e.target.value} required />
-                        <SimpleInputComponent label={'Amount'} name={'amount'} onChange={(e) => plan.amount = e.target.value} required />
+                        <SimpleInputComponent label={'Plan Name'} placeholder={'Enter Plan Name'} name={'name'} onChange={(e) => plan.name = e.target.value} required />
+                        <SimpleInputComponent label={'Plan code'} placeholder={'Enter Plan Code'} name={'code'} onChange={(e) => plan.code = e.target.value} required />
+                        <SimpleInputComponent label={'Amount'} placeholder={'Enter Amount'} name={'amount'} onChange={(e) => plan.amount = e.target.value} required />
                         <SimpleDropDownComponent label={'Type'} name={'type'} items={planTypes} onChange={(e) => plan.type = e.target.value} required />
-                        <SimpleInputComponent label={'Description'} type={'textarea'} name={'name'} onChange={(e) => plan.description = e.target.value} required />
+                        <SimpleInputComponent label={'Description'} placeholder={'Enter Description'} type={'textarea'} name={'name'} onChange={(e) => plan.description = e.target.value} required />
 
 
 

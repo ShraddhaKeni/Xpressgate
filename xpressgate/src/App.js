@@ -92,6 +92,16 @@ import CheckListMaintenance from './components/SocietyModule/ChecklistMaintenanc
 import ChecklistCommunityStaff from './components/SocietyModule/ChecklistCommunityStaff';
 import ChecklistsMain from './components/SocietyModule/ChecklistsMain';
 import AddChecklistSecurity from './components/SocietyModule/AddChecklistSecurity';
+import Addmaintenanceschedule from './components/SocietyModule/Addmaintenanceschedule'
+import Maintenancelist from './components/SocietyModule/Maintenancelist'
+import Addmaintenancebill from './components/SocietyModule/Addmaintenancebill'
+import Maintenancebilllist from './components/SocietyModule/Maintenancebilllist'
+import Arrearslist from './components/SocietyModule/Arrearslist'
+import Addarrears from './components/SocietyModule/Addarrears'
+import ViewGuestParkingSec from './components/SocietyModule/ViewGuestParkingSec';
+import AddGuestParkingSec from './components/SocietyModule/AddGuestParkingSec';
+import Invoice from './components/Invoice';
+import GuestManagementcard from './components/SocietyModule/GuestManagementcard';
 
 
 function App() {
@@ -181,6 +191,14 @@ function App() {
           <Route path="/societyduesrecord" element={<SocietyDuesTable />} exact></Route>
           <Route path="/vendorpaymentrecord" element={<VendorPaymentTable />} exact></Route>
           <Route path="/utilitypaymentrecord" element={<UtilityPaymentTable />} exact></Route>
+          <Route path="/addmaintenanceschedule" element={<Addmaintenanceschedule />} exact></Route>
+          <Route path="/maintenancelist" element={<Maintenancelist />} exact></Route>
+          <Route path="/addmaintenancebill" element={<Addmaintenancebill />} exact></Route>
+          <Route path="/maintenancebilllist" element={<Maintenancebilllist />} exact></Route>
+          <Route path="/addarrears" element={<Addarrears />} exact></Route>
+          <Route path="/arrearslist" element={<Arrearslist />} exact></Route>
+          <Route path="/guestmanagementcard" element={<GuestManagementcard />} exact></Route>
+
 
           <Route path={RouterPath.ADMIN_DASHBOARD} element={<AdminModuleComponent />}></Route>
 
@@ -219,6 +237,9 @@ function App() {
           <Route path={RouterPath.MANAGE_SLIDERS} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.ADD_SLIDER} element={<AdminModuleComponent />}></Route>
 
+          <Route path='/addsocietymember' element={<AdminModuleComponent />}></Route>
+
+
           <Route path='/adminchangepassword' element={<AdminChangePass />}></Route>
           <Route path='/superadminlogin' element={<SuperAdminLogin />}></Route>
           <Route path='/enternewpass' element={<AdminEnterNewPass />}></Route>
@@ -228,9 +249,11 @@ function App() {
           <Route path='/addblock' element={<AddBlock />}></Route>
           <Route path='/updateblock' element={<UpdateBlock />}></Route>
           <Route path='/socreports' element={<SocReport />}></Route>
-          <Route path='/addsocietymember' element={<AddSocietyMember />}></Route>
           <Route path='/editguarddetails' element={<EditGuard />}></Route>
           <Route path='/utilitypaymentlinklist' element={<UtilityPyamentLinkList />}></Route>
+          <Route path='/viewguestparkingsection' element={<ViewGuestParkingSec />}></Route>
+          <Route path='/addguestparkingsection' element={<AddGuestParkingSec />}></Route>
+          <Route path='/invoice' element={<Invoice />}></Route>
 
           <Route path='/security-checklist' element={<ChecklistSecurity />}></Route>
           <Route path='/maintenance-checklist' element={<CheckListMaintenance />}></Route>

@@ -6,6 +6,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import { Loader } from "../Loader";
+import ErrorScreen from '../../common/ErrorScreen';
+import Societyheader from "./Utils/Societyheader";
 
 const Blocklist = () => {
   const [blocks, setBlocks] = useState([])
@@ -13,6 +15,7 @@ const Blocklist = () => {
   const [postPerPage, setPostPerPage] = useState(9)
   const [currentPosts,setCurrentPosts] = useState([])
   const [loading, setLoading] = useState(true)
+  const [isError,setError] = useState(false)
   const navigate = useNavigate()
   useEffect(() => {
     getBlocks()
@@ -28,8 +31,9 @@ const Blocklist = () => {
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(dummyblock.slice(indexoffirst,indexoflast))
       setLoading(false);
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -49,18 +53,14 @@ const Blocklist = () => {
   function blockDetails(id, name) {
     navigate('/updateblock', { state: { id: id, type: 'edit', name: name } })
   }
+  
+  if(isError)
+    return <ErrorScreen/>
   return (
     <>
       <div className="blcontainer">
         <div id="blheadersection">
-          <div className="firstblsection">
-            <div id="bllogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-            <div id="blsociety"><label>Society</label></div>
-            <div id="blspace"></div>
-            <div id="blnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-            <div id="blsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-            <div id="bllogoutbutton"><LogOut /></div>
-          </div>
+          <Societyheader/>
         </div>
         <div id="societynamesection">
           <div className='blsocietyname'>

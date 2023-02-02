@@ -24,7 +24,6 @@ const AdminDashboard = () => {
 
     return (
         <>
-            <img src='/images/side_bar_img.svg' className='DashBoard_side_Img' />
 
             <Loader loading={loading}>
 

@@ -7,9 +7,11 @@ import axios from 'axios'
 import { useLocation } from "react-router-dom";
 import SocietyHeader from './Utils/Societyheader';
 import { Loader } from "../Loader";
+import { ToastMessage } from '../ToastMessage';
+import ErrorScreen from '../../common/ErrorScreen';
 
 const Addvehicle = () => {
-
+  const [toast, setToast] = useState({ show: false })
   const [blocks, setBlocks] = useState([])
   const [flats, setFlats] = useState([])
   const [sections, setSections] = useState([])
@@ -22,6 +24,7 @@ const Addvehicle = () => {
   const location = useLocation()
   const [resid, setResid] = useState()
   const [loading, setLoading] = useState(true)
+  const [isError,setError] = useState(false)
   //const [vehiclenumber, setvehiclenumber] = useState()
 
   useEffect(() => {
@@ -32,18 +35,20 @@ const Addvehicle = () => {
     }
     else{
       // setvehiclenumber(location.state.vehiclenumber)
-      // console.log(vehiclenumber)
     }
   }, [])
+
   const getBlocks = async () => {
     try {
-      const { data } = await axios.get(`${window.env_var}api/block/blockList`)
+      const { data } = await axios.post(`${window.env_var}api/block/get`,{'community_id':localStorage.getItem('community_id')})
       setBlocks(data.data.block)
       setLoading(false);
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
+
   const getFlats = async (e) => {
     try {
       document.getElementById('vehicle_id').selectedIndex = '0'
@@ -51,8 +56,9 @@ const Addvehicle = () => {
       document.getElementById('resident_name').value = null;
       const { data } = await axios.get(`${window.env_var}api/flats/getList/${e.target.value}`)
       setFlats(data.data.list)
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -61,8 +67,9 @@ const Addvehicle = () => {
       const { data } = await axios.get(`${window.env_var}api/flats/getList/${e}`);
       setFlats(data.data.list);
       document.getElementById('flat_id').value=pdetails.flat_id;
+      setError(false)
     } catch (error) {
-      console.log(error);
+      setError(true)
     }
   }
 
@@ -70,10 +77,10 @@ const Addvehicle = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/parkingsection/getAll/${e}`)
       setSections(data.data)
-      console.log(data.data);
       document.getElementById('section').value=pdetails.section_id;
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -81,8 +88,9 @@ const Addvehicle = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/parkingsection/getAll/${e.target.value}`)
       setSections(data.data)
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
   const getResident = async (e) => {
@@ -92,12 +100,11 @@ const Addvehicle = () => {
       setResident(data.data.list[0])
       document.getElementById('resident_name').value = data.data.list[0].firstname + ' ' + data.data.list[0].lastname
       const vehicle = await axios.get(`${window.env_var}api/resident/vehicle/getResidentVehicle/${data.data.list[0].resident_id}`)
-      //console.log(data.data.list[0].resident_id)
       setResid(data.data.list[0].resident_id)
       setVehicles(vehicle.data.data.vehical)
-      console.log(vehicle.data.data.vehical)
+      setError(false)
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
   }
 
@@ -106,14 +113,13 @@ const Addvehicle = () => {
       const { data } = await axios.get(`${window.env_var}api/flats/single/${e}`)
       setResident(data.data.list[0])
       document.getElementById('resident_name').value = data.data.list[0].firstname + ' ' + data.data.list[0].lastname;
-  
       const vehicle = await axios.get(`${window.env_var}api/resident/vehicle/getResidentVehicle/${data.data.list[0].resident_id}`)
       setVehicles(vehicle.data.data.vehical);
       document.getElementById('vehicle_id').value=pdetails.vehicle_id;
+      setError(false)
     } catch (error) {
-      
+      setError(true)
     }
-    
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -128,13 +134,12 @@ const Addvehicle = () => {
           vehicle_id: document.getElementById('vehicle_id').value
         }
         const data = await axios.post(`${window.env_var}api/assigns/update`, sendData)
-        console.log(sendData)
-        window.location.href = '/vehiclemanagement'
+        setToast({ show: true, type: "success", message: "Updated parking successfully" })
+        setTimeout(() => {
+          window.location.href = '/vehiclemanagement'
+        }, 1500);
       }
       else{
-        // if{
-        //   document.getElementById('vehicle_id').value ==
-        // }
         const sendData = {
           section_id: document.getElementById('section').value,
           resident_id: resid,
@@ -142,14 +147,13 @@ const Addvehicle = () => {
           vehicle_id: document.getElementById('vehicle_id').value
         }
         const data = await axios.post(`${window.env_var}api/assigns/post`, sendData)
-        console.log(data)
-        console.log(sendData)
-        window.location.href = '/vehiclemanagement'
+        setToast({ show: true, type: "success", message: "Alloted parking successfully" })
+        setTimeout(() => {
+          window.location.href = '/vehiclemanagement'
+        }, 1500);
       }
     } catch (error) {
-      console.log(error)
-      //alert("Parking is already assigned")
-
+      setToast({ show: true, type: "error", message: "Check Data." });
     }
   }
 
@@ -157,18 +161,18 @@ const Addvehicle = () => {
     try {
       const {data} = await axios.get(`${window.env_var}api/assigns/getOne/${location.state.id}`)
       setAssignedParkingDetails(data.data.ParkingDet[0]);
+      await getFlatsUpdate(data.data.ParkingDet[0].block_id);
+      await getResidentUpdate(data.data.ParkingDet[0].flat_id);
+      await getSectionsupdate(data.data.ParkingDet[0].block_id);
       document.getElementById('block_id').value=data.data.ParkingDet[0].block_id;
-      getFlatsUpdate(data.data.ParkingDet[0].block_id);
-      getSectionsupdate(data.data.ParkingDet[0].block_id);
-      getResidentUpdate(data.data.ParkingDet[0].flat_id);
-      
-     
+      setError(false)
     } catch (error) {
-      console.log('in error',error);
+      setError(true)
     }
   }
 
-
+  if(isError)
+    return <ErrorScreen/>
   return (
     <div className="addguestcontainer4">
     <div id="addflatsection">
@@ -191,6 +195,7 @@ const Addvehicle = () => {
       </div>
     </div>
     <div className="addguestbackgroundimg">
+    <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
     <Loader loading={loading}>
       <div className='APdisplay'>
         <label>{type=='edit'?'Update':'Allot'} vehicle</label>
@@ -203,7 +208,7 @@ const Addvehicle = () => {
                 <option disabled selected value={null}>Select Block</option>
                 {blocks.map((item) => {
                   return (
-                    <option value={item._id}>{item.block}</option>
+                    <option value={item.id}>{item.name}</option>
                   )
                 })}
               </select>
@@ -225,7 +230,7 @@ const Addvehicle = () => {
           <div class="form-group row">
             <label class="col-lg-2 col-form-label ADN_label">Vehicle</label>
             <div class="col-lg-4">
-              <select type="text" className="form-control input-lg ALLOT_INP_BORDER" id='vehicle_id' name="community" onChange={(e) => getResident(e)}>
+              <select type="text" className="form-control input-lg ALLOT_INP_BORDER" id='vehicle_id' name="community">
                 <option disabled selected value={null}>Select Vehicle</option>
                 {vehicles.map((item) => {
                   return (

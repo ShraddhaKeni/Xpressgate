@@ -10,6 +10,7 @@ import GuardHeader from './Utils/GuardHeader';
 import { checkGuard } from '../auth/Auth';
 import Loader from '../../common/Loader';
 import ErrorScreen from '../../common/ErrorScreen';
+import Pagination from '../../common/Pagination';
 
 const Inoutbook = () => {
   const [inoutdata, setInoutdata] = useState([])
@@ -22,7 +23,8 @@ const Inoutbook = () => {
   const [isError,setError] = useState(false)
   const current = new Date();
   const[date, setDate] = useState(`${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`);
- 
+  const [filterArr,setFilter] = useState([])
+
   const  dateTimeFormat=(timestamp)=>
   {
     var d = new Date(timestamp)
@@ -72,12 +74,17 @@ const Inoutbook = () => {
   }
  
 
-  const paginate = async(event)=>{
-    const { data } = await axios.get(`${window.env_var}api/inout/getall/` + community_id)
-    setCurrentpage(event.selected+1)
-    const indexoflast = (event.selected+1)*postPerPage  //endoffset
-    const indexoffirst = indexoflast - postPerPage //startoffset
-    setCurrentPosts(inoutdata.slice(indexoffirst,indexoflast))
+  // const paginate = async(event)=>{
+  //   const { data } = await axios.get(`${window.env_var}api/inout/getall/` + community_id)
+  //   setCurrentpage(event.selected+1)
+  //   const indexoflast = (event.selected+1)*postPerPage  //endoffset
+  //   const indexoffirst = indexoflast - postPerPage //startoffset
+  //   setCurrentPosts(inoutdata.slice(indexoffirst,indexoflast))
+  // }
+
+  function settingCurrent(value)
+  {
+    setCurrentPosts(value)
   }
 
   if(isLoading)
@@ -117,6 +124,9 @@ const Inoutbook = () => {
               <th class="th-sm">Flat No.</th>
               <th class="th-sm">Date</th>
               <th class="th-sm">In Time</th>
+              <th class="th-sm">Parking Section</th>
+              <th class="th-sm">Parking Time</th>
+              <th class="th-sm">Vehicle Number</th>
               <th class="th-sm">Status</th>
             </tr>
           </thead>
@@ -131,12 +141,16 @@ const Inoutbook = () => {
                   <td>{iodata.flat_number}</td>
                   <td>{date}</td>
                   <td>{dateTimeFormat(iodata.intime)}</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
                   <td>{iodata.status == '1' ? 'In' : 'Out'}</td>
                 </tr>)
             })}
           </tbody>
         </table>
-        <PaginationCalculate totalPages={inoutdata.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
+        {/* <PaginationCalculate totalPages={inoutdata.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/> */}
+        <Pagination totalPages={filterArr.length>0?filterArr.length:inoutdata.length} data ={filterArr.length>0?filterArr:inoutdata} settingCurrent={settingCurrent}/>
 
       </div>
     </div>

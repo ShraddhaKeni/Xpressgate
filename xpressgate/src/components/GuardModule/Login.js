@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Login.css';
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios'
 import {checkGuard} from '../auth/Auth'
+import { ToastMessage } from '../ToastMessage';
 const Login = () => {
-
+  const [toast, setToast] = useState({ show: false })
 
   useEffect(()=>{
     if (checkGuard()) {
@@ -30,18 +31,22 @@ const Login = () => {
         localStorage.setItem('community_id',data.data.community_id)
         localStorage.setItem('name',data.data.firstname+' '+data.data.lastname)
         localStorage.setItem('guard_id',data.data.id)
-        localStorage.setItem('mode','guard')  
-        window.location.href='/dashboard'
+        localStorage.setItem('mode','guard')
+        setToast({ show: true, type: "success", message: "Logged in successfully" })
+        setTimeout(() => {
+          window.location.href='/dashboard'
+        }, 1500);
     }
     catch(err)
     { 
-      
+      setToast({ show: true, type: "error", message: "Username or password is incorrect" })
       document.getElementById('loginemailid').style.border='2px solid red'
       document.getElementById('loginpassword').style.border='2px solid red'
     }
   }
   return (
     <div className="logincontainer">
+       <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
       <div id="Glogoid">
         <img src="/images/loginlogo.svg" alt="" />
         <div className="Guardsignin">
