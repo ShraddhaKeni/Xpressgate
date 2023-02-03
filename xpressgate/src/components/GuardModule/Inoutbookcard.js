@@ -122,7 +122,7 @@ const Inoutbookcard = () => {
         </div>
         <div className='IOBC_SImg'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
-      <div className='iobcbackgroundimg'>
+      <div className='Iobcbackgroundimg'>
       <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <div className= "IOBC_display">
           <label>In-Out Book</label>
@@ -151,7 +151,18 @@ const Inoutbookcard = () => {
               <div><label className='outtime'>Out-Time: {listData.outtime?timeConvert(listData.outtime):'N/A'}</label></div>
               {/* <div><label className='noofpeople'>No of People: 1</label></div> */}
               <div><label className='vehicleno'>Vehicle No: {listData.vehicle_no ? listData.vehicle_no : 'N/A'}</label></div>
+              <label for="parkingsection" className='ParkingSec'>Parking Section: </label><br/>
+              <select id="parkingsection" className='selectInput'>
+                <option></option>
+              </select>
+           
+              <label for="parkingtime" className='ParkingSec'>Parking Time: </label><br/>
+              <select id="parkingtime" className='selectInput'>
+                <option></option>
+              </select>
+           
             </div>
+            
             <br></br>
             {console.log(listData.status)}
             {listData.status==1? <button type="submit" onClick={(e)=>{handleSubmit(e,listData.booking_id)}} id='inout'  className="btnOut">Out</button>

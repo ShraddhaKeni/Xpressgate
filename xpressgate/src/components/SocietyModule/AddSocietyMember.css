@@ -9,22 +9,23 @@
     margin-left: 8%;
     margin-bottom: 3%;
 }
-
-.ASMBtn_Add {
-    width: 9vw;
-    height: 5vh;
-    font-size: 1.1vw;
-    font-weight: 700;
-    padding: 0%;
-    border-radius: 9px;
+.BTNNN_ADD_premise {
     background: #0A8996;
-    color: #FFFFFF;
-    margin-top: 3%;
-    margin-left: -33%;
+    color: #fff;
+    border-radius: 8px;
+    width: 10vw;
+    height: 5.5vh;
+    font-size: 1.1vw;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 700;
+    margin-top: 2%;
+    margin-right: 7%;
     border: none;
+    margin-bottom: 4%;
 }
 
-.ASMBtn_Add:hover{
+.BTNNN_ADD_premise:hover{
     background-color: #14335D;
 }
 .STodate {
@@ -70,7 +71,7 @@
     height: auto;
     margin-left: 2%;
 }
-.ASMBtn_Add:hover{
+.BTNNN_ADD_premise:hover{
     background-color: #14335D;
 }
 

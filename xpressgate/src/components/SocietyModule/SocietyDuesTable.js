@@ -96,7 +96,7 @@ const SocietyDuesTable = () => {
         </div>
         <br />
         <div className="SDT_sideimage">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
@@ -105,6 +105,10 @@ const SocietyDuesTable = () => {
         </div>
         <br />
         <Loader loading={loading}>
+        <div className='vendorpayment_search'>
+                <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+                  <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
+            </div>
           <div className="AddSDBlock">
             <button type="button" className="SDAddBTN" onClick={() => {
               window.location.href = "/societydues";

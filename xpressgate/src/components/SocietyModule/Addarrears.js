@@ -214,11 +214,11 @@ const Addarrears = () => {
           <label>Society Name</label>
         </div>
         <div class="maintenancelist">
-          <a href="/arrearslist" class="MSLList">Arrears List</a><br /><br />
-          <a href="/addarrears" class="Addmaintenancelink"><b>Add Arrears</b></a>
+          <a href="/arrearslist" class="AMSLList">Arrears List</a><br /><br />
+          <a href="/addarrears" class="AAddmaintenancelink"><b>Add Arrears</b></a>
         </div>
         <div className="AEN_sideimage">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addmaintenancebackgroundimg">

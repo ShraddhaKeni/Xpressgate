@@ -70,7 +70,7 @@ html {
   font-size: 20px;
   font-weight: 500;
   padding-top: 0%;
-  margin: auto;
+  margin-bottom: 5%;
   border: none;
 }
 .btnGuestOut:hover{
@@ -108,7 +108,7 @@ color: #14335D;
 
 .guest_SImg img {
   display: flex;
-  margin-top: 99%;
+  margin-top: 109%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -177,6 +177,7 @@ font-weight: 500;
   font-size: 20px;
   border-radius: 8px;
   margin: auto;
+  padding: auto;
 }
 
 .guestdetailsclass {
@@ -223,47 +224,56 @@ font-weight: 500;
 .guestdate{
   font-size: 20px;
   font-family: 'Rubik', sans-serif;
-  font-weight: 100;
+  font-weight: 400;
+  color: #040404;
+
 }
 
 .intine{
   font-size: 20px;
   font-family: 'Rubik', sans-serif;
-  font-weight: 100;
+  font-weight: 400;
+  color: #040404;
 } 
 
 .guestouttime{
   font-size: 20px;
   font-family: 'Rubik', sans-serif;
-  font-weight: 100;
+  font-weight: 400;
+  color: #040404;
 }
 
 .noofpeople{
   font-size: 20px;
   font-family: 'Rubik', sans-serif;
-  font-weight: 100;
+  font-weight: 400;
+  color: #040404;
 }
 
 .guestvehicleno{
   font-size: 20px;
   font-family: 'Rubik', sans-serif;
-  font-weight: 100;
+  font-weight: 400;
+  color: #040404;
 }
 
 .guestintime{
   font-size: 20px;
   font-family: 'Rubik', sans-serif;
-  font-weight: 100;
+  font-weight: 400;
+  color: #040404;
 }
 .parking{
   font-size: 20px;
   font-family: 'Rubik', sans-serif;
-  font-weight: 100;
+  font-weight: 400;
+  color: #040404;
 }
 .allotedparking{
   font-size: 20px;
   font-family: 'Rubik', sans-serif;
-  font-weight: 100;
+  font-weight: 400;
+  color: #040404;
 }
 .nameguestlabel{ 
   font-weight: 600;
@@ -333,7 +343,7 @@ color: #14335D;
     font-size: 20px;
     font-weight: 500;
     padding-top: 1%;
-    margin: auto;
+    margin-bottom: 5%;
     border: none;
   }
   .btnGuestOut:hover{

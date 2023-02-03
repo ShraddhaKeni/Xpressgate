@@ -5,7 +5,7 @@ import LogOut from './Utils/LogOut'
 
 
 const Community = () => {
-  
+
   return (
     <div className="addguestcontainer2">
       <div id="addflatsection">
@@ -34,7 +34,7 @@ const Community = () => {
           <a className='CANsidelinks' href="/addNotice">Add Notice</a>
         </div> */}
         <div className="SC_sideimage">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
 
       </div>
@@ -94,7 +94,7 @@ const Community = () => {
           <div className="col card_hover_animation">
             <div className="Cdashboardcard">
               <img
-                src="/images/reportbox.svg"
+                src="/images/util_icon.svg"
                 className="dbcard-img-top"
                 onClick={() => {
                   window.location.href = "/utilitypaymentlinklist";

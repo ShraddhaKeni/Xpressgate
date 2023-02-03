@@ -353,3 +353,95 @@ color: #14335D;
 
 }
 
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
+  #dspguardnamesection{
+    display: none;
+  }
+  .dspbackgroundimg{
+    background-image: url(http://localhost:3000/static/media/dashboardbackground.304b459….svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    margin-top: 10.5%;
+  }
+  .dailycard {
+    width: 27rem;
+    margin: auto;
+    margin-top: 8%;
+    background-color: #14335D;
+    border-radius: 20px;
+    margin-left: 22%;
+    height: 25rem;
+}
+.profileimage img {
+  width: 10rem;
+  height: auto;
+  border-radius: 55%;
+}
+.dailyhelpnamelabel {
+  font-weight: 600;
+  font-size: 2rem;
+  font-family: 'Rubik', sans-serif;
+  color: #fff;
+}
+.proflabel {
+  font-weight: 600;
+  font-size: 1.9rem;
+  font-family: 'Rubik', sans-serif;
+  color: #fff;
+}
+.allowedlabel {
+  font-weight: 200;
+  font-size: 2.1rem;
+  font-family: 'Rubik', sans-serif;
+  color: #fff;
+}
+.detailslabel {
+  color: #14335D;
+  display: block;
+  background-color: #AED8DC;
+  width: 30rem;
+  margin-top: 8%;
+  line-height: 3;
+  border-radius: 14px;
+  text-align: center;
+  padding-left: 5%;
+  font-size: 1.5rem;
+  margin-left: 17%;
+}
+.buttons_dailyservice {
+  position: relative;
+  left: 10%;
+  top: 7%;
+}
+.btnAddDSP {
+  background-color: #017069;
+  color: #fff;
+  border-radius: 13px;
+  width: 11rem;
+  height: 4rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 4%;
+  margin-right: 15%;
+  padding-top: 2%;
+  margin-left: 19%;
+  border: none;
+}
+.btnDenyDSP {
+  background-color: #96230A;
+  color: #fff;
+  border-radius: 14px;
+  width: 11rem;
+  height: 4rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 4%;
+  margin-right: 35%;
+  padding-top: 2%;
+  border: none;
+}
+}
+

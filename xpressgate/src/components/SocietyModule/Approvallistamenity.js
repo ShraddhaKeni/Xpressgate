@@ -6,13 +6,14 @@ import { getDefaultNormalizer } from '@testing-library/react';
 import axios from 'axios';
 import { Loader } from "../Loader";
 import ErrorScreen from '../../common/ErrorScreen';
-
+import { ToastMessage } from '../ToastMessage';
 const Approvallistamenity = () => {
   const [booking, setBooking] = useState({})
   const [time, setTime] = useState({})
   const location = useLocation()
   const [loading, setLoading] = useState(true)
   const [isError,setError] = useState(false)
+  const [toast, setToast] = useState({ show: false })
   useEffect(() => {
     if (location.state) {
       getBookedEmenity(location.state.id)
@@ -56,14 +57,22 @@ const Approvallistamenity = () => {
     try {
       if (value == 'accept') {
         const { data } = await axios.get(`${window.env_var}api/resident/booking/approveBooking/${id}`)
-        window.location.href = '/amenitylist'
+        setToast({ show: true, type: "success", message: "Apporved" })
+        setTimeout(() => {
+          window.location.href = '/amenitylist'
+        }, 1500);
+      
       }
       else if (value == 'reject') {
         const { data } = await axios.get(`${window.env_var}api/resident/booking/removeBooking/${id}`)
-        window.location.href = '/amenitylist'
+        setToast({ show: true, type: "success", message: "Denied" })
+        setTimeout(() => {
+          window.location.href = '/amenitylist'
+        }, 1500);
       }
       setError(false)
     } catch (error) {
+      setToast({ show: true, type: "error", message: "Check Data." });
       setError(true)
     }
   }
@@ -89,6 +98,7 @@ const Approvallistamenity = () => {
         <div className='ALASimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='alabackgroundimg'>
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
       <Loader loading={loading}>
         <div className='ALAdisplay'>
           <label>Amenity Booking Approval</label>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Addlocalservice.css';
 
 import { Form } from 'react-bootstrap';
@@ -16,7 +16,9 @@ const UtilityPaymentLink = () => {
   const [toast, setToast] = useState({ show: false })
   const [linkData, setLinkData] = useState();
   const location = useLocation()
-  const [isError,setError] = useState(false)
+  const [dropDownRef, setDropDown] = useState()
+  const [linkRef, setLink] = useState()
+  const [isError, setError] = useState(false)
   const pagePrefix = location.state ? "Update " : "Add "
 
   useEffect(() => {
@@ -27,18 +29,18 @@ const UtilityPaymentLink = () => {
         }
       }
       axios.get(`${window.env_var}api/society/checkLogin`, config)
-      .then(({ data }) => {
-        if (location.state) {
-          getLinkDetails()
-        }
-        else{
-          setLoading(false);
-        }
-      })
-      .catch(err => {
-        localStorage.clear();
-        window.location.href = '/societylogin'
-      })
+        .then(({ data }) => {
+          if (location.state) {
+            getLinkDetails()
+          }
+          else {
+            setLoading(false);
+          }
+        })
+        .catch(err => {
+          localStorage.clear();
+          window.location.href = '/societylogin'
+        })
     }
     else {
       window.location.href = '/'
@@ -54,8 +56,10 @@ const UtilityPaymentLink = () => {
         });
 
       setLinkData(data.data.links[0]);
-      document.getElementById('link').value = data.data.links[0].link;
-      document.getElementById('type').value = data.data.links[0].type;
+
+      setLink(data.data.links[0].link);
+      setDropDown(data.data.links[0].type)
+
       setLoading(false);
       setError(false)
     } catch (error) {
@@ -135,8 +139,8 @@ const UtilityPaymentLink = () => {
             <div class="form-group row">
               <label class="col-lg-2 col-form-label ADN_label">Utility Type</label>
               <div class="col-lg-4">
-                <select class="form-control input-lg inputborder" id="type" name="type" placeholder="Service" required>
-                  <option value={null} disabled selected> Select Utility Type </option>
+                <select class="form-control input-lg inputborder" defaultValue={'Select Utility Type'} value={dropDownRef} id="type" name="type" placeholder="Service" required onChange={(e) => { setDropDown(e.target.value) }}>
+                  <option value={null} disabled > Select Utility Type </option>
                   <option value="Electricity"> Electricity </option>
                   <option value="Water"> Water </option>
                   <option value="LPG"> LPG </option>
@@ -147,7 +151,7 @@ const UtilityPaymentLink = () => {
             <div class="form-group row">
               <label class="col-lg-2 col-form-label ADN_label">Payment Link</label>
               <div class="col-lg-4">
-                <input type="text" class="form-control input-lg inputborder" id='link' name="link" placeholder="Payment Link" required></input>
+                <input type="text" class="form-control input-lg inputborder" id='link' value={linkRef} onChange={(e) => { setLink(e.target.value) }} name="link" placeholder="Payment Link" required></input>
               </div>
             </div>
 

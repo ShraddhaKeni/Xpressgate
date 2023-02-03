@@ -30,7 +30,7 @@ color: #14335D;
 
 .AGSideimg img {
   display: flex;
-  margin-top: 70%;
+  margin-top: 90%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -100,10 +100,12 @@ border-radius: 8px;
 .noticegll:hover {
   color: #000;
   text-decoration: none; 
+  cursor: pointer;
 }
 .aggnotice:hover {
   color: #000;
   text-decoration: none; 
+  cursor: pointer;
 }
 /* Media query for laptop */
 @media only screen   and (min-device-width : 768px) and (max-device-width : 1024px) {

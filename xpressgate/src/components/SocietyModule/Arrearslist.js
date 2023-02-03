@@ -78,11 +78,11 @@ const Arrearslist = () => {
         </div>
 
         <div class="arrearslist">
-          <a href="/arrearslist" class="MSLList">Arrears List</a><br /><br />
-          <a href="/addarrears" class="Addmaintenancelink"><b>Add Arrears</b></a>
+          <a href="/arrearslist" class="MSLList"><b>Arrears List</b></a><br /><br />
+          <a href="/addarrears" class="Addmaintenancelink">Add Arrears</a>
         </div>
         <div className="EN_sideimg">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
@@ -90,19 +90,29 @@ const Arrearslist = () => {
         <div className="EN_display">
           <label>Arrears List</label>
         </div>
+        <br/>
         <Loader loading={loading}>
-          <div >
+        <div className='vendorpayment_search'>
+                <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+                  <input placeholder='Search'></input></span>
+            </div>
+          <div className="AddSDBlock">
+            <button type="button" className="SDAddBTN" onClick={() => {
+              window.location.href = "/addarrears";
+            }}>&#10011; Add Arrears</button>
+          </div>
+          {/* <div >
             <button type="button" className="EN_Add" onClick={() => {
               window.location.href = "/addarrears";
             }}>&#10011; Add Arrears</button>
 
-          </div>
-          <div className="row">
+          </div> */}
+          {/* <div className="row">
             <div className='EMMsearchbox'>
               <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
                 <input placeholder='Search' ></input></span>
             </div>
-          </div>
+          </div> */}
           <table
             id="inoutbooktable"
             class="table table-striped table-bordered table-sm "

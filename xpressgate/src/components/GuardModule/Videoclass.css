@@ -391,7 +391,7 @@ color: #14335D;
   }
 
   .vcbackgroundimg {
-    background-image: url("../../../public/images/dashboardbackground.svg");
+    background-image: url(http://localhost:3000/static/media/dashboardbackground.304b459….svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -436,11 +436,50 @@ color: #14335D;
 }
 
 .pagination_ul {
-  position: sticky;
+  position: relative;
   display: flex;
   justify-content: center;
   top: 0;
   bottom: 26px;
   gap: 15px;
+  left: 2%;
+}
+.card-titlename {
+  font-size: 1.2rem;
+  font-family: 'Rubik', sans-serif;
+  color: #14335D;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 5%;
+  position: relative;
+  cursor: pointer;
+}
+.VG_Display {
+  width: 15rem;
+  height: 5rem;
+  background-color: #AED8DC;
+  border-radius: 14px;
+  padding-top: 4.5%;
+  margin: auto;
+  margin-top: -2%;
+  margin-right: -4%;
+}
+.VG_Display label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 600;
+font-size: 1.5rem;
+text-align: center;
+color: #14335D;
+}
+.ViDeOcArD {
+  margin-left: 26%;
+  margin-bottom: 20%;
+  border: none;
+  opacity: 0.8;
+  height: 200px;
+  width: fit-content;
+  border-radius: 20px;
+  margin-top: 8%;
 }
 }

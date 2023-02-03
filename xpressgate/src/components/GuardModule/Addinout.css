@@ -195,37 +195,48 @@ color: #14335D;
   }
   
   .aiobackgroundimg {
-    background-image: url("../../../public/images/dashboardbackground.svg");
+    background-image: url(http://localhost:3001/static/media/dashboardbackground.304b459….svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     position: relative;
     margin-top: 10.5%;
+    margin-left: 0%;
+    margin-right: -64%;
   }
-
-  .aiodisplay {
-    width: 160px;
-    height: 64px;
-    background-color: #AED8DC;
-    border-radius: 30px;
-    font-size: 20px;
-    padding-top: 14px;
-    margin-left: 78%;
+.aiodisplay {
+  width: 15rem;
+  height: 5rem;
+  background-color: #AED8DC;
+  border-radius: 14px;
+  padding-top: 4.5%;
+  margin: auto;
+  margin-top: 1%;
+  margin-right: 3%;
 }
-
+.aiodisplay label {
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 600;
+font-size: 1.5rem;
+text-align: center;
+color: #14335D;
+}
 .btnInOut {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  width: 140px;
+  width: 12rem;
   margin-right: auto;
   border: none;
+  height: 4rem;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
-
 .AIOformclass {
   margin-top: 5%;
-  margin-left: 42%;
-  width: 170%;
+  margin-left: 20%;
+  width: 100%;
 }
 
 }
