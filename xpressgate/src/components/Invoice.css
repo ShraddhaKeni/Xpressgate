@@ -61,7 +61,7 @@ html{
 }
 
 hr{
-    border: 1.5px solid red;
+    border: 2px solid #0A8996;
 }
 .TableDetailsContainer{
     
@@ -72,26 +72,26 @@ hr{
     /* justify-content: space-between; */
     text-align: justify;
     width: 100%;
-    border: 2px solid grey;
+    /* border: 2px solid grey; */
 }
 .PersonDetails tr td{
     padding: 0.5% 0.5% 0.5% 6%;
-text-align: left;
-   font-size: 1.5rem;
-   font-weight: 400;
-   font-family: 'Rubik';
-   font-style: normal;
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: 'Rubik';
+    font-style: normal;
 }
 .PersonDetails tr th{
     padding: 0.5% 0.5% 0.5% 6%;
     text-align: left;
-   font-size: 1.7rem;
-   font-weight: 700;
-   font-family: 'Rubik';
-   font-style: normal;
-   color: black;
-   background-color: rgb(207, 202, 202) ;
-   border: 1px solid grey;
+    font-size: 1.7rem;
+    font-weight: 700;
+    font-family: 'Rubik';
+    font-style: normal;
+    color: black;
+    background-color: rgb(207, 202, 202) ;
+    border: 1px solid grey;
 }
 .Persondetails{
     /* justify-content: space-between; */
@@ -101,29 +101,29 @@ text-align: left;
 }
 .Persondetails tr td{
     padding: 0.5% 0.5% 0.5% 6%;
-text-align: left;
-   font-size: 1.5rem;
-   font-weight: 400;
-   font-family: 'Rubik';
-   font-style: normal;
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: 'Rubik';
+    font-style: normal;
 }
 .Persondetails tr th{
     padding: 0.5% 0.5% 0.5% 6%;
     text-align: left;
-   font-size: 1.7rem;
-   font-weight: 700;
-   font-family: 'Rubik';
-   font-style: normal;
-   color: white;
-   background-color: rgb(63, 63, 63);
-   border: 1px solid  rgb(63, 63, 63);
+    font-size: 1.7rem;
+    font-weight: 700;
+    font-family: 'Rubik';
+    font-style: normal;
+    color: white;
+    background-color: rgb(63, 63, 63);
+    border: 1px solid  rgb(63, 63, 63);
 }
 .AandPLAbel{
-background: rgb(63, 63, 63);
-color: white;
-text-align: center;
-align-content: auto;
-padding-top: 0.2%;
+    background: rgb(63, 63, 63);
+    color: white;
+    text-align: center;
+    align-content: auto;
+    padding-top: 0.2%;
 }
 .AandPLAbel label{
     font-size: 1.5rem;
@@ -141,7 +141,7 @@ padding-top: 0.2%;
 }
 .InstructionPara{
     width: 100%;
-    border: 2px solid grey;
+    /* border: 2px solid grey; */
     padding: 0.5%;
     text-align: left;
 }
