@@ -402,10 +402,10 @@ table tr td
   height: 5rem;
   background-color: #AED8DC;
   border-radius: 14px;
-  padding-top: 2.5%;
+  padding-top: 4.5%;
   margin: auto;
   margin-top: -1%;
-  margin-right: 51%;
+  margin-right: 20%;
 }
 .VED_Display label {
 font-family: 'Rubik';
@@ -438,7 +438,7 @@ color: #14335D;
   font-weight: 500;
   margin-top: 0%;
   padding-top: 0%;
-  margin-left: -14.5%;
+  margin-left: -24.5%;
   border: none;
   position: absolute;
 }

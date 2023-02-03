@@ -98,6 +98,7 @@ const Videoclass = () => {
               </div>)
             })}
           </div>
+          <br/>
           <PaginationCalculate totalPages={videodata.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
         </div>
         

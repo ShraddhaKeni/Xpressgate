@@ -313,6 +313,7 @@ color: #14335D;
   font-family: 'Rubik';
 font-style: normal;
 color: #14335D;
+text-align: left;
   }
   .anbackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");

@@ -10,7 +10,7 @@ html {
 }
 
 .MSLList {
-  color: #757575;
+  color: #000;
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 500;
@@ -18,7 +18,7 @@ html {
 }
 
 .Addmaintenancelink {
-  color: #000;
+  color: #757575;
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 500;
@@ -62,7 +62,7 @@ color: #14335D;
 }
 .EN_sideimg img {
   display: flex;
-  margin-top: 72%;
+  margin-top: 80%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;

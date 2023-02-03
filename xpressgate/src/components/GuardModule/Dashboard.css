@@ -302,7 +302,7 @@ color: #14335D;
     border-color: #0A8996;
     border-style: solid;
     /* margin: auto; */
-    margin-left: 17%;
+    margin-left: 23%;
     margin-top: 5%;
     font-size: 1.6rem;
     font-weight: 600;
@@ -338,8 +338,7 @@ color: #14335D;
     background-size: cover;
     position: relative;
     margin-top: 10.5%;
-    margin-left: 0%;
-    margin-right: -64%;
+   
   }
   .code {
     display: flex;

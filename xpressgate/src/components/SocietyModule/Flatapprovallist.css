@@ -402,8 +402,6 @@ color: #14335D;
   background-size: contain;
   position: relative;
   margin-top: 10.5%;
-  margin-left: 0%;
-  margin-right: -64%;
 }
 .frequentvisitordisplay {
   width: 150px;
@@ -426,7 +424,7 @@ color: #14335D;
   background-color: #fff;
   border: 2px solid #14335D;
   border-radius: 15px;
-  margin-left: 6%;
+  margin-left: 9%;
   height: auto;
 }
 .flatclass {

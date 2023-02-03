@@ -25,11 +25,11 @@ const Addmaintenanceschedule = () => {
           <label>Society Name</label>
         </div>
         <div class="maintenancelist">
-          <a href="/maintenancelist" class="MSLList">Maintenance Schedule List</a><br /><br />
-          <a href="/addmaintenanceschedule" class="Addmaintenancelink"><b>Add Maintenance Schedule</b></a>
+          <a href="/maintenancelist" class="AMSLList">Maintenance Schedule List</a><br /><br />
+          <a href="/addmaintenanceschedule" class="AAddmaintenancelink"><b>Add Maintenance Schedule</b></a>
         </div>
         <div className="AEN_sideimage">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addmaintenancebackgroundimg">
@@ -38,9 +38,9 @@ const Addmaintenanceschedule = () => {
             <label>Add Maintenance Schedule</label>
           </div>
           <Loader loading={loading}>
-          <Form className='formclass'>
+          <Form className='FormClass'>
             <div class="form-group  form-group5 row">
-              <label class="col-lg-2 col-form-label ADN_label">Item Type</label>
+              <label class="col-lg-3 col-form-label ADN_label">Item Type</label>
               <div class="col-lg-4">
                 <select class="form-control input-lg input-lg1 AEN_border" name="Type">
                   <option value={null} selected disabled>Select Type</option>
@@ -49,13 +49,13 @@ const Addmaintenanceschedule = () => {
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-lg-2 col-form-label ADN_label">Last Maintenance Date</label>
+              <label class="col-lg-3 col-form-label ADN_label">Last Maintenance Date</label>
               <div class="col-lg-4">
                 <input type="date" class="form-control input-lg SideB" id='lmd' name="First name" />
               </div>
             </div>
             <div class="form-group  form-group5 row">
-              <label class="col-lg-2 col-form-label ADN_label">Interval</label>
+              <label class="col-lg-3 col-form-label ADN_label">Interval</label>
               <div class="col-lg-4">
                 <select class="form-control input-lg input-lg1 AEN_border" name="Type">
                   <option value={null} selected disabled>Select Interval</option>
@@ -64,14 +64,14 @@ const Addmaintenanceschedule = () => {
               </div>
             </div>
             <div class="form-group form-group5 row">
-              <label class="col-lg-2 col-form-label ADN_label ">Enter number of reminder days</label>
+              <label class="col-lg-3 col-form-label ADN_label ">Enter number of reminder days</label>
               <div class="col-lg-4">
                 <input type="number" id="reminderdays" name="Phone Number" className="form-control input-lg input-lg1 AEN_border" placeholder="Enter number of reminder days"></input>
               </div>
             </div>
 
 
-            <button type="submit" className="AddButton"> Add Maintenance Schedule</button>
+            <button type="submit" className="AddMSButton"> Add Maintenance Schedule</button>
           </Form>
 
        </Loader>

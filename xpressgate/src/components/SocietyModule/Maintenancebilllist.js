@@ -25,11 +25,11 @@ const Maintenancebilllist = () => {
         </div>
 
         <div class="maintenancelist">
-          <a href="/maintenancebilllist" class="MSLList">Maintenance Bill List</a><br /><br />
-          <a href="/addmaintenancebill" class="Addmaintenancelink"><b>Add Maintenance Bill</b></a>
+          <a href="/maintenancebilllist" class="MSLList"><b>Maintenance Bill List</b></a><br /><br />
+          <a href="/addmaintenancebill" class="Addmaintenancelink">Add Maintenance Bill</a>
         </div>
         <div className="EN_sideimg">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
@@ -37,19 +37,29 @@ const Maintenancebilllist = () => {
         <div className="EN_display">
           <label>Maintenance Bill List</label>
         </div>
+        <br/>
         <Loader loading={loading}>
-          <div >
+        <div className='vendorpayment_search'>
+                <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+                  <input placeholder='Search'></input></span>
+            </div>
+          <div className="AddSDBlock">
+            <button type="button" className="SDAddBTN" onClick={() => {
+              window.location.href = "/addmaintenancebill";
+            }}>&#10011;  Add Maintenance Bill</button>
+          </div>
+          {/* <div >
             <button type="button" className="EN_Add" onClick={() => {
               window.location.href = "/addmaintenancebill";
             }}>&#10011; Add Maintenance Bill</button>
 
-          </div>
-          <div className="row">
+          </div> */}
+          {/* <div className="row">
             <div className='EMMsearchbox'>
               <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
                 <input placeholder='Search' ></input></span>
             </div>
-          </div>
+          </div> */}
           <table
             id="inoutbooktable"
             class="table table-striped table-bordered table-sm "

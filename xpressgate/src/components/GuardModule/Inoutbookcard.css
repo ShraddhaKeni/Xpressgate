@@ -24,7 +24,7 @@ html {
 }
 
 
-.iobcbackgroundimg {
+.Iobcbackgroundimg {
   background-image: url("../../../public/images/dashboardbackground.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -266,7 +266,7 @@ font-weight: 500;
     height: auto;
     margin-left: 2%;
   }
-  .iobcbackgroundimg {
+  .Iobcbackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -338,26 +338,24 @@ color: #14335D;
     margin-left: 0%;
     margin-right: -64%;
   }
-  .iobcbackgroundimg {
+  .Iobcbackgroundimg {
    
-    background-image: url(http://localhost:3000/static/media/dashboardbackground.304b459….svg);
+    background-image: none;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     position: relative;
     margin-top: 10.5%;
-    margin-left: 0%;
-    margin-right: -64%;
   }
   .IOBC_display {
     width: 15rem;
     height: 5rem;
     background-color: #AED8DC;
     border-radius: 14px;
-    padding-top: 2.5%;
+    padding-top: 4.5%;
     margin: auto;
     margin-top: -1%;
-    margin-right: 51%;
+    margin-right: 21%;
 }
 .IOBC_display label {
   font-family: 'Rubik';
@@ -373,7 +371,7 @@ color: #14335D;
   background-color: #fff;
   border: 2px solid #14335D;
   border-radius: 15px;
-  margin-left: 6%;
+  margin-left: 9%;
   height: auto;
 }
 

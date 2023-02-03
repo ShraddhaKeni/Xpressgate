@@ -9,31 +9,6 @@ html {
 
 }
 
-.MSLList {
-  color: #757575;
-  font-family: 'Rubik';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 1.1vw;
-}
-
-.Addmaintenancelink {
-  color: #000;
-  font-family: 'Rubik';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 1.1vw;
-}
-
-.MSLList:hover {
-  color: #000000;
-  text-decoration: none;
-}
-
-.Addmaintenancelink:hover {
-  color: #000000;
-  text-decoration: none;
-}
 
 .EN_societyname label {
   font-family: 'Rubik';
@@ -59,14 +34,6 @@ color: #14335D;
   width: 25%;
   height: 70%;
   margin-top: 5%;
-}
-.EN_sideimg img {
-  display: flex;
-  margin-top: 72%;
-  max-width: 90%;
-  height: auto;
-  margin-left: 8%;
-  margin-bottom: 3%;  
 }
 
 .EMMsearchbox{

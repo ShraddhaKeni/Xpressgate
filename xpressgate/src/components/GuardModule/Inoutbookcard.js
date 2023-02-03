@@ -122,7 +122,7 @@ const Inoutbookcard = () => {
         </div>
         <div className='IOBC_SImg'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
-      <div className='iobcbackgroundimg'>
+      <div className='Iobcbackgroundimg'>
       <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <div className= "IOBC_display">
           <label>In-Out Book</label>
