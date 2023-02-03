@@ -140,7 +140,7 @@ html {
 
 .afsideimage img {
   display: flex;
-  margin-top: 56%;
+  margin-top: 76%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -341,14 +341,26 @@ border-radius: 8px;
     display: none;
   }
 
-  #afsociety {
-    display: none;
+  #afsociety label{
+    margin-top: 30%;
+    margin-left: 53%;
+    width: 8rem;
+    height: 3rem;
+    background-color: black;
+    color: #fff;
+    border-radius: 10px;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5rem;
+    padding: 5%;
   }
   #aflogo img {
-    margin-top: 9%;
-    margin-left: -38%;
-    margin-bottom: 3%;
-    width: 5vw;
+    margin-top: 20%;
+    margin-left: 78%;
+    margin-bottom: 0%;
+    width: 5rem;
+    height: auto;
 }
 
   .afbackgroundimg {
@@ -388,5 +400,16 @@ border-radius: 8px;
   margin-left: 42%;
   width: 170%;
 }
-
+#afnotification img{
+  margin-top: 110%;
+    width: 2.5rem;
+    height: auto;
+    margin-left: -120%;
+}
+#afsetting img{
+  margin-top: 110%;
+  margin-left: -110%;
+  width: 2.5rem;
+  height: auto;
+}
 }

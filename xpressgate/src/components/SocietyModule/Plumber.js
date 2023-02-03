@@ -149,7 +149,7 @@ return <ErrorScreen/>
           {/* <a href="abcd" class="Notice">Electrician</a> */}
         </div>
         <div className="P_sideimage">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">

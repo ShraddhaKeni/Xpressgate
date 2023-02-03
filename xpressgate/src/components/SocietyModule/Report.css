@@ -16,13 +16,13 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
+/* 
 .code {
   display: flex;
   gap: 16px;
   justify-content: center;
   align-items: center;
-}
+} */
 
 /* .dashboard_passcode {
   position: relative;
@@ -275,7 +275,7 @@ input::-webkit-inner-spin-button {
   margin-top: 10%;
 }
 
-.enterpasscodesearch {
+/* .enterpasscodesearch {
   width: 25%;
   height: 10%;
   background-color: #CFDBEB;
@@ -293,7 +293,7 @@ input::-webkit-inner-spin-button {
   margin-left: 105%;
   margin-top: -8%;
 }
-
+ */
 
 
 .srfullcardscss {

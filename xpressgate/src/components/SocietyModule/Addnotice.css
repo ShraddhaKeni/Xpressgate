@@ -127,7 +127,7 @@ color: #14335D;
 
 .ansideimage img {
   display: flex;
-  margin-top: 68%;
+  margin-top: 89%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -308,7 +308,13 @@ color: #14335D;
     margin-bottom: 5%;
     width: 140%;
   }
-
+  .ADN_label {
+    font-size: 1.5rem;
+  font-family: 'Rubik';
+font-style: normal;
+color: #14335D;
+text-align: left;
+  }
   .anbackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;

@@ -24,14 +24,14 @@ html {
 }
 
 
-.fvbackgroundimg {
+/* .fvbackgroundimg {
   background-image: url("../../../public/images/dashboardbackground.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   position: relative;
   margin-top: 0.5%;
-}
+} */
 
 .firstheadersection {
   display: grid;
@@ -284,7 +284,7 @@ html {
     width: 100%;
     height: auto;
   }
-
+/* 
   .fvbackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;
@@ -292,7 +292,7 @@ html {
     background-size: contain;
     position: relative;
     margin-top: 12.5%;
-  }
+  } */
 
   .labelsize {
     font-size: 12px;

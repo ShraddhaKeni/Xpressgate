@@ -72,14 +72,14 @@ color: #000000;
 
 }
 
-.dashboardbackgroundimg {
+/* .dashboardbackgroundimg {
   background-image: url("../../../public/images/dashboardbackground.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   position: relative;
   margin-top: 0.5%;
-}
+} */
 
 
 .sdashdisplay {
@@ -156,7 +156,7 @@ color: #14335D;
 
 .sdsideimage img {
   display: flex;
-  margin-top: 84%;
+  margin-top: 99%;
   max-width: 90%;
   height: auto;
   margin-left: 9%;
@@ -271,13 +271,15 @@ color: #14335D;
     border: none;
   }
 
-  .dashboardbackgroundimg {
+  /* .dashboardbackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     position: relative;
     margin-top: 10.5%;
-  }
+    margin-left: 0%;
+    margin-right: -64%;
+  } */
 
 }

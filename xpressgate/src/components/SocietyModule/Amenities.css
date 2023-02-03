@@ -151,7 +151,7 @@ color: #14335D;
 
 .AMSideIMG img {
   display: flex;
-  margin-top: 99%;
+  margin-top: 119%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -360,15 +360,15 @@ color: #14335D;
     margin-bottom: 5%;
     width: 114%;
   }
-
+/* 
   .code {
     display: flex;
     gap: 6px;
     justify-content: center;
     align-items: center;
-  }
+  } */
 
-  .enterpasscodesearch {
+  /* .enterpasscodesearch {
     width: 58%;
     height: 10%;
     background-color: #CFDBEB;
@@ -380,7 +380,7 @@ color: #14335D;
     font-size: 20px;
     font-weight: 600;
     color: #0A8996;
-  }
+  } */
 
   .dashboardcard {
     width: -moz-fit-content;
@@ -390,14 +390,14 @@ color: #14335D;
     border: none;
   }
 
-  .dashboardbackgroundimg {
+  /* .dashboardbackgroundimg {
     background-image: url("../../../public/images/dashboardbackground.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     position: relative;
     margin-top: 10.5%;
-  }
+  } */
 
   .amntsdisplay {
     width: 170px;

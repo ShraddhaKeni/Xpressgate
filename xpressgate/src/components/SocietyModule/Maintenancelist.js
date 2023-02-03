@@ -25,11 +25,11 @@ const Maintenancelist = () => {
         </div>
 
         <div class="maintenancelist">
-          <a href="/maintenancelist" class="MSLList">Maintenance Schedule List</a><br /><br />
-          <a href="/addmaintenanceschedule" class="Addmaintenancelink"><b>Add Maintenance Schedule</b></a>
+          <a href="/maintenancelist" class="MSLList"><b>Maintenance Schedule List</b></a><br /><br />
+          <a href="/addmaintenanceschedule" class="Addmaintenancelink">Add Maintenance Schedule</a>
         </div>
         <div className="EN_sideimg">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
@@ -37,8 +37,18 @@ const Maintenancelist = () => {
         <div className="EN_display">
           <label>Maintenance List</label>
         </div>
+        <br/>
         <Loader loading={loading}>
-          <div >
+        <div className='vendorpayment_search'>
+                <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+                  <input placeholder='Search'></input></span>
+            </div>
+          <div className="AddSDBlock">
+            <button type="button" className="SDAddBTN" onClick={() => {
+              window.location.href = "/addmaintenanceschedule";
+            }}>&#10011;  Add Maintenance</button>
+          </div>
+          {/* <div >
             <button type="button" className="EN_Add" onClick={() => {
               window.location.href = "/addmaintenanceschedule";
             }}>&#10011; Add Maintenance</button>
@@ -49,7 +59,7 @@ const Maintenancelist = () => {
               <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
                 <input placeholder='Search' ></input></span>
             </div>
-          </div>
+          </div> */}
           <table
             id="inoutbooktable"
             class="table table-striped table-bordered table-sm "

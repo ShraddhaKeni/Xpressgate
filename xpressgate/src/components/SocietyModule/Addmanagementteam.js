@@ -175,7 +175,7 @@ const Addmanagementteam = () => {
           <a href="/addManagement" class="Amm_Link"><b>{type=='edit'?'Update':'Add'} Management Member</b></a>
         </div>
         <div className="AMTSideIMG">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">

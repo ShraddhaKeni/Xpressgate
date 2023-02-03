@@ -52,11 +52,11 @@ const Addmaintenancebill = () => {
           <label>Society Name</label>
         </div>
         <div class="maintenancelist">
-          <a href="/maintenancebilllist" class="MSLList">Maintenance Bill List</a><br /><br />
-          <a href="/addmaintenancebill" class="Addmaintenancelink"><b>Add Maintenance Bill</b></a>
+          <a href="/maintenancebilllist" class="AMSLList">Maintenance Bill List</a><br /><br />
+          <a href="/addmaintenancebill" class="AAddmaintenancelink"><b>Add Maintenance Bill</b></a>
         </div>
         <div className="AEN_sideimage">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addmaintenancebackgroundimg">

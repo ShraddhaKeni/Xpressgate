@@ -91,7 +91,7 @@ const Viewparking = () => {
           <a href='/addvehicle' className='apssec'>Assign Parking Section</a>
         </div>
         <div className="viewparking_sideimg">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
