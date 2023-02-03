@@ -23,7 +23,7 @@ const UtilityPaymentTable = () => {
         </div>
         <br/>
         <div className="UPT_sideimage">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
@@ -32,6 +32,10 @@ const UtilityPaymentTable = () => {
         </div>
         <br/>
         <Loader loading={loading}>
+        <div className='vendorpayment_search'>
+                <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+                  <input placeholder='Search'></input></span>
+            </div>
           <div className="AddVPBlock">
               <button type="button" className="UPAddBTN"  onClick={() => {
                   window.location.href = "/utilitypayment";

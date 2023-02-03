@@ -42,16 +42,6 @@ html {
 
 }
 
-.addguestbackgroundimg {
-  /* background-image: url("../../../public/images/dashboardbackground.svg"); */
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  position: relative;
-  margin-top: 0.5%;
-}
-
-
 .guardname5 {
   display: flex;
   width: 14vw;

@@ -13,9 +13,9 @@ const GuestManagementcard = () => {
       <div id="guestnamesection">
         <div className='guest_GName'>
           <img src="/images/societyicon.svg" alt="guard name" />
-          <label></label>
+          <label>Society Name</label>
         </div>
-        <div className='guest_SImg'><img src="/images/communitysideimg.svg" alt="dashboard sideimage" /></div>
+        <div className='guest_SImg'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='iobcbackgroundimg'>
         <div className= "guest_display">

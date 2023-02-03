@@ -88,7 +88,7 @@ const Emergency = () => {
           <a href="/addemergency" class="AENNotice">Add Emergency Number</a>
         </div>
         <div className="EN_sideimg">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">

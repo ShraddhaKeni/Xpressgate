@@ -29,7 +29,7 @@ const SocReport = () => {
           <a href="/socreports" className="Reportsidelink">Reports</a>
         </div>
         <div className="SOC_Report_sideImg">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">

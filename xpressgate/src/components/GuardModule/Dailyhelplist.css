@@ -198,7 +198,7 @@ font-weight: 500;
   font-size: 1vw;
 font-style: normal;
 font-weight: 400;
-margin-top: -5%;
+margin-top: 7%;
 }
 
 .dhcard-img-top {
@@ -346,7 +346,7 @@ color: #14335D;
   }
 
 }
-
+/* 
 @media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
 
   #dhlguardnamesection {
@@ -423,5 +423,83 @@ color: #14335D;
     padding-left: 0%;
     padding-right: 34%;
 }
-}
+} */
 
+@media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
+
+  #dhlguardnamesection {
+    display: none;
+  }
+
+  #dhldashboardguard {
+    display: none;
+  }
+  .DHL_display {
+    width: 15rem;
+    height: 5rem;
+    background-color: #AED8DC;
+    border-radius: 14px;
+    padding-top: 3.5%;
+    margin: auto;
+    margin-top: -2%;
+    margin-right: 24%;
+}
+.DHL_display label {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #14335D;
+}
+.dhlbackgroundimg {
+  background-image: url(http://localhost:3000/static/media/dashboardbackground.304b459….svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  margin-top: 10.5%;
+}
+.dailyhelpminicard {
+  margin-left: 32%;
+  margin-bottom: 3%;
+  border: none;
+  background-color: #0A8996;
+  width: 14rem;
+  height: 13rem;
+  border-radius: 20px;
+}
+.dhcard-img-top {
+  width: 5rem;
+  height: 5rem;
+  margin-top: -22%;
+  border-radius: 100px;
+  margin-bottom: 2%;
+  transition: .2s all ease-in-out;
+}
+.dhlcard-titlename {
+  font-size: 1.2rem;
+  font-family: 'Rubik', sans-serif;
+  color: #fff;
+  font-style: normal;
+  font-weight: 500;
+}
+.dhlcard-profession {
+  width: 7rem;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: #AED8DC;
+  border-radius: 8px;
+  margin: auto;
+  font-family: 'Rubik', sans-serif;
+  color: #14335D;
+}
+.dhcard-allowedhouses {
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 400;
+  margin-top: 2%;
+}
+}

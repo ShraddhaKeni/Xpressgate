@@ -161,7 +161,7 @@ const Addemergencyno = () => {
           <a href="/addemergency" class="AAENNotice"><b>{update == 'update' ? 'Update' : 'Add'} Emergency Number</b></a>
         </div>
         <div className="AEN_sideimage">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">

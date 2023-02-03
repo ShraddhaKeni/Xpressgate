@@ -162,7 +162,7 @@ color: #14335D;
 }
 .ALASimage img {
   display: flex;
-  margin-top: 103%;
+  margin-top: 123%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -414,5 +414,11 @@ color: #14335D;
   margin-top: -22%;
   padding-top: 0%;
   margin-left: 40%;
+}
+.allowedclass {
+  font-size: 1.8rem;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
 }
 }

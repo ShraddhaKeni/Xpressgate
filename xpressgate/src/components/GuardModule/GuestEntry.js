@@ -132,6 +132,18 @@ const GuestEntry = () => {
             <div><label className='outtime'>Out-Time: </label></div> */}
             <div><label className='noofpeople'>No of People: {guestDetails.numberOfGuest}</label></div>
             <div><label className='vehicleno'>Vehicle No: <input ref={vehical} id='veh_id' type='text'></input></label></div>
+            
+              <label for="parkingsection" className='ParkingSec'>Parking Section: </label><br/>
+              <select id="parkingsection" className='selectInput'>
+                <option></option>
+              </select>
+           
+              <label for="parkingtime" className='ParkingSec'>Parking Time: </label><br/>
+              <select id="parkingtime" className='selectInput'>
+                <option></option>
+              </select>
+           
+           
           </div>
           <br></br>
           <button type="button" onClick={()=>{handleSubmit()}} className="BTN_Approve">APPROVE</button>

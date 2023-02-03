@@ -82,7 +82,7 @@ html {
 
 .AEN_sideimage img {
   display: flex;
-  margin-top: 69%;
+  margin-top: 79%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -93,7 +93,7 @@ html {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  width: 300px;
+  width: 260px;
   height: 6vh;
   font-size: 1.1vw;
   font-weight: 700;
@@ -116,7 +116,7 @@ html {
   border-radius: 8px;
 }
 
-.MSLList {
+.AMSLList {
   color: #757575;
   font-family: 'Rubik';
   font-style: normal;
@@ -124,7 +124,7 @@ html {
   font-size: 1.1vw;
 }
 
-.Addmaintenancelink {
+.AAddmaintenancelink {
   color: #000;
   font-family: 'Rubik';
   font-style: normal;
@@ -132,12 +132,12 @@ html {
   font-size: 1.1vw;
 }
 
-.MSLList:hover {
+.AMSLList:hover {
   color: #000000;
   text-decoration: none;
 }
 
-.Addmaintenancelink:hover {
+.AAddmaintenancelink:hover {
   color: #000000;
   text-decoration: none;
 }

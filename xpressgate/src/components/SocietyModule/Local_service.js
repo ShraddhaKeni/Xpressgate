@@ -49,7 +49,7 @@ const Local_service = () => {
           <a className='alssidelinks' href="/addlocalservice">Add Local Services</a>
         </div>
         <div className="LS_sideimage">
-          <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">

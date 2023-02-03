@@ -82,7 +82,7 @@ html {
 
 .AEN_sideimage img {
   display: flex;
-  margin-top: 69%;
+  margin-top: 79%;
   max-width: 90%;
   height: auto;
   margin-left: 8%;
@@ -93,7 +93,7 @@ html {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  width: 300px;
+  width: 200px;
   height: 6vh;
   font-size: 1.1vw;
   font-weight: 700;
@@ -116,31 +116,7 @@ html {
   border-radius: 8px;
 }
 
-.MSLList {
-  color: #757575;
-  font-family: 'Rubik';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 1.1vw;
-}
 
-.Addmaintenancelink {
-  color: #000;
-  font-family: 'Rubik';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 1.1vw;
-}
-
-.MSLList:hover {
-  color: #000000;
-  text-decoration: none;
-}
-
-.Addmaintenancelink:hover {
-  color: #000000;
-  text-decoration: none;
-}
 
 /* Media query for laptop */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {

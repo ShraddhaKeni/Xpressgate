@@ -125,3 +125,43 @@ font-weight: 500;
   }
   
 }
+@media only screen and (min-device-width : 320px) and (max-device-width : 425px) {
+  #sdashboardguard label {
+    margin-top: 30%;
+    margin-left: 53%;
+    width: 8rem;
+    height: 3rem;
+    background-color: black;
+    color: #fff;
+    border-radius: 10px;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5rem;
+    padding: 5%;
+}
+#sdashboardlogo img {
+  margin-top: 20%;
+  margin-left: 78%;
+  margin-bottom: 0%;
+  width: 5rem;
+  height: auto;
+}
+#sdashboardnotification img {
+  margin-top: 110%;
+  width: 2.5rem;
+  height: auto;
+  margin-left: -120%;
+}
+#sdashboardsetting img {
+  margin-top: 110%;
+  margin-left: -110%;
+  width: 2.5rem;
+  height: auto;
+}
+
+
+
+
+
+}
