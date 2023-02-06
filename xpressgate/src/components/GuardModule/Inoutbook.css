@@ -180,7 +180,7 @@ font-weight: 500;
 #inoutbooktable {
   margin-Left: 10%;
   margin-Top: 2%;
-  max-Width: 75%;
+  Width: 75%;
   background-color: #F9FAFF;
   border-radius: 14px 14px 14px 14px;
   border-collapse: separate;
@@ -262,4 +262,10 @@ color: #14335D;
     height: 5vh;
     padding: 0.5%;
 }
+}
+
+@media only screen  and (min-device-width : 320px) and (max-device-width : 425px) {
+
+ 
+
 }

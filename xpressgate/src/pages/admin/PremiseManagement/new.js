@@ -106,7 +106,7 @@ const AddPremise = () => {
                 </div>
                 <div>
 
-                    <Form className='formclass fcadmin'>
+                    <Form className='fcadmin'>
 
                         <SimpleInputComponent label={'Premises Name'} placeholder={'Enter Premise Name'} name={'premises_name'} id={'premises'} onChange={(e) => { setPremise({ ...premise, name: e.target.value }) }} />
                         <SimpleInputComponent label={'Number of Blocks'} placeholder={'Enter Number of Blocks'} type={'number'} name={'number_block'} id={'block'} onChange={(e) => { setPremise({ ...premise, noofblocks: parseInt(e.target.value) }) }} />

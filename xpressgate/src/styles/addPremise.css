@@ -233,16 +233,6 @@ background-color: #14335D;
   color: #fff;
   border-radius: 0 50% 0 50%;
 }
-#inoutbooktable {
-  margin-Left: 10%;
-  margin-Top: 2%;
-  max-Width: 75%;
-  background-color: #F9FAFF;
- 
-  border-radius: 14px;
-  border-collapse: separate;
-  font-family: 'Rubik', sans-serif;
-}
 
 #inoutbooktable thead {
   background-color: #14335D;
@@ -576,7 +566,8 @@ td {
 
     
 .fcadmin {
-  margin-left: 12vh;
-  margin-right: 20vh;
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 20%;
 }
 

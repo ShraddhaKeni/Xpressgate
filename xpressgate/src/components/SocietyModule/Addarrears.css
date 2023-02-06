@@ -46,7 +46,10 @@ html {
   margin-right: 15%;
 
 }
-
+.AAformclass {
+  margin-top: 5%;
+  margin-left: 15%;
+}
 .AEN_societyname label {
   font-family: 'Rubik';
   font-style: normal;
@@ -76,7 +79,7 @@ html {
 }
 
 .form-group5 {
-  margin-bottom: 3.5%;
+  margin-bottom: 1.5%;
 }
 
 
@@ -98,7 +101,7 @@ html {
   font-size: 1.1vw;
   font-weight: 700;
   margin-top: 3%;
-  margin-right: 34%;
+  margin-right: 17%;
   padding-top: 0.5%;
   font-family: 'Rubik';
   font-style: normal;
@@ -159,7 +162,7 @@ html {
     font-size: 1.2vw;
     font-weight: 700;
     margin-top: 4%;
-    margin-right: 32%;
+    margin-right: 15%;
     padding-top: 1%;
     font-family: 'Rubik';
     font-style: normal;

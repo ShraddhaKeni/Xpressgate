@@ -61,7 +61,7 @@ const EditSMSGateway = () => {
                 </div>
                 <div>
 
-                    <Form className='formclass fcadmin'>
+                    <Form className='fcadmin'>
 
                         <SimpleInputComponent label={'SMS Gateway Name'} placeholder={'Enter SMS Gateway Name'} name={'payment_gateway_name'} id={'premises'} text={smsgateway?.gateway_name} onChange={(e) => { setPaymentGateway({ ...smsgateway, gateway_name: e.target.value }) }} />
                         <SimpleInputComponent label={'API Key'} placeholder={'Enter API Key'} name={'payment_api_key'} id={'address'} text={smsgateway?.api_key} onChange={(e) => { setPaymentGateway({ ...smsgateway, api_key: e.target.value }) }} required />
