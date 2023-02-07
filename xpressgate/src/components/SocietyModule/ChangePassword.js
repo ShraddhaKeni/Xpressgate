@@ -224,13 +224,13 @@ const ChangePassword = () => {
                 </li>
               </ul>  
             </div>
-            <Button
+            <button
               type="submit"
               onClick={(e) => handleSubmit(e)}
               className="btnUpdatecp"
             >
               Update
-            </Button>
+            </button>
           </Form>
         </Loader>
       </div>

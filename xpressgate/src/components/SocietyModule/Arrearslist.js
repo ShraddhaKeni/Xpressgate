@@ -13,6 +13,58 @@ import { ButtonBase, Icon, IconButton } from '@mui/material';
 
 const Arrearslist = () => {
   const [loading, setLoading] = useState(false)
+  const [arrears, setArrears] = useState([])
+  const [currentPage, setCurrentpage] = useState(1)
+  const [postPerPage, setPostPerPage] = useState(12)
+  const [currentPosts, setCurrentPosts] = useState([])
+  const [pageCount, setpageCount] = useState(0)
+  const [isError,setError] = useState(false)
+  const [toast, setToast] = useState({ show: false })
+  const navigate = useNavigate();
+  useEffect(()=>{
+    getArrears()
+  },[])
+
+  const getArrears = async () => {
+    try {
+      const { data } = await axios.get(`${window.env_var}api/arrears/getall`) 
+      setArrears(data.data.arrears)
+      const indexoflast = currentPage * postPerPage  //endoffset
+      const indexoffirst = indexoflast - postPerPage //startoffset
+      setCurrentPosts(data.data.arrears.slice(indexoffirst, indexoflast))
+      setLoading(false);
+      setError(false)
+    } catch (error) {
+      setLoading(false);
+      setError(true)
+    }
+  }
+
+  async function paginate(event) {
+    const { data } = await axios.get(`${window.env_var}api/arrears/getall`) //will update with localstorage
+    setCurrentpage(event.selected + 1)
+    const indexoflast = (event.selected + 1) * postPerPage  //endoffset
+    const indexoffirst = (indexoflast - postPerPage) //startoffset
+    setCurrentPosts(data.data.arrears.slice(indexoffirst, indexoflast))
+  }
+
+  const handleEditLink = (items) => {
+    navigate('/addarrears', { state: { id: items._id, type: 'edit' } })
+  }
+
+  const handleDeleteLink = async (link) => {
+
+    try {
+      const { data } = await axios.get(`${window.env_var}api/arrears/remove/${link._id}`)
+      setToast({ show: true, message: "Team Member Deleted Successfully", type: "error" })
+      setTimeout(() => {
+        window.location.reload()
+      }, 2000)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 
   return (
     <div className="addguestcontainer4">
@@ -77,32 +129,34 @@ const Arrearslist = () => {
               </tr>
             </thead>
             <tbody>
+            {currentPosts.map((item, index) => {
+                return (
               <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{item.block_name}</td>
+                <td>{item.flat_name}</td>
+                <td>{item.invoice_number}</td>
+                <td>{item.arrears}</td>
                 <td>
                   <div>
-                    <IconButton>
+                    <IconButton onClick={() => { handleEditLink(item) }}>
                       <img src="/images/icon_edit.svg" />
                     </IconButton>
 
-                    <IconButton>
+                    <IconButton onClick={() => handleDeleteLink(item)}>
                       <img src="/images/icon_delete.svg" />
                     </IconButton>
 
                   </div>
                 </td>
               </tr>
-
+              )
+            })}
 
 
 
             </tbody>
           </table>
-          {/* <div className="App">
-      {data} */}
+          <PaginationCalculate totalPages={arrears.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
         </Loader>
       </div>
     </div>

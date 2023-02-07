@@ -183,18 +183,29 @@ border: none;
     display: none;
   }
 
-  .signin {
-    width: 270px;
-    height: 76px;
-    background-color: #14335D;
-    margin-left: 28%;
-    margin-top: 6%;
-    font-size: 36px;
-  }
 
   #OTPlogoid img {
-    margin-top: 10%;
-    margin-left: 36%;
+    width: 50%;
+    height: auto;
+    margin-top: 17%;
+    margin-left: 49%;
+}
+.OTP{
+  width: 68vw;
+  height: 5vh;
+  background-color: #14335D;
+  margin-left: 24%;
+  margin-top: 10%;
+  margin-bottom: 84%;
+  padding: 0%;
+}
+.OTPLabel{
+  display: inline-block;
+  margin: 2.5%;
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
 }
 /* 
 .input_fields {
@@ -206,28 +217,33 @@ border: none;
 
 .OTPemail {
   position: relative;
-  right: 37%;
   font-family: 'Rubik', sans-serif;
-  font-size: 15px;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 500;
+  color: #14335D;
+  margin-top: 0%;
+  margin-left: -65%;
+}
+.OTPemailtextbox{
+  width: 100%;
+  height: auto;
+  margin-left: 0%;
+  margin-top: 0%;
 }
 
-.password {
-  position: relative;
-  right: 37%;
-  font-family: 'Rubik', sans-serif;
-  font-size: 15px;
-}
 
 .BTNSendOtp {
   background-color: #0A8996;
   color: #fff;
-  border-radius: 14px;
-  width: 200px;
-  height: 60px;
-  font-size: 151%;
+  border-radius: 10px;
+  width: 14rem;
+  height: 3.5rem;
   font-weight: 500;
   margin-top: 4%;
-  padding-bottom: 4%;
+  padding-bottom: 0%;
+  margin-left: 0%;
+  font-size: 1.5rem;
 }
 }
 
