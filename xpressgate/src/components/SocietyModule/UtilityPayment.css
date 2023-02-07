@@ -59,7 +59,8 @@ html {
       }
 .Payment_form{
     max-width: 100%;
-    margin-top: 3%;
+    margin-top: 5%;
+    margin-bottom: -3%;
 }
 .UtilityTypesdetails{
   margin-right: 5.8%;
@@ -127,7 +128,7 @@ font-weight: 700;
     background: #0A8996;
     border: none;
     color: #FFFFFF;
-    margin-top: 5%;
+    margin-top: 6%;
     font-family: 'Rubik';
     font-style: normal;
  margin-right: 1%;

@@ -14,16 +14,10 @@ import { goBackInOneSec, TOAST } from '../../../../common/utils';
 const AddPaymentGateway = () => {
 
     const [paymentgateway, setPaymentGateway] = useState({
-        name: '',
-        type: '',
-        noofblocks: parseInt(0),
-        address: '',
-        landmark: '',
-        state: '',
-        city: '',
-        pincode: '',
-        status: true
+        payment_gateway_name: '',
+        payment_api_key: ''
     })
+
     const [toast, setToast] = useState({ show: false })
 
     const navigate = useNavigate()
@@ -44,7 +38,7 @@ const AddPaymentGateway = () => {
 
             }
             else {
-                setToast(TOAST.ERROR("Fields Empty!"));
+                setToast(TOAST.ERROR("Please fill all the details!"));
             }
 
         } catch (error) {
@@ -65,10 +59,10 @@ const AddPaymentGateway = () => {
                 </div>
                 <div>
 
-                    <Form className='formclass fcadmin'>
+                    <Form className='fcadmin'>
 
-                        <SimpleInputComponent label={'Payment Gateway Name'} placeholder={'Enter Payment Gateway Name'} name={'payment_gateway_name'} id={'premises'} onChange={(e) => { setPaymentGateway({ ...paymentgateway, payment_gateway_name: e.target.value }) }} />
-                        <SimpleInputComponent label={'API Key'} placeholder={'Enter API Key'} name={'payment_api_key'} id={'address'} onChange={(e) => { setPaymentGateway({ ...paymentgateway, payment_api_key: e.target.value }) }} />
+                        <SimpleInputComponent label={'Payment Gateway Name'} placeholder={'Enter Payment Gateway Name'} name={'payment_gateway_name'} id={'premises'} onChange={(e) => { setPaymentGateway({ ...paymentgateway, payment_gateway_name: e.target.value }) }} required />
+                        <SimpleInputComponent label={'API Key'} placeholder={'Enter API Key'} name={'payment_api_key'} id={'address'} onChange={(e) => { setPaymentGateway({ ...paymentgateway, payment_api_key: e.target.value }) }} required />
                         <button type="submit" onClick={(e) => handleSubmit(e)} className="BTN_ADD_premise ">Create</button>
 
                     </Form>

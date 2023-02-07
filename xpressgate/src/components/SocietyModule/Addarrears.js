@@ -213,9 +213,9 @@ const Addarrears = () => {
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
-        <div class="maintenancelist">
+        <div class="arrearslist">
           <a href="/arrearslist" class="AMSLList">Arrears List</a><br /><br />
-          <a href="/addarrears" class="AAddmaintenancelink"><b>Add Arrears</b></a>
+          <a href="/addarrears" class="AAddmaintenancelink"><b>{type == 'edit' ? 'Update Arrears' : 'Add Arrears'}</b></a>
         </div>
         <div className="AEN_sideimage">
           <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
@@ -224,13 +224,13 @@ const Addarrears = () => {
       <div className="addmaintenancebackgroundimg">
       <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <div className="AEN_display">
-          <label>Add Arrears</label>
+          <label>{type == 'edit' ? 'Update Arrears' : 'Add Arrears'}</label>
         </div>
 
         <Loader loading={loading}>
-          <Form className='formclass'>
+          <Form className='FormClass'>
             <div class="form-group  form-group5 row">
-              <label class="col-lg-2 col-form-label ADN_label">Block</label>
+              <label class="col-lg-3 col-form-label ADN_label">Block</label>
               <div class="col-lg-4">
                 <select class="form-control input-lg input-lg1 AEN_border" id="blockid" onChange={(e) => { getFlats(e) }}>
                   <option value={null} selected disabled>Select Block</option>
@@ -243,7 +243,7 @@ const Addarrears = () => {
               </div>
             </div>
             <div class="form-group  form-group5 row">
-              <label class="col-lg-2 col-form-label ADN_label">Flat</label>
+              <label class="col-lg-3 col-form-label ADN_label">Flat</label>
               <div class="col-lg-4">
                 <select class="form-control input-lg input-lg1 AEN_border" id="flatid" type="text" onChange={(e) => { getResidentname(e) }}>
                   <option value={null} selected disabled>Select Flat</option>
@@ -256,7 +256,7 @@ const Addarrears = () => {
               </div>
             </div>
             <div class="form-group  form-group5 row">
-              <label class="col-lg-2 col-form-label ADN_label">Resident Name</label>
+              <label class="col-lg-3 col-form-label ADN_label">Resident Name</label>
               <div class="col-lg-4">
                 <select class="form-control input-lg input-lg1 AEN_border" id="residentid" type="text" onChange={(e) => { getInvoicenumber(e) }}>
                   <option value={null} selected disabled>Select Resident</option>
@@ -268,7 +268,7 @@ const Addarrears = () => {
             </div>
 
             <div class="form-group  form-group5 row">
-              <label class="col-lg-2 col-form-label ADN_label">Invoice Number</label>
+              <label class="col-lg-3 col-form-label ADN_label">Invoice Number</label>
               <div class="col-lg-4">
                 <select class="form-control input-lg input-lg1 AEN_border" id="invoiceid" type="text">
                   <option value={null} selected disabled>Select Invoice Number</option>
@@ -279,14 +279,14 @@ const Addarrears = () => {
               </div>
             </div>
             <div class="form-group form-group5 row">
-              <label class="col-lg-2 col-form-label ADN_label ">Arrears Amount</label>
+              <label class="col-lg-3 col-form-label ADN_label ">Arrears Amount</label>
               <div class="col-lg-4">
                 <input type="text" id="arrearsamt" name="arrearsamount" className="form-control input-lg input-lg1 AEN_border" placeholder="Enter Arrears" defaultValue={editarrearsdata.arrears ? editarrearsdata.arrears : ''}></input>
               </div>
             </div>
 
 
-            <button type="submit" className="AddaddarrearsButton" onClick={(e) => handleclick(e)}> Add Arrears</button>
+            <button type="submit" className="AddaddarrearsButton" onClick={(e) => handleclick(e)}>{type == 'edit' ? 'Update Arrears' : 'Add Arrears'}</button>
           </Form>
         </Loader>
 

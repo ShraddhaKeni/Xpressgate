@@ -64,13 +64,13 @@ const Newpassword = () => {
       </div>
       <div id="nploginformid">
         <Form>
-          <div className='npinput_fields'>
-            <div className='npemail_input'>
+          <div className='input_fields'>
+            <div className='email_input'>
               <label className='NPNewPassword'>New password</label>
               <input type="text" className="form-control NEWPemailtextbox" id="newpassword" placeholder='New Password' ></input>
             </div>
             <br></br><br></br>
-            <div className='npemail_input'>
+            <div className='email_input'>
               <label className='NPConfirmPassword'>Confirm Password</label>
               <input type="password" className="form-control NEWPpasswordtextbox" id="confirmpassword" placeholder='Confirm password'></input>
             </div>

@@ -76,9 +76,6 @@ html {
 .btnGuestOut:hover{
   background-color: #14335D;
 }
-.btn:hover{
-  background-color: #96230A
-}
 
 .guest_GName label {
   font-family: 'Rubik';

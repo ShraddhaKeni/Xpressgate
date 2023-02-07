@@ -55,7 +55,7 @@ const SMSProvider = () => {
                 </div>
                 <div>
 
-                    <Form className='formclass fcadmin'>
+                    <Form className='fcadmin'>
 
                         <SimpleInputComponent label={'SMS Provider Name'} placeholder={'Enter SMS Gateway Name'} name={'gateway_name'} id={'smss'} onChange={(e) => { setSMS({ ...sms, gateway_name: e.target.value }) }} />
                         <SimpleInputComponent label={'API Key'} placeholder={'Enter API Key'} name={'api_key'} id={'address'} onChange={(e) => { setSMS({ ...sms, api_key: e.target.value }) }} />
