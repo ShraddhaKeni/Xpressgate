@@ -133,7 +133,7 @@ const Addinout = () => {
       console.log(data)
       setToast({ show: true, type: "success", message: "Added Successfully" })
       setTimeout(() => {
-        window.location.href = '/inoutbook'
+        window.location.href = '/newinoutbook'
       }, 1500);
       // window.location.href = '/inoutbook'
     } catch (error) {

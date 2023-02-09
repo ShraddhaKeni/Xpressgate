@@ -73,7 +73,7 @@ const GuestEntry = () => {
             const bookingUpdate = await axios.get(`${window.env_var}api/resident/guest/deleteGuest/${guestDetails._id}`)
             setToast({ show: true, type: "success", message: "Guest entry has been approved" })
             setTimeout(() => {
-              window.location.href='/guestlist'
+              window.location.href='/newguestlist'
             }, 1500);
             // navigate('/guestlist')
         } catch (error) {
@@ -108,7 +108,7 @@ const GuestEntry = () => {
     </div>
     <div className='fvbackgroundimg'>
     <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
-      <div className='GuestL_display'>
+      <div className='GuestE_display'>
         <label>Guest Details</label>
       </div>
       <Loader loading={loading}>

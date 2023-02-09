@@ -91,6 +91,18 @@
     margin-top: 1%;
     margin-left: 1%;
   }
+.new-main-container {
+    background-image: url("../../public/images/dashboardbackground.svg");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    width: 96%;
+    height: 81vh;
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-top: 1%;
+    margin-left: 1%;
+  }
 
   #table-header {
     background-color: #F9FAFF;
@@ -980,3 +992,20 @@ border-radius: 25px;
     }
 }
 
+@media only screen  and (min-device-width : 320px) and (max-device-width : 425px) {
+    .new-main-container {
+        background-image: url(http://localhost:3000/static/media/dashboardbackground.304b459….svg);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: cover;
+        width: 96%;
+        height: 81vh;
+        padding-left: 1%;
+        padding-right: 1%;
+        margin-top: 1%;
+        margin-left: 1%;
+      }
+
+
+
+}

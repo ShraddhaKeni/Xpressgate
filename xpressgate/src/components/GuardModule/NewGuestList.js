@@ -10,10 +10,9 @@ import GuardHeader from './Utils/GuardHeader';
 import { checkGuard } from '../auth/Auth'
 import Loader from '../../common/Loader';
 import ErrorScreen from '../../common/ErrorScreen.js';
-import Pagination from '../../common/Pagination';
 import Table from 'react-bootstrap/Table';
-const GuestList = () => {
-  
+import Pagination from '../../common/Pagination';
+const NewGuestList = () => {
   const [guests, setGuests] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
@@ -100,25 +99,32 @@ const GuestList = () => {
     return <Loader/>
   if(isError)
     return <ErrorScreen/>
-
   return (
-    <div className="inoutbookcontainer">
-      <div id="headersection">
+    <>
+     <div className='flex flex-col'>
+
+     <div id="headersection">
         <GuardHeader />
       </div>
-      <div id="guardnamesection">
+<div className='flex'>
+
+<div id="guardnamesection">
         <div className='GuestLName'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
           <label>{localStorage.getItem('name')}</label>
         </div>
         <div className='GuestLsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
-      </div>
-      <div className='iobbackgroundimg'>
-        <div className='GuestL_display'>
+      </div> 
+
+    <div className='flex-1 d-flex' style={{ width: "100%", height: '100%' }}>
+        <div className='new-main-container'>
+            <main>
+            <div className='GuestL_display'>
           <label>Guest List</label>
         </div>
-       <Table id="inoutbooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }} size='sm' responsive='sm'>
-          <thead>
+            <div>
+       <Table id="InoutBooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }} size='sm' responsive>
+       <thead>
             <tr>
               <th class="th-sm">Sr No.</th>
               <th class="th-sm">Name</th>
@@ -133,7 +139,6 @@ const GuestList = () => {
               <th class="th-sm">Status</th>
             </tr>
           </thead>
-         
           <tbody>
             {currentPosts.map((items, index) => {
               return (
@@ -153,18 +158,22 @@ const GuestList = () => {
             })}
 
           </tbody>
-        </Table>
-       
-        {/* <div className="App">
-      {data} */}
-        {/* <PaginationCalculate totalPages={guests.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} /> */}
-        <Pagination totalPages={filterArr.length>0?filterArr.length:guests.length} data ={filterArr.length>0?filterArr:guests} settingCurrent={settingCurrent}/>
-
-
-       
-      </div>
+    </Table>
     </div>
+    <Pagination totalPages={filterArr.length>0?filterArr.length:guests.length} data ={filterArr.length>0?filterArr:guests} settingCurrent={settingCurrent}/>
+            </main>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+</div >
+   
+    </>
   )
 }
 
-export default GuestList
+export default NewGuestList
