@@ -158,16 +158,16 @@ const Addguard = () => {
           <div className='AG_display'>
             <label>{type == 'edit' ? 'Update Guard' : 'Add Guard'}</label>
           </div>
-          <Form className='formclass'>
+          <Form className='FormClass'>
             <div class="form-group form-group6 row">
-              <label class="col-lg-2 col-form-label ADN_label">First name</label>
+              <label class="col-lg-3 col-form-label ADN_label">First name</label>
               <div class="col-lg-4">
                 {type == 'edit' ? <input type="text" class="form-control input-lg SideB" name="First name" id='firstname' placeholder="First Name" defaultValue={guard.firstname} /> :
                   <input type="text" class="form-control input-lg input-lg1 SideB" name="First name" id='firstname' placeholder="First Name" />}
               </div>
             </div>
             <div class="form-group form-group6 row">
-              <label class="col-lg-2 col-form-label ADN_label">Last name</label>
+              <label class="col-lg-3 col-form-label ADN_label">Last name</label>
               <div class="col-lg-4">
                 {type == 'edit' ? <input type="text" class="form-control input-lg SideB" name="Last name" id='lastname' defaultValue={guard.lastname} placeholder="Last name" /> :
                   <input type="text" class="form-control input-lg input-lg1 SideB" name="Last name" id='lastname' placeholder="Last name" />}
@@ -175,7 +175,7 @@ const Addguard = () => {
               </div>
             </div>
             <div class="form-group form-group6 row">
-              <label class="col-lg-2 col-form-label ADN_label">Username</label>
+              <label class="col-lg-3 col-form-label ADN_label">Username</label>
               <div class="col-lg-4">
                 {type == 'edit' ? <input type="text" class="form-control input-lg SideB" name="Last name" id="username" defaultValue={guard.username} placeholder="Username" />
                   : <input type="text" class="form-control input-lg input-lg1 SideB" name="Last name" id="username" placeholder="Username" />}
@@ -184,7 +184,7 @@ const Addguard = () => {
             </div>
             {type !== 'edit' ?
               <div class="form-group form-group6 row">
-                <label class="col-lg-2 col-form-label ADN_label">Password</label>
+                <label class="col-lg-3 col-form-label ADN_label">Password</label>
                 <div class="col-lg-4">
                   <input type="text" class="form-control input-lg input-lg1 SideB" name="Last name" id="password" placeholder="Password"></input>
                 </div>
@@ -192,21 +192,21 @@ const Addguard = () => {
               : ''
             }
             <div class="form-group form-group6 row">
-              <label class="col-lg-2 col-form-label ADN_label">Phone No</label>
+              <label class="col-lg-3 col-form-label ADN_label">Phone No</label>
               <div class="col-lg-4">
                 {type == 'edit' ? <input type="text" class="form-control input-lg SideB" name="Phone No" id="phone" defaultValue={guard.mobileno} placeholder="Phone No" /> :
                   <input type="text" class="form-control input-lg input-lg1 SideB" name="Phone No" id="phone" placeholder="Phone No" />}
               </div>
             </div>
             <div class="form-group form-group6 row">
-              <label class="col-lg-2 col-form-label ADN_label">Email </label>
+              <label class="col-lg-3 col-form-label ADN_label">Email </label>
               <div class="col-lg-4">
                 {type == 'edit' ? <input type="email" class="form-control input-lg SideB" name="Email" id='email' defaultValue={guard.email} placeholder="Email" /> :
                   <input type="email" class="form-control input-lg input-lg1 SideB" name="Email" id='email' placeholder="Email" />}
               </div>
             </div>
             <div class="form-group form-group6 row">
-              <label class="col-lg-2 col-form-label ADN_label">Add Profile Picture</label>
+              <label class="col-lg-3 col-form-label ADN_label">Add Profile Picture</label>
               <div class="col-lg-4">
                 <input type="file" class="form-control input-lg input-lg1 SideB" name="Add Profile Picture" id="profilePic"></input>
               </div>

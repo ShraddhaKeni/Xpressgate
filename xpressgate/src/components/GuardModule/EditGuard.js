@@ -82,7 +82,7 @@ const EditGuard = () => {
         </div>
         <Loader loading={loading}>
           <Form className="formclass" >
-            <div class="form-group" onSubmit={(e) => handleSubmit(e)}>
+            <div class="form-group row" onSubmit={(e) => handleSubmit(e)}>
               <label class="col-lg-2 col-form-label ADN_label">First Name</label>
               <div class="col-lg-4">
                 <input required type="text" class="form-control input-lg SideB" id='firstname' name="First name" placeholder="First name" defaultValue={guard.firstname}>
