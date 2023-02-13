@@ -57,7 +57,7 @@ const Approvallistamenity = () => {
     try {
       if (value == 'accept') {
         const { data } = await axios.get(`${window.env_var}api/resident/booking/approveBooking/${id}`)
-        setToast({ show: true, type: "success", message: "Apporved" })
+        setToast({ show: true, type: "success", message: "Approved" })
         setTimeout(() => {
           window.location.href = '/amenitylist'
         }, 1500);

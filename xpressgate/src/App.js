@@ -104,6 +104,9 @@ import Invoice from './components/Invoice';
 import GuestManagementcard from './components/SocietyModule/GuestManagementcard';
 
 
+
+
+
 function App() {
 
   window.env_var = "http://143.110.187.80:5050/"
@@ -265,6 +268,9 @@ function App() {
 
 
 
+        
+       
+         
           <Route path="/utilitypaymentlink" element={<UtilityPaymentLink />} exact></Route>
           <Route path="/packagelist" element={<PackageList />} exact></Route>
           <Route path="/paymenthistory" element={<SocietyPaymentHistory />} exact></Route>

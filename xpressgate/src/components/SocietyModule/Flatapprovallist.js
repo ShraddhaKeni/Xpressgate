@@ -49,7 +49,7 @@ const approveFlat=async(id)=>{
       community_id:localStorage.getItem('community_id')
     }
     const {data} = await axios.post(`${window.env_var}api/approveresidents/approve`,sendData)
-    setToast({ show: true, type: "success", message: "Apporved" })
+    setToast({ show: true, type: "success", message: "Approved" })
     setTimeout(() => {
       window.location.href='/blockList'
     }, 1500);

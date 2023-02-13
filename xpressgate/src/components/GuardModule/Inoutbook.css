@@ -154,7 +154,7 @@ font-weight: 500;
   border: none;
   width: 12vw;
   height: 5vh;
- margin-left: 65%;
+ margin-left: 69%;
   margin-top: 1.5%;
   margin-bottom: -20%;
   font-family: 'Rubik';
@@ -177,6 +177,16 @@ font-weight: 500;
   margin-left: 25%;
 }
 
+#InoutBooktable {
+  margin-Left: 8%;
+  margin-Top: 2%;
+  max-width: 85%;
+  background-color: #F9FAFF;
+  border-radius: 14px 14px 14px 14px;
+  border-collapse: separate;
+  font-family: 'Rubik', sans-serif;
+  overflow-x: scroll;
+}
 #inoutbooktable {
   margin-Left: 10%;
   margin-Top: 2%;
@@ -185,6 +195,7 @@ font-weight: 500;
   border-radius: 14px 14px 14px 14px;
   border-collapse: separate;
   font-family: 'Rubik', sans-serif;
+  overflow-x: scroll;
 }
 
 #inoutbooktable thead {
@@ -265,7 +276,31 @@ color: #14335D;
 }
 
 @media only screen  and (min-device-width : 320px) and (max-device-width : 425px) {
-
- 
+  #InoutBooktable {
+    margin-Left: 0%;
+    margin-Top: 2%;
+    max-Width: 80%;
+    background-color: #F9FAFF;
+    border-radius: 14px 14px 14px 14px;
+    border-collapse: separate;
+    font-family: 'Rubik', sans-serif;
+    overflow-x: scroll;
+  }
+  .AddInOutBtn {
+    border-radius: 10px;
+    color: #0D960A;
+    border: none;
+    width: 12rem;
+    height: 4vh;
+    margin-left: 66%;
+    margin-top: 0%;
+    margin-bottom: -20%;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    background: #E8F5E9;
+    margin-bottom: 3%;
+}
 
 }

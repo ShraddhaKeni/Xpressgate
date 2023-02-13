@@ -513,4 +513,103 @@ color: #14335D;
     margin-top: 4%;
     padding-bottom: 4%;
   }
+  #cpnamesection {
+    display: none;
+  }
+  .CPass_dsplay{
+    width: 15rem;
+    height: 5rem;
+    background-color: #AED8DC;
+    border-radius: 14px;
+    padding-top: 5.5%;
+    margin: auto;
+    margin-top: 4%;
+    margin-right: 5%;
+  }
+  .CPass_dsplay label{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #14335D;
+  }
+  .CP_input {
+    background: #FFFFFF;
+    border: 2px solid #14335D;
+    box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);
+    border-radius: 8px;
+    width: 23rem;
+    height: auto;
+  }
+  .NP_input {
+    background: #FFFFFF;
+    border: 2px solid #14335D;
+    box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);
+    border-radius: 8px;
+    width: 23rem;
+    height: auto;
+    margin-top: 22%;
+}
+.CHP_input {
+  background: #FFFFFF;
+  border: 2px solid #14335D;
+  box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);
+  border-radius: 8px;
+  width: 23rem;
+  height: auto;
+  margin-top: 40%;
+}
+  .CPForm {
+    margin-left: 23%;
+    margin-top: 11%;
+}
+.CPASS {
+  position: absolute;
+  margin-top: -7%;
+  margin-left: -40%;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.5rem;
+  color: #14335D;
+}
+.NPASS {
+  position: absolute;
+  margin-top: 12%;
+  margin-left: -40%;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.5rem;
+  color: #14335D;
+}
+.CHPASS {
+  position: absolute;
+  margin-top: 31%;
+  margin-left: -40%;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.5rem;
+  color: #14335D;
+}
+.NoticeContainer {
+  box-sizing: border-box;
+  max-width: max-content;
+  position: relative;
+  margin-top: 72%;
+  margin-bottom: -10%;
+  margin-left: 10%;
+  text-align: left;
+}
+.CHPASS_BTN {
+  background-color: #0A8996;
+  color: #fff;
+  border-radius: 12px;
+  width: 12rem;
+  height: 5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 13%;
+  margin-left: -13.5%;
+  position: absolute;
+  font-family: 'Rubik';
+  font-style: normal;
+  border: none;
+}
 }

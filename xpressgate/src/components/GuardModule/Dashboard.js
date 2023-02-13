@@ -10,12 +10,13 @@ import { checkGuard } from '../auth/Auth';
 import { passcodeValidation } from '../auth/validation';
 import GuardHeader from './Utils/GuardHeader';
 import { Loader } from "../Loader";
+import GuardMobileSidebar from '../GuardMobileSidebar';
 
 const Dashboard = () => {
   const [loading, setLoading] = useState(true)
   const [entryData, setEntryData] = useState({})
   const [message, setMessage] = useState({})
-  const [stat, setStat] = useState(false)
+  const [menu, setMenuOpen] = useState(false)
   useEffect(() => {
     if (checkGuard()) {
       const config = {
@@ -31,7 +32,7 @@ const Dashboard = () => {
           localStorage.clear();
           window.location.href = '/guardLogin'
         })
-        setLoading(false);
+      setLoading(false);
     } else {
       window.location.href = '/'
     }
@@ -45,7 +46,7 @@ const Dashboard = () => {
     let f = document.getElementById('6').value
 
     let code = parseInt(a + b + c + d + e + f)
-   
+
     try {
 
       if (await passcodeValidation(code)) {
@@ -55,20 +56,19 @@ const Dashboard = () => {
         }
         let { data } = await axios.post(`${window.env_var}api/inoutentires/getdata`, codeData)
         console.log(data.data)
-        if(data.data.bookingdetails.status===false /* || dateTimeFormat(data.data.bookingdetails.date)!=dateTimeFormat(Date.now()) */)
-        {
+        if (data.data.bookingdetails.status === false /* || dateTimeFormat(data.data.bookingdetails.date)!=dateTimeFormat(Date.now()) */) {
           alert('Expired Entry Code.')
           return
         }
-        else{
+        else {
           setEntryData(data.data.bookingdetails)
           setMessage(data.message)
         }
-      
-      }else{
+
+      } else {
         alert('Enter valid passcode')
       }
-     
+
     } catch (error) {
       console.log('Please check again');
     }
@@ -84,11 +84,10 @@ const Dashboard = () => {
     }
   }
 
-  const  dateTimeFormat=(date)=>
-  {
+  const dateTimeFormat = (date) => {
     var d = new Date(date)
-    return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()
-    
+    return d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate()
+
   }
 
 
@@ -97,9 +96,10 @@ const Dashboard = () => {
   return (
     <>
       {entryData.booked ? message == 'Vendor' ? <Frequentvisitor freqvisitordata={entryData} /> : <Dailyservicepasscode props={entryData} /> : <div className="dashboardcontainer">
-
         <div id="headersection">
-        <GuardHeader/>
+          <GuardHeader onMenuClick={() => {
+            setMenuOpen(true)
+          }} />
         </div>
         <div id="guardnamesection">
           <div className='GuardName'>
@@ -109,52 +109,55 @@ const Dashboard = () => {
           <div className='GDsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
         </div>
         <div className='dashboardbackgroundimg'>
-        <Loader loading={loading}>
-          <div id="cardsection">
-            <div className='enterpasscodesearch'>
-              <label>ENTER PASSCODE</label>
-              <div className='code'>
-                <input type='text' className='dashboard_passcode' onKeyUp={e => { shiftFocus(e) }} maxLength="1" id='1'></input>
-                <input type='text' className='dashboard_passcode' onKeyUp={e => { shiftFocus(e) }} maxLength="1" id='2'></input>
-                <input type='text' className='dashboard_passcode' onKeyUp={e => { shiftFocus(e) }} maxLength="1" id='3'></input>
-                <input type='text' className='dashboard_passcode' onKeyUp={e => { shiftFocus(e) }} maxLength="1" id='4'></input>
-                <input type='text' className='dashboard_passcode' onKeyUp={e => { shiftFocus(e) }} maxLength="1" id='5'></input>
-                <input type='text' className='dashboard_passcode' onKeyUp={e => { shiftFocus(e) }} maxLength="1" id='6'></input>
-              </div>
+          <Loader loading={loading}>
+            <div id="cardsection">
+              <div className='enterpasscodesearch'>
+                <label>ENTER PASSCODE</label>
+                <div className='code'>
+                  <input type='text' className='dashboard_passcode' onKeyUp={e => { shiftFocus(e) }} maxLength="1" id='1'></input>
+                  <input type='text' className='dashboard_passcode' onKeyUp={e => { shiftFocus(e) }} maxLength="1" id='2'></input>
+                  <input type='text' className='dashboard_passcode' onKeyUp={e => { shiftFocus(e) }} maxLength="1" id='3'></input>
+                  <input type='text' className='dashboard_passcode' onKeyUp={e => { shiftFocus(e) }} maxLength="1" id='4'></input>
+                  <input type='text' className='dashboard_passcode' onKeyUp={e => { shiftFocus(e) }} maxLength="1" id='5'></input>
+                  <input type='text' className='dashboard_passcode' onKeyUp={e => { shiftFocus(e) }} maxLength="1" id='6'></input>
+                </div>
 
-              <img src="/images/searchicon.svg" className='search_icon' onClick={() => { checkInputs() }} alt="search" />
+                <img src="/images/searchicon.svg" className='search_icon' onClick={() => { checkInputs() }} alt="search" />
+              </div>
+              <div className="row row-cols-1 row-cols-md-3 g-4 FullCardsCss allcards">
+                <div className="col">
+                  <div className="DashBoardCard">
+                    <img src="/images/guestcard.svg" onClick={() => { window.location.href = '/guestlist' }} className="dbcard-img-top card_hover_animation" alt="guest card"></img>
+                  </div>
+                </div>
+                <div className="col">
+                  <div className="DashBoardCard">
+                    <img src="/images/vendorcard.svg" className="dbcard-img-top card_hover_animation" alt="vendor card" onClick={() => { window.location.href = '/vendorlist' }}></img>
+                  </div>
+                </div>
+                <div className="col">
+                  <div className="DashBoardCard">
+                    <img src="/images/dailyhelpcard.svg" className="dbcard-img-top card_hover_animation" onClick={() => { window.location.href = '/dailyhelp' }} alt="dailyhelp card"></img>
+                  </div>
+                </div>
+                <div className="col">
+                  <div className="DashBoardCard">
+                    <img src="/images/inoutbookcard.svg" className="dbcard-img-top card_hover_animation" onClick={() => { window.location.href = '/inoutbook' }} alt="inout book card"></img>
+                  </div>
+                </div>
+                <div className="col">
+                  <div className="DashBoardCard">
+                    <img src="/images/videoclass.svg" className="dbcard-img-top card_hover_animation" onClick={() => { window.location.href = '/videoclass' }} alt="video class"></img>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="row row-cols-1 row-cols-md-3 g-4 FullCardsCss allcards">
-              <div className="col">
-                <div className="DashBoardCard">
-                  <img src="/images/guestcard.svg" onClick={() => { window.location.href = '/guestlist' }} className="dbcard-img-top card_hover_animation" alt="guest card"></img>
-                </div>
-              </div>
-              <div className="col">
-                <div className="DashBoardCard">
-                  <img src="/images/vendorcard.svg" className="dbcard-img-top card_hover_animation" alt="vendor card" onClick={() => { window.location.href = '/vendorlist' }}></img>
-                </div>
-              </div>
-              <div className="col">
-                <div className="DashBoardCard">
-                  <img src="/images/dailyhelpcard.svg" className="dbcard-img-top card_hover_animation" onClick={() => { window.location.href = '/dailyhelp' }} alt="dailyhelp card"></img>
-                </div>
-              </div>
-              <div className="col">
-                <div className="DashBoardCard">
-                  <img src="/images/inoutbookcard.svg" className="dbcard-img-top card_hover_animation" onClick={() => { window.location.href = '/inoutbook' }} alt="inout book card"></img>
-                </div>
-              </div>
-              <div className="col">
-                <div className="DashBoardCard">
-                  <img src="/images/videoclass.svg" className="dbcard-img-top card_hover_animation" onClick={() => { window.location.href = '/videoclass' }} alt="video class"></img>
-                </div>
-              </div>
-            </div>
-          </div>
           </Loader>
         </div>
       </div>}
+
+      <GuardMobileSidebar open={menu} onHide={() => setMenuOpen(false)} />
+
     </>
   )
 }
