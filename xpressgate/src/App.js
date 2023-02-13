@@ -102,6 +102,7 @@ import ViewGuestParkingSec from './components/SocietyModule/ViewGuestParkingSec'
 import AddGuestParkingSec from './components/SocietyModule/AddGuestParkingSec';
 import Invoice from './components/Invoice';
 import GuestManagementcard from './components/SocietyModule/GuestManagementcard';
+import PartnerModule from './pages/partner/PartnerModule';
 
 
 function App() {
@@ -271,6 +272,22 @@ function App() {
           {/* <Route path="/societyduesrecord" element={<SocietyDuesTable />} exact></Route> */}
           <Route path="/vendorpaymentrecord" element={<VendorPaymentTable />} exact></Route>
           <Route path="/utilitypaymentrecord" element={<UtilityPaymentTable />} exact></Route>
+
+
+
+
+          <Route path={RouterPath.PARTNER_DASHBOARD} element={<PartnerModule />}></Route>
+
+          <Route path={RouterPath.PARTNER_HOME} element={<PartnerModule />}></Route>
+
+
+          <Route path={RouterPath.COURSE_MANAGEMENT} element={<PartnerModule />}></Route>
+
+          <Route path={RouterPath.STUDENT_MANAGEMENT} element={<PartnerModule />}></Route>
+
+
+
+
         </Routes>
       </Router>
     </div>
