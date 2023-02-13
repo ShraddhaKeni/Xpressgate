@@ -110,7 +110,7 @@ const VendorEntryDetails = () => {
               setError(false)
               setToast({ show: true, type: "success", message: "Vendor entry has been Approved" })
               setTimeout(() => {
-                window.location.href='/newvendorlist'
+                window.location.href='/vendorlist'
               }, 1500);
             //  navigate('/vendorlist')
             } catch (error) {

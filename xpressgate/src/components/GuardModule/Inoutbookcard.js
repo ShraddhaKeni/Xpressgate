@@ -93,7 +93,7 @@ const Inoutbookcard = () => {
       setError(false)
       setToast({ show: true, type: "success", message: "Exited successfully" })
       setTimeout(() => {
-        window.location.href='/newinoutbook'
+        window.location.href='/inoutbook'
       }, 1500);
       // navigate('/inoutbook')
     } catch (error) {
@@ -101,7 +101,7 @@ const Inoutbookcard = () => {
     }
   }
   const deny=async()=>{
-      window.location.href="/newinoutbook"
+      window.location.href="/inoutbook"
  
    
   }

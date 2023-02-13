@@ -102,9 +102,7 @@ import ViewGuestParkingSec from './components/SocietyModule/ViewGuestParkingSec'
 import AddGuestParkingSec from './components/SocietyModule/AddGuestParkingSec';
 import Invoice from './components/Invoice';
 import GuestManagementcard from './components/SocietyModule/GuestManagementcard';
-import NewGuestList from './components/GuardModule/NewGuestList';
-import NewVendorList from './components/GuardModule/NewVendorList';
-import NewInOutBook from './components/GuardModule/NewInOutBook';
+
 
 
 
@@ -270,9 +268,9 @@ function App() {
 
 
 
-          <Route path="/newinoutbook" element={<NewInOutBook/>} exact></Route>
-          <Route path="/newvendorlist" element={<NewVendorList/>} exact></Route>
-          <Route path="/newguestlist" element={<NewGuestList />} exact></Route>
+        
+       
+         
           <Route path="/utilitypaymentlink" element={<UtilityPaymentLink />} exact></Route>
           <Route path="/packagelist" element={<PackageList />} exact></Route>
           <Route path="/paymenthistory" element={<SocietyPaymentHistory />} exact></Route>

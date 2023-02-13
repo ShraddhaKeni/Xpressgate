@@ -431,12 +431,12 @@ border-radius: 25px;
     flex-direction: row-reverse;
   }
 .Margin_NIcon{
-    margin-left: -850%;
+    margin-left: -830%;
     /* margin-right: 120%; */
 }
-.Margin_setting_icon{
+.Margin_setting_icon {
     margin-right: 110%;
-    margin-left: -90%;
+    margin-left: -80%;
 }
   .download-invoice{
     border-radius: 1rem;

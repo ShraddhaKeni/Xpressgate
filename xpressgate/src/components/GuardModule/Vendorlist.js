@@ -11,7 +11,7 @@ import GuardHeader from './Utils/GuardHeader';
 import Loader from '../../common/Loader';
 import ErrorScreen from '../../common/ErrorScreen'
 import Pagination from '../../common/Pagination';
-
+import Table from 'react-bootstrap/Table';
 const Vendorlist = () => {
  
   const [vendorData,setData]= useState([])
@@ -148,79 +148,82 @@ const Vendorlist = () => {
     return <ErrorScreen/>
 
   return (
-    
-    <div className="vendorlistcontainer">
-      <div id="headersection">
-        <GuardHeader/>
-      </div>
-     
-      <div id="guardnamesection">
-        <div className='VendorLname'>
-          <img src="/images/guardnameicon.svg" alt="guard name" />
-          <label>{localStorage.getItem('name')}</label>
-        </div>
-        <div className='VendorLSImg'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
-      </div>
-      <div className='vlbackgroundimg'>
-        <div className='VendorL_display'>
-          <label>Vendor List</label>
-        </div>
-       
-        <div className='row'>
-          <div className='Vsearchbox'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-          {/* <label className='searchlabel'>Search</label> */}
-          <input className='vlsearch_input' placeholder='Search' onChange={(e)=>{findText(e)}}></input></span>
-          </div>
-          {/* <div className='addvendor'>
-            <span><img src="/images/addvendor.svg" alt='addvendor icon'></img></span>
-            <span><label className='addvendorlabel'>Add Vendor</label></span>
-          </div> */}
-        </div>
-        {/* <div class="table-responsive"> */}
-       
-        <table id="vendortable" class="table vendorList table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
-          <thead>
-            <tr>
-              <th class="th-sm">Sr No.</th>
-              <th class="th-sm">Name</th>
-              <th class="th-sm">Vendor Type</th>
-              <th class="th-sm">Block</th>
-              <th class="th-sm">Flat No.</th>
-              <th class="th-sm">Date</th>
-              <th class="th-sm">In Time</th>
-              <th class="th-sm">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentPosts.map((item,index)=>{
-              
-              return(
-                
-                <tr key={item.booking_id} id={item.booking_id}  >
-                <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1)*12+(index+1)}</td>
-                <td id={'td-'+item._id} >
-                  {item.bookingstatus==true?<Link className='linkToPage' to='/vendorentry' state={{id:item._id,bookingid:item.booking_id,code:item.code}}>{item.vendor_name}</Link>:item.vendor_name}
-                  
-                  
-                  </td>
-                <td>{item.service}</td>
-                <td>{item.block}</td>
-                <td>{item.flats}</td>
-                <td>{dateTimeFormat(item.date)}</td>
-                <td>{getTime(item.date)}</td>
-                <td>{item.bookingstatus==true?'Unapproved':'Approved'}</td>
-               
-              </tr>
+    <>
+    <div className='flex flex-col'>
+
+    <div id="headersection">
+       <GuardHeader />
+     </div>
+<div className='flex'>
+
+<div id="guardnamesection">
+       <div className='GuestLName'>
+         <img src="/images/guardnameicon.svg" alt="guard name" />
+         <label>{localStorage.getItem('name')}</label>
+       </div>
+       <div className='GuestLsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
+     </div> 
+
+   <div className='flex-1 d-flex' style={{ width: "100%", height: '100%' }}>
+       <div className='new-main-container'>
+           <main>
+           <div className='GuestL_display'>
+         <label>Vendor List</label>
+       </div>
+           <div>
+      <Table id="InoutBooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }} size='sm' responsive>
+      <thead>
+           <tr>
+             <th class="th-sm">Sr No.</th>
+             <th class="th-sm">Name</th>
+             <th class="th-sm">Vendor Type</th>
+             <th class="th-sm">Block</th>
+             <th class="th-sm">Flat No.</th>
+             <th class="th-sm">Date</th>
+             <th class="th-sm">In Time</th>
+             <th class="th-sm">Status</th>
+           </tr>
+         </thead>
+         <tbody>
+           {currentPosts.map((item,index)=>{
              
-              )
-            })}
-           
-          </tbody>
-        </table>
-        <Pagination totalPages={filterArr.length>0?filterArr.length:vendorData.length} data ={filterArr.length>0?filterArr:vendorData} settingCurrent={settingCurrent}/>       
-      </div>
-    </div>
+             return(
+               
+               <tr key={item.booking_id} id={item.booking_id}  >
+               <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1)*12+(index+1)}</td>
+               <td id={'td-'+item._id} >
+                 {item.bookingstatus==true?<Link className='linkToPage' to='/vendorentry' state={{id:item._id,bookingid:item.booking_id,code:item.code}}>{item.vendor_name}</Link>:item.vendor_name}
+                 
+                 
+                 </td>
+               <td>{item.service}</td>
+               <td>{item.block}</td>
+               <td>{item.flats}</td>
+               <td>{dateTimeFormat(item.date)}</td>
+               <td>{getTime(item.date)}</td>
+               <td>{item.bookingstatus==true?'Unapproved':'Approved'}</td>
+              
+             </tr>
+            
+             )
+           })}
+          
+         </tbody>
+   </Table>
+   </div>
+   <Pagination totalPages={filterArr.length>0?filterArr.length:vendorData.length} data ={filterArr.length>0?filterArr:vendorData} settingCurrent={settingCurrent}/>  
+           </main>
+       </div>
+
+   </div>
+</div>
+
+
+
+
+</div >
+  
+   </>
   )
 }
 

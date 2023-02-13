@@ -133,7 +133,7 @@ const Addinout = () => {
       console.log(data)
       setToast({ show: true, type: "success", message: "Added Successfully" })
       setTimeout(() => {
-        window.location.href = '/newinoutbook'
+        window.location.href = '/inoutbook'
       }, 1500);
       // window.location.href = '/inoutbook'
     } catch (error) {
@@ -270,7 +270,7 @@ const Addinout = () => {
             </div>
           </div>
 
-          <button type="submit" className="btnInOut" on>Add In Out</button>
+          <button type="submit" className="btnInOut"  onClick={(e) => handleSubmit(e)}  on>Add In Out</button>
 
         </Form>
         {/* </Loader> */}

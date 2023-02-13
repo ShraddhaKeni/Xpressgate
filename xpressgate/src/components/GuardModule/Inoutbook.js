@@ -11,7 +11,7 @@ import { checkGuard } from '../auth/Auth';
 import Loader from '../../common/Loader';
 import ErrorScreen from '../../common/ErrorScreen';
 import Pagination from '../../common/Pagination';
-
+import Table from 'react-bootstrap/Table';
 const Inoutbook = () => {
   const [inoutdata, setInoutdata] = useState([])
   const navigate = useNavigate()
@@ -94,66 +94,79 @@ const Inoutbook = () => {
 
 
   return (
-    <div className="inoutbookcontainer">
-      <div id="headersection">
-        <GuardHeader/>
-      </div>
-      <div id="guardnamesection">
-        <div className='InOutName'>
-          <img src="/images/guardnameicon.svg" alt="guard name" />
-          <label>{localStorage.getItem('name')}</label>
-        </div>
-        <div className='IOBsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
-      </div>
-      <div className='iobbackgroundimg'>
-        <div className='IOB_display'>
-          <label>In-Out Book</label>
-        </div>
-       
-        {/* <div className='InoutBookButton'>
-          <a href="/addinout" className='InoutBookADDButton'>&#43; Add In Out</a>
-        </div> */}
-         <button type="button" onClick={()=>{window.location.href='/addinout'}} className="AddInOutBtn">&#10011; Add In Out</button>
-        <table id="inoutbooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
-          <thead>
-            <tr>
-              <th class="th-sm">Sr No.</th>
-              <th class="th-sm">Name</th>
-              <th class="th-sm">Visitor Type</th>
-              <th class="th-sm">Block</th>
-              <th class="th-sm">Flat No.</th>
-              <th class="th-sm">Date</th>
-              <th class="th-sm">In Time</th>
-              <th class="th-sm">Parking Section</th>
-              <th class="th-sm">Parking Time</th>
-              <th class="th-sm">Vehicle Number</th>
-              <th class="th-sm">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentPosts.map((iodata,index) => {
-              return (
-                <tr onClick={()=>routeNavigate(iodata.booking_id)}>
-                  <td>{(currentPage-1)*12+(index+1)}</td>
-                  <td >{iodata.guestFirstName} {iodata.guestLastName}</td>
-                  <td>{iodata.type == '1' ? 'Guest' : iodata.type == '2' ? 'Vendor' : 'Daily Helper'}</td>
-                  <td>{iodata.block_name}</td>
-                  <td>{iodata.flat_number}</td>
-                  <td>{date}</td>
-                  <td>{dateTimeFormat(iodata.intime)}</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>{iodata.status == '1' ? 'In' : 'Out'}</td>
-                </tr>)
-            })}
-          </tbody>
-        </table>
-        {/* <PaginationCalculate totalPages={inoutdata.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/> */}
-        <Pagination totalPages={filterArr.length>0?filterArr.length:inoutdata.length} data ={filterArr.length>0?filterArr:inoutdata} settingCurrent={settingCurrent}/>
+    <>
+    <div className='flex flex-col'>
 
-      </div>
-    </div>
+    <div id="headersection">
+       <GuardHeader />
+     </div>
+<div className='flex'>
+
+<div id="guardnamesection">
+       <div className='GuestLName'>
+         <img src="/images/guardnameicon.svg" alt="guard name" />
+         <label>{localStorage.getItem('name')}</label>
+       </div>
+       <div className='GuestLsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
+     </div> 
+
+   <div className='flex-1 d-flex' style={{ width: "100%", height: '100%' }}>
+       <div className='new-main-container'>
+           <main>
+           <div className='GuestL_display'>
+         <label>In-Out Book</label>
+       </div>
+       <button type="button" onClick={()=>{window.location.href='/addinout'}} className="AddInOutBtn">&#10011; Add In Out</button>
+           <div>
+      <Table id="InoutBooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }} size='sm' responsive>
+      <thead>
+           <tr>
+             <th class="th-sm">Sr No.</th>
+             <th class="th-sm">Name</th>
+             <th class="th-sm">Visitor Type</th>
+             <th class="th-sm">Block</th>
+             <th class="th-sm">Flat No.</th>
+             <th class="th-sm">Date</th>
+             <th class="th-sm">In Time</th>
+             <th class="th-sm">Parking Section</th>
+             <th class="th-sm">Parking Time</th>
+             <th class="th-sm">Vehicle Number</th>
+             <th class="th-sm">Status</th>
+           </tr>
+         </thead>
+         <tbody>
+           {currentPosts.map((iodata,index) => {
+             return (
+               <tr onClick={()=>routeNavigate(iodata.booking_id)}>
+                 <td>{(currentPage-1)*12+(index+1)}</td>
+                 <td >{iodata.guestFirstName} {iodata.guestLastName}</td>
+                 <td>{iodata.type == '1' ? 'Guest' : iodata.type == '2' ? 'Vendor' : 'Daily Helper'}</td>
+                 <td>{iodata.block_name}</td>
+                 <td>{iodata.flat_number}</td>
+                 <td>{date}</td>
+                 <td>{dateTimeFormat(iodata.intime)}</td>
+                 <td>-</td>
+                 <td>-</td>
+                 <td>-</td>
+                 <td>{iodata.status == '1' ? 'In' : 'Out'}</td>
+               </tr>)
+           })}
+         </tbody>
+   </Table>
+   </div>
+   <Pagination totalPages={filterArr.length>0?filterArr.length:inoutdata.length} data ={filterArr.length>0?filterArr:inoutdata} settingCurrent={settingCurrent}/>
+           </main>
+       </div>
+
+   </div>
+</div>
+
+
+
+
+</div >
+  
+   </>
   )
 }
 

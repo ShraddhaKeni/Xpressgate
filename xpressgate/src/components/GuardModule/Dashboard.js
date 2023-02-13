@@ -127,12 +127,12 @@ const Dashboard = () => {
             <div className="row row-cols-1 row-cols-md-3 g-4 FullCardsCss allcards">
               <div className="col">
                 <div className="DashBoardCard">
-                  <img src="/images/guestcard.svg" onClick={() => { window.location.href = '/newguestlist' }} className="dbcard-img-top card_hover_animation" alt="guest card"></img>
+                  <img src="/images/guestcard.svg" onClick={() => { window.location.href = '/guestlist' }} className="dbcard-img-top card_hover_animation" alt="guest card"></img>
                 </div>
               </div>
               <div className="col">
                 <div className="DashBoardCard">
-                  <img src="/images/vendorcard.svg" className="dbcard-img-top card_hover_animation" alt="vendor card" onClick={() => { window.location.href = '/newvendorlist' }}></img>
+                  <img src="/images/vendorcard.svg" className="dbcard-img-top card_hover_animation" alt="vendor card" onClick={() => { window.location.href = '/vendorlist' }}></img>
                 </div>
               </div>
               <div className="col">
@@ -142,7 +142,7 @@ const Dashboard = () => {
               </div>
               <div className="col">
                 <div className="DashBoardCard">
-                  <img src="/images/inoutbookcard.svg" className="dbcard-img-top card_hover_animation" onClick={() => { window.location.href = '/newinoutbook' }} alt="inout book card"></img>
+                  <img src="/images/inoutbookcard.svg" className="dbcard-img-top card_hover_animation" onClick={() => { window.location.href = '/inoutbook' }} alt="inout book card"></img>
                 </div>
               </div>
               <div className="col">

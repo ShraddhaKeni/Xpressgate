@@ -121,7 +121,7 @@ const EditGuard = () => {
               </div>
             </div>
 
-            <button type="submit" className="VPay_Add">
+            <button type="submit" className="VPay_Add"  onClick={(e) => handleSubmit(e)} >
               Update Guard
             </button>
           </Form>
