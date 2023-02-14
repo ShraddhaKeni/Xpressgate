@@ -58,8 +58,8 @@ const RouterPath = {
     PARTNER_HOME: "/partner",
     COURSE_MANAGEMENT: "/partner/course",
     STUDENT_MANAGEMENT: "/partner/student",
-
-
+    PARTNER_CHANGE_PASSWORD: "/partnerchangepassword",
+    PARTNER_PROFILE: "/partnerprofile"
 
 
 

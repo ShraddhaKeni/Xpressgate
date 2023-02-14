@@ -49,7 +49,7 @@ const PartnerSideBar = () => {
 
             </Link>
 
-            {/* <img src='/images/side_bar_img.svg' className='Admin_side_Img' /> */}
+            <img src='/images/PartnerSideImg.svg' className='Partner_side_Img' />
         </aside>
     )
 }

@@ -721,6 +721,11 @@ border-radius: 25px;
     margin-bottom: 5%; 
     position: absolute;  
   }
+  .Partner_side_Img{
+    width: 16vw;
+    height: auto;
+    margin: 75% 0% 2% 8%;
+  }
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
     #adminlogo img {
         margin-top: 14%;

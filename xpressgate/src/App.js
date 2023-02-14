@@ -103,6 +103,12 @@ import AddGuestParkingSec from './components/SocietyModule/AddGuestParkingSec';
 import Invoice from './components/Invoice';
 import GuestManagementcard from './components/SocietyModule/GuestManagementcard';
 import PartnerModule from './pages/partner/PartnerModule';
+import PartnerLogin from './pages/partner/PartnerLoginScreens/PartnerLogin';
+import PartnerEnterMobile from './pages/partner/PartnerLoginScreens/PartnerEnterMobile';
+import PartnerEnterCode from './pages/partner/PartnerLoginScreens/PartnerEnterCode';
+import PartnerNewPassword from './pages/partner/PartnerLoginScreens/PartnerNewPassword';
+
+
 
 
 
@@ -272,15 +278,21 @@ function App() {
         
        
          
+        
           <Route path="/utilitypaymentlink" element={<UtilityPaymentLink />} exact></Route>
           <Route path="/packagelist" element={<PackageList />} exact></Route>
           <Route path="/paymenthistory" element={<SocietyPaymentHistory />} exact></Route>
           {/* <Route path="/societyduesrecord" element={<SocietyDuesTable />} exact></Route> */}
           <Route path="/vendorpaymentrecord" element={<VendorPaymentTable />} exact></Route>
           <Route path="/utilitypaymentrecord" element={<UtilityPaymentTable />} exact></Route>
+         
 
 
 
+          <Route path="/partnerlogin" element={<PartnerLogin />} exact></Route>
+          <Route path="/partnerentermobile" element={<PartnerEnterMobile />} exact></Route>
+          <Route path="/partnerentercode" element={<PartnerEnterCode />} exact></Route>
+          <Route path="/partnernewpassword" element={<PartnerNewPassword />} exact></Route>
 
           <Route path={RouterPath.PARTNER_DASHBOARD} element={<PartnerModule />}></Route>
 
@@ -290,6 +302,8 @@ function App() {
           <Route path={RouterPath.COURSE_MANAGEMENT} element={<PartnerModule />}></Route>
 
           <Route path={RouterPath.STUDENT_MANAGEMENT} element={<PartnerModule />}></Route>
+          <Route path={RouterPath.PARTNER_CHANGE_PASSWORD} element={<PartnerModule />}></Route>
+          <Route path={RouterPath.PARTNER_PROFILE} element={<PartnerModule />}></Route>
 
 
 

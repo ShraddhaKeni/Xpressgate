@@ -6,9 +6,11 @@ import PartnerHeader from '../../components/base/Layout/PartnerHeader';
 import RouterPath from '../../common/constants/path/routerPath';
 import AdminDashboard from '../admin/Dashboard';
 import PartnerSideBar from '../../components/base/Layout/PartnerSideBar';
-import PartnerDashboard from './PartnerDashboard';
-import CourseManagement from './CourseManagement';
 import StudentManagement from './StudentManagement';
+import PartnerChangePassword from './PartnerLoginScreens/PartnerChangePassword';
+import PartnerProfile from './PartnerLoginScreens/PartnerProfile';
+import PartnerDashboard from './PartnerDasboard/PartnerDashboard';
+import CourseManagement from './CourseManagement/CourseManagement';
 
 
 
@@ -18,7 +20,7 @@ const PartnerModule = () => {
     let children = <></>;
 
     if (router.pathname.includes(RouterPath.PARTNER_DASHBOARD)) {
-        children = (<PartnerDashboard />)
+        children = (<PartnerDashboard/>)
     }
     if (router.pathname.includes(RouterPath.PARTNER_HOME)) {
         children = (<PartnerDashboard />)
@@ -29,6 +31,12 @@ const PartnerModule = () => {
 
     if (router.pathname.includes(RouterPath.STUDENT_MANAGEMENT)) {
         children = (<StudentManagement />)
+    }
+    if (router.pathname.includes(RouterPath.PARTNER_CHANGE_PASSWORD)) {
+        children = (<PartnerChangePassword />)
+    }
+    if (router.pathname.includes(RouterPath.PARTNER_PROFILE)) {
+        children = (<PartnerProfile />)
     }
 
     return (
