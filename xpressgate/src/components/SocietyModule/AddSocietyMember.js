@@ -139,7 +139,11 @@ const AddSocietyMember = () => {
             <div class="form-group row">
               <label class="col-lg-3 col-form-label ADN_label">Mobile No</label>
               <div class="col-lg-7">
-                <input required type="number" class="form-control input-lg SideB" id='mobile_no' name="Mobile No" placeholder="Enter Mobile No"
+                <input required type="text" pattern="[1-9]{1}[0-9]{9}" title="10 Digit Phone Number"
+                  onInvalid={() => {
+                    setToast(TOAST.ERROR("Enter Valid Phone Number")
+                    )
+                  }} class="form-control input-lg SideB" id='mobile_no' name="Mobile No" placeholder="Enter Mobile No"
                   onChange={(e) => { setMember({ ...member, mobileno: e.target.value }); console.log(member) }}
 
                 />
