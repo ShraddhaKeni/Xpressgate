@@ -304,6 +304,12 @@ function App() {
           <Route path={RouterPath.STUDENT_MANAGEMENT} element={<PartnerModule />}></Route>
           <Route path={RouterPath.PARTNER_CHANGE_PASSWORD} element={<PartnerModule />}></Route>
           <Route path={RouterPath.PARTNER_PROFILE} element={<PartnerModule />}></Route>
+          <Route path={RouterPath.ADD_COURSE} element={<PartnerModule />}></Route>
+          <Route path={RouterPath.EDIT_COURSE} element={<PartnerModule />}></Route>
+          <Route path={RouterPath.COURSE_DETAILS} element={<PartnerModule />}></Route>
+          <Route path={RouterPath.ADD_STUDENT} element={<PartnerModule />}></Route>
+          <Route path={RouterPath.EDIT_STUDENT} element={<PartnerModule />}></Route>
+          <Route path={RouterPath.STUDENT_DETAILS} element={<PartnerModule />}></Route>
 
 
 

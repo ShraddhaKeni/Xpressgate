@@ -563,6 +563,35 @@ td {
     font-size: 16px;
     background-color: #BED7DA;
   }
+  .Paid-Butn{
+    border-radius: 1rem;
+    padding: 0.5rem;
+    width: 40%;
+    color: white;
+    border-width: 0;
+    font-weight: 500;
+    font-size: 0.8vw;
+    background: #E8F5E9;
+    border: 1px solid #0D960A;
+    font-family: 'Rubik';
+font-style: normal;
+color: #0D960A;
+  }
+  
+  .Pending-Butn{
+    border-radius: 1rem;
+    padding: 0.5rem;
+    width: 40%;
+    color: white;
+    border-width: 0;
+    font-weight: 500;
+    font-size: 0.8vw;
+    background: #F5EBE8;
+    border: 1px solid #C87862;
+    font-family: 'Rubik';
+font-style: normal;
+color: #FD5122;
+  }
 
     
 .fcadmin {

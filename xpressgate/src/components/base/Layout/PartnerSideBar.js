@@ -38,7 +38,7 @@ const PartnerSideBar = () => {
                     <ClassOutlined className='side-nav-icon margin_icons' fontSize='large' />
                     <span className='ml-3 Labelfont'>Course Management</span>
                 </div>
-            </Link>
+      </Link>
 
 
             <Link to={RouterPath.STUDENT_MANAGEMENT} style={{ textDecoration: 'none' }} >

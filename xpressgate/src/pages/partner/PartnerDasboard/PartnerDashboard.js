@@ -8,19 +8,20 @@ function PartnerDashboard() {
           <label>Dashboard</label>
         </div>
         <div id="cardsection">
+       
               <div className="row row-cols-1 row-cols-md-3 g-4 sdfullcardscss">
-                <div className="col">
+          
+                <div className="col card_hover_animation">
                   <div className="sddashboardcard">
-                    <img src="/images/CourseManagement.svg" className="dbcard-img-top" alt="Course Management" onClick={() => { window.location.href = '/abc' }}></img>
+                    <img src="/images/CourseManagement.svg" className="dbcard-img-top" alt="Course Management" onClick={() => { window.location.href = '/partner/course' }}></img>
                   </div>
                 </div>
-                <div className="col">
+                <div className="col card_hover_animation">
                   <div className="sddashboardcard">
-                    <img src="/images/StudentManagement.svg" className="dbcard-img-top" alt="Student Management" onClick={() => { window.location.href = '/xyz' }}></img>
+                    <img src="/images/StudentManagement.svg" className="dbcard-img-top" alt="Student Management" onClick={() => { window.location.href = '/partner/student' }}></img>
                   </div>
                 </div>
-              
-                </div>
+                 </div>
                 </div>
         </div>
        </>

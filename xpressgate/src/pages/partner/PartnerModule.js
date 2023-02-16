@@ -6,11 +6,17 @@ import PartnerHeader from '../../components/base/Layout/PartnerHeader';
 import RouterPath from '../../common/constants/path/routerPath';
 import AdminDashboard from '../admin/Dashboard';
 import PartnerSideBar from '../../components/base/Layout/PartnerSideBar';
-import StudentManagement from './StudentManagement';
+import StudentManagement from './StudentManagement/StudentManagement';
 import PartnerChangePassword from './PartnerLoginScreens/PartnerChangePassword';
 import PartnerProfile from './PartnerLoginScreens/PartnerProfile';
 import PartnerDashboard from './PartnerDasboard/PartnerDashboard';
 import CourseManagement from './CourseManagement/CourseManagement';
+import AddCourse from './CourseManagement/AddCourse';
+import EditCourse from './CourseManagement/EditCourse';
+import CourseDetails from './CourseManagement/CourseDetails';
+import AddStudent from './StudentManagement/AddStudent';
+import EditStudent from './StudentManagement/EditStudent';
+import StudentDetails from './StudentManagement/StudentDetails';
 
 
 
@@ -28,9 +34,27 @@ const PartnerModule = () => {
     if (router.pathname.includes(RouterPath.COURSE_MANAGEMENT)) {
         children = (<CourseManagement />)
     }
+    if (router.pathname.includes(RouterPath.ADD_COURSE)) {
+        children = (<AddCourse />)
+    }
+    if (router.pathname.includes(RouterPath.EDIT_COURSE)) {
+        children = (<EditCourse />)
+    }
+    if (router.pathname.includes(RouterPath.COURSE_DETAILS)) {
+        children = (<CourseDetails />)
+    }
 
     if (router.pathname.includes(RouterPath.STUDENT_MANAGEMENT)) {
         children = (<StudentManagement />)
+    }
+    if (router.pathname.includes(RouterPath.ADD_STUDENT)) {
+        children = (<AddStudent />)
+    }
+    if (router.pathname.includes(RouterPath.EDIT_STUDENT)) {
+        children = (<EditStudent />)
+    }
+    if (router.pathname.includes(RouterPath.STUDENT_DETAILS)) {
+        children = (<StudentDetails/>)
     }
     if (router.pathname.includes(RouterPath.PARTNER_CHANGE_PASSWORD)) {
         children = (<PartnerChangePassword />)
