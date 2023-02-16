@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./Addguard.css";
 import LogOut from './Utils/LogOut'
-import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { checkSociety } from '../auth/Auth'
 import { useNavigate } from 'react-router-dom';
-import { mobileValidation, emailValidation } from '../auth/validation';
 import { Loader } from "../Loader";
 import ErrorScreen from "../../common/ErrorScreen";
+import { goBackInOneSec, reloadInOneSec, TOAST } from "../../common/utils";
 
 const AddChecklistSecurity = () => {
     const [loading, setLoading] = useState(true)
@@ -18,6 +17,11 @@ const AddChecklistSecurity = () => {
     const [type, setType] = useState('add')
     const navigate = useNavigate()
     const [isError, setError] = useState(false)
+    const [toast, setToast] = useState({ show: false })
+
+    const [checklist] = useState(location?.state?.data || undefined);
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -25,47 +29,42 @@ const AddChecklistSecurity = () => {
         try {
 
             if (type == 'edit') {
-                if (await mobileValidation(document.getElementById('phone').value) && emailValidation(document.getElementById('email').value)) {
-                    let formdata = new FormData()
-                    formdata.append('community_id', localStorage.getItem('community_id'))
-                    formdata.append('firstname', document.getElementById('firstname').value)
-                    formdata.append('lastname', document.getElementById('lastname').value)
-                    formdata.append('username', document.getElementById('username').value)
-                    formdata.append('mobileno', document.getElementById('phone').value)
-                    formdata.append('email', document.getElementById('email').value)
-                    formdata.append('guard_id', location.state.id)
-                    if (document.getElementById('profilePic').value) {
-                        formdata.append('profile_pic', document.getElementById('profilePic').files[0])
-                    }
+                let formdata = new FormData()
+                formdata.append('community_id', localStorage.getItem('community_id'))
+                formdata.append('item', document.getElementById('item').value)
+                formdata.append('frequency', document.getElementById('frequency').value)
+                formdata.append('id', checklist.id)
 
-                    const { data } = await axios.post(`${window.env_var}api/guard/update`, formdata)
 
-                    window.location.href = '/guardList'
-                } else {
-                    alert('Enter valid mobile number/ Email Id')
+
+                const { data } = await axios.post(`${window.env_var}api/checklist/add`, formdata)
+
+                if (data && data?.status_code == 200) {
+                    setToast(TOAST.SUCCESS(data?.message));
+                    goBackInOneSec()
+                } else if (data?.status_code == 201) {
+                    setToast(TOAST.ERROR(data?.message));
                 }
             }
             else {
 
-                if (await mobileValidation(document.getElementById('phone').value) && emailValidation(document.getElementById('email').value)) {
-                    let formdata = new FormData()
-                    formdata.append('community_id', localStorage.getItem('community_id'))
-                    formdata.append('firstname', document.getElementById('firstname').value)
-                    formdata.append('lastname', document.getElementById('lastname').value)
-                    formdata.append('username', document.getElementById('username').value)
-                    formdata.append('password', document.getElementById('password').value)
-                    formdata.append('mobileno', document.getElementById('phone').value)
-                    formdata.append('email', document.getElementById('email').value)
-                    formdata.append('profile_pic', document.getElementById('profilePic').files[0])
-                    const { data } = await axios.post(`${window.env_var}api/guard/add`, formdata)
-                    console.log('hi')
-                    window.location.href = '/guardList'
-                } else {
-                    alert('Enter valid mobile number/Email id')
+                let formdata = new FormData()
+                formdata.append('community_id', localStorage.getItem('community_id'))
+                formdata.append('item', document.getElementById('item').value)
+                formdata.append('frequency', document.getElementById('frequency').value)
+
+                const { data } = await axios.post(`${window.env_var}api/checklist/add`, formdata)
+
+                if (data && data?.status_code == 200) {
+                    setToast(TOAST.SUCCESS(data?.message));
+                    reloadInOneSec()
+                } else if (data?.status_code == 201) {
+                    setToast(TOAST.ERROR(data?.message));
                 }
+
             }
         } catch (error) {
-
+            console.log(error)
         }
     }
 
@@ -103,7 +102,7 @@ const AddChecklistSecurity = () => {
 
     const getGuardDetails = async () => {
         try {
-            const { data } = await axios.get(`${window.env_var}api/guard/getone/${location.state.id}`)
+            const { data } = await axios.get(`${window.env_var}api/checklist/getone/${location.state.id}`)
             setGuard(data.data)
             setError(false)
         } catch (error) {
@@ -134,8 +133,11 @@ const AddChecklistSecurity = () => {
                 </div>
 
                 <div className='GLsidelinks pl-5'>
-                    <p className='noticegll float-left' onClick={() => navigate('/security-checklist')}><b>Reports</b></p>
-                    <a className='aggnotice float-left' onClick={() => navigate('/add-security-checklist')}><b>Add Checklist</b></a>
+
+                    <p className='noticegll float-left' onClick={() => navigate('/security-checklist-report')}><b>Reports</b></p>
+                    <p className='aggnotice float-left' onClick={() => navigate('/add-security-checklist')}><b>Add Checklist</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/security-checklist')}><b>Checklists</b></p>
+
                 </div>
                 <div className="AGSideimg">
                     <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
@@ -146,30 +148,40 @@ const AddChecklistSecurity = () => {
                     <div className='AG_display'>
                         <label>{type == 'edit' ? 'Update Checklist' : 'Add Checklist'}</label>
                     </div>
-                    <Form className='formclass'>
-                        <div class="form-group form-group6 row">
-                            <label class="col-lg-2 col-form-label ADN_label">Name</label>
-                            <div class="col-lg-4">
-                                {type == 'edit' ? <input type="text" class="form-control input-lg SideB" name="First name" id='firstname' placeholder="First Name" defaultValue={guard.firstname} /> :
-                                    <input type="text" class="form-control input-lg input-lg1 SideB" name="First name" id='firstname' placeholder="Enter Checklist Name" />}
-                            </div>
-                        </div>
+                    <Form className='formclass' onSubmit={(e) => handleSubmit(e)}>
 
                         <div class="form-group form-group6 row">
                             <label class="col-lg-2 col-form-label ADN_label">Action</label>
                             <div class="col-lg-4">
-                                {type == 'edit' ? <input type="text" class="form-control input-lg SideB" name="Last name" id="username" defaultValue={guard.username} placeholder="Username" />
-                                    : <input type="text" class="form-control input-lg input-lg1 SideB" name="Last name" id="username" placeholder="Action" />}
+                                {type == 'edit' ? <input type="text" class="form-control input-lg SideB" name="item" id="username" defaultValue={guard.item} placeholder="Enter Action Name" required />
+                                    : <input type="text" class="form-control input-lg input-lg1 SideB" name="item" id="username" placeholder="Enter Action Name" required />}
 
                             </div>
                         </div>
 
+                        <div class="form-group form-group6 row">
+                            <label class="col-lg-2 col-form-label ADN_label">Frequency</label>
+                            <div class="col-lg-4">
+                                {type == 'edit' ? <input type="number" class="form-control input-lg SideB" name="frequency" id="username" defaultValue={guard.frequency} placeholder="Enter Frequency" required />
+                                    : <input type="number" class="form-control input-lg input-lg1 SideB" name="frequency" id="username" placeholder="Enter Frequency" required />}
 
-                        <button type="submit" onClick={(e) => handleSubmit(e)} className="AGBtn">{type == 'edit' ? 'Update Guard' : 'Add Guard'}</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-group6 row">
+                            <label class="col-lg-2 col-form-label ADN_label">Other Details</label>
+                            <div class="col-lg-4">
+                                {type == 'edit' ? <textarea type="text" class="form-control input-lg SideB" name="other_details" id="username" defaultValue={guard.other_details} placeholder="Enter More Details" required />
+                                    : <textarea type="text" class="form-control input-lg input-lg1 SideB" name="other_details" id="username" placeholder="Enter More Details" required />}
+
+                            </div>
+                        </div>
+
+                        <button type="submit" className="btnAddV">{type == 'edit' ? 'Update' : 'Add'}</button>
                     </Form>
                 </Loader>
             </div>
-        </div>
+        </div >
 
 
 

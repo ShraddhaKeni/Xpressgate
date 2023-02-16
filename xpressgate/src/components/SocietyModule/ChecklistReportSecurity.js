@@ -7,7 +7,7 @@ import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import { useNavigate } from "react-router-dom";
 
 
-const ChecklistCommunityStaff = () => {
+const ChecklistSecurityReport = () => {
     const [Guards, setGuards] = useState([])
     const [currentPage, setCurrentpage] = useState(1)
     const [postPerPage, setPostPerPage] = useState(12)
@@ -86,9 +86,9 @@ const ChecklistCommunityStaff = () => {
 
 
                 <div className='GLsidelinks pl-5'>
-                    <p className='noticegll float-left' onClick={() => navigate('/community-staff-checklist-report')}><b>Reports</b></p>
-                    <p className='noticegll float-left' onClick={() => navigate('/add-coomunity-staff-checklist')}><b>Add Checklist</b></p>
-                    <p className='aggnotice float-left' onClick={() => navigate('/community-staff-checklist')}><b>Checklists</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/security-checklist')}><b>Reports</b></p>
+                    <p className='aggnotice float-left' onClick={() => navigate('/add-security-checklist')}><b>Add Checklist</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/add-security-checklist')}><b>Checklists</b></p>
                 </div>
                 <div className="GLSimg">
                     <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
@@ -96,7 +96,7 @@ const ChecklistCommunityStaff = () => {
             </div>
             <div className="addguestbackgroundimg">
                 <div className='GL_display'>
-                    <label>Society Staff Checklist</label>
+                    <label>Security Checklist</label>
                 </div>
                 <div className='row'>
                     {/* <div className='search3'>
@@ -114,9 +114,9 @@ const ChecklistCommunityStaff = () => {
                         <tr>
                             <th class="th-sm">Sr No. </th>
                             <th class="th-sm">Guard Name</th>
-                            <th class="th-sm">Phone</th>
-                            <th class="th-sm">Email</th>
-                            <th class="th-sm">Status</th>
+                            <th class="th-sm">Action</th>
+                            <th class="th-sm">Time</th>
+                            <th class="th-sm">Remarks</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -141,4 +141,4 @@ const ChecklistCommunityStaff = () => {
     );
 };
 
-export default ChecklistCommunityStaff;
+export default ChecklistSecurityReport;

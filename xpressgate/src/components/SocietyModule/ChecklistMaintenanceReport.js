@@ -7,7 +7,7 @@ import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import { useNavigate } from "react-router-dom";
 
 
-const ChecklistCommunityStaff = () => {
+const CheckListMaintenanceReport = () => {
     const [Guards, setGuards] = useState([])
     const [currentPage, setCurrentpage] = useState(1)
     const [postPerPage, setPostPerPage] = useState(12)
@@ -86,9 +86,9 @@ const ChecklistCommunityStaff = () => {
 
 
                 <div className='GLsidelinks pl-5'>
-                    <p className='noticegll float-left' onClick={() => navigate('/community-staff-checklist-report')}><b>Reports</b></p>
-                    <p className='noticegll float-left' onClick={() => navigate('/add-coomunity-staff-checklist')}><b>Add Checklist</b></p>
-                    <p className='aggnotice float-left' onClick={() => navigate('/community-staff-checklist')}><b>Checklists</b></p>
+                    <p className='aggnotice float-left' onClick={() => navigate('/maintenance-checklist-report')}><b>Reports</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/add-maintenance-checklist')}><b>Add Checklist</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/maintenance-checklist')}><b>Checklists</b></p>
                 </div>
                 <div className="GLSimg">
                     <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
@@ -96,7 +96,7 @@ const ChecklistCommunityStaff = () => {
             </div>
             <div className="addguestbackgroundimg">
                 <div className='GL_display'>
-                    <label>Society Staff Checklist</label>
+                    <label>Maintenance Cheklist</label>
                 </div>
                 <div className='row'>
                     {/* <div className='search3'>
@@ -141,4 +141,4 @@ const ChecklistCommunityStaff = () => {
     );
 };
 
-export default ChecklistCommunityStaff;
+export default CheckListMaintenanceReport;

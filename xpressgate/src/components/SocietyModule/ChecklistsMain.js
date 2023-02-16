@@ -42,6 +42,7 @@ const ChecklistsMain = () => {
                 </div>
 
                 <div className="row row-cols-1 row-cols-md-3 g-4 cfullcardscss allcards">
+
                     <div className="col card_hover_animation">
                         <div className="Cdashboardcard">
                             <a href="/security-checklist">
