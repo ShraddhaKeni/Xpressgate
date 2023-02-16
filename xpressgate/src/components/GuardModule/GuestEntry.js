@@ -108,7 +108,7 @@ const GuestEntry = () => {
     </div>
     <div className='fvbackgroundimg'>
     <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
-      <div className='GuestL_display'>
+      <div className='GuestE_display'>
         <label>Guest Details</label>
       </div>
       <Loader loading={loading}>

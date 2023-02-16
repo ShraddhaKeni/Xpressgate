@@ -11,21 +11,23 @@ import { checkGuard } from '../auth/Auth'
 import Loader from '../../common/Loader';
 import ErrorScreen from '../../common/ErrorScreen.js';
 import Pagination from '../../common/Pagination';
-
+import Table from 'react-bootstrap/Table';
+import GuardMobileSidebar from '../GuardMobileSidebar';
 const GuestList = () => {
-  
+
   const [guests, setGuests] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts, setCurrentPosts] = useState([])
   const [pageCount, setpageCount] = useState(0)
-  const [isLoading,setLoading] = useState(true)
-  const [isError,setError] = useState(false)
-  const [filterArr,setFilter] = useState([])
+  const [isLoading, setLoading] = useState(true)
+  const [isError, setError] = useState(false)
+  const [filterArr, setFilter] = useState([])
+  const [menu, setMenuOpen] = useState(false)
 
   const navigate = useNavigate()
   useEffect(() => {
-   
+
     if (checkGuard()) {
       const config = {
         headers: {
@@ -52,9 +54,9 @@ const GuestList = () => {
       const indexoflast = currentPage * postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.guests_list.slice(indexoffirst, indexoflast))
-      setTimeout(()=>{
+      setTimeout(() => {
         setLoading(false)
-      },2000)
+      }, 2000)
 
     } catch (error) {
       setLoading(false)
@@ -91,78 +93,92 @@ const GuestList = () => {
     navigate('/guestentry', { state: { id: id } })
   }
 
-  function settingCurrent(value)
-  {
+  function settingCurrent(value) {
     setCurrentPosts(value)
   }
 
-  if(isLoading)
-    return <Loader/>
-  if(isError)
-    return <ErrorScreen/>
+  if (isLoading)
+    return <Loader />
+  if (isError)
+    return <ErrorScreen />
 
   return (
-    <div className="inoutbookcontainer">
-      <div id="headersection">
-        <GuardHeader />
-      </div>
-      <div id="guardnamesection">
-        <div className='GuestLName'>
-          <img src="/images/guardnameicon.svg" alt="guard name" />
-          <label>{localStorage.getItem('name')}</label>
+    <>
+      <div className='flex flex-col'>
+
+        <div id="headersection">
+          <GuardHeader onMenuClick={() => {
+            setMenuOpen(true)
+          }} />
         </div>
-        <div className='GuestLsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
-      </div>
-      <div className='iobbackgroundimg'>
-        <div className='GuestL_display'>
-          <label>Guest List</label>
+        <div className='flex'>
+
+          <div id="guardnamesection">
+            <div className='GuestLName'>
+              <img src="/images/guardnameicon.svg" alt="guard name" />
+              <label>{localStorage.getItem('name')}</label>
+            </div>
+            <div className='GuestLsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
+          </div>
+
+          <div className='flex-1 d-flex' style={{ width: "100%", height: '100%' }}>
+            <div className='new-main-container'>
+              <main>
+                <div className='GuestL_display'>
+                  <label>Guest List</label>
+                </div>
+                <div>
+                  <Table id="InoutBooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }} size='sm' responsive>
+                    <thead>
+                      <tr>
+                        <th class="th-sm">Sr No.</th>
+                        <th class="th-sm">Name</th>
+                        <th class="th-sm">Visitor Type</th>
+                        <th class="th-sm">Block</th>
+                        <th class="th-sm">Flat No.</th>
+                        <th class="th-sm">Date</th>
+                        <th class="th-sm">In Time</th>
+                        <th class="th-sm">Parking Section</th>
+                        <th class="th-sm">Parking Time</th>
+                        <th class="th-sm">Vehicle Number</th>
+                        <th class="th-sm">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {currentPosts.map((items, index) => {
+                        return (
+                          <tr>
+                            <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1) * 12 + (index + 1)}</td>
+                            <td onClick={() => { guestEntry(items.Guest_id) }}>{items.guestFirstName} {items.guestLastName}</td>
+                            <td>Guest</td>
+                            <td>{items.block_name}</td>
+                            <td>{items.flat_number}</td>
+                            <td>{dateFormat(items.time)}</td>
+                            <td>{dateTimeFormat(items.time)}</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                          </tr>)
+                      })}
+
+                    </tbody>
+                  </Table>
+                </div>
+                <Pagination totalPages={filterArr.length > 0 ? filterArr.length : guests.length} data={filterArr.length > 0 ? filterArr : guests} settingCurrent={settingCurrent} />
+              </main>
+            </div>
+
+          </div>
         </div>
-       <table id="inoutbooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
-          <thead>
-            <tr>
-              <th class="th-sm">Sr No.</th>
-              <th class="th-sm">Name</th>
-              <th class="th-sm">Visitor Type</th>
-              <th class="th-sm">Block</th>
-              <th class="th-sm">Flat No.</th>
-              <th class="th-sm">Date</th>
-              <th class="th-sm">In Time</th>
-              <th class="th-sm">Parking Section</th>
-              <th class="th-sm">Parking Time</th>
-              <th class="th-sm">Vehicle Number</th>
-              <th class="th-sm">Status</th>
-            </tr>
-          </thead>
-         
-          <tbody>
-            {currentPosts.map((items, index) => {
-              return (
-                <tr>
-                  <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1) * 12 + (index + 1)}</td>
-                  <td onClick={() => { guestEntry(items.Guest_id) }}>{items.guestFirstName} {items.guestLastName}</td>
-                  <td>Guest</td>
-                  <td>{items.block_name}</td>
-                  <td>{items.flat_number}</td>
-                  <td>{dateFormat(items.time)}</td>
-                  <td>{dateTimeFormat(items.time)}</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>)
-            })}
-
-          </tbody>
-        </table>
-        {/* <div className="App">
-      {data} */}
-        {/* <PaginationCalculate totalPages={guests.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} /> */}
-        <Pagination totalPages={filterArr.length>0?filterArr.length:guests.length} data ={filterArr.length>0?filterArr:guests} settingCurrent={settingCurrent}/>
 
 
-       
-      </div>
-    </div>
+        <GuardMobileSidebar open={menu} onHide={() => setMenuOpen(false)} />
+
+
+      </div >
+
+    </>
   )
 }
 

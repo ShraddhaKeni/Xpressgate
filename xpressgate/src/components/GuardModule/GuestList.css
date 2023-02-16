@@ -1,3 +1,4 @@
+
 .GuestLName label {
     font-family: 'Rubik';
   font-style: normal;
@@ -54,9 +55,26 @@
     border-radius: 30px;
     padding-top: 16px;
     margin: auto;
-    margin-top: -3%;
+    margin-top: -4%;
   }
   .GuestL_display label {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;  
+    font-size: 1.3vw;
+    text-align: center;  
+    color: #14335D;
+  }
+  .GuestE_display {
+    width: 16vw;
+    height: 7vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    padding-top: 16px;
+    margin: auto;
+    margin-top: -3%;
+  }
+  .GuestE_display label {
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 500;  
@@ -115,6 +133,26 @@
     font-weight: 500;
     color: #14335D;
     }
+      .GuestE_display {
+        width: 17vw;
+        height: 7vh;
+        background-color: #AED8DC;
+        border-radius: 30px;
+        font-size: 1.4vw;
+        padding: 1%;
+        margin: auto;
+        margin-top: -15%;
+        margin-left: 38%;
+    }
+    .GuestE_display label {
+      
+        font-size: 1.5vw;
+        text-align: center;
+        font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    color: #14335D;
+    }
     .BTN_Approve:hover{
       background-color: #14335D;
     }
@@ -129,8 +167,26 @@
     display: none;
   }
 
-
   .GuestL_display {
+    width: 15rem;
+    height: 4.5rem;
+    background-color: #AED8DC;
+    border-radius: 14px;
+    padding-top: 3%;
+    margin-top: 3%;
+    margin-right: 28%;
+    margin-bottom: 4%;
+}
+.GuestL_display label {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #14335D;
+}
+
+  .GuestE_display {
     width: 15rem;
     height: 5rem;
     background-color: #AED8DC;
@@ -140,7 +196,7 @@
     margin-top: -1%;
     margin-right: 22%;
 }
-.GuestL_display label {
+.GuestE_display label {
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 600;

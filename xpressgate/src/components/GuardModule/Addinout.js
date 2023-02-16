@@ -270,7 +270,7 @@ const Addinout = () => {
             </div>
           </div>
 
-          <button type="submit" className="btnInOut" on>Add In Out</button>
+          <button type="submit" className="btnInOut"  onClick={(e) => handleSubmit(e)}  on>Add In Out</button>
 
         </Form>
         {/* </Loader> */}

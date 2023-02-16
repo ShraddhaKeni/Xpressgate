@@ -31,6 +31,13 @@ html {
 
 }
 
+.GS_LabelName{  
+  font-size: 2rem;
+  font-weight: 100;
+  font-style: normal !important;
+  color: #000000;
+}
+
 .addguestbackgroundimg {
   background-image: url("../../../public/images/dashboardbackground.svg");
   background-repeat: no-repeat;
