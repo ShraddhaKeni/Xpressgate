@@ -51,7 +51,7 @@ const AdminEnterNewPass = () => {
         <div id="Superadminlogo">
               <img src="/images/loginlogo.svg" alt="" />
             <div className="Admin_SignIn">
-              <label className="Admin_SignIn_Label">SIGN IN</label>
+              <label className="Admin_SignIn_Label">Forgot Password</label>
             </div>
             </div>
         <div id="superadminloginimg">

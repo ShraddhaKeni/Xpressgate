@@ -47,8 +47,25 @@ const RouterPath = {
 
     MANAGE_SLIDERS: "/admin/manage/sliders",
 
-    ADD_SOCIETY_MEMBER: "/addsocietymember"
+    ADD_SOCIETY_MEMBER: "/addsocietymember",
 
+
+
+    /// Partner Routes
+
+
+    PARTNER_DASHBOARD: "/partner/dashboard",
+    PARTNER_HOME: "/partner",
+    COURSE_MANAGEMENT: "/partner/course",
+    STUDENT_MANAGEMENT: "/partner/student",
+    PARTNER_CHANGE_PASSWORD: "/partnerchangepassword",
+    PARTNER_PROFILE: "/partnerprofile",
+    ADD_COURSE:"/partner/course/addcourse",
+    EDIT_COURSE:"/partner/course/editcourse",
+    COURSE_DETAILS:"/partner/course/coursedetails",
+    ADD_STUDENT: "/partner/student/addstudent",
+    EDIT_STUDENT: "/partner/student/editstudent",
+    STUDENT_DETAILS: "/partner/student/studentdetails",
 
 };
 export default RouterPath;

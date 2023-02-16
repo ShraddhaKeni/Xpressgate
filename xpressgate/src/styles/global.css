@@ -721,6 +721,249 @@ border-radius: 25px;
     margin-bottom: 5%; 
     position: absolute;  
   }
+  .Partner_side_Img{
+    width: 16vw;
+    height: auto;
+    margin: 75% 0% 2% 8%;
+  }
+  .PCard {
+    width: 40%;
+    margin: auto;
+    margin-top: 3%;
+    background-color: #fff;
+    border: 2px solid #14335D;
+    border-radius: 20px;
+    margin-left: 27%;
+}
+.descriptionclass {
+    background-color: #AED8DC;
+    width: 85%;
+    height: fit-content;
+    color: #000;
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    border-radius: 8px;
+    margin: auto;
+    padding-left: 4%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    text-align: left;
+}
+.ESDescClass {
+    background-color: #AED8DC;
+    width: 85%;
+    height: auto;
+    color: #000;
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    border-radius: 8px;
+    margin: auto;
+ padding: 2%;
+    text-align: left;
+}
+.DescLabels {
+    font-weight: 600;
+    font-size: 2rem;
+    font-family: 'Rubik', sans-serif;
+    color: #14335D;
+    margin-right: 60%;
+}
+.ESLabel {
+    font-weight: 600;
+    font-size: 2rem;
+    font-family: 'Rubik', sans-serif;
+    color: #14335D;
+    margin-right: 46.5%;
+}
+.typeboxes{
+    background-color: #AED8DC;
+    width: 150%;
+    height: fit-content;
+    color: #000;
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    border-radius: 8px;
+    margin-left: 0%;
+    padding: 4%;
+    text-align: left;
+}
+.ContentBox{
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+.CTLAbel{
+    margin-left: 8.5%;
+    margin-right: 20%;
+    font-weight: 600;
+    font-size: 2rem;
+    font-family: 'Rubik', sans-serif;
+    color: #14335D;
+}
+.CLLAbel label{
+    font-weight: 600;
+    font-size: 2rem;
+    font-family: 'Rubik', sans-serif;
+    color: #14335D;
+}
+.ViewListBtn{
+    width: 7vw;
+    height: 3.5vh;
+    margin-left: 68%;
+    background: #0A8996;
+border-radius: 12px;
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 700;
+font-size: 1vw;
+color: #FFFFFF;
+border: none;
+}
+.ViewListBtn:hover{
+    background: #14335D;
+}
+.MaxSLabel{
+    text-align: left;
+}
+.MaxSLabel label{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+    margin-left: 10%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+.EditCDButn{
+width: 8vw;
+height: 2.5vw;
+background: #0A8996;
+border-radius: 9px;
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 700;
+font-size: 1vw;
+text-align: center;
+color: #FFFFFF;
+margin-right: 15%;
+border: none;
+}
+.EditCDButn:hover{
+    background: #14335D;
+}
+.DeleteCDButn{
+width: 8vw;
+height: 2.5vw;
+background: #96230A;
+border-radius: 9px;
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 700;
+font-size: 1vw;
+text-align: center;
+color: #FFFFFF;
+border: none;
+}
+.DeleteCDButn:hover{
+    background: #14335D;
+}
+.CNameSelectButn{
+    margin-right: 43%;
+    margin-top: 3%;
+}
+.CNameSelectButn select{
+    width: 11vw;
+    height: 4vh;
+ text-align: center;
+background: #0A8996;
+border-radius: 14px;
+border: none;
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 400;
+font-size: 1vw;
+color: #FEFEFF;
+}
+.CNameSelectButn select:hover{
+    background: #14335D;
+}
+.SdetailsCard {
+    width: 73%;
+    height: auto;
+    margin: auto;
+    padding: 3%;
+    margin-top: 8%;
+    background: #14335D;
+border-radius: 25px;
+    columns: #fff;
+    margin-left: 12%;
+    display: flex;
+    margin-top: 6%;
+}
+.ImageCont{
+    text-align: center;
+}
+.Studentprofileimage img {
+    width: 70%;
+    height: auto;
+    border-radius: 55%;
+    margin-top: 40%;
+}
+.StudentNameLAbel{
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+font-size: 1.5vw;
+line-height: 36px;
+color: #FFFFFF;
+}
+.StudentdetailsContainer{
+    background: #F9FAFF;
+border: 5px solid #14335D;
+border-radius: 25px;
+width: 70%;
+height: auto;
+padding: 1%;
+}
+.FCPartner{
+    margin-top: 2%;
+    margin-left: 2%;
+}
+.PartnerSideBorder {
+    background: #AED8DC;
+    border-radius: 21px;
+    box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);
+    border-radius: 8px;
+    height: 5vh;
+    font-family: 'Rubik';
+font-style: normal;
+font-weight: 500;
+font-size: 1vw;
+color: #1A1717;
+text-align: left;
+}
+.PartnerAddressSideBorder {
+    background: #AED8DC;
+    border-radius: 21px;
+    box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);
+    border-radius: 8px;
+    height: 10vh;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1vw;
+    color: #1A1717;
+    text-align: left;
+}
+.SD_LAbels {
+    font-size: 1.1vw;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    color: #000000;
+}
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
     #adminlogo img {
         margin-top: 14%;

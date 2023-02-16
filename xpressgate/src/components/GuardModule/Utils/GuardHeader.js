@@ -26,12 +26,12 @@ const GuardHeader = ({ onMenuClick }) => {
   }
 
   return (
-    <div className="sfirstheadersection">
+    <div className="Gfirstheadersection">
       <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
-      <div id="sdashboardlogo">
+      <div id="Gdashboardlogo">
         <div className='d-flex flex-row align-items-center flex-nowrap'>
           <Menu fontSize='large' className='ml-3 d-lg-none' onClick={onMenuClick} />
-          <img src="/images/loginlogo.svg" alt="header logo" />
+          <img src="/images/loginlogo.svg" alt="header logo" className='' />
         </div>
 
       </div>

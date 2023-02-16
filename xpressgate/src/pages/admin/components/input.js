@@ -14,7 +14,7 @@ export const SimpleInputComponent = ({ name, id, label, onChange, type = 'text',
                 {label}
             </label>
             <div class="col-lg-5 col-md-2 col-sm-2">
-                {(type == 'text' || type == 'number') && <TextField
+                {(type == 'text' || type == 'number' || type =='file' || type =='email' ) && <TextField
                     type={type}
                     name={name}
                     placeholder={placeholder}
@@ -32,7 +32,7 @@ export const SimpleInputComponent = ({ name, id, label, onChange, type = 'text',
                     class="form-control input-lg form-input-bg"
                     name={name}
                     placeholder={placeholder}
-                    rows="6"
+                    rows="4"
                     text={text}
                     onChange={onChange}
                     id={id}
