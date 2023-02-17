@@ -59,13 +59,19 @@ const SelectMode = () => {
               <br />
               <label className='GM_label'>Super Admin </label>
             </Button>
-          </div> </div>
-      
-         <div className='copyright'>
-          © Copyright 2023 Designed by <a href="https://www.axzoragroup.com/" target="_blank">Axzora Private Limited</a>
-        </div> 
+          </div>
 
-    
+
+
+
+        </div>
+
+
+        <div className='copyright'>
+          © Copyright 2023 Designed by <a href="https://www.axzoragroup.com/" target="_blank">Axzora Private Limited</a>
+        </div>
+
+
       </div>
 
     </>
