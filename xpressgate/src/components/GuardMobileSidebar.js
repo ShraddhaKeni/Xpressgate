@@ -22,14 +22,14 @@ const GuardMobileSidebar = ({ open, onHide }) => {
                 <div className='d-flex flex-column ml-5'>
 
                     <a href="/dashboard" className={`GS_LabelName mt-4 ${!router.pathname.includes("/dashboard") && 'text-secondary'}`}><b>Dashboard</b></a>
-                    <a href="/guestlist" className={`GS_LabelName mt-5 ${!router.pathname.includes("/guestlist") && 'text-secondary'}`}><b>Guest</b></a>
-                    <a href="/vendorlist" className={`GS_LabelName mt-5 ${!router.pathname.includes("/vendorlist") && 'text-secondary'}`}><b>Vendor</b></a>
+                    <a href="/guestlist" className={`GS_LabelName mt-5 ${!router.pathname.includes("/guest") && 'text-secondary'}`}><b>Guest</b></a>
+                    <a href="/vendorlist" className={`GS_LabelName mt-5 ${!router.pathname.includes("vendor") && 'text-secondary'}`}><b>Vendor</b></a>
 
-                    <a href="/dailyhelp" className={`GS_LabelName mt-5 ${!router.pathname.includes("/dailyhelp") && 'text-secondary'}`}><b>Daily Help</b></a>
+                    <a href="/dailyhelp" className={`GS_LabelName mt-5 ${!router.pathname.includes("/daily") && 'text-secondary'}`}><b>Daily Help</b></a>
 
                     <a href="/videoclass" className={`GS_LabelName mt-5 ${!router.pathname.includes("/videoclass") && 'text-secondary'}`}><b>Video Class</b></a>
 
-                    <a href="/inoutbook" className={`GS_LabelName mt-5 ${!router.pathname.includes("/inoutbook") && 'text-secondary'}`}><b>In-Out book</b></a>
+                    <a href="/inoutbook" className={`GS_LabelName mt-5 ${!(router.pathname.includes("/inout") || router.pathname.includes("/addinout")) && 'text-secondary'}`}><b>In-Out book</b></a>
 
                 </div>
             </div >

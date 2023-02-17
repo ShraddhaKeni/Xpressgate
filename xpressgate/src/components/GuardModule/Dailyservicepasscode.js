@@ -9,6 +9,7 @@ import GuardHeader from './Utils/GuardHeader';
 import { Loader } from "../Loader";
 import { ToastMessage } from '../ToastMessage';
 import ErrorScreen from '../../common/ErrorScreen';
+import GuardMobileSidebar from '../GuardMobileSidebar';
 const Dailyservicepasscode = ({ props }) => {
   const [toast, setToast] = useState({ show: false })
   const [loading, setLoading] = useState(true)
@@ -18,42 +19,42 @@ const Dailyservicepasscode = ({ props }) => {
   const [dailyhelp, setDailyhelp] = useState([])
   const [details, setDetails] = useState({})
   const location = useLocation();
-  const [isError,setError] = useState(false)
+  const [isError, setError] = useState(false)
+  const [menu, setMenuOpen] = useState(false)
+
   //console.log(location);
 
-const navigate = useNavigate()
+  const navigate = useNavigate()
 
   useEffect(() => {
-   
-  if(checkGuard())
-  {
-    const config = {
-      headers:{
-        'x-access-token':localStorage.getItem('accesstoken')
+
+    if (checkGuard()) {
+      const config = {
+        headers: {
+          'x-access-token': localStorage.getItem('accesstoken')
+        }
       }
+      axios.get(`${window.env_var}api/guard/checkLogin`, config)
+        .then(({ data }) => {
+
+        })
+        .catch(err => {
+          localStorage.clear();
+          window.location.href = '/guardLogin'
+        })
+      if (location.state) {
+        console.log(location.state)
+        getdailyhelp()
+      }
+      else {
+        getData()
+      }
+      setLoading(false);
     }
-   axios.get(`${window.env_var}api/guard/checkLogin`,config)
-          .then(({data})=>{  
-            
-          })
-          .catch(err=>{
-            localStorage.clear();
-            window.location.href='/guardLogin'
-          })
-          if (location.state) {
-            console.log(location.state)
-            getdailyhelp()
-          }
-          else {
-            getData()
-          } 
-          setLoading(false); 
-  }
-  else
-  {
-    window.location.href='/'
-  }
-    
+    else {
+      window.location.href = '/'
+    }
+
 
   }, [])
 
@@ -71,19 +72,17 @@ const navigate = useNavigate()
     }
   }
 
-  const getData = async()=>{
+  const getData = async () => {
     try {
       const codeData = {
         code: props.code,
         community_id: localStorage.getItem('community_id')
       }
       let { data } = await axios.post(`${window.env_var}api/inoutentires/getdata`, codeData)
-      if(data.message=='Guest')
-      {
-        navigate('/guestentry',{state:{id:data.data.bookingdetails.booked_id}})
+      if (data.message == 'Guest') {
+        navigate('/guestentry', { state: { id: data.data.bookingdetails.booked_id } })
       }
-      else
-      {
+      else {
         const { data } = await axios.get(`${window.env_var}api/resident/helperstaff/getOne/${props.booked_id}`)
         setFlats(props.flatID)
         setStaff(data.data.staff[0])
@@ -109,98 +108,102 @@ const navigate = useNavigate()
     }
   }
 
-  const handleclick =async()=>{
+  const handleclick = async () => {
     try {
-    
-     dailyhelp.map(async(item)=>{
-      let submitData = {
-        firstname:item.helper_name,
-        lastname:'',
-        mobileno:item.contact,
-        intime:Date.now(),
-        outtime:"",
-        community_id:localStorage.getItem('community_id'),
-        flat_id:item.flat_id,
-        type:3,
-        bookedID:item._id,
-        status:2,
-        allowed_by:localStorage.getItem('guard_id')
-    }
-    const saveData = await axios.post(`${window.env_var}api/inout/add`,submitData)
-    console.log(saveData.data.data)
-    setToast({ show: true, type: "success", message: "Approved" })
-    setTimeout(() => {
-      window.location.href='/dailyhelp'
-    }, 1500);
-    // window.location.href="/dailyhelp"
-     })
+
+      dailyhelp.map(async (item) => {
+        let submitData = {
+          firstname: item.helper_name,
+          lastname: '',
+          mobileno: item.contact,
+          intime: Date.now(),
+          outtime: "",
+          community_id: localStorage.getItem('community_id'),
+          flat_id: item.flat_id,
+          type: 3,
+          bookedID: item._id,
+          status: 2,
+          allowed_by: localStorage.getItem('guard_id')
+        }
+        const saveData = await axios.post(`${window.env_var}api/inout/add`, submitData)
+        console.log(saveData.data.data)
+        setToast({ show: true, type: "success", message: "Approved" })
+        setTimeout(() => {
+          window.location.href = '/dailyhelp'
+        }, 1500);
+        // window.location.href="/dailyhelp"
+      })
     } catch (error) {
 
     }
   }
-  const deny=async()=>{
+  const deny = async () => {
 
     setToast({ show: true, type: "success", message: "Denied " })
     setTimeout(() => {
-      window.location.href="/dashboard"
+      window.location.href = "/dashboard"
     }, 1500);
-   
+
   }
 
-  if(isError)
-    return <ErrorScreen/>
+  if (isError)
+    return <ErrorScreen />
 
   return (
     <div className="dailyservicepasscodecontainer">
 
       <div id="dspheadersection">
-        <GuardHeader/>
+        <GuardHeader onMenuClick={() => {
+          setMenuOpen(true)
+        }} />
       </div>
       <div id="dspguardnamesection">
         <div className='DSPName'>
           <img src="/images/guardnameicon.svg" alt="guard name" />
           <label>{localStorage.getItem('name')}</label>
         </div>
-       <div className='DSPSImg'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
+        <div className='DSPSImg'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='dspbackgroundimg'>
-      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
-      <Loader loading={loading}>
-        {props ? <div className='dailyservicepasscodedisplay'><label>{props.code} </label> </div> : " "}
-        <div className="col-sm-6 col-md-6 col-lg-6">
-          <div className="dailycard">
-            <br></br>
-            {props ? <div className='profileimage'><img src={`${window.env_var}` +staff.staffDP} alt="profile"/></div>: <div className='profileimage'><img src={`${window.env_var}` +details.img} alt="profile" /></div>}
-            <br></br>
-            {props ? <label className="dailyhelpnamelabel">{staff.staffName}</label> : <label className="dailyhelpnamelabel">{details.helper_name}</label>}
-            <br />
-            {props ? <label className="proflabel">{service}</label> : <label className="proflabel">{details.service}</label>}
-            <br />
-            {props ? <label className="allowedlabel">Allowed in {flats.length} houses</label> : <label className="allowedlabel">Allowed in {dailyhelp.length} houses</label>}
-            <br></br>
-            <br></br>
-            <br></br>
-          </div>
-        </div>
-
-        {props ? <div className="col-sm-6 col-md-6 col-lg-6 flatnum">
-          {flats.map(flat => {
-            return <label className="detailslabel">Flat {flat.Flat_number}, Block {flat.Block_name}</label>
-          })}
-        </div> :
-          <div className="col-sm-6 col-md-6 col-lg-6 flatnum">
-            {dailyhelp.map(ft => {
-              return <label className="detailslabel">Flat {ft.flats}, Block {ft.block} </label>
-            })}
-          </div>}
-          <div className='buttons_dailyservice'>
-            <div>
-              <Button type="button" onClick={()=> handleclick()} id='approve_entry'  className="btnAddDSP">APPROVE</Button>
-              <Button type="button" onClick={()=>{deny()}} id='deny_entry' className="btnDenyDSP ">DENY</Button>
+        <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+        <Loader loading={loading}>
+          {props ? <div className='dailyservicepasscodedisplay'><label>{props.code} </label> </div> : " "}
+          <div className="col-sm-6 col-md-6 col-lg-6">
+            <div className="dailycard">
+              <br></br>
+              {props ? <div className='profileimage'><img src={`${window.env_var}` + staff.staffDP} alt="profile" /></div> : <div className='profileimage'><img src={`${window.env_var}` + details.img} alt="profile" /></div>}
+              <br></br>
+              {props ? <label className="dailyhelpnamelabel">{staff.staffName}</label> : <label className="dailyhelpnamelabel">{details.helper_name}</label>}
+              <br />
+              {props ? <label className="proflabel">{service}</label> : <label className="proflabel">{details.service}</label>}
+              <br />
+              {props ? <label className="allowedlabel">Allowed in {flats.length} houses</label> : <label className="allowedlabel">Allowed in {dailyhelp.length} houses</label>}
+              <br></br>
+              <br></br>
+              <br></br>
             </div>
           </div>
-          </Loader>
+
+          {props ? <div className="col-sm-6 col-md-6 col-lg-6 flatnum">
+            {flats.map(flat => {
+              return <label className="detailslabel">Flat {flat.Flat_number}, Block {flat.Block_name}</label>
+            })}
+          </div> :
+            <div className="col-sm-6 col-md-6 col-lg-6 flatnum">
+              {dailyhelp.map(ft => {
+                return <label className="detailslabel">Flat {ft.flats}, Block {ft.block} </label>
+              })}
+            </div>}
+          <div className='buttons_dailyservice'>
+            <div>
+              <Button type="button" onClick={() => handleclick()} id='approve_entry' className="btnAddDSP">APPROVE</Button>
+              <Button type="button" onClick={() => { deny() }} id='deny_entry' className="btnDenyDSP ">DENY</Button>
+            </div>
+          </div>
+        </Loader>
       </div>
+      <GuardMobileSidebar open={menu} onHide={() => setMenuOpen(false)} />
+
     </div>
   )
 
