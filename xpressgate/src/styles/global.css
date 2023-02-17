@@ -751,33 +751,34 @@ border-radius: 25px;
 }
 .ESDescClass {
     background-color: #AED8DC;
-    width: 85%;
+    width: 84%;
     height: auto;
     color: #000;
     font-family: 'Rubik', sans-serif;
     font-size: 20px;
     border-radius: 8px;
     margin: auto;
- padding: 2%;
+    padding: 2%;
     text-align: left;
 }
 .DescLabels {
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 1.2vw;
     font-family: 'Rubik', sans-serif;
     color: #14335D;
     margin-right: 60%;
 }
 .ESLabel {
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 1.2vw;
     font-family: 'Rubik', sans-serif;
     color: #14335D;
-    margin-right: 46.5%;
+    margin-right: 47.5%;
 }
-.typeboxes{
+.typeboxes {
     background-color: #AED8DC;
-    width: 150%;
+    width: 143%;
+    height: -moz-fit-content;
     height: fit-content;
     color: #000;
     font-family: 'Rubik', sans-serif;
@@ -792,17 +793,17 @@ border-radius: 25px;
     width: 100%;
     height: auto;
 }
-.CTLAbel{
+.CTLAbel {
     margin-left: 8.5%;
-    margin-right: 20%;
+    margin-right: 22%;
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 1.2vw;
     font-family: 'Rubik', sans-serif;
     color: #14335D;
 }
-.CLLAbel label{
+.CLLAbel label {
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 1.2vw;
     font-family: 'Rubik', sans-serif;
     color: #14335D;
 }
@@ -832,7 +833,7 @@ border: none;
     font-size: 16px;
     line-height: 19px;
     color: #000000;
-    margin-left: 10%;
+    margin-left: 9%;
     margin-top: 2%;
     margin-bottom: 5%;
 }
