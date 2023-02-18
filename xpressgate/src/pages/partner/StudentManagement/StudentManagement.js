@@ -7,13 +7,13 @@ function StudentManagement() {
         <>
         <div>
         <div className='page-label'>
-          <label>Enrolled Student List</label>
+          <label>Enrolled Member List</label>
         </div>
         <div>
           <div className="table-top-right-content">
             <div className='CNameSelectButn'>
               <select id="Course_name" name="course_name">
-                <option value=" " disabled selected>Course Name</option>
+                <option value=" " disabled selected>Program Name</option>
                 <option value=" "></option>
                 <option value=" "></option>
               </select>
@@ -27,7 +27,7 @@ function StudentManagement() {
               </span>
             </div>
             <div className="table-add-new-butn" onClick={() => { window.location.href = '/partner/student/addstudent' }}>
-              <span className="ml-2">&#43; Add New Student</span>
+              <span className="ml-2">&#43; Add New Member</span>
             </div>
           </div>
         </div>
@@ -35,7 +35,7 @@ function StudentManagement() {
         <table id="table-header" class="table table-striped table-bordered table-sm " cellspacing="0">
                             <thead className='table-th'>
                                 <tr>
-                                    <th class="th-sm" >Student name</th>
+                                    <th class="th-sm" >Member Name</th>
                                     <th class="th-sm">Phone Number</th>
                                     <th class="th-sm">Email</th>
                                     <th class="th-sm">Payment</th>

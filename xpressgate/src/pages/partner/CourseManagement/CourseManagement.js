@@ -7,7 +7,7 @@ function CourseManagement() {
     <>
       <div>
         <div className="page-label">
-          <label>Courses</label>
+          <label>Program Name</label>
         </div>
         <div>
           <div className="table-top-right-content">
@@ -20,7 +20,7 @@ function CourseManagement() {
               </span>
             </div>
             <div className="table-add-new-butn" onClick={() => { window.location.href = '/partner/course/addcourse' }}>
-              <span className="ml-2">&#43; Add New Course</span>
+              <span className="ml-2">&#43; Add New Program</span>
             </div>
           </div>
           <div id="cardsection">
@@ -31,7 +31,7 @@ function CourseManagement() {
                                             <div className="Coupon-card-green ">
                                             <a href="/partner/course/editcourse"><img src="/images/pencilicon.png" className="pencilicon"></img></a>
                                                 <div>
-                                                    <p className='dash-Coupon_heading-sm'>Course Name</p>
+                                                    <p className='dash-Coupon_heading-sm'>Program Name</p>
                                                     <p className='Coupon-heading'>Fashion Designing</p>
                                                     <p className='dash-Coupon_heading-md'><b>Live - Online Classes</b></p>
                                                     <Link   type="button" className="btn btn-primary blue-bg">View</Link>
@@ -43,7 +43,7 @@ function CourseManagement() {
                                             <div className="Coupon-card-green ">
                                             <a href="/partner/course/editcourse"><img src="/images/pencilicon.png" className="pencilicon"></img></a>
                                                 <div>
-                                                    <p className='dash-Coupon_heading-sm'>Course Name</p>
+                                                    <p className='dash-Coupon_heading-sm'>Program Name</p>
                                                     <p className='Coupon-heading'>Fashion Designing</p>
                                                     <p className='dash-Coupon_heading-md'><b>Live - Online Classes</b></p>
                                                     <Link   type="button" className="btn btn-primary blue-bg">View</Link>
@@ -55,7 +55,7 @@ function CourseManagement() {
                                             <div className="Coupon-card-green ">
                                             <a href="/partner/course/editcourse"><img src="/images/pencilicon.png" className="pencilicon"></img></a>
                                                 <div>
-                                                    <p className='dash-Coupon_heading-sm'>Course Name</p>
+                                                    <p className='dash-Coupon_heading-sm'>Program Name</p>
                                                     <p className='Coupon-heading'>Fashion Designing</p>
                                                     <p className='dash-Coupon_heading-md'><b>Live - Online Classes</b></p>
                                                     <Link to={`${RouterPath.COURSE_DETAILS}`} type="button" className="btn btn-primary blue-bg">View</Link>

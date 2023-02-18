@@ -763,17 +763,17 @@ border-radius: 25px;
 }
 .DescLabels {
     font-weight: 600;
-    font-size: 1.2vw;
+    font-size: 1.1vw;
     font-family: 'Rubik', sans-serif;
     color: #14335D;
     margin-right: 60%;
 }
 .ESLabel {
     font-weight: 600;
-    font-size: 1.2vw;
+    font-size: 1.1vw;
     font-family: 'Rubik', sans-serif;
     color: #14335D;
-    margin-right: 47.5%;
+    margin-right: 50%;
 }
 .typeboxes {
     background-color: #AED8DC;
@@ -795,15 +795,15 @@ border-radius: 25px;
 }
 .CTLAbel {
     margin-left: 8.5%;
-    margin-right: 22%;
+    margin-right: 20%;
     font-weight: 600;
-    font-size: 1.2vw;
+    font-size: 1.1vw;
     font-family: 'Rubik', sans-serif;
     color: #14335D;
 }
 .CLLAbel label {
     font-weight: 600;
-    font-size: 1.2vw;
+    font-size: 1.1vw;
     font-family: 'Rubik', sans-serif;
     color: #14335D;
 }
@@ -845,7 +845,7 @@ border-radius: 9px;
 font-family: 'Rubik';
 font-style: normal;
 font-weight: 700;
-font-size: 1vw;
+font-size: 0.9vw;
 text-align: center;
 color: #FFFFFF;
 margin-right: 15%;
@@ -862,7 +862,7 @@ border-radius: 9px;
 font-family: 'Rubik';
 font-style: normal;
 font-weight: 700;
-font-size: 1vw;
+font-size: 0.9vw;
 text-align: center;
 color: #FFFFFF;
 border: none;
