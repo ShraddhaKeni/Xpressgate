@@ -79,12 +79,12 @@ const PartnerProfile = () => {
           <label>Profile</label>
         </div>
         <div>
-          <Form className='fcadmin' >
+          <Form className='FCPArtner' >
            
            
             <div class="form-group row">
               <label class="col-lg-3 col-form-label ADN_label">First Name</label>
-              <div class="col-lg-7">
+              <div class="col-lg-5">
                 <input required type="text" class="form-control input-lg SideB" id='First_name' name="firstname" placeholder="Enter First Name"
                 //   onChange={(e) => { setMember({ ...member, firstname: e.target.value }); console.log(member) }}
                 >
@@ -94,7 +94,7 @@ const PartnerProfile = () => {
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label ADN_label">Last Name</label>
-              <div class="col-lg-7">
+              <div class="col-lg-5">
                 <input required type="text" class="form-control input-lg SideB" id='last_name' name="lastname" placeholder="Enter Last Name"
                 //   onChange={(e) => { setMember({ ...member, lastname: e.target.value }); console.log(member) }}
 
@@ -105,7 +105,7 @@ const PartnerProfile = () => {
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label ADN_label">Email</label>
-              <div class="col-lg-7">
+              <div class="col-lg-5">
                 <input required type="email" class="form-control input-lg SideB" id='email' name="Email" placeholder="Enter Email"
                 //   onChange={(e) => { setMember({ ...member, email: e.target.value }); console.log(member) }}
 
@@ -114,7 +114,7 @@ const PartnerProfile = () => {
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label ADN_label">Mobile No</label>
-              <div class="col-lg-7">
+              <div class="col-lg-5">
                 <input required type="number" class="form-control input-lg SideB" id='mobile_no' name="Mobile No" placeholder="Enter Mobile No"
                 //   onChange={(e) => { setMember({ ...member, mobileno: e.target.value }); console.log(member) }}
 
@@ -123,7 +123,7 @@ const PartnerProfile = () => {
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label ADN_label">User Name</label>
-              <div class="col-lg-7">
+              <div class="col-lg-5">
                 <input required type="text" class="form-control input-lg SideB" id='username' name="username" placeholder="Enter Username"
                 //   onChange={(e) => { setMember({ ...member, username: e.target.value }); console.log(member) }}
 
@@ -132,7 +132,7 @@ const PartnerProfile = () => {
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label ADN_label">Password</label>
-              <div class="col-lg-7">
+              <div class="col-lg-5">
                 <input required type="text" class="form-control input-lg SideB" id='password' name="password" placeholder="Enter Password"
                 //   onChange={(e) => { setMember({ ...member, username: e.target.value }); console.log(member) }}
 
@@ -141,7 +141,7 @@ const PartnerProfile = () => {
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label ADN_label">Profile picture</label>
-              <div class="col-lg-7">
+              <div class="col-lg-5">
                 <input type="file" class="form-control input-lg SideB" id='picture' name="profile_pic"
                 //   onChange={(e) => {
                 //     let file = e.target.files[0];
@@ -153,7 +153,7 @@ const PartnerProfile = () => {
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label ADN_label">Gender</label>
-              <div class="col-lg-7">
+              <div class="col-lg-5">
                 <select required type="text" class="form-control input-lg SideB" id='gender' name="Gender"
                 //   onChange={(e) => { setMember({ ...member, gender: e.target.value }); console.log(member) }}
                 >
@@ -164,7 +164,7 @@ const PartnerProfile = () => {
               </div>
             </div>
         
-            <button type="submit" className="BTN_ADD_premise">
+            <button type="submit" className="SAVR_BUTN_PROFILE">
              Save
             </button>
           </Form>

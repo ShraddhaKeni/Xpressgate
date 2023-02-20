@@ -7,18 +7,18 @@ function EditCourse() {
     <>
       <div>
         <div className="page-label">
-          <label>Update Course</label>
+          <label>Update Program</label>
         </div>
         <div>
 
 <Form className='fcadmin' method='POST' >
 
-    <SimpleInputComponent label={'Course Name'} placeholder={'Enter Course Name'} name={'Course Name'} required />
+    <SimpleInputComponent label={'Program Name'} placeholder={'Enter Program Name'} name={'Program Name'} required />
     <SimpleDropDownComponent items={[{ id: 1, option: 'Fashion' }, { id: 2, option: ' ' }]} label={'Category'} name={'Category'} id={'Cousre_Category'}  />
-    <SimpleInputComponent label={'Maximum no of Students'} placeholder={'No of Students'} name={'Maximum no of Students'} required  />
-    <SimpleDropDownComponent items={[{ id: 1, option: 'Online' }, { id: 2, option: 'Offline' }]} label={'Course Type'} name={'Course Type'} id={'Course_Type'}  />
+    <SimpleInputComponent label={'Maximum no of Members'} placeholder={'No of Members'} name={'Maximum no of Members'} required  />
+    <SimpleDropDownComponent items={[{ id: 1, option: 'Online' }, { id: 2, option: 'Offline' }]} label={'Program Type'} name={'Program Type'} id={'Program_type'}  />
     < SimpleInputComponent label={'Fees'} name={'Fees'} placeholder={'Fees'}  type={'number'} required />
-    <SimpleInputComponent label={'Course Details'} placeholder={'Enter Course Details'} type={'textarea'} name={'Course Details'}  />
+    <SimpleInputComponent label={'Program Details'} placeholder={'Enter Program Details'} type={'textarea'} name={'Program Details'}  />
 
 
 

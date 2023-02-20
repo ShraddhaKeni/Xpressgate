@@ -36,7 +36,7 @@ const PartnerSideBar = () => {
             <Link to={RouterPath.COURSE_MANAGEMENT} style={{ textDecoration: 'none' }} >
                 <div className={`nav-item ${router.pathname.includes("course") && 'font-weight-bold'}`}>
                     <ClassOutlined className='side-nav-icon margin_icons' fontSize='large' />
-                    <span className='ml-3 Labelfont'>Course Management</span>
+                    <span className='ml-3 Labelfont'>Program Management</span>
                 </div>
       </Link>
 
@@ -44,7 +44,7 @@ const PartnerSideBar = () => {
             <Link to={RouterPath.STUDENT_MANAGEMENT} style={{ textDecoration: 'none' }} >
                 <div className={`nav-item ${router.pathname.includes("student") && 'font-weight-bold'}`}>
                     <SchoolOutlined className='side-nav-icon margin_icons' fontSize='large' />
-                    <span className='ml-3 Labelfont'>Student Management</span>
+                    <span className='ml-3 Labelfont'>Participants</span>
                 </div>
 
             </Link>

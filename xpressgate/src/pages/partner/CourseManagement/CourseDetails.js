@@ -5,14 +5,14 @@ function CourseDetails() {
     <>
       <div>
         <div className="page-label">
-          <label>Course Details</label>
+          <label>Program Details</label>
         </div>
         <div className="col">
           <div className="PCard">
             <br></br>
             <label className="namelabel">Category</label>
             <div className='profclass'>
-            <label>Course Details</label>
+            <label>Program Details</label>
              </div>
             <br></br>
           
@@ -25,13 +25,13 @@ function CourseDetails() {
             <br/>
             <div className='ContentBox'>
                 <div className='CTLAbel'>
-                <label>Course Type</label>
+                <label>Program Type</label>
                 <div className='typeboxes'>
                 <label> </label>
                 </div> 
                 </div>
                 <div className='CLLAbel'>
-                <label>Course Fees</label>
+                <label>Program Fees</label>
                 <div className='typeboxes'>
                     <label> </label>
                 </div> 
@@ -39,15 +39,15 @@ function CourseDetails() {
                 <div></div>
             </div>
             <br></br>
-            <div><label className='ESLabel'>Enrolled Student</label></div>
+            <div><label className='ESLabel'>Enrolled Member</label></div>
             <div className='ESDescClass'>
               <button className="ViewListBtn">View List</button>
             </div>
             <div className='MaxSLabel'>
-              <label>Maximum 20 Students</label>
+              <label>Maximum 20 Members</label>
             </div>
-            <button type="submit" id='Edit'  className="EditCDButn">Edit Course </button>
-            <button type="remove" id='Delete'  className="DeleteCDButn">Delete Course</button>
+            <button type="submit" id='Edit'  className="EditCDButn">Edit Program </button>
+            <button type="remove" id='Delete'  className="DeleteCDButn">Delete Program</button>
              <br/>
              <br/>
          
