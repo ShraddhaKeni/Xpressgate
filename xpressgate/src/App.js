@@ -310,6 +310,7 @@ function App() {
           <Route path={RouterPath.ADD_STUDENT} element={<PartnerModule />}></Route>
           <Route path={RouterPath.EDIT_STUDENT} element={<PartnerModule />}></Route>
           <Route path={RouterPath.STUDENT_DETAILS} element={<PartnerModule />}></Route>
+          <Route path={RouterPath.EDIT_PROFILE} element={<PartnerModule />}></Route>
 
 
 
