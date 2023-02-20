@@ -7,15 +7,15 @@ function AddStudent() {
     <>
       <div>
         <div className="page-label">
-          <label>Add New Student</label>
+          <label>Add New Member</label>
         </div>
         <div>
 
 <Form className='fcadmin' method='POST' >
 
-    <SimpleInputComponent label={'Student Name'} placeholder={'Enter Student Name'} name={'Student Name'} type={'text'} required />
-    <SimpleDropDownComponent items={[{ id: 1, option: 'Fashion Designing' }, { id: 2, option: ' ' }]} label={'Course'} name={'Course'} id={'Cousre'}  />
-    <SimpleDropDownComponent items={[{ id: 1, option: 'Online' }, { id: 2, option: 'Offline' }]} label={'Course Type'} name={'Course Type'} id={'Course_Type'}  />
+    <SimpleInputComponent label={'Member Name'} placeholder={'Enter Member Name'} name={'Member Name'} type={'text'} required />
+    <SimpleDropDownComponent items={[{ id: 1, option: 'Fashion Designing' }, { id: 2, option: ' ' }]} label={'Program'} name={'Program'} id={'Program'}  />
+    <SimpleDropDownComponent items={[{ id: 1, option: 'Online' }, { id: 2, option: 'Offline' }]} label={'Program Type'} name={'Program Type'} id={'Program_type'}  />
     < SimpleInputComponent label={'Phone No'} name={'Phone No'} placeholder={'Phone No'}  type={'number'} required />
     < SimpleInputComponent label={'Email Address'} name={'Email Address'} placeholder={'Email'} type={'email'}  required />
     <SimpleInputComponent label={'Address'} name={'address_line'} placeholder={'Enter Address'} id={'address'} type={'textarea'}  />

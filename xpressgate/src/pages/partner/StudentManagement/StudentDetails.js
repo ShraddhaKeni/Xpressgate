@@ -9,7 +9,7 @@ function StudentDetails() {
     <>
       <div>
         <div className="page-label">
-          <label>Enrolled Student List</label>
+          <label>Member Details</label>
         </div>
 
         <div className="col-sm-12 col-md-12 col-lg-12">
