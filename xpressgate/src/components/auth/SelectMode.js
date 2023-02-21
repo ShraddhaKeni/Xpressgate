@@ -75,7 +75,6 @@ const SelectMode = () => {
           © Copyright 2023 Designed by <a href="https://www.axzoragroup.com/" target="_blank">Axzora Private Limited</a>
         </div> 
 
-    
       </div>
 
     </>

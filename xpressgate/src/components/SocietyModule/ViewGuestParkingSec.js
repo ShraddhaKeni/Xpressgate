@@ -47,12 +47,10 @@ const ViewGuestParkingSec = () => {
             <thead>
               <tr>
                 <th class="th-sm">Sr No.</th>
-                <th class="th-sm">Parking Section</th>
                 <th class="th-sm">Block</th>
-                <th class="th-sm">Vehicle Number</th>
-                <th class="th-sm">Resident Name</th>
-                <th class="th-sm">Guest Name</th>
+                <th class="th-sm">Name</th>
                 <th class="th-sm">Status</th>
+                
               </tr>
             </thead>
             <tbody>
@@ -60,9 +58,7 @@ const ViewGuestParkingSec = () => {
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+       
             </tbody>
           </table>
           <br/><br/>
