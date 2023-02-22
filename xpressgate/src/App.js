@@ -105,6 +105,8 @@ import GuestManagementcard from './components/SocietyModule/GuestManagementcard'
 import ChecklistSecurityReport from './components/SocietyModule/ChecklistReportSecurity';
 import CheckListMaintenanceReport from './components/SocietyModule/ChecklistMaintenanceReport';
 import ChecklistCommunityStaffReport from './components/SocietyModule/ChecklistCommunityStaffReport';
+import AddChecklistCommunityStaff from './components/SocietyModule/AddChecklistCommunityStaff';
+import AddChecklistMaintenance from './components/SocietyModule/AddChecklistMaintenance';
 
 
 
@@ -272,13 +274,15 @@ function App() {
           <Route path='/checklists' element={<ChecklistsMain />}></Route>
 
           <Route path='/add-security-checklist' element={<AddChecklistSecurity />}></Route>
+          <Route path='/add-community-staff-checklist' element={<AddChecklistCommunityStaff />}></Route>
+          <Route path='/add-maintenance-checklist' element={<AddChecklistMaintenance />}></Route>
 
 
 
 
-        
-       
-         
+
+
+
           <Route path="/utilitypaymentlink" element={<UtilityPaymentLink />} exact></Route>
           <Route path="/packagelist" element={<PackageList />} exact></Route>
           <Route path="/paymenthistory" element={<SocietyPaymentHistory />} exact></Route>
