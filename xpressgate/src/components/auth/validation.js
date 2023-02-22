@@ -11,6 +11,7 @@ export const validatePassword = async (password) => {
             return true
         }
         else {
+
             return false
         }
     } catch (error) {
@@ -36,7 +37,7 @@ export const otpValidation = async (otp) => {
 export const mobileValidation = async (mob) => {
     try {
         if (validator.isMobilePhone(mob)) {
-            if(validator.isLength(mob,{min:10,max:10}))
+            if (validator.isLength(mob, { min: 10, max: 10 }))
                 return true;
         } else {
             return false;
@@ -59,8 +60,8 @@ export const passcodeValidation = async (passcode) => {
     }
 }
 
-export const emailValidation = (values ) => {
-   
+export const emailValidation = (values) => {
+
     try {
         const regEx = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
         if (regEx.test(values)) {

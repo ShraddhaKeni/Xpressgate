@@ -39,6 +39,7 @@ import Sliders from './Manage/Sliders';
 import EditPaymentGateway from './Manage/PaymentGateway/edit';
 import EditSMSGateway from './Manage/SMSProvider/edit';
 import AddSocietyMember from '../../components/SocietyModule/AddSocietyMember';
+import AdminChangePass from './LoginScreens/AdminChangePass';
 
 
 const AdminModuleComponent = () => {
@@ -141,6 +142,10 @@ const AdminModuleComponent = () => {
 
     if (router.pathname === RouterPath.ADD_SOCIETY_MEMBER) {
         children = (<AddSocietyMember />)
+    }
+
+    if (router.pathname === "/adminchangepassword") {
+        children = (<AdminChangePass />)
     }
 
     return (
