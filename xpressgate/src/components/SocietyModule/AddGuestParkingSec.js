@@ -26,10 +26,11 @@ const AddGuestParkingSec = () => {
         
         const sendData = {
           id: location.state.id,
-          Block_Id: document.getElementById('Block_Id').value,
-          Section: document.getElementById('Section').value
+          block_id: document.getElementById('block_id').value,
+          section: document.getElementById('section').value,
+          community_id: localStorage.getItem('community_id'),
         }
-        const {data} = await axios.post(`${window.env_var}api/parkingsection/update`,sendData);
+        const {data} = await axios.post(`${window.env_var}api/guestparkingsection/update`,sendData);
         setToast({ show: true, type: "success", message: "Updated successfully" })
         setTimeout(() => {
           window.location.href='/viewguestparkingsection'
@@ -39,10 +40,11 @@ const AddGuestParkingSec = () => {
       {
         
         const sendData = {
-          Block_Id: document.getElementById('Block_Id').value,
-          Section: document.getElementById('Section').value
+          block_id: document.getElementById('block_id').value,
+          section: document.getElementById('section').value,
+          community_id: localStorage.getItem('community_id'),
         }
-        const {data} = await axios.post(`${window.env_var}api/parkingsection/post`,sendData);
+        const {data} = await axios.post(`${window.env_var}api/guestparkingsection/add`,sendData);
         setToast({ show: true, type: "success", message: "Added successfully" })
         setTimeout(() => {
           window.location.href='/viewguestparkingsection'
@@ -89,9 +91,9 @@ const AddGuestParkingSec = () => {
 
   const getParkingSectionDetails=async()=>{
     try {
-      const {data} = await axios.get(`${window.env_var}api/parkingsection/getOne/${location.state.id}`)
+      const {data} = await axios.get(`${window.env_var}api/guestparkingsection/getAll/${ localStorage.getItem('community_id')}`)
       setParkingSections(data.data[0]);
-      document.getElementById('Block_Id').value=data.data[0].Block_Id;
+      document.getElementById('block_id').value=data.data[0].block_id;
       
       setError(false)
     } catch (error) {
@@ -143,7 +145,7 @@ const AddGuestParkingSec = () => {
           <div className="form-group row">
             <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Block</label>
             <div className="col-sm-4 col-md-4 col-lg-4">
-              <select className="form-control input-lg ADDParkBor" id='Block_Id' >
+              <select className="form-control input-lg ADDParkBor" id='block_id' >
                 <option value={null} disabled selected>Select Block</option>
                 {block.map(item=>{
                   return (
