@@ -107,6 +107,8 @@ import PartnerLogin from './pages/partner/PartnerLoginScreens/PartnerLogin';
 import PartnerEnterMobile from './pages/partner/PartnerLoginScreens/PartnerEnterMobile';
 import PartnerEnterCode from './pages/partner/PartnerLoginScreens/PartnerEnterCode';
 import PartnerNewPassword from './pages/partner/PartnerLoginScreens/PartnerNewPassword';
+import ViewParkedVehicle from './components/SocietyModule/ViewParkedVehicle';
+import GuestViewParking from './components/SocietyModule/GuestViewParking';
 
 
 
@@ -264,6 +266,8 @@ function App() {
           <Route path='/viewguestparkingsection' element={<ViewGuestParkingSec />}></Route>
           <Route path='/addguestparkingsection' element={<AddGuestParkingSec />}></Route>
           <Route path='/invoice' element={<Invoice />}></Route>
+          <Route path='/viewparkedvehicle' element={<ViewParkedVehicle />}></Route>
+          <Route path='/guestparking' element={<GuestViewParking />}></Route>
 
           <Route path='/security-checklist' element={<ChecklistSecurity />}></Route>
           <Route path='/maintenance-checklist' element={<CheckListMaintenance />}></Route>
@@ -310,6 +314,7 @@ function App() {
           <Route path={RouterPath.ADD_STUDENT} element={<PartnerModule />}></Route>
           <Route path={RouterPath.EDIT_STUDENT} element={<PartnerModule />}></Route>
           <Route path={RouterPath.STUDENT_DETAILS} element={<PartnerModule />}></Route>
+          <Route path={RouterPath.EDIT_PROFILE} element={<PartnerModule />}></Route>
 
 
 

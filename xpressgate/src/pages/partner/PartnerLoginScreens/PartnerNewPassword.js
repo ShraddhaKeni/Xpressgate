@@ -55,7 +55,7 @@ const PartnerNewPassword = () => {
             </div>
             </div>
         <div id="superadminloginimg">
-        <img src="./images/SuperAdminImg.svg" alt="" />
+        <img src="./images/PartnerLogin.svg" alt="" />
       </div>
       <div id="Superadminloginform">
         <Form>

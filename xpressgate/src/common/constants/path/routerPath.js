@@ -60,12 +60,14 @@ const RouterPath = {
     STUDENT_MANAGEMENT: "/partner/student",
     PARTNER_CHANGE_PASSWORD: "/partnerchangepassword",
     PARTNER_PROFILE: "/partnerprofile",
+    EDIT_PROFILE: "/updatepartnerprofile",
     ADD_COURSE:"/partner/course/addcourse",
     EDIT_COURSE:"/partner/course/editcourse",
     COURSE_DETAILS:"/partner/course/coursedetails",
     ADD_STUDENT: "/partner/student/addstudent",
     EDIT_STUDENT: "/partner/student/editstudent",
     STUDENT_DETAILS: "/partner/student/studentdetails",
+
 
 };
 export default RouterPath;

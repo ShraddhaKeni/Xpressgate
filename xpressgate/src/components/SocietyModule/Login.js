@@ -18,7 +18,7 @@ const Login_society = () => {
 
   const loginGuard = async () => {
     try {
-      setToast({ show: true, type: "success", message: "Logged in successfully" })
+      // setToast({ show: true, type: "success", message: "Logged in successfully" })
       const loginCreds = {
         username: username.current.value,
         password: password.current.value,
@@ -30,6 +30,7 @@ const Login_society = () => {
       localStorage.setItem("member_id", data.data.id);
       localStorage.setItem("resident_id", data.data.resident_id);
       localStorage.setItem('mode', 'society')
+      setToast({ show: true, type: "success", message: "Logged in successfully" })
       window.location.href = "/scDashboard";
     } catch (err) {
       setToast({ show: true, type: "error", message: "Username or password is incorrect" })
