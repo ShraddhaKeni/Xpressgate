@@ -9,7 +9,7 @@ import { DOMAIN } from '../../../../common/axios_client';
 import { deleteSlider, getAllSliders } from '../../../../common/admin/admin_api';
 import { Loader } from '../../../../components/Loader';
 import { ToastMessage } from '../../../../components/ToastMessage';
-import { TOAST } from '../../../../common/utils';
+import { reloadInOneSec, TOAST } from '../../../../common/utils';
 
 const Sliders = () => {
 
@@ -91,7 +91,8 @@ const Sliders = () => {
                     }
                 }
                 const { data } = await axios.post(`${window.env_var}api/slider/add`, formData, config);
-                window.location.reload();
+                setToast(TOAST.SUCCESS("Added Successfully"));
+                reloadInOneSec();
             } catch (error) {
                 alert(error);
             }
