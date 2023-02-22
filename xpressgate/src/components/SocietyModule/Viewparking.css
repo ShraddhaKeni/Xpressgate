@@ -33,6 +33,14 @@
     border-collapse: separate;
     font-family: 'Rubik', sans-serif;
 }
+.viewparkedVehicle_sideimg img {
+  display: flex;
+  margin-top: 115%;
+  max-width: 90%;
+  height: auto;
+  margin-left: 8%;
+  margin-bottom: 3%;
+}
 .VLsLink{
   font-family: 'Rubik';
   font-style: normal;

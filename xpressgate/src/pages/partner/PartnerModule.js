@@ -17,6 +17,7 @@ import CourseDetails from './CourseManagement/CourseDetails';
 import AddStudent from './StudentManagement/AddStudent';
 import EditStudent from './StudentManagement/EditStudent';
 import StudentDetails from './StudentManagement/StudentDetails';
+import EditProfile from './PartnerLoginScreens/EditProfile';
 
 
 
@@ -61,6 +62,9 @@ const PartnerModule = () => {
     }
     if (router.pathname.includes(RouterPath.PARTNER_PROFILE)) {
         children = (<PartnerProfile />)
+    }
+    if (router.pathname.includes(RouterPath.EDIT_PROFILE)) {
+        children = (<EditProfile />)
     }
 
     return (

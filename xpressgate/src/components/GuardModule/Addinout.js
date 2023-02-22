@@ -275,9 +275,10 @@ const Addinout = () => {
           </div>
 
           <button type="submit" className="btnInOut" onClick={(e) => handleSubmit(e)} on>Add In Out</button>
-
+<br/>
         </Form>
         {/* </Loader> */}
+        <br/>
       </div>
       <GuardMobileSidebar open={menu} onHide={() => setMenuOpen(false)} />
 
