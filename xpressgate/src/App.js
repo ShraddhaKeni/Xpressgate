@@ -252,7 +252,7 @@ function App() {
           <Route path='/addsocietymember' element={<AdminModuleComponent />}></Route>
 
 
-          <Route path='/adminchangepassword' element={<AdminChangePass />}></Route>
+          <Route path='/adminchangepassword' element={<AdminModuleComponent />}></Route>
           <Route path='/superadminlogin' element={<SuperAdminLogin />}></Route>
           <Route path='/enternewpass' element={<AdminEnterNewPass />}></Route>
           <Route path='/adminentercode' element={<AdminEnterCode />}></Route>
@@ -279,17 +279,17 @@ function App() {
 
 
 
-        
-       
-         
-        
+
+
+
+
           <Route path="/utilitypaymentlink" element={<UtilityPaymentLink />} exact></Route>
           <Route path="/packagelist" element={<PackageList />} exact></Route>
           <Route path="/paymenthistory" element={<SocietyPaymentHistory />} exact></Route>
           {/* <Route path="/societyduesrecord" element={<SocietyDuesTable />} exact></Route> */}
           <Route path="/vendorpaymentrecord" element={<VendorPaymentTable />} exact></Route>
           <Route path="/utilitypaymentrecord" element={<UtilityPaymentTable />} exact></Route>
-         
+
 
 
 

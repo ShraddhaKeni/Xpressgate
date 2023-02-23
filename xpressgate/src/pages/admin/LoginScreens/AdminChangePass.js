@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../../../styles/AdminChangePass.css";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
@@ -6,142 +6,234 @@ import { useLocation } from "react-router-dom";
 import { validatePassword } from "../../../components/auth/validation";
 import { ToastMessage } from "../../../components/ToastMessage";
 import { TOAST } from "../../../common/utils";
+import "../../../components/SocietyModule/ChangePassword.css";
+import { Loader } from "../../../components/Loader";
 
 const AdminChangePass = () => {
-  let currentpassword = useRef([]);
-  let newpassword = useRef([]);
-  let confirmpassword = useRef([]);
+  const [toast, setToast] = useState({ show: false });
+  const password = useRef([]);
+  const confirmPass = useRef([]);
+  const oldpass = useRef([]);
+  const [mem, setMem] = useState({});
+  const [loading, setLoading] = useState(true);
 
-  const [member, setMember] = useState({})
-  const [toast, setToast] = useState({ show: false })
+  const initialState = {
+    password: "",
+    confirmPass: "",
+  };
 
-  const location = useLocation()
+  const passVerificationError = {
+    isLenthy: false,
+    hasUpper: false,
+    hasLower: false,
+    hasNumber: false,
+    hasSpclChr: false,
+    confirmPass: false,
+  };
+  const [passwordError, setPasswordError] = useState(passVerificationError);
+  const [newUser, setNewUser] = useState(initialState);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+
+    setNewUser({ ...newUser, [name]: value });
+
+    if (name === "password") {
+      const isLenthy = value.length > 8;
+      const hasUpper = /[A-Z]/.test(value);
+      const hasLower = /[a-z]/.test(value);
+      const hasNumber = /[0-9]/.test(value);
+      const hasSpclChr = /[@,#,$,%,&]/.test(value);
+
+      setPasswordError({
+        ...passwordError,
+        isLenthy,
+        hasUpper,
+        hasLower,
+        hasNumber,
+        hasSpclChr,
+      });
+    }
+
+    if (name === "confirmPass") {
+      setPasswordError({
+        ...passwordError,
+        confirmPass: newUser.password === value,
+      });
+    }
+  };
 
 
-  const handleSubmit = async () => {
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      if (await validatePassword(newpassword.current.value)) {
-        console.log(validatePassword(newpassword.current.value))
-        if ((newpassword.current.value === confirmpassword.current.value) && (newpassword.current.value !== "" && confirmpassword.current.value !== "")) {
-          const sendData = {
-            password: currentpassword.current.value,
-            newpassword: confirmpassword.current.value,
-            confirmpassword: newpassword.current.value,
-            id: localStorage.admin_id
-          }
+      if (await validatePassword(password.current.value)) {
+        if (password.current.value === confirmPass.current.value && password.current.value !== "" && confirmPass.current.value !== "") {
           const config = {
             headers: {
-              'x-access-token': localStorage.getItem('accesstoken')
-            }
-          }
+              "x-access-token": localStorage.getItem("accesstoken"),
+            },
+          };
+
+          const sendData = {
+            password: oldpass.current.value,
+            newpassword: password.current.value,
+            confirmpassword: confirmPass.current.value,
+            id: localStorage.getItem("admin_id"),
+          };
           const { data } = await axios.post(`${window.env_var}api/admin/changepassword`, sendData, config)
-          if (data && data?.status_code == 200) {
-            setToast(TOAST.SUCCESS(data?.message));
+            .catch(function ChangePassError(error) {
+              if (error.response) {
+                if (error.response.status == 401) {
+                  setToast(TOAST.ERROR("Incorrect Current Password"))
+                }
+              } else if (error.request) {
+
+              } else {
+                alert(error.message)
+              }
+
+            });
+          if (data && data.status_code == 200) {
+            setToast({ show: true, type: "success", message: "Password changed successfully" });
             setTimeout(() => {
-              window.location.href = '/adminlogin'
-
-            }, 1000)
-          } else if (data?.status_code == 201) {
-            setToast(TOAST.ERROR(data?.message));
+              window.location.href = '/scDashboard'
+            }, 1500);
           }
+          else {
+            setToast({ show: true, type: "error", message: data.message });
+          }
+        } else {
+          setToast({
+            show: true,
+            type: "error",
+            message:
+              "Password do not match		",
+          });
         }
-        else {
-          setToast(TOAST.ERROR("Password do not match"))
-
-          document.getElementById('currentpassword').style.border = '2px solid red'
-          document.getElementById('newpassword').style.border = '2px solid red'
-          document.getElementById('confirmpassword').style.border = '2px solid red'
-        }
+      } else {
+        setToast({
+          show: true,
+          type: "error",
+          message:
+            "Password must be at least 8 characters long must contain a number, uppercase lowercase and a special character.",
+        });
+        document.querySelector("input").style.border = "1px solid red";
       }
-      else {
-        setToast(TOAST.ERROR("Password must be atleast 8 characters long must contain a number,uppercase, lowercase and a special character"))
-        document.getElementById('currentpassword').style.border = '2px solid red'
-        document.getElementById('newpassword').style.border = '2px solid red'
-        document.getElementById('confirmpassword').style.border = '2px solid red'
-      }
-
     } catch (error) {
-      setToast(TOAST.ERROR(error.message))
-
-      document.getElementById('currentpassword').style.border = '2px solid red'
-      document.getElementById('newpassword').style.border = '2px solid red'
-      document.getElementById('confirmpassword').style.border = '2px solid red'
-      console.log(error)
+      console.log(error);
+      document.querySelector("input").style.border = "1px solid red";
     }
-  }
+  };
   return (
-    <div className="superadmincontainer">
-      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
-
-      <div id="Superadminlogo">
-        <img src="/images/loginlogo.svg" alt="" />
-        <div className="Admin_SignIn">
-          <label className="Admin_SignIn_Label">Reset Password</label>
+    <div>
+      <ToastMessage
+        show={toast.show}
+        message={toast.message}
+        type={toast.type}
+        handleClose={() => {
+          setToast({ show: false });
+        }}
+      />
+      <Loader loading={loading}>
+        <div className='page-label'>
+          <label>Change Password</label>
         </div>
-      </div>
-      <div id="superadminloginimg">
-        <img src="./images/SuperAdminImg.svg" alt="" />
-      </div>
-      <div id="Superadminloginform">
-        <Form>
-          <div className="Superadmininputfield">
-            <div className="email_input">
-              <label className="admincurrentpass">Current Password</label>
-              <input
-                ref={currentpassword}
-                type="text"
-                className="form-control adminemailtextbox"
-                onKeyPress={(e) => {
-                  document.getElementById(e.target.id).style.border = "none";
-                }}
-                id="currentpassword"
-                placeholder="Current Password"
-              ></input>
+        <Form className="scpclass" autoComplete="off">
+          <div className="scpinput_fields">
+            <div className="scppassword">
+              <div class="form-group row">
+                <div class="col-lg-6">
+                  <label className="scpcppassword">Current Password</label>
+                  <input
+                    ref={oldpass}
+                    type="text"
+                    autoComplete="new-password"
+                    className="form-control input-lg CP_Border"
+                    id="oldpass"
+                    placeholder="Current Password"
+                  ></input>
+                </div>
+              </div>
             </div>
-            <br />
-            <div className="email_input">
-              <label className="adminresetnewpass">New Password</label>
-              <input
-                ref={newpassword}
-                type="text"
-                className="form-control adminpasswordbox"
-                onKeyPress={(e) => {
-                  document.getElementById(e.target.id).style.border = "none";
-                }}
-                id="newpassword"
-                placeholder="New Password"
-              ></input>
+            {/* <label className='SocMessage'>*Password must be at least 8 characters long must contain<br/>a number, uppercase lowercase and a special character.</label> */}
+            <br></br>
+            <div className="scppassword">
+              <div class="form-group row">
+                <div class="col-lg-6">
+                  <label className="ncppassword">New Password</label>
+                  <input
+                    ref={password}
+                    type="password"
+                    autoComplete="new-password"
+                    className="form-control input-lg CP_Border"
+                    id="loginpassword"
+                    placeholder="New Password"
+                    name="password" value={newUser.password} onChange={handleOnChange}
+                  ></input>
+                </div>
+              </div>
             </div>
-            <br />
-            <div className="email_input">
-              <label className="adminresetconfirmpass">Confirm  Password</label>
-              <input
-                ref={confirmpassword}
-                type="password"
-                className="form-control adminpasswordbox"
-                onKeyPress={(e) => {
-                  document.getElementById(e.target.id).style.border = "none";
-                }}
-                id="confirmpassword"
-                placeholder="Confirm  Password"
-              ></input>
-              <br />
-              <button
-                type="button"
-                className="adminresetpasswordbtn"
-                onClick={() => {
-                  handleSubmit();
-                }}
-              >
-                Change Password
-              </button>
+            <br></br>
+            <div className="scppassword">
+              <div class="form-group row">
+                <div class="col-lg-6">
+                  <label className="cscppassword">Confirm Password</label>
+                  <input
+                    ref={confirmPass}
+                    type="password"
+                    className="form-control input-lg CP_Border"
+                    id="loginpassword"
+                    placeholder="Confirm Password"
+                    name="confirmPass" value={newUser.confirmPass} onChange={handleOnChange}
+                  ></input>
+                </div>
+              </div>
             </div>
-
           </div>
+          <br />
+          <div className="SocNoticeContainer">
+            <Form.Text>
+              {!passwordError.confirmPass && (
+                <div className="text-danger mb-3">Password doesn't match!</div>
+              )}
+            </Form.Text>
+            <ul className="mb-4">
+              <li className={passwordError.isLenthy ? "text-success" : "text-danger"} >
+                Min 8 characters
+              </li>
+              <li className={passwordError.hasUpper ? "text-success" : "text-danger"} >
+                At least one upper case
+              </li>
+              <li className={passwordError.hasLower ? "text-success" : "text-danger"} >
+                At least one lower case
+              </li>
+              <li className={passwordError.hasNumber ? "text-success" : "text-danger"} >
+                At least one number
+              </li>
+              <li className={passwordError.hasSpclChr ? "text-success" : "text-danger"} >
+                At least on of the special characters i.e @ # $ % &{" "}
+              </li>
+            </ul>
+          </div>
+          <button
+            type="submit"
+            onClick={(e) => handleSubmit(e)}
+            className="btnUpdatecp"
+          >
+            Update
+          </button>
         </Form>
-      </div>
-    </div>
+      </Loader>
+    </div >
   );
 };
 
+
 export default AdminChangePass;
+
