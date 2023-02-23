@@ -248,10 +248,16 @@ font-weight: 500;
 }
 
 @media only screen  and (min-device-width : 320px) and (max-device-width : 425px) {
-
-  #Gloginimgid{
-    display: none;
-  }
+  #Gloginimgid {
+    /* display: none; */
+    position: absolute;
+    margin-top: 143%;
+}
+#Gloginimgid img {
+  height: 34vh;
+  width: 100vw;
+  animation: moveImage 5s infinite;
+}
   .Guardsignin {
     width: 68vw;
     height: 5vh;

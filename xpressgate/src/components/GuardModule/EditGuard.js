@@ -57,25 +57,21 @@ const EditGuard = () => {
 
   return (
     <>
-      <div id="headersection">
+      <div className="aiocontainer">
+      <div id="aiosection">
         <GuardHeader onMenuClick={() => {
           setMenuOpen(true)
         }} />
       </div>
-
-      <div className="addguestcontainer4">
-
-        <div id="societynamesection">
-          <div className="VPay_societyname">
-            <img src="/images/guardnameicon.svg" alt="Society image" />
-            <label>{localStorage.getItem('name')}</label>
-          </div>
-          <br />
-
-          <div className="VPay_sideimg">
-            <img src="/images/sideimage.svg" alt="dashboard sideimage" />
-          </div>
+      <div id="aiosocietysection">
+        <div className='aiosocietyname'>
+          <img src="/images/guardnameicon.svg" alt="guard name" />
+          <label>{localStorage.getItem('name')}</label>
         </div>
+        <div className='aiosideimage'>
+          <img src="/images/sideimage.svg" alt="guard sideimage" />
+        </div>
+      </div>
         <div className="addguestbackgroundimg">
           <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
           <div className="VPaydisplay">
