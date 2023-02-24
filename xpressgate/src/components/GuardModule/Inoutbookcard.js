@@ -20,6 +20,22 @@ const Inoutbookcard = () => {
   const [filterArr, setFilter] = useState([])
   const [menu, setMenuOpen] = useState(false)
 
+  const [parkingSections, setParkingSections] = useState(false);
+
+  const [currentSection, setCurrentSection] = useState();
+  const [currentParkingTime, setCurrentParkingTime] = useState();
+
+
+  const [timeSlots] = useState([
+    { time: 30, dTime: "30 Min" },
+    { time: 60, dTime: "1 Hour" },
+    { time: 90, dTime: "1.5 Hours" },
+    { time: 120, dTime: "2 Hours" },
+    { time: 150, dTime: "2.5 Hours" },
+    { time: 180, dTime: "3 Hours" },
+
+  ])
+
   useEffect(() => {
     if (checkGuard()) {
       const config = {
@@ -30,6 +46,7 @@ const Inoutbookcard = () => {
       axios.get(`${window.env_var}api/guard/checkLogin`, config)
         .then(({ data }) => {
           getData()
+          getParkingSections();
         })
         .catch(err => {
           localStorage.clear();
@@ -51,6 +68,18 @@ const Inoutbookcard = () => {
       const { data } = await axios.post(`${window.env_var}api/inout/getone`, id);
       setInOutData(data.data)
       setFlats(data.data.flat_details)
+      setLoading(false)
+      setError(false)
+    } catch (error) {
+      setError(true)
+    }
+  }
+
+  const getParkingSections = async () => {
+
+    try {
+      const { data } = await axios.get(`${window.env_var}api/guestparkingsection/getAll/${localStorage.getItem("community_id")}`);
+      setParkingSections(data.data)
       setLoading(false)
       setError(false)
     } catch (error) {
@@ -88,14 +117,17 @@ const Inoutbookcard = () => {
       const sendData = {
         outtime: Date.now(),
         status: 2,
-        booking_id: id
+        booking_id: id,
+        parking_section: document.getElementById("parkingsection").value,
+        parkgin_time: document.getElementById("parkingtime").value
       }
 
+      console.log(sendData);
       const { data } = await axios.post(`${window.env_var}api/inout/addout`, sendData)
       setError(false)
       setToast({ show: true, type: "success", message: "Exited successfully" })
       setTimeout(() => {
-        window.location.href = '/inoutbook'
+        // window.location.href = '/inoutbook'
       }, 1500);
       // navigate('/inoutbook')
     } catch (error) {
@@ -157,12 +189,21 @@ const Inoutbookcard = () => {
                 <div><label className='vehicleno'>Vehicle No: {listData.vehicle_no ? listData.vehicle_no : 'N/A'}</label></div>
                 <label for="parkingsection" className='ParkingSec'>Parking Section: </label><br />
                 <select id="parkingsection" className='selectInput'>
-                  <option></option>
+                  <option selected disabled>Select Parking Section</option>
+                  {parkingSections && parkingSections.map(item => {
+                    return <option value={item._id} selected={`${item._id == listData.parking_section ? true : false}`}>{item.section}</option>
+                  })
+                  }
                 </select>
 
                 <label for="parkingtime" className='ParkingSec'>Parking Time: </label><br />
-                <select id="parkingtime" className='selectInput'>
-                  <option></option>
+                <select id="parkingtime" className='selectInput' name='parking_time' >
+
+                  <option selected disabled>Select Parking Time</option>
+                  {timeSlots.map(slot => {
+                    return <option value={slot.time} selected={`${slot.time == listData.parking_time}`}>{slot.dTime}</option>
+                  })
+                  }
                 </select>
 
               </div>
