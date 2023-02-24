@@ -2,30 +2,32 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../SocietyModule/Viewparking.css";
-
+import { ButtonBase, Icon, IconButton } from '@mui/material';
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import Societyheader from './Utils/Societyheader';
 // import { Loader } from "../Loader";
+import { ToastMessage } from "../ToastMessage";
 import ErrorScreen from '../../common/ErrorScreen';
+import { deleteCommunity } from '../../common/admin/admin_api';
 
 const ViewGuestParkingSec = () => {
-  const [parkingSection,setParkingSections] = useState([])
+  const [guestparkingSection,setGuestParkingSections] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts,setCurrentPosts] = useState([])
   const [loading, setLoading] = useState(true)
   const [isError,setError] = useState(false)
   const navigate= useNavigate()
-
+  const [toast, setToast] = useState({ show: false })
   useEffect(()=>{
-    getParkingSections()
+    getGuestParkingSections()
   },[])
 
-  const getParkingSections=async()=>{
+  const getGuestParkingSections=async()=>{
     let community_id = localStorage.getItem('community_id');
     try {
       const {data}=await axios.get(`${window.env_var}api/guestparkingsection/getAll/`+community_id);
-      setParkingSections(data.data);
+      setGuestParkingSections(data.data);
       console.log(data.data);
       const indexoflast = currentPage*postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
@@ -34,6 +36,26 @@ const ViewGuestParkingSec = () => {
       setError(false)
     } catch (error) {
       setError(true)
+    }
+  }
+
+  
+  const handleDelete = async (id) => {
+   
+    const sendData = {
+  
+      id: id
+    }
+    try {
+      const {data}=await axios.post(`${window.env_var}api/guestparkingsection/delete`,sendData);
+   
+      setToast({ show: true, message: "Deleted Successfully", type: "success" })
+      
+      setTimeout(() => {
+        window.location.reload()
+      }, 2000)
+    } catch (error) {
+      console.log(error)
     }
   }
 
@@ -49,7 +71,7 @@ const ViewGuestParkingSec = () => {
 
   function findText(e) {
     let search = e.target.value.toLowerCase()
-    let arr = parkingSection.filter(x => {
+    let arr = guestparkingSection.filter(x => {
       if (x.section.toLowerCase().includes(search)) {
         return true
       }
@@ -67,8 +89,8 @@ const ViewGuestParkingSec = () => {
       paginate(0)
     }
   } 
-  
-  function parkingSectionDetails(id)
+
+  function GuestParkingSectionDetails(id)
   {
     navigate('/addguestparkingsection',{state:{id:id,type:'edit'}})
   }
@@ -95,6 +117,7 @@ const ViewGuestParkingSec = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <div className='VPdisplay'>
           <label>View Guest Parking Section</label>
         </div>
@@ -115,25 +138,37 @@ const ViewGuestParkingSec = () => {
                 <th class="th-sm">Block</th>
                 <th class="th-sm">Name</th>
                 <th class="th-sm">Status</th>
-                {/* <th class="th-sm">Action</th> */}
+                <th class="th-sm">Action</th>
                 
               </tr>
             </thead>
             <tbody>
             {currentPosts.map((item,index)=>{
                 return(
-                  <tr onClick={()=>parkingSectionDetails(item._id)}>
+                  <tr>
                     <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
                     <td>{item.blocks}</td>
                     <td>{item.section}</td>
                     <td>{item.status==false?'Inactive':'Active'}</td>
+                    <td>
+                                                <div>
+                                                    <IconButton onClick={() => { GuestParkingSectionDetails(item._id) }}>
+                                                        <img src="/images/icon_edit.svg" />
+                                                    </IconButton>
+
+                                                     <IconButton onClick={(e) => { e.preventDefault(); handleDelete(item._id) }}>
+                        <img src="/images/icon_delete.svg" />
+                      </IconButton>
+
+                                                </div>
+                                            </td>
                   </tr>
                 )
               })}
             </tbody>
           </table>
-          <br/><br/>
-          <PaginationCalculate totalPages={" "} postperPage={" "} currentPage={" "} paginate={" "}/>
+          <br/>
+          <PaginationCalculate totalPages={guestparkingSection.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/>
         {/* </Loader> */}
       </div>
     </div>     
