@@ -129,7 +129,7 @@ const AddGuestParkingSec = () => {
         <div className='vgpsidelinks'>
         
           <a href='/viewguestparkingsection' className='Viewpsec'>View Guest Parking Section</a><br/><br/>
-          <a href='/addguestparkingsection' className='Addpsec'><b>Add Guest Parking Section</b></a><br/><br/>
+          <a href='/addguestparkingsection' className='Addpsec'><b>{type=='edit'? 'Update':'Add'} Guest Parking Section</b></a><br/><br/>
         
         </div>
         <div className="AddGparking_sideimg">
@@ -139,7 +139,7 @@ const AddGuestParkingSec = () => {
       <div className="addguestbackgroundimg">
       <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
       <Loader loading={loading}>
-        <div className='APdisplay'>
+        <div className='AGPSdisplay'>
           <label>{type=='edit'? 'Update':'Add'} Guest Parking Section</label>
         </div>
         <Form className='formclass'> 
