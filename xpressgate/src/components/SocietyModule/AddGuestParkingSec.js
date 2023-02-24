@@ -11,7 +11,7 @@ import { useLocation } from 'react-router-dom';
 // import ErrorScreen from '../../common/ErrorScreen';
 const AddGuestParkingSec = () => {
   const [toast, setToast] = useState({ show: false })
-  const [parkingSection,setParkingSections] = useState({});
+  const [guestparkingSection,setGuestParkingSections] = useState({});
   const [block,setBlock] = useState([]);
   const location = useLocation();
   const [type,setType] = useState('add');
@@ -56,8 +56,8 @@ const AddGuestParkingSec = () => {
     }
   }
 
-  useEffect(()=>{
-    getBlocks();
+  useEffect(async ()=>{
+   await getBlocks();
     if(checkSociety())
     {
       const config = {
@@ -69,7 +69,7 @@ const AddGuestParkingSec = () => {
       .then(({data})=>{   
         if(location.state)
         {
-          getParkingSectionDetails();
+          getGuestParkingSectionDetails();
           setType(location.state.type);
         }
         else
@@ -89,10 +89,11 @@ const AddGuestParkingSec = () => {
     }
   },[])
 
-  const getParkingSectionDetails=async()=>{
+  const getGuestParkingSectionDetails=async()=>{
     try {
-      const {data} = await axios.get(`${window.env_var}api/guestparkingsection/getAll/${ localStorage.getItem('community_id')}`)
-      setParkingSections(data.data[0]);
+      const {data} = await axios.get(`${window.env_var}api/guestparkingsection/getOne/${location.state.id}`)
+      setGuestParkingSections(data.data[0]);
+      console.log(data.data[0].block_id)
       document.getElementById('block_id').value=data.data[0].block_id;
       
       setError(false)
@@ -158,7 +159,7 @@ const AddGuestParkingSec = () => {
           <div class="form-group form-group6 row">
             <label class="col-lg-2 col-form-label ADN_label">Name</label>
             <div class="col-lg-4">
-              <input type="text" id="section" class="form-control input-lg ADDParkBor" name="New Parking" placeholder='Name' />
+              <input type="text" id="section" class="form-control input-lg ADDParkBor" name="New Parking" placeholder='Name' defaultValue={guestparkingSection.section?guestparkingSection.section:''}/>
             </div>
           </div>
           <button type="submit" className="AP_Button"  onClick={(e)=>{handleSubmit(e)}}>{type=='edit'? 'Update':'Add'} Parking</button>
