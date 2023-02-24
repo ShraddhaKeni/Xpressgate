@@ -146,7 +146,7 @@ const ChangePassword = () => {
                 <div class="form-group row">
                   <div class="col-lg-6">
                     <label className="CPASS">Current Password</label>
-                    <input ref={oldpass} type="text" className="form-control input-lg CP_input" id="oldpass" placeholder="Current Password"></input>
+                    <input ref={oldpass} type="password" className="form-control input-lg CP_input" id="oldpass" placeholder="Current Password"></input>
                   </div>
                 </div>
               </div>
