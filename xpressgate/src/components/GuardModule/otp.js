@@ -51,7 +51,7 @@ const Otp = () => {
         </div>
       </div>
       <div id="OTPimgid">
-        <img src="/images/loginsideimg.png" alt="" />
+        <img src="/images/loginsideimg.png" alt="Guard Side Image" />
       </div>
       <div id="otpformid">
         <Form>
