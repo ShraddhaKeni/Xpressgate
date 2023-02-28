@@ -21,7 +21,22 @@ input::-webkit-inner-spin-button {
   grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
   grid-template-areas: "dashboardlogo dashboardguard dashboardspace dashboardnotification dashboardsetting dashboardlogoutbutton";
 }
+.Gfirstheadersection {
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr 0.2fr 0.2fr 1fr;
+  grid-template-areas: "Gdashboardlogo dashboardguard dashboardspace dashboardnotification dashboardsetting dashboardlogoutbutton";
+}
 
+#Gdashboardlogo {
+  grid-area: Gdashboardlogo;
+}
+
+#Gdashboardlogo img {
+  margin-top: 7%;
+  margin-left: 15%;
+  margin-bottom: 5%;
+  width: 40%;
+}
 #sdashboardlogo {
   grid-area: dashboardlogo;
 }
@@ -141,6 +156,13 @@ font-weight: 500;
     padding: 5%;
 }
 #sdashboardlogo img {
+  margin-top: 20%;
+  margin-bottom: 0%;
+  margin-left: 25%;
+  width: 5rem;
+  height: auto;
+}
+#Gdashboardlogo img {
   margin-top: 20%;
   margin-bottom: 0%;
   margin-left: 25%;

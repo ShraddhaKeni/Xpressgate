@@ -178,12 +178,16 @@ border: none;
 }
 
 @media only screen  and (min-device-width : 320px) and (max-device-width : 425px) {
-
-  #OTPimgid{
-    display: none;
-  }
-
-
+  #OTPimgid {
+    /* display: none; */
+    position: absolute;
+    margin-top: 143%;
+}
+#OTPimgid img {
+  height: 34vh;
+  width: 100vw;
+  animation: moveImage 5s infinite;
+}
   #OTPlogoid img {
     width: 50%;
     height: auto;

@@ -72,7 +72,7 @@ font-size: 2vw;
 .modulesboxes{
     display: flex;
     margin-top: -9%;
-    margin-left: 30%;
+    margin-left: 23%;
     justify-content: center;
     position: absolute;
 }
@@ -171,4 +171,124 @@ a:link {
     text-decoration: none;
   } 
 
- 
+  @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    .ellipseimg {
+        position: initial;
+        margin-top: 9%;
+        width: 100vw;
+        height: auto;
+    }
+    .page_header {
+        width: 100vw;
+        height: 9.5vh;
+        background: #FAFAFF;
+        align-items: center;
+        position: absolute;
+        margin-top: -38%;
+        box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);
+    }
+    .Page_Container{
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+    .Pagelogoimg {
+        position: relative;
+        width: 15vw;
+        margin-top: 8px;
+        height: 8vh;
+    }
+    .supportlogoimg {
+        position: relative;
+        width: 100%;
+        height: 5vh;
+        margin-top: 50%;
+        margin-left: -20%;
+    }
+    .pagelabels {
+        float: right;
+        margin-top: 5%;
+        margin-right: 5%;
+        text-align: left;
+    }
+
+    .HelpLinelabel {
+        font-size: 1.2rem;
+    }
+    .HelplineNolabel{
+        font-size: 1.1rem;
+    }
+
+    .UserSuplogo{
+        width: 34px;
+    }
+
+
+    .LP_SideImage {
+        bottom: 0;
+        margin-top: 0;
+        margin-bottom: 12%;
+        width: 100vw;
+        height: 25vh;
+    }
+    
+    .BOXESMargin {
+        display: flex;
+        margin-left: 23%;
+        margin-right: 0 !important;
+        margin-bottom: 2%;
+    }
+
+    .welcomelabel {
+        font-size: 2.1rem;
+        margin-right: 0%;
+        /* margin-top: 25% !important; */
+    }
+    .WLabelSize {
+        font-size: 1.7rem;
+        color: #ffffff;
+    }
+    .LBackGimg {
+        display: none;
+    }
+
+    .GuardMod_box {
+        width: 70%;
+        height: 14vh;
+        display: flex;
+        flex-direction: column;
+        margin-top: 2.5%;
+        justify-content: center;
+        align-items: center;
+    }
+    .GM_label {
+        font-size: 4vw;
+        margin-top: -5%;
+    }
+    .GM_image {
+        margin-left: 0;
+        height: auto;
+        width: 14vw;
+    }
+
+    .modulesboxes {
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        overflow-y: scroll !important;
+        margin-left: 0;
+        margin: 1% 0% 0% 0%;
+        height: auto;
+        position: relative;
+    }
+    .Welcomepagelables {
+        display: flex;
+        margin-top: -15%;
+        margin-left: 37%;
+    }
+    .copyright {
+        position: absolute;
+        bottom:0;
+
+    }
+
+  }

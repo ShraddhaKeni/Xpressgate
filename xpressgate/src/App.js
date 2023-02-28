@@ -107,6 +107,15 @@ import CheckListMaintenanceReport from './components/SocietyModule/ChecklistMain
 import ChecklistCommunityStaffReport from './components/SocietyModule/ChecklistCommunityStaffReport';
 import AddChecklistCommunityStaff from './components/SocietyModule/AddChecklistCommunityStaff';
 import AddChecklistMaintenance from './components/SocietyModule/AddChecklistMaintenance';
+import PartnerModule from './pages/partner/PartnerModule';
+import PartnerLogin from './pages/partner/PartnerLoginScreens/PartnerLogin';
+import PartnerEnterMobile from './pages/partner/PartnerLoginScreens/PartnerEnterMobile';
+import PartnerEnterCode from './pages/partner/PartnerLoginScreens/PartnerEnterCode';
+import PartnerNewPassword from './pages/partner/PartnerLoginScreens/PartnerNewPassword';
+import ViewParkedVehicle from './components/SocietyModule/ViewParkedVehicle';
+import GuestViewParking from './components/SocietyModule/GuestViewParking';
+
+
 
 
 
@@ -248,7 +257,7 @@ function App() {
           <Route path='/addsocietymember' element={<AdminModuleComponent />}></Route>
 
 
-          <Route path='/adminchangepassword' element={<AdminChangePass />}></Route>
+          <Route path='/adminchangepassword' element={<AdminModuleComponent />}></Route>
           <Route path='/superadminlogin' element={<SuperAdminLogin />}></Route>
           <Route path='/enternewpass' element={<AdminEnterNewPass />}></Route>
           <Route path='/adminentercode' element={<AdminEnterCode />}></Route>
@@ -262,6 +271,8 @@ function App() {
           <Route path='/viewguestparkingsection' element={<ViewGuestParkingSec />}></Route>
           <Route path='/addguestparkingsection' element={<AddGuestParkingSec />}></Route>
           <Route path='/invoice' element={<Invoice />}></Route>
+          <Route path='/viewparkedvehicle' element={<ViewParkedVehicle />}></Route>
+          <Route path='/guestparking' element={<GuestViewParking />}></Route>
 
           <Route path='/security-checklist' element={<ChecklistSecurity />}></Route>
           <Route path='/maintenance-checklist' element={<CheckListMaintenance />}></Route>
@@ -283,12 +294,46 @@ function App() {
 
 
 
+
+
+
+
           <Route path="/utilitypaymentlink" element={<UtilityPaymentLink />} exact></Route>
           <Route path="/packagelist" element={<PackageList />} exact></Route>
           <Route path="/paymenthistory" element={<SocietyPaymentHistory />} exact></Route>
           {/* <Route path="/societyduesrecord" element={<SocietyDuesTable />} exact></Route> */}
           <Route path="/vendorpaymentrecord" element={<VendorPaymentTable />} exact></Route>
           <Route path="/utilitypaymentrecord" element={<UtilityPaymentTable />} exact></Route>
+
+
+
+
+          <Route path="/partnerlogin" element={<PartnerLogin />} exact></Route>
+          <Route path="/partnerentermobile" element={<PartnerEnterMobile />} exact></Route>
+          <Route path="/partnerentercode" element={<PartnerEnterCode />} exact></Route>
+          <Route path="/partnernewpassword" element={<PartnerNewPassword />} exact></Route>
+
+          <Route path={RouterPath.PARTNER_DASHBOARD} element={<PartnerModule />}></Route>
+
+          <Route path={RouterPath.PARTNER_HOME} element={<PartnerModule />}></Route>
+
+
+          <Route path={RouterPath.COURSE_MANAGEMENT} element={<PartnerModule />}></Route>
+
+          <Route path={RouterPath.STUDENT_MANAGEMENT} element={<PartnerModule />}></Route>
+          <Route path={RouterPath.PARTNER_CHANGE_PASSWORD} element={<PartnerModule />}></Route>
+          <Route path={RouterPath.PARTNER_PROFILE} element={<PartnerModule />}></Route>
+          <Route path={RouterPath.ADD_COURSE} element={<PartnerModule />}></Route>
+          <Route path={RouterPath.EDIT_COURSE} element={<PartnerModule />}></Route>
+          <Route path={RouterPath.COURSE_DETAILS} element={<PartnerModule />}></Route>
+          <Route path={RouterPath.ADD_STUDENT} element={<PartnerModule />}></Route>
+          <Route path={RouterPath.EDIT_STUDENT} element={<PartnerModule />}></Route>
+          <Route path={RouterPath.STUDENT_DETAILS} element={<PartnerModule />}></Route>
+          <Route path={RouterPath.EDIT_PROFILE} element={<PartnerModule />}></Route>
+
+
+
+
         </Routes>
       </Router>
     </div>

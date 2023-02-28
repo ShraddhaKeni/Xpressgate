@@ -4,10 +4,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Loader } from "../Loader";
 import { ToastMessage } from '../ToastMessage';
+import GuardHeader from "./Utils/GuardHeader";
+import GuardMobileSidebar from "../GuardMobileSidebar";
 const EditGuard = () => {
   const [toast, setToast] = useState({ show: false })
   const [guard, setGuard] = useState({})
   const [loading, setLoading] = useState(true)
+  const [menu, setMenuOpen] = useState(false)
+
   useEffect(() => {
     getGuardDetails()
   }, [])
@@ -52,82 +56,80 @@ const EditGuard = () => {
   }
 
   return (
-    <div className="addguestcontainer4">
-      <div id="addflatsection">
-        <div className="addflatheadersection">
-          <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-          <div id="afsociety"><label>Guard</label></div>
-          <div id="afspace"></div>
-          <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-          <div id="afsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-          <div id="aflogoutbutton"><LogOut /></div>
-        </div>
-
+    <>
+      <div className="aiocontainer">
+      <div id="aiosection">
+        <GuardHeader onMenuClick={() => {
+          setMenuOpen(true)
+        }} />
       </div>
-      <div id="societynamesection">
-        <div className="VPay_societyname">
-          <img src="/images/guardnameicon.svg" alt="Society image" />
+      <div id="aiosocietysection">
+        <div className='aiosocietyname'>
+          <img src="/images/guardnameicon.svg" alt="guard name" />
           <label>{localStorage.getItem('name')}</label>
         </div>
-        <br />
-
-        <div className="VPay_sideimg">
-          <img src="/images/sideimage.svg" alt="dashboard sideimage" />
+        <div className='aiosideimage'>
+          <img src="/images/sideimage.svg" alt="guard sideimage" />
         </div>
       </div>
-      <div className="addguestbackgroundimg">
-        <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
-        <div className="VPaydisplay">
-          <label>Update Guard</label>
+        <div className="addguestbackgroundimg">
+          <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+          <div className="VPaydisplay">
+            <label>Update Guard</label>
+          </div>
+          <Loader loading={loading}>
+            <Form className="formclass" >
+              <div class="form-group row" onSubmit={(e) => handleSubmit(e)}>
+                <label class="col-lg-2 col-form-label ADN_label">First Name</label>
+                <div class="col-lg-4">
+                  <input required type="text" class="form-control input-lg SideB" id='firstname' name="First name" placeholder="First name" defaultValue={guard.firstname}>
+                  </input>
+
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-2 col-form-label ADN_label">Last Name</label>
+                <div class="col-lg-4">
+                  <input required type="text" class="form-control input-lg SideB" id='lastname' name="Last name" placeholder="Last name" defaultValue={guard.lastname} />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-2 col-form-label ADN_label">User Name</label>
+                <div class="col-lg-4">
+                  <input required type="text" class="form-control input-lg SideB" id='username' name="User name" placeholder="User name" readOnly defaultValue={guard.username} />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-2 col-form-label ADN_label">Mobile No</label>
+                <div class="col-lg-4">
+                  <input requird type="number" class="form-control input-lg SideB" id='phone' name="Mobile No" placeholder="XXX-XXX-XXXX" readOnly defaultValue={guard.mobileno} />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-2 col-form-label ADN_label">Email</label>
+                <div class="col-lg-4">
+                  <input required type="email" class="form-control input-lg SideB" id='email' name="Email" placeholder="XYZ@.com" defaultValue={guard.email} />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-lg-2 col-form-label ADN_label">Profile Picture</label>
+                <div class="col-lg-4">
+                  <input required type="file" class="form-control input-lg SideB" id='profilePic' name="profle pic" />
+                </div>
+              </div>
+
+              <button type="submit" className="VPay_Add" onClick={(e) => handleSubmit(e)} >
+                Update Guard
+              </button>
+            </Form>
+          </Loader>
         </div>
-        <Loader loading={loading}>
-          <Form className="formclass" >
-            <div class="form-group row" onSubmit={(e) => handleSubmit(e)}>
-              <label class="col-lg-2 col-form-label ADN_label">First Name</label>
-              <div class="col-lg-4">
-                <input required type="text" class="form-control input-lg SideB" id='firstname' name="First name" placeholder="First name" defaultValue={guard.firstname}>
-                </input>
 
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-2 col-form-label ADN_label">Last Name</label>
-              <div class="col-lg-4">
-                <input required type="text" class="form-control input-lg SideB" id='lastname' name="Last name" placeholder="Last name" defaultValue={guard.lastname} />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-2 col-form-label ADN_label">User Name</label>
-              <div class="col-lg-4">
-                <input required type="text" class="form-control input-lg SideB" id='username' name="User name" placeholder="User name" readOnly defaultValue={guard.username} />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-2 col-form-label ADN_label">Mobile No</label>
-              <div class="col-lg-4">
-                <input requird type="number" class="form-control input-lg SideB" id='phone' name="Mobile No" placeholder="XXX-XXX-XXXX" readOnly defaultValue={guard.mobileno} />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-2 col-form-label ADN_label">Email</label>
-              <div class="col-lg-4">
-                <input required type="email" class="form-control input-lg SideB" id='email' name="Email" placeholder="XYZ@.com" defaultValue={guard.email} />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-2 col-form-label ADN_label">Profile Picture</label>
-              <div class="col-lg-4">
-                <input required type="file" class="form-control input-lg SideB" id='profilePic' name="profle pic" />
-              </div>
-            </div>
+        <GuardMobileSidebar open={menu} onHide={() => setMenuOpen(false)} />
 
-            <button type="submit" className="VPay_Add"  onClick={(e) => handleSubmit(e)} >
-              Update Guard
-            </button>
-          </Form>
-        </Loader>
-      </div>
-    </div >
+      </div >
+    </>
+
 
   );
 }

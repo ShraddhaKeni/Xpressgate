@@ -13,8 +13,11 @@ const SelectMode = () => {
     else if (value == 'society') {
       window.location.href = '/societylogin'
     }
-    else {
+    else if (value == 'admin') {
       window.location.href = '/superadminlogin'
+    }
+    else {
+      window.location.href = '/partnerlogin'
     }
   }
   return (
@@ -59,13 +62,19 @@ const SelectMode = () => {
               <br />
               <label className='GM_label'>Super Admin </label>
             </Button>
+          </div> 
+          <div className='BOXESMargin'>
+            <Button onClick={() => { setMode('partner') }} className='GuardMod_box'>
+              <img src="/images/user_setting.svg" className='GM_image'></img>
+              <br />
+              <label className='GM_label'>Partner Program</label>
+            </Button>
           </div> </div>
       
          <div className='copyright'>
           © Copyright 2023 Designed by <a href="https://www.axzoragroup.com/" target="_blank">Axzora Private Limited</a>
         </div> 
 
-    
       </div>
 
     </>

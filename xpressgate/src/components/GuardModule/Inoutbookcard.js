@@ -8,6 +8,7 @@ import GuardHeader from './Utils/GuardHeader';
 import { Loader } from "../Loader";
 import { ToastMessage } from '../ToastMessage';
 import ErrorScreen from '../../common/ErrorScreen';
+import GuardMobileSidebar from '../GuardMobileSidebar';
 const Inoutbookcard = () => {
   const [toast, setToast] = useState({ show: false })
   const [loading, setLoading] = useState(true)
@@ -15,8 +16,25 @@ const Inoutbookcard = () => {
   const [flats, setFlats] = useState([])
   const location = useLocation()
   const navigate = useNavigate()
-  const [isError,setError] = useState(false)
-  const [filterArr,setFilter] = useState([])
+  const [isError, setError] = useState(false)
+  const [filterArr, setFilter] = useState([])
+  const [menu, setMenuOpen] = useState(false)
+
+  const [parkingSections, setParkingSections] = useState(false);
+
+  const [currentSection, setCurrentSection] = useState();
+  const [currentParkingTime, setCurrentParkingTime] = useState();
+
+
+  const [timeSlots] = useState([
+    { time: 30, dTime: "30 Min" },
+    { time: 60, dTime: "1 Hour" },
+    { time: 90, dTime: "1.5 Hours" },
+    { time: 120, dTime: "2 Hours" },
+    { time: 150, dTime: "2.5 Hours" },
+    { time: 180, dTime: "3 Hours" },
+
+  ])
 
   useEffect(() => {
     if (checkGuard()) {
@@ -28,22 +46,23 @@ const Inoutbookcard = () => {
       axios.get(`${window.env_var}api/guard/checkLogin`, config)
         .then(({ data }) => {
           getData()
+          getParkingSections();
         })
         .catch(err => {
           localStorage.clear();
           window.location.href = '/guardLogin'
         })
-        
+
     } else {
       window.location.href = '/'
-    } 
-   
+    }
+
   }, [])
 
   const getData = async () => {
     let id = {
       booking_id: location.state.id,
-      type:1
+      type: 1
     }
     try {
       const { data } = await axios.post(`${window.env_var}api/inout/getone`, id);
@@ -56,64 +75,81 @@ const Inoutbookcard = () => {
     }
   }
 
-  const outEntry=async()=>{
+  const getParkingSections = async () => {
+
+    try {
+      const { data } = await axios.get(`${window.env_var}api/guestparkingsection/getAll/${localStorage.getItem("community_id")}`);
+      setParkingSections(data.data)
+      setLoading(false)
+      setError(false)
+    } catch (error) {
+      setError(true)
+    }
+  }
+
+  const outEntry = async () => {
     try {
       const sendData = {
-        outtime:Date.now(),
-        status:3,
-        booking_id:location.state.id
+        outtime: Date.now(),
+        status: 3,
+        booking_id: location.state.id
       }
-      const {data} = await axios.post(`${window.env_var}api/inout/addout`,sendData)
+      const { data } = await axios.post(`${window.env_var}api/inout/addout`, sendData)
     } catch (error) {
       console.log(error)
     }
   }
 
-  const dateConvert =(date)=>{
+  const dateConvert = (date) => {
     const d = new Date(date)
     //console.log(d)
-    return d.getDate()+'/'+ (d.getMonth()+1)+'/'+d.getFullYear()
-  } 
-  const timeConvert =(date)=>{
+    return d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear()
+  }
+  const timeConvert = (date) => {
     const d = new Date(date)
-    return d.getHours()+':'+d.getMinutes()
-  } 
- 
-  const handleSubmit = async(e,id)=>{
+    return d.getHours() + ':' + d.getMinutes()
+  }
+
+  const handleSubmit = async (e, id) => {
     e.preventDefault()
     try {
-    
+
       const sendData = {
-        outtime:Date.now(),
-        status:2,
-        booking_id:id
+        outtime: Date.now(),
+        status: 2,
+        booking_id: id,
+        parking_section: document.getElementById("parkingsection").value,
+        parkgin_time: document.getElementById("parkingtime").value
       }
 
-      const {data} = await axios.post(`${window.env_var}api/inout/addout`,sendData)
+      console.log(sendData);
+      const { data } = await axios.post(`${window.env_var}api/inout/addout`, sendData)
       setError(false)
       setToast({ show: true, type: "success", message: "Exited successfully" })
       setTimeout(() => {
-        window.location.href='/inoutbook'
+        // window.location.href = '/inoutbook'
       }, 1500);
       // navigate('/inoutbook')
     } catch (error) {
       setError(true)
     }
   }
-  const deny=async()=>{
-      window.location.href="/inoutbook"
- 
-   
+  const deny = async () => {
+    window.location.href = "/inoutbook"
+
+
   }
 
-  if(isError)
-    return <ErrorScreen/>
+  if (isError)
+    return <ErrorScreen />
 
 
   return (
     <div className="inoutbookcardcontainer">
       <div id="headersection">
-      <GuardHeader/>
+        <GuardHeader onMenuClick={() => {
+          setMenuOpen(true)
+        }} />
       </div>
       <div id="guardnamesection">
         <div className='IOBC_GName'>
@@ -123,58 +159,69 @@ const Inoutbookcard = () => {
         <div className='IOBC_SImg'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
       </div>
       <div className='Iobcbackgroundimg'>
-      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
-        <div className= "IOBC_display">
+        <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+        <div className="IOBC_display">
           <label>In-Out Book</label>
         </div>
         <Loader loading={loading}>
-        {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}
-        <div className="col">
-          <div className="inoutbookcard">
-            <br></br>
-            <label className="namelabel">{listData.FirstName}</label>
-            <div className='profclass'>
-              {listData.type == '1' ? 'Guest' : listData.type == '2' ? 'Vendor' : 'Daily Helper'}</div>
-            <br></br>
-            <div className='flatclass'>
-              <label>Flat No</label>
-              {flats.map((items) => {
-                return <div className='flatnodisplay'>{items.flat_no}, {items.block_name}</div>
-              })}
+          {/* <div className="row row-cols-1 row-cols-md-1 g-4 fullcardscss"> */}
+          <div className="col">
+            <div className="inoutbookcard">
+              <br></br>
+              <label className="namelabel">{listData.FirstName}</label>
+              <div className='profclass'>
+                {listData.type == '1' ? 'Guest' : listData.type == '2' ? 'Vendor' : 'Daily Helper'}</div>
+              <br></br>
+              <div className='flatclass'>
+                <label>Flat No</label>
+                {flats.map((items) => {
+                  return <div className='flatnodisplay'>{items.flat_no}, {items.block_name}</div>
+                })}
+              </div>
+              <br></br>
+              <div><label className='inbcallowedclass'>Allowed by {listData.allowed_by}</label></div>
+              <br></br>
+              <div className='detailsclass'>
+                <div><label className='date'>Date:{dateConvert(listData.intime)}</label></div>
+                <div><label className='intime'>In-Time: {timeConvert(listData.intime)}</label></div>
+                <div><label className='outtime'>Out-Time: {listData.outtime ? timeConvert(listData.outtime) : 'N/A'}</label></div>
+                {/* <div><label className='noofpeople'>No of People: 1</label></div> */}
+                <div><label className='vehicleno'>Vehicle No: {listData.vehicle_no ? listData.vehicle_no : 'N/A'}</label></div>
+                <label for="parkingsection" className='ParkingSec'>Parking Section: </label><br />
+                <select id="parkingsection" className='selectInput'>
+                  <option selected disabled>Select Parking Section</option>
+                  {parkingSections && parkingSections.map(item => {
+                    return <option value={item._id} selected={`${item._id == listData.parking_section ? true : false}`}>{item.section}</option>
+                  })
+                  }
+                </select>
+
+                <label for="parkingtime" className='ParkingSec'>Parking Time: </label><br />
+                <select id="parkingtime" className='selectInput' name='parking_time' >
+
+                  <option selected disabled>Select Parking Time</option>
+                  {timeSlots.map(slot => {
+                    return <option value={slot.time} selected={`${slot.time == listData.parking_time}`}>{slot.dTime}</option>
+                  })
+                  }
+                </select>
+
+              </div>
+
+              <br></br>
+              {console.log(listData.status)}
+              {listData.status == 1 ? <button type="submit" onClick={(e) => { handleSubmit(e, listData.booking_id) }} id='inout' className="btnOut">Out</button>
+                : <button type="button" onClick={() => { deny() }} id='inout' className="btnOut">Back</button>
+              }
+
+              <br></br>
             </div>
-            <br></br>
-            <div><label className='inbcallowedclass'>Allowed by {listData.allowed_by}</label></div>
-            <br></br>
-            <div className='detailsclass'>
-              <div><label className='date'>Date:{dateConvert(listData.intime)}</label></div>
-              <div><label className='intime'>In-Time: {timeConvert(listData.intime)}</label></div>
-              <div><label className='outtime'>Out-Time: {listData.outtime?timeConvert(listData.outtime):'N/A'}</label></div>
-              {/* <div><label className='noofpeople'>No of People: 1</label></div> */}
-              <div><label className='vehicleno'>Vehicle No: {listData.vehicle_no ? listData.vehicle_no : 'N/A'}</label></div>
-              <label for="parkingsection" className='ParkingSec'>Parking Section: </label><br/>
-              <select id="parkingsection" className='selectInput'>
-                <option></option>
-              </select>
-           
-              <label for="parkingtime" className='ParkingSec'>Parking Time: </label><br/>
-              <select id="parkingtime" className='selectInput'>
-                <option></option>
-              </select>
-           
-            </div>
-            
-            <br></br>
-            {console.log(listData.status)}
-            {listData.status==1? <button type="submit" onClick={(e)=>{handleSubmit(e,listData.booking_id)}} id='inout'  className="btnOut">Out</button>
-              : <button type="button" onClick={()=>{deny()}} id='inout' className="btnOut">Back</button>
-            }
-           
-            <br></br>
           </div>
-        </div>
-        {/* </div> */}
+          {/* </div> */}
         </Loader>
       </div>
+      <GuardMobileSidebar open={menu} onHide={() => setMenuOpen(false)} />
+
     </div>
   )
 }

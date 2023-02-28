@@ -1,8 +1,7 @@
 import React from "react";
 import "../SocietyModule/Managementteam.css";
-import LogOut from "./Utils/LogOut";
 // import { Button } from 'react-bootstrap';
-import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
+import PaginationCalculate from '../GuardModule/Utils/paginationCalculate';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Societyheader from "./Utils/Societyheader";
@@ -18,13 +17,13 @@ const Managementteam = () => {
 
   const [toast, setToast] = useState({ show: false })
   const [management, setmanagement] = useState([])
-  const [currentPage, setCurrentpage] = useState(1)
+  const [currentPage, setCurrentPage] = useState(0)
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts, setCurrentPosts] = useState([])
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
-  const [filterArr,setFilter] = useState([])
-  const [isError,setError] = useState(false)
+  const [filterArr, setFilter] = useState([])
+  const [isError, setError] = useState(false)
 
   useEffect(() => {
     getDetails()
@@ -35,7 +34,7 @@ const Managementteam = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/management/getAll/${localStorage.getItem('community_id')}`)
       setmanagement(data.data.managementteam)
-      const indexoflast = currentPage * postPerPage  //endoffset
+      const indexoflast = (currentPage + 1) * postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.managementteam.slice(indexoffirst, indexoflast))
       setLoading(false);
@@ -59,12 +58,12 @@ const Managementteam = () => {
     }
   }
 
-  // async function paginate(event) {
-  //   setCurrentpage(event.selected + 1)
-  //   const indexoflast = (event.selected + 1) * postPerPage  //endoffset
-  //   const indexoffirst = indexoflast - postPerPage //startoffset
-  //   setCurrentPosts(management.slice(indexoffirst, indexoflast))
-  // }
+  async function paginate(event) {
+    setCurrentPage(event.selected)
+    const indexoflast = (event.selected + 1) * postPerPage  //endoffset
+    const indexoffirst = indexoflast - postPerPage //startoffset
+    setCurrentPosts(management.slice(indexoffirst, indexoflast))
+  }
 
   function managementDetails(mainid, id, title) {
     navigate('/addManagement', { state: { id: id, type: 'edit', title, mainid } })
@@ -94,10 +93,10 @@ const Managementteam = () => {
 
   }
 
-  const settingCurrent=value=>setCurrentPosts(value)
+  const settingCurrent = value => setCurrentPosts(value)
 
-  if(isError)
-  return <ErrorScreen/>
+  if (isError)
+    return <ErrorScreen />
   return (
     <div className="addguestcontainer4">
       <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
@@ -143,13 +142,13 @@ const Managementteam = () => {
               {currentPosts.map((items, index) => {
                 return (
                   <tr id={items._id}>
-                    <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1 + 1) + (index + 1)}</td>
+                    <td>{index + 1 + (currentPage * postPerPage)}</td>
                     <td onClick={() => managementDetails(items._id, items.resident._id, items.managementTitle)}>{items.resident.firstname} {items.resident.lastname}</td>
                     <td>{items.managementTitle}</td>
                     <td>{items.status == true ? 'Active' : 'Inactive'}</td>
                     <td>
                       <IconButton onClick={(e) => { e.preventDefault(); handleDelete(items._id) }}>
-                      <img src="/images/icon_delete.svg" />
+                        <img src="/images/icon_delete.svg" />
                       </IconButton>
                     </td>
                   </tr>
@@ -157,8 +156,7 @@ const Managementteam = () => {
               })}
             </tbody>
           </table>
-          {/* <PaginationCalculate totalPages={management.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} /> */}
-          <Pagination totalPages={filterArr.length>0?filterArr.length:management.length} data ={filterArr.length>0?filterArr:management} settingCurrent={settingCurrent}/>
+          <PaginationCalculate totalPages={management.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
         </Loader>
       </div>
     </div>

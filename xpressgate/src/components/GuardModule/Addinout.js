@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import { Loader } from "../Loader";
 import { ToastMessage } from '../ToastMessage';
 import ErrorScreen from '../../common/ErrorScreen';
+import GuardMobileSidebar from '../GuardMobileSidebar';
 const Addinout = () => {
   const [toast, setToast] = useState({ show: false })
   const [loading, setLoading] = useState(true)
@@ -20,6 +21,7 @@ const Addinout = () => {
   const [dailyhelp, setDailyhelp] = useState([])
   const [residents, setResidents] = useState([])
   const [isError, setError] = useState(false)
+  const [menu, setMenuOpen] = useState(false)
 
   // let blockid = document.getElementById('item').value
   const visitortype = useRef([])
@@ -147,7 +149,9 @@ const Addinout = () => {
   return (
     <div className="aiocontainer">
       <div id="aiosection">
-        <GuardHeader />
+        <GuardHeader onMenuClick={() => {
+          setMenuOpen(true)
+        }} />
       </div>
       <div id="aiosocietysection">
         <div className='aiosocietyname'>
@@ -270,11 +274,14 @@ const Addinout = () => {
             </div>
           </div>
 
-          <button type="submit" className="btnInOut"  onClick={(e) => handleSubmit(e)}  on>Add In Out</button>
-
+          <button type="submit" className="btnInOut" onClick={(e) => handleSubmit(e)} on>Add In Out</button>
+<br/>
         </Form>
         {/* </Loader> */}
+        <br/>
       </div>
+      <GuardMobileSidebar open={menu} onHide={() => setMenuOpen(false)} />
+
     </div>
   )
 }
