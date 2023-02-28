@@ -5,11 +5,10 @@ import "../SocietyModule/Guardlist.css";
 import LogOut from './Utils/LogOut'
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import { useNavigate } from "react-router-dom";
-import { IconButton } from "@mui/material";
 
 
-const ChecklistMaintenance = () => {
-    const [Checklist, setChecklist] = useState([])
+const ChecklistCommunityStaffReport = () => {
+    const [Guards, setGuards] = useState([])
     const [currentPage, setCurrentpage] = useState(1)
     const [postPerPage, setPostPerPage] = useState(12)
     const [currentPosts, setCurrentPosts] = useState([])
@@ -21,12 +20,11 @@ const ChecklistMaintenance = () => {
 
     const getGuardDetails = async () => {
         try {
-            const { data } = await axios.get(`${window.env_var}api/checklist/getall/${localStorage.getItem("community_id")}`)
-            console.log(data.data)
-            setChecklist(data.data.Checklist_Details)
+            const { data } = await axios.get(`${window.env_var}api/guard/getall`)
+            setGuards(data.data.Guards)
             const indexoflast = currentPage * postPerPage  //endoffset
             const indexoffirst = indexoflast - postPerPage //startoffset
-            setCurrentPosts(data.data.Checklist_Details.slice(indexoffirst, indexoflast))
+            setCurrentPosts(data.data.Guards.slice(indexoffirst, indexoflast))
         } catch (error) {
             console.log(error)
         }
@@ -37,14 +35,18 @@ const ChecklistMaintenance = () => {
         setCurrentpage(event.selected + 1)
         const indexoflast = (event.selected + 1) * postPerPage  //endoffset
         const indexoffirst = (indexoflast - postPerPage) //startoffset
-        setCurrentPosts(data.data.Checklist_Details.slice(indexoffirst, indexoflast))
+        setCurrentPosts(data.data.Guards.slice(indexoffirst, indexoflast))
+    }
+
+    function guardDetails(id) {
+        navigate('/addGuard', { state: { id: id, type: 'edit' } })
     }
 
     const findText = (e) => {
         let search = e.target.value.toLowerCase()
         //console.log(search)
-        let arr = Checklist.filter(x => {
-            //console.log(Checklist)
+        let arr = Guards.filter(x => {
+            //console.log(Guards)
             if (x.firstname.toLowerCase().includes(search)) {
                 return true
             }
@@ -60,14 +62,6 @@ const ChecklistMaintenance = () => {
         else {
             paginate(0)
         }
-    }
-
-    const handleEditClick = (checklist) => {
-        navigate('/add-maintenance-checklist', { state: { data: Checklist, type: 'edit', id: checklist.id } })
-    }
-
-    const handelRemoveClick = () => {
-
     }
 
 
@@ -92,9 +86,9 @@ const ChecklistMaintenance = () => {
 
 
                 <div className='GLsidelinks pl-5'>
-                    <p className='noticegll float-left' onClick={() => navigate('/security-checklist-report')}><b>Reports</b></p>
-                    <p className='noticegll float-left' onClick={() => navigate('/add-security-checklist')}><b>Add Checklist</b></p>
-                    <p className='aggnotice float-left' onClick={() => navigate('/security-checklist')}><b>Checklists</b></p>
+                    <p className='aggnotice float-left' onClick={() => navigate('/community-staff-checklist-report')}><b>Reports</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/add-community-staff-checklist')}><b>Add Staff</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/community-staff-checklist')}><b>Staff</b></p>
                 </div>
                 <div className="GLSimg">
                     <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
@@ -102,7 +96,7 @@ const ChecklistMaintenance = () => {
             </div>
             <div className="addguestbackgroundimg">
                 <div className='GL_display'>
-                    <label>Maintenance Checklist</label>
+                    <label>Society Staff Checklist</label>
                 </div>
                 <div className='row'>
                     {/* <div className='search3'>
@@ -119,11 +113,10 @@ const ChecklistMaintenance = () => {
                     <thead>
                         <tr>
                             <th class="th-sm">Sr No. </th>
-                            <th class="th-sm">Name</th>
-
-                            <th class="th-sm">Frequency</th>
-                            <th class="th-sm">Notes</th>
-                            <th class="th-sm">Actions</th>
+                            <th class="th-sm">Guard Name</th>
+                            <th class="th-sm">Phone</th>
+                            <th class="th-sm">Email</th>
+                            <th class="th-sm">Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -131,30 +124,21 @@ const ChecklistMaintenance = () => {
 
                             return (
 
-                                <tr>
+                                <tr onClick={() => guardDetails(item.id)}>
                                     <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1 + 1) + (index + 1)}</td>
-                                    <td >{item.item}</td>
-                                    <td>{item.frequency}</td>
-                                    <td>{item.other_details}</td>
-                                    <td><div>
-                                        <IconButton onClick={() => { handleEditClick(item) }}>
-                                            <img src="/images/icon_edit.svg" />
-                                        </IconButton>
-
-                                        {/* <IconButton onClick={() => handelRemoveClick(item.id)}>
-                                            <img src="/images/icon_delete.svg" />
-                                        </IconButton> */}
-
-                                    </div></td>
+                                    <td >{item.firstname} {item.lastname}</td>
+                                    <td>{item.mobileno}</td>
+                                    <td>{item.email}</td>
+                                    <td>{item.status == false ? 'Inactive' : 'Active'}</td>
                                 </tr>
                             )
                         })}
                     </tbody>
                 </table>
-                <PaginationCalculate totalPages={Checklist.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+                <PaginationCalculate totalPages={Guards.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
             </div>
         </div>
     );
 };
 
-export default ChecklistMaintenance;
+export default ChecklistCommunityStaffReport;
