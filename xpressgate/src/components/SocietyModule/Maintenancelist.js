@@ -10,6 +10,7 @@ import Societyheader from "./Utils/Societyheader";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
 import { ButtonBase, Icon, IconButton } from '@mui/material';
+import { ToastMessage } from "../ToastMessage";
 
 const Maintenancelist = () => {
   const [loading, setLoading] = useState(false)
@@ -17,7 +18,9 @@ const Maintenancelist = () => {
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts, setCurrentPosts] = useState([])
   const [maintenance, setMaintenance] = useState([])
-  
+  const [toast, setToast] = useState({ show: false })
+  const navigate = useNavigate();
+
   useEffect(() => {
     getMaintenance()
   }, [])
@@ -43,6 +46,25 @@ const Maintenancelist = () => {
     setCurrentPosts(maintenance.slice(indexoffirst, indexoflast))
   }
 
+  const handleDeleteLink = async (item) => {
+    try {
+      const sendData = {
+       id: item.id,
+     }
+    const { data } = await axios.post(`${window.env_var}api/checklist/remove`, sendData)
+    setToast({ show: true, message: "Deleted Successfully", type: "error" })
+      setTimeout(() => {
+        window.location.reload()
+      }, 2000)
+    }catch (error) {
+      console.log(error)
+    }
+  }
+
+  const handleEditLink = (item) => {
+    navigate('/addmaintenanceschedule', { state: { id: item.id, type: 'edit' } })
+  }
+
     const dateTimeFormat = (date) => {
     var d = new Date(date)
     return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate()
@@ -51,6 +73,7 @@ const Maintenancelist = () => {
 
   return (
     <div className="addguestcontainer4">
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
       <div id="addflatsection">
         <Societyheader />
       </div>
@@ -107,11 +130,11 @@ const Maintenancelist = () => {
                     <td>{item.frequency}</td>
                     <td>
                       <div>
-                        <IconButton>
+                        <IconButton onClick={() => { handleEditLink(item) }}>
                           <img src="/images/icon_edit.svg" />
                         </IconButton>
 
-                        <IconButton>
+                        <IconButton onClick={() => handleDeleteLink(item)}>
                           <img src="/images/icon_delete.svg" />
                         </IconButton>
 
