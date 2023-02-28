@@ -10,7 +10,7 @@ import { Loader } from "../Loader";
 import ErrorScreen from "../../common/ErrorScreen";
 import { goBackInOneSec, reloadInOneSec, TOAST } from "../../common/utils";
 
-const AddChecklistSecurity = () => {
+const AddChecklistMaintenance = () => {
     const [loading, setLoading] = useState(true)
     const [guard, setGuard] = useState({})
     const location = useLocation()
@@ -20,7 +20,6 @@ const AddChecklistSecurity = () => {
     const [toast, setToast] = useState({ show: false })
 
     const [checklist] = useState(location?.state?.data || undefined);
-
 
 
     const handleSubmit = async (e) => {
@@ -57,7 +56,7 @@ const AddChecklistSecurity = () => {
 
                 if (data && data?.status_code == 200) {
                     setToast(TOAST.SUCCESS(data?.message));
-                    //  reloadInOneSec()
+                    reloadInOneSec()
                 } else if (data?.status_code == 201) {
                     setToast(TOAST.ERROR(data?.message));
                 }
@@ -97,7 +96,6 @@ const AddChecklistSecurity = () => {
         }
 
 
-
     }, [])
 
     const getGuardDetails = async () => {
@@ -115,6 +113,7 @@ const AddChecklistSecurity = () => {
 
     return (
         <div className="addguestcontainer4">
+
             <div id="addflatsection">
                 <div className="addflatheadersection">
                     <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
@@ -126,6 +125,7 @@ const AddChecklistSecurity = () => {
                 </div>
 
             </div>
+
             <div id="societynamesection">
                 <div className="AGSname">
                     <img src="/images/societyicon.svg" alt="Society image" />
@@ -143,6 +143,7 @@ const AddChecklistSecurity = () => {
                     <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
                 </div>
             </div>
+
             <div className="addguestbackgroundimg">
                 <Loader loading={loading}>
                     <div className='AG_display'>
@@ -153,8 +154,8 @@ const AddChecklistSecurity = () => {
                         <div class="form-group form-group6 row">
                             <label class="col-lg-2 col-form-label ADN_label">Action</label>
                             <div class="col-lg-4">
-                                {type == 'edit' ? <input type="text" class="form-control input-lg SideB" name="item" id="item" defaultValue={guard.item} placeholder="Enter Action Name" required />
-                                    : <input type="text" class="form-control input-lg input-lg1 SideB" name="item" id="item" placeholder="Enter Action Name" required />}
+                                {type == 'edit' ? <input type="text" class="form-control input-lg SideB" name="item" id="username" defaultValue={guard.item} placeholder="Enter Action Name" required />
+                                    : <input type="text" class="form-control input-lg input-lg1 SideB" name="item" id="username" placeholder="Enter Action Name" required />}
 
                             </div>
                         </div>
@@ -162,8 +163,8 @@ const AddChecklistSecurity = () => {
                         <div class="form-group form-group6 row">
                             <label class="col-lg-2 col-form-label ADN_label">Frequency</label>
                             <div class="col-lg-4">
-                                {type == 'edit' ? <input type="number" class="form-control input-lg SideB" name="frequency" id="frequency" defaultValue={guard.frequency} placeholder="Enter Frequency" required />
-                                    : <input type="number" class="form-control input-lg input-lg1 SideB" name="frequency" id="frequency" placeholder="Enter Frequency" required />}
+                                {type == 'edit' ? <input type="number" class="form-control input-lg SideB" name="frequency" id="username" defaultValue={guard.frequency} placeholder="Enter Frequency" required />
+                                    : <input type="number" class="form-control input-lg input-lg1 SideB" name="frequency" id="username" placeholder="Enter Frequency" required />}
 
                             </div>
                         </div>
@@ -171,8 +172,8 @@ const AddChecklistSecurity = () => {
                         <div class="form-group form-group6 row">
                             <label class="col-lg-2 col-form-label ADN_label">Other Details</label>
                             <div class="col-lg-4">
-                                {type == 'edit' ? <textarea type="text" class="form-control input-lg SideB" name="other_details" id="other_details" defaultValue={guard.other_details} placeholder="Enter More Details" required />
-                                    : <textarea type="text" class="form-control input-lg input-lg1 SideB" name="other_details" id="other_details" placeholder="Enter More Details" required />}
+                                {type == 'edit' ? <textarea type="text" class="form-control input-lg SideB" name="other_details" id="username" defaultValue={guard.other_details} placeholder="Enter More Details" required />
+                                    : <textarea type="text" class="form-control input-lg input-lg1 SideB" name="other_details" id="username" placeholder="Enter More Details" required />}
 
                             </div>
                         </div>
@@ -181,11 +182,13 @@ const AddChecklistSecurity = () => {
                     </Form>
                 </Loader>
             </div>
+
         </div >
 
 
 
     );
+
 };
 
-export default AddChecklistSecurity;
+export default AddChecklistMaintenance;

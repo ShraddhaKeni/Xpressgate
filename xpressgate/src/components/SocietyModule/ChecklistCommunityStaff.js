@@ -20,11 +20,11 @@ const ChecklistCommunityStaff = () => {
 
     const getGuardDetails = async () => {
         try {
-            const { data } = await axios.get(`${window.env_var}api/guard/getall`)
-            setGuards(data.data.Guards)
+            const { data } = await axios.get(`${window.env_var}api/societystaff/getall/${localStorage.getItem("community_id")}`)
+            setGuards(data.data.Society_staff)
             const indexoflast = currentPage * postPerPage  //endoffset
             const indexoffirst = indexoflast - postPerPage //startoffset
-            setCurrentPosts(data.data.Guards.slice(indexoffirst, indexoflast))
+            setCurrentPosts(data.data.Society_staff.slice(indexoffirst, indexoflast))
         } catch (error) {
             console.log(error)
         }
@@ -35,7 +35,7 @@ const ChecklistCommunityStaff = () => {
         setCurrentpage(event.selected + 1)
         const indexoflast = (event.selected + 1) * postPerPage  //endoffset
         const indexoffirst = (indexoflast - postPerPage) //startoffset
-        setCurrentPosts(data.data.Guards.slice(indexoffirst, indexoflast))
+        setCurrentPosts(data.data.Society_staff.slice(indexoffirst, indexoflast))
     }
 
     function guardDetails(id) {
@@ -79,19 +79,22 @@ const ChecklistCommunityStaff = () => {
 
             </div>
             <div id="societynamesection">
+
                 <div className="GL_societyname">
                     <img src="/images/societyicon.svg" alt="Society image" />
                     <label>Society Name</label>
                 </div>
 
-
-                <div className='GLsidelinks'>
-                    <a className='noticeGL' href="/guardlist"><b>Guard list</b></a><br></br><br></br>
-                    <a className='AGnotice' onClick={() => navigate('/addGuard')}>  Add Guard</a>
+                <div className='GLsidelinks pl-5'>
+                    <p className='noticegll float-left' onClick={() => navigate('/community-staff-checklist-report')}><b>Reports</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/add-community-staff-checklist')}><b>Add Staff</b></p>
+                    <p className='aggnotice float-left' onClick={() => navigate('/community-staff-checklist')}><b>Staff</b></p>
                 </div>
+
                 <div className="GLSimg">
                     <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
                 </div>
+
             </div>
             <div className="addguestbackgroundimg">
                 <div className='GL_display'>
@@ -113,8 +116,8 @@ const ChecklistCommunityStaff = () => {
                         <tr>
                             <th class="th-sm">Sr No. </th>
                             <th class="th-sm">Guard Name</th>
-                            <th class="th-sm">Phone</th>
-                            <th class="th-sm">Email</th>
+                            <th class="th-sm">Contact</th>
+                            <th class="th-sm">Service</th>
                             <th class="th-sm">Status</th>
                         </tr>
                     </thead>
@@ -125,9 +128,9 @@ const ChecklistCommunityStaff = () => {
 
                                 <tr onClick={() => guardDetails(item.id)}>
                                     <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1 + 1) + (index + 1)}</td>
-                                    <td >{item.firstname} {item.lastname}</td>
-                                    <td>{item.mobileno}</td>
-                                    <td>{item.email}</td>
+                                    <td >{item.name}</td>
+                                    <td>{item.contact}</td>
+                                    <td>{item.service_name}</td>
                                     <td>{item.status == false ? 'Inactive' : 'Active'}</td>
                                 </tr>
                             )

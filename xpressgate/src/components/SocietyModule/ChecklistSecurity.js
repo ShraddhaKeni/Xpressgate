@@ -5,10 +5,11 @@ import "../SocietyModule/Guardlist.css";
 import LogOut from './Utils/LogOut'
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import { useNavigate } from "react-router-dom";
+import { IconButton } from "@mui/material";
 
 
 const ChecklistSecurity = () => {
-    const [Guards, setGuards] = useState([])
+    const [Checklist, setChecklist] = useState([])
     const [currentPage, setCurrentpage] = useState(1)
     const [postPerPage, setPostPerPage] = useState(12)
     const [currentPosts, setCurrentPosts] = useState([])
@@ -20,11 +21,12 @@ const ChecklistSecurity = () => {
 
     const getGuardDetails = async () => {
         try {
-            const { data } = await axios.get(`${window.env_var}api/guard/getall`)
-            setGuards(data.data.Guards)
+            const { data } = await axios.get(`${window.env_var}api/checklist/getall/${localStorage.getItem("community_id")}`)
+            console.log(data.data)
+            setChecklist(data.data.Checklist_Details)
             const indexoflast = currentPage * postPerPage  //endoffset
             const indexoffirst = indexoflast - postPerPage //startoffset
-            setCurrentPosts(data.data.Guards.slice(indexoffirst, indexoflast))
+            setCurrentPosts(data.data.Checklist_Details.slice(indexoffirst, indexoflast))
         } catch (error) {
             console.log(error)
         }
@@ -35,18 +37,14 @@ const ChecklistSecurity = () => {
         setCurrentpage(event.selected + 1)
         const indexoflast = (event.selected + 1) * postPerPage  //endoffset
         const indexoffirst = (indexoflast - postPerPage) //startoffset
-        setCurrentPosts(data.data.Guards.slice(indexoffirst, indexoflast))
-    }
-
-    function guardDetails(id) {
-        navigate('/addGuard', { state: { id: id, type: 'edit' } })
+        setCurrentPosts(data.data.Checklist_Details.slice(indexoffirst, indexoflast))
     }
 
     const findText = (e) => {
         let search = e.target.value.toLowerCase()
         //console.log(search)
-        let arr = Guards.filter(x => {
-            //console.log(Guards)
+        let arr = Checklist.filter(x => {
+            //console.log(Checklist)
             if (x.firstname.toLowerCase().includes(search)) {
                 return true
             }
@@ -62,6 +60,14 @@ const ChecklistSecurity = () => {
         else {
             paginate(0)
         }
+    }
+
+    const handleEditClick = (checklist) => {
+        navigate('/add-security-checklist', { state: { data: Checklist, type: 'edit', id: checklist.id } })
+    }
+
+    const handelRemoveClick = () => {
+
     }
 
 
@@ -86,8 +92,9 @@ const ChecklistSecurity = () => {
 
 
                 <div className='GLsidelinks pl-5'>
-                    <p className='aggnotice float-left' onClick={() => navigate('/security-checklist')}><b>Reports</b></p>
-                    <a className='noticegll float-left' onClick={() => navigate('/add-security-checklist')}><b>Add Checklist</b></a>
+                    <p className='noticegll float-left' onClick={() => navigate('/security-checklist-report')}><b>Reports</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/add-security-checklist')}><b>Add Checklist</b></p>
+                    <p className='aggnotice float-left' onClick={() => navigate('/security-checklist')}><b>Checklists</b></p>
                 </div>
                 <div className="GLSimg">
                     <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
@@ -112,10 +119,11 @@ const ChecklistSecurity = () => {
                     <thead>
                         <tr>
                             <th class="th-sm">Sr No. </th>
-                            <th class="th-sm">Guard Name</th>
-                            <th class="th-sm">Action</th>
-                            <th class="th-sm">Time</th>
-                            <th class="th-sm">Remarks</th>
+                            <th class="th-sm">Name</th>
+
+                            <th class="th-sm">Frequency</th>
+                            <th class="th-sm">Notes</th>
+                            <th class="th-sm">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -123,18 +131,27 @@ const ChecklistSecurity = () => {
 
                             return (
 
-                                <tr onClick={() => guardDetails(item.id)}>
+                                <tr>
                                     <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1 + 1) + (index + 1)}</td>
-                                    <td >{item.firstname} {item.lastname}</td>
-                                    <td>{item.mobileno}</td>
-                                    <td>{item.email}</td>
-                                    <td>{item.status == false ? 'Inactive' : 'Active'}</td>
+                                    <td >{item.item}</td>
+                                    <td>{item.frequency}</td>
+                                    <td>{item.other_details}</td>
+                                    <td><div>
+                                        <IconButton onClick={() => { handleEditClick(item) }}>
+                                            <img src="/images/icon_edit.svg" />
+                                        </IconButton>
+
+                                        {/* <IconButton onClick={() => handelRemoveClick(item.id)}>
+                                            <img src="/images/icon_delete.svg" />
+                                        </IconButton> */}
+
+                                    </div></td>
                                 </tr>
                             )
                         })}
                     </tbody>
                 </table>
-                <PaginationCalculate totalPages={Guards.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+                <PaginationCalculate totalPages={Checklist.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
             </div>
         </div>
     );
