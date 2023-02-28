@@ -42,11 +42,12 @@ const ChecklistsMain = () => {
                 </div>
 
                 <div className="row row-cols-1 row-cols-md-3 g-4 cfullcardscss allcards">
+
                     <div className="col card_hover_animation">
                         <div className="Cdashboardcard">
                             <a href="/security-checklist">
                                 <img
-                                    src="/images/guardmanagement.svg"
+                                    src="/images/security_checklist.svg"
                                     className="dbcard-img-top"
                                     alt="Security Checklist"
                                 ></img>
@@ -56,7 +57,7 @@ const ChecklistsMain = () => {
                     <div className="col card_hover_animation">
                         <div className="Cdashboardcard">
                             <img
-                                src="/images/managecommunity.svg"
+                                src="/images/s_staff_checklist.svg"
                                 className="dbcard-img-top"
                                 alt="Local Services"
                                 onClick={() => {
@@ -68,7 +69,7 @@ const ChecklistsMain = () => {
                     <div className="col card_hover_animation">
                         <div className="Cdashboardcard">
                             <img
-                                src="/images/manageamenities.svg"
+                                src="/images/maintenance_checklist.svg"
                                 className="dbcard-img-top"
                                 onClick={() => {
                                     window.location.href = "/maintenance-checklist";
