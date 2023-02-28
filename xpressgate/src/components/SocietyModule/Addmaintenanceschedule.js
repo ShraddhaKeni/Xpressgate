@@ -10,6 +10,7 @@ import { mobileValidation } from "../auth/validation";
 import { useLocation } from "react-router-dom";
 import { Loader } from "../Loader";
 import ErrorScreen from "../../common/ErrorScreen";
+import { ToastMessage } from "../ToastMessage";
 
 const Addmaintenanceschedule = () => {
   const [loading, setLoading] = useState(false)
@@ -20,6 +21,7 @@ const Addmaintenanceschedule = () => {
   const [isError, setError] = useState(false)
   const [dropDownRef, setDropDown] = useState()
   const [dropDownForRef, setDropDownForRef] = useState()
+  const [toast, setToast] = useState({ show: false })
 
   useEffect(() => {
     if (checkSociety()) {
@@ -92,11 +94,11 @@ const Addmaintenanceschedule = () => {
 
         const { data } = await axios.post(`${window.env_var}api/checklist/add`, sendData)
 
-        // setToast({ show: true, type: "success", message: "Vendor added successfully" })
+         setToast({ show: true, type: "success", message: "Added successfully" })
         setTimeout(() => {
-          //window.location.href = '/localservices'
+          window.location.href = '/maintenancelist'
         }, 1500);
-        // window.location.href = '/localservices'
+         window.location.href = '/maintenancelist'
       } else {
         const sendData = {
           id: location.state.id,
@@ -109,13 +111,13 @@ const Addmaintenanceschedule = () => {
           no_of_days: document.getElementById('reminderdays').value,
         }
         const { data } = await axios.post(`${window.env_var}api/checklist/update`, sendData);
-        // setToast({ show: true, type: "success", message: "Updated successfully" })
+        setToast({ show: true, type: "success", message: "Updated successfully" })
         setTimeout(() => {
-          //window.location.href = '/viewguestparkingsection'
+          window.location.href = '/maintenancelist'
         }, 1500);
       }
     } catch (error) {
-      // setToast({ show: true, type: "error", message: "Check Data." });
+      setToast({ show: true, type: "error", message: "Check Data." });
     }
   }
 
@@ -144,9 +146,9 @@ const Addmaintenanceschedule = () => {
         </div>
       </div>
       <div className="addmaintenancebackgroundimg">
-
-        <div className="AEN_display">
-          <label>Add Maintenance Schedule</label>
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+        <div className="AEN_displaym">
+          <label>{type == 'edit' ? 'Update' : 'Add'} Maintenance Schedule</label>
         </div>
         <Loader loading={loading}>
           <Form className='FormClass'>
@@ -202,7 +204,7 @@ const Addmaintenanceschedule = () => {
             </div>
 
 
-            <button type="submit" onClick={(e) => handleSubmit(e)} className="AddMSButton"> Add Maintenance Schedule</button>
+            <button type="submit" onClick={(e) => handleSubmit(e)} className="AddMSButton"> {type == 'edit' ? 'Update' : 'Add'} Maintenance Schedule</button>
           </Form>
 
         </Loader>
