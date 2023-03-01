@@ -102,6 +102,11 @@ import ViewGuestParkingSec from './components/SocietyModule/ViewGuestParkingSec'
 import AddGuestParkingSec from './components/SocietyModule/AddGuestParkingSec';
 import Invoice from './components/Invoice';
 import GuestManagementcard from './components/SocietyModule/GuestManagementcard';
+import ChecklistSecurityReport from './components/SocietyModule/ChecklistReportSecurity';
+import CheckListMaintenanceReport from './components/SocietyModule/ChecklistMaintenanceReport';
+import ChecklistCommunityStaffReport from './components/SocietyModule/ChecklistCommunityStaffReport';
+import AddChecklistCommunityStaff from './components/SocietyModule/AddChecklistCommunityStaff';
+import AddChecklistMaintenance from './components/SocietyModule/AddChecklistMaintenance';
 import PartnerModule from './pages/partner/PartnerModule';
 import PartnerLogin from './pages/partner/PartnerLoginScreens/PartnerLogin';
 import PartnerEnterMobile from './pages/partner/PartnerLoginScreens/PartnerEnterMobile';
@@ -273,9 +278,19 @@ function App() {
           <Route path='/security-checklist' element={<ChecklistSecurity />}></Route>
           <Route path='/maintenance-checklist' element={<CheckListMaintenance />}></Route>
           <Route path='/community-staff-checklist' element={<ChecklistCommunityStaff />}></Route>
+
+          <Route path='/security-checklist-report' element={<ChecklistSecurityReport />}></Route>
+          <Route path='/maintenance-checklist-report' element={<CheckListMaintenanceReport />}></Route>
+          <Route path='/community-staff-checklist-report' element={<ChecklistCommunityStaffReport />}></Route>
+
           <Route path='/checklists' element={<ChecklistsMain />}></Route>
 
           <Route path='/add-security-checklist' element={<AddChecklistSecurity />}></Route>
+          <Route path='/add-community-staff-checklist' element={<AddChecklistCommunityStaff />}></Route>
+          <Route path='/add-maintenance-checklist' element={<AddChecklistMaintenance />}></Route>
+
+
+
 
 
 

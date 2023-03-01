@@ -10,9 +10,10 @@ import { Loader } from "../Loader";
 import ErrorScreen from "../../common/ErrorScreen";
 import { goBackInOneSec, reloadInOneSec, TOAST } from "../../common/utils";
 
-const AddChecklistSecurity = () => {
+const AddChecklistCommunityStaff = () => {
     const [loading, setLoading] = useState(true)
     const [guard, setGuard] = useState({})
+    const [staffTypes, setStaffTypes] = useState([]);
     const location = useLocation()
     const [type, setType] = useState('add')
     const navigate = useNavigate()
@@ -49,15 +50,20 @@ const AddChecklistSecurity = () => {
             else {
 
                 let formdata = new FormData()
+
                 formdata.append('community_id', localStorage.getItem('community_id'))
-                formdata.append('item', document.getElementById('item').value)
-                formdata.append('frequency', document.getElementById('frequency').value)
+                formdata.append('name', document.getElementById('name').value)
+                formdata.append('contact', document.getElementById('contact').value)
+                formdata.append('service', document.getElementById('service').value);
+                formdata.append('address', document.getElementById('address').value)
 
-                const { data } = await axios.post(`${window.env_var}api/checklist/add`, formdata)
 
+                const { data } = await axios.post(`${window.env_var}api/societystaff/add`, formdata)
+
+                alert(1)
                 if (data && data?.status_code == 200) {
                     setToast(TOAST.SUCCESS(data?.message));
-                    //  reloadInOneSec()
+                    reloadInOneSec()
                 } else if (data?.status_code == 201) {
                     setToast(TOAST.ERROR(data?.message));
                 }
@@ -77,7 +83,7 @@ const AddChecklistSecurity = () => {
                 }
             }
             axios.get(`${window.env_var}api/society/checkLogin`, config)
-                .then(({ data }) => {
+                .then(async ({ data }) => {
                     if (location.state) {
                         getGuardDetails()
                         setType(location.state.type)
@@ -85,6 +91,8 @@ const AddChecklistSecurity = () => {
                     else {
                         // window.history.back(-1)
                     }
+
+                    await getStaffTypes();
                 })
                 .catch(err => {
                     localStorage.clear();
@@ -100,9 +108,21 @@ const AddChecklistSecurity = () => {
 
     }, [])
 
+    const getStaffTypes = async () => {
+        try {
+            const { data } = await axios.get(`${window.env_var}api/admin/otherstaff/getAll`)
+            setStaffTypes(data.data.OtherStaffType)
+            setError(false)
+            //console.log(data.data.community.filter(x=>x.name))
+            //setCommunityid(data.data.community[0].name)
+        } catch (error) {
+            setError(true)
+        }
+    }
+
     const getGuardDetails = async () => {
         try {
-            const { data } = await axios.get(`${window.env_var}api/checklist/getone/${location.state.id}`)
+            const { data } = await axios.get(`${window.env_var}api/societystaff/getone/${location.state.id}`)
             setGuard(data.data)
             setError(false)
         } catch (error) {
@@ -134,9 +154,9 @@ const AddChecklistSecurity = () => {
 
                 <div className='GLsidelinks pl-5'>
 
-                    <p className='noticegll float-left' onClick={() => navigate('/security-checklist-report')}><b>Reports</b></p>
-                    <p className='aggnotice float-left' onClick={() => navigate('/add-security-checklist')}><b>Add Checklist</b></p>
-                    <p className='noticegll float-left' onClick={() => navigate('/security-checklist')}><b>Checklists</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/community-staff-checklist-report')}><b>Reports</b></p>
+                    <p className='aggnotice float-left' onClick={() => navigate('/add-community-staff-checklist')}><b>Add Staff</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/community-staff-checklist')}><b>Staff</b></p>
 
                 </div>
                 <div className="AGSideimg">
@@ -146,33 +166,46 @@ const AddChecklistSecurity = () => {
             <div className="addguestbackgroundimg">
                 <Loader loading={loading}>
                     <div className='AG_display'>
-                        <label>{type == 'edit' ? 'Update Checklist' : 'Add Checklist'}</label>
+                        <label>{type == 'edit' ? 'Update Staff' : 'Add Staff'}</label>
                     </div>
                     <Form className='formclass' onSubmit={(e) => handleSubmit(e)}>
 
                         <div class="form-group form-group6 row">
-                            <label class="col-lg-2 col-form-label ADN_label">Action</label>
+                            <label class="col-lg-2 col-form-label ADN_label">Name</label>
                             <div class="col-lg-4">
-                                {type == 'edit' ? <input type="text" class="form-control input-lg SideB" name="item" id="item" defaultValue={guard.item} placeholder="Enter Action Name" required />
-                                    : <input type="text" class="form-control input-lg input-lg1 SideB" name="item" id="item" placeholder="Enter Action Name" required />}
+                                {type == 'edit' ? <input type="text" class="form-control input-lg SideB" name="item" id="name" defaultValue={guard.name} placeholder="Enter Staff Name" required />
+                                    : <input type="text" class="form-control input-lg input-lg1 SideB" name="item" id="name" placeholder="Enter Staff Name" required />}
 
                             </div>
                         </div>
 
                         <div class="form-group form-group6 row">
-                            <label class="col-lg-2 col-form-label ADN_label">Frequency</label>
+                            <label class="col-lg-2 col-form-label ADN_label">Phone</label>
                             <div class="col-lg-4">
-                                {type == 'edit' ? <input type="number" class="form-control input-lg SideB" name="frequency" id="frequency" defaultValue={guard.frequency} placeholder="Enter Frequency" required />
-                                    : <input type="number" class="form-control input-lg input-lg1 SideB" name="frequency" id="frequency" placeholder="Enter Frequency" required />}
+                                {type == 'edit' ? <input type="number" class="form-control input-lg SideB" name="contact" id="contact" defaultValue={guard.contact} placeholder="Enter Phone Number" required />
+                                    : <input type="number" class="form-control input-lg input-lg1 SideB" name="contact" id="contact" placeholder="Enter Phone Number" required />}
 
                             </div>
                         </div>
 
-                        <div class="form-group form-group6 row">
-                            <label class="col-lg-2 col-form-label ADN_label">Other Details</label>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label ADN_label">Staff Type</label>
                             <div class="col-lg-4">
-                                {type == 'edit' ? <textarea type="text" class="form-control input-lg SideB" name="other_details" id="other_details" defaultValue={guard.other_details} placeholder="Enter More Details" required />
-                                    : <textarea type="text" class="form-control input-lg input-lg1 SideB" name="other_details" id="other_details" placeholder="Enter More Details" required />}
+                                <select class="form-control input-lg ADTBorder" id="service" placeholder="Block">
+                                    <option value={null} disabled selected>Select Staff Type</option>
+                                    {staffTypes && staffTypes.map(item => {
+                                        return (
+                                            <option value={item.id}>{item.designation}</option>
+                                        )
+                                    })}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group form-group6 row">
+                            <label class="col-lg-2 col-form-label ADN_label">Address</label>
+                            <div class="col-lg-4">
+                                {type == 'edit' ? <textarea type="text" class="form-control input-lg SideB" name="address" id="address" defaultValue={guard.other_details} placeholder="Enter Address" required />
+                                    : <textarea type="text" class="form-control input-lg input-lg1 SideB" name="address" id="address" placeholder="Enter Address" required />}
 
                             </div>
                         </div>
@@ -188,4 +221,4 @@ const AddChecklistSecurity = () => {
     );
 };
 
-export default AddChecklistSecurity;
+export default AddChecklistCommunityStaff;

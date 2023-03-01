@@ -9,8 +9,8 @@ html {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.AEN_display {
-  width: 17vw;
+.AEN_displaym {
+  width: 20vw;
   height: 7vh;
   background-color: #AED8DC;
   border-radius: 30px;
@@ -23,7 +23,7 @@ html {
   margin-top: 5%;
   margin-left: 15%;
 }
-.AEN_display label {
+.AEN_displaym label {
 
   display: inline-block;
   font-family: 'Rubik';
@@ -96,7 +96,7 @@ html {
   background-color: #0A8996;
   color: #fff;
   border-radius: 14px;
-  width: 300px;
+  width: 350px;
   height: 6vh;
   font-size: 1.1vw;
   font-weight: 700;
@@ -147,7 +147,7 @@ html {
 
 /* Media query for laptop */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  .AEN_display {
+  .AEN_displaym {
     width: 17vw;
     height: 7vh;
     background-color: #AED8DC;
