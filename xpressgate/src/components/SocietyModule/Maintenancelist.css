@@ -2,6 +2,25 @@ html {
   height: 100vh;
 }
 
+#maintenancetable {
+  margin-Left: 10%;
+  margin-Top: 2%;
+  Width: 75%;
+  background-color: #F9FAFF;
+  border-radius: 14px 14px 14px 14px;
+  border-collapse: separate;
+  font-family: 'Rubik', sans-serif;
+  overflow-x: scroll;
+}
+
+#maintenancetable thead {
+  background-color: #14335D;
+  color: #fff;
+}
+
+#maintenancetable td:hover{
+  color: #0A8996;
+}
 
 .maintenancelist {
   margin-top: 10%;
