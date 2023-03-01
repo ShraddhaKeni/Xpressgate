@@ -68,6 +68,15 @@ background: #14335D;
     margin: auto;
     margin-top: -3%;
   }
+  .AGPSdisplay{
+    width: 17vw;
+    height: 7vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    padding-top: 16px;
+    margin: auto;
+    margin-top: -3%;
+  }
   .VLSECLink{
     font-family: 'Rubik';
     font-style: normal;
@@ -86,6 +95,14 @@ background: #14335D;
     font-weight: 500;
     color: #14335D; 
     font-size: 1.2vw;
+    text-align: center;  
+}
+  .AGPSdisplay label {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    color: #14335D; 
+    font-size: 1.1vw;
     text-align: center;  
 }
 .AddParksidelinks{
@@ -162,6 +179,27 @@ border-radius: 8px;
       text-align: center;
   }
   .APdisplay {
+    width: 17vw;
+    height: 7vh;
+    background-color: #AED8DC;
+    border-radius: 30px;
+    font-size: 20px;
+    padding: 0%;
+    margin: auto;
+    margin-top: -3%;
+    margin-left: 39%;
+}
+    .AGPSdisplay label {
+      
+      font-size: 1.4vw;
+      font-family: 'Rubik';
+      font-style: normal;
+      font-weight: 500;
+      color: #14335D;
+      
+      text-align: center;
+  }
+  .AGPSdisplay {
     width: 17vw;
     height: 7vh;
     background-color: #AED8DC;

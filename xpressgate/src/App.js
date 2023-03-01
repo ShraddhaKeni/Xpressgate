@@ -114,6 +114,7 @@ import PartnerEnterCode from './pages/partner/PartnerLoginScreens/PartnerEnterCo
 import PartnerNewPassword from './pages/partner/PartnerLoginScreens/PartnerNewPassword';
 import ViewParkedVehicle from './components/SocietyModule/ViewParkedVehicle';
 import GuestViewParking from './components/SocietyModule/GuestViewParking';
+import Qrcode from './components/Qrcode';
 
 
 
@@ -330,6 +331,8 @@ function App() {
           <Route path={RouterPath.EDIT_STUDENT} element={<PartnerModule />}></Route>
           <Route path={RouterPath.STUDENT_DETAILS} element={<PartnerModule />}></Route>
           <Route path={RouterPath.EDIT_PROFILE} element={<PartnerModule />}></Route>
+
+          <Route path="/qrcode/:id" element={<Qrcode />} exact></Route>
 
 
 
