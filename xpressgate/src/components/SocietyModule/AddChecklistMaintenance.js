@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { Loader } from "../Loader";
 import ErrorScreen from "../../common/ErrorScreen";
 import { goBackInOneSec, reloadInOneSec, TOAST } from "../../common/utils";
+import { ToastMessage } from "../ToastMessage";
 
 const AddChecklistMaintenance = () => {
     const [loading, setLoading] = useState(true)
@@ -40,7 +41,7 @@ const AddChecklistMaintenance = () => {
 
                 if (data && data?.status_code == 200) {
                     setToast(TOAST.SUCCESS(data?.message));
-                    goBackInOneSec()
+                    goBackInOneSec(navigate)
                 } else if (data?.status_code == 201) {
                     setToast(TOAST.ERROR(data?.message));
                 }
@@ -56,7 +57,7 @@ const AddChecklistMaintenance = () => {
 
                 if (data && data?.status_code == 200) {
                     setToast(TOAST.SUCCESS(data?.message));
-                    reloadInOneSec()
+                    goBackInOneSec(navigate)
                 } else if (data?.status_code == 201) {
                     setToast(TOAST.ERROR(data?.message));
                 }
@@ -113,6 +114,7 @@ const AddChecklistMaintenance = () => {
 
     return (
         <div className="addguestcontainer4">
+            <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
 
             <div id="addflatsection">
                 <div className="addflatheadersection">
@@ -134,9 +136,9 @@ const AddChecklistMaintenance = () => {
 
                 <div className='GLsidelinks pl-5'>
 
-                    <p className='noticegll float-left' onClick={() => navigate('/security-checklist-report')}><b>Reports</b></p>
-                    <p className='aggnotice float-left' onClick={() => navigate('/add-security-checklist')}><b>Add Checklist</b></p>
-                    <p className='noticegll float-left' onClick={() => navigate('/security-checklist')}><b>Checklists</b></p>
+                    <p className='aggnotice float-left' onClick={() => navigate('/maintenance-checklist-report')}><b>Reports</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/add-maintenance-checklist')}><b>Add Checklist</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/maintenance-checklist')}><b>Checklists</b></p>
 
                 </div>
                 <div className="AGSideimg">

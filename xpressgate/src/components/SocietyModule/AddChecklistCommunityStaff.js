@@ -9,18 +9,19 @@ import { useNavigate } from 'react-router-dom';
 import { Loader } from "../Loader";
 import ErrorScreen from "../../common/ErrorScreen";
 import { goBackInOneSec, reloadInOneSec, TOAST } from "../../common/utils";
+import { ToastMessage } from "../ToastMessage";
 
 const AddChecklistCommunityStaff = () => {
     const [loading, setLoading] = useState(true)
-    const [guard, setGuard] = useState({})
     const [staffTypes, setStaffTypes] = useState([]);
     const location = useLocation()
-    const [type, setType] = useState('add')
+    const [type, setType] = useState(location?.state?.type || 'add')
     const navigate = useNavigate()
     const [isError, setError] = useState(false)
     const [toast, setToast] = useState({ show: false })
 
-    const [checklist] = useState(location?.state?.data || undefined);
+    console.log(location.state);
+    const [guard, setGuard] = useState(location?.state?.data || undefined);
 
 
 
@@ -32,9 +33,11 @@ const AddChecklistCommunityStaff = () => {
             if (type == 'edit') {
                 let formdata = new FormData()
                 formdata.append('community_id', localStorage.getItem('community_id'))
-                formdata.append('item', document.getElementById('item').value)
-                formdata.append('frequency', document.getElementById('frequency').value)
-                formdata.append('id', checklist.id)
+                formdata.append('name', document.getElementById('name').value)
+                formdata.append('contact', document.getElementById('contact').value)
+                formdata.append('service', document.getElementById('service').value);
+                formdata.append('address', document.getElementById('address').value)
+                formdata.append('id', guard.id)
 
 
 
@@ -42,7 +45,7 @@ const AddChecklistCommunityStaff = () => {
 
                 if (data && data?.status_code == 200) {
                     setToast(TOAST.SUCCESS(data?.message));
-                    goBackInOneSec()
+                    goBackInOneSec(navigate)
                 } else if (data?.status_code == 201) {
                     setToast(TOAST.ERROR(data?.message));
                 }
@@ -63,7 +66,7 @@ const AddChecklistCommunityStaff = () => {
                 alert(1)
                 if (data && data?.status_code == 200) {
                     setToast(TOAST.SUCCESS(data?.message));
-                    reloadInOneSec()
+                    reloadInOneSec(navigate)
                 } else if (data?.status_code == 201) {
                     setToast(TOAST.ERROR(data?.message));
                 }
@@ -87,6 +90,7 @@ const AddChecklistCommunityStaff = () => {
                     if (location.state) {
                         getGuardDetails()
                         setType(location.state.type)
+                        console.log(type);
                     }
                     else {
                         // window.history.back(-1)
@@ -123,6 +127,7 @@ const AddChecklistCommunityStaff = () => {
     const getGuardDetails = async () => {
         try {
             const { data } = await axios.get(`${window.env_var}api/societystaff/getone/${location.state.id}`)
+            console.log("Data", data);
             setGuard(data.data)
             setError(false)
         } catch (error) {
@@ -135,6 +140,8 @@ const AddChecklistCommunityStaff = () => {
 
     return (
         <div className="addguestcontainer4">
+            <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+
             <div id="addflatsection">
                 <div className="addflatheadersection">
                     <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
@@ -156,7 +163,7 @@ const AddChecklistCommunityStaff = () => {
 
                     <p className='noticegll float-left' onClick={() => navigate('/community-staff-checklist-report')}><b>Reports</b></p>
                     <p className='aggnotice float-left' onClick={() => navigate('/add-community-staff-checklist')}><b>Add Staff</b></p>
-                    <p className='noticegll float-left' onClick={() => navigate('/community-staff-checklist')}><b>Staff</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/community-staff-checklist')}><b>Society Staff</b></p>
 
                 </div>
                 <div className="AGSideimg">
@@ -195,7 +202,7 @@ const AddChecklistCommunityStaff = () => {
                                     <option value={null} disabled selected>Select Staff Type</option>
                                     {staffTypes && staffTypes.map(item => {
                                         return (
-                                            <option value={item.id}>{item.designation}</option>
+                                            <option value={item.id} selected={item.designation === guard?.service_name}>{item.designation}</option>
                                         )
                                     })}
                                 </select>
@@ -204,7 +211,7 @@ const AddChecklistCommunityStaff = () => {
                         <div class="form-group form-group6 row">
                             <label class="col-lg-2 col-form-label ADN_label">Address</label>
                             <div class="col-lg-4">
-                                {type == 'edit' ? <textarea type="text" class="form-control input-lg SideB" name="address" id="address" defaultValue={guard.other_details} placeholder="Enter Address" required />
+                                {type == 'edit' ? <textarea type="text" class="form-control input-lg SideB" name="address" id="address" defaultValue={guard.address} placeholder="Enter Address" required />
                                     : <textarea type="text" class="form-control input-lg input-lg1 SideB" name="address" id="address" placeholder="Enter Address" required />}
 
                             </div>

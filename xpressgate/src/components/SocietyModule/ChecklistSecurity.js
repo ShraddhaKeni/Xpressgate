@@ -44,11 +44,11 @@ const ChecklistSecurity = () => {
         let search = e.target.value.toLowerCase()
         //console.log(search)
         let arr = Checklist.filter(x => {
-            //console.log(Checklist)
-            if (x.firstname.toLowerCase().includes(search)) {
+            //console.log(Guards)
+            if (x.item.toLowerCase().includes(search)) {
                 return true
             }
-            else if (x.lastname.toLowerCase().includes(search)) {
+            else if (x.item.toLowerCase().includes(search)) {
                 return true
             }
         })
