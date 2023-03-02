@@ -744,7 +744,7 @@ border-radius: 25px;
     font-size: 20px;
     border-radius: 8px;
     margin: auto;
-    padding-left: 4%;
+    padding-left: 2%;
     padding-top: 4%;
     padding-bottom: 4%;
     text-align: left;
@@ -760,6 +760,7 @@ border-radius: 25px;
     margin: auto;
     padding: 2%;
     text-align: left;
+    display: flex;
 }
 .DescLabels {
     font-weight: 600;
@@ -785,7 +786,7 @@ border-radius: 25px;
     font-size: 20px;
     border-radius: 8px;
     margin-left: 0%;
-    padding: 4%;
+    padding: 4% 4% 4% 6%;
     text-align: left;
 }
 .ContentBox{
@@ -810,7 +811,7 @@ border-radius: 25px;
 .ViewListBtn{
     width: 7vw;
     height: 3.5vh;
-    margin-left: 68%;
+    margin-left: 60%;
     background: #0A8996;
 border-radius: 12px;
 font-family: 'Rubik';
