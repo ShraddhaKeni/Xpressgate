@@ -9,10 +9,12 @@ import { useNavigate } from 'react-router-dom';
 import { Loader } from "../Loader";
 import ErrorScreen from "../../common/ErrorScreen";
 import { goBackInOneSec, reloadInOneSec, TOAST } from "../../common/utils";
+import { ToastMessage } from "../ToastMessage";
 
 const AddChecklistSecurity = () => {
     const [loading, setLoading] = useState(true)
     const [guard, setGuard] = useState({})
+    const [staffTypes, setStaffTypes] = useState([]);
     const location = useLocation()
     const [type, setType] = useState('add')
     const navigate = useNavigate()
@@ -33,15 +35,20 @@ const AddChecklistSecurity = () => {
                 formdata.append('community_id', localStorage.getItem('community_id'))
                 formdata.append('item', document.getElementById('item').value)
                 formdata.append('frequency', document.getElementById('frequency').value)
-                formdata.append('id', checklist.id)
+                formdata.append('other_details', document.getElementById('other_details').value)
+                if (document.getElementById('for').value) {
+
+                }
+                formdata.append('for', document.getElementById('for').value)
+                formdata.append('id', location.state.id)
 
 
 
-                const { data } = await axios.post(`${window.env_var}api/checklist/add`, formdata)
+                const { data } = await axios.post(`${window.env_var}api/checklist/update`, formdata)
 
                 if (data && data?.status_code == 200) {
                     setToast(TOAST.SUCCESS(data?.message));
-                    goBackInOneSec()
+                    goBackInOneSec(navigate)
                 } else if (data?.status_code == 201) {
                     setToast(TOAST.ERROR(data?.message));
                 }
@@ -52,12 +59,14 @@ const AddChecklistSecurity = () => {
                 formdata.append('community_id', localStorage.getItem('community_id'))
                 formdata.append('item', document.getElementById('item').value)
                 formdata.append('frequency', document.getElementById('frequency').value)
+                formdata.append('for', document.getElementById('for').value)
+                formdata.append('other_details', document.getElementById('other_details').value)
 
                 const { data } = await axios.post(`${window.env_var}api/checklist/add`, formdata)
 
                 if (data && data?.status_code == 200) {
                     setToast(TOAST.SUCCESS(data?.message));
-                    //  reloadInOneSec()
+                    goBackInOneSec(navigate)
                 } else if (data?.status_code == 201) {
                     setToast(TOAST.ERROR(data?.message));
                 }
@@ -79,7 +88,8 @@ const AddChecklistSecurity = () => {
             axios.get(`${window.env_var}api/society/checkLogin`, config)
                 .then(({ data }) => {
                     if (location.state) {
-                        getGuardDetails()
+                        getGuardDetails();
+                        getStaffTypes();
                         setType(location.state.type)
                     }
                     else {
@@ -100,6 +110,18 @@ const AddChecklistSecurity = () => {
 
     }, [])
 
+    const getStaffTypes = async () => {
+        try {
+            const { data } = await axios.get(`${window.env_var}api/admin/otherstaff/getAll`)
+            setStaffTypes(data.data.OtherStaffType)
+            setError(false)
+            //console.log(data.data.community.filter(x=>x.name))
+            //setCommunityid(data.data.community[0].name)
+        } catch (error) {
+            setError(true)
+        }
+    }
+
     const getGuardDetails = async () => {
         try {
             const { data } = await axios.get(`${window.env_var}api/checklist/getone/${location.state.id}`)
@@ -115,6 +137,8 @@ const AddChecklistSecurity = () => {
 
     return (
         <div className="addguestcontainer4">
+            <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+
             <div id="addflatsection">
                 <div className="addflatheadersection">
                     <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
@@ -159,6 +183,24 @@ const AddChecklistSecurity = () => {
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label ADN_label">For Staff Type</label>
+                            <div class="col-lg-4">
+                                <select class="form-control input-lg ADTBorder" id="for" placeholder="Block" required>
+                                    <option value={null} disabled selected>Select Staff Type</option>
+                                    {staffTypes && staffTypes.map(item => {
+                                        console.log(item, guard)
+                                        return (
+                                            <option value={item.id} selected={item.id === guard.for}>{item.designation}</option>
+                                        )
+                                    })}
+                                </select>
+                            </div>
+                        </div>
+
+
+
+
                         <div class="form-group form-group6 row">
                             <label class="col-lg-2 col-form-label ADN_label">Frequency</label>
                             <div class="col-lg-4">
@@ -176,6 +218,7 @@ const AddChecklistSecurity = () => {
 
                             </div>
                         </div>
+
 
                         <button type="submit" className="btnAddV">{type == 'edit' ? 'Update' : 'Add'}</button>
                     </Form>
