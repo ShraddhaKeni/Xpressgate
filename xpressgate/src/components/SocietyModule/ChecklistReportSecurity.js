@@ -86,9 +86,9 @@ const ChecklistSecurityReport = () => {
 
 
                 <div className='GLsidelinks pl-5'>
-                    <p className='noticegll float-left' onClick={() => navigate('/security-checklist')}><b>Reports</b></p>
-                    <p className='aggnotice float-left' onClick={() => navigate('/add-security-checklist')}><b>Add Checklist</b></p>
-                    <p className='noticegll float-left' onClick={() => navigate('/add-security-checklist')}><b>Checklists</b></p>
+                    <p className='aggnotice float-left' onClick={() => navigate('/security-checklist-report')}><b>Reports</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/add-security-checklist')}><b>Add Checklist</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/security-checklist')}><b>Checklists</b></p>
                 </div>
                 <div className="GLSimg">
                     <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />

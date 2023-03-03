@@ -31,16 +31,14 @@ const AddChecklistCommunityStaff = () => {
         try {
 
             if (type == 'edit') {
-                let formdata = new FormData()
-                formdata.append('community_id', localStorage.getItem('community_id'))
-                formdata.append('name', document.getElementById('name').value)
-                formdata.append('contact', document.getElementById('contact').value)
-                formdata.append('service', document.getElementById('service').value);
-                formdata.append('address', document.getElementById('address').value)
-                formdata.append('id', guard.id)
-
-
-
+                let formdata = {
+                    'community_id': localStorage.getItem('community_id'),
+                    'name': document.getElementById('name').value,
+                    'contact': document.getElementById('contact').value,
+                    'service': document.getElementById('service').value,
+                    'address': document.getElementById('address').value,
+                    'id': location.state.id
+                }
                 const { data } = await axios.post(`${window.env_var}api/checklist/add`, formdata)
 
                 if (data && data?.status_code == 200) {
@@ -52,13 +50,13 @@ const AddChecklistCommunityStaff = () => {
             }
             else {
 
-                let formdata = new FormData()
-
-                formdata.append('community_id', localStorage.getItem('community_id'))
-                formdata.append('name', document.getElementById('name').value)
-                formdata.append('contact', document.getElementById('contact').value)
-                formdata.append('service', document.getElementById('service').value);
-                formdata.append('address', document.getElementById('address').value)
+                let formdata = {
+                    'community_id': localStorage.getItem('community_id'),
+                    'name': document.getElementById('name').value,
+                    'contact': document.getElementById('contact').value,
+                    'service': document.getElementById('service').value,
+                    'address': document.getElementById('address').value,
+                }
 
 
                 const { data } = await axios.post(`${window.env_var}api/societystaff/add`, formdata)
@@ -127,8 +125,8 @@ const AddChecklistCommunityStaff = () => {
     const getGuardDetails = async () => {
         try {
             const { data } = await axios.get(`${window.env_var}api/societystaff/getone/${location.state.id}`)
-            console.log("Data", data);
-            setGuard(data.data)
+            console.log("Data Gouse", data.data.Details);
+            setGuard(data.data.Details[0])
             setError(false)
         } catch (error) {
             setError(true)
@@ -196,13 +194,14 @@ const AddChecklistCommunityStaff = () => {
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-2 col-form-label ADN_label">Staff Type</label>
+                            <label class="col-lg-2 col-form-label ADN_label">Service</label>
                             <div class="col-lg-4">
                                 <select class="form-control input-lg ADTBorder" id="service" placeholder="Block">
-                                    <option value={null} disabled selected>Select Staff Type</option>
+                                    <option value={null} disabled selected>Select Service Type</option>
                                     {staffTypes && staffTypes.map(item => {
+                                        console.log(item.id, guard.service)
                                         return (
-                                            <option value={item.id} selected={item.designation === guard?.service_name}>{item.designation}</option>
+                                            <option value={item.id} selected={item.id === guard?.service}>{item.designation}</option>
                                         )
                                     })}
                                 </select>
