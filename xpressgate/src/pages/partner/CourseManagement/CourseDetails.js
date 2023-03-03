@@ -1,8 +1,54 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { deleteProgram, getAllPrograms, getProgramById, updateProgram } from '../../../common/partner/partner_api';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { goBackInOneSec, MESSAGES, TOAST } from '../../../common/utils';
+import { ToastMessage } from '../../../components/ToastMessage';
+import RouterPath from '../../../common/constants/path/routerPath';
 
 function CourseDetails() {
+  const location = useLocation();
+
+  const navigate = useNavigate()
+  const [toast, setToast] = useState({ show: false })
+
+  const  [program, setProgram] = useState(location?.state?.program);
+  const [allprograms, setAllPrograms] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    async function getProgram() {
+        const res = await getProgramById(location.state.program?.id);
+
+    }
+
+    getProgram();
+
+}, [])
+const handleEditClick = (id) => {
+  navigate('/partner/course/editcourse', { state: { id } })
+  
+}
+
+const handleDelete = async () => {
+    console.log(program);
+    const res = await deleteProgram(program.id)
+    console.log(res)
+    if (res && res.data?.status_code == 200) {
+        setToast(TOAST.SUCCESS(res?.data?.message));
+        goBackInOneSec(navigate)
+
+    } else {
+        setToast(TOAST.ERROR(res?.data?.message));
+    }
+}
+
+
+
   return (
     <>
+     <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+     {!program && <Navigate to={RouterPath.COURSE_DETAILS} />}
+     {program &&
       <div>
         <div className="page-label">
           <label>Program Details</label>
@@ -12,13 +58,13 @@ function CourseDetails() {
             <br></br>
             <label className="namelabel">Category</label>
             <div className='profclass'>
-            <label>Program Details</label>
+            <label>{program.category || "n/a"}</label>
              </div>
             <br></br>
           
             <div><label className='DescLabels'>Description</label></div>
             <div className='descriptionclass'>
-            <div><label></label></div>
+            <div><label>{program.details || "n/a"}</label></div>
                 <div></div>
                 
             </div>
@@ -27,13 +73,13 @@ function CourseDetails() {
                 <div className='CTLAbel'>
                 <label>Program Type</label>
                 <div className='typeboxes'>
-                <label> </label>
+                <label>{program.type || "n/a"} </label>
                 </div> 
                 </div>
                 <div className='CLLAbel'>
                 <label>Program Fees</label>
                 <div className='typeboxes'>
-                    <label> </label>
+                    <label>{program.fee || "n/a"} </label>
                 </div> 
                 </div>
                 <div></div>
@@ -41,13 +87,14 @@ function CourseDetails() {
             <br></br>
             <div><label className='ESLabel'>Enrolled Member</label></div>
             <div className='ESDescClass'>
-              <button className="ViewListBtn">View List</button>
+            <label>{program.max_members || "n/a"} </label>
+              <button className="ViewListBtn"  onClick={() => { window.location.href = '/partner/student' }} >View List</button>
             </div>
             <div className='MaxSLabel'>
               <label>Maximum 20 Members</label>
             </div>
-            <button type="submit" id='Edit'  className="EditCDButn">Edit Program </button>
-            <button type="remove" id='Delete'  className="DeleteCDButn">Delete Program</button>
+            <button type="submit" id='Edit'  className="EditCDButn"  onClick={() => { handleEditClick(program.id) }}>Edit Program </button>
+            <button type="remove" id='Delete'  className="DeleteCDButn"  onClick={() => handleDelete()}>Delete Program</button>
              <br/>
              <br/>
          
@@ -56,7 +103,7 @@ function CourseDetails() {
           </div>
         </div>
         </div>
-  
+    }
     </>
   );
 }
