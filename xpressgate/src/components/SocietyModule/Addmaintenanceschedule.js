@@ -59,7 +59,6 @@ const Addmaintenanceschedule = () => {
       setEditdata(data.data)
       document.getElementById('maintenancedate').value = new Date(data.data.time).toISOString().split('T')[0];
       setDropDown(data.data.frequency)
-      console.log(data.data.for)
       getForDropdown()
       document.getElementById('forid').value = data.data.for.value;
       setError(false)
