@@ -12,11 +12,15 @@ import GuardHeader from './Utils/GuardHeader';
 import { Loader } from "../Loader";
 import GuardMobileSidebar from '../GuardMobileSidebar';
 
+// import BarcodeScannerComponent from "react-qr-barcode-scanner";
+
 const Dashboard = () => {
   const [loading, setLoading] = useState(true)
   const [entryData, setEntryData] = useState({})
   const [message, setMessage] = useState({})
   const [menu, setMenuOpen] = useState(false)
+  // const [qrdata, setData] = React.useState("Not Found");
+  // const [torchOn, setTorchOn] = React.useState(false);
   useEffect(() => {
     if (checkGuard()) {
       const config = {
@@ -110,6 +114,21 @@ const Dashboard = () => {
         </div>
         <div className='dashboardbackgroundimg'>
           <Loader loading={loading}>
+
+          {/* <BarcodeScannerComponent
+        width={500}
+        height={500}
+        torch={torchOn}
+        onUpdate={(err, result) => {
+          if (result) setData(result.text);
+          else setData("Not Found");
+        }}
+      />
+      <p>{qrdata}</p>
+      <button onClick={() => setTorchOn(!torchOn)}>
+        Switch Torch {torchOn ? "Off" : "On"}
+      </button> */}
+ 
             <div id="cardsection">
               <div className='enterpasscodesearch'>
                 <label>ENTER PASSCODE</label>
