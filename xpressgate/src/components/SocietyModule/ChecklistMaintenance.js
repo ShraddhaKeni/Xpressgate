@@ -45,10 +45,10 @@ const ChecklistMaintenance = () => {
         //console.log(search)
         let arr = Checklist.filter(x => {
             //console.log(Checklist)
-            if (x.firstname.toLowerCase().includes(search)) {
+            if (x.item.toLowerCase().includes(search)) {
                 return true
             }
-            else if (x.lastname.toLowerCase().includes(search)) {
+            else if (x.item.toLowerCase().includes(search)) {
                 return true
             }
         })
@@ -92,9 +92,9 @@ const ChecklistMaintenance = () => {
 
 
                 <div className='GLsidelinks pl-5'>
-                    <p className='noticegll float-left' onClick={() => navigate('/security-checklist-report')}><b>Reports</b></p>
-                    <p className='noticegll float-left' onClick={() => navigate('/add-security-checklist')}><b>Add Checklist</b></p>
-                    <p className='aggnotice float-left' onClick={() => navigate('/security-checklist')}><b>Checklists</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/maintenance-checklist-report')}><b>Reports</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/add-maintenance-checklist')}><b>Add Checklist</b></p>
+                    <p className='aggnotice float-left' onClick={() => navigate('/maintenance-checklist')}><b>Checklists</b></p>
                 </div>
                 <div className="GLSimg">
                     <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />

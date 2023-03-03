@@ -102,27 +102,18 @@ const Societydashboard = () => {
                     <img src="/images/manageamenities.svg" className="dbcard-img-top" alt="Manage amenities" onClick={() => { window.location.href = '/amenities' }}></img>
                   </div>
                 </div>
-
                 <div className="col card_hover_animation">
                   <div className="sddashboardcard">
-                    <img src="/images/checklist_management.svg" className="dbcard-img-top" alt="Manage amenities" onClick={() => { window.location.href = '/checklists' }}></img>
+                    <img src="/images/checklist_management.svg" className="dbcard-img-top" alt="Checklist Management" onClick={() => { window.location.href = '/checklists' }}></img>
                   </div>
                 </div>
                 <div className="col card_hover_animation">
                   <div className="sddashboardcard">
-                    <img src="/images/maintenanceschedule.svg" className="dbcard-img-top" alt="Manage amenities" onClick={() => { window.location.href = '/maintenancelist' }}></img>
+                    <img src="/images/guestmanagement.svg" className="dbcard-img-top" alt="Guest Parking Section" onClick={() => { window.location.href = '/guestparking ' }}></img>
                   </div>
                 </div>
-                <div className="col card_hover_animation">
-                <div className="sddashboardcard">
-                  <img src="/images/guestmanagement.svg" className="dbcard-img-top" alt="Guest Parking Section" onClick={() => { window.location.href = '/guestparking ' }}></img>
-                </div>
-              </div>
               </div>
 
-              
-
-            
             </div>
 
           </Loader>
