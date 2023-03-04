@@ -366,6 +366,7 @@ color: #14335D;
   width: 100%;
   height: auto;
   margin-left: 20%;
+  margin-top: 2%;
 }
 .ScannerButn {
   color: white;
@@ -390,7 +391,7 @@ color: #14335D;
   color: white;
   background-color: #0A8996;
   padding: 1%;
-  width: 14rem;
+  width: 16rem;
   height: auto;
   font-weight: 600;
   font-size: 1.5rem;
