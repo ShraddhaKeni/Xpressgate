@@ -31,19 +31,15 @@ const AddChecklistSecurity = () => {
         try {
 
             if (type == 'edit') {
-                let formdata = new FormData()
-                formdata.append('community_id', localStorage.getItem('community_id'))
-                formdata.append('item', document.getElementById('item').value)
-                formdata.append('frequency', document.getElementById('frequency').value)
-                formdata.append('other_details', document.getElementById('other_details').value)
-                if (document.getElementById('for').value) {
 
+                let formdata = {
+                    'community_id': localStorage.getItem('community_id'),
+                    'item': document.getElementById('item').value,
+                    'frequency': document.getElementById('frequency').value,
+                    'other_details': document.getElementById('other_details').value,
+                    'for': document.getElementById('for').value,
+                    'id': location.state.id
                 }
-                formdata.append('for', document.getElementById('for').value)
-                formdata.append('id', location.state.id)
-
-
-
                 const { data } = await axios.post(`${window.env_var}api/checklist/update`, formdata)
 
                 if (data && data?.status_code == 200) {
@@ -55,12 +51,14 @@ const AddChecklistSecurity = () => {
             }
             else {
 
-                let formdata = new FormData()
-                formdata.append('community_id', localStorage.getItem('community_id'))
-                formdata.append('item', document.getElementById('item').value)
-                formdata.append('frequency', document.getElementById('frequency').value)
-                formdata.append('for', document.getElementById('for').value)
-                formdata.append('other_details', document.getElementById('other_details').value)
+
+                let formdata = {
+                    'community_id': localStorage.getItem('community_id'),
+                    'item': document.getElementById('item').value,
+                    'frequency': document.getElementById('frequency').value,
+                    'other_details': document.getElementById('other_details').value,
+                    'for': document.getElementById('for').value
+                }
 
                 const { data } = await axios.post(`${window.env_var}api/checklist/add`, formdata)
 
@@ -87,9 +85,10 @@ const AddChecklistSecurity = () => {
             }
             axios.get(`${window.env_var}api/society/checkLogin`, config)
                 .then(({ data }) => {
+
+                    getStaffTypes();
                     if (location.state) {
                         getGuardDetails();
-                        getStaffTypes();
                         setType(location.state.type)
                     }
                     else {
