@@ -209,7 +209,7 @@ const Inoutbookcard = () => {
               </div>
 
               <br></br>
-              {console.log(listData.status)}
+              
               {listData.status == 1 ? <button type="submit" onClick={(e) => { handleSubmit(e, listData.booking_id) }} id='inout' className="btnOut">Out</button>
                 : <button type="button" onClick={() => { deny() }} id='inout' className="btnOut">Back</button>
               }

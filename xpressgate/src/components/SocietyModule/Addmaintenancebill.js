@@ -35,6 +35,8 @@ const Addmaintenancebill = () => {
           if (location.state) {
             getEditData();
             await getBlocks();
+            //await getFlats(document.getElementById('blockid').value);
+            await getResidentname();
             setType(location.state.type);
           } else {
             getBlocks();
@@ -58,7 +60,7 @@ const Addmaintenancebill = () => {
       const { data } = await axios.get(`${window.env_var}api/block/blockList`)
       setBlocks(data.data.block)
       document.getElementById('blockid').value = getdata.block_id;
-      console.log(getdata.block_id)
+      
     } catch (error) {
       console.log(error)
     }
@@ -72,6 +74,18 @@ const Addmaintenancebill = () => {
       console.log(error)
     }
   }
+
+  const getFlatsUpdate = async (e) => {
+    try {
+      const { data } = await axios.get(`${window.env_var}api/flats/getList/${e}`);
+      setFlats(data.data.list);
+      document.getElementById('flatid').value = getdata.flat_id;
+      setError(false)
+    } catch (error) {
+      setError(true)
+    }
+  }
+
 
   const getResidentname = async (e) => {
     try {
@@ -87,6 +101,21 @@ const Addmaintenancebill = () => {
     }
   }
 
+  const getResidentUpdate = async (e) => {
+    try {
+      const config = {
+        headers: {
+          'x-access-token': localStorage.getItem('accesstoken')
+        }
+      }
+      const { data } = await axios.get(`${window.env_var}api/resident/getResidentByFlatId/${e}`, config)
+      setResident(data.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
   const getEditData = async () => {
     try {
       let sendData = {
@@ -96,7 +125,12 @@ const Addmaintenancebill = () => {
       const { data } = await axios.post(`${window.env_var}api/maintenance/getOne`, sendData)
       setGetData(data.data.maintenance[0])
       await getBlocks()
+      await getFlatsUpdate(data.data.maintenance[0].block_id);
+      await getResidentUpdate(data.data.maintenance[0].flat_id);
       document.getElementById('blockid').value = data.data.maintenance[0].block_id;
+      document.getElementById('flatid').value = data.data.maintenance[0].flat_id;
+      document.getElementById('residentid').value = data.data.maintenance[0].resident_id
+      //document.getElementById('flatid').value = data.data.maintenance[0].flat_id;
       console.log(data.data.maintenance[0].block_id)
       //await getResidentname()
       //console.log(document.getElementById('blockid').value)
