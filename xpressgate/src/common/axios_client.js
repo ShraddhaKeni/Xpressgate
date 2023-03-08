@@ -20,6 +20,11 @@ export async function postRequest(URL, payload) {
     return axiosClient.post(URL, payload).then(response => response);
 }
 
+export async function putRequest(URL, payload) {
+    console.log(payload)
+    return axiosClient.post(URL, payload).then(response => response);
+}
+
 export async function patchRequest(URL, payload) {
     return axiosClient.patch(URL, payload).then(response => response);
 }

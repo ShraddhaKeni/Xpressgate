@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
 import "../SocietyModule/Guardlist.css";
 import LogOut from './Utils/LogOut'
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import { useNavigate } from "react-router-dom";
+import { IconButton } from "@mui/material";
 
 
 const ChecklistCommunityStaff = () => {
@@ -38,19 +38,21 @@ const ChecklistCommunityStaff = () => {
         setCurrentPosts(data.data.Society_staff.slice(indexoffirst, indexoflast))
     }
 
-    function guardDetails(id) {
-        navigate('/addGuard', { state: { id: id, type: 'edit' } })
+    function guardDetails(item) {
+        console.log(item);
+        navigate('/add-community-staff-checklist', { state: { data: item, type: 'edit', id: item._id } })
     }
+
 
     const findText = (e) => {
         let search = e.target.value.toLowerCase()
         //console.log(search)
         let arr = Guards.filter(x => {
             //console.log(Guards)
-            if (x.firstname.toLowerCase().includes(search)) {
+            if (x.name.toLowerCase().includes(search)) {
                 return true
             }
-            else if (x.lastname.toLowerCase().includes(search)) {
+            else if (x.name.toLowerCase().includes(search)) {
                 return true
             }
         })
@@ -87,8 +89,8 @@ const ChecklistCommunityStaff = () => {
 
                 <div className='GLsidelinks pl-5'>
                     <p className='noticegll float-left' onClick={() => navigate('/community-staff-checklist-report')}><b>Reports</b></p>
-                    <p className='noticegll float-left' onClick={() => navigate('/add-community-staff-checklist')}><b>Add Staff</b></p>
-                    <p className='aggnotice float-left' onClick={() => navigate('/community-staff-checklist')}><b>Staff</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/add-community-staff-checklist')}><b>Add Staff </b></p>
+                    <p className='aggnotice float-left' onClick={() => navigate('/community-staff-checklist')}><b>Society Staff</b></p>
                 </div>
 
                 <div className="GLSimg">
@@ -119,6 +121,7 @@ const ChecklistCommunityStaff = () => {
                             <th class="th-sm">Contact</th>
                             <th class="th-sm">Service</th>
                             <th class="th-sm">Status</th>
+                            <th class="th-sm">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -126,12 +129,22 @@ const ChecklistCommunityStaff = () => {
 
                             return (
 
-                                <tr onClick={() => guardDetails(item.id)}>
+                                <tr>
                                     <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1 + 1) + (index + 1)}</td>
                                     <td >{item.name}</td>
                                     <td>{item.contact}</td>
                                     <td>{item.service_name}</td>
                                     <td>{item.status == false ? 'Inactive' : 'Active'}</td>
+                                    <td><div>
+                                        <IconButton onClick={() => { guardDetails(item) }}>
+                                            <img src="/images/icon_edit.svg" />
+                                        </IconButton>
+
+                                        {/* <IconButton onClick={() => handelRemoveClick(item.id)}>
+                                            <img src="/images/icon_delete.svg" />
+                                        </IconButton> */}
+
+                                    </div></td>
                                 </tr>
                             )
                         })}

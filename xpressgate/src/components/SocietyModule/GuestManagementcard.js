@@ -98,6 +98,7 @@ const GuestManagementcard = () => {
             <div><label className='guestallowedclass'>Allowed by </label></div>
             <br></br>
             <div className='guestdetailsclass'>
+              {console.log(guestData)}
               <div><label className='guestdate'>Date:{dateConvert(guestData.intime)}</label></div>
               <div><label className='guestintime'>In-Time:{timeConvert(guestData.intime)} </label></div>
               <div><label className='guestouttime'>Out-Time:{guestData.outtime ? timeConvert(guestData.outtime) : 'N/A'} </label></div>

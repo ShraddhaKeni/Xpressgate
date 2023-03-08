@@ -152,7 +152,7 @@ const AdminChangePass = () => {
                   <label className="scpcppassword">Current Password</label>
                   <input
                     ref={oldpass}
-                    type="text"
+                    type="password"
                     autoComplete="new-password"
                     className="form-control input-lg CP_Border"
                     id="oldpass"
