@@ -80,7 +80,8 @@ const Addinout = () => {
         headers: { 'x-access-token': localStorage.getItem('accesstoken') },
       }
       const { data } = await axios.get(`${window.env_var}api/resident/getResidentByFlatId/${e.target.value}`, config)
-      //setResidents(data.data.list)
+      console.log(data)
+      setResidents(data.data)
       setError(false)
     } catch (error) {
       setError(true)
@@ -132,12 +133,12 @@ const Addinout = () => {
       }
 
       const { data } = await axios.post(`${window.env_var}api/inout/addbyguard`, sendData)
-      console.log(data)
-      setToast({ show: true, type: "success", message: "Added Successfully" })
-      setTimeout(() => {
-        window.location.href = '/inoutbook'
-      }, 1500);
-      // window.location.href = '/inoutbook'
+      //console.log(sendData)
+       setToast({ show: true, type: "success", message: "Added Successfully" })
+       setTimeout(() => {
+         window.location.href = '/inoutbook'
+       }, 1500);
+       window.location.href = '/inoutbook'
     } catch (error) {
       setToast({ show: true, type: "error", message: "Check Data." });
     }
@@ -240,8 +241,8 @@ const Addinout = () => {
             <div className="col-lg-4">
               <select required className="form-control input-lg AIOBorder" id="resident" placeholder="Resident">
                 <option value="" selected disabled>Select Resident</option>
-                {flatno.map(item => {
-                  return <option value={item._id}>{item.firstname}{item.lastname}</option>
+                {residents.map(item => {
+                  return <option value={item.resident_id}>{item.firstname}{item.lastname}</option>
                 })}
               </select>
             </div>
