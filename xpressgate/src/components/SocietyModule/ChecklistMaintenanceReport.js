@@ -31,11 +31,10 @@ const CheckListMaintenanceReport = () => {
     }
 
     async function paginate(event) {
-        const { data } = await axios.get(`${window.env_var}api/guard/getall`)
         setCurrentpage(event.selected + 1)
         const indexoflast = (event.selected + 1) * postPerPage  //endoffset
         const indexoffirst = (indexoflast - postPerPage) //startoffset
-        setCurrentPosts(data.data.Guards.slice(indexoffirst, indexoflast))
+        setCurrentPosts(Guards.slice(indexoffirst, indexoflast))
     }
 
     function guardDetails(id) {
