@@ -56,8 +56,7 @@ const AddChecklistMaintenance = () => {
                     'item': document.getElementById('item').value,
                     'frequency': document.getElementById('frequency').value,
                     'other_details': document.getElementById('other_details').value,
-                    'for': document.getElementById('for').value,
-                    'id': location.state.id
+                    'for': document.getElementById('for').value
                 }
                 const { data } = await axios.post(`${window.env_var}api/checklist/add`, formdata)
 

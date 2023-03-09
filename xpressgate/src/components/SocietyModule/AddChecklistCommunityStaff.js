@@ -61,7 +61,6 @@ const AddChecklistCommunityStaff = () => {
 
                 const { data } = await axios.post(`${window.env_var}api/societystaff/add`, formdata)
 
-                alert(1)
                 if (data && data?.status_code == 200) {
                     setToast(TOAST.SUCCESS(data?.message));
                     reloadInOneSec(navigate)
@@ -199,7 +198,6 @@ const AddChecklistCommunityStaff = () => {
                                 <select class="form-control input-lg ADTBorder" id="service" placeholder="Block">
                                     <option value={null} disabled selected>Select Service Type</option>
                                     {staffTypes && staffTypes.map(item => {
-                                        console.log(item.id, guard.service)
                                         return (
                                             <option value={item.id} selected={item.id === guard?.service}>{item.designation}</option>
                                         )
