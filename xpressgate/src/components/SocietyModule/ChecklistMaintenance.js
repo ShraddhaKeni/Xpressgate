@@ -33,11 +33,10 @@ const ChecklistMaintenance = () => {
     }
 
     async function paginate(event) {
-        const { data } = await axios.get(`${window.env_var}api/guard/getall`)
         setCurrentpage(event.selected + 1)
         const indexoflast = (event.selected + 1) * postPerPage  //endoffset
         const indexoffirst = (indexoflast - postPerPage) //startoffset
-        setCurrentPosts(data.data.Checklist_Details.slice(indexoffirst, indexoflast))
+        setCurrentPosts(Checklist.slice(indexoffirst, indexoflast))
     }
 
     const findText = (e) => {
