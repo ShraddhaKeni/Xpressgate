@@ -332,7 +332,7 @@ function App() {
           <Route path={RouterPath.STUDENT_DETAILS} element={<PartnerModule />}></Route>
           <Route path={RouterPath.EDIT_PROFILE} element={<PartnerModule />}></Route>
 
-          <Route path="/qrcode/:id" element={<Qrcode />} exact></Route>
+          <Route path="/api/qrcode/:id" element={<Qrcode />} exact></Route>
 
 
 
