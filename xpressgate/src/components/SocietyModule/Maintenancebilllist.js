@@ -10,9 +10,60 @@ import Societyheader from "./Utils/Societyheader";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../Loader";
 import { ButtonBase, Icon, IconButton } from '@mui/material';
+import { useLocation } from "react-router-dom";
+import { ToastMessage } from "../ToastMessage";
 
 const Maintenancebilllist = () => {
   const [loading, setLoading] = useState(false)
+  const [maintenance, setMaintenance] = useState([])
+  const [currentPage, setCurrentpage] = useState(1)
+  const [postPerPage, setPostPerPage] = useState(10)
+  const [currentPosts, setCurrentPosts] = useState([])
+  const [toast, setToast] = useState({ show: false })
+  const location = useLocation()
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    getMaintenance()
+  }, [])
+
+  const getMaintenance = async () => {
+    try {
+      const { data } = await axios.get(`${window.env_var}api/maintenance/getall/${localStorage.getItem("community_id")}`)
+      setMaintenance(data.data.maintenance)
+      const indexoflast = currentPage * postPerPage  //endoffset
+      const indexoffirst = indexoflast - postPerPage //startoffset
+      setCurrentPosts(data.data.maintenance.slice(indexoffirst, indexoflast))
+      setLoading(false);
+    } catch (error) {
+      console.log(error)
+      setLoading(false);
+    }
+  }
+
+  async function paginate(event) {
+    setCurrentpage(event.selected + 1)
+    const indexoflast = (event.selected + 1) * postPerPage  //endoffset
+    const indexoffirst = (indexoflast - postPerPage) //startoffset
+    setCurrentPosts(maintenance.slice(indexoffirst, indexoflast))
+  }
+
+  const handleEditLink = (item) => {
+    navigate('/addmaintenancebill', { state: { id: item._id, type: 'edit' } })
+  }
+
+  const handleDeleteLink = async (item) => {
+    try {
+      const { data } = await axios.get(`${window.env_var}api/maintenance/remove/${item._id}`)
+      setToast({ show: true, message: "Deleted Successfully", type: "error" })
+      setTimeout(() => {
+        window.location.reload()
+      }, 2000)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <div className="addguestcontainer4">
       <div id="addflatsection">
@@ -33,16 +84,16 @@ const Maintenancebilllist = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
-
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <div className="EN_display">
           <label>Maintenance Bill List</label>
         </div>
-        <br/>
+        <br />
         <Loader loading={loading}>
-        <div className='vendorpayment_search'>
-                <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-                  <input placeholder='Search'></input></span>
-            </div>
+          <div className='vendorpayment_search'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+              <input placeholder='Search'></input></span>
+          </div>
           <div className="AddSDBlock">
             <button type="button" className="SDAddBTN" onClick={() => {
               window.location.href = "/addmaintenancebill";
@@ -75,31 +126,30 @@ const Maintenancebilllist = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>A</td>
-                <td >101</td>
-                <td>1000</td>
-                <td>
-                  <div>
-                    <IconButton>
-                      <img src="/images/icon_edit.svg" />
-                    </IconButton>
+              {currentPosts.map(item => {
+                return (
+                  <tr>
+                    <td>{item.block_name}</td>
+                    <td >{item.flat_name}</td>
+                    <td>{item.amount}</td>
+                    <td>
+                      <div>
+                        <IconButton onClick={() => { handleEditLink(item) }}>
+                          <img src="/images/icon_edit.svg" />
+                        </IconButton>
 
-                    <IconButton>
-                      <img src="/images/icon_delete.svg" />
-                    </IconButton>
+                        <IconButton onClick={() => handleDeleteLink(item)}>
+                          <img src="/images/icon_delete.svg" />
+                        </IconButton>
 
-                  </div>
-                </td>
-              </tr>
-
-
-
-
+                      </div>
+                    </td>
+                  </tr>
+                )
+              })}
             </tbody>
           </table>
-          {/* <div className="App">
-      {data} */}
+          <PaginationCalculate totalPages={maintenance.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
         </Loader>
       </div>
     </div>

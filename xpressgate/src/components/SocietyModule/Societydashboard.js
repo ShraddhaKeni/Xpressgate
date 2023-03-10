@@ -109,6 +109,11 @@ const Societydashboard = () => {
                 </div>
                 <div className="col card_hover_animation">
                   <div className="sddashboardcard">
+                    <img src="/images/maintenanceschedule.svg" className="dbcard-img-top" alt="Maintenance List" onClick={() => { window.location.href = '/maintenancelist ' }}></img>
+                  </div>
+                </div>
+                <div className="col card_hover_animation">
+                  <div className="sddashboardcard">
                     <img src="/images/guestmanagement.svg" className="dbcard-img-top" alt="Guest Parking Section" onClick={() => { window.location.href = '/guestparking ' }}></img>
                   </div>
                 </div>

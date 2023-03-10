@@ -68,8 +68,28 @@ const Maintenancelist = () => {
     const dateTimeFormat = (date) => {
     var d = new Date(date)
     return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate()
+  }
+  function findText(e) {
+    let search = e.target.value.toLowerCase()
+    let arr = maintenance.filter(x => {
+      if (x.item.toLowerCase().includes(search)) {
+        return true
+      }
+      // else if (x.name.toLowerCase().includes(search)) {
+      //   return true
+      // }
+    })
+    if (arr) {
+      const indexoflast = currentPage * postPerPage  //endoffset
+      const indexoffirst = (indexoflast - postPerPage)
+      setCurrentPosts(arr.slice(indexoffirst, indexoflast))
+    }
+    else {
+      paginate(0)
+    }
 
   }
+
 
   return (
     <div className="addguestcontainer4">
@@ -100,7 +120,7 @@ const Maintenancelist = () => {
         <Loader loading={loading}>
         <div className='vendorpayment_search'>
                 <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-                  <input placeholder='Search'></input></span>
+                  <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
             </div>
           <div className="AddSDBlock">
             <button type="button" className="SDAddBTN" onClick={() => {
