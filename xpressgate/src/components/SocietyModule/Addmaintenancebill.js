@@ -196,7 +196,7 @@ const Addmaintenancebill = () => {
         </div>
         <div class="maintenancelist">
           <a href="/maintenancebilllist" class="AMSLList">Maintenance Bill List</a><br /><br />
-          <a href="/addmaintenancebill" class="AAddmaintenancelink"><b>Add Maintenance Bill</b></a>
+          <a href="/addmaintenancebill" class="AAddmaintenancelink"><b>{type == 'edit' ? 'Update Maintenance Bill' : 'Add Maintenance Bill'}</b></a>
         </div>
         <div className="AEN_sideimage">
           <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
@@ -205,7 +205,7 @@ const Addmaintenancebill = () => {
       <div className="addmaintenancebackgroundimg">
         <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <div className="AEN_display">
-          <label>Add Maintenance Bill</label>
+          <label>{type == 'edit' ? 'Update Maintenance Bill' : 'Add Maintenance Bill'}</label>
         </div>
         <Loader loading={loading}>
           <Form className='formclass'>
@@ -270,7 +270,7 @@ const Addmaintenancebill = () => {
                 <input type="date" class="form-control input-lg SideB" id='due_date' name="Due Date" />
               </div>
             </div> */}
-            <button type="submit" className="AddButton" onClick={(e) => handleclick(e)}> Add Maintenance Bill</button>
+            <button type="submit" className="AddButton" onClick={(e) => handleclick(e)}> {type == 'edit' ? 'Update Maintenance Bill' : 'Add Maintenance Bill'}</button>
           </Form>
         </Loader>
 
