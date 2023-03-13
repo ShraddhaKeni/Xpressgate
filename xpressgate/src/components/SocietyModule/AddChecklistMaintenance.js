@@ -19,25 +19,28 @@ const AddChecklistMaintenance = () => {
     const navigate = useNavigate()
     const [isError, setError] = useState(false)
     const [toast, setToast] = useState({ show: false })
+    const [staffTypes, setStaffTypes] = useState([]);
 
     const [checklist] = useState(location?.state?.data || undefined);
 
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
+        console.log("ipdate")
         try {
 
             if (type == 'edit') {
-                let formdata = new FormData()
-                formdata.append('community_id', localStorage.getItem('community_id'))
-                formdata.append('item', document.getElementById('item').value)
-                formdata.append('frequency', document.getElementById('frequency').value)
-                formdata.append('id', checklist.id)
+                let formdata = {
+                    'community_id': localStorage.getItem('community_id'),
+                    'item': document.getElementById('item').value,
+                    'frequency': document.getElementById('frequency').value,
+                    'other_details': document.getElementById('other_details').value,
+                    'for': document.getElementById('for').value,
+                    'id': location.state.id
+                }
 
 
-
-                const { data } = await axios.post(`${window.env_var}api/checklist/add`, formdata)
+                const { data } = await axios.post(`${window.env_var}api/checklist/update`, formdata)
 
                 if (data && data?.status_code == 200) {
                     setToast(TOAST.SUCCESS(data?.message));
@@ -48,11 +51,13 @@ const AddChecklistMaintenance = () => {
             }
             else {
 
-                let formdata = new FormData()
-                formdata.append('community_id', localStorage.getItem('community_id'))
-                formdata.append('item', document.getElementById('item').value)
-                formdata.append('frequency', document.getElementById('frequency').value)
-
+                let formdata = {
+                    'community_id': localStorage.getItem('community_id'),
+                    'item': document.getElementById('item').value,
+                    'frequency': document.getElementById('frequency').value,
+                    'other_details': document.getElementById('other_details').value,
+                    'for': document.getElementById('for').value
+                }
                 const { data } = await axios.post(`${window.env_var}api/checklist/add`, formdata)
 
                 if (data && data?.status_code == 200) {
@@ -78,6 +83,7 @@ const AddChecklistMaintenance = () => {
             }
             axios.get(`${window.env_var}api/society/checkLogin`, config)
                 .then(({ data }) => {
+                    getStaffTypes();
                     if (location.state) {
                         getGuardDetails()
                         setType(location.state.type)
@@ -98,6 +104,18 @@ const AddChecklistMaintenance = () => {
 
 
     }, [])
+
+    const getStaffTypes = async () => {
+        try {
+            const { data } = await axios.get(`${window.env_var}api/admin/otherstaff/getAll`)
+            setStaffTypes(data.data.OtherStaffType)
+            setError(false)
+            //console.log(data.data.community.filter(x=>x.name))
+            //setCommunityid(data.data.community[0].name)
+        } catch (error) {
+            setError(true)
+        }
+    }
 
     const getGuardDetails = async () => {
         try {
@@ -136,8 +154,8 @@ const AddChecklistMaintenance = () => {
 
                 <div className='GLsidelinks pl-5'>
 
-                    <p className='aggnotice float-left' onClick={() => navigate('/maintenance-checklist-report')}><b>Reports</b></p>
-                    <p className='noticegll float-left' onClick={() => navigate('/add-maintenance-checklist')}><b>Add Checklist</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/maintenance-checklist-report')}><b>Reports</b></p>
+                    <p className='aggnotice float-left' onClick={() => navigate('/add-maintenance-checklist')}><b>Add Checklist</b></p>
                     <p className='noticegll float-left' onClick={() => navigate('/maintenance-checklist')}><b>Checklists</b></p>
 
                 </div>
@@ -156,8 +174,8 @@ const AddChecklistMaintenance = () => {
                         <div class="form-group form-group6 row">
                             <label class="col-lg-2 col-form-label ADN_label">Action</label>
                             <div class="col-lg-4">
-                                {type == 'edit' ? <input type="text" class="form-control input-lg SideB" name="item" id="username" defaultValue={guard.item} placeholder="Enter Action Name" required />
-                                    : <input type="text" class="form-control input-lg input-lg1 SideB" name="item" id="username" placeholder="Enter Action Name" required />}
+                                {type == 'edit' ? <input type="text" class="form-control input-lg SideB" name="item" id="item" defaultValue={guard.item} placeholder="Enter Action Name" required />
+                                    : <input type="text" class="form-control input-lg input-lg1 SideB" name="item" id="item" placeholder="Enter Action Name" required />}
 
                             </div>
                         </div>
@@ -165,17 +183,32 @@ const AddChecklistMaintenance = () => {
                         <div class="form-group form-group6 row">
                             <label class="col-lg-2 col-form-label ADN_label">Frequency</label>
                             <div class="col-lg-4">
-                                {type == 'edit' ? <input type="number" class="form-control input-lg SideB" name="frequency" id="username" defaultValue={guard.frequency} placeholder="Enter Frequency" required />
-                                    : <input type="number" class="form-control input-lg input-lg1 SideB" name="frequency" id="username" placeholder="Enter Frequency" required />}
+                                {type == 'edit' ? <input type="number" class="form-control input-lg SideB" name="frequency" id="frequency" defaultValue={guard.frequency} placeholder="Enter Frequency" required />
+                                    : <input type="number" class="form-control input-lg input-lg1 SideB" name="frequency" id="frequency" placeholder="Enter Frequency" required />}
 
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label ADN_label">For Staff Type</label>
+                            <div class="col-lg-4">
+                                <select class="form-control input-lg ADTBorder" id="for" placeholder="Block" required>
+                                    <option value={null} disabled selected>Select Staff Type</option>
+                                    {staffTypes && staffTypes.map(item => {
+                                        console.log(item, guard)
+                                        return (
+                                            <option value={item.id} selected={item.id === guard.for}>{item.designation}</option>
+                                        )
+                                    })}
+                                </select>
+                            </div>
+                        </div>
+
 
                         <div class="form-group form-group6 row">
                             <label class="col-lg-2 col-form-label ADN_label">Other Details</label>
                             <div class="col-lg-4">
-                                {type == 'edit' ? <textarea type="text" class="form-control input-lg SideB" name="other_details" id="username" defaultValue={guard.other_details} placeholder="Enter More Details" required />
-                                    : <textarea type="text" class="form-control input-lg input-lg1 SideB" name="other_details" id="username" placeholder="Enter More Details" required />}
+                                {type == 'edit' ? <textarea type="text" class="form-control input-lg SideB" name="other_details" id="other_details" defaultValue={guard.other_details} placeholder="Enter More Details" required />
+                                    : <textarea type="text" class="form-control input-lg input-lg1 SideB" name="other_details" id="other_details" placeholder="Enter More Details" required />}
 
                             </div>
                         </div>

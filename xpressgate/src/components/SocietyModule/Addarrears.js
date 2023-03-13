@@ -238,7 +238,7 @@ const Addarrears = () => {
                     return (
                       <option value={item._id}>{item.block}</option>
                     )
-                  })}
+                  })}  
                 </select>
               </div>
             </div>

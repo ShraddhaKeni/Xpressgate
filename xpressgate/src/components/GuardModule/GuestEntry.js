@@ -143,7 +143,7 @@ const GuestEntry = () => {
                   <option></option>
                 </select>
 
-                <label for="parkingtime" className='ParkingSec'>Parking Time: </label><br />
+                <label for="parkingtime"  className='ParkingSec'>Parking Time: </label><br />
                 <select id="parkingtime" className='selectInput'>
                   <option></option>
                 </select>

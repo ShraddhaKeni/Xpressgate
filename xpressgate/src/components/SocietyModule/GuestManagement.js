@@ -9,6 +9,7 @@ import Pagination from '../../common/Pagination';
 import ErrorScreen from '../../common/ErrorScreen';
 import { useNavigate } from "react-router-dom";
 
+
 const GuestManagement = () => {
 
   const [guests, setGuest] = useState([])
@@ -18,6 +19,7 @@ const GuestManagement = () => {
   const [loading, setLoading] = useState(true)
   const [filterArr,setFilter] = useState([])
   const [isError,setError] = useState(false)
+  const [listData, setInOutData] = useState({})
   const navigate = useNavigate()
   useEffect(()=>{
       getData()
@@ -78,8 +80,8 @@ const GuestManagement = () => {
   
 }
 
-function guestDetails() {
-  navigate('/guestmanagementcard')
+function guestDetails(id) {
+  navigate('/guestmanagementcard',{state :{id:id}})
 }
 
 function settingCurrent(value)
@@ -125,7 +127,7 @@ return <ErrorScreen/>
               {currentPosts.map(item=>{
                 console.log(item)
                 return(
-                  <tr onClick={() => guestDetails()}>
+                  <tr onClick={() => guestDetails(item.Guest_id)}>
                     <td>{item.guestFirstName} {item.guestLastName}</td>
                     <td >{item.flat_number}</td>
                     <td>{dateTimeFormat(item.time)}</td>
