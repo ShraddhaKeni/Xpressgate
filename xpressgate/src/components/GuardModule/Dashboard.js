@@ -16,7 +16,6 @@ const Dashboard = () => {
   const [entryData, setEntryData] = useState({});
   const [message, setMessage] = useState({});
   const [menu, setMenuOpen] = useState(false);
-  const [result, setResult] = useState('');
   const [data, setData] = useState("Not Found");
   const [torchOn, setTorchOn] = useState(false);
  
@@ -146,8 +145,8 @@ const Dashboard = () => {
 
               <div className='ScannerContainer'>
                 <BarcodeScannerComponent
-                  width={500}
-                  height={500}
+                  width={300}
+                  height={300}
                   torch={torchOn}
                   onUpdate={(err, result) => {
                     if (result) scanresult(result.text);
