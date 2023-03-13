@@ -138,7 +138,7 @@ const Addmaintenanceschedule = () => {
         </div>
         <div class="maintenancelist">
           <a href="/maintenancelist" class="AMSLList">Maintenance Schedule List</a><br /><br />
-          <a href="/addmaintenanceschedule" class="AAddmaintenancelink"><b>Add Maintenance Schedule</b></a>
+          <a href="/addmaintenanceschedule" class="AAddmaintenancelink"><b>{type == 'edit' ? 'Update' : 'Add'} Maintenance Schedule</b></a>
         </div>
         <div className="AEN_sideimage">
           <img src="/images/societysideimg.svg" alt="dashboard sideimage" />

@@ -137,7 +137,7 @@ const Maintenancelist = () => {
               <tr>
                 <th class="th-sm">Item</th>
                 <th class="th-sm">Last Maintenance Date</th>
-                <th class="th-sm">Interval</th>
+                <th class="th-sm">Reminder days</th>
                 <th class="th-sm">Actions</th>
               </tr>
             </thead>
@@ -147,7 +147,7 @@ const Maintenancelist = () => {
                   <tr>
                     <td>{item.item}</td>
                     <td >{dateTimeFormat(item.time)}</td>
-                    <td>{item.frequency}</td>
+                    <td>{item.no_of_days}</td>
                     <td>
                       <div>
                         <IconButton onClick={() => { handleEditLink(item) }}>
