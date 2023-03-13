@@ -33,13 +33,29 @@ const Qrcode = () => {
     if(isError)
         return <ErrorScreen/>
     return (
-        <div>
+        <>
+         
+          <div className='QR_page_header'>
+          <div id="PageLogo"><img src="/images/loginlogo.svg" alt="header logo" className='Pagelogoimg' /></div>
+          <div className='pagelabels'>
+            <label className='HelpLinelabel'>Helpline No</label><br />
+            <label className='HelplineNolabel'>00-0000-0000</label>
+          </div>
+          <div className='UserSuplogo'><img src="/images/supportimg.svg" alt="User Support logo" className='supportlogoimg'></img> </div>
+        </div>
+        <br/>
+        <div className="QR_Code_Container">
             <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
             <Loader loading={loading}>
-                <h1>QRCode</h1>
+                <h1>Scan QRCode</h1>
+                <br/>
                 <QRcode value={data} />
             </Loader>
         </div>
+        <div className='QR_copyright'>
+          © Copyright 2023 Designed by <a href="https://www.axzoragroup.com/" target="_blank">Axzora Private Limited</a>
+        </div> 
+        </>
     );
 };
 
