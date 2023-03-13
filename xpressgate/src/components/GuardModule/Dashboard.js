@@ -18,6 +18,8 @@ const Dashboard = () => {
   const [menu, setMenuOpen] = useState(false);
   const [data, setData] = useState("Not Found");
   const [torchOn, setTorchOn] = useState(false);
+  const [selected, setSelected] = useState("environment");
+  const [startScan, setStartScan] = useState(false);
  
   useEffect(() => {
     if (checkGuard()) {
@@ -144,6 +146,29 @@ const Dashboard = () => {
               </div>
 
               <div className='ScannerContainer'>
+              <button
+              className='ScannerButn'
+        onClick={() => {
+          setStartScan(!startScan);
+        }}
+      >
+    
+        {startScan ? "Stop Scan" : "Start Scan"}
+        
+      </button>
+      {startScan && (
+        <>
+    
+          <select onChange={(e) => setSelected(e.target.value)} className="SselectButn">
+            <option value={"environment"}>Back Camera</option>
+            <option value={"user"}>Front Camera</option>
+          </select>
+          <br/>
+          <div hidden>{selected}</div>
+          
+          <br/>
+          
+          
                 <BarcodeScannerComponent
                   width={300}
                   height={300}
@@ -153,8 +178,10 @@ const Dashboard = () => {
                     else setData("Not Found");
                   }}
                 />
+                </>
+      )}
                 {/* <p>{data}</p> */}
-                <button onClick={() => setTorchOn(!torchOn)}>
+                <button onClick={() => setTorchOn(!torchOn)} className="TorchButn">
                   Switch Torch {torchOn ? "Off" : "On"}
                 </button>
               </div>
