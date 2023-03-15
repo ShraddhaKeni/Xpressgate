@@ -6,46 +6,46 @@ import { useLocation } from "react-router-dom";
 import { validatePassword } from "../../../components/auth/validation";
 
 const PartnerNewPassword = () => {
-//   let password = useRef([]);
-//   let confirmpassword = useRef([]);
+  let password = useRef([]);
+  let confirmpassword = useRef([]);
 
-//   const [member,setMember] = useState({})
+  const [member,setMember] = useState({})
 
-//   const location = useLocation()
+  const location = useLocation()
 
 
-//   const handleSubmit =async()=>{
-//     try {
-//       if( await validatePassword(password.current.value))
-//       {
-//         console.log(validatePassword(password.current.value))
-//           if((password.current.value===confirmpassword.current.value)&&(password.current.value!==""&&confirmpassword.current.value!==""))
-//           {
-//           const sendData={
-//             password:confirmpassword.current.value,
-//             admin_mem_id:location.state.admin_mem_id
-//           }
-//           const {data} = await axios.post(`${window.env_var}api/admin/adminupdatepass`,sendData)
-//           window.location.href = '/adminlogin'
-//         }
-//         else
-//         {
-//           document.getElementById('loginemailid').style.border='2px solid red'
-//           document.getElementById('loginpassword').style.border='2px solid red'
-//         }
-//       }
-//       else
-//       {
-//         document.getElementById('loginemailid').style.border='2px solid red'
-//         document.getElementById('loginpassword').style.border='2px solid red'
-//       }
+  const handleSubmit =async()=>{
+    try {
+      if( await validatePassword(password.current.value))
+      {
+        console.log(validatePassword(password.current.value))
+          if((password.current.value===confirmpassword.current.value)&&(password.current.value!==""&&confirmpassword.current.value!==""))
+          {
+          const sendData={
+            password:confirmpassword.current.value,
+            partner_id:location.state.partner_id
+          }
+          const {data} = await axios.post(`${window.env_var}api/auth/partner-update-password`,sendData)
+          window.location.href = '/partnerlogin'
+        }
+        else
+        {
+          document.getElementById('loginemailid').style.border='2px solid red'
+          document.getElementById('loginpassword').style.border='2px solid red'
+        }
+      }
+      else
+      {
+        document.getElementById('loginemailid').style.border='2px solid red'
+        document.getElementById('loginpassword').style.border='2px solid red'
+      }
       
-//     } catch (error) {
-//       document.getElementById('loginemailid').style.border='2px solid red'
-//       document.getElementById('loginpassword').style.border='2px solid red'
-//       console.log(error)
-//     }
-//   }
+    } catch (error) {
+      document.getElementById('loginemailid').style.border='2px solid red'
+      document.getElementById('loginpassword').style.border='2px solid red'
+      console.log(error)
+    }
+  }
   return (
 <div className="superadmincontainer">
         <div id="Superadminlogo">
@@ -63,12 +63,12 @@ const PartnerNewPassword = () => {
             <div className="email_input">
               <label className="adminemail">New Password</label>
               <input
-                // ref={password}
+                ref={password}
                 type="text"
                 className="form-control adminemailtextbox"
-                // onKeyPress={(e) => {
-                //   document.getElementById(e.target.id).style.border = "none";
-                // }}
+                onKeyPress={(e) => {
+                  document.getElementById(e.target.id).style.border = "none";
+                }}
                 id="loginemailid"
                 placeholder="New Password"
               ></input>
@@ -77,12 +77,12 @@ const PartnerNewPassword = () => {
             <div className="email_input">
               <label className="adminpassword">Confirm  Password</label>
               <input
-                // ref={confirmpassword}
+                ref={confirmpassword}
                 type="password"
                 className="form-control adminpasswordbox"
-                // onKeyPress={(e) => {
-                //   document.getElementById(e.target.id).style.border = "none";
-                // }}
+                onKeyPress={(e) => {
+                  document.getElementById(e.target.id).style.border = "none";
+                }}
                 id="loginpassword"
                 placeholder="Confirm Password"
               ></input>
@@ -90,9 +90,9 @@ const PartnerNewPassword = () => {
               <button
                 type="button"
                 className="adminconfirmpasswordbtn"
-                // onClick={() => {
-                //   handleSubmit();
-                // }}
+                onClick={() => {
+                  handleSubmit();
+                }}
               >
                Change Password
               </button>
