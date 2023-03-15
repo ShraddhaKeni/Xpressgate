@@ -254,6 +254,9 @@ function App() {
           <Route path={RouterPath.EDIT_SMS_PROVIDER} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.MANAGE_SLIDERS} element={<AdminModuleComponent />}></Route>
           <Route path={RouterPath.ADD_SLIDER} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.PARTNER_LIST} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.ADD_PARTNER} element={<AdminModuleComponent />}></Route>
+          <Route path={RouterPath.EDIT_PARTNER} element={<AdminModuleComponent />}></Route>
 
           <Route path='/addsocietymember' element={<AdminModuleComponent />}></Route>
 
