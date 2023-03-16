@@ -6,6 +6,8 @@ import LogOut from './Utils/LogOut'
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import { useNavigate } from "react-router-dom";
 import { IconButton } from "@mui/material";
+import { ToastMessage } from "../ToastMessage";
+import { reloadInOneSec, TOAST } from "../../common/utils";
 
 
 const ChecklistSecurity = () => {
@@ -13,6 +15,8 @@ const ChecklistSecurity = () => {
     const [currentPage, setCurrentpage] = useState(1)
     const [postPerPage, setPostPerPage] = useState(12)
     const [currentPosts, setCurrentPosts] = useState([])
+    const [toast, setToast] = useState({ show: false })
+
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -66,13 +70,25 @@ const ChecklistSecurity = () => {
         navigate('/add-security-checklist', { state: { data: Checklist, type: 'edit', id: checklist.id } })
     }
 
-    const handelRemoveClick = () => {
+    async function handelRemoveClick(item) {
+        const sendData = { id: item.id };
+        const { data } = await axios.post(`${window.env_var}api/checklist/remove`, sendData)
+        if (data.status_code == 403) {
+            reloadInOneSec()
+            setToast(TOAST.SUCCESS(data?.message));
+
+        } else {
+            setToast(TOAST.ERROR(data?.message));
+        }
 
     }
 
 
+
     return (
         <div className="addguestcontainer4">
+            <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+
             <div id="addflatsection">
                 <div className="addflatheadersection">
                     <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
@@ -132,7 +148,7 @@ const ChecklistSecurity = () => {
                             return (
 
                                 <tr>
-                                    <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1 + 1) + (index + 1)}</td>
+                                    <td>{(currentPage - 1) * postPerPage + (index + 1)}</td>
                                     <td >{item.item}</td>
                                     <td>{item.frequency}</td>
                                     <td>{item.other_details}</td>
@@ -141,9 +157,9 @@ const ChecklistSecurity = () => {
                                             <img src="/images/icon_edit.svg" />
                                         </IconButton>
 
-                                        {/* <IconButton onClick={() => handelRemoveClick(item.id)}>
+                                        <IconButton onClick={() => handelRemoveClick(item)}>
                                             <img src="/images/icon_delete.svg" />
-                                        </IconButton> */}
+                                        </IconButton>
 
                                     </div></td>
                                 </tr>

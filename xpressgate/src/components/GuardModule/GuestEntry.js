@@ -22,6 +22,15 @@ const GuestEntry = () => {
   const [isError, setError] = useState(false)
   const [menu, setMenuOpen] = useState(false)
 
+  const [timeSlots] = useState([
+    { time: 30, dTime: "30 Min" },
+    { time: 60, dTime: "1 Hour" },
+    { time: 90, dTime: "1.5 Hours" },
+    { time: 120, dTime: "2 Hours" },
+    { time: 150, dTime: "2.5 Hours" },
+    { time: 180, dTime: "3 Hours" },
+
+  ])
   useEffect(() => {
     if (checkGuard()) {
       const config = {
@@ -32,6 +41,7 @@ const GuestEntry = () => {
       axios.get(`${window.env_var}api/guard/checkLogin`, config)
         .then(({ data }) => {
           getGuestData(location.state.id)
+          getParkingSections();
         })
         .catch(err => {
           localStorage.clear();
@@ -42,6 +52,21 @@ const GuestEntry = () => {
       window.location.href = '/'
     }
   }, [])
+
+  const [parkingSections, setParkingSections] = useState([]);
+
+
+  const getParkingSections = async () => {
+
+    try {
+      const { data } = await axios.get(`${window.env_var}api/guestparkingsection/getAll/${localStorage.getItem("community_id")}`);
+      setParkingSections(data.data)
+      setLoading(false)
+      setError(false)
+    } catch (error) {
+      setError(true)
+    }
+  }
 
   const getGuestData = async (id) => {
     try {
@@ -61,7 +86,7 @@ const GuestEntry = () => {
         lastname: guestDetails.guestLastName,
         mobileno: guestDetails.guestPhone,
         intime: Date.now(),
-        outtime: "",
+        outtime: Date.now(),
         community_id: localStorage.getItem('community_id'),
         flat_id: guestDetails.flat_id,
         type: 1,
@@ -69,6 +94,8 @@ const GuestEntry = () => {
         status: 1,
         allowed_by: localStorage.getItem('guard_id'),
         vehicle_no: document.getElementById('veh_id').value,
+        parking_section: document.getElementById('parking_section').value,
+        parking_time: document.getElementById('parking_time').value
 
       }
       setError(false)
@@ -138,15 +165,42 @@ const GuestEntry = () => {
                 <div><label className='noofpeople'>No of People: {guestDetails.numberOfGuest}</label></div>
                 <div><label className='vehicleno'>Vehicle No: <input ref={vehical} id='veh_id' type='text'></input></label></div>
 
-                <label for="parkingsection" className='ParkingSec'>Parking Section: </label><br />
-                <select id="parkingsection" className='selectInput'>
-                  <option></option>
-                </select>
 
-                <label for="parkingtime"  className='ParkingSec'>Parking Time: </label><br />
-                <select id="parkingtime" className='selectInput'>
-                  <option></option>
-                </select>
+
+                {!guestDetails.outtime && <>
+
+                  <label for="parkingsection" className='ParkingSec'>Parking Section: </label><br />
+                  <select id="parkingsection" className='selectInput' defaultValue={""}>
+
+                    <option disabled>Select Parking Section</option>
+                    <option value={""}></option>
+
+                    {parkingSections.map(slot => {
+                      return <option value={slot._id}>{slot.section}</option>
+                    })
+                    }
+                  </select>
+                </>
+
+                }
+
+                {!guestDetails.outtime && <>
+
+                  <label for="parkingtime" className='ParkingSec'>Parking Time: </label><br />
+                  <select id="parkingtime" className='selectInput' name='parking_time' >
+
+                    <option disabled>Select Parking Time</option>
+                    <option value={""}></option>
+
+                    {timeSlots.map(slot => {
+                      return <option value={slot.time}>{slot.dTime}</option>
+                    })
+
+                    }
+
+                  </select>
+                </>
+                }
 
 
               </div>
@@ -158,10 +212,10 @@ const GuestEntry = () => {
           </div>
           {/* </div> */}
         </Loader>
-      </div>
+      </div >
       <GuardMobileSidebar open={menu} onHide={() => setMenuOpen(false)} />
 
-    </div>
+    </div >
   )
 }
 
