@@ -10,6 +10,7 @@ import { Loader } from "../Loader";
 import ErrorScreen from "../../common/ErrorScreen";
 import { goBackInOneSec, reloadInOneSec, TOAST } from "../../common/utils";
 import { ToastMessage } from "../ToastMessage";
+import { mobileValidation } from "../auth/validation";
 
 const AddChecklistCommunityStaff = () => {
     const [loading, setLoading] = useState(true)
@@ -31,6 +32,14 @@ const AddChecklistCommunityStaff = () => {
         try {
 
             if (type == 'edit') {
+
+
+                const valid = await mobileValidation(document.getElementById("contact").value)
+                if (!valid) {
+                    setToast(TOAST.ERROR("Enter Valid Phone Number"));
+                    return;
+                }
+
                 let formdata = {
                     'community_id': localStorage.getItem('community_id'),
                     'name': document.getElementById('name').value,
@@ -39,7 +48,7 @@ const AddChecklistCommunityStaff = () => {
                     'address': document.getElementById('address').value,
                     'id': location.state.id
                 }
-                const { data } = await axios.post(`${window.env_var}api/checklist/add`, formdata)
+                const { data } = await axios.post(`${window.env_var}api/societystaff/update`, formdata)
 
                 if (data && data?.status_code == 200) {
                     setToast(TOAST.SUCCESS(data?.message));
@@ -50,6 +59,12 @@ const AddChecklistCommunityStaff = () => {
             }
             else {
 
+
+                const valid = await mobileValidation(document.getElementById("contact").value)
+                if (!valid) {
+                    setToast(TOAST.ERROR("Enter Valid Phone Number"));
+                    return;
+                }
                 let formdata = {
                     'community_id': localStorage.getItem('community_id'),
                     'name': document.getElementById('name').value,
@@ -63,7 +78,7 @@ const AddChecklistCommunityStaff = () => {
 
                 if (data && data?.status_code == 200) {
                     setToast(TOAST.SUCCESS(data?.message));
-                    reloadInOneSec(navigate)
+                    goBackInOneSec(navigate)
                 } else if (data?.status_code == 201) {
                     setToast(TOAST.ERROR(data?.message));
                 }
@@ -186,8 +201,8 @@ const AddChecklistCommunityStaff = () => {
                         <div class="form-group form-group6 row">
                             <label class="col-lg-2 col-form-label ADN_label">Phone</label>
                             <div class="col-lg-4">
-                                {type == 'edit' ? <input type="number" class="form-control input-lg SideB" name="contact" id="contact" defaultValue={guard.contact} placeholder="Enter Phone Number" required />
-                                    : <input type="number" class="form-control input-lg input-lg1 SideB" name="contact" id="contact" placeholder="Enter Phone Number" required />}
+                                {type == 'edit' ? <input type="number" class="form-control input-lg SideB" name="contact" id="contact" maxLength="10" defaultValue={guard.contact} placeholder="Enter Phone Number" required />
+                                    : <input type="number" class="form-control input-lg input-lg1 SideB" name="contact" id="contact" maxLength="10" placeholder="Enter Phone Number" required />}
 
                             </div>
                         </div>

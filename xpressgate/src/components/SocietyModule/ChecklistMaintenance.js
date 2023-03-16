@@ -6,6 +6,8 @@ import LogOut from './Utils/LogOut'
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import { useNavigate } from "react-router-dom";
 import { IconButton } from "@mui/material";
+import { reloadInOneSec, TOAST } from "../../common/utils";
+import { ToastMessage } from "../ToastMessage";
 
 
 const ChecklistMaintenance = () => {
@@ -13,6 +15,8 @@ const ChecklistMaintenance = () => {
     const [currentPage, setCurrentpage] = useState(1)
     const [postPerPage, setPostPerPage] = useState(12)
     const [currentPosts, setCurrentPosts] = useState([])
+    const [toast, setToast] = useState({ show: false })
+
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -65,13 +69,22 @@ const ChecklistMaintenance = () => {
         navigate('/add-maintenance-checklist', { state: { data: Checklist, type: 'edit', id: checklist.id } })
     }
 
-    const handelRemoveClick = () => {
-
+    async function handelRemoveClick(item) {
+        const sendData = { id: item.id };
+        const { data } = await axios.post(`${window.env_var}api/checklist/remove`, sendData)
+        if (data.status_code == 403) {
+            setToast(TOAST.SUCCESS(data?.message));
+            reloadInOneSec()
+        } else {
+            setToast(TOAST.ERROR(data?.message));
+        }
     }
 
 
     return (
         <div className="addguestcontainer4">
+            <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+
             <div id="addflatsection">
                 <div className="addflatheadersection">
                     <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
@@ -140,9 +153,9 @@ const ChecklistMaintenance = () => {
                                             <img src="/images/icon_edit.svg" />
                                         </IconButton>
 
-                                        {/* <IconButton onClick={() => handelRemoveClick(item.id)}>
+                                        <IconButton onClick={() => handelRemoveClick(item)}>
                                             <img src="/images/icon_delete.svg" />
-                                        </IconButton> */}
+                                        </IconButton>
 
                                     </div></td>
                                 </tr>
