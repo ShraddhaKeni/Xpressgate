@@ -52,7 +52,7 @@ const Addinout = () => {
   const getBlocks = async (e) => {
     try {
       const param = {
-        community_id: "632970d054edb049bcd0f0b4"
+        community_id: localStorage.getItem('community_id')
       }
       const { data } = await axios.post(`${window.env_var}api/block/get`, param)
       //console.log(data.data.block)

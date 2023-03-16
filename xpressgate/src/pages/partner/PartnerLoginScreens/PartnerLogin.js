@@ -1,33 +1,57 @@
-import React, { useRef } from "react";
+import React, { useRef,  useState } from "react";
 import "../../../styles/SuperAdminLogin.css";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
-
+import { TOAST } from "../../../common/utils";
+import { ToastMessage } from "../../../components/ToastMessage";
 const PartnerLogin = () => {
-//   let username = useRef([]);
-//   let password = useRef([]);
+  let username = useRef([]);
+  let password = useRef([]);
+  const [toast, setToast] = useState({ show: false });
 
-//   const loginGuard = async () => {
-//     try {
-//       const loginCreds = {
-//         username: username.current.value,
-//         password: password.current.value,
-//       };
-//       const { data } = await axios.post(`${window.env_var}api/auth/adminlogin`, loginCreds);
-//       localStorage.clear();
-//       localStorage.setItem("accesstoken", data.data.accessToken);
-//       // localStorage.setItem("community_id", data.data.community_id);
-//       localStorage.setItem("admin_id", data.data.id);
-//       localStorage.setItem('mode', 'admin')
-//       window.location.href = "/admin/dashboard";
-//     } catch (err) {
-//       console.log(err)
-//       document.getElementById("loginemailid").style.border = "2px solid red";
-//       document.getElementById("loginpassword").style.border = "2px solid red";
-//     }
-//   };
+  const loginGuard = async () => {
+    try {
+      const loginCreds = {
+        username: username.current.value,
+        password: password.current.value,
+      };
+      const res = await axios.post(`${window.env_var}api/auth/partnerlogin`, loginCreds);
+      const { data } = res;
+      console.log(res)
+      if (res.data) {
+        localStorage.clear();
+        localStorage.setItem("accesstoken", data.data.accessToken);
+        // localStorage.setItem("community_id", data.data.community_id);
+        localStorage.setItem("partner_id", data.data.id);
+        localStorage.setItem('mode', 'partner')
+        console.log(data.data)
+        setToast({ show: true, type: "success", message: "Logged in successfully" })
+        setTimeout(() => {
+          window.location.href = "/partner/dashboard";
+        }, 1500);
+        // window.location.href = "/partner/dashboard";
+      } else {
+        alert(data.status_code)
+      }
+
+    } catch (err) {
+      if (err) {
+        setToast(TOAST.ERROR("Incorrect Username or Password!"))
+      }
+      document.getElementById("loginemailid").style.border = "2px solid red";
+      document.getElementById("loginpassword").style.border = "2px solid red";
+    }
+  };
   return (
     <div className="superadmincontainer">
+        <ToastMessage
+        show={toast.show}
+        message={toast.message}
+        type={toast.type}
+        handleClose={() => {
+          setToast({ show: false });
+        }}
+      />
         <div id="Superadminlogo">
               <img src="/images/loginlogo.svg" alt="" />
             <div className="Admin_SignIn">
@@ -44,12 +68,12 @@ const PartnerLogin = () => {
             <div className="email_input">
               <label className="adminemail">Username</label>
               <input
-                // ref={username}
+                ref={username}
                 type="text"
                 className="form-control adminemailtextbox"
-                // onKeyPress={(e) => {
-                //   document.getElementById(e.target.id).style.border = "none";
-                // }}
+                onKeyPress={(e) => {
+                  document.getElementById(e.target.id).style.border = "none";
+                }}
                 id="loginemailid"
                 placeholder="Username"
               ></input>
@@ -58,12 +82,12 @@ const PartnerLogin = () => {
             <div className="email_input mt-4">
               <label className="adminpassword">Password</label>
               <input
-                // ref={password}
+                ref={password}
                 type="password"
                 className="form-control adminpasswordbox"
-                // onKeyPress={(e) => {
-                //   document.getElementById(e.target.id).style.border = "none";
-                // }}
+                onKeyPress={(e) => {
+                  document.getElementById(e.target.id).style.border = "none";
+                }}
                 id="loginpassword"
                 placeholder="Password"
               ></input>
@@ -71,9 +95,9 @@ const PartnerLogin = () => {
               <Button
                 type="button"
                 className="adminloginbtn "
-                // onClick={() => {
-                //   loginGuard();
-                // }}
+                onClick={() => {
+                  loginGuard();
+                }}
               >
                 Login
               </Button>

@@ -72,7 +72,12 @@ const SideLayOut = () => {
           </div>
         }
       </Link>
-
+      <Link to={RouterPath.PARTNER_LIST} style={{ textDecoration: 'none' }} >
+        <div className={`nav-item ${router.pathname.includes("partnerlist") && 'font-weight-bold'}`}>
+          <ApartmentIcon className='side-nav-icon margin_icons' fontSize='large' />
+          <span className='ml-3 Labelfont'>Partner Management</span>
+        </div>
+      </Link>
       <Link to={RouterPath.ADD_SOCIETY_MEMBER} style={{ textDecoration: 'none' }} >
         <div className={`nav-item ${router.pathname.includes("addsocietymember") && 'font-weight-bold'}`}>
           <PersonAddAlt1Outlined className='side-nav-icon margin_icons' fontSize='large' />

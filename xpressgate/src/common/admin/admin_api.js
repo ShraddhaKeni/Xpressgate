@@ -127,6 +127,16 @@ export async function deleteCommunity(id) {
     }
 }
 
+// /// PARTNER MANAGEMENT ///
+
+// export async function deleteCommunity(id) {
+//     try {
+//         return await postRequest(`api/partner`, { community_id: id });
+//     } catch (error) {
+//         return error
+//     }
+// }
+
 
 /// Payment Gateways ///
 export async function getAllPaymentGateways() {

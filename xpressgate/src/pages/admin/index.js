@@ -40,6 +40,9 @@ import EditPaymentGateway from './Manage/PaymentGateway/edit';
 import EditSMSGateway from './Manage/SMSProvider/edit';
 import AddSocietyMember from '../../components/SocietyModule/AddSocietyMember';
 import AdminChangePass from './LoginScreens/AdminChangePass';
+import PartnerList from './PartnerManagement/PartnerList';
+import AddPartner from './PartnerManagement/AddPartner';
+import EditPartner from './PartnerManagement/EditPartner';
 
 
 const AdminModuleComponent = () => {
@@ -144,10 +147,20 @@ const AdminModuleComponent = () => {
         children = (<AddSocietyMember />)
     }
 
+    if (router.pathname === RouterPath.PARTNER_LIST) {
+        children = (<PartnerList />)
+    }
+    if (router.pathname === RouterPath.ADD_PARTNER) {
+        children = (<AddPartner/>) 
+    }
+    if (router.pathname === RouterPath.EDIT_PARTNER) {
+        children = (<EditPartner/>) 
+    }
+
     if (router.pathname === "/adminchangepassword") {
         children = (<AdminChangePass />)
     }
-
+  
     return (
         <div className='flex flex-col'>
 

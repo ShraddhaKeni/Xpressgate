@@ -5,17 +5,17 @@ import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const PartnerEnterCode = () => {
-//   let username = useRef([]);
-//   const location = useLocation()
-//   const navigate = useNavigate()
-//   const sendOTP = async()=>{
-//     try {
-//       const {data} = await axios.post(`${window.env_var}api/admin/adminresetpass`,{mobileno:location.state.mobileno,otp:username.current.value})
-//       navigate('/newpass',{state:{admin_mem_id:data.data.mem_id,mobileno:data.data.mobileno}})
-//     } catch (error) {
+  let username = useRef([]);
+  const location = useLocation()
+  const navigate = useNavigate()
+  const sendOTP = async()=>{
+    try {
+      const {data} = await axios.post(`${window.env_var}api/auth/partner-reset-password`,{mobileno:location.state.mobileno,otp:username.current.value})
+      navigate('/partnernewpassword',{state:{partner_id:data.data.mem_id,mobileno:data.data.mobileno}})
+    } catch (error) {
       
-//     }
-//   }
+    }
+  }
   return (
     <div className="superadmincontainer">
         <div id="Superadminlogo">
@@ -33,12 +33,12 @@ const PartnerEnterCode = () => {
             <div className="email_input">
               <label className="adminemail">Enter Code</label>
               <input
-                // ref={username}
+                ref={username}
                 type="text"
                 className="form-control adminemailtextbox"
-                // onKeyPress={(e) => {
-                //   document.getElementById(e.target.id).style.border = "none";
-                // }}
+                onKeyPress={(e) => {
+                  document.getElementById(e.target.id).style.border = "none";
+                }}
                 id="loginemailid"
                 placeholder="Enter Code"
               ></input>
@@ -49,7 +49,7 @@ const PartnerEnterCode = () => {
               <button
                 type="button"
                 className="adminverifybtn"
-                // onClick={()=>{sendOTP()}}
+                onClick={()=>{sendOTP()}}
               >
                Verify
               </button>

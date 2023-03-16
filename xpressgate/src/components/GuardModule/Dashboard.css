@@ -354,10 +354,10 @@ color: #14335D;
 .FullCardsCss {
   margin-top: 9%;
   padding: 0%;
-  margin-left: 5%;
+  margin-left: 1%;
 }
 .DashBoardCard img {
-  width: 15rem;
+  width: 17rem;
   margin-left: -6%;
 }
 
@@ -365,8 +365,9 @@ color: #14335D;
   display: inline-block;
   width: 100%;
   height: auto;
-  margin-left: 20%;
+  margin-left: 19%;
   margin-top: 2%;
+  text-align: center;
 }
 .ScannerButn {
   color: white;
@@ -377,28 +378,47 @@ color: #14335D;
   font-weight: 600;
   font-size: 1.5rem;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 7px;
   transform: all 1s cubic-bezier(0.42, 0, 0.17, 0.71);
   margin-left: 7%;
-  margin-top: 8%;
+  margin-top: 5%;
   border: none;
 }
 
 .ScannerButn:hover {
   background-color: #14335D;
 }
-.SselectButn {
+.TorchButn {
   color: white;
   background-color: #0A8996;
-  padding: 1%;
-  width: 16rem;
+  padding: 2%;
+  width: 17rem;
   height: auto;
   font-weight: 600;
   font-size: 1.5rem;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 7px;
   transform: all 1s cubic-bezier(0.42, 0, 0.17, 0.71);
   margin-left: 7%;
+  margin-top: 5%;
+  border: none;
+}
+
+.TorchButn:hover {
+  background-color: #14335D;
+}
+.SselectButn {
+  color: white;
+  background-color: #0A8996;
+  padding: 2%;
+  width: 15rem;
+  height: auto;
+  font-weight: 600;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transform: all 1s cubic-bezier(0.42, 0, 0.17, 0.71);
+  margin-left: 2%;
   border: none;
   margin-top: 2%;
 }

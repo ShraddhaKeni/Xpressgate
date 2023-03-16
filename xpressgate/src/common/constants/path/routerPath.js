@@ -48,7 +48,9 @@ const RouterPath = {
     MANAGE_SLIDERS: "/admin/manage/sliders",
 
     ADD_SOCIETY_MEMBER: "/addsocietymember",
-
+    PARTNER_LIST: "/partnerlist",
+    ADD_PARTNER: "/addnewpartner",
+    EDIT_PARTNER: "/updatepartner",
 
 
     /// Partner Routes
