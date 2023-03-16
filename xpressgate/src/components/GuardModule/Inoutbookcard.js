@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Inoutbookcard.css';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
+import moment from 'moment';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { checkGuard } from '../auth/Auth';
 import GuardHeader from './Utils/GuardHeader';
@@ -19,6 +20,7 @@ const Inoutbookcard = () => {
   const [isError, setError] = useState(false)
   const [filterArr, setFilter] = useState([])
   const [menu, setMenuOpen] = useState(false)
+  const [parkingHours, setParkingHours] = useState("");
 
   const [parkingSections, setParkingSections] = useState(false);
 
@@ -67,11 +69,21 @@ const Inoutbookcard = () => {
     try {
       const { data } = await axios.post(`${window.env_var}api/inout/getone`, id);
       setInOutData(data.data)
+
+      if (listData.outtime) {
+        var duration = moment.duration(moment(listData.outtime).diff(moment(listData.intime)));
+        console.log(duration);
+        let hours = duration.asHours() ? duration.asHours().toFixed(0) + " Hrs" : ""
+        var minutes = hours + duration.asMinutes() ? duration.asMinutes().toFixed(0) + " Mins" : ""
+        setParkingHours(minutes);
+      }
+
       setFlats(data.data.flat_details)
       setLoading(false)
       setError(false)
     } catch (error) {
       setError(true)
+      console.log(error);
     }
   }
 
@@ -114,12 +126,16 @@ const Inoutbookcard = () => {
     e.preventDefault()
     try {
 
-      const sendData = {
+      let sendData = {
         outtime: Date.now(),
         status: 2,
         booking_id: id,
-        parking_section: document.getElementById("parkingsection").value,
+
         parkgin_time: document.getElementById("parkingtime").value
+      }
+
+      if (document.getElementById("parkingsection")?.value) {
+        sendData = { ...sendData, parking_section: document.getElementById("parkingsection").value, }
       }
 
       console.log(sendData);
@@ -127,11 +143,12 @@ const Inoutbookcard = () => {
       setError(false)
       setToast({ show: true, type: "success", message: "Exited successfully" })
       setTimeout(() => {
-        // window.location.href = '/inoutbook'
+        navigate('/inoutbook')
       }, 1500);
-      // navigate('/inoutbook')
+      // 
     } catch (error) {
-      setError(true)
+      console.log(error)
+      //setError(true)
     }
   }
   const deny = async () => {
@@ -187,29 +204,34 @@ const Inoutbookcard = () => {
                 <div><label className='outtime'>Out-Time: {listData.outtime ? timeConvert(listData.outtime) : 'N/A'}</label></div>
                 {/* <div><label className='noofpeople'>No of People: 1</label></div> */}
                 <div><label className='vehicleno'>Vehicle No: {listData.vehicle_no ? listData.vehicle_no : 'N/A'}</label></div>
-                <label for="parkingsection" className='ParkingSec'>Parking Section: </label><br />
-                <select id="parkingsection" className='selectInput'>
-                  <option selected disabled>Select Parking Section</option>
-                  {parkingSections && parkingSections.map(item => {
-                    return <option value={item._id} selected={`${item._id == listData.parking_section ? true : false}`}>{item.section}</option>
-                  })
-                  }
-                </select>
+                <div><label className='vehicleno'>Parking Section: {listData.parking_section_details ? listData.parking_section_details : 'N/A'}</label></div>
 
-                <label for="parkingtime" className='ParkingSec'>Parking Time: </label><br />
-                <select id="parkingtime" className='selectInput' name='parking_time' >
+                {listData.outtime && <>
+                  <div><label className='vehicleno'>Parking Time: {parkingHours ? parkingHours : 'N/A'}</label></div>
+                </>
+                }
 
-                  <option selected disabled>Select Parking Time</option>
-                  {timeSlots.map(slot => {
-                    return <option value={slot.time} selected={`${slot.time == listData.parking_time}`}>{slot.dTime}</option>
-                  })
-                  }
-                </select>
+                {!listData.outtime && <>
+
+                  <label for="parkingtime" className='ParkingSec'>Parking Time: </label><br />
+                  <select id="parkingtime" className='selectInput' name='parking_time' >
+
+                    <option disabled>Select Parking Time</option>
+                    {timeSlots.map(slot => {
+                      return <option value={slot.time}>{slot.dTime}</option>
+                    })
+                    }
+                  </select>
+                </>
+
+                }
+
+
 
               </div>
 
               <br></br>
-              
+
               {listData.status == 1 ? <button type="submit" onClick={(e) => { handleSubmit(e, listData.booking_id) }} id='inout' className="btnOut">Out</button>
                 : <button type="button" onClick={() => { deny() }} id='inout' className="btnOut">Back</button>
               }

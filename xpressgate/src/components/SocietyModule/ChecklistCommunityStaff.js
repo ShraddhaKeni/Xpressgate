@@ -5,6 +5,8 @@ import LogOut from './Utils/LogOut'
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import { useNavigate } from "react-router-dom";
 import { IconButton } from "@mui/material";
+import { reloadInOneSec, TOAST } from "../../common/utils";
+import { ToastMessage } from "../ToastMessage";
 
 
 const ChecklistCommunityStaff = () => {
@@ -12,6 +14,8 @@ const ChecklistCommunityStaff = () => {
     const [currentPage, setCurrentpage] = useState(1)
     const [postPerPage, setPostPerPage] = useState(12)
     const [currentPosts, setCurrentPosts] = useState([])
+    const [toast, setToast] = useState({ show: false })
+
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -31,16 +35,26 @@ const ChecklistCommunityStaff = () => {
     }
 
     async function paginate(event) {
-        const { data } = await axios.get(`${window.env_var}api/guard/getall`)
         setCurrentpage(event.selected + 1)
         const indexoflast = (event.selected + 1) * postPerPage  //endoffset
         const indexoffirst = (indexoflast - postPerPage) //startoffset
-        setCurrentPosts(data.data.Society_staff.slice(indexoffirst, indexoflast))
+        setCurrentPosts(Guards.slice(indexoffirst, indexoflast))
     }
 
     function guardDetails(item) {
         console.log(item);
         navigate('/add-community-staff-checklist', { state: { data: item, type: 'edit', id: item._id } })
+    }
+
+    async function handelRemoveClick(item) {
+        const sendData = { id: item.id };
+        const { data } = await axios.post(`${window.env_var}api/societystaff/delete`, sendData)
+        if (data.status_code == 200) {
+            setToast(TOAST.SUCCESS(data?.message));
+            reloadInOneSec()
+        } else {
+            setToast(TOAST.ERROR(data?.message));
+        }
     }
 
 
@@ -69,6 +83,8 @@ const ChecklistCommunityStaff = () => {
 
     return (
         <div className="addguestcontainer4">
+            <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+
             <div id="addflatsection">
                 <div className="addflatheadersection">
                     <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
@@ -130,7 +146,7 @@ const ChecklistCommunityStaff = () => {
                             return (
 
                                 <tr>
-                                    <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1 + 1) + (index + 1)}</td>
+                                    <td>{(currentPage - 1) * postPerPage + (index + 1)}</td>
                                     <td >{item.name}</td>
                                     <td>{item.contact}</td>
                                     <td>{item.service_name}</td>
@@ -140,9 +156,9 @@ const ChecklistCommunityStaff = () => {
                                             <img src="/images/icon_edit.svg" />
                                         </IconButton>
 
-                                        {/* <IconButton onClick={() => handelRemoveClick(item.id)}>
+                                        <IconButton onClick={() => handelRemoveClick(item)}>
                                             <img src="/images/icon_delete.svg" />
-                                        </IconButton> */}
+                                        </IconButton>
 
                                     </div></td>
                                 </tr>

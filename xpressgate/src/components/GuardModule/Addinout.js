@@ -134,11 +134,11 @@ const Addinout = () => {
 
       const { data } = await axios.post(`${window.env_var}api/inout/addbyguard`, sendData)
       //console.log(sendData)
-       setToast({ show: true, type: "success", message: "Added Successfully" })
-       setTimeout(() => {
-         window.location.href = '/inoutbook'
-       }, 1500);
-       window.location.href = '/inoutbook'
+      setToast({ show: true, type: "success", message: "Added Successfully" })
+      //  setTimeout(() => {
+      //    window.location.href = '/inoutbook'
+      //  }, 1500);
+      //  window.location.href = '/inoutbook'
     } catch (error) {
       setToast({ show: true, type: "error", message: "Check Data." });
     }
@@ -276,10 +276,10 @@ const Addinout = () => {
           </div>
 
           <button type="submit" className="btnInOut" onClick={(e) => handleSubmit(e)} on>Add In Out</button>
-<br/>
+          <br />
         </Form>
         {/* </Loader> */}
-        <br/>
+        <br />
       </div>
       <GuardMobileSidebar open={menu} onHide={() => setMenuOpen(false)} />
 
