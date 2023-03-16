@@ -14,7 +14,7 @@ export const SimpleInputComponent = ({ name, id, label, onChange, type = 'text',
                 {label}
             </label>
             <div class="col-lg-5 col-md-2 col-sm-2">
-                {(type == 'text' || type == 'number' || type =='file' || type =='email' ) && <TextField
+                {(type == 'text' || type == 'number' || type =='file' || type =='email' || type == 'password') && <TextField
                     type={type}
                     name={name}
                     placeholder={placeholder}

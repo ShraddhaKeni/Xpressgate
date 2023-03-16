@@ -25,6 +25,25 @@
     margin-top: -29%;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 }
+.QR_page_header{
+    width: 100vw;
+    height: 12vh;
+    background: #FAFAFF;
+    align-items: center;
+    position: absolute;
+    margin-top: 0%;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+.QR_Code_Container{
+    margin-top: 15%;
+    /* border: 2px solid black; */
+    border-radius: 14px;
+    padding: 10px 10px 40px 10px;
+    width: 30%;
+    height: auto;
+    margin-left: 35%;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.35);
+}
 #PageLogo{
     display: flex;
     float: left;
@@ -170,7 +189,16 @@ a:link {
     color: white;
     text-decoration: none;
   } 
-
+  .QR_copyright {
+    width :100%;
+    height :10%;
+    background-color: #0a8996;
+    margin-top: 25%;
+    color: #ffffff;
+   padding: 8px;
+   z-index: 99999;
+   align-items: center;
+    }
   @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
     .ellipseimg {
         position: initial;
@@ -186,6 +214,15 @@ a:link {
         position: absolute;
         margin-top: -38%;
         box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);
+    }
+    .QR_page_header {
+        width: 100vw;
+        height: 10vh;
+        background: #FAFAFF;
+        align-items: center;
+        position: absolute;
+        margin-top: 0%;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     }
     .Page_Container{
         overflow-x: hidden;
@@ -290,5 +327,20 @@ a:link {
         bottom:0;
 
     }
-
+    .QR_copyright {
+        position: absolute;
+        bottom:0;
+        padding: 14px;
+        height: auto;
+        font-size: 3vw;
+    }
+    .QR_Code_Container {
+        margin-top: 45%;
+        border-radius: 14px;
+    padding: 10px 10px 35px 10px;
+    width: 77%;
+    height: auto;
+    margin-left: 10.5%;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.35);
+    }
   }
