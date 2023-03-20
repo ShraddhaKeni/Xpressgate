@@ -12,7 +12,7 @@ import SmartDisplayIcon from '@mui/icons-material/SmartDisplay';
 import PaymentsIcon from '@mui/icons-material/Payments';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import { Person2Outlined, PersonAddAlt1Outlined } from '@mui/icons-material';
-
+import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';
 const SideLayOut = () => {
 
   const router = useLocation()
@@ -74,7 +74,7 @@ const SideLayOut = () => {
       </Link>
       <Link to={RouterPath.PARTNER_LIST} style={{ textDecoration: 'none' }} >
         <div className={`nav-item ${router.pathname.includes("partnerlist") && 'font-weight-bold'}`}>
-          <ApartmentIcon className='side-nav-icon margin_icons' fontSize='large' />
+          <HandshakeOutlinedIcon className='side-nav-icon margin_icons' fontSize='large' />
           <span className='ml-3 Labelfont'>Partner Management</span>
         </div>
       </Link>
