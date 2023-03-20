@@ -1,4 +1,4 @@
-import { getRequest, postRequest } from "../axios_client";
+import { getRequest, postRequest, deleteRequest } from "../axios_client";
 
 
 
@@ -129,13 +129,13 @@ export async function deleteCommunity(id) {
 
 // /// PARTNER MANAGEMENT ///
 
-// export async function deleteCommunity(id) {
-//     try {
-//         return await postRequest(`api/partner`, { community_id: id });
-//     } catch (error) {
-//         return error
-//     }
-// }
+export async function deletePartner(id) {
+    try {
+        return await deleteRequest(`/partner/${id}`);
+    } catch (error) {
+        return error
+    }
+}
 
 
 /// Payment Gateways ///

@@ -12,25 +12,24 @@ import { Email } from '@mui/icons-material';
 
 const AddPartner = () => {
 
-    // const [premise, setPremise] = useState({
-    //     name: '',
-    //     type: '',
-    //     noofblocks: parseInt(0),
-    //     address: '',
-    //     landmark: '',
-    //     state: '',
-    //     city: '',
-    //     pincode: '',
-    //     status: true
-    // })
-    // const [toast, setToast] = useState({ show: false })
+    const [partner, setPartner] = useState({
+        firstname: '',
+        lastname: '',
+        username: '',
+        mobileno: '',
+        email: '',
+        password: '',
+        profile_pic: '',
+        status: true,
+        added_by: '63735bb77225962320f4c9d7',
+    })
+    const [toast, setToast] = useState({ show: false })
 
-    // const [states, setState] = useState([])
-    // const [area, setArea] = useState([])
-    // const navigate = useNavigate()
+
+    const navigate = useNavigate()
 
     // useEffect(() => {
-    //     getDetails()
+    //     // getDetails()
     // }, [])
 
     // const getDetails = async () => {
@@ -72,34 +71,35 @@ const AddPartner = () => {
     // }
 
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault()
-    //     try {
+    const handleSubmit = async (e) => {
+        console.log(partner)
+        e.preventDefault()
+        try {
 
-    //         if (premise.name != '' && premise.address != '' && premise.noofblocks != 0 && premise.state != '' && premise.landmark != '' && premise.address != '' && premise.city != '') {
-    //             const { data } = await axios.post(`${window.env_var}api/community/add`, premise)
-    //             if (data.status_code == 200) {
-    //                 setToast(TOAST.SUCCESS(data?.message));
-    //                 goBackInOneSec(navigate)
-    //             } else {
-    //                 setToast(TOAST.ERROR(data?.message));
-    //             }
-    //         }
-    //         else {
-    //             alert('Fields Empty !')
-    //         }
+            if (partner.firstname != '' && partner.lastname != '' && partner.username != '' && partner.mobileno != '' && partner.email != '' && partner.password != '') {
+                const { data } = await axios.post(`${window.env_var}api/partner`, partner)
+                if (data.status_code == 200) {
+                    setToast(TOAST.SUCCESS(data?.message));
+                    goBackInOneSec(navigate)
+                } else {
+                    setToast(TOAST.ERROR(data?.message));
+                }
+            }
+            else {
+                alert('Fields Empty !')
+            }
 
-    //     } catch (error) {
-    //         alert('Could not add Community.!')
-    //     }
+        } catch (error) {
+            alert('Could not add Community.!')
+        }
 
-    // }
+    }
 
 
 
     return (
         <>
-            {/* <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} /> */}
+            <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
 
             <div>
                 <div className='page-label'>
@@ -109,14 +109,14 @@ const AddPartner = () => {
 
                     <Form className='fcadmin'>
 
-                        <SimpleInputComponent label={'First Name'} placeholder={'Enter First Name'} name={'first_name'} id={'firstname'} />
-                        <SimpleInputComponent label={'Last Name'} placeholder={'Enter Last Name'} name={'last_name'} id={'lastname'} />
-                        <SimpleInputComponent label={'User Name'} placeholder={'Enter User Name'} name={'user_name'} id={'username'} />
-                        <SimpleInputComponent label={'Mobile No.'} placeholder={'Enter Mobile Number'} type={'number'} name={'mobile_number'} id={'mobileno'} />
-                        <SimpleInputComponent label={'Email'} name={'email'} placeholder={'Enter Email'} id={'email'} type={'email'} />
-                        <SimpleInputComponent label={'Password'} name={'password'} placeholder={'Enter Password'} id={'password'} type={'password'} />
-                        <SimpleInputComponent label={'Profile Picture'} name={'profile_pic'} id={'profile_pic'} type={'file'}  />
-                        <button type="submit" className="BTN_ADD_premise ">Add Partner</button>
+                        <SimpleInputComponent label={'First Name'} placeholder={'Enter First Name'} name={'first_name'} id={'firstname'}  onChange={(e) => { setPartner({ ...partner, firstname: e.target.value }) }} />
+                        <SimpleInputComponent label={'Last Name'} placeholder={'Enter Last Name'} name={'last_name'} id={'lastname'}  onChange={(e) => { setPartner({ ...partner, lastname: e.target.value }) }}  />
+                        <SimpleInputComponent label={'User Name'} placeholder={'Enter User Name'} name={'user_name'} id={'username'} onChange={(e) => { setPartner({ ...partner, username: e.target.value }) }}  />
+                        <SimpleInputComponent label={'Mobile No.'} placeholder={'Enter Mobile Number'} type={'number'} name={'mobile_number'} id={'mobileno'} onChange={(e) => { setPartner({ ...partner, mobileno: e.target.value }) }}   />
+                        <SimpleInputComponent label={'Email'} name={'email'} placeholder={'Enter Email'} id={'email'} type={'email'} onChange={(e) => { setPartner({ ...partner, email: e.target.value }) }}  />
+                        <SimpleInputComponent label={'Password'} name={'password'} placeholder={'Enter Password'} id={'password'} type={'password'} onChange={(e) => { setPartner({ ...partner, password: e.target.value }) }}  />
+                        <SimpleInputComponent label={'Profile Picture'} name={'profile_pic'} id={'profile_pic'} type={'file'} onChange={(e) => { setPartner({ ...partner, profile_pic: e.target.value }) }}   />
+                        <button type="submit" className="BTN_ADD_premise "  onClick={(e) => handleSubmit(e)}>Add Partner</button>
 
                     </Form>
 

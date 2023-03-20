@@ -7,75 +7,75 @@ import Button from '@mui/material/Button';
 import { ButtonUnstyled } from '@mui/base';
 import { MaterialButton } from '../components/MaterialButton';
 import axios from 'axios';
-import { deleteCommunity } from '../../../common/admin/admin_api';
+import { deletePartner } from '../../../common/admin/admin_api';
 import { Loader } from '../../../components/Loader';
 import { ToastMessage } from '../../../components/ToastMessage';
 
 const PartnerList = () => {
 
     const navigate = useNavigate();
-    // const [toast, setToast] = useState({ show: false })
+    const [toast, setToast] = useState({ show: false })
 
-    const [community, setCommunity] = useState([])
+    const [partner, setPartner] = useState([])
     const [currentPage, setCurrentpage] = useState(0)
     const [postPerPage, setPostPerPage] = useState(10)
     const [currentPosts, setCurrentPosts] = useState([])
-    // const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
 
-    // useEffect(() => {
-    //     getCommunities()
-    // }, [])
+    useEffect(() => {
+        getCommunities()
+    }, [])
 
-    // const getCommunities = async () => {
-    //     try {
-    //         const { data } = await axios.get(`${window.env_var}api/partner`)
-    //         setCommunity(data.data.community)
-    //         const indexoflast = (currentPage + 1) * postPerPage  //endoffset
-    //         const indexoffirst = (indexoflast - postPerPage) //startoffset
-    //         console.log(data.data);
-    //         setCurrentPosts(data.data.community.slice(indexoffirst, indexoflast))
-    //         setLoading(false);
-    //     } catch (error) {
+    const getCommunities = async () => {
+        try {
+            const { data } = await axios.get(`${window.env_var}api/partner`)
+            setPartner(data.data)
+            const indexoflast = (currentPage + 1) * postPerPage  //endoffset
+            const indexoffirst = (indexoflast - postPerPage) //startoffset
+            console.log(data.data);
+            setCurrentPosts(data.data.slice(indexoffirst, indexoflast))
+            setLoading(false);
+        } catch (error) {
 
-    //     }
-    // }
-    // async function paginate(event) {
+        }
+    }
+    async function paginate(event) {
 
-    //     setCurrentpage(event.selected)
-    //     const indexoflast = (event.selected + 1) * postPerPage  //endoffset
-    //     const indexoffirst = (indexoflast - postPerPage) //startoffset
-    //     setCurrentPosts(community.slice(indexoffirst, indexoflast))
-    // }
+        setCurrentpage(event.selected)
+        const indexoflast = (event.selected + 1) * postPerPage  //endoffset
+        const indexoffirst = (indexoflast - postPerPage) //startoffset
+        setCurrentPosts(partner.slice(indexoffirst, indexoflast))
+    }
 
-    // const removePremise = async (id) => {
-    //     await deleteCommunity(id);
-    //     setToast({ show: true, type: "success", message: "Deleted Successfully!" });
-    //     getCommunities();
-    // }
+    const removePremise = async (id) => {
+        await deletePartner(id);
+        setToast({ show: true, type: "success", message: "Deleted Successfully!" });
+        getCommunities();
+    }
 
     const handleAddPartner = () => {
         navigate('/addnewpartner')
     }
 
-    // const handleEditClick = (id) => {
+    const handleEditClick = (id) => {
 
-    //     navigate('/updatepartner', { state: { id } })
-    // }
+        navigate('/updatepartner', { state: { id } })
+    }
 
-    // async function findText(e) {
-    //     let text = community.filter(x => x.name.toLowerCase().includes(e.target.value.toLowerCase()))
-    //     if (text) {
-    //         setCurrentPosts(text)
-    //     }
-    //     else {
-    //         await paginate(0)
-    //     }
+    async function findText(e) {
+        let text = partner.filter(x => x.name.toLowerCase().includes(e.target.value.toLowerCase()))
+        if (text) {
+            setCurrentPosts(text)
+        }
+        else {
+            await paginate(0)
+        }
 
-    // }
+    }
 
     return (
         <>
-            {/* <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} /> */}
+            <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
 
             {/* <Loader loading={loading}> */}
                 <div>
@@ -86,7 +86,7 @@ const PartnerList = () => {
                         <div className='table-top-right-content'>
                             <div className='table-search pl-2'>
                                 <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-                                <span><input className='search' placeholder='Search'  /></span>
+                                <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }}   /></span>
                             </div>
 
                             <div className="table-add-new-button" onClick={handleAddPartner}>
@@ -107,16 +107,18 @@ const PartnerList = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* {currentPosts.map((item, index) => {
+                                {currentPosts.map((item, index) => {
                                     return (
                                         <tr>
                                             <td>{index + 1 + (currentPage * postPerPage)}</td>
-                                            <td>{item.name}</td>
-                                            <td>{item.noofblocks}</td>
-                                            <td><ButtonUnstyled className='approve-active'>{item.status == true ? 'UnActive' : 'Active'}</ButtonUnstyled></td>
+                                            <td>{item.firstname}</td>
+                                            <td>{item.lastname}</td>
+                                            <td>{item.mobileno}</td>
+                                     
+                                            <td><ButtonUnstyled className='approve-active'>{item.status == true ? 'Active' : 'InActive'}</ButtonUnstyled></td>
                                             <td>
                                                 <div>
-                                                    <IconButton onClick={() => { handleEditClick(item.id) }}>
+                                                    <IconButton onClick={() => { handleEditClick(item._id) }}>
                                                         <img src="/images/icon_edit.svg" />
                                                     </IconButton>
 
@@ -128,7 +130,7 @@ const PartnerList = () => {
                                             </td>
                                         </tr>
                                     )
-                                })} */}
+                                })}
 
 
                             </tbody>
