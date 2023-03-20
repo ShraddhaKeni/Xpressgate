@@ -16,7 +16,6 @@ const Dashboard = () => {
   const [entryData, setEntryData] = useState({});
   const [message, setMessage] = useState({});
   const [menu, setMenuOpen] = useState(false);
-  const [result, setResult] = useState('');
   const [data, setData] = useState("Not Found");
   const [torchOn, setTorchOn] = useState(false);
   const [selected, setSelected] = useState("environment");

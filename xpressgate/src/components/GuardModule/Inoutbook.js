@@ -13,6 +13,7 @@ import ErrorScreen from '../../common/ErrorScreen';
 import Pagination from '../../common/Pagination';
 import Table from 'react-bootstrap/Table';
 import GuardMobileSidebar from '../GuardMobileSidebar';
+import moment from 'moment';
 const Inoutbook = () => {
   const [inoutdata, setInoutdata] = useState([])
   const navigate = useNavigate()
@@ -53,6 +54,18 @@ const Inoutbook = () => {
     }
 
   }, [])
+
+  const calculateParkingTime = (intime, outtime) => {
+    if (intime && outtime) {
+      var duration = moment.duration(moment(outtime).diff(moment(intime)));
+      console.log(duration);
+      let hours = duration.asHours() ? duration.asHours().toFixed(0) + " Hrs" : ""
+      var minutes = hours + duration.asMinutes() ? duration.asMinutes().toFixed(0) + " Mins" : ""
+      return minutes;
+    } else {
+      return "";
+    }
+  }
 
   const getInOutBookData = async () => {
     try {
@@ -147,9 +160,9 @@ const Inoutbook = () => {
                             <td>{iodata.flat_number}</td>
                             <td>{date}</td>
                             <td>{dateTimeFormat(iodata.intime)}</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
+                            <td>{iodata.parking_section_details}</td>
+                            <td>{calculateParkingTime(iodata.intime, iodata.outtime)}</td>
+                            <td>{iodata.vehicle_no}</td>
                             <td>{iodata.status == '1' ? 'In' : 'Out'}</td>
                           </tr>)
                       })}
