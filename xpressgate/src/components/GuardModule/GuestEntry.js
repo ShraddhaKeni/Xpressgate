@@ -94,8 +94,8 @@ const GuestEntry = () => {
         status: 1,
         allowed_by: localStorage.getItem('guard_id'),
         vehicle_no: document.getElementById('veh_id').value,
-        parking_section: document.getElementById('parking_section').value,
-        parking_time: document.getElementById('parking_time').value
+        parking_section: document.getElementById('parkingsection').value,
+        parking_time: document.getElementById('parkingtime').value
 
       }
       setError(false)
@@ -107,7 +107,10 @@ const GuestEntry = () => {
       }, 1500);
       // navigate('/guestlist')
     } catch (error) {
-      setError(true)
+      //setError(true)
+      console.log(error);
+      setToast({ show: true, type: "error", message: "Please fill required fields" })
+
     }
 
   }

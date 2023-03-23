@@ -161,7 +161,9 @@ const Inoutbook = () => {
                             <td>{date}</td>
                             <td>{dateTimeFormat(iodata.intime)}</td>
                             <td>{iodata.parking_section_details}</td>
-                            <td>{calculateParkingTime(iodata.intime, iodata.outtime)}</td>
+                            <td>{/*{calculateParkingTime(iodata.intime, iodata.outtime)}*/}
+                              {iodata.parking_time}
+                            </td>
                             <td>{iodata.vehicle_no}</td>
                             <td>{iodata.status == '1' ? 'In' : 'Out'}</td>
                           </tr>)
