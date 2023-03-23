@@ -86,7 +86,7 @@ const PartnerList = () => {
                         <div className='table-top-right-content'>
                             <div className='table-search pl-2'>
                                 <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-                                <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }}   /></span>
+                                <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }}  /></span>
                             </div>
 
                             <div className="table-add-new-button" onClick={handleAddPartner}>
@@ -135,9 +135,10 @@ const PartnerList = () => {
 
                             </tbody>
                         </table>
-                        {/* {community.length > postPerPage && <div className='paginate'>
-                            <PaginationCalculate totalPages={community.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
-                        </div>} */}
+                        <br/>
+                        {partner.length > postPerPage && <div className='paginate'>
+                            <PaginationCalculate totalPages={partner.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+                        </div>}
                     </div >
                 </div >
             {/* </Loader> */}
