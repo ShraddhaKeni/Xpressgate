@@ -125,7 +125,6 @@ return <ErrorScreen/>
             </thead>
             <tbody>
               {currentPosts.map(item=>{
-                console.log(item)
                 return(
                   <tr onClick={() => guestDetails(item.Guest_id)}>
                     <td>{item.guestFirstName} {item.guestLastName}</td>
