@@ -38,7 +38,7 @@ const PackageList = () => {
 
   const getBookedPlan= async()=>{
     try {
-      const {data} = await axios.get(`${window.env_var}api/packagebook/getAll/${localStorage.getItem('community_id')}`)
+      const {data} = await axios.get(`${window.env_var}api/packagebook/get/${localStorage.getItem('community_id')}`)
       setBooked(data.data.booked[0])
       await getData()
       //setting html data
