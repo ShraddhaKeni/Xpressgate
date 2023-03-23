@@ -11,6 +11,7 @@ import ErrorScreen from "../../common/ErrorScreen";
 import { goBackInOneSec, reloadInOneSec, TOAST } from "../../common/utils";
 import { ToastMessage } from "../ToastMessage";
 import { mobileValidation } from "../auth/validation";
+import Societyheader from "./Utils/Societyheader";
 
 const AddChecklistCommunityStaff = () => {
     const [loading, setLoading] = useState(true)
@@ -155,14 +156,8 @@ const AddChecklistCommunityStaff = () => {
             <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
 
             <div id="addflatsection">
-                <div className="addflatheadersection">
-                    <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-                    <div id="afsociety"><label>Society</label></div>
-                    <div id="afspace"></div>
-                    <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-                    <div id="afsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-                    <div id="aflogoutbutton"><LogOut /></div>
-                </div>
+                <Societyheader />
+
 
             </div>
             <div id="societynamesection">

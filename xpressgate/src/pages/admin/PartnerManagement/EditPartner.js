@@ -13,7 +13,7 @@ import { id } from 'date-fns/locale';
 
 const EditPartner = () => {
 
-  
+
     const location = useLocation()
     const [partner, setPartner] = useState({
         firstname: '',
@@ -28,16 +28,16 @@ const EditPartner = () => {
     })
     const [toast, setToast] = useState({ show: false })
 
-    
+
     const [re_render, setRender] = useState(false)
     const navigate = useNavigate()
 
     // const city = useRef()
 
     useEffect(() => {
-      
-getCommunity()
- }, [])
+
+        getCommunity()
+    }, [])
 
     const getCommunity = async () => {
         try {
@@ -52,20 +52,19 @@ getCommunity()
                 username: data.data.username,
                 mobileno: data.data.mobileno,
                 email: data.data.email,
-                password: data.data.password,
-               profile_pic: data.data.profile_pic,
+                profile_pic: data.data.profile_pic,
                 status: true
             })
-            document.getElementById('firstname').defaultValue = data.data.firstname
-            document.getElementById('lastname').defaultValue = data.data.lastname
-            document.getElementById('username').defaultValue = data.data.username
-            document.getElementById('mobileno').defaultValue = data.data.mobileno
-            document.getElementById('email').value = data.data.email
+            // document.getElementById('firstname').defaultValue = data.data.firstname
+            //document.getElementById('lastname').defaultValue = data.data.lastname
+            //document.getElementById('username').defaultValue = data.data.username
+            //document.getElementById('mobileno').defaultValue = data.data.mobileno
+            // document.getElementById('email').value = data.data.email
 
             // await getArea(data.data.community[0].state)
-            document.getElementById('password').value = data.data.password
+            // document.getElementById('password').value = data.data.password
 
-            document.getElementById('profile_pic').defaultValue = data.data.profile_pic
+            // document.getElementById('profile_pic').defaultValue = data.data.profile_pic
             return data.data
         } catch (error) {
             console.log(error)
@@ -147,14 +146,14 @@ getCommunity()
                 <div>
 
                     <Form className='fcadmin'>
-                    <SimpleInputComponent label={'First Name'} placeholder={'Enter First Name'} name={'first_name'} id={'firstname'} text={partner.firstname}  onChange={(e) => { setPartner({ ...partner, firstname: e.target.value }) }} />
-                        <SimpleInputComponent label={'Last Name'} placeholder={'Enter Last Name'} name={'last_name'} id={'lastname'} text={partner.lastname} onChange={(e) => { setPartner({ ...partner, lastname: e.target.value }) }}  />
-                        <SimpleInputComponent label={'User Name'} placeholder={'Enter User Name'} name={'user_name'} id={'username'} text={partner.username} onChange={(e) => { setPartner({ ...partner, username: e.target.value }) }}  />
-                        <SimpleInputComponent label={'Mobile No.'} placeholder={'Enter Mobile Number'} type={'number'} name={'mobile_number'} text={partner.mobileno} id={'mobileno'} onChange={(e) => { setPartner({ ...partner, mobileno: e.target.value }) }}   />
-                        <SimpleInputComponent label={'Email'} name={'email'} placeholder={'Enter Email'} id={'email'} type={'email'} text={partner.email} onChange={(e) => { setPartner({ ...partner, email: e.target.value }) }}  />
-                        <SimpleInputComponent label={'Password'} name={'password'} placeholder={'Enter Password'} id={'password'} type={'password'} text={partner.password} onChange={(e) => { setPartner({ ...partner, password: e.target.value }) }}  />
-                        <SimpleInputComponent label={'Profile Picture'} name={'profile_pic'} id={'profile_pic'} type={'file'} text={partner.profile_pic} onChange={(e) => { setPartner({ ...partner, profile_pic: e.target.value }) }}   />
-                        <button type="submit" className="BTN_ADD_premise "  onClick={(e) => handleSubmit(e)}>Add Partner</button>
+                        <SimpleInputComponent label={'First Name'} placeholder={'Enter First Name'} name={'first_name'} id={'firstname'} text={partner.firstname} onChange={(e) => { setPartner({ ...partner, firstname: e.target.value }) }} />
+                        <SimpleInputComponent label={'Last Name'} placeholder={'Enter Last Name'} name={'last_name'} id={'lastname'} text={partner.lastname} onChange={(e) => { setPartner({ ...partner, lastname: e.target.value }) }} />
+                        <SimpleInputComponent label={'User Name'} placeholder={'Enter User Name'} name={'user_name'} id={'username'} text={partner.username} onChange={(e) => { setPartner({ ...partner, username: e.target.value }) }} />
+                        <SimpleInputComponent label={'Mobile No.'} placeholder={'Enter Mobile Number'} type={'number'} name={'mobile_number'} text={partner.mobileno} id={'mobileno'} onChange={(e) => { setPartner({ ...partner, mobileno: e.target.value }) }} />
+                        <SimpleInputComponent label={'Email'} name={'email'} placeholder={'Enter Email'} id={'email'} type={'email'} text={partner.email} onChange={(e) => { setPartner({ ...partner, email: e.target.value }) }} />
+                        <SimpleInputComponent label={'Password'} name={'password'} placeholder={'Enter Password'} id={'password'} type={'password'} onChange={(e) => { setPartner({ ...partner, password: e.target.value }) }} />
+                        <SimpleInputComponent label={'Profile Picture'} name={'profile_pic'} id={'profile_pic'} type={'file'} onChange={(e) => { setPartner({ ...partner, profile_pic: e.target.value }) }} />
+                        <button type="submit" className="BTN_ADD_premise " onClick={(e) => handleSubmit(e)}>Add Partner</button>
 
 
                     </Form>
