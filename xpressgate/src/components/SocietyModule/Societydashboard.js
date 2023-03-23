@@ -55,7 +55,7 @@ const Societydashboard = () => {
             <label>Society Dashboard</label>
           </div>
           <Loader loading={loading}>
-            <div id="cardsection">
+            <div id="Cardsection">
               <div className="row row-cols-1 row-cols-md-3 g-4 sdfullcardscss allcards">
                 <div className="col card_hover_animation ">
                   <div className="sddashboardcard">
@@ -115,6 +115,11 @@ const Societydashboard = () => {
                 <div className="col card_hover_animation">
                   <div className="sddashboardcard">
                     <img src="/images/guestmanagement.svg" className="dbcard-img-top" alt="Guest Parking Section" onClick={() => { window.location.href = '/guestparking ' }}></img>
+                  </div>
+                </div>
+                <div className="col card_hover_animation">
+                  <div className="sddashboardcard">
+                    <img src="/images/guestmanagement.svg" className="dbcard-img-top" alt="Participant Management" onClick={() => { window.location.href = '/participantlist ' }}></img>
                   </div>
                 </div>
               </div>

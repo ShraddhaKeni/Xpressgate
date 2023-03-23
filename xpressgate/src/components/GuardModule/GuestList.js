@@ -97,6 +97,10 @@ const GuestList = () => {
     setCurrentPosts(value)
   }
 
+  function settingPage(value){
+    setCurrentpage(value)
+  }
+
   if (isLoading)
     return <Loader />
   if (isError)
@@ -165,7 +169,7 @@ const GuestList = () => {
                     </tbody>
                   </Table>
                 </div>
-                <Pagination totalPages={filterArr.length > 0 ? filterArr.length : guests.length} data={filterArr.length > 0 ? filterArr : guests} settingCurrent={settingCurrent} />
+                <Pagination totalPages={filterArr.length > 0 ? filterArr.length : guests.length} data={filterArr.length > 0 ? filterArr : guests} settingCurrent={settingCurrent} settingPage={settingPage} />
               </main>
             </div>
 

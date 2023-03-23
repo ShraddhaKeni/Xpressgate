@@ -161,7 +161,6 @@ const Addinout = () => {
       }
 
       const { data } = await axios.post(`${window.env_var}api/inout/addbyguard`, sendData)
-      //console.log(sendData)
       setToast({ show: true, type: "success", message: "Added Successfully" })
       setTimeout(() => {
         window.location.href = '/inoutbook'

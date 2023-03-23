@@ -38,11 +38,10 @@ const Guardlist = () => {
   }
 
   async function paginate(event) {
-    const { data } = await axios.get(`${window.env_var}api/guard/getall`)
     setCurrentpage(event.selected + 1)
     const indexoflast = (event.selected + 1) * postPerPage  //endoffset
     const indexoffirst = (indexoflast - postPerPage) //startoffset
-    setCurrentPosts(data.data.Guards.slice(indexoffirst, indexoflast))
+    setCurrentPosts(Guards.slice(indexoffirst, indexoflast))
   }
 
   function guardDetails(id) {
@@ -114,7 +113,7 @@ const Guardlist = () => {
               {currentPosts.map((item, index) => {
                 return (
                   <tr onClick={() => guardDetails(item.id)}>
-                    <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1 + 1) + (index + 1)}</td>
+                    <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1) * 12 + (index + 1)}</td>
                     <td >{item.firstname} {item.lastname}</td>
                     <td>{item.mobileno}</td>
                     <td>{item.email}</td>
