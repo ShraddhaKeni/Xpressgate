@@ -8,7 +8,7 @@ html {
   grid-template-columns: 0.5fr 2fr;
   grid-template-rows: 0.2fr 2fr;
   grid-template-areas: "headersection headersection"
-    "guardnamesection cardsection"
+    "guardnamesection Cardsection"
 }
 
 input::-webkit-outer-spin-button,
@@ -65,11 +65,12 @@ color: #000000;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-#cardsection {
+#Cardsection {
   /* background-color: blue; */
-  grid-area: cardsection;
+  grid-area: Cardsection;
   position: relative;
-
+height: 750px;
+overflow-y: scroll;
 }
 
 /* .dashboardbackgroundimg {

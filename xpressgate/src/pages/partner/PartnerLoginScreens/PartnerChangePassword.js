@@ -1,138 +1,139 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../../../components/SocietyModule/ChangePassword.css";
-// import { useLocation } from "react-router-dom";
-// import { validatePassword } from "../auth/validation";
+import { useLocation } from "react-router-dom";
+import { validatePassword } from "../../../components/auth/validation";
 import { Form, Button } from "react-bootstrap";
-// import axios from "axios";
+import axios from "axios";
 // import Societyheader from "./Utils/Societyheader";
-// import { Loader } from "../Loader";
-// import { ToastMessage } from "../ToastMessage";
+import { Loader } from "../../../components/Loader";
+import { ToastMessage } from "../../../components/ToastMessage";
+import { id } from "date-fns/locale";
 
 const ChangePassword = () => {
-//   const [toast, setToast] = useState({ show: false });
-//   const password = useRef([]);
-//   const confirmPass = useRef([]);
-//   const oldpass = useRef([]);
-//   const [mem, setMem] = useState({});
-//   const [loading, setLoading] = useState(true);
+  const [toast, setToast] = useState({ show: false });
+  const password = useRef([]);
+  const confirmPass = useRef([]);
+  const oldpass = useRef([]);
+  const [mem, setMem] = useState({});
+  const [loading, setLoading] = useState(true);
 
-//   const initialState = {
-//     password: "",
-//     confirmPass: "",
-//   };
+  const initialState = {
+    password: "",
+    confirmPass: "",
+  };
 
-//   const passVerificationError = {
-//     isLenthy: false,
-//     hasUpper: false,
-//     hasLower: false,
-//     hasNumber: false,
-//     hasSpclChr: false,
-//     confirmPass: false,
-//   };
-//   const [passwordError, setPasswordError] = useState(passVerificationError);
-//   const [newUser, setNewUser] = useState(initialState);
+  const passVerificationError = {
+    isLenthy: false,
+    hasUpper: false,
+    hasLower: false,
+    hasNumber: false,
+    hasSpclChr: false,
+    confirmPass: false,
+  };
+  const [passwordError, setPasswordError] = useState(passVerificationError);
+  const [newUser, setNewUser] = useState(initialState);
 
-//   useEffect(() => {
-//     getDetails();
-//     setLoading(false);
-//   }, []);
+  useEffect(() => {
+    // getDetails();
+    setLoading(false);
+  }, []);
 
-//   const handleOnChange = (e) => {
-//     const { name, value } = e.target;
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
 
-//     setNewUser({ ...newUser, [name]: value });
+    setNewUser({ ...newUser, [name]: value });
 
-//     if (name === "password") {
-//       const isLenthy = value.length > 8;
-//       const hasUpper = /[A-Z]/.test(value);
-//       const hasLower = /[a-z]/.test(value);
-//       const hasNumber = /[0-9]/.test(value);
-//       const hasSpclChr = /[@,#,$,%,&]/.test(value);
+    if (name === "password") {
+      const isLenthy = value.length > 8;
+      const hasUpper = /[A-Z]/.test(value);
+      const hasLower = /[a-z]/.test(value);
+      const hasNumber = /[0-9]/.test(value);
+      const hasSpclChr = /[@,#,$,%,&]/.test(value);
 
-//       setPasswordError({
-//         ...passwordError,
-//         isLenthy,
-//         hasUpper,
-//         hasLower,
-//         hasNumber,
-//         hasSpclChr,
-//       });
-//     }
+      setPasswordError({
+        ...passwordError,
+        isLenthy,
+        hasUpper,
+        hasLower,
+        hasNumber,
+        hasSpclChr,
+      });
+    }
 
-//     if (name === "confirmPass") {
-//       setPasswordError({
-//         ...passwordError,
-//         confirmPass: newUser.password === value,
-//       });
-//     }
-//   };
+    if (name === "confirmPass") {
+      setPasswordError({
+        ...passwordError,
+        confirmPass: newUser.password === value,
+      });
+    }
+  };
 
-//   const getDetails = async () => {
-//     try {
-//       const { data } = await axios.get(
-//         `${window.env_var}api/society/getOne/${localStorage.getItem("member_id")}`
-//       );
-//       setMem(data.data.Member[0]);
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
+  // const getDetails = async () => {
+  //   try {
+  //     const { data } = await axios.get(
+  //       `${window.env_var}api/partner/${id})}`
+  //     );
+  //     setMem(data.data.Member[0]);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       if (await validatePassword(password.current.value)) {
-//         if (password.current.value === confirmPass.current.value && password.current.value !== "" && confirmPass.current.value !== "") 
-//         {
-//           const config = {
-//             headers: {
-//               "x-access-token": localStorage.getItem("accesstoken"),
-//             },
-//           };
-//           const sendData = {
-//             username: mem.username,
-//             password: oldpass.current.value,
-//             newpassword: password.current.value,
-//             confirmpassword: confirmPass.current.value,
-//             id: localStorage.getItem("member_id"),
-//           };
-//           const { data } = await axios.post(`${window.env_var}api/society/changepassword`, sendData, config );
-//           if(data.status_code == 200)
-//           {
-//             setToast({ show: true, type: "success", message: "Password changed successfully" });
-//             setTimeout(() => {
-//               window.location.href='/scDashboard'
-//             }, 1500);
-//           }
-//           else{
-//             setToast({ show: true, type: "error", message: "Something went wrong, please try again later" });
-//           }
-//         }
-//       } else {
-//         setToast({
-//           show: true,
-//           type: "error",
-//           message:
-//             "Password must be at least 8 characters long must contain a number, uppercase lowercase and a special character.",
-//         });
-//         document.querySelector("input").style.border = "1px solid red";
-//       }
-//     } catch (error) {
-//       console.log(error);
-//       document.querySelector("input").style.border = "1px solid red";
-//     }
-//   };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      if (await validatePassword(password.current.value)) {
+        if (password.current.value === confirmPass.current.value && password.current.value !== "" && confirmPass.current.value !== "") 
+        {
+          const config = {
+            headers: {
+              "x-access-token": localStorage.getItem("accesstoken"),
+            },
+          };
+          const sendData = {
+            username: mem.username,
+            password: oldpass.current.value,
+            newpassword: password.current.value,
+            confirmpassword: confirmPass.current.value,
+            id: localStorage.getItem("partner_id"),
+          };
+          const { data } = await axios.post(`${window.env_var}api/partner/changepassword`, sendData, config );
+          if(data.status_code == 200)
+          {
+            setToast({ show: true, type: "success", message: "Password changed successfully" });
+            setTimeout(() => {
+              window.location.href='/partner/dashboard'
+            }, 1500);
+          }
+          else{
+            setToast({ show: true, type: "error", message: "Something went wrong, please try again later" });
+          }
+        }
+      } else {
+        setToast({
+          show: true,
+          type: "error",
+          message:
+            "Password must be at least 8 characters long must contain a number, uppercase lowercase and a special character.",
+        });
+        document.querySelector("input").style.border = "1px solid red";
+      }
+    } catch (error) {
+      console.log(error);
+      document.querySelector("input").style.border = "1px solid red";
+    }
+  };
   return (
         <>
-        {/* <ToastMessage
+        <ToastMessage
           show={toast.show}
           message={toast.message}
           type={toast.type}
           handleClose={() => {
             setToast({ show: false });
           }}
-        /> */}
-        {/* <Loader loading={loading}> */}
+        />
+        <Loader loading={loading}>
           <div className="GuestL_display">
             <label>Change Password</label>
           </div>
@@ -143,8 +144,8 @@ const ChangePassword = () => {
                   <div class="col-lg-6">
                     <label className="scpcppassword">Current Password</label>
                     <input
-                    //   ref={oldpass}
-                      type="text"
+                      ref={oldpass}
+                      type="password"
                       className="form-control input-lg CP_Border"
                       id="oldpass"
                       placeholder="Current Password"
@@ -159,12 +160,12 @@ const ChangePassword = () => {
                   <div class="col-lg-6">
                     <label className="ncppassword">New Password</label>
                     <input
-                    //   ref={password}
+                      ref={password}
                       type="password"
                       className="form-control input-lg CP_Border"
                       id="loginpassword"
                       placeholder="New Password"
-                      name="password" 
+                      name="password"  value={newUser.password} onChange={handleOnChange}
                     ></input>
                   </div>
                 </div>
@@ -175,12 +176,12 @@ const ChangePassword = () => {
                   <div class="col-lg-6">
                     <label className="cscppassword">Confirm Password</label>
                     <input
-                    //   ref={confirmPass}
+                      ref={confirmPass}
                       type="password"
                       className="form-control input-lg CP_Border"
                       id="loginpassword"
                       placeholder="Confirm Password"
-                      name="confirmPass" 
+                      name="confirmPass"  value={newUser.password} onChange={handleOnChange}
                     ></input>
                   </div>
                 </div>
@@ -188,7 +189,7 @@ const ChangePassword = () => {
             </div>
             <br/>
             <div className="SocNoticeContainer">
-              {/* <Form.Text>
+              <Form.Text>
                 {!passwordError.confirmPass && (
                   <div className="text-danger mb-3">Password doesn't match!</div>
                 )}
@@ -209,17 +210,17 @@ const ChangePassword = () => {
                 <li className={ passwordError.hasSpclChr ? "text-success" : "text-danger" } >
                   At least on of the special characters i.e @ # $ % &{" "}
                 </li>
-              </ul>   */}
+              </ul>  
             </div>
             <button
               type="submit"
-            //   onClick={(e) => handleSubmit(e)}
+              onClick={(e) => handleSubmit(e)}
               className="btnUpdatecp"
             >
               Update
             </button>
           </Form>
-        {/* </Loader> */}
+        </Loader>
    </>
   );
 };

@@ -152,9 +152,39 @@ text-decoration: none;
   margin-left: 8%;
   margin-bottom: 3%;
 }
+.ParticipantsideImg img {
+  display: flex;
+  margin-top: 114%;
+  max-width: 90%;
+  height: auto;
+  margin-left: 8%;
+  margin-bottom: 3%;
+}
+.AddPButn{
+  width: 9rem;
+  height: 3rem;
+  border: none;
+  outline: none;
+  background-color: #0A8996;
+  color: #F9FAFF;
+  font-size: 1.5rem;
+  font-weight: 500;
+  border-radius: 5px;
+  padding: 1%;
+}
+.AddPButn:hover{
+  background-color: #14335D;
+}
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
 
   .viewGparking_sideimg img {
+    display: flex;
+    margin-top: 110%;
+    max-width: 86%;
+    height: auto;
+    margin-left: 8%;
+  }
+  .ParticipantsideImg img {
     display: flex;
     margin-top: 110%;
     max-width: 86%;
