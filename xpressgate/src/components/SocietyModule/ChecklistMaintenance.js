@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import { reloadInOneSec, TOAST } from "../../common/utils";
 import { ToastMessage } from "../ToastMessage";
+import Societyheader from "./Utils/Societyheader";
 
 
 const ChecklistMaintenance = () => {
@@ -86,15 +87,7 @@ const ChecklistMaintenance = () => {
             <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
 
             <div id="addflatsection">
-                <div className="addflatheadersection">
-                    <div id="aflogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
-                    <div id="afsociety"><label>Society</label></div>
-                    <div id="afspace"></div>
-                    <div id="afnotification"><a href="abc"><img src="/images/notification.svg" alt="notificationicon" /></a></div>
-                    <div id="afsetting"><a href="/changesocpassword"><img src="/images/setting.svg" alt="settingicon" /></a></div>
-                    <div id="aflogoutbutton"><LogOut /></div>
-                </div>
-
+                <Societyheader />
             </div>
             <div id="societynamesection">
                 <div className="GL_societyname">
@@ -144,7 +137,7 @@ const ChecklistMaintenance = () => {
                             return (
 
                                 <tr>
-                                    <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1 + 1) + (index + 1)}</td>
+                                    <td>{(currentPage - 1) * postPerPage + (index + 1)}</td>
                                     <td >{item.item}</td>
                                     <td>{item.frequency}</td>
                                     <td>{item.other_details}</td>
