@@ -191,7 +191,7 @@ const Addemergencyno = () => {
             <div class="form-group form-group5 row">
               <label class="col-lg-2 col-form-label ADN_label ">Phone Number</label>
               <div class="col-lg-4">
-                {econtact ? <input type="number" id="contact_number" ref={contact} defaultValue={econtact} name="Phone Number" className="form-control input-lg input-lg1 AEN_border" placeholder="Contact"></input> : <input type="number" class="form-control input-lg input-lg1 AEN_border" id="contact_number" ref={contact} name="Phone Number" placeholder="Contact"></input>}
+                {econtact ? <input type="number" id="contact_number" ref={contact} defaultValue={econtact} name="Phone Number" className="form-control input-lg input-lg1 AEN_border" maxLength="10" placeholder="Contact"></input> : <input type="number" class="form-control input-lg input-lg1 AEN_border" id="contact_number" ref={contact} name="Phone Number" maxLength="10" placeholder="Contact"></input>}
               </div>
             </div>
 

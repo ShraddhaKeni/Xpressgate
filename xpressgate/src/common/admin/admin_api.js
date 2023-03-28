@@ -225,3 +225,12 @@ export async function deleteSlider(id) {
         return error
     }
 }
+
+/// commission ///
+export async function deleteCommission(id) {
+    try {
+        return await postRequest(`commission/delete`, { id: id });
+    } catch (error) {
+        return error
+    }
+}

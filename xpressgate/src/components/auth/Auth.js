@@ -24,6 +24,14 @@ export const checkGuard = ()=>{
     }
 }
 
+export const checkPartner = ()=>{
+    if (localStorage.getItem('mode')=='partner') {
+        return true
+    } else {
+        return false
+    }
+}
+
 
 export const checkGuardLogin = ()=>{
     

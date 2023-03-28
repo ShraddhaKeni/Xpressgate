@@ -8,7 +8,7 @@ import PaginationCalculate from './Utils/paginationCalculate';
 import { useNavigate } from 'react-router-dom';
 import GuardHeader from './Utils/GuardHeader';
 import { checkGuard } from '../auth/Auth'
-import Loader from '../../common/Loader';
+import { Loader } from "../Loader";
 import ErrorScreen from '../../common/ErrorScreen.js';
 import Pagination from '../../common/Pagination';
 import Table from 'react-bootstrap/Table';
@@ -20,10 +20,10 @@ const GuestList = () => {
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts, setCurrentPosts] = useState([])
   const [pageCount, setpageCount] = useState(0)
-  const [isLoading, setLoading] = useState(true)
   const [isError, setError] = useState(false)
   const [filterArr, setFilter] = useState([])
   const [menu, setMenuOpen] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   const navigate = useNavigate()
   useEffect(() => {
@@ -65,14 +65,10 @@ const GuestList = () => {
     }
   }
   const dateTimeFormat = (time) => {
-    // var d = new Date(date)
-    // return (d.getHours()-5) + ':' + d.getMinutes()
-    //console.log(time) //2022-11-24 T 12:09:03.184 Z
     let ntime = time.split('T');
     let titime = ntime[1].split('.');
     console.log(titime[0])
     return titime[0]
-
   }
 
 
@@ -81,13 +77,6 @@ const GuestList = () => {
     return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate()
 
   }
-
-  // async function paginate(event) {
-  //   setCurrentpage(event.selected + 1)
-  //   const indexoflast = (event.selected + 1) * postPerPage  //endoffset
-  //   const indexoffirst = (indexoflast - postPerPage) //startoffset
-  //   setCurrentPosts(guests.slice(indexoffirst, indexoflast))
-  // }
 
   const guestEntry = async (id) => {
     navigate('/guestentry', { state: { id: id } })
@@ -101,8 +90,6 @@ const GuestList = () => {
     setCurrentpage(value)
   }
 
-  if (isLoading)
-    return <Loader />
   if (isError)
     return <ErrorScreen />
 
@@ -124,7 +111,7 @@ const GuestList = () => {
             </div>
             <div className='GuestLsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
           </div>
-
+          <Loader loading={loading}>
           <div className='flex-1 d-flex' style={{ width: "100%", height: '100%' }}>
             <div className='new-main-container'>
               <main>
@@ -174,6 +161,7 @@ const GuestList = () => {
             </div>
 
           </div>
+          </Loader>
         </div>
 
 
