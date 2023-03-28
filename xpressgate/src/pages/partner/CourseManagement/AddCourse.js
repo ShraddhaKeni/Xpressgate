@@ -13,6 +13,7 @@ function AddCourse() {
   const [programType, setProgramType] = useState(0)
   const [ProgramCategory, setProgramCategory] = useState(0)
   const [program, setProgram] = useState({
+    partner: localStorage.getItem('partner_id'),
     name: "",
     category: "",
     max_members: "",

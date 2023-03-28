@@ -43,6 +43,9 @@ import AdminChangePass from './LoginScreens/AdminChangePass';
 import PartnerList from './PartnerManagement/PartnerList';
 import AddPartner from './PartnerManagement/AddPartner';
 import EditPartner from './PartnerManagement/EditPartner';
+import CommissionList from './CommissionManagement/CommissionList';
+import AddCommission from './CommissionManagement/AddCommission';
+import EditCommission from './CommissionManagement/EditCommission';
 
 
 const AdminModuleComponent = () => {
@@ -160,7 +163,15 @@ const AdminModuleComponent = () => {
     if (router.pathname === "/adminchangepassword") {
         children = (<AdminChangePass />)
     }
-  
+    if (router.pathname === RouterPath.COMMISSION_LIST) {
+        children = (<CommissionList />)
+    }
+    if (router.pathname === RouterPath.ADD_COMMISSION) {
+        children = (<AddCommission />)
+    }
+    if (router.pathname === RouterPath.EDIT_COMMISSION) {
+        children = (<EditCommission />)
+    }
     return (
         <div className='flex flex-col'>
 

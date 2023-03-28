@@ -181,7 +181,7 @@ const ChangePassword = () => {
                       className="form-control input-lg CP_Border"
                       id="loginpassword"
                       placeholder="Confirm Password"
-                      name="confirmPass"  value={newUser.password} onChange={handleOnChange}
+                      name="confirmPass"  value={newUser.confirmPass} onChange={handleOnChange}
                     ></input>
                   </div>
                 </div>

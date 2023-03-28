@@ -13,6 +13,7 @@ import PaymentsIcon from '@mui/icons-material/Payments';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import { Person2Outlined, PersonAddAlt1Outlined } from '@mui/icons-material';
 import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';
+import CurrencyExchangeOutlinedIcon from '@mui/icons-material/CurrencyExchangeOutlined';
 const SideLayOut = () => {
 
   const router = useLocation()
@@ -76,6 +77,12 @@ const SideLayOut = () => {
         <div className={`nav-item ${router.pathname.includes("partnerlist") && 'font-weight-bold'}`}>
           <HandshakeOutlinedIcon className='side-nav-icon margin_icons' fontSize='large' />
           <span className='ml-3 Labelfont'>Partner Management</span>
+        </div>
+      </Link>
+      <Link to={RouterPath.COMMISSION_LIST} style={{ textDecoration: 'none' }} >
+        <div className={`nav-item ${router.pathname.includes("commissionlist") && 'font-weight-bold'}`}>
+          <CurrencyExchangeOutlinedIcon className='side-nav-icon margin_icons' fontSize='large' />
+          <span className='ml-3 Labelfont'>Commission Management</span>
         </div>
       </Link>
       <Link to={RouterPath.ADD_SOCIETY_MEMBER} style={{ textDecoration: 'none' }} >

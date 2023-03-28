@@ -10,7 +10,7 @@ import { ToastMessage } from '../../../components/ToastMessage';
 import { goBackInOneSec, TOAST } from '../../../common/utils';
 import { Email } from '@mui/icons-material';
 import { id } from 'date-fns/locale';
-
+import { mobileValidation, emailValidation } from '../../../components/auth/validation';
 const EditPartner = () => {
 
 
@@ -111,8 +111,9 @@ const EditPartner = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-
-            if (partner.firstname != '' && partner.lastname != '' && partner.username != '' && partner.mobileno != '' && partner.email != '' && partner.password != '') {
+         
+            if (partner.firstname != '' && partner.lastname != '' && partner.username != '' && partner.mobileno != '' && partner.email != '' && partner.password != '' && partner.profile_pic != '') {
+                if (await mobileValidation(document.getElementById('mobileno').value) && emailValidation(document.getElementById('email').value)) {
                 console.log(location.state.id)
                 console.log(partner)
                 const { data } = await axios.put(`${window.env_var}api/partner/${location.state.id}`, partner)
@@ -124,10 +125,12 @@ const EditPartner = () => {
                 }
             }
             else {
-                setToast({ show: true, type: "error", message: "Fields Empty!" });
-
+                setToast({ show: true, type: "error", message: 'Enter valid mobile number/ Email Id' });
+                
+              }}
+            else {
+                alert('Fields Empty !')
             }
-
         } catch (error) {
             setToast({ show: true, type: "error", message: "Could not add Community.!" });
 
@@ -146,14 +149,14 @@ const EditPartner = () => {
                 <div>
 
                     <Form className='fcadmin'>
-                        <SimpleInputComponent label={'First Name'} placeholder={'Enter First Name'} name={'first_name'} id={'firstname'} text={partner.firstname} onChange={(e) => { setPartner({ ...partner, firstname: e.target.value }) }} />
-                        <SimpleInputComponent label={'Last Name'} placeholder={'Enter Last Name'} name={'last_name'} id={'lastname'} text={partner.lastname} onChange={(e) => { setPartner({ ...partner, lastname: e.target.value }) }} />
-                        <SimpleInputComponent label={'User Name'} placeholder={'Enter User Name'} name={'user_name'} id={'username'} text={partner.username} onChange={(e) => { setPartner({ ...partner, username: e.target.value }) }} />
-                        <SimpleInputComponent label={'Mobile No.'} placeholder={'Enter Mobile Number'} type={'number'} name={'mobile_number'} text={partner.mobileno} id={'mobileno'} onChange={(e) => { setPartner({ ...partner, mobileno: e.target.value }) }} />
-                        <SimpleInputComponent label={'Email'} name={'email'} placeholder={'Enter Email'} id={'email'} type={'email'} text={partner.email} onChange={(e) => { setPartner({ ...partner, email: e.target.value }) }} />
-                        <SimpleInputComponent label={'Password'} name={'password'} placeholder={'Enter Password'} id={'password'} type={'password'} onChange={(e) => { setPartner({ ...partner, password: e.target.value }) }} />
-                        <SimpleInputComponent label={'Profile Picture'} name={'profile_pic'} id={'profile_pic'} type={'file'} onChange={(e) => { setPartner({ ...partner, profile_pic: e.target.value }) }} />
-                        <button type="submit" className="BTN_ADD_premise " onClick={(e) => handleSubmit(e)}>Add Partner</button>
+                    <SimpleInputComponent label={'First Name'} placeholder={'Enter First Name'} name={'first_name'} id={'firstname'} text={partner.firstname}  onChange={(e) => { setPartner({ ...partner, firstname: e.target.value }) }} />
+                        <SimpleInputComponent label={'Last Name'} placeholder={'Enter Last Name'} name={'last_name'} id={'lastname'} text={partner.lastname} onChange={(e) => { setPartner({ ...partner, lastname: e.target.value }) }}  />
+                        <SimpleInputComponent label={'User Name'} placeholder={'Enter User Name'} name={'user_name'} id={'username'} text={partner.username} onChange={(e) => { setPartner({ ...partner, username: e.target.value }) }}  />
+                        <SimpleInputComponent label={'Mobile No.'} placeholder={'Enter Mobile Number'} type={'number'} name={'mobile_number'} text={partner.mobileno} id={'mobileno'} onChange={(e) => { setPartner({ ...partner, mobileno: e.target.value }) }}   />
+                        <SimpleInputComponent label={'Email'} name={'email'} placeholder={'Enter Email'} id={'email'} type={'email'} text={partner.email} onChange={(e) => { setPartner({ ...partner, email: e.target.value }) }}  />
+                        <SimpleInputComponent label={'Password'} name={'password'} placeholder={'Enter Password'} id={'password'} type={'password'} text={partner.password} onChange={(e) => { setPartner({ ...partner, password: e.target.value }) }}  />
+                        <SimpleInputComponent label={'Profile Picture'} name={'profile_pic'} id={'profile_pic'} type={'file'}  onChange={(e) => { setPartner({ ...partner, profile_pic: e.target.files[0] }) }}   />
+                        <button type="submit" className="BTN_ADD_premise "  onClick={(e) => handleSubmit(e)}>Update Partner</button>
 
 
                     </Form>

@@ -1,8 +1,25 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { SimpleDropDownComponent, SimpleInputComponent } from '../../admin/components/input';
 import { Form } from 'react-bootstrap';
 function EditCourse() {
+//   const location = useLocation()
+//   const [program, setProgram] = useState({
+//     partner: localStorage.getItem('partner_id'),
+//     name: "",
+//     category: "",
+//     max_members: "",
+//     type: 1,
+//     fee: undefined,
+//     details: "",
+ 
+// })
+// const [toast, setToast] = useState({ show: false })
+// const navigate = useNavigate()
+
+
+
+
   return (
     <>
       <div>
