@@ -28,7 +28,7 @@ const PackageList = () => {
     if(location.state)
     {
       setEdit(location.state.edit)
-      getBookedPlan()
+      getBookedPlan();
     }
     else
     {
@@ -38,23 +38,19 @@ const PackageList = () => {
 
   const getBookedPlan= async()=>{
     try {
-      const {data} = await axios.get(`${window.env_var}api/packagebook/getAll/${localStorage.getItem('community_id')}`)
-      setBooked(data.data.booked[0])
-      await getData()
-      //setting html data
-      const select_plan = document.getElementById("plan_id")
-      const plan_options = Array.from(select_plan.options)
-      const selected = plan_options.find(x=>x.text===data.data.booked[0].plan_name)
-      selected.selected=true
-      //Member
-      document.getElementById('block_id').value=data.data.booked[0].member_id
-      document.getElementById('payment_date').value=new Date(data.data.booked[0].purchased_date).toISOString().split('T')[0]
+      await getData();
+      const {data} = await axios.get(`${window.env_var}api/packagebook/get/${localStorage.getItem('community_id')}`);
+      setBooked(data.data.booked[0]);
+      document.getElementById('plan_id').value = data.data.booked[0].plan_id;
+      document.getElementById('block_id').value = data.data.booked[0].member_id;
+      document.getElementById('payment_date').value=new Date(data.data.booked[0].purchased_date).toISOString().split('T')[0];
       ChangeDate(data.data.booked[0].purchased_date);
       setLoading(false);
       setError(false);
     } catch (error) {
+      console.log(error)
       setLoading(false);
-      setError(true)
+      //setError(true)
     }
   }
 
@@ -72,6 +68,7 @@ const PackageList = () => {
       setLoading(false);
       setError(false);
     } catch (error) {
+      console.log(error)
       setLoading(false);
       setError(true)
     }
@@ -83,7 +80,6 @@ const PackageList = () => {
 
       if(edit)
       {
-       
         const sendData={
           plan_id:plan_id.current.value,
           booked_by:booked_by.current.value,
@@ -91,7 +87,6 @@ const PackageList = () => {
           purchased_date:purchase_date.current.value,
           id:booked._id
         }
-        console.log(sendData)
         const {data} = await axios.post(`${window.env_var}api/packagebook/update`,sendData)
         setToast({ show: true, type: "success", message: "Package changed" })
         setTimeout(() => {
@@ -153,7 +148,7 @@ const PackageList = () => {
             <div class="form-group row">
               <label class="col-lg-2 col-form-label ADN_label">Package</label>
               <div class="col-lg-4">
-                <select type="text" class="form-control input-lg SBorder" ref={plan_id} id='plan_id' name="First name" >
+                <select type="text" class="form-control input-lg SBorder" id='plan_id' name="plan_id" >
                   <option  disabled value={null} selected>Select Plan</option>
                     {plan.map(item=>{
                       return <option value={item.id}>{item.name}</option>
@@ -164,7 +159,7 @@ const PackageList = () => {
             <div class="form-group row">
               <label class="col-lg-2 col-form-label ADN_label">Added By</label>
               <div class="col-lg-4">
-                <select type="text" class="form-control input-lg SBorder" ref={booked_by} id='block_id' name="First name" >
+                <select type="text" class="form-control input-lg SBorder" id='block_id' name="booked_by" ref={booked_by}>
                   <option  disabled value={null} selected>Select Member</option>
                     {members.map(item=>{
                       return <option value={item._id}>{item.resident.firstname+' '+item.resident.lastname}</option>

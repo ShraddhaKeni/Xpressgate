@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
-const Pagination = ({ totalPages, data, settingCurrent }) => {
+const Pagination = ({ totalPages, data, settingCurrent,settingPage }) => {
 
     const [currentPost, setPost] = useState([])
     const [currentPage, setCurrent] = useState(1)
@@ -23,6 +23,7 @@ const Pagination = ({ totalPages, data, settingCurrent }) => {
         let indexoffirst = (indexoflast - postPerPage)
         setPost(data.slice(indexoffirst, indexoflast))
         settingCurrent(data.slice(indexoffirst, indexoflast))
+        settingPage(event.selected + 1)
     }
     var display = Math.ceil(totalPages / postPerPage)
     return (

@@ -13,7 +13,7 @@ import { id } from 'date-fns/locale';
 import { mobileValidation, emailValidation } from '../../../components/auth/validation';
 const EditPartner = () => {
 
-  
+
     const location = useLocation()
     const [partner, setPartner] = useState({
         firstname: '',
@@ -28,16 +28,16 @@ const EditPartner = () => {
     })
     const [toast, setToast] = useState({ show: false })
 
-    
+
     const [re_render, setRender] = useState(false)
     const navigate = useNavigate()
 
     // const city = useRef()
 
     useEffect(() => {
-      
-getCommunity()
- }, [])
+
+        getCommunity()
+    }, [])
 
     const getCommunity = async () => {
         try {
@@ -52,20 +52,19 @@ getCommunity()
                 username: data.data.username,
                 mobileno: data.data.mobileno,
                 email: data.data.email,
-                password: data.data.password,
-               profile_pic: data.data.profile_pic,
+                profile_pic: data.data.profile_pic,
                 status: true
             })
-            document.getElementById('firstname').defaultValue = data.data.firstname
-            document.getElementById('lastname').defaultValue = data.data.lastname
-            document.getElementById('username').defaultValue = data.data.username
-            document.getElementById('mobileno').defaultValue = data.data.mobileno
-            document.getElementById('email').value = data.data.email
+            // document.getElementById('firstname').defaultValue = data.data.firstname
+            //document.getElementById('lastname').defaultValue = data.data.lastname
+            //document.getElementById('username').defaultValue = data.data.username
+            //document.getElementById('mobileno').defaultValue = data.data.mobileno
+            // document.getElementById('email').value = data.data.email
 
             // await getArea(data.data.community[0].state)
-            document.getElementById('password').value = data.data.password
+            // document.getElementById('password').value = data.data.password
 
-            document.getElementById('profile_pic').defaultValue = data.data.profile_pic
+            // document.getElementById('profile_pic').defaultValue = data.data.profile_pic
             return data.data
         } catch (error) {
             console.log(error)

@@ -23,6 +23,18 @@ const Addinout = () => {
   const [isError, setError] = useState(false)
   const [menu, setMenuOpen] = useState(false)
 
+  const [parkingSections, setParkingSections] = useState([]);
+
+  const [timeSlots] = useState([
+    { time: 30, dTime: "30 Min" },
+    { time: 60, dTime: "1 Hour" },
+    { time: 90, dTime: "1.5 Hours" },
+    { time: 120, dTime: "2 Hours" },
+    { time: 150, dTime: "2.5 Hours" },
+    { time: 180, dTime: "3 Hours" },
+
+  ])
+
   // let blockid = document.getElementById('item').value
   const visitortype = useRef([])
 
@@ -37,6 +49,7 @@ const Addinout = () => {
       axios.get(`${window.env_var}api/guard/checkLogin`, config)
         .then(({ data }) => {
           getBlocks()
+          getParkingSections();
         })
         .catch(err => {
           localStorage.clear();
@@ -57,6 +70,18 @@ const Addinout = () => {
       const { data } = await axios.post(`${window.env_var}api/block/get`, param)
       //console.log(data.data.block)
       setBlock(data.data.block)
+      setError(false)
+    } catch (error) {
+      setError(true)
+    }
+  }
+
+  const getParkingSections = async () => {
+
+    try {
+      const { data } = await axios.get(`${window.env_var}api/guestparkingsection/getAll/${localStorage.getItem("community_id")}`);
+      setParkingSections(data.data)
+      setLoading(false)
       setError(false)
     } catch (error) {
       setError(true)
@@ -129,16 +154,17 @@ const Addinout = () => {
         vendor_id: document.getElementById('vendor').value,
         serviceType: document.getElementById('dailyhelp').value,
         residentID: document.getElementById('resident').value,
-        allowed_by: localStorage.getItem('guard_id')
+        allowed_by: localStorage.getItem('guard_id'),
+        vehicle_no: document.getElementById('veh_id').value,
+        parking_section: document.getElementById('parkingsection').value,
+        parking_time: document.getElementById('parkingtime').value
       }
 
       const { data } = await axios.post(`${window.env_var}api/inout/addbyguard`, sendData)
-      //console.log(sendData)
       setToast({ show: true, type: "success", message: "Added Successfully" })
-      //  setTimeout(() => {
-      //    window.location.href = '/inoutbook'
-      //  }, 1500);
-      //  window.location.href = '/inoutbook'
+      setTimeout(() => {
+        window.location.href = '/inoutbook'
+      }, 1500);
     } catch (error) {
       setToast({ show: true, type: "error", message: "Check Data." });
     }
@@ -265,6 +291,47 @@ const Addinout = () => {
               <input required type="time" className="form-control input-lg AIOBorder" id='intime' name="intime" placeholder=" In Time" value={details.intime} ></input>
             </div>
           </div>
+          <div className="form-group row">
+            <label className="col-lg-2 col-form-label ADN_label">Vehicle No:</label>
+            <div className="col-lg-4">
+              <input required type="text" className="form-control input-lg AIOBorder" id='veh_id' name="veh_id" placeholder="Enter Vehicle No" value={details.intime} ></input>
+            </div>
+          </div>
+
+
+          {!details.outtime && <>
+            <div className="form-group row">
+              <label className="col-lg-2 col-form-label ADN_label">Section</label>
+              <div className="col-lg-4">
+                <select required className="form-control input-lg AIOBorder" id="parkingsection" placeholder="Parking Sections">
+                  <option disabled value={""} selected={true}>Select Parking Section</option>
+                  {parkingSections.map(slot => {
+                    return <option value={slot._id}>{slot.section}</option>
+                  })
+                  }
+                </select>
+              </div>
+            </div>
+
+          </>
+
+          }
+
+          {!details.outtime && <>
+            <div className="form-group row">
+              <label className="col-lg-2 col-form-label ADN_label">Parking Time</label>
+              <div className="col-lg-4">
+                <select required className="form-control input-lg AIOBorder" id="parkingtime" placeholder="Parking Time">
+                  <option disabled selected={true}>Select Parking Time</option>
+                  {timeSlots.map(slot => {
+                    return <option value={slot.time}>{slot.dTime}</option>
+                  })
+                  }
+                </select>
+              </div>
+            </div>
+          </>
+          }
           <div className="form-group row hidden">
             <label className="col-lg-2 col-form-label ADN_label">Status</label>
             <div className="col-lg-4">

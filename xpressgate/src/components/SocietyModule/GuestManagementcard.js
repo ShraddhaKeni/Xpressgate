@@ -1,4 +1,3 @@
-
 import './GuestManagementcard.css';
 import axios from 'axios';
 import Societyheader from './Utils/Societyheader'
@@ -13,7 +12,6 @@ const GuestManagementcard = () => {
   const [loading, setLoading] = useState(true)
   const [isError, setError] = useState(false)
   const location = useLocation()
-  console.log(location.state.id)
   useEffect(() => {
     if (checkSociety()) {
       const config = {
@@ -22,18 +20,16 @@ const GuestManagementcard = () => {
         }
       }
       axios.get(`${window.env_var}api/guard/checkLogin`, config)
-        .then(({ data }) => {
-          getData()
-        })
-        .catch(err => {
-          localStorage.clear();
-          window.location.href = '/guardLogin'
-        })
-
+      .then(({ data }) => {
+        getData()
+      })
+      .catch(err => {
+        localStorage.clear();
+        window.location.href = '/guardLogin'
+      })
     } else {
       window.location.href = '/'
     }
-
   }, [])
 
   const getData = async () => {
@@ -43,7 +39,6 @@ const GuestManagementcard = () => {
     }
     try {
       const { data } = await axios.post(`${window.env_var}api/inout/getone`, id);
-      console.log(data)
       setGuestdata(data.data)
       setFlats(data.data.flat_details)
       setLoading(false)
@@ -55,7 +50,6 @@ const GuestManagementcard = () => {
 
   const dateConvert = (date) => {
     const d = new Date(date)
-    //console.log(d)
     return d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear()
   }
   const timeConvert = (date) => {
@@ -85,8 +79,7 @@ const GuestManagementcard = () => {
           <div className="guestcard">
             <br></br>
             <label className="nameguestlabel"></label>
-            <div className='profguestclass'>
-            </div>
+            <div className='profguestclass'></div>
             <br></br>
             <div className='flatguestclass'>
               <label>Flat No</label>
@@ -98,7 +91,6 @@ const GuestManagementcard = () => {
             <div><label className='guestallowedclass'>Allowed by </label></div>
             <br></br>
             <div className='guestdetailsclass'>
-              {console.log(guestData)}
               <div><label className='guestdate'>Date:{dateConvert(guestData.intime)}</label></div>
               <div><label className='guestintime'>In-Time:{timeConvert(guestData.intime)} </label></div>
               <div><label className='guestouttime'>Out-Time:{guestData.outtime ? timeConvert(guestData.outtime) : 'N/A'} </label></div>
@@ -108,16 +100,13 @@ const GuestManagementcard = () => {
               <div><label className='allotedparking'>Alloted Parking Time:{guestData.parking_time}</label></div>
             </div>
             <br></br>
-
             {/* <button type="submit" id='guestbtnid' className="btnGuestOut">Out</button> */}
             <br></br>
           </div>
         </div>
         {/* </div> */}
-
       </div>
     </div>
   )
 }
-
-export default GuestManagementcard
+export default GuestManagementcard;
