@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { deleteProgram, getAllPrograms, getProgramById, updateProgram } from '../../../common/partner/partner_api';
+import { getAllPrograms, getProgramById, updateProgram } from '../../../common/partner/partner_api';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { goBackInOneSec, MESSAGES, TOAST } from '../../../common/utils';
 import { ToastMessage } from '../../../components/ToastMessage';
 import RouterPath from '../../../common/constants/path/routerPath';
-
+import axios from "axios";
 function CourseDetails() {
   const location = useLocation();
 
@@ -28,11 +28,22 @@ const handleEditClick = (id) => {
   navigate('/partner/course/editcourse', { state: { id } })
   
 }
+// const handleDelete = async () => {
+//   try {
 
+//     const { res } = await axios.delete(`${window.env_var}api/partner/programs/${location.state.id}`)
+//     console.log(res)
+//     setToast({ show: true, message: "Deleted Successfully", type: "success" })
+//     // goBackInOneSec(navigate)
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }
 const handleDelete = async () => {
     console.log(program);
-    const res = await deleteProgram(program.id)
-    console.log(res)
+    console.log(location.state.program._id)
+    const res = await axios.delete(`${window.env_var}api/partner/programs/${location.state.program._id}`)
+    // console.log(location.state.id)
     if (res && res.data?.status_code == 200) {
         setToast(TOAST.SUCCESS(res?.data?.message));
         goBackInOneSec(navigate)

@@ -52,7 +52,9 @@ const RouterPath = {
     ADD_PARTNER: "/addnewpartner",
     EDIT_PARTNER: "/updatepartner",
 
-
+    COMMISSION_LIST: "/commissionlist",
+    ADD_COMMISSION: "/addnewcommission",
+    EDIT_COMMISSION: "/editcommission",
     /// Partner Routes
 
 

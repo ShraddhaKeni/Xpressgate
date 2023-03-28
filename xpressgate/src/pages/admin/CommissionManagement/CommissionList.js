@@ -7,30 +7,30 @@ import Button from '@mui/material/Button';
 import { ButtonUnstyled } from '@mui/base';
 import { MaterialButton } from '../components/MaterialButton';
 import axios from 'axios';
-import { deletePartner } from '../../../common/admin/admin_api';
+import { deleteCommission } from '../../../common/admin/admin_api';
 import { Loader } from '../../../components/Loader';
 import { ToastMessage } from '../../../components/ToastMessage';
 import Pagination from '../../../common/Pagination';
 
-const PartnerList = () => {
+const CommissionList = () => {
 
     const navigate = useNavigate();
     const [toast, setToast] = useState({ show: false })
 
-    const [partner, setPartner] = useState([])
+    const [commission, setCommission] = useState([])
     const [currentPage, setCurrentpage] = useState(0)
     const [postPerPage, setPostPerPage] = useState(10)
     const [currentPosts, setCurrentPosts] = useState([])
     const [loading, setLoading] = useState(true);
    
     useEffect(() => {
-        getCommunities()
+        getCommission()
     }, [])
 
-    const getCommunities = async () => {
+    const getCommission = async () => {
         try {
-            const { data } = await axios.get(`${window.env_var}api/partner`)
-            setPartner(data.data)
+            const { data } = await axios.get(`${window.env_var}api/commission/getall`)
+            setCommission(data.data)
             const indexoflast = (currentPage + 1) * postPerPage  //endoffset
             const indexoffirst = (indexoflast - postPerPage) //startoffset
             console.log(data.data);
@@ -45,28 +45,29 @@ const PartnerList = () => {
         setCurrentpage(event.selected)
         const indexoflast = (event.selected + 1) * postPerPage  //endoffset
         const indexoffirst = (indexoflast - postPerPage) //startoffset
-        setCurrentPosts(partner.slice(indexoffirst, indexoflast))
+        setCurrentPosts(commission.slice(indexoffirst, indexoflast))
     }
 
-    const removePremise = async (id) => {
-        await deletePartner(id);
+    const removeCommission = async (id) => {
+        await deleteCommission(id);
+
         setToast({ show: true, type: "success", message: "Deleted Successfully!" });
-        getCommunities();
+        getCommission();
     }
 
-    const handleAddPartner = () => {
-        navigate('/addnewpartner')
+    const handleAddCommission = () => {
+        navigate('/addnewcommission')
     }
 
     const handleEditClick = (id) => {
 
-        navigate('/updatepartner', { state: { id } })
+        navigate('/editcommission', { state: { id } })
     }
 
 
     async function findText(e) {
-        console.log(partner)
-        let text = partner.filter(x => x.firstname?.toLowerCase().includes(e.target.value.toLowerCase()))
+        console.log(commission)
+        let text = commission.filter(x => x.firstname?.toLowerCase().includes(e.target.value.toLowerCase()))
         if (text) {
             setCurrentPosts(text)
         }
@@ -83,18 +84,18 @@ const PartnerList = () => {
             {/* <Loader loading={loading}> */}
                 <div>
                     <div className='page-label'>
-                        <label>Partner Management</label>
+                        <label>commission Management</label>
                     </div>
                     <div>
                         <div className='table-top-right-content'>
                             <div className='table-search pl-2'>
                                 <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-                                <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }} /></span>
+                                <span><input className='search' placeholder='Search' onChange={(e) => { findText(e) }}/></span>
                             </div>
 
-                            <div className="table-add-new-button" onClick={handleAddPartner}>
+                            <div className="table-add-new-button"  onClick={handleAddCommission}>
 
-                                <span className='ml-2'>&#43; Add New Partner</span>
+                                <span className='ml-1'>&#43; Add Commission</span>
                             </div>
                         </div>
 
@@ -102,9 +103,9 @@ const PartnerList = () => {
                             <thead className='table-th'>
                                 <tr>
                                     <th class="th-sm" >Sr No.</th>
-                                    <th class="th-sm">First Name</th>
-                                    <th class="th-sm">Last Name</th>
-                                    <th class="th-sm">Mobile No.</th>
+                                    <th class="th-sm">Program Name</th>
+                                    <th class="th-sm">Amount</th>
+                                    <th class="th-sm">Commission</th>
                                     <th class="th-sm">Status</th>
                                     <th class="th-sm">Actions</th>
                                 </tr>
@@ -114,9 +115,9 @@ const PartnerList = () => {
                                     return (
                                         <tr>
                                             <td>{index + 1 + (currentPage * postPerPage)}</td>
-                                            <td>{item.firstname}</td>
-                                            <td>{item.lastname}</td>
-                                            <td>{item.mobileno}</td>
+                                            <td>{item.name}</td>
+                                            <td>{item.amount}</td>
+                                            <td>{item.commission}</td>
                                      
                                             <td><ButtonUnstyled className='approve-active'>{item.status == true ? 'Active' : 'InActive'}</ButtonUnstyled></td>
                                             <td>
@@ -125,7 +126,7 @@ const PartnerList = () => {
                                                         <img src="/images/icon_edit.svg" />
                                                     </IconButton>
 
-                                                    {item.status === true ? <IconButton onClick={() => removePremise(item._id)}>
+                                                    {item.status === true ? <IconButton onClick={() => removeCommission(item._id)}>
                                                         <img src="/images/icon_delete.svg" />
                                                     </IconButton> : ''}
 
@@ -139,10 +140,10 @@ const PartnerList = () => {
                             </tbody>
                         </table>
                         <br/>
-                        {/* <Pagination totalPages={filterArr.length>0?filterArr.length:partner.length} data ={filterArr.length>0?filterArr:partner} settingCurrent={settingCurrent}/> */}
-                        {partner.length > postPerPage && <div className='paginate'>
-                            <PaginationCalculate totalPages={partner.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
-                        </div>}
+                      
+                        {/* {commission.length > postPerPage && <div className='paginate'>
+                            <PaginationCalculate totalPages={commission.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+                        </div>} */}
                     </div >
                 </div >
             {/* </Loader> */}
@@ -150,5 +151,5 @@ const PartnerList = () => {
         </>)
 }
 
-export default PartnerList
+export default CommissionList
 

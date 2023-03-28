@@ -55,10 +55,10 @@ const ParticipantList = () => {
   function findText(e) {
     let search = e.target.value.toLowerCase()
     let arr = guestparkingSection.filter(x => {
-      if (x.section.toLowerCase().includes(search)) {
+      if (x.name?.toLowerCase().includes(search)) {
         return true
       }
-      else if (x.section.toLowerCase().includes(search)) {
+      else if (x.name?.toLowerCase().includes(search)) {
         return true
       }
     })
@@ -109,7 +109,7 @@ const ParticipantList = () => {
             <div className='VP_searchbox'>
               <span>
                 <img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-                <input placeholder='Search' id="search_input"  ></input>
+                <input placeholder='Search' id="search_input" onChange={(e) => { findText(e) }} ></input>
               </span>
             </div>
           </div>

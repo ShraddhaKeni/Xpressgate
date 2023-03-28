@@ -11,7 +11,7 @@ const PartnerEnterCode = () => {
   const sendOTP = async()=>{
     try {
       const {data} = await axios.post(`${window.env_var}api/auth/partner-reset-password`,{mobileno:location.state.mobileno,otp:username.current.value})
-      navigate('/partnernewpassword',{state:{partner_id:data.data.mem_id,mobileno:data.data.mobileno}})
+      navigate('/partnernewpassword',{state:{partner_id:data.data.partner_id,mobileno:data.data.mobileno}})
     } catch (error) {
       
     }
