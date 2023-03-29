@@ -15,7 +15,6 @@ const AddCommission = () => {
 
     const [commission, setCommission] = useState({
         program_id: '',
-       
             amount: '',
         commission: '',
     payment_status: false,
@@ -47,7 +46,7 @@ const AddCommission = () => {
         }
       }
     const getProgramDetails = async (e) => { 
-        setCommission({ ...commission, program_id: e.target.value }) 
+         setCommission({ ...commission, program_id: e.target.value }) 
         console.log(e.target.value )
         const { data } = await axios.get(`${window.env_var}api/partner/programs/${e.target.value}`)
         console.log(data.data.fee)
@@ -102,13 +101,13 @@ const AddCommission = () => {
                   <option value={null} selected disabled>Select Program</option>
                   {allprograms.map((item) => {
                     return (
-                      <option value={item._id} data-id={item.fee}>{item.name}</option>
+                      <option value={item._id} >{item.name}</option>
                     )
                   })}
                 </select>
               </div>
             </div>
-                        <SimpleInputComponent label={'Amount'} placeholder={'Enter Amount'} name={'amount'} id={'amount'} type={'number'} text={commission.amount} readonly/>
+                        <SimpleInputComponent label={'Amount'} placeholder={'Enter Amount'} name={'amount'} id={'amount'} type={'number'} text={commission.amount} readonly disabled/>
                         <SimpleInputComponent label={'Commission'} placeholder={'Enter Commission'} name={'commission'} id={'commission'} type={'number'} onChange={(e) => { setCommission({ ...commission, commission: e.target.value }) }} />
                         <SimpleDropDownComponent items={[{ id: 1, option: 'Paid' }, { id: 2, option: 'Not Paid' }]} label={'Payment Status'} name={'payment_status'} id={'payment_status'}  onChange={(e) => { setCommission({ ...commission, payment_status: e.target.value }) }}  />
                         <button type="submit" className="BTN_ADD_premise " onClick={(e) => handleSubmit(e)} >Add Commission</button>

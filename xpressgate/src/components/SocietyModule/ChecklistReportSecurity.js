@@ -84,20 +84,15 @@ const ChecklistSecurityReport = () => {
                     <p className='noticegll float-left' onClick={() => navigate('/add-security-checklist')}><b>Add Checklist</b></p>
                     <p className='noticegll float-left' onClick={() => navigate('/security-checklist')}><b>Checklists</b></p>
                 </div>
-                <div className="GLSimg">
-                    <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+                <div className="NCSsideImg">
+                    <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
                 </div>
             </div>
             <div className="addguestbackgroundimg">
                 <div className='GL_display'>
-                    <label>Security Checklist</label>
+                    <label>Security Checklist </label>
                 </div>
                 <div className='row'>
-                    {/* <div className='search3'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-            <span><label className='searchlabel'>Search</label><input className='search_input' onChange={(e)=>findText(e)} ></input></span>
-          </div>
-        </div> */}
                     <div className='GLsearchbox'>
                         <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
                             <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
@@ -109,8 +104,8 @@ const ChecklistSecurityReport = () => {
                             <th class="th-sm">Sr No. </th>
                             <th class="th-sm">Guard Name</th>
                             <th class="th-sm">Action</th>
-                            <th class="th-sm">Time</th>
-                            <th class="th-sm">Remarks</th>
+                            <th class="th-sm">Email</th>
+                            <th class="th-sm">Status</th>
                         </tr>
                     </thead>
                     <tbody>

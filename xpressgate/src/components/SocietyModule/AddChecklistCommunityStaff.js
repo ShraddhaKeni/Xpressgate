@@ -173,8 +173,8 @@ const AddChecklistCommunityStaff = () => {
                     <p className='noticegll float-left' onClick={() => navigate('/community-staff-checklist')}><b>Society Staff</b></p>
 
                 </div>
-                <div className="AGSideimg">
-                    <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+                <div className="NCSsideImg">
+                    <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
                 </div>
             </div>
             <div className="addguestbackgroundimg">

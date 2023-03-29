@@ -122,7 +122,7 @@ const EditCommission = () => {
                         <SimpleInputComponent label={'Amount'} placeholder={'Enter Amount'} name={'amount'} id={'amount'} type={'number'} text={commission.amount} readonly/>
                         <SimpleInputComponent label={'Commission'} placeholder={'Enter Commission'} name={'commission'} id={'commission'} type={'number'} text={commission.commission} onChange={(e) => { setCommission({ ...commission, commission: e.target.value }) }} />
                         <SimpleDropDownComponent items={[{ id: 1, option: 'Paid' }, { id: 2, option: 'Not Paid' }]} label={'Payment Status'} name={'payment_status'} id={'payment_status'} text={commission.payment_status}   onChange={(e) => { setCommission({ ...commission, payment_status: e.target.value }) }}  />
-                        <button type="submit" className="BTN_ADD_premise " onClick={(e) => handleSubmit(e)}>Update Commission</button>
+                        <button type="submit" className="BUTNnn_ADD_premise " onClick={(e) => handleSubmit(e)}>Update Commission</button>
 
                     </Form>
 

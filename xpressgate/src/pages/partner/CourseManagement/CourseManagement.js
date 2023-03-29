@@ -58,7 +58,7 @@ console.log(data)
     function findText(e) {
         let search = e.target.value.toLowerCase()
         let arr = allprograms.filter(x => {
-            if (x?.code?.toLowerCase()?.includes(search)) {
+            if (x?.name?.toLowerCase()?.includes(search)) {
                 return true
             }
 
