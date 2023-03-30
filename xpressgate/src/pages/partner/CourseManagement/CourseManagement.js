@@ -112,7 +112,7 @@ console.log(data)
 
 return <div className="col  card_hover_animation" key={program.id}>
     <div className="Coupon-card-green ">
-    <img src="/images/pencilicon.png" className="pencilicon" onClick={() => { handleEditClick(program.id) }}></img>
+    <img src="/images/pencilicon.png" className="pencilicon" onClick={() => { handleEditClick(program._id) }}></img>
         {/* <div className='d-flex justify-content-end mr-5'><button className={`${coupon.status == 1 ? 'highlight-active' : 'highlight-inactive'} p-2 px-3`}><span className={`${coupon.status == 1 ? 'dot' : 'dot-inactive'}`}></span>{coupon.status == 1 ? 'Active' : 'Inactive'}</button></div> */}
         <div>
             <p className='dash-Coupon_heading-sm'>{program.name || "n/a"}</p>

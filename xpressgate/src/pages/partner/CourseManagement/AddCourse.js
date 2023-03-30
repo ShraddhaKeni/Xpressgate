@@ -68,7 +68,7 @@ c.category= ProgramCategory
   console.log(res)
   if (res && res.data?.status_code == 200) {
       setToast(TOAST.SUCCESS(res?.data?.message));
-      // goBackInOneSec(navigate)
+      goBackInOneSec(navigate)
   } else if (res.data?.status_code == 201) {
       setToast(TOAST.ERROR(res?.data?.message));
   }

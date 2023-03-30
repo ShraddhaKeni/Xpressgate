@@ -151,7 +151,7 @@ const Maintenancelist = () => {
                     <td>{(currentPage - 1) * postPerPage + (index + 1)}</td>
                     <td>{item.item}</td>
                     <td >{dateTimeFormat(item.time)}</td>
-                    <td>{item.frequency}</td>
+                    <td>{item.frequency == '1' ? 'Daily' :item.frequency == '2' ? 'Monthly' :item.frequency  == '3' ? 'Quarterly' : item.frequency  == '4' ? 'Half-yearly ' : 'Yearly' }</td>
                     <td>{item.no_of_days}</td>
                     <td>
                       <div>

@@ -6,6 +6,7 @@ import { ToastMessage } from '../../../components/ToastMessage';
 import { updateProgram, getProgramById } from '../../../common/partner/partner_api';
 import { goBackInOneSec, TOAST } from '../../../common/utils';
 import axios from 'axios'
+import { id } from 'date-fns/locale';
 function EditCourse() {
   const location = useLocation()
   const [program, setProgram] = useState({
@@ -24,6 +25,7 @@ const navigate = useNavigate()
 const [programType, setProgramType] = useState(0)
 const [ProgramCategory, setProgramCategory] = useState(0)
 const [allprograms, setAllPrograms] = useState([]);
+
 useEffect(() => {
 
   getProgram()
@@ -31,31 +33,35 @@ useEffect(() => {
   
       const getProgram = async () => {
           try {
-             
-            const { res } = await axios.get(`${window.env_var}api/partner/programs/${location.state.id}`)
-              console.log(res)
-              console.log(program)
+            // console.log(location.state.program?.id)
+            const { data } = await axios.get(`${window.env_var}api/partner/programs/${location.state.id}`)
+         
+         
+            console.log(data)
+           
               setProgram({
+                
                   ...program,
                   community_id: location.state.id,
-               partner_id: location.state.id,
-                  name: res.data.name,
-                  category: res.data.category,
-                  max_members: res.data.max_members,
-                  type: res.data.type,
-                  fee: res.data.fee,
-                  details: res.data.details,
+                  partner_id: location.state.id,
+              
+                  name: data.data.name,
+                  category: data.data.category,
+                  max_members: data.data.max_members,
+                  type: data.data.type,
+                  fee: data.data.fee,
+                  details: data.data.details,
                   status: true
               })
-            
-              document.getElementById('programname').defaultValue =res.data.name
-              document.getElementById('Program_Category').defaultValue = res.data.category
-              document.getElementById('max_members').defaultValue = res.data.max_members
-              document.getElementById('Program_type').defaultValue = res.data.type
-              document.getElementById('fee').defaultValue =  res.data.fee
-              document.getElementById('details').defaultValue = res.data.details
-            
-              return res.data
+          
+              document.getElementById('programname').defaultValue =data.data.name
+              document.getElementById('Program_Category').defaultValue = data.data.category
+              document.getElementById('max_members').defaultValue = data.data.max_members
+              document.getElementById('Program_type').defaultValue = data.data.type
+              document.getElementById('fee').defaultValue =  data.data.fee
+              document.getElementById('details').defaultValue = data.data.details
+              console.log(data.data)
+              return data.data
           } catch (error) {
               console.log(error)
           }
@@ -81,22 +87,22 @@ useEffect(() => {
       
         //Validate the data by regex before submit
       
-        let c = { ...program, valid: value }
-        c.type = programType;
+      //   let c = { ...program, valid: value }
+      //   c.type = programType;
       
-        if (programType === 0) {
-            alert("Please select Program Type");
-            return;
-        }
-        if (ProgramCategory === 0) {
-            alert("Please select Program Type");
-            return;
-        }
-      c.category= ProgramCategory
+      //   if (programType === 0) {
+      //       alert("Please select Program Type");
+      //       return;
+      //   }
+      //   if (ProgramCategory === 0) {
+      //       alert("Please select Program Type");
+      //       return;
+      //   }
+      // c.category= ProgramCategory
       
-      
-        const res = await updateProgram(c)
-        console.log(c)
+      // console.log(c)
+        const res = await updateProgram()
+     
         console.log(res)
         if (res && res.data?.status_code == 200) {
             setToast(TOAST.SUCCESS(res?.data?.message));

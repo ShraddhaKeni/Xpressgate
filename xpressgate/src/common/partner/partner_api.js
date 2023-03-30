@@ -26,7 +26,7 @@ export async function getProgramById(id) {
 }
 export async function updateProgram(id) {
     try {
-        return await putRequest(`partner/programs`, id);
+        return await putRequest(`partner/programs${id}`);
     } catch (error) {
         return error
     }
