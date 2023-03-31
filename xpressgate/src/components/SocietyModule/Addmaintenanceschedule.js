@@ -92,12 +92,12 @@ const Addmaintenanceschedule = () => {
         }
 
         const { data } = await axios.post(`${window.env_var}api/checklist/add`, sendData)
-
+console.log(data)
          setToast({ show: true, type: "success", message: "Added successfully" })
         setTimeout(() => {
           window.location.href = '/maintenancelist'
         }, 1500);
-         window.location.href = '/maintenancelist'
+        
       } else {
         const sendData = {
           id: location.state.id,

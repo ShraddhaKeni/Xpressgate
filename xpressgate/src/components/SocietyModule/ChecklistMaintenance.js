@@ -14,7 +14,7 @@ import Societyheader from "./Utils/Societyheader";
 const ChecklistMaintenance = () => {
     const [Checklist, setChecklist] = useState([])
     const [currentPage, setCurrentpage] = useState(1)
-    const [postPerPage, setPostPerPage] = useState(12)
+    const [postPerPage, setPostPerPage] = useState(10)
     const [currentPosts, setCurrentPosts] = useState([])
     const [toast, setToast] = useState({ show: false })
 
@@ -99,26 +99,24 @@ const ChecklistMaintenance = () => {
                 <div className='GLsidelinks pl-5'>
                     <p className='noticegll float-left' onClick={() => navigate('/maintenance-checklist-report')}><b>Reports</b></p>
                     <p className='noticegll float-left' onClick={() => navigate('/add-maintenance-checklist')}><b>Add Checklist</b></p>
-                    <p className='aggnotice float-left' onClick={() => navigate('/maintenance-checklist')}><b>Checklists</b></p>
+                    <p className='aggnotice float-left' onClick={() => navigate('/maintenance-checklist')}><b> Checklists</b></p>
                 </div>
-                <div className="GLSimg">
-                    <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+                <div className="NCSsideImg">
+                    <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
                 </div>
             </div>
             <div className="addguestbackgroundimg">
                 <div className='GL_display'>
                     <label>Maintenance Checklist</label>
                 </div>
-                <div className='row'>
-                    {/* <div className='search3'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-            <span><label className='searchlabel'>Search</label><input className='search_input' onChange={(e)=>findText(e)} ></input></span>
+                <div> <button type="submit" className="btnAddnotice" onClick={() => {
+            window.location.href = "/add-maintenance-checklist";
+        }}>&#10011; Add checklist</button></div>
+        <div className='row'>
+          <div className='nlsearchbox'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+              <input className='vlsearch_input' placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
           </div>
-        </div> */}
-                    <div className='GLsearchbox'>
-                        <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-                            <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
-                    </div>
                 </div>
                 <table id="guardlisttable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
                     <thead>

@@ -28,17 +28,7 @@ const handleEditClick = (id) => {
   navigate('/partner/course/editcourse', { state: { id } })
   
 }
-// const handleDelete = async () => {
-//   try {
 
-//     const { res } = await axios.delete(`${window.env_var}api/partner/programs/${location.state.id}`)
-//     console.log(res)
-//     setToast({ show: true, message: "Deleted Successfully", type: "success" })
-//     // goBackInOneSec(navigate)
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
 const handleDelete = async () => {
     console.log(program);
     console.log(location.state.program._id)

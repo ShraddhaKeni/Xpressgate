@@ -13,7 +13,7 @@ import Societyheader from "./Utils/Societyheader";
 const ChecklistCommunityStaff = () => {
     const [Guards, setGuards] = useState([])
     const [currentPage, setCurrentpage] = useState(1)
-    const [postPerPage, setPostPerPage] = useState(12)
+    const [postPerPage, setPostPerPage] = useState(10)
     const [currentPosts, setCurrentPosts] = useState([])
     const [toast, setToast] = useState({ show: false })
 
@@ -104,8 +104,8 @@ const ChecklistCommunityStaff = () => {
                     <p className='aggnotice float-left' onClick={() => navigate('/community-staff-checklist')}><b>Society Staff</b></p>
                 </div>
 
-                <div className="GLSimg">
-                    <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+                <div className="NCSsideImg">
+                    <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
                 </div>
 
             </div>
@@ -113,16 +113,14 @@ const ChecklistCommunityStaff = () => {
                 <div className='GL_display'>
                     <label>Society Staff Checklist</label>
                 </div>
-                <div className='row'>
-                    {/* <div className='search3'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img></span>
-            <span><label className='searchlabel'>Search</label><input className='search_input' onChange={(e)=>findText(e)} ></input></span>
+                <div> <button type="submit" className="btnAddnotice" onClick={() => {
+            window.location.href = "/add-community-staff-checklist";
+        }}>&#10011; Add Staff</button></div>
+        <div className='row'>
+          <div className='nlsearchbox'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+              <input className='vlsearch_input' placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
           </div>
-        </div> */}
-                    <div className='GLsearchbox'>
-                        <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-                            <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
-                    </div>
                 </div>
                 <table id="guardlisttable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
                     <thead>
