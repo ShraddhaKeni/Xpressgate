@@ -52,7 +52,11 @@ const CommissionList = () => {
         await deleteCommission(id);
 
         setToast({ show: true, type: "success", message: "Deleted Successfully!" });
+       
         getCommission();
+        setTimeout(() => {
+            window.location.reload()
+          }, 2000)
     }
 
     const handleAddCommission = () => {
@@ -84,7 +88,7 @@ const CommissionList = () => {
             {/* <Loader loading={loading}> */}
                 <div>
                     <div className='page-label'>
-                        <label>commission Management</label>
+                        <label>Commission Management</label>
                     </div>
                     <div>
                         <div className='table-top-right-content'>

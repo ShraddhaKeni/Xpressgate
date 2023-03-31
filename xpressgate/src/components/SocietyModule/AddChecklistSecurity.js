@@ -156,8 +156,8 @@ const AddChecklistSecurity = () => {
                     <p className='noticegll float-left' onClick={() => navigate('/security-checklist')}><b>Checklists</b></p>
 
                 </div>
-                <div className="AGSideimg">
-                    <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+                <div className="NCSsideImg">
+                    <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
                 </div>
             </div>
             <div className="addguestbackgroundimg">

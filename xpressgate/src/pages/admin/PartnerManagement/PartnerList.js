@@ -52,6 +52,9 @@ const PartnerList = () => {
         await deletePartner(id);
         setToast({ show: true, type: "success", message: "Deleted Successfully!" });
         getCommunities();
+        setTimeout(() => {
+            window.location.reload()
+          }, 2000)
     }
 
     const handleAddPartner = () => {

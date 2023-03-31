@@ -15,7 +15,7 @@ import { ToastMessage } from "../ToastMessage";
 const Maintenancelist = () => {
   const [loading, setLoading] = useState(false)
   const [currentPage, setCurrentpage] = useState(1)
-  const [postPerPage, setPostPerPage] = useState(12)
+  const [postPerPage, setPostPerPage] = useState(10)
   const [currentPosts, setCurrentPosts] = useState([])
   const [maintenance, setMaintenance] = useState([])
   const [toast, setToast] = useState({ show: false })
@@ -52,7 +52,7 @@ const Maintenancelist = () => {
        id: item.id,
      }
     const { data } = await axios.post(`${window.env_var}api/checklist/remove`, sendData)
-    setToast({ show: true, message: "Deleted Successfully", type: "error" })
+    setToast({ show: true, message: "Deleted Successfully", type: "success" })
       setTimeout(() => {
         window.location.reload()
       }, 2000)
@@ -116,17 +116,18 @@ const Maintenancelist = () => {
         <div className="EN_display">
           <label>Maintenance List</label>
         </div>
-        <br/>
+       
         <Loader loading={loading}>
-        <div className='vendorpayment_search'>
-                <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-                  <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
-            </div>
-          <div className="AddSDBlock">
-            <button type="button" className="SDAddBTN" onClick={() => {
-              window.location.href = "/addmaintenanceschedule";
-            }}>&#10011;  Add Maintenance</button>
+        <div> <button type="submit" className="btnAddnotice" onClick={() => {
+            window.location.href = "/addmaintenanceschedule";
+        }}>&#10011; Add Maintenance</button></div>
+        <div className='row'>
+          <div className='nlsearchbox'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+              <input className='vlsearch_input' placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
           </div>
+                </div>
+        
           <table
             id="maintenancetable"
             class="table table-striped table-bordered table-sm "
@@ -135,18 +136,22 @@ const Maintenancelist = () => {
           >
             <thead>
               <tr>
+              <th class="th-sm">Sr No.</th>
                 <th class="th-sm">Item</th>
                 <th class="th-sm">Last Maintenance Date</th>
+                <th class="th-sm">Interval</th>
                 <th class="th-sm">Reminder days</th>
                 <th class="th-sm">Actions</th>
               </tr>
             </thead>
             <tbody>
-              {currentPosts.map(item => {
+              {currentPosts.map((item, index) => {
                 return (
                   <tr>
+                    <td>{(currentPage - 1) * postPerPage + (index + 1)}</td>
                     <td>{item.item}</td>
                     <td >{dateTimeFormat(item.time)}</td>
+                    <td>{item.frequency == '1' ? 'Daily' :item.frequency == '2' ? 'Monthly' :item.frequency  == '3' ? 'Quarterly' : item.frequency  == '4' ? 'Half-yearly ' : 'Yearly' }</td>
                     <td>{item.no_of_days}</td>
                     <td>
                       <div>

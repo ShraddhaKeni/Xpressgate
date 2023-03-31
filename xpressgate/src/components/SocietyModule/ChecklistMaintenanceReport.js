@@ -84,8 +84,8 @@ const CheckListMaintenanceReport = () => {
                     <p className='noticegll float-left' onClick={() => navigate('/add-maintenance-checklist')}><b>Add Checklist</b></p>
                     <p className='noticegll float-left' onClick={() => navigate('/maintenance-checklist')}><b>Checklists</b></p>
                 </div>
-                <div className="GLSimg">
-                    <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+                <div className="NCSsideImg">
+                    <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
                 </div>
             </div>
             <div className="addguestbackgroundimg">

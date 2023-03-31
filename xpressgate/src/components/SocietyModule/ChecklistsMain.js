@@ -28,16 +28,16 @@ const ChecklistsMain = () => {
           <a className='CANsidelinks' href="/addNotice">Add Notice</a>
         </div> */}
                 <div className="SC_sideimage">
-                    <img src="/images/communitysideimg.svg" alt="dashboard sideimage" />
+                    <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
                 </div>
 
             </div>
             <div className="addguestbackgroundimg">
-                <div className="SC_display">
+                <div className="sdashdisplay">
                     <label>Checklists</label>
                 </div>
 
-                <div className="row row-cols-1 row-cols-md-3 g-4 cfullcardscss allcards">
+                <div className="row row-cols-1 row-cols-md-3 g-4 sdfullcardscss allcards">
 
                     <div className="col card_hover_animation">
                         <div className="Cdashboardcard">

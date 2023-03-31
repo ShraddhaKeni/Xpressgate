@@ -28,6 +28,14 @@ html {
   font-size: 1.2vw;
   padding-top: 0.5%;
 }
+.NCSsideImg img {
+  display: flex;
+  margin-top: 112%;
+  max-width: 90%;
+  height: auto;
+  margin-left: 8%;
+  margin-bottom: 3%;
+}
 .SC_societyname {
   display: flex;
   width: 80%;
