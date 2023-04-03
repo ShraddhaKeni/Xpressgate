@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import '../../styles/global.css'
 import '../../styles/addPremise.css'
 import PartnerHeader from '../../components/base/Layout/PartnerHeader';
@@ -44,6 +44,7 @@ const PartnerModule = () => {
     if (router.pathname.includes(RouterPath.COURSE_DETAILS)) {
         children = (<CourseDetails />)
     }
+    
 
     if (router.pathname.includes(RouterPath.STUDENT_MANAGEMENT)) {
         children = (<StudentManagement />)

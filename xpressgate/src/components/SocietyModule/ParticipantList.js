@@ -11,7 +11,7 @@ import ErrorScreen from '../../common/ErrorScreen';
 import { deleteCommunity } from '../../common/admin/admin_api';
 
 const ParticipantList = () => {
-   
+  const [programs, setPrograms] = useState();
   const [guestparkingSection,setGuestParkingSections] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
@@ -73,6 +73,10 @@ const ParticipantList = () => {
     }
   } 
 
+  function ViewProgramDetails(id)
+  {
+    navigate('/programdetails',{state:{program:id,type:'edit'}})
+  }
   function AddParticipants(id)
   {
     navigate('/addparticipant',{state:{id:id,type:'edit'}})
@@ -89,12 +93,7 @@ const ParticipantList = () => {
           <img src="/images/societyicon.svg" alt="Society image" />
           <label>Society Name</label>
         </div>
-        {/* <div className='vgpsidelinks'>
-         
-          <a href='/viewguestparkingsection' className='VpSec'><b>View Guest Parking Section</b></a><br/><br/>
-          <a href='/addguestparkingsection' className='ApSec'>Add Guest Parking Section</a><br/><br/>
-         
-        </div> */}
+      
         <div className="ParticipantsideImg">
           <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
@@ -122,6 +121,7 @@ const ParticipantList = () => {
                 <th class="th-sm">Program Type</th>
                 <th class="th-sm">No. Of Participant</th>
                 <th class="th-sm">Status</th>
+                <th class="th-sm">View Details</th>
                 <th class="th-sm">Add Participant</th>
                
                 
@@ -133,9 +133,16 @@ const ParticipantList = () => {
                   <tr>
                     <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
                     <td>{item.name}</td>
-                    <td>{item.type}</td>
+                    <td>{item.type == '1' ? 'Online': 'Offline' || 'n/a'}</td>
                     <td>{item.max_members}</td>
                     <td>{item.status==false?'Inactive':'Active'}</td>
+                 
+                    <td>
+                        <div>
+                            <button className='AddPButn' onClick={() => {ViewProgramDetails(item) }}  >View</button>
+                        </div>
+                    </td>
+                  
                     <td>
                         <div>
                             <button className='AddPButn'  onClick={() => { AddParticipants(item._id) }}>&#10011; Add</button>

@@ -143,11 +143,10 @@ const CommissionList = () => {
 
                             </tbody>
                         </table>
-                        <br/>
                       
-                        {/* {commission.length > postPerPage && <div className='paginate'>
+                        {commission.length > postPerPage && <div className='paginate'>
                             <PaginationCalculate totalPages={commission.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
-                        </div>} */}
+                        </div>}
                     </div >
                 </div >
             {/* </Loader> */}

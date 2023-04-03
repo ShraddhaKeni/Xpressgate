@@ -14,8 +14,8 @@ import { ButtonBase, Icon, IconButton } from '@mui/material';
 const Arrearslist = () => {
   const [loading, setLoading] = useState(false)
   const [arrears, setArrears] = useState([])
-  const [currentPage, setCurrentpage] = useState(1)
-  const [postPerPage, setPostPerPage] = useState(12)
+  const [currentPage, setCurrentpage] = useState(0)
+  const [postPerPage, setPostPerPage] = useState(10)
   const [currentPosts, setCurrentPosts] = useState([])
   const [pageCount, setpageCount] = useState(0)
   const [isError,setError] = useState(false)
@@ -29,7 +29,7 @@ const Arrearslist = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/arrears/getall`) 
       setArrears(data.data.arrears)
-      const indexoflast = currentPage * postPerPage  //endoffset
+      const indexoflast = (currentPage + 1) * postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.arrears.slice(indexoffirst, indexoflast))
       setLoading(false);
@@ -65,7 +65,17 @@ const Arrearslist = () => {
     }
   }
 
+  async function findText(e) {
+    console.log(arrears)
+    let text = arrears.filter(x => x.block_name?.toLowerCase().includes(e.target.value.toLowerCase()))
+    if (text) {
+        setCurrentPosts(text)
+    }
+    else {
+        await paginate(0)
+    }
 
+}
   return (
     <div className="addguestcontainer4">
       <div id="addflatsection">
@@ -94,25 +104,14 @@ const Arrearslist = () => {
         <Loader loading={loading}>
         <div className='vendorpayment_search'>
                 <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-                  <input placeholder='Search'></input></span>
+                  <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
             </div>
           <div className="AddSDBlock">
             <button type="button" className="SDAddBTN" onClick={() => {
               window.location.href = "/addarrears";
             }}>&#10011; Add Arrears</button>
           </div>
-          {/* <div >
-            <button type="button" className="EN_Add" onClick={() => {
-              window.location.href = "/addarrears";
-            }}>&#10011; Add Arrears</button>
-
-          </div> */}
-          {/* <div className="row">
-            <div className='EMMsearchbox'>
-              <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-                <input placeholder='Search' ></input></span>
-            </div>
-          </div> */}
+        
           <table
             id="inoutbooktable"
             class="table table-striped table-bordered table-sm "
@@ -121,6 +120,7 @@ const Arrearslist = () => {
           >
             <thead>
               <tr>
+                <th class="th-sm">Sr. No.</th>
                 <th class="th-sm">Block</th>
                 <th class="th-sm">Flat</th>
                 <th class="th-sm">Invoice Number</th>
@@ -132,6 +132,7 @@ const Arrearslist = () => {
             {currentPosts.map((item, index) => {
                 return (
               <tr>
+                  <td>{index + 1 + (currentPage * postPerPage)}</td>
                 <td>{item.block_name}</td>
                 <td>{item.flat_name}</td>
                 <td>{item.invoice_number}</td>

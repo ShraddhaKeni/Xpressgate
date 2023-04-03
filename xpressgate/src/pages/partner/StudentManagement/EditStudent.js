@@ -1,8 +1,127 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { SimpleDropDownComponent, SimpleInputComponent } from '../../admin/components/input';
 import { Form } from 'react-bootstrap';
+import axios from 'axios';
+import { ToastMessage } from '../../../components/ToastMessage';
+import { goBackInOneSec, TOAST } from '../../../common/utils';
+import { mobileValidation, emailValidation } from '../../../components/auth/validation';
 function EditStudent() {
+
+  const location = useLocation()
+  const [student, setStudent] = useState({
+    name: '',
+    program: '',
+    program_type: 1,
+    phone: '',
+    email: '',
+    address: '',
+    occupation: '',
+    attachment: '',
+    status: true
+})
+const [allprograms, setAllPrograms] = useState([]);
+  const [toast, setToast] = useState({ show: false })
+  const [re_render, setRender] = useState(false)
+  const navigate = useNavigate()
+  const [isError, setError] = useState(false)
+ 
+
+  useEffect(() => {
+          getStudentDetail()
+          getAllProgram()
+  }, [])
+  const getAllProgram = async () => {
+    try {
+    
+      const { data } = await axios.get(`${window.env_var}api/partner/programs`)
+      console.log(data)
+      setAllPrograms(data.data)
+    
+    //   document.getElementById('programname').value = location.state.id;
+    
+      
+      setError(false)
+    } catch (error) {
+      setError(true)
+    }
+  }
+
+  const getProgramDetails = async (e) => { 
+    setStudent({ ...student, program: e.target.value }) 
+   console.log(e.target.value )
+   const { data } = await axios.get(`${window.env_var}api/partner/programs/${e.target.value}`)
+  
+  }
+  const getStudentDetail = async () => {
+      try {
+          const { data } = await axios.get(`${window.env_var}api/community/getone/${location.state.id}`)
+          setStudent({
+              ...student,
+              community_id: location.state.id,
+           
+              name: data.data.name,
+              program: data.data.program,
+              program_type: data.data.program_type,
+              phone: data.data.phone,
+              email: data.data.email,
+              address: data.data.address,
+              occupation: data.data.occupation,
+              attachment: data.data.attachment,
+              status: true
+          })
+          document.getElementById('name').defaultValue = data.data.name
+          document.getElementById('programname').defaultValue = data.data.program
+          document.getElementById('Program_type').defaultValue = data.data.program_type
+          document.getElementById('phone').defaultValue = data.data.phone
+          document.getElementById('email').value = data.data.email
+          document.getElementById('address').value = data.data.address
+          document.getElementById('occupation').value = data.data.occupation
+          document.getElementById('attachment').value = data.data.attachment
+          console.log(data.data)
+          return data.data
+      } catch (error) {
+          console.log(error)
+      }
+  }
+
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+  
+        if (student.name != '' && student.program != '' && student.program_type != 0 && student.phone != '' && student.email != '' && student.address != '' && student.occupation != '' && student.attachment != ''  ) {
+          if (await mobileValidation(document.getElementById('phone').value) && emailValidation(document.getElementById('email').value)) { 
+          const { data } = await axios.put(`${window.env_var}api/partner/students`, student)
+            if (data.status_code == 200) {
+                setToast(TOAST.SUCCESS(data?.message));
+                goBackInOneSec(navigate)
+            } else {
+                setToast(TOAST.ERROR(data?.message));
+            }
+          }
+          else {
+              setToast({ show: true, type: "error", message: 'Enter valid mobile number/ Email Id' });
+              // alert('Enter valid mobile number/ Email Id')
+            }}
+          else {
+              alert('Fields Empty !')
+          }
+  
+      } catch (error) {
+        console.log(error)
+          alert('Could not add member.!')
+      }
+  
+  }
+  
+
+
+
+
+
+
   return (
     <>
       <div>
@@ -12,18 +131,29 @@ function EditStudent() {
         <div>
 
 <Form className='fcadmin' method='POST' >
+<SimpleInputComponent label={'Member Name'} placeholder={'Enter Member Name'} name={'name'} id={'name'} type={'text'} text={student.name} onChange={(e) => { setStudent({ ...student, name: e.target.value }) }} required />
+    <div class="form-group  form-group5 row">
+              <label class="col-lg-4 col-form-label float-left GForm_label">Program Name</label>
+              <div class="col-lg-5 col-md-2 col-sm-2">
+                <select class="form-control input-lg input-lg1 AEN_border" id="programname" name="Type" type="text" text={student.program} onChange={(e) => { getProgramDetails(e) }}>
+                  <option value={null} selected disabled>Select Program</option>
+                  {allprograms.map((item) => {
+                    return (
+                      <option value={item._id} >{item.name}</option>
+                    )
+                  })}
+                </select>
+              </div>
+            </div>
+    <SimpleDropDownComponent items={[{ id: 1, option: 'Online' }, { id: 2, option: 'Offline' }]} label={'Program Type'} name={'Program Type'} text={student.program_type} onChange={(e) => { setStudent({ ...student, program_type: e.target.value }) }} id={'Program_type'}  />
+    < SimpleInputComponent label={'Phone No'} name={'Phone No'} placeholder={'Phone No'} id={'phone'} type={'number'}  text={student.phone} onChange={(e) => { setStudent({ ...student, phone: e.target.value }) }} required />
+    < SimpleInputComponent label={'Email Address'} name={'Email Address'} placeholder={'Email'} type={'email'} id={'email'}  text={student.email} onChange={(e) => { setStudent({ ...student, email: e.target.value }) }}  required />
+    <SimpleInputComponent label={'Address'} name={'address_line'} placeholder={'Enter Address'} id={'address'} type={'textarea'} text={student.address} onChange={(e) => { setStudent({ ...student, address: e.target.value }) }} />
+    < SimpleInputComponent label={'Occupation'} name={'Occupation'} placeholder={'Occupation'} id={'occupation'} text={student.occupation} onChange={(e) => { setStudent({ ...student, occupation: e.target.value }) }}  required />
+    < SimpleInputComponent label={'Attachments'} name={'Attachments'} placeholder={'Attachments'} id={'attachment'}  type={'file'} onChange={(e) => { setStudent({ ...student, attachment: e.target.files[0] }) }} required />
 
-    <SimpleInputComponent label={'Member Name'} placeholder={'Enter Member Name'} name={'Member Name'} type={'text'} required />
-    <SimpleDropDownComponent items={[{ id: 1, option: 'Fashion Designing' }, { id: 2, option: ' ' }]} label={'Program'} name={'Program'} id={'Program'}  />
-    <SimpleDropDownComponent items={[{ id: 1, option: 'Online' }, { id: 2, option: 'Offline' }]} label={'Program Type'} name={'Program Type'} id={'Program_type'}  />
-    < SimpleInputComponent label={'Phone No'} name={'Phone No'} placeholder={'Phone No'}  type={'number'} required />
-    < SimpleInputComponent label={'Email Address'} name={'Email Address'} placeholder={'Email'} type={'email'}  required />
-    <SimpleInputComponent label={'Address'} name={'address_line'} placeholder={'Enter Address'} id={'address'} type={'textarea'}  />
-    < SimpleInputComponent label={'Occupation'} name={'Occupation'} placeholder={'Occupation'}  required />
-    < SimpleInputComponent label={'Attachments'} name={'Attachments'} placeholder={'Attachments'} type={'file'}  required />
 
-
-    <button type="submit" className="BTN_ADD_premise " >Update</button>
+    <button type="submit" className="BTN_ADD_premise "  onClick={(e) => handleSubmit(e)} >Update</button>
 
 </Form>
 

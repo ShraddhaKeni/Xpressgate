@@ -69,30 +69,25 @@ const Managementteam = () => {
     navigate('/addManagement', { state: { id: id, type: 'edit', title, mainid } })
   }
 
-  function findText(e) {
-    //console.log(currentPosts)
-    let search = e.target.value.toLowerCase()
-    let arr = management.filter(x => {
-      if (x.resident.firstname.toLowerCase().includes(search)) {
-        return true
-      }
-      else if (x.resident.lastname.toLowerCase().includes(search)) {
-        return true
-      }
-    })
-    const indexoflast = currentPage * postPerPage  //endoffset
-    const indexoffirst = (indexoflast - postPerPage)
-    if (arr) {
-      setFilter(arr)
-      setCurrentPosts(arr.slice(indexoffirst, indexoflast))
+  
+  async function findText(e) {
+    console.log(management)
+    let text = management.filter(x => {
+          if (x.resident.firstname?.toLowerCase().includes(e.target.value.toLowerCase())) {
+            return true
+          }
+          else if (x.resident.lastname?.toLowerCase().includes(e.target.value.toLowerCase())) {
+            return true
+          }
+        })
+    if (text) {
+        setCurrentPosts(text)
     }
     else {
-      setFilter([])
-      setCurrentPosts(management.slice(indexoffirst, indexoflast))
+        await paginate(0)
     }
 
-  }
-
+}
   const settingCurrent = value => setCurrentPosts(value)
 
   if (isError)

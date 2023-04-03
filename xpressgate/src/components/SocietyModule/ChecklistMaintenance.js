@@ -13,7 +13,7 @@ import Societyheader from "./Utils/Societyheader";
 
 const ChecklistMaintenance = () => {
     const [Checklist, setChecklist] = useState([])
-    const [currentPage, setCurrentpage] = useState(1)
+    const [currentPage, setCurrentpage] = useState(0)
     const [postPerPage, setPostPerPage] = useState(10)
     const [currentPosts, setCurrentPosts] = useState([])
     const [toast, setToast] = useState({ show: false })
@@ -29,7 +29,7 @@ const ChecklistMaintenance = () => {
             const { data } = await axios.get(`${window.env_var}api/checklist/getall/${localStorage.getItem("community_id")}`)
             console.log(data.data)
             setChecklist(data.data.Checklist_Details)
-            const indexoflast = currentPage * postPerPage  //endoffset
+            const indexoflast = (currentPage + 1 ) * postPerPage  //endoffset
             const indexoffirst = indexoflast - postPerPage //startoffset
             setCurrentPosts(data.data.Checklist_Details.slice(indexoffirst, indexoflast))
         } catch (error) {
@@ -44,26 +44,16 @@ const ChecklistMaintenance = () => {
         setCurrentPosts(Checklist.slice(indexoffirst, indexoflast))
     }
 
-    const findText = (e) => {
-        let search = e.target.value.toLowerCase()
-        //console.log(search)
-        let arr = Checklist.filter(x => {
-            //console.log(Checklist)
-            if (x.item.toLowerCase().includes(search)) {
-                return true
-            }
-            else if (x.item.toLowerCase().includes(search)) {
-                return true
-            }
-        })
-        if (arr) {
-            const indexoflast = currentPage * postPerPage  //endoffset
-            const indexoffirst = (indexoflast - postPerPage)
-            setCurrentPosts(arr.slice(indexoffirst, indexoflast))
+    async function findText(e) {
+        console.log(Checklist)
+        let text = Checklist.filter(x => x.item?.toLowerCase().includes(e.target.value.toLowerCase()))
+        if (text) {
+            setCurrentPosts(text)
         }
         else {
-            paginate(0)
+            await paginate(0)
         }
+    
     }
 
     const handleEditClick = (checklist) => {
@@ -135,9 +125,9 @@ const ChecklistMaintenance = () => {
                             return (
 
                                 <tr>
-                                    <td>{(currentPage - 1) * postPerPage + (index + 1)}</td>
+                                   <td>{index + 1 + (currentPage * postPerPage)}</td>
                                     <td >{item.item}</td>
-                                    <td>{item.frequency}</td>
+                                    <td>{item.frequency == '1' ? 'Daily' :item.frequency == '2' ? 'Monthly' :item.frequency  == '3' ? 'Quarterly' : item.frequency  == '4' ? 'Half-yearly ' : 'Yearly' }</td>
                                     <td>{item.other_details}</td>
                                     <td><div>
                                         <IconButton onClick={() => { handleEditClick(item) }}>
