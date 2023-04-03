@@ -56,11 +56,11 @@ const GuestManagement = () => {
   {
     let search = e.target.value.toLowerCase()
     let arr = guests.filter(x=>{
-      if(x.guestFirstName.toLowerCase().includes(search))
+      if(x.guestFirstName?.toLowerCase().includes(search))
       {
         return true
       }
-      else if(x.guestLastName.toLowerCase().includes(search))
+      else if(x.guestLastName?.toLowerCase().includes(search))
       {
         return true
       }

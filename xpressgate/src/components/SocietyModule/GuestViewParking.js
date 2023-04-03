@@ -35,12 +35,12 @@ const GuestViewParking = () => {
               <div className="row row-cols-1 row-cols-md-3 g-4 sdfullcardscss allcards">
                 <div className="col card_hover_animation ">
                   <div className="sddashboardcard">
-                    <img src="/images/managenoticeboard.svg" className="dbcard-img-top" alt="view parked vehicle" onClick={() => { window.location.href = '/viewparkedvehicle' }}></img>
+                    <img src="/images/ViewParkedVehicle.svg" className="dbcard-img-top" alt="view parked vehicle" onClick={() => { window.location.href = '/viewparkedvehicle' }}></img>
                   </div>
                 </div>
                 <div className="col card_hover_animation">
                   <div className="sddashboardcard">
-                    <img src="/images/managecommunity.svg" className="dbcard-img-top" alt="view guest parking section" onClick={() => { window.location.href = '/viewguestparkingsection' }}></img>
+                    <img src="/images/GuestParkingSection.svg" className="dbcard-img-top" alt="view guest parking section" onClick={() => { window.location.href = '/viewguestparkingsection' }}></img>
                   </div>
                 </div>
                

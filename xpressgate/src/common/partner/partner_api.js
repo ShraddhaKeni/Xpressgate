@@ -31,10 +31,3 @@ export async function updateProgram(id) {
         return error
     }
 }
-// export async function deleteProgram(id) {
-//     try {
-//         return await deleteRequest(`partner/programs`, { partner_id: id });
-//     } catch (error) {
-//         return error
-//     }
-// }

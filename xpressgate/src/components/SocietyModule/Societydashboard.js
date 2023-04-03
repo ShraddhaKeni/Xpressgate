@@ -114,12 +114,12 @@ const Societydashboard = () => {
                 </div>
                 <div className="col card_hover_animation">
                   <div className="sddashboardcard">
-                    <img src="/images/guestmanagement.svg" className="dbcard-img-top" alt="Guest Parking Section" onClick={() => { window.location.href = '/guestparking ' }}></img>
+                    <img src="/images/GuestParking.svg" className="dbcard-img-top" alt="Guest Parking Section" onClick={() => { window.location.href = '/guestparking ' }}></img>
                   </div>
                 </div>
                 <div className="col card_hover_animation">
                   <div className="sddashboardcard">
-                    <img src="/images/guestmanagement.svg" className="dbcard-img-top" alt="Participant Management" onClick={() => { window.location.href = '/participantlist ' }}></img>
+                    <img src="/images/ProgramManagement.svg" className="dbcard-img-top" alt="Participant Management" onClick={() => { window.location.href = '/programlist ' }}></img>
                   </div>
                 </div>
               </div>

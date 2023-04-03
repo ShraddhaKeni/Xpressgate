@@ -197,9 +197,23 @@ const AddChecklistSecurity = () => {
                         <div class="form-group form-group6 row">
                             <label class="col-lg-2 col-form-label ADN_label">Frequency</label>
                             <div class="col-lg-4">
-                                {type == 'edit' ? <input type="number" class="form-control input-lg SideB" name="frequency" id="frequency" defaultValue={guard.frequency} placeholder="Enter Frequency" required />
-                                    : <input type="number" class="form-control input-lg input-lg1 SideB" name="frequency" id="frequency" placeholder="Enter Frequency" required />}
-
+                              
+                        {type == 'edit' ? <select class="form-control input-lg inputborder" defaultValue={guard.frequency} id="frequency" name="frequency" placeholder="Enter Frequency">
+                                    <option value={null} selected disabled > Select Frequency </option>
+                                    <option value="1"> Daily </option>
+                                    <option value="2"> Monthly </option>
+                                    <option value="3"> Quarterly </option>
+                                    <option value="4"> Half-yearly </option>
+                                    <option value="5"> Yearly </option>
+                            </select>:
+                            <select class="form-control input-lg inputborder" id="frequency" name="frequency" placeholder="Enter Frequency" required>
+                                    <option value={null} selected disabled > Select Frequency </option>
+                                    <option value="1"> Daily </option>
+                                    <option value="2"> Monthly </option>
+                                    <option value="3"> Quarterly </option>
+                                    <option value="4"> Half-yearly </option>
+                                    <option value="5"> Yearly </option>
+                            </select> }
                             </div>
                         </div>
 

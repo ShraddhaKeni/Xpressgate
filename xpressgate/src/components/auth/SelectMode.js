@@ -65,7 +65,7 @@ const SelectMode = () => {
           </div> 
           <div className='BOXESMargin'>
             <Button onClick={() => { setMode('partner') }} className='GuardMod_box'>
-              <img src="/images/user_setting.svg" className='GM_image'></img>
+              <img src="/images/PartnerMod.svg" className='GM_image'></img>
               <br />
               <label className='GM_label'>Partner Program</label>
             </Button>

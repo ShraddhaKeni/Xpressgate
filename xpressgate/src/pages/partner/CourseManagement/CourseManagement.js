@@ -116,8 +116,8 @@ return <div className="col  card_hover_animation" key={program.id}>
         {/* <div className='d-flex justify-content-end mr-5'><button className={`${coupon.status == 1 ? 'highlight-active' : 'highlight-inactive'} p-2 px-3`}><span className={`${coupon.status == 1 ? 'dot' : 'dot-inactive'}`}></span>{coupon.status == 1 ? 'Active' : 'Inactive'}</button></div> */}
         <div>
             <p className='dash-Coupon_heading-sm'>{program.name || "n/a"}</p>
-            <p className='Coupon_heading'>{program.category || "n/a"}</p>
-            <p className='dash-Coupon_heading-md'>{program.type || "n/a"}</p>
+            <p className='Coupon_heading'>{program.category == '1' ? "Fashion" : program.category == '2' ? "Dance" : program.category == '3' ? "sports" : 'Classes' || 'n/a' }</p>
+            <p className='dash-Coupon_heading-md'>{program.type == '1' ? 'Online' :'Offline' || "n/a"}</p>
             <Link to={`${RouterPath.COURSE_DETAILS}`} state={{ program }} type="button" className="btn btn-primary blue-bg">View</Link>
         </div>
     </div>

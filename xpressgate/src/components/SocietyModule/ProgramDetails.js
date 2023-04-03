@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { getAllPrograms, getProgramById, updateProgram } from '../../../common/partner/partner_api';
+import { getAllPrograms, getProgramById, updateProgram } from '../../common/partner/partner_api';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
-import { goBackInOneSec, MESSAGES, TOAST } from '../../../common/utils';
-import { ToastMessage } from '../../../components/ToastMessage';
-import RouterPath from '../../../common/constants/path/routerPath';
+import { goBackInOneSec, MESSAGES, TOAST } from '../../common/utils';
+import { ToastMessage } from '../../components/ToastMessage';
+import RouterPath from '../../common/constants/path/routerPath';
 import axios from "axios";
-function CourseDetails() {
-  const location = useLocation();
+import Societyheader from './Utils/Societyheader';
+
+const ProgramDetails = () => {
+   
+    const location = useLocation();
 
   const navigate = useNavigate()
   const [toast, setToast] = useState({ show: false })
@@ -16,46 +19,42 @@ function CourseDetails() {
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    async function getProgram() {
-        const res = await getProgramById(location.state.program?.id);
 
-    }
+   
 
-    getProgram();
-
-}, [])
-const handleEditClick = (id) => {
-  navigate('/partner/course/editcourse', { state: { id } })
   
-}
-
-const handleDelete = async () => {
-    console.log(program);
-    console.log(location.state.program._id)
-    const res = await axios.delete(`${window.env_var}api/partner/programs/${location.state.program._id}`)
-    // console.log(location.state.id)
-    if (res && res.data?.status_code == 200) {
-        setToast(TOAST.SUCCESS(res?.data?.message));
-        goBackInOneSec(navigate)
-
-    } else {
-        setToast(TOAST.ERROR(res?.data?.message));
-    }
-}
+  
+}, [])
 
 
 
   return (
-    
-     <>
-     
-     <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
-     {!program && <Navigate to={RouterPath.COURSE_DETAILS} />}
-     {program &&
-      <div>
-        <div className="page-label">
-          <label>Program Details</label>
+<>
+    <div className="addguestcontainer4">
+      <div id="addflatsection">
+        <Societyheader/>
+      </div>
+      <div id="societynamesection">
+        <div className="VP_societyname">
+          <img src="/images/societyicon.svg" alt="Society image" />
+          <label>Society Name</label>
         </div>
+      
+        <div className="ParticipantsideImg">
+          <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
+        </div>
+      </div>
+      <div className="addguestbackgroundimg">
+        
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
+   {!program }
+     {program &&
+   
+       <div>
+       <div className="page-label">
+         <label>Program Details</label>
+       </div>
+    <div>
         <div className="col">
           <div className="PCard">
             <br></br>
@@ -76,13 +75,13 @@ const handleDelete = async () => {
                 <div className='CTLAbel'>
                 <label>Program Type</label>
                 <div className='typeboxes'>
-                <label>{program.type == '1' ? 'Online' :'Offline' || "n/a"} </label>
+                <label>{program.type == '1' ? 'Online' :'Offline' || "n/a"}</label>
                 </div> 
                 </div>
                 <div className='CLLAbel'>
                 <label>Program Fees</label>
                 <div className='typeboxes'>
-                    <label>{program.fee || "n/a"} </label>
+                    <label>{program.fee || "n/a"}</label>
                 </div> 
                 </div>
                 <div></div>
@@ -96,20 +95,25 @@ const handleDelete = async () => {
             <div className='MaxSLabel'>
               <label>Maximum 20 Members</label>
             </div>
-            <button type="submit" id='Edit'  className="EditCDButn"  onClick={() => { handleEditClick(program.id) }}>Edit Program </button>
-            <button type="remove" id='Delete'  className="DeleteCDButn"  onClick={() => handleDelete()}>Delete Program</button>
+            {/* <button type="submit" id='Edit'  className="EditCDButn"  onClick={() => { handleEditClick(program.id) }}>Edit Program </button>
+            <button type="remove" id='Delete'  className="DeleteCDButn"  onClick={() => handleDelete()}>Delete Program</button> */}
              <br/>
              <br/>
-         
-           
-            <br></br>
-          </div>
-        </div>
-        </div>
-       
-    }
-    </>
-  );
+      </div>
+      
+    </div> 
+    </div> 
+    </div> 
 }
+    </div> 
+    </div> 
+</>
+     
+       
+    
+ 
 
-export default CourseDetails;
+  );
+
+}
+export default ProgramDetails;

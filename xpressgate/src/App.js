@@ -117,6 +117,8 @@ import GuestViewParking from './components/SocietyModule/GuestViewParking';
 import Qrcode from './components/Qrcode';
 import ParticipantList from './components/SocietyModule/ParticipantList';
 import AddParticipant from './components/SocietyModule/AddParticipant';
+import ProgramDetails from './components/SocietyModule/ProgramDetails';
+
 
 
 
@@ -339,10 +341,13 @@ function App() {
           <Route path={RouterPath.EDIT_STUDENT} element={<PartnerModule />}></Route>
           <Route path={RouterPath.STUDENT_DETAILS} element={<PartnerModule />}></Route>
           <Route path={RouterPath.EDIT_PROFILE} element={<PartnerModule />}></Route>
+         
 
           <Route path="/qrcode/:id" element={<Qrcode />} exact></Route>
-          <Route path="/participantlist" element={<ParticipantList />} exact></Route>
+          <Route path="/programlist" element={<ParticipantList />} exact></Route>
           <Route path="/addparticipant" element={<AddParticipant />} exact></Route>
+          <Route path="/programdetails" element={<ProgramDetails />} exact></Route>
+       
 
 
 
