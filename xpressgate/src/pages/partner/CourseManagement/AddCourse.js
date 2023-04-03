@@ -9,6 +9,7 @@ import { goBackInOneSec, TOAST } from '../../../common/utils';
 
 function AddCourse() {
   const navigate = useNavigate();
+
   const [toast, setToast] = useState({ show: false })
   const [programType, setProgramType] = useState(0)
   const [ProgramCategory, setProgramCategory] = useState(0)
@@ -95,7 +96,7 @@ c.category= ProgramCategory
 <Form className='fcadmin' method='POST' onSubmit={handleSubmit} >
 
     <SimpleInputComponent label={'Program Name'} placeholder={'Enter Program Name'} name={'Program Name'} onChange={(e) => { setProgram({ ...program, name: e.target.value }) }} required />
-    <SimpleDropDownComponent items={[{ id: 1, option: 'Fashion' }, { id: 2, option: ' ' }]} label={'Category'} name={'Category'} id={'Program_Category'} onChange={(e) => { handleCategoryChange(e) }} />
+    <SimpleDropDownComponent items={[{ id: 1, option: 'Fashion' }, { id: 2, option: 'Dance ' },{ id: 3, option: 'Sports ' },{ id: 4, option: 'Classes ' }]} label={'Category'} name={'Category'} id={'Program_Category'} onChange={(e) => { handleCategoryChange(e) }} />
     <SimpleInputComponent label={'Maximum no of Members'} placeholder={'No of Members'} name={'Maximum no of Members'} type={'number'}onChange={(e) => setProgram({...program, max_members: e.target.value })}  required  />
     <SimpleDropDownComponent items={[{ id: 1, option: 'Online' }, { id: 2, option: 'Offline' }]} label={'Program Type'} name={'Program_Type'} id={'Program_type'} onChange={(e) => { handleTypeChange(e) }}/>
     < SimpleInputComponent label={'Fees'} name={'Fees'} placeholder={'Fees'}  type={'number'} onChange={(e) => setProgram({...program, fee: e.target.value })} required />

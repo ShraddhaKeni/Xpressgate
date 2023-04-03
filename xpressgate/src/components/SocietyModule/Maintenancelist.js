@@ -69,26 +69,17 @@ const Maintenancelist = () => {
     var d = new Date(date)
     return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate()
   }
-  function findText(e) {
-    let search = e.target.value.toLowerCase()
-    let arr = maintenance.filter(x => {
-      if (x.item.toLowerCase().includes(search)) {
-        return true
-      }
-      // else if (x.name.toLowerCase().includes(search)) {
-      //   return true
-      // }
-    })
-    if (arr) {
-      const indexoflast = currentPage * postPerPage  //endoffset
-      const indexoffirst = (indexoflast - postPerPage)
-      setCurrentPosts(arr.slice(indexoffirst, indexoflast))
+  async function findText(e) {
+    console.log(maintenance)
+    let text = maintenance.filter(x => x.item?.toLowerCase().includes(e.target.value.toLowerCase()))
+    if (text) {
+        setCurrentPosts(text)
     }
     else {
-      paginate(0)
+        await paginate(0)
     }
 
-  }
+}
 
 
   return (

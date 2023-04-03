@@ -132,7 +132,7 @@ useEffect(() => {
 <Form className='fcadmin' method='POST' >
 
 <SimpleInputComponent label={'Program Name'} placeholder={'Enter Program Name'} name={'Program Name'} id={'programname'}  text={program.name} onChange={(e) => { setProgram({ ...program, name: e.target.value }) }} required />
-    <SimpleDropDownComponent items={[{ id: 1, option: 'Fashion' }, { id: 2, option: ' ' }]} label={'Category'} name={'Category'} id={'Program_Category'} text={program.category} onChange={(e) => { handleCategoryChange(e) }} />
+    <SimpleDropDownComponent items={[{ id: 1, option: 'Fashion' }, { id: 2, option: 'Dance ' },{ id: 3, option: 'Sports ' },{ id: 4, option: 'Classes ' }]} label={'Category'} name={'Category'} id={'Program_Category'} text={program.category} onChange={(e) => { handleCategoryChange(e) }} />
     <SimpleInputComponent label={'Maximum no of Members'} placeholder={'No of Members'} name={'Maximum no of Members'} type={'number'} id={'max_members'}  text={program.max_members} onChange={(e) => setProgram({...program, max_members: e.target.value })}  required  />
     <SimpleDropDownComponent items={[{ id: 1, option: 'Online' }, { id: 2, option: 'Offline' }]} label={'Program Type'} name={'Program_Type'} id={'Program_type'}  text={program.type} onChange={(e) => { handleTypeChange(e) }}/>
     < SimpleInputComponent label={'Fees'} name={'Fees'} placeholder={'Fees'}  type={'number'} id={'fee'}  text={program.fee} onChange={(e) => setProgram({...program, fee: e.target.value })} required />
