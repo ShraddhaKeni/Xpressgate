@@ -72,41 +72,7 @@ const EditPartner = () => {
     }
 
 
-    // const getDetails = async () => {
-    //     try {
-    //         const { data } = await axios.get(`${window.env_var}api/state/get`)
-    //         let array = data.data.map(item => {
-    //             return {
-    //                 id: item._id,
-    //                 option: item.name,
-    //                 country_id: item.country_id
-    //             }
-    //         })
-    //         setState(array)
 
-    //     } catch (error) {
-    //         setToast({ show: true, type: "error", message: "Data loading Failed" });
-    //     }
-    // }
-
-    // const getArea = async (id) => {
-    //     try {
-    //         const { data } = await axios.get(`${window.env_var}api/area/get/${id}`)
-    //         let array = data.data.map(item => {
-    //             return {
-    //                 id: item._id,
-    //                 option: item.area_name,
-    //                 state_id: item.state_id,
-    //                 pincode: item.pincode
-    //             }
-    //         })
-
-    //         await setArea(array)
-    //     } catch (error) {
-    //         setToast({ show: true, type: "error", message: "Data loading Failed" });
-
-    //     }
-    // }
 
     const handleSubmit = async (e) => {
         e.preventDefault()

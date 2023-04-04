@@ -1,14 +1,7 @@
 import { getRequest, postRequest, putRequest, deleteRequest} from "../../common/axios_client";
 
 // Program Management
-export async function addProgram(data) {
-    try {
-        return await postRequest('partner/programs', data);
-    } catch (error) {
-        return error
-    }
-    
-}
+
 
 export async function getAllPrograms() {
     try {
