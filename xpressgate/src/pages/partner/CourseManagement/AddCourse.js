@@ -5,7 +5,7 @@ import { Form } from 'react-bootstrap';
 import { ToastMessage } from '../../../components/ToastMessage';
 import { addProgram } from '../../../common/partner/partner_api';
 import { goBackInOneSec, TOAST } from '../../../common/utils';
-
+import axios from 'axios';
 
 function AddCourse() {
   const navigate = useNavigate();
@@ -26,61 +26,34 @@ function AddCourse() {
 
 const [value, setValue] = useState(new Date().toLocaleString());
 
-// const handleChange = (e) => {
-//     console.log(e.target.value);
-
-//     setValue(e.target.value);
-// };
-
-
-const handleTypeChange = (e) => {
-  console.log(e.target.value);
-  setProgramType(e.target.value);
-
-};
-const handleCategoryChange = (e) => {
-  console.log(e.target.value);
-  setProgramCategory(e.target.value);
-
-};
 
 
 
 const handleSubmit = async (e) => {
-  e.preventDefault();
+  console.log(program)
+  e.preventDefault()
+  try {
 
-  //Validate the data by regex before submit
+      if (program.name != '' && program.category != '' && program.max_members != '' && program.mobileno != '' && program.type != '' && program.fee != '' && program.fee != '') {
+          
+          const { data } = await axios.post(`${window.env_var}api/partner/programs`, program)
+          if (data.status_code == 200) {
+              setToast(TOAST.SUCCESS(data?.message));
+              goBackInOneSec(navigate)
+          } else {
+              setToast(TOAST.ERROR(data?.message));
+          }
+      }
+    
+      else {
+          alert('Fields Empty !')
+      }
 
-  let c = { ...program, valid: value }
-  c.type = programType;
-
-  if (programType === 0) {
-      alert("Please select Program Type");
-      return;
+  } catch (error) {
+      alert('Could not add Program.!')
   }
-  if (ProgramCategory === 0) {
-      alert("Please select Program Type");
-      return;
-  }
-c.category= ProgramCategory
-
-
-  const res = await addProgram(c)
-  console.log(res)
-  if (res && res.data?.status_code == 200) {
-      setToast(TOAST.SUCCESS(res?.data?.message));
-      goBackInOneSec(navigate)
-  } else if (res.data?.status_code == 201) {
-      setToast(TOAST.ERROR(res?.data?.message));
-  }
-  else {
-      alert(res.message);
-  }
-
 
 }
-
-
 
 
   return (
@@ -96,9 +69,9 @@ c.category= ProgramCategory
 <Form className='fcadmin' method='POST' onSubmit={handleSubmit} >
 
     <SimpleInputComponent label={'Program Name'} placeholder={'Enter Program Name'} name={'Program Name'} onChange={(e) => { setProgram({ ...program, name: e.target.value }) }} required />
-    <SimpleDropDownComponent items={[{ id: 1, option: 'Fashion' }, { id: 2, option: 'Dance ' },{ id: 3, option: 'Sports ' },{ id: 4, option: 'Classes ' }]} label={'Category'} name={'Category'} id={'Program_Category'} onChange={(e) => { handleCategoryChange(e) }} />
+    <SimpleDropDownComponent items={[{ id: 1, option: 'Fashion' }, { id: 2, option: 'Dance ' },{ id: 3, option: 'Sports ' },{ id: 4, option: 'Classes ' }]} label={'Category'} name={'Category'} id={'Program_Category'} onChange={(e) => { setProgram({ ...program, category: e.target.value }) }}  />
     <SimpleInputComponent label={'Maximum no of Members'} placeholder={'No of Members'} name={'Maximum no of Members'} type={'number'}onChange={(e) => setProgram({...program, max_members: e.target.value })}  required  />
-    <SimpleDropDownComponent items={[{ id: 1, option: 'Online' }, { id: 2, option: 'Offline' }]} label={'Program Type'} name={'Program_Type'} id={'Program_type'} onChange={(e) => { handleTypeChange(e) }}/>
+    <SimpleDropDownComponent items={[{ id: 1, option: 'Online' }, { id: 2, option: 'Offline' }]} label={'Program Type'} name={'Program_Type'} id={'Program_type'} onChange={(e) => { setProgram({ ...program, type: e.target.value }) }} />
     < SimpleInputComponent label={'Fees'} name={'Fees'} placeholder={'Fees'}  type={'number'} onChange={(e) => setProgram({...program, fee: e.target.value })} required />
     <SimpleInputComponent label={'Program Details'} placeholder={'Enter Program Details'} type={'textarea'} name={'Program_Details'} onChange={(e) => setProgram({...program, details: e.target.value })} />
 

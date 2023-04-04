@@ -69,25 +69,50 @@ const Managementteam = () => {
     navigate('/addManagement', { state: { id: id, type: 'edit', title, mainid } })
   }
 
+  // function findText(e) {
+  //   console.log(currentPosts)
+   
+  //   let arr = management.filter(x => {
+  //     if (x.resident.firstname.toLowerCase().includes(e.target.value.toLowerCase())) {
+  //       return true
+  //     }
+  //     else if (x.resident.lastname.toLowerCase().includes(e.target.value.toLowerCase())) {
+  //       return true
+  //     }
+  //   })
   
-  async function findText(e) {
-    console.log(management)
-    let text = management.filter(x => {
-          if (x.resident.firstname?.toLowerCase().includes(e.target.value.toLowerCase())) {
-            return true
-          }
-          else if (x.resident.lastname?.toLowerCase().includes(e.target.value.toLowerCase())) {
-            return true
-          }
-        })
-    if (text) {
-        setCurrentPosts(text)
+  //   const indexoflast = currentPage * postPerPage  //endoffset
+  //   const indexoffirst = (indexoflast - postPerPage)
+  //   if (arr) {
+  //     setFilter(arr)
+  //     setCurrentPosts(arr.slice(indexoffirst, indexoflast))
+  //   }
+  //   else {
+  //     setFilter([])
+  //     setCurrentPosts(management.slice(indexoffirst, indexoflast))
+  //   }
+
+  // }
+  function findText(e) {
+    let search = e.target.value.toLowerCase()
+    let arr = management.filter(x => {
+      if (x.resident.firstname.toLowerCase().includes(search)) {
+              return true
+            }
+            else if (x.resident.lastname.toLowerCase().includes(search)) {
+              return true
+            }
+          })
+
+    if (arr.length > 0) {
+      setCurrentPosts(arr);
     }
     else {
-        await paginate(0)
+      setCurrentPosts(management);
     }
 
 }
+
   const settingCurrent = value => setCurrentPosts(value)
 
   if (isError)

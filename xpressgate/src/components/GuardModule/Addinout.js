@@ -200,13 +200,13 @@ const Addinout = () => {
 
           <div className="form-group row">
 
-            <label className="col-lg-2 col-form-label ADN_label">Name</label>
+            <label className="col-lg-3 col-form-label ADN_label">Name</label>
             <div className="col-lg-4">
               <input required type="text" className="form-control input-lg AIOBorder" id='name' name="addinoutname" placeholder="Name" value={details.name}></input>
             </div>
           </div>
           <div className="form-group row">
-            <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Visitor Type</label>
+            <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-3 col-form-label ADN_label">Visitor Type</label>
             <div className="col-sm-4 col-md-4 col-lg-4">
               <select required class="form-control input-lg AIOBorder" ref={visitortype} name="visitortype" placeholder="Visitor Type" id="visitortype" onChange={(e) => getDetails(e)}>
                 <option value={1}>Guest</option>
@@ -216,7 +216,7 @@ const Addinout = () => {
             </div>
           </div>
           <div className="form-group row" id='fullvendor'>
-            <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Select Vendor</label>
+            <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-3 col-form-label ADN_label">Select Vendor</label>
             <div className="col-sm-4 col-md-4 col-lg-4">
               <select required className="form-control input-lg AIOBorder" id="vendor" placeholder="Vendor">
                 <option value="" selected disabled>Select Vendor</option>
@@ -227,7 +227,7 @@ const Addinout = () => {
             </div>
           </div>
           <div className="form-group row" id='fulldailyhelp'>
-            <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Select Daily Helper</label>
+            <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-3 col-form-label ADN_label">Select Daily Helper</label>
             <div className="col-sm-4 col-md-4 col-lg-4">
               <select required className="form-control input-lg AIOBorder" id="dailyhelp" placeholder="Daily Helper">
                 <option value="" selected disabled>Select Daily Helper</option>
@@ -238,7 +238,7 @@ const Addinout = () => {
             </div>
           </div>
           <div className="form-group row">
-            <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-2 col-form-label ADN_label">Block</label>
+            <label for="inputentryno" className="col-sm-2 col-md-2 col-lg-3 col-form-label ADN_label">Block</label>
             <div className="col-sm-4 col-md-4 col-lg-4">
               <select required className="form-control input-lg AIOBorder" id='block' onChange={(e) => getFlats(e)}>
                 <option value={null} disabled selected>Block</option>
@@ -252,7 +252,7 @@ const Addinout = () => {
             </div>
           </div>
           <div className="form-group row">
-            <label className="col-lg-2 col-form-label ADN_label">Flat No.</label>
+            <label className="col-lg-3 col-form-label ADN_label">Flat No.</label>
             <div className="col-lg-4">
               <select required className="form-control input-lg AIOBorder" id="flatno" placeholder="Flat No." onChange={(e) => getResidents(e)}>
                 <option value="" selected disabled>Select Flat</option>
@@ -263,7 +263,7 @@ const Addinout = () => {
             </div>
           </div>
           <div className="form-group row">
-            <label className="col-lg-2 col-form-label ADN_label">Resident</label>
+            <label className="col-lg-3 col-form-label ADN_label">Resident</label>
             <div className="col-lg-4">
               <select required className="form-control input-lg AIOBorder" id="resident" placeholder="Resident">
                 <option value="" selected disabled>Select Resident</option>
@@ -274,25 +274,25 @@ const Addinout = () => {
             </div>
           </div>
           <div className="form-group row">
-            <label className="col-lg-2 col-form-label ADN_label">Contact No.</label>
+            <label className="col-lg-3 col-form-label ADN_label">Contact No.</label>
             <div className="col-lg-4">
               <input required type="text" className="form-control input-lg AIOBorder" id='contact_no' name="ContactNo" placeholder="Contact No." value={details.contact_no} maxLength="10"></input>
             </div>
           </div>
           <div className="form-group row">
-            <label className="col-lg-2 col-form-label ADN_label">Date</label>
+            <label className="col-lg-3 col-form-label ADN_label">Date</label>
             <div className="col-lg-4">
               <input required type="date" className="form-control input-lg AIOBorder" id='date' name="date" placeholder="Date" value={details.date}></input>
             </div>
           </div>
           <div className="form-group row">
-            <label className="col-lg-2 col-form-label ADN_label">In Time</label>
+            <label className="col-lg-3 col-form-label ADN_label">In Time</label>
             <div className="col-lg-4">
               <input required type="time" className="form-control input-lg AIOBorder" id='intime' name="intime" placeholder=" In Time" value={details.intime} ></input>
             </div>
           </div>
           <div className="form-group row">
-            <label className="col-lg-2 col-form-label ADN_label">Vehicle No:</label>
+            <label className="col-lg-3 col-form-label ADN_label">Vehicle No:</label>
             <div className="col-lg-4">
               <input required type="text" className="form-control input-lg AIOBorder" id='veh_id' name="veh_id" placeholder="Enter Vehicle No" value={details.intime} ></input>
             </div>
@@ -301,7 +301,7 @@ const Addinout = () => {
 
           {!details.outtime && <>
             <div className="form-group row">
-              <label className="col-lg-2 col-form-label ADN_label">Section</label>
+              <label className="col-lg-3 col-form-label ADN_label">Parking Section</label>
               <div className="col-lg-4">
                 <select required className="form-control input-lg AIOBorder" id="parkingsection" placeholder="Parking Sections">
                   <option disabled value={""} selected={true}>Select Parking Section</option>
@@ -319,7 +319,7 @@ const Addinout = () => {
 
           {!details.outtime && <>
             <div className="form-group row">
-              <label className="col-lg-2 col-form-label ADN_label">Parking Time</label>
+              <label className="col-lg-3 col-form-label ADN_label">Parking Time</label>
               <div className="col-lg-4">
                 <select required className="form-control input-lg AIOBorder" id="parkingtime" placeholder="Parking Time">
                   <option disabled selected={true}>Select Parking Time</option>
@@ -333,7 +333,7 @@ const Addinout = () => {
           </>
           }
           <div className="form-group row hidden">
-            <label className="col-lg-2 col-form-label ADN_label">Status</label>
+            <label className="col-lg-3 col-form-label ADN_label">Status</label>
             <div className="col-lg-4">
               <select required class="form-control input-lg AIOBorder" id='status' placeholder="Status" disabled>
                 <option value={1} selected>In</option>

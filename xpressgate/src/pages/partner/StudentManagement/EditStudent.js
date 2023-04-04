@@ -6,6 +6,7 @@ import axios from 'axios';
 import { ToastMessage } from '../../../components/ToastMessage';
 import { goBackInOneSec, TOAST } from '../../../common/utils';
 import { mobileValidation, emailValidation } from '../../../components/auth/validation';
+import { id } from 'date-fns/locale';
 function EditStudent() {
 
   const location = useLocation()
@@ -55,7 +56,8 @@ const [allprograms, setAllPrograms] = useState([]);
   }
   const getStudentDetail = async () => {
       try {
-          const { data } = await axios.get(`${window.env_var}api/community/getone/${location.state.id}`)
+      
+          const { data } = await axios.get(`${window.env_var}api/partner/students/${location.state.id}`)
           setStudent({
               ...student,
               community_id: location.state.id,
@@ -93,7 +95,8 @@ const [allprograms, setAllPrograms] = useState([]);
   
         if (student.name != '' && student.program != '' && student.program_type != 0 && student.phone != '' && student.email != '' && student.address != '' && student.occupation != '' && student.attachment != ''  ) {
           if (await mobileValidation(document.getElementById('phone').value) && emailValidation(document.getElementById('email').value)) { 
-          const { data } = await axios.put(`${window.env_var}api/partner/students`, student)
+          const { data } = await axios.put(`${window.env_var}api/partner/students/${location.state.id}`, student)
+          console.log(data)
             if (data.status_code == 200) {
                 setToast(TOAST.SUCCESS(data?.message));
                 goBackInOneSec(navigate)
@@ -111,7 +114,7 @@ const [allprograms, setAllPrograms] = useState([]);
   
       } catch (error) {
         console.log(error)
-          alert('Could not add member.!')
+          alert('Could not Update member.!')
       }
   
   }
@@ -124,6 +127,7 @@ const [allprograms, setAllPrograms] = useState([]);
 
   return (
     <>
+    <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
       <div>
         <div className="page-label">
           <label>Update Member</label>
@@ -150,7 +154,7 @@ const [allprograms, setAllPrograms] = useState([]);
     < SimpleInputComponent label={'Email Address'} name={'Email Address'} placeholder={'Email'} type={'email'} id={'email'}  text={student.email} onChange={(e) => { setStudent({ ...student, email: e.target.value }) }}  required />
     <SimpleInputComponent label={'Address'} name={'address_line'} placeholder={'Enter Address'} id={'address'} type={'textarea'} text={student.address} onChange={(e) => { setStudent({ ...student, address: e.target.value }) }} />
     < SimpleInputComponent label={'Occupation'} name={'Occupation'} placeholder={'Occupation'} id={'occupation'} text={student.occupation} onChange={(e) => { setStudent({ ...student, occupation: e.target.value }) }}  required />
-    < SimpleInputComponent label={'Attachments'} name={'Attachments'} placeholder={'Attachments'} id={'attachment'}  type={'file'} onChange={(e) => { setStudent({ ...student, attachment: e.target.files[0] }) }} required />
+    < SimpleInputComponent label={'Attachments'} name={'Attachments'} placeholder={'Attachments'} id={'attachment'}  type={'file'} onChange={(e) => { setStudent({ ...student, attachment: e.target.value }) }} required />
 
 
     <button type="submit" className="BTN_ADD_premise "  onClick={(e) => handleSubmit(e)} >Update</button>

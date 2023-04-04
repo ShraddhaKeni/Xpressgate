@@ -42,7 +42,7 @@ function StudentManagement() {
   }
   function ViewStudentDetails(id)
   {
-    navigate('/partner/student/studentdetails',{state:{program:id,type:'edit'}})
+    navigate('/partner/student/studentdetails',{state:{student:id,type:'edit'}})
   }
    
   const handleDelete = async (id) => {
@@ -135,13 +135,13 @@ function StudentManagement() {
                                             <td>{item.email}</td>
                                             <td>
                                                 <div>
-                                                    <button className='AddPButn' onClick={() => {ViewStudentDetails(item) }}  >View</button>
+                                                    <button className='AddPButn' onClick={() => {ViewStudentDetails(item._id) }}  >View</button>
                                                 </div>
                                             </td>
                                             <td>{item.status==false?'Inactive':'Active'}</td>
                                             <td>
                                                 <div>
-                                                    <IconButton onClick={() => { handleEditClick(item.id) }}>
+                                                    <IconButton onClick={() => { handleEditClick(item._id) }}>
                                                         <img src="/images/icon_edit.svg" />
                                                     </IconButton>
 

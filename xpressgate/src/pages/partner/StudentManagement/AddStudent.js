@@ -45,7 +45,7 @@ const getProgramDetails = async (e) => {
   setStudent({ ...student, program: e.target.value }) 
  console.log(e.target.value )
  const { data } = await axios.get(`${window.env_var}api/partner/programs/${e.target.value}`)
-
+console.log(data)
 }
 
 const handleSubmit = async (e) => {
@@ -108,7 +108,7 @@ const handleSubmit = async (e) => {
     < SimpleInputComponent label={'Email Address'} name={'Email Address'} placeholder={'Email'} type={'email'} id={'email'} onChange={(e) => { setStudent({ ...student, email: e.target.value }) }}  required />
     <SimpleInputComponent label={'Address'} name={'address_line'} placeholder={'Enter Address'} id={'address'} type={'textarea'} onChange={(e) => { setStudent({ ...student, address: e.target.value }) }} />
     < SimpleInputComponent label={'Occupation'} name={'Occupation'} placeholder={'Occupation'} id={'occupation'} onChange={(e) => { setStudent({ ...student, occupation: e.target.value }) }}  required />
-    < SimpleInputComponent label={'Attachments'} name={'Attachments'} placeholder={'Attachments'} id={'attachment'} type={'file'} onChange={(e) => { setStudent({ ...student, attachment: e.target.files[0] }) }} required />
+    < SimpleInputComponent label={'Attachments'} name={'Attachments'} placeholder={'Attachments'} id={'attachment'} type={'file'} onChange={(e) => { setStudent({ ...student, attachment: e.target.value }) }} required />
 
 
     <button type="submit" className="BTN_ADD_premise "  onClick={(e) => handleSubmit(e)} >Save</button>

@@ -206,12 +206,12 @@ const Inoutbookcard = () => {
                 <div><label className='vehicleno'>Vehicle No: {listData.vehicle_no ? listData.vehicle_no : 'N/A'}</label></div>
                 <div><label className='vehicleno'>Parking Section: {listData.parking_section_details ? listData.parking_section_details : 'N/A'}</label></div>
 
-                {listData.parking_time && <>
+                {!listData.parking_time && <>
                   <div><label className='vehicleno'>Parking Time: {listData.parking_time || 'N/A'}</label></div>
                 </>
                 }
 
-                {!listData.parking_time && <>
+                {/* {!listData.parking_time && <>
 
                   <label for="parkingtime" className='ParkingSec'>Parking Time: </label><br />
                   <select id="parkingtime" className='selectInput' name='parking_time' >
@@ -224,7 +224,7 @@ const Inoutbookcard = () => {
                   </select>
                 </>
 
-                }
+                } */}
 
 
 
