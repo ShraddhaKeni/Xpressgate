@@ -69,30 +69,7 @@ const Managementteam = () => {
     navigate('/addManagement', { state: { id: id, type: 'edit', title, mainid } })
   }
 
-  // function findText(e) {
-  //   console.log(currentPosts)
-   
-  //   let arr = management.filter(x => {
-  //     if (x.resident.firstname.toLowerCase().includes(e.target.value.toLowerCase())) {
-  //       return true
-  //     }
-  //     else if (x.resident.lastname.toLowerCase().includes(e.target.value.toLowerCase())) {
-  //       return true
-  //     }
-  //   })
-  
-  //   const indexoflast = currentPage * postPerPage  //endoffset
-  //   const indexoffirst = (indexoflast - postPerPage)
-  //   if (arr) {
-  //     setFilter(arr)
-  //     setCurrentPosts(arr.slice(indexoffirst, indexoflast))
-  //   }
-  //   else {
-  //     setFilter([])
-  //     setCurrentPosts(management.slice(indexoffirst, indexoflast))
-  //   }
 
-  // }
   function findText(e) {
     let search = e.target.value.toLowerCase()
     let arr = management.filter(x => {
@@ -104,14 +81,17 @@ const Managementteam = () => {
             }
           })
 
-    if (arr.length > 0) {
-      setCurrentPosts(arr);
-    }
-    else {
-      setCurrentPosts(management);
-    }
-
-}
+          if(arr)
+          {
+            const indexoflast = (currentPage + 1 ) * postPerPage   //endoffset
+            const indexoffirst = (indexoflast - postPerPage)
+            setCurrentPosts(arr.slice(indexoffirst,indexoflast))
+          }
+          else
+          {
+            paginate(0)
+          }
+        }
 
   const settingCurrent = value => setCurrentPosts(value)
 

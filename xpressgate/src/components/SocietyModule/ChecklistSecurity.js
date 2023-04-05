@@ -48,14 +48,17 @@ const ChecklistSecurity = () => {
     async function findText(e) {
         console.log(Checklist)
         let text = Checklist.filter(x => x.item?.toLowerCase().includes(e.target.value.toLowerCase()))
-        if (text) {
-            setCurrentPosts(text)
-        }
-        else {
-            await paginate(0)
-        }
-    
+        if(text)
+    {
+      const indexoflast = (currentPage + 1 ) * postPerPage   //endoffset
+      const indexoffirst = (indexoflast - postPerPage)
+      setCurrentPosts(text.slice(indexoffirst,indexoflast))
     }
+    else
+    {
+      paginate(0)
+    }
+  }
 
     const handleEditClick = (checklist) => {
         navigate('/add-security-checklist', { state: { data: Checklist, type: 'edit', id: checklist.id } })
