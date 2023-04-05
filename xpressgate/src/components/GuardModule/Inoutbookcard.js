@@ -204,12 +204,12 @@ const Inoutbookcard = () => {
                 <div><label className='outtime'>Out-Time: {listData.outtime ? timeConvert(listData.outtime) : 'N/A'}</label></div>
                 {/* <div><label className='noofpeople'>No of People: 1</label></div> */}
                 <div><label className='vehicleno'>Vehicle No: {listData.vehicle_no ? listData.vehicle_no : 'N/A'}</label></div>
-                <div><label className='vehicleno'>Parking Section: {listData.parking_section_details ? listData.parking_section_details : 'N/A'}</label></div>
+                <div><label className='vehicleno'>Parking Section: {listData.parking_section ? listData.parking_section_details  : 'N/A'}</label></div>
 
-                {!listData.parking_time && <>
+             
                   <div><label className='vehicleno'>Parking Time: {listData.parking_time || 'N/A'}</label></div>
-                </>
-                }
+               
+                
 
                 {/* {!listData.parking_time && <>
 

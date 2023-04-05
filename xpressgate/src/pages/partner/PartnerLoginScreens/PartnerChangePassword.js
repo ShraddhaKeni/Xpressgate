@@ -34,15 +34,13 @@ const ChangePassword = () => {
   const [newUser, setNewUser] = useState(initialState);
 
   useEffect(() => {
-    // getDetails();
+    getDetails();
     setLoading(false);
   }, []);
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
-
     setNewUser({ ...newUser, [name]: value });
-
     if (name === "password") {
       const isLenthy = value.length > 8;
       const hasUpper = /[A-Z]/.test(value);
@@ -68,16 +66,17 @@ const ChangePassword = () => {
     }
   };
 
-  // const getDetails = async () => {
-  //   try {
-  //     const { data } = await axios.get(
-  //       `${window.env_var}api/partner/${id})}`
-  //     );
-  //     setMem(data.data.Member[0]);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const getDetails = async () => {
+    try {
+      const { data } = await axios.get(
+        `${window.env_var}api/partner/${localStorage.getItem("partner_id")}`
+      );
+      console.log(data.data)
+      setMem(data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -91,7 +90,7 @@ const ChangePassword = () => {
             },
           };
           const sendData = {
-            username: mem.username,
+            // username: mem.username,
             password: oldpass.current.value,
             newpassword: password.current.value,
             confirmpassword: confirmPass.current.value,
@@ -102,7 +101,7 @@ const ChangePassword = () => {
           {
             setToast({ show: true, type: "success", message: "Password changed successfully" });
             setTimeout(() => {
-              window.location.href='/partner/dashboard'
+              window.location.href='/scDashboard'
             }, 1500);
           }
           else{
@@ -119,7 +118,6 @@ const ChangePassword = () => {
         document.querySelector("input").style.border = "1px solid red";
       }
     } catch (error) {
-      console.log(error);
       document.querySelector("input").style.border = "1px solid red";
     }
   };
@@ -143,30 +141,16 @@ const ChangePassword = () => {
                 <div class="form-group row">
                   <div class="col-lg-6">
                     <label className="scpcppassword">Current Password</label>
-                    <input
-                      ref={oldpass}
-                      type="password"
-                      className="form-control input-lg CP_Border"
-                      id="oldpass"
-                      placeholder="Current Password"
-                    ></input>
+                    <input ref={oldpass} type="password" className="form-control input-lg CP_Border" id="oldpass" placeholder="Current Password" ></input>
                   </div>
                 </div>
               </div>
-              {/* <label className='SocMessage'>*Password must be at least 8 characters long must contain<br/>a number, uppercase lowercase and a special character.</label> */}
               <br></br>
               <div className="scppassword">
                 <div class="form-group row">
                   <div class="col-lg-6">
                     <label className="ncppassword">New Password</label>
-                    <input
-                      ref={password}
-                      type="password"
-                      className="form-control input-lg CP_Border"
-                      id="loginpassword"
-                      placeholder="New Password"
-                      name="password"  value={newUser.password} onChange={handleOnChange}
-                    ></input>
+                    <input ref={password} type="password" className="form-control input-lg CP_Border" id="loginpassword" placeholder="New Password" name="password" value={newUser.password} onChange={handleOnChange} ></input>
                   </div>
                 </div>
               </div>
@@ -175,14 +159,7 @@ const ChangePassword = () => {
                 <div class="form-group row">
                   <div class="col-lg-6">
                     <label className="cscppassword">Confirm Password</label>
-                    <input
-                      ref={confirmPass}
-                      type="password"
-                      className="form-control input-lg CP_Border"
-                      id="loginpassword"
-                      placeholder="Confirm Password"
-                      name="confirmPass"  value={newUser.confirmPass} onChange={handleOnChange}
-                    ></input>
+                    <input ref={confirmPass} type="password" className="form-control input-lg CP_Border" id="loginpassword" placeholder="Confirm Password" name="confirmPass" value={newUser.confirmPass} onChange={handleOnChange} ></input>
                   </div>
                 </div>
               </div>
@@ -212,13 +189,7 @@ const ChangePassword = () => {
                 </li>
               </ul>  
             </div>
-            <button
-              type="submit"
-              onClick={(e) => handleSubmit(e)}
-              className="btnUpdatecp"
-            >
-              Update
-            </button>
+            <button type="submit" onClick={(e) => handleSubmit(e)} className="btnUpdatecp" > Update </button>
           </Form>
         </Loader>
    </>

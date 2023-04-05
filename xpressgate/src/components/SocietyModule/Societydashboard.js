@@ -122,6 +122,11 @@ const Societydashboard = () => {
                     <img src="/images/ProgramManagement.svg" className="dbcard-img-top" alt="Participant Management" onClick={() => { window.location.href = '/programlist ' }}></img>
                   </div>
                 </div>
+                <div className="col card_hover_animation">
+                  <div className="sddashboardcard">
+                    <img src="/images/inoutbookcard.svg" className="dbcard-img-top" alt="InOutBook" onClick={() => { window.location.href = '/societyinoutbook ' }}></img>
+                  </div>
+                </div>
               </div>
 
             </div>

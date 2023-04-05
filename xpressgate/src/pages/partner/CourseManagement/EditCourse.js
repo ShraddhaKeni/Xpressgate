@@ -79,7 +79,7 @@ useEffect(() => {
                 console.log(data)
                 if (data.status_code == 200) {
                     setToast(TOAST.SUCCESS(data?.message));
-                    // navigate('/partner/course')
+                    goBackInOneSec(navigate)
                 } else {
                     setToast(TOAST.ERROR(data?.message));
                 }
