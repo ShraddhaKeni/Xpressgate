@@ -118,6 +118,7 @@ import Qrcode from './components/Qrcode';
 import ParticipantList from './components/SocietyModule/ParticipantList';
 import AddParticipant from './components/SocietyModule/AddParticipant';
 import ProgramDetails from './components/SocietyModule/ProgramDetails';
+import SocietyInOutBook from './components/SocietyModule/SocietyInOutBook';
 
 
 
@@ -347,6 +348,7 @@ function App() {
           <Route path="/programlist" element={<ParticipantList />} exact></Route>
           <Route path="/addparticipant" element={<AddParticipant />} exact></Route>
           <Route path="/programdetails" element={<ProgramDetails />} exact></Route>
+          <Route path="/societyinoutbook" element={<SocietyInOutBook />} exact></Route>
        
 
 

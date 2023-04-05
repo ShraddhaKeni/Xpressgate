@@ -14,7 +14,7 @@ const ParticipantList = () => {
   const [programs, setPrograms] = useState();
   const [guestparkingSection,setGuestParkingSections] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
-  const [postPerPage, setPostPerPage] = useState(12)
+  const [postPerPage, setPostPerPage] = useState(10)
   const [currentPosts,setCurrentPosts] = useState([])
   const [loading, setLoading] = useState(true)
   const [isError,setError] = useState(false)
