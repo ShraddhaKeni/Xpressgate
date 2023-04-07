@@ -158,9 +158,9 @@ useEffect(() => {
 <Form className='fcadmin' method='POST' onSubmit={handleSubmit} >
 
 <SimpleInputComponent label={'Program Name'} placeholder={'Enter Program Name'} name={'Program Name'} id={'programname'}  text={program.name} onChange={(e) => { setProgram({ ...program, name: e.target.value }) }} required />
-    <SimpleDropDownComponent items={[{ id: 1, option: 'Fashion' }, { id: 2, option: 'Dance ' },{ id: 3, option: 'Sports ' },{ id: 4, option: 'Classes ' }]} label={'Category'} name={'Category'} id={'Program_Category'} text={program.category} onChange={(e) => { setProgram({ ...program, category: e.target.value }) }} />
+    <SimpleDropDownComponent items={[{ id: 1, option: 'Fashion' }, { id: 2, option: 'Dance ' },{ id: 3, option: 'Sports ' },{ id: 4, option: 'Classes ' }]} label={'Category'} name={'Category'} id={'Program_Category'} selected={program.category} onChange={(e) => { setProgram({ ...program, category: e.target.value }) }} />
     <SimpleInputComponent label={'Maximum no of Members'} placeholder={'No of Members'} name={'Maximum no of Members'} type={'number'} id={'max_members'}  text={program.max_members} onChange={(e) => setProgram({...program, max_members: e.target.value })}  required  />
-    <SimpleDropDownComponent items={[{ id: 1, option: 'Online' }, { id: 2, option: 'Offline' }]} label={'Program Type'} name={'Program_Type'} id={'Program_type'}  text={program.type} onChange={(e) => { setProgram({ ...program, type: e.target.value }) }}/>
+    <SimpleDropDownComponent items={[{ id: 1, option: 'Online' }, { id: 2, option: 'Offline' }]} label={'Program Type'} name={'Program_Type'} id={'Program_type'}  selected={program.type} onChange={(e) => { setProgram({ ...program, type: e.target.value }) }}/>
     < SimpleInputComponent label={'Fees'} name={'Fees'} placeholder={'Fees'}  type={'number'} id={'fee'}  text={program.fee} onChange={(e) => setProgram({...program, fee: e.target.value })} required />
     <SimpleInputComponent label={'Program Details'} placeholder={'Enter Program Details'} type={'textarea'} name={'Program_Details'} id={'details'}  text={program.details} onChange={(e) => setProgram({...program, details: e.target.value })} />
 

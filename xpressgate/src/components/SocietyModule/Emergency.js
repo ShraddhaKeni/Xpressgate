@@ -137,7 +137,7 @@ const Emergency = () => {
                   <tr id={item._id} onClick={() => emargencyDetails(item._id, item.name, item.type, item.contact)}>
                     <td>{item.type}</td>
                     <td>{item.name}</td>
-                    {console.log(item)}
+                    {console.log(item.type)}
                     <td>{item.contact} </td>
                   </tr>
                 )

@@ -46,7 +46,7 @@ const Addemergencyno = () => {
             setecontact(location.state.econtact)
             setType(location.state.addedittype)
             setUpdate(location.state.update)
-            //console.log(location.state.update)
+            // console.log(location.state.etype)
           } else {
             getTypes()
           }
@@ -68,9 +68,12 @@ const Addemergencyno = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/admin/emergencycontactstype/getAlltype`)
       setOne(data.data.emergencycontacttypes.find(x => x.id === location.state.id))
-      //console.log(location.state.id)
+      console.log(location.state.id)
+      console.log(data)
+
       setError(false)
       setTypes(data.data.emergencycontacttypes)
+      console.log(data.data.emergencycontacttypes)
     } catch (error) {
       setError(true)
     }
@@ -79,6 +82,7 @@ const Addemergencyno = () => {
   function getValues() {
 
     document.getElementById('emergencytype').value = one.id
+    console.log(one.id)
   }
 
   const handleSubmit = async (e) => {
@@ -102,7 +106,7 @@ const Addemergencyno = () => {
             setTimeout(() => {
               window.location.href = '/emergencyList'
             }, 1500);
-            // window.location.href = '/emergencyList'
+          
           }
           else {
             setToast({ show: true, type: "error", message: "Enter valid mobile number" });
@@ -177,7 +181,7 @@ const Addemergencyno = () => {
             <div class="form-group  form-group5 row">
               <label class="col-lg-2 col-form-label ADN_label">Type</label>
               <div class="col-lg-4">
-                <select class="form-control input-lg input-lg1 AEN_border" ref={type} defaultValue={etype}  id="emergencytype" name="Type">
+                <select class="form-control input-lg input-lg1 AEN_border" ref={type}  id="emergencytype" name="Type">
                   <option value={null} selected disabled>Select Type</option>
                   {contactTypes.map((items) => {
                     return <option value={items.id}>{items.emgContactType}</option>

@@ -61,7 +61,7 @@ const ChecklistSecurity = () => {
   }
 
     const handleEditClick = (checklist) => {
-        navigate('/add-security-checklist', { state: { data: Checklist, type: 'edit', id: checklist.id } })
+        navigate('/add-security-checklist', { state: { data: checklist, type: 'edit', id: checklist.id } })
     }
 
     async function handelRemoveClick(item) {
@@ -136,7 +136,7 @@ const ChecklistSecurity = () => {
                                 <tr>
                                      <td>{index + 1 + (currentPage * postPerPage)}</td>
                                     <td >{item.item}</td>
-                                    <td>{item.frequency == '1' ? 'Daily' :item.frequency == '2' ? 'Monthly' :item.frequency  == '3' ? 'Quarterly' : item.frequency  == '4' ? 'Half-yearly ' : 'Yearly' } </td>
+                                    <td>{item.frequency == '1' ? 'Daily' :item.frequency == '2' ? 'Monthly' :item.frequency  == '3' ? 'Quarterly' : item.frequency  == '4' ? 'Half-yearly ' : item.frequency  == '5' ?  'Yearly' : ' - ' } </td>
                                     <td>{item.other_details}</td>
                                     <td><div>
                                         <IconButton onClick={() => { handleEditClick(item) }}>

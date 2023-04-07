@@ -29,8 +29,9 @@ const [allprograms, setAllPrograms] = useState([]);
  
 
   useEffect(() => {
+    getAllProgram()
           getStudentDetail()
-          getAllProgram()
+          
   }, [])
   const getAllProgram = async () => {
     try {
@@ -38,7 +39,7 @@ const [allprograms, setAllPrograms] = useState([]);
       const { data } = await axios.get(`${window.env_var}api/partner/programs`)
       console.log(data)
       setAllPrograms(data.data)
-    
+    console.log(data.data)
       // document.getElementById('programname').value = location.state.id;
     
       
@@ -48,12 +49,7 @@ const [allprograms, setAllPrograms] = useState([]);
     }
   }
 
-  const getProgramDetails = async (e) => { 
-    setStudent({ ...student, program: e.target.value }) 
-   console.log(e.target.value )
-   const { data } = await axios.get(`${window.env_var}api/partner/programs/${e.target.value}`)
-  
-  }
+
   const getStudentDetail = async () => {
       try {
       
@@ -140,7 +136,7 @@ const [allprograms, setAllPrograms] = useState([]);
     <div class="form-group  form-group5 row">
               <label class="col-lg-4 col-form-label float-left GForm_label">Program Name</label>
               <div class="col-lg-5 col-md-2 col-sm-2">
-                <select class="form-control input-lg input-lg1 AEN_border" id="programname" name="Type" type="text" text={student.program} onChange={(e) => { getProgramDetails(e) }}>
+                <select class="form-control input-lg input-lg1 AEN_border" id="programname" name="programname" >
                   <option value={null} selected disabled>Select Program</option>
                   {allprograms.map((item) => {
                     return (

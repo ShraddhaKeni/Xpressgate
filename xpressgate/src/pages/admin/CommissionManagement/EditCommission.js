@@ -113,7 +113,7 @@ const EditCommission = () => {
                     <div class="form-group  form-group5 row">
               <label class="col-lg-4 col-form-label float-left GForm_label">Program Name</label>
               <div class="col-lg-5 col-md-2 col-sm-2">
-                <select class="form-control input-lg input-lg1 AEN_border" id="programname" name="Type" type="text"  text={commission.program_id} onChange={(e) => { getProgramDetails(e) }}>
+                <select class="form-control input-lg input-lg1 AEN_border" id="programname" name="Type" type="text">
                 <option value={null}  selected disabled>Select Program</option>
                
                   {allprograms.map((item) => {
