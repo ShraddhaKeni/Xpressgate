@@ -71,15 +71,18 @@ const CommissionList = () => {
 
     async function findText(e) {
         console.log(commission)
-        let text = commission.filter(x => x.firstname?.toLowerCase().includes(e.target.value.toLowerCase()))
-        if (text) {
-            setCurrentPosts(text)
+        let text = commission.filter(x => x.name?.toLowerCase().includes(e.target.value.toLowerCase()))
+        if(text)
+        {
+          const indexoflast = (currentPage + 1 ) * postPerPage   //endoffset
+          const indexoffirst = (indexoflast - postPerPage)
+          setCurrentPosts(text.slice(indexoffirst,indexoflast))
         }
-        else {
-            await paginate(0)
+        else
+        {
+          paginate(0)
         }
-
-    }
+      }
 
     return (
         <>

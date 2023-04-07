@@ -10,7 +10,7 @@ import ErrorScreen from '../../common/ErrorScreen';
 
 const Viewparking = () => {
   const [parkingSection,setParkingSections] = useState([])
-  const [currentPage, setCurrentpage] = useState(1)
+  const [currentPage, setCurrentpage] = useState(0)
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts,setCurrentPosts] = useState([])
   const [loading, setLoading] = useState(true)
@@ -27,8 +27,8 @@ const Viewparking = () => {
       const {data}=await axios.get(`${window.env_var}api/parkingsectionbyid/getAll/`+community_id);
       setParkingSections(data.data.block_list);
       console.log(data.data.block_list);
-      const indexoflast = currentPage*postPerPage  //endoffset
-      const indexoffirst = indexoflast - postPerPage //startoffset
+      const indexoflast = (currentPage + 1) * postPerPage  //endoffset
+      const indexoffirst = (indexoflast - postPerPage) //startoffset
       setCurrentPosts(data.data.block_list.slice(indexoffirst,indexoflast))
       setLoading(false);
       setError(false)
@@ -41,8 +41,8 @@ const Viewparking = () => {
   {
     let community_id = localStorage.getItem('community_id');
     const {data}=await axios.get(`${window.env_var}api/parkingsectionbyid/getAll/`+community_id);
-    setCurrentpage(event.selected+1)
-    const indexoflast = (event.selected+1)*postPerPage  //endoffset
+    setCurrentpage(event.selected)
+    const indexoflast = (event.selected + 1) * postPerPage  //endoffset
     const indexoffirst = (indexoflast - postPerPage) //startoffset
     setCurrentPosts(data.data.block_list.slice(indexoffirst,indexoflast))
   }
@@ -59,7 +59,7 @@ const Viewparking = () => {
     })
 
     if (arr) {
-      const indexoflast = currentPage * postPerPage  //endoffset
+      const indexoflast = (currentPage + 1 ) * postPerPage  //endoffset
       const indexoffirst = (indexoflast - postPerPage)
       setCurrentPosts(arr.slice(indexoffirst, indexoflast))
     }
@@ -121,7 +121,7 @@ const Viewparking = () => {
               {currentPosts.map((item,index)=>{
                 return(
                   <tr onClick={()=>parkingSectionDetails(item._id)}>
-                    <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
+                    <td>{index + 1 + (currentPage * postPerPage)}</td>
                     <td>{item.section}</td>
                     <td>{item.blocks}</td>
                     <td>{item.status==false?'Inactive':'Active'}</td>

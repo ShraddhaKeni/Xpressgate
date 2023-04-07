@@ -11,26 +11,28 @@ import { ToastMessage } from '../../../components/ToastMessage';
 import { goBackInOneSec, TOAST } from '../../../common/utils';
 import { Email } from '@mui/icons-material';
 import { mobileValidation, emailValidation } from '../../../components/auth/validation';
+import SelectMode from '../../../components/auth/SelectMode';
 const EditCommission = () => {
 
     const [commission, setCommission] = useState({
         program_id: '',
-       
-            amount: '',
+        amount: '',
         commission: '',
-    payment_status: false,
-            status: true
+        payment_status: false,
+        status: true  
 
         
     })
+    
     const [toast, setToast] = useState({ show: false })
-
+    const [isError, setError] = useState(false)
     const navigate = useNavigate()
     const location = useLocation();
     const [allprograms, setAllPrograms] = useState([]);
     useEffect(() => {
       
         getCommission()
+        getAllProgram()
          }, [])
         
             const getCommission = async () => {
@@ -48,7 +50,7 @@ const EditCommission = () => {
                         status: true
                     })
                   
-                    document.getElementById('programname').defaultValue =data.data.program_id
+                    document.getElementById('programname').value =data.data.program_id
                     document.getElementById('amount').defaultValue = data.data.amount
                     document.getElementById('commission').defaultValue = data.data.commission
                    
@@ -59,7 +61,15 @@ const EditCommission = () => {
                     console.log(error)
                 }
             }
-
+            const getAllProgram = async () => {
+                try {  
+                  const { data } = await axios.get(`${window.env_var}api/partner/programs`)
+                  setAllPrograms(data.data)
+                  setError(false)
+                } catch (error) {
+                  setError(true)
+                }
+              }
 
 
 
@@ -84,13 +94,7 @@ const EditCommission = () => {
     }
     const getProgramDetails = async (e) => { 
         setCommission({ ...commission, program_id: e.target.value }) 
-        console.log(e.target.value )
-        const { data } = await axios.get(`${window.env_var}api/partner/programs/${e.target.value}`)
-        console.log(data.data.fee)
-       
-  
-
-         setCommission({ ...commission, amount: data.data.fee }) 
+     
     }
 
 
@@ -109,17 +113,20 @@ const EditCommission = () => {
                     <div class="form-group  form-group5 row">
               <label class="col-lg-4 col-form-label float-left GForm_label">Program Name</label>
               <div class="col-lg-5 col-md-2 col-sm-2">
-                <select class="form-control input-lg input-lg1 AEN_border" id="programname" name="Type" type="text" text={commission.name}  onChange={(e) => { getProgramDetails(e) }}>
-                  <option value={null} selected disabled>Select Program</option>
+                <select class="form-control input-lg input-lg1 AEN_border" id="programname" name="Type" type="text"  text={commission.program_id} onChange={(e) => { getProgramDetails(e) }}>
+                <option value={null}  selected disabled>Select Program</option>
+               
                   {allprograms.map((item) => {
                     return (
-                      <option value={item._id} data-id={item.fee}>{item.name}</option>
+                     
+                      <option value={item._id} id={item.fee}>{item.name}</option>
                     )
                   })}
+                 
                 </select>
               </div>
             </div>
-                        <SimpleInputComponent label={'Amount'} placeholder={'Enter Amount'} name={'amount'} id={'amount'} type={'number'} text={commission.amount} readonly/>
+                        <SimpleInputComponent label={'Amount'} placeholder={'Enter Amount'} name={'amount'} id={'amount'} type={'number'} text={commission.amount} onChange={(e) => { setCommission({ ...commission, amount: e.target.value }) }} readonly/>
                         <SimpleInputComponent label={'Commission'} placeholder={'Enter Commission'} name={'commission'} id={'commission'} type={'number'} text={commission.commission} onChange={(e) => { setCommission({ ...commission, commission: e.target.value }) }} />
                         <SimpleDropDownComponent items={[{ id: 1, option: 'Paid' }, { id: 0, option: 'Not Paid' }]} label={'Payment Status'} name={'payment_status'} id={'payment_status'} text={commission.payment_status}   onChange={(e) => { setCommission({ ...commission, payment_status: e.target.value }) }}  />
                         <button type="submit" className="BUTNnn_ADD_premise " onClick={(e) => handleSubmit(e)}>Update Commission</button>

@@ -9,10 +9,121 @@ import Societyheader from './Utils/Societyheader';
 import Table from 'react-bootstrap/Table';
 import { ToastMessage } from "../ToastMessage";
 import ErrorScreen from '../../common/ErrorScreen';
-import { deleteCommunity } from '../../common/admin/admin_api';
-
+import { checkSociety } from '../auth/Auth';
+import Loader from '../../common/Loader';
+import moment from 'moment';
+import Pagination from '../../common/Pagination';
 const SocietyInOutBook = () => {
-  
+  const [inoutdata, setInoutdata] = useState([])
+  const navigate = useNavigate()
+  const [currentPage, setCurrentpage] = useState(1)
+  const [postPerPage, setPostPerPage] = useState(12)
+  const [currentPosts, setCurrentPosts] = useState([])
+  const [community_id, setID] = useState("632970d054edb049bcd0f0b4")
+  const [isLoading, setLoading] = useState(true)
+  const [isError, setError] = useState(false)
+  const current = new Date();
+  const [date, setDate] = useState(`${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`);
+  const [filterArr, setFilter] = useState([])
+  const [menu, setMenuOpen] = useState(false)
+
+  const dateTimeFormat = (timestamp) => {
+    var d = new Date(timestamp)
+    return d.getHours() + ':' + d.getMinutes()
+  }
+
+  useEffect(() => {
+    if (checkSociety()) {
+      const config = {
+        headers: {
+          'x-access-token': localStorage.getItem('accesstoken')
+        }
+      }
+      axios.get(`${window.env_var}api/society/checkLogin`, config)
+        .then(({ data }) => {
+          getInOutBookData()
+        })
+        .catch(err => {
+          localStorage.clear();
+          window.location.href = '/societylogin'
+        })
+
+    } else {
+      window.location.href = '/'
+    }
+
+  }, [])
+
+  const calculateParkingTime = (intime, outtime) => {
+    if (intime && outtime) {
+      var duration = moment.duration(moment(outtime).diff(moment(intime)));
+      console.log(duration);
+      let hours = duration.asHours() ? duration.asHours().toFixed(0) + " Hrs" : ""
+      var minutes = hours + duration.asMinutes() ? duration.asMinutes().toFixed(0) + " Mins" : ""
+      return minutes;
+    } else {
+      return "";
+    }
+  }
+
+  const getInOutBookData = async () => {
+    try {
+      const { data } = await axios.get(`${window.env_var}api/inout/getallSociety/` + community_id)
+      console.log(data)
+      setInoutdata(data.data.list)
+      const indexoflast = currentPage * postPerPage  //endoffset
+      const indexoffirst = indexoflast - postPerPage //startoffset
+      setCurrentPosts(data.data.list.slice(indexoffirst, indexoflast))
+      setTimeout(() => {
+        setLoading(false)
+      }, 2000)
+      setError(false)
+    } catch (err) {
+      setLoading(false)
+      setError(true)
+    }
+  }
+  const routeNavigate = (id) => {
+    navigate('/inoutbookcard', { state: { id: id } })
+  }
+
+  function settingCurrent(value) {
+    setCurrentPosts(value)
+  }
+//   async function paginate(event) {
+//     setCurrentPage(event.selected)
+//     const indexoflast = (event.selected + 1) * postPerPage  //endoffset
+//     const indexoffirst = indexoflast - postPerPage //startoffset
+// setCurrentPosts(inoutdata.slice(indexoffirst, indexoflast))
+//   }
+
+  function findText(e) {
+    let search = e.target.value.toLowerCase()
+    let arr = inoutdata.filter(x => {
+      if (x.guestFirstName?.toLowerCase().includes(search)) {
+              return true
+            }
+            else if (x.guestLastName?.toLowerCase().includes(search)) {
+              return true
+            }
+          })
+
+          if(arr)
+          {
+            const indexoflast = currentPage * postPerPage //endoffset
+            const indexoffirst = (indexoflast - postPerPage)
+            setCurrentPosts(arr.slice(indexoffirst,indexoflast))
+          }
+          else
+          {
+            settingCurrent(0)
+          }
+        }
+  if (isLoading)
+    return <Loader />
+  if (isError)
+    return <ErrorScreen />
+
   return (
     <div className="addguestcontainer4">
       <div id="addflatsection">
@@ -28,7 +139,7 @@ const SocietyInOutBook = () => {
         </div>
       </div>
       <div className="addguestbackgroundimg">
-      {/* <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} /> */}
+      
         <div className='VPdisplay'>
           <label>In-Out Book</label>
         </div>
@@ -37,7 +148,7 @@ const SocietyInOutBook = () => {
             <div className='VP_searchbox'>
               <span>
                 <img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-                <input placeholder='Search' id="search_input" ></input>
+                <input placeholder='Search' id="search_input" onChange={(e) => { findText(e) }}></input>
               </span>
             </div>
           </div>
@@ -60,38 +171,29 @@ const SocietyInOutBook = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {/* {currentPosts.map((iodata, index) => {
-                        return ( */}
+                    {currentPosts.map((iodata, index) => {
+                        return (
                           <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            {/* <td>{(currentPage - 1) * 12 + (index + 1)}</td>
+                          
+                            <td>{(currentPage - 1) * 12 + (index + 1)}</td>
                             <td >{iodata.guestFirstName} {iodata.guestLastName}</td>
                             <td>{iodata.type == '1' ? 'Guest' : iodata.type == '2' ? 'Vendor' : 'Daily Helper'}</td>
                             <td>{iodata.block_name}</td>
                             <td>{iodata.flat_number}</td>
                             <td>{date}</td>
                             <td>{dateTimeFormat(iodata.intime)}</td>
+                            <td>{dateTimeFormat(iodata.outtime)}</td>
                             <td>{iodata.parking_section_details}</td>
                             <td>{iodata.parking_time}</td>
                             <td>{iodata.vehicle_no}</td>
-                            <td>{iodata.status == '1' ? 'In' : 'Out'}</td> */}
-                          </tr>
-                      
+                            <td>{iodata.status == '1' ? 'In' : 'Out'}</td>
+                          </tr>)
+                         })}
                     </tbody>
                   </Table>
           <br/>
-          {/* <PaginationCalculate totalPages={guestparkingSection.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate}/> */}
+ 
+          <Pagination totalPages={filterArr.length > 0 ? filterArr.length : inoutdata.length} data={filterArr.length > 0 ? filterArr : inoutdata}  settingCurrent={settingCurrent}  />
         {/* </Loader> */}
       </div>
     </div>     

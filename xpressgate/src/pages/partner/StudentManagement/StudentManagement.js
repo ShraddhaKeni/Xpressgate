@@ -73,14 +73,17 @@ function StudentManagement() {
 
   async function findText(e) {
       let text = student.filter(x => x.name?.toLowerCase().includes(e.target.value.toLowerCase()))
-      if (text) {
-          setCurrentPosts(text)
+      if(text)
+      {
+        const indexoflast = (currentPage + 1 ) * postPerPage   //endoffset
+        const indexoffirst = (indexoflast - postPerPage)
+        setCurrentPosts(text.slice(indexoffirst,indexoflast))
       }
-      else {
-          await paginate(0)
+      else
+      {
+        paginate(0)
       }
-
-  }
+    }
 
     return (
         <>

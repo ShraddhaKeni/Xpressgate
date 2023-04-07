@@ -39,7 +39,7 @@ const [allprograms, setAllPrograms] = useState([]);
       console.log(data)
       setAllPrograms(data.data)
     
-    //   document.getElementById('programname').value = location.state.id;
+      // document.getElementById('programname').value = location.state.id;
     
       
       setError(false)
@@ -58,6 +58,7 @@ const [allprograms, setAllPrograms] = useState([]);
       try {
       
           const { data } = await axios.get(`${window.env_var}api/partner/students/${location.state.id}`)
+          console.log(data)
           setStudent({
               ...student,
               community_id: location.state.id,
@@ -73,13 +74,13 @@ const [allprograms, setAllPrograms] = useState([]);
               status: true
           })
           document.getElementById('name').defaultValue = data.data.name
-          document.getElementById('programname').defaultValue = data.data.program
+          document.getElementById('programname').value = data.data.program
           document.getElementById('Program_type').defaultValue = data.data.program_type
           document.getElementById('phone').defaultValue = data.data.phone
-          document.getElementById('email').value = data.data.email
-          document.getElementById('address').value = data.data.address
-          document.getElementById('occupation').value = data.data.occupation
-          document.getElementById('attachment').value = data.data.attachment
+          document.getElementById('email').defaultValue = data.data.email
+          document.getElementById('address').defaultValue = data.data.address
+          document.getElementById('occupation').defaultValue = data.data.occupation
+          document.getElementById('attachment').defaultValue = data.data.attachment
           console.log(data.data)
           return data.data
       } catch (error) {
@@ -149,7 +150,7 @@ const [allprograms, setAllPrograms] = useState([]);
                 </select>
               </div>
             </div>
-    <SimpleDropDownComponent items={[{ id: 1, option: 'Online' }, { id: 2, option: 'Offline' }]} label={'Program Type'} name={'Program Type'} text={student.program_type} onChange={(e) => { setStudent({ ...student, program_type: e.target.value }) }} id={'Program_type'}  />
+    <SimpleDropDownComponent items={[{ id: 1, option: 'Online' }, { id: 2, option: 'Offline' }]} label={'Program Type'} name={'Program Type'} selected={student.program_type} onChange={(e) => { setStudent({ ...student, program_type: e.target.value }) }} id={'Program_type'}  />
     < SimpleInputComponent label={'Phone No'} name={'Phone No'} placeholder={'Phone No'} id={'phone'} type={'number'}  text={student.phone} onChange={(e) => { setStudent({ ...student, phone: e.target.value }) }} required />
     < SimpleInputComponent label={'Email Address'} name={'Email Address'} placeholder={'Email'} type={'email'} id={'email'}  text={student.email} onChange={(e) => { setStudent({ ...student, email: e.target.value }) }}  required />
     <SimpleInputComponent label={'Address'} name={'address_line'} placeholder={'Enter Address'} id={'address'} type={'textarea'} text={student.address} onChange={(e) => { setStudent({ ...student, address: e.target.value }) }} />
