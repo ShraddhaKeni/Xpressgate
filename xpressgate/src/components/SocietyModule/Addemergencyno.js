@@ -67,7 +67,7 @@ const Addemergencyno = () => {
   const getTypes = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/admin/emergencycontactstype/getAlltype`)
-      //setOne(data.data.emergencycontacttypes.find(x => x.id === location.state.id))
+      setOne(data.data.emergencycontacttypes.find(x => x.id === location.state.id))
       //console.log(location.state.id)
       setError(false)
       setTypes(data.data.emergencycontacttypes)
@@ -77,6 +77,7 @@ const Addemergencyno = () => {
   }
 
   function getValues() {
+
     document.getElementById('emergencytype').value = one.id
   }
 
@@ -125,13 +126,15 @@ const Addemergencyno = () => {
       } else {
         setToast({ show: true, type: "success", message: "Updated successfully" })
         const sendData = {
+        
           id: location.state.id,
           contactName: document.getElementById('contact_name').value,
           contactNumber: document.getElementById('contact_number').value,
           contactType: document.getElementById('emergencytype').value
         }
+        
         const { data } = await axios.post(`${window.env_var}api/emergencycontacts/update`, sendData)
-        //console.log(data)
+        console.log(data)
         setTimeout(() => {
           window.location.href = '/emergencyList'
         }, 1500);
@@ -174,7 +177,7 @@ const Addemergencyno = () => {
             <div class="form-group  form-group5 row">
               <label class="col-lg-2 col-form-label ADN_label">Type</label>
               <div class="col-lg-4">
-                <select class="form-control input-lg input-lg1 AEN_border" ref={type} id="emergencytype" name="Type">
+                <select class="form-control input-lg input-lg1 AEN_border" ref={type} defaultValue={etype}  id="emergencytype" name="Type">
                   <option value={null} selected disabled>Select Type</option>
                   {contactTypes.map((items) => {
                     return <option value={items.id}>{items.emgContactType}</option>

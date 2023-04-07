@@ -96,7 +96,16 @@ const Emergency = () => {
           <div className="EN_display">
             <label>Emergency Numbers</label>
           </div>
-          <div >
+          <div> <button type="submit" className="btnAddnotice" onClick={() => {
+            window.location.href = "/addemergency";
+        }}>&#10011; Add Emergency</button></div>
+        <div className='row'>
+          <div className='nlsearchbox'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+              <input className='vlsearch_input' placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
+          </div>
+                </div>
+          {/* <div >
             <button type="button" className="EN_Add" onClick={() => {
               window.location.href = "/addemergency";
             }}>&#10011; Add Emergency Number</button>
@@ -107,7 +116,7 @@ const Emergency = () => {
               <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
                 <input placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
             </div>
-          </div>
+          </div> */}
           <table
             id="inoutbooktable"
             class="table table-striped table-bordered table-sm "

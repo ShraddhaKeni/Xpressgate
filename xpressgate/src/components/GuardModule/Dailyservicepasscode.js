@@ -117,7 +117,7 @@ const Dailyservicepasscode = ({ props }) => {
           lastname: '',
           mobileno: item.contact,
           intime: Date.now(),
-          outtime: "",
+          outtime: '',
           community_id: localStorage.getItem('community_id'),
           flat_id: item.flat_id,
           type: 3,

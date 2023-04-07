@@ -86,7 +86,7 @@ const GuestEntry = () => {
         lastname: guestDetails.guestLastName,
         mobileno: guestDetails.guestPhone,
         intime: Date.now(),
-        outtime: Date.now(),
+        outtime: '',
         community_id: localStorage.getItem('community_id'),
         flat_id: guestDetails.flat_id,
         type: 1,
