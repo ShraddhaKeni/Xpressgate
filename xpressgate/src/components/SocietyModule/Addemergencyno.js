@@ -29,6 +29,7 @@ const Addemergencyno = () => {
   const [isError,setError] = useState(false)
 
   useEffect(() => {
+    getTypes()
     if (checkSociety()) {
       const config = {
         headers: {
@@ -38,15 +39,12 @@ const Addemergencyno = () => {
       axios.get(`${window.env_var}api/society/checkLogin`, config)
         .then(({ data }) => {
           if (location.state) {
-            getTypes().then(() => {
-              getValues()
-            })
             setename(location.state.ename)
             setetype(location.state.etype)
             setecontact(location.state.econtact)
             setType(location.state.addedittype)
             setUpdate(location.state.update)
-            // console.log(location.state.etype)
+            document.getElementById('emergencytype').value = location.state.etype
           } else {
             getTypes()
           }
@@ -67,22 +65,16 @@ const Addemergencyno = () => {
   const getTypes = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/admin/emergencycontactstype/getAlltype`)
-      setOne(data.data.emergencycontacttypes.find(x => x.id === location.state.id))
-      console.log(location.state.id)
-      console.log(data)
-
       setError(false)
       setTypes(data.data.emergencycontacttypes)
-      console.log(data.data.emergencycontacttypes)
     } catch (error) {
+      console.log(error);
       setError(true)
     }
   }
 
   function getValues() {
-
-    document.getElementById('emergencytype').value = one.id
-    console.log(one.id)
+    document.getElementById('emergencytype').value = location.state.etype
   }
 
   const handleSubmit = async (e) => {
