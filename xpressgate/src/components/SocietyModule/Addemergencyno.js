@@ -29,6 +29,7 @@ const Addemergencyno = () => {
   const [isError,setError] = useState(false)
 
   useEffect(() => {
+    getTypes()
     if (checkSociety()) {
       const config = {
         headers: {
@@ -38,15 +39,12 @@ const Addemergencyno = () => {
       axios.get(`${window.env_var}api/society/checkLogin`, config)
         .then(({ data }) => {
           if (location.state) {
-            getTypes().then(() => {
-              getValues()
-            })
             setename(location.state.ename)
             setetype(location.state.etype)
             setecontact(location.state.econtact)
             setType(location.state.addedittype)
             setUpdate(location.state.update)
-            //console.log(location.state.update)
+            document.getElementById('emergencytype').value = location.state.etype
           } else {
             getTypes()
           }
@@ -67,18 +65,16 @@ const Addemergencyno = () => {
   const getTypes = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/admin/emergencycontactstype/getAlltype`)
-      setOne(data.data.emergencycontacttypes.find(x => x.id === location.state.id))
-      //console.log(location.state.id)
       setError(false)
       setTypes(data.data.emergencycontacttypes)
     } catch (error) {
+      console.log(error);
       setError(true)
     }
   }
 
   function getValues() {
-
-    document.getElementById('emergencytype').value = one.id
+    document.getElementById('emergencytype').value = location.state.etype
   }
 
   const handleSubmit = async (e) => {
@@ -102,7 +98,7 @@ const Addemergencyno = () => {
             setTimeout(() => {
               window.location.href = '/emergencyList'
             }, 1500);
-            // window.location.href = '/emergencyList'
+          
           }
           else {
             setToast({ show: true, type: "error", message: "Enter valid mobile number" });
@@ -177,7 +173,7 @@ const Addemergencyno = () => {
             <div class="form-group  form-group5 row">
               <label class="col-lg-2 col-form-label ADN_label">Type</label>
               <div class="col-lg-4">
-                <select class="form-control input-lg input-lg1 AEN_border" ref={type} defaultValue={etype}  id="emergencytype" name="Type">
+                <select class="form-control input-lg input-lg1 AEN_border" ref={type}  id="emergencytype" name="Type">
                   <option value={null} selected disabled>Select Type</option>
                   {contactTypes.map((items) => {
                     return <option value={items.id}>{items.emgContactType}</option>

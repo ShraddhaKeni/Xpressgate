@@ -60,7 +60,7 @@ const ChecklistMaintenance = () => {
   }
 
     const handleEditClick = (checklist) => {
-        navigate('/add-maintenance-checklist', { state: { data: Checklist, type: 'edit', id: checklist.id } })
+        navigate('/add-maintenance-checklist', { state: { data: checklist, type: 'edit', id: checklist.id } })
     }
 
     async function handelRemoveClick(item) {

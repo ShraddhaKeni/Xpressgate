@@ -15,6 +15,7 @@ const AdminDashboard = () => {
             const data = await getDashboard();
             setDashboard(data.data.data);
             setLoading(false)
+        
         }
 
         get();
@@ -34,7 +35,7 @@ const AdminDashboard = () => {
                         <div className='card-green w-40 py-4 card_hover_animation'>
                             <div className='d-flex flex-column align-items-center px-4 py-4'>
                                 <p className='dash-heading pt-4'>Total Revenue</p>
-                                <span className='dash-heading'>₹{dashboard.revenue[0].total_amount}</span>
+                                <span className='dash-heading'>₹ {dashboard.revenue[0].total_amount ? dashboard.revenue[0].total_amount : '0' }</span>
                             </div>
 
                         </div>

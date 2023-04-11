@@ -134,10 +134,9 @@ const Emergency = () => {
 
               {currentPosts.map(item => {
                 return (
-                  <tr id={item._id} onClick={() => emargencyDetails(item._id, item.name, item.type, item.contact)}>
+                  <tr id={item._id} onClick={() => emargencyDetails(item._id, item.name, item.type_id, item.contact)}>
                     <td>{item.type}</td>
                     <td>{item.name}</td>
-                    {console.log(item)}
                     <td>{item.contact} </td>
                   </tr>
                 )

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../SocietyModule/Viewparking.css";
-import { ButtonBase, Icon, IconButton } from '@mui/material';
 import PaginationCalculate from "../GuardModule/Utils/paginationCalculate";
 import Societyheader from './Utils/Societyheader';
 // import { Loader } from "../Loader";
@@ -13,6 +12,9 @@ import { checkSociety } from '../auth/Auth';
 import Loader from '../../common/Loader';
 import moment from 'moment';
 import Pagination from '../../common/Pagination';
+import { Button, Modal } from 'react-bootstrap';
+import { reloadInOneSec, TOAST } from '../../common/utils';
+import { ButtonBase, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Fade, Icon, IconButton } from '@mui/material';
 const SocietyInOutBook = () => {
   const [inoutdata, setInoutdata] = useState([])
   const navigate = useNavigate()
@@ -26,7 +28,10 @@ const SocietyInOutBook = () => {
   const [date, setDate] = useState(`${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`);
   const [filterArr, setFilter] = useState([])
   const [menu, setMenuOpen] = useState(false)
-
+  const [upload, setUpload] = useState();
+  const [uploadFile, setUploadFile] = useState();
+  const [toast, setToast] = useState({ show: false })
+  const [preview, setPreview] = useState();
   const dateTimeFormat = (timestamp) => {
     var d = new Date(timestamp)
     return d.getHours() + ':' + d.getMinutes()
@@ -119,6 +124,46 @@ const SocietyInOutBook = () => {
             settingCurrent(0)
           }
         }
+        const handleImportFile = () => {
+          setUpload(true);
+      }
+
+      const handleFileSelection = (e) => {
+
+        setUploadFile(e.target.files[0])
+        console.log(e.target.files[0]);
+        setPreview(true);
+        setUpload(false);
+
+    }
+
+
+    console.log(uploadFile);
+
+
+    const handleUploadFile = async () => {
+        if (uploadFile) {
+            try {
+                const formData = new FormData();
+                formData.append('slider_pic', uploadFile);
+                formData.append('status', 1);
+                const config = {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                }
+                const { data } = await axios.post(`${window.env_var}api/excel/upload`, formData, config);
+                setToast(TOAST.SUCCESS("Added Successfully"));
+                reloadInOneSec();
+            } catch (error) {
+                alert(error);
+            }
+        }
+    }
+
+
+
+
   if (isLoading)
     return <Loader />
   if (isError)
@@ -144,15 +189,14 @@ const SocietyInOutBook = () => {
           <label>In-Out Book</label>
         </div>
         {/* <Loader loading={loading}> */}
-          <div className='row'>
-            <div className='VP_searchbox'>
-              <span>
-                <img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-                <input placeholder='Search' id="search_input" onChange={(e) => { findText(e) }}></input>
-              </span>
-            </div>
+        <div> <button type="submit" className="btnAddnotice" onClick={handleImportFile} >Import Data</button></div>
+        <div className='row'>
+          <div className='nlsearchbox'>
+            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+              <input className='vlsearch_input' placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
           </div>
-          <br/>
+                </div>
+     
           <Table id="InoutBooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }} size='sm' responsive>
                     <thead>
                       <tr>
@@ -196,6 +240,48 @@ const SocietyInOutBook = () => {
           <Pagination totalPages={filterArr.length > 0 ? filterArr.length : inoutdata.length} data={filterArr.length > 0 ? filterArr : inoutdata}  settingCurrent={settingCurrent}  />
         {/* </Loader> */}
       </div>
+      <Dialog
+                        open={upload}
+                        onClose={() => { setUpload(false); }}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                    >
+                        <DialogTitle id="alert-dialog-title">
+                            {"Choose an Excel File to upload"}
+                        </DialogTitle>
+                        <DialogContent>
+                            <DialogContentText id="alert-dialog-description">
+                                Please select only Excel files.
+                            </DialogContentText>
+                            <input type={'file'} placeholder={'Choose'} onChange={handleFileSelection} />
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={() => { setUpload(false) }}>Go Back</Button>
+                        </DialogActions>
+                    </Dialog>
+
+                    <Dialog
+                        open={preview}
+                        onClose={() => { }}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                    >
+                        <DialogTitle id="alert-dialog-title">
+                            {"Do you want to upload this Image?"}
+                        </DialogTitle>
+                        <DialogContent>
+                            <DialogContentText id="alert-dialog-description">
+
+                            </DialogContentText>
+                            {uploadFile && <img style={{ maxHeight: '640px', maxWidth: '640px' }} src={URL.createObjectURL(uploadFile)} />}
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={() => { setUpload(true); setPreview("") }}>Cancel</Button>
+                            <Button onClick={handleUploadFile} autoFocus>
+                                Upload
+                            </Button>
+                        </DialogActions>
+                    </Dialog>
     </div>     
   );
 }

@@ -14,7 +14,6 @@ import Societyheader from "./Utils/Societyheader";
 
 const AddChecklistMaintenance = () => {
     const [loading, setLoading] = useState(true)
-    const [guard, setGuard] = useState({})
     const location = useLocation()
     const [type, setType] = useState('add')
     const navigate = useNavigate()
@@ -86,7 +85,8 @@ const AddChecklistMaintenance = () => {
                 .then(({ data }) => {
                     getStaffTypes();
                     if (location.state) {
-                        getGuardDetails()
+                        document.getElementById('frequency').value = checklist.frequency
+                        document.getElementById('for').value = checklist.for
                         setType(location.state.type)
                     }
                     else {
@@ -118,15 +118,6 @@ const AddChecklistMaintenance = () => {
         }
     }
 
-    const getGuardDetails = async () => {
-        try {
-            const { data } = await axios.get(`${window.env_var}api/checklist/getone/${location.state.id}`)
-            setGuard(data.data)
-            setError(false)
-        } catch (error) {
-            setError(true)
-        }
-    }
 
     if (isError)
         return <ErrorScreen />
@@ -170,7 +161,7 @@ const AddChecklistMaintenance = () => {
                         <div class="form-group form-group6 row">
                             <label class="col-lg-2 col-form-label ADN_label">Action</label>
                             <div class="col-lg-4">
-                                {type == 'edit' ? <input type="text" class="form-control input-lg SideB" name="item" id="item" defaultValue={guard.item} placeholder="Enter Action Name" required />
+                                {type == 'edit' ? <input type="text" class="form-control input-lg SideB" name="item" id="item" defaultValue={checklist.item} placeholder="Enter Action Name" required />
                                     : <input type="text" class="form-control input-lg input-lg1 SideB" name="item" id="item" placeholder="Enter Action Name" required />}
 
                             </div>
@@ -179,7 +170,7 @@ const AddChecklistMaintenance = () => {
                         <div class="form-group form-group6 row">
                             <label class="col-lg-2 col-form-label ADN_label">Frequency</label>
                             <div class="col-lg-4">
-                           { type == 'edit' ? <select class="form-control input-lg inputborder" defaultValue={guard.frequency} id="frequency" name="frequency" placeholder="Enter Frequency">
+                           { type == 'edit' ? <select class="form-control input-lg inputborder" id="frequency" name="frequency" placeholder="Enter Frequency">
                                     <option value={null} selected disabled > Select Frequency </option>
                                     <option value="1"> Daily </option>
                                     <option value="2"> Monthly </option>
@@ -204,9 +195,9 @@ const AddChecklistMaintenance = () => {
                                 <select class="form-control input-lg ADTBorder" id="for" placeholder="Block" required>
                                     <option value={null} disabled selected>Select Staff Type</option>
                                     {staffTypes && staffTypes.map(item => {
-                                        console.log(item, guard)
+                                        console.log(item, checklist)
                                         return (
-                                            <option value={item.id} selected={item.id === guard.for}>{item.designation}</option>
+                                            <option value={item.id} >{item.designation}</option>
                                         )
                                     })}
                                 </select>
@@ -217,7 +208,7 @@ const AddChecklistMaintenance = () => {
                         <div class="form-group form-group6 row">
                             <label class="col-lg-2 col-form-label ADN_label">Other Details</label>
                             <div class="col-lg-4">
-                                {type == 'edit' ? <textarea type="text" class="form-control input-lg SideB" name="other_details" id="other_details" defaultValue={guard.other_details} placeholder="Enter More Details" required />
+                                {type == 'edit' ? <textarea type="text" class="form-control input-lg SideB" name="other_details" id="other_details" defaultValue={checklist.other_details} placeholder="Enter More Details" required />
                                     : <textarea type="text" class="form-control input-lg input-lg1 SideB" name="other_details" id="other_details" placeholder="Enter More Details" required />}
 
                             </div>
