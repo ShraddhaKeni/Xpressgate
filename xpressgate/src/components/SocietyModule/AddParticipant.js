@@ -147,7 +147,7 @@ const AddParticipant = () => {
         console.log(saveData)
         setToast({ show: true, type: "success", message: "Data added Successfully" })
         setTimeout(() => {
-          window.location.href = '/participantlist'
+          window.location.href = '/programlist'
         }, 1500);
       
 
