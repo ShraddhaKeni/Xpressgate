@@ -96,7 +96,7 @@ const handleDelete = async () => {
             <div className='MaxSLabel'>
               <label>Maximum 20 Members</label>
             </div>
-            <button type="submit" id='Edit'  className="EditCDButn"  onClick={() => { handleEditClick(program.id) }}>Edit Program </button>
+            <button type="submit" id='Edit'  className="EditCDButn"  onClick={() => { handleEditClick(program._id) }}>Edit Program </button>
             <button type="remove" id='Delete'  className="DeleteCDButn"  onClick={() => handleDelete()}>Delete Program</button>
              <br/>
              <br/>
