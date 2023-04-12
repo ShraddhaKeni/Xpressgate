@@ -55,7 +55,7 @@ const Addlocalservice = () => {
 
   const getAddedByData = async () => {
     try {
-      const { data } = await axios.get(`${window.env_var}api/management/getAll`)
+      const { data } = await axios.get(`${window.env_var}api/management/getAll/${localStorage.getItem('community_id')}`)
       setAddedData(data.data.managementteam)
       setError(false)
     } catch (error) {

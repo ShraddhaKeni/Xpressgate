@@ -30,6 +30,7 @@ const Maintenancebilllist = () => {
   const getMaintenance = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/maintenance/getall/${localStorage.getItem("community_id")}`)
+      console.log(data.data.maintenance);
       setMaintenance(data.data.maintenance)
       const indexoflast =  (currentPage + 1) * postPerPage   //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset

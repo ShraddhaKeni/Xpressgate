@@ -20,7 +20,7 @@ const Inoutbook = () => {
   const [currentPage, setCurrentpage] = useState(1)
   const [postPerPage, setPostPerPage] = useState(12)
   const [currentPosts, setCurrentPosts] = useState([])
-  const [community_id, setID] = useState("632970d054edb049bcd0f0b4")
+  const [community_id, setID] = useState(localStorage.getItem('community_id'))
   const [isLoading, setLoading] = useState(true)
   const [isError, setError] = useState(false)
   const current = new Date();
@@ -69,7 +69,7 @@ const Inoutbook = () => {
 
   const getInOutBookData = async () => {
     try {
-      const { data } = await axios.get(`${window.env_var}api/inout/getall/` + community_id)
+      const { data } = await axios.get(`${window.env_var}api/inout/getall/${localStorage.getItem('community_id')}`)
       console.log(data)
       setInoutdata(data.data.list)
       const indexoflast = currentPage * postPerPage  //endoffset
