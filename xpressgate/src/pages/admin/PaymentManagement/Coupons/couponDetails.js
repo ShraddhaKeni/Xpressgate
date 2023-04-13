@@ -77,7 +77,7 @@ export const CouponDetails = () => {
                             <p className='h3 bold mb-5'><b>{coupon.name || "n/a"}</b></p>
                             <p className='bg-light-green-rounded px-4 h4'>Amount: {coupon.amount}</p>
                             <div >
-                            <p className='text-center px-5 my-4 Size' style={{overflow: 'auto'}}><b>{coupon.description || "n/a"}</b></p>
+                            <p className='text-center px-5 my-4 text-break'><b>{coupon.description || "n/a"}</b></p>
                             <button type='button' className='CD_btn' onClick={() => handleDelete()}>DELETE COUPON</button>
                             </div>
                         </div>

@@ -202,9 +202,9 @@ const SocietyInOutBook = () => {
           <label>In-Out Book</label>
         </div>
         {/* <Loader loading={loading}> */}
-        <div> <button type="submit" className="btnAddnotice" onClick={handleImportFile} >Import Data</button></div>
+        <div> <button type="submit" className="btnImportData" onClick={handleImportFile} >Import Data</button></div>
         <div className='row'>
-          <div className='nlsearchbox'>
+          <div className='SIOsearchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
               <input className='vlsearch_input' placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
           </div>

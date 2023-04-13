@@ -119,6 +119,10 @@ import ParticipantList from './components/SocietyModule/ParticipantList';
 import AddParticipant from './components/SocietyModule/AddParticipant';
 import ProgramDetails from './components/SocietyModule/ProgramDetails';
 import SocietyInOutBook from './components/SocietyModule/SocietyInOutBook';
+import AddAssignRFID from './components/SocietyModule/AddAssignRFID';
+import AssignRFID from './components/SocietyModule/AssignRFID';
+
+
 
 
 
@@ -349,6 +353,9 @@ function App() {
           <Route path="/addparticipant" element={<AddParticipant />} exact></Route>
           <Route path="/programdetails" element={<ProgramDetails />} exact></Route>
           <Route path="/societyinoutbook" element={<SocietyInOutBook />} exact></Route>
+      
+          <Route path="/addrfid" element={<AddAssignRFID />} exact></Route>
+          <Route path="/assignrfid" element={<AssignRFID />} exact></Route>
        
 
 
