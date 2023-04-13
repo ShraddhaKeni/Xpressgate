@@ -221,6 +221,19 @@ table th {
   border: none;
  
 }
+.btnImportData {
+  background-color: #E8F5E9;
+  color: #0D960A;
+  border-radius: 14px;
+  width: 11vw;
+  height: 4.5vh;
+  font-size: 1vw;
+  font-weight: 500;
+  margin-top: 3%;
+  padding: 0%;
+  margin-left: 40%;
+  border: none;
+}
 .btnAddnotice img{
  width: 1vw;
 }
@@ -233,6 +246,10 @@ table th {
   margin-top: 2%;
 } */
 .btnAddnotice:hover {
+  background-color: #14335D;
+  color: #F9F9FF;
+}
+.btnImportData:hover {
   background-color: #14335D;
   color: #F9F9FF;
 }
@@ -282,7 +299,14 @@ table th {
   color: #000;
   text-decoration: none; 
 }
-
+.SIOsearchbox {
+  width: 14%;
+  height: 5%;
+  border: 2px solid #000;
+  border-radius: 15px;
+  margin-left: 78%;
+  margin-top: -3%;
+}
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
 
 

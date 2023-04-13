@@ -155,16 +155,16 @@ const Inoutbook = () => {
                           <tr onClick={() => routeNavigate(iodata.booking_id)}>
                             <td>{(currentPage - 1) * 12 + (index + 1)}</td>
                             <td >{iodata.guestFirstName} {iodata.guestLastName}</td>
-                            <td>{iodata.type == '1' ? 'Guest' : iodata.type == '2' ? 'Vendor' : 'Daily Helper'}</td>
-                            <td>{iodata.block_name}</td>
-                            <td>{iodata.flat_number}</td>
-                            <td>{date}</td>
-                            <td>{dateTimeFormat(iodata.intime)}</td>
-                            <td>{iodata.parking_section_details}</td>
+                            <td>{iodata.type == '1' ? 'Guest' : iodata.type == '2' ? 'Vendor' : 'Daily Helper' }</td>
+                            <td>{iodata.block_name || '-'}</td>
+                            <td>{iodata.flat_number || '-'}</td>
+                            <td>{date || '-'}</td>
+                            <td>{dateTimeFormat(iodata.intime) || '-'}</td>
+                            <td>{iodata.parking_section_details.length>0 ? iodata.parking_section_details : '-'}</td>
                             <td>{/*{calculateParkingTime(iodata.intime, iodata.outtime)}*/}
-                              {iodata.parking_time}
+                              {iodata.parking_time || '-'}
                             </td>
-                            <td>{iodata.vehicle_no}</td>
+                            <td>{iodata.vehicle_no || '-'}</td>
                             <td>{iodata.status == '1' ? 'In' : 'Out'}</td>
                           </tr>)
                       })}

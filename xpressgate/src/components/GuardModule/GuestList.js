@@ -146,11 +146,14 @@ const GuestList = () => {
                             <td>{items.flat_number}</td>
                             <td>{dateFormat(items.time)}</td>
                             <td>{dateTimeFormat(items.time)}</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
+                            <td>{items.parking_section_details || '-'}</td>
+                            <td>{/*{calculateParkingTime(iodata.intime, iodata.outtime)}*/}
+                              {items.parking_time || '-'}
+                            </td>
+                            <td>{items.vehicle_no || '-'}</td>
+                            <td>{items.status == '1' ? 'In' : 'Out'}</td>
                           </tr>)
+                         
                       })}
 
                     </tbody>
