@@ -129,16 +129,29 @@ const SocietyInOutBook = () => {
       }
 
       const handleFileSelection = (e) => {
-
-        setUploadFile(e.target.files[0])
-        console.log(e.target.files[0]);
-        setPreview(true);
+      
+          if(e.target.files.length < 1){
+            return;
+          }
+        
+          const file = e.target.files[0];
+            var validExts = [".xlsx", ".xls"];
+           var fileExt = file.type
+            if (validExts.indexOf(fileExt) < 0) {
+                alert("Invalid file selected, valid files are of " +
+                    validExts.toString() + " types.");
+                return false;
+            } 
+            else
+            {
+              setUploadFile(e.target.files[0])
+          }
         setUpload(false);
 
     }
 
 
-    console.log(uploadFile);
+
 
 
     const handleUploadFile = async () => {
