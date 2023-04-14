@@ -113,27 +113,26 @@ padding: 2%;
 }
 
 .PHsearchbox{
-  width: 15%;
+  width: 14%;
   height: 5%;
   border: 2px solid #000;
   border-radius: 15px;
-  margin-left: 74%;
-  margin-top: 1%;
+  margin-left: 70%;
+  margin-top: -3%;
   
 }
 .PHsearchbox input {
   outline: none;
   border: none;
-  height: 5vh;
-  width: 8vw;
+  height: 40px;
+  width: 120px;
   border-radius: 5px;
-  margin-left: 6%;
+  margin-left: 10px;
 }
 
 .PHsearchbox img{
-  position: relative;
   margin-top: 0%;
-  margin-left: -2%;
+  margin-left: -8%;
 }
 
   /* Media query for laptop */

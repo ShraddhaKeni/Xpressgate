@@ -129,16 +129,29 @@ const SocietyInOutBook = () => {
       }
 
       const handleFileSelection = (e) => {
-
-        setUploadFile(e.target.files[0])
-        console.log(e.target.files[0]);
-        setPreview(true);
+      
+          if(e.target.files.length < 1){
+            return;
+          }
+        
+          const file = e.target.files[0];
+            var validExts = [".xlsx", ".xls"];
+           var fileExt = file.type
+            if (validExts.indexOf(fileExt) < 0) {
+                alert("Invalid file selected, valid files are of " +
+                    validExts.toString() + " types.");
+                return false;
+            } 
+            else
+            {
+              setUploadFile(e.target.files[0])
+          }
         setUpload(false);
 
     }
 
 
-    console.log(uploadFile);
+
 
 
     const handleUploadFile = async () => {
@@ -189,9 +202,9 @@ const SocietyInOutBook = () => {
           <label>In-Out Book</label>
         </div>
         {/* <Loader loading={loading}> */}
-        <div> <button type="submit" className="btnAddnotice" onClick={handleImportFile} >Import Data</button></div>
+        <div> <button type="submit" className="btnImportData" onClick={handleImportFile} >Import Data</button></div>
         <div className='row'>
-          <div className='nlsearchbox'>
+          <div className='SIOsearchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
               <input className='vlsearch_input' placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
           </div>

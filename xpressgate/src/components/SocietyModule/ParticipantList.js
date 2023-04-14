@@ -14,8 +14,8 @@ const ParticipantList = () => {
   const [programs, setPrograms] = useState();
   const [guestparkingSection,setGuestParkingSections] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
-  const [postPerPage, setPostPerPage] = useState(10)
-  const [currentPosts,setCurrentPosts] = useState([])
+    const [postPerPage, setPostPerPage] = useState(10)
+    const [currentPosts, setCurrentPosts] = useState([])
   const [loading, setLoading] = useState(true)
   const [isError,setError] = useState(false)
   const navigate= useNavigate()
@@ -30,7 +30,7 @@ const ParticipantList = () => {
       const {data}=await axios.get(`${window.env_var}api/partner/programs`);
       setGuestParkingSections(data.data);
       console.log(data.data);
-      const indexoflast = currentPage*postPerPage  //endoffset
+      const indexoflast = currentPage * postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.slice(indexoffirst,indexoflast))
       setLoading(false);
@@ -46,9 +46,9 @@ const ParticipantList = () => {
   {
     // let community_id = localStorage.getItem('community_id');
     const {data}=await axios.get(`${window.env_var}api/partner/programs`);
-    setCurrentpage(event.selected+1)
-    const indexoflast = (event.selected+1)*postPerPage  //endoffset
-    const indexoffirst = (indexoflast - postPerPage) //startoffset
+    setCurrentpage(event.selected + 1)
+    const indexoflast = (event.selected + 1) * postPerPage  //endoffset
+        const indexoffirst = (indexoflast - postPerPage) //startoffset
     setCurrentPosts(data.data.slice(indexoffirst,indexoflast))
   }
 
@@ -64,7 +64,7 @@ const ParticipantList = () => {
     })
 
     if (arr) {
-      const indexoflast = currentPage * postPerPage  //endoffset
+      const indexoflast = currentPage * postPerPage   //endoffset
       const indexoffirst = (indexoflast - postPerPage)
       setCurrentPosts(arr.slice(indexoffirst, indexoflast))
     }
@@ -131,7 +131,7 @@ const ParticipantList = () => {
             {currentPosts.map((item,index)=>{
                 return(
                   <tr>
-                    <td>{currentPage<=2?(currentPage-1)*12+(index+1):(currentPage-1+1)+(index+1)}</td>
+                    <td>{(currentPage - 1) * postPerPage + (index + 1)}</td>
                     <td>{item.name}</td>
                     <td>{item.type == '1' ? 'Online': 'Offline' || 'n/a'}</td>
                     <td>{item.max_members}</td>

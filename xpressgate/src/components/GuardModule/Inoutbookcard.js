@@ -21,12 +21,9 @@ const Inoutbookcard = () => {
   const [filterArr, setFilter] = useState([])
   const [menu, setMenuOpen] = useState(false)
   const [parkingHours, setParkingHours] = useState("");
-
   const [parkingSections, setParkingSections] = useState(false);
-
   const [currentSection, setCurrentSection] = useState();
   const [currentParkingTime, setCurrentParkingTime] = useState();
-
 
   const [timeSlots] = useState([
     { time: 30, dTime: "30 Min" },
@@ -34,8 +31,7 @@ const Inoutbookcard = () => {
     { time: 90, dTime: "1.5 Hours" },
     { time: 120, dTime: "2 Hours" },
     { time: 150, dTime: "2.5 Hours" },
-    { time: 180, dTime: "3 Hours" },
-
+    { time: 180, dTime: "3 Hours" }
   ])
 
   useEffect(() => {
@@ -46,19 +42,17 @@ const Inoutbookcard = () => {
         }
       }
       axios.get(`${window.env_var}api/guard/checkLogin`, config)
-        .then(({ data }) => {
-          getData()
-          getParkingSections();
-        })
-        .catch(err => {
-          localStorage.clear();
-          window.location.href = '/guardLogin'
-        })
-
+      .then(({ data }) => {
+        getData()
+        getParkingSections();
+      })
+      .catch(err => {
+        localStorage.clear();
+        window.location.href = '/guardLogin'
+      })
     } else {
       window.location.href = '/'
     }
-
   }, [])
 
   const getData = async () => {
@@ -72,12 +66,10 @@ const Inoutbookcard = () => {
 
       if (listData.outtime) {
         var duration = moment.duration(moment(listData.outtime).diff(moment(listData.intime)));
-        console.log(duration);
         let hours = duration.asHours() ? duration.asHours().toFixed(0) + " Hrs" : ""
         var minutes = hours + duration.asMinutes() ? duration.asMinutes().toFixed(0) + " Mins" : ""
         setParkingHours(minutes);
       }
-
       setFlats(data.data.flat_details)
       setLoading(false)
       setError(false)
@@ -88,7 +80,6 @@ const Inoutbookcard = () => {
   }
 
   const getParkingSections = async () => {
-
     try {
       const { data } = await axios.get(`${window.env_var}api/guestparkingsection/getAll/${localStorage.getItem("community_id")}`);
       setParkingSections(data.data)
@@ -96,19 +87,6 @@ const Inoutbookcard = () => {
       setError(false)
     } catch (error) {
       setError(true)
-    }
-  }
-
-  const outEntry = async () => {
-    try {
-      const sendData = {
-        outtime: Date.now(),
-        status: 3,
-        booking_id: location.state.id
-      }
-      const { data } = await axios.post(`${window.env_var}api/inout/addout`, sendData)
-    } catch (error) {
-      console.log(error)
     }
   }
 
@@ -125,20 +103,11 @@ const Inoutbookcard = () => {
   const handleSubmit = async (e, id) => {
     e.preventDefault()
     try {
-
       let sendData = {
         outtime: Date.now(),
         status: 2,
-        booking_id: id,
-
-        parkgin_time: document.getElementById("parkingtime").value
+        booking_id: id
       }
-
-      if (document.getElementById("parkingsection")?.value) {
-        sendData = { ...sendData, parking_section: document.getElementById("parkingsection").value, }
-      }
-
-      console.log(sendData);
       const { data } = await axios.post(`${window.env_var}api/inout/addout`, sendData)
       setError(false)
       setToast({ show: true, type: "success", message: "Exited successfully" })
@@ -148,18 +117,15 @@ const Inoutbookcard = () => {
       // 
     } catch (error) {
       console.log(error)
-      //setError(true)
+      setError(true)
     }
   }
   const deny = async () => {
     window.location.href = "/inoutbook"
-
-
   }
 
   if (isError)
     return <ErrorScreen />
-
 
   return (
     <div className="inoutbookcardcontainer">
@@ -187,7 +153,8 @@ const Inoutbookcard = () => {
               <br></br>
               <label className="namelabel">{listData.FirstName}</label>
               <div className='profclass'>
-                {listData.type == '1' ? 'Guest' : listData.type == '2' ? 'Vendor' : 'Daily Helper'}</div>
+                {listData.type == '1' ? 'Guest' : listData.type == '2' ? 'Vendor' : 'Daily Helper'}
+              </div>
               <br></br>
               <div className='flatclass'>
                 <label>Flat No</label>
@@ -205,37 +172,12 @@ const Inoutbookcard = () => {
                 {/* <div><label className='noofpeople'>No of People: 1</label></div> */}
                 <div><label className='vehicleno'>Vehicle No: {listData.vehicle_no ? listData.vehicle_no : 'N/A'}</label></div>
                 <div><label className='vehicleno'>Parking Section: {listData.parking_section ? listData.parking_section_details  : 'N/A'}</label></div>
-
-             
-                  <div><label className='vehicleno'>Parking Time: {listData.parking_time || 'N/A'}</label></div>
-               
-                
-
-                {/* {!listData.parking_time && <>
-
-                  <label for="parkingtime" className='ParkingSec'>Parking Time: </label><br />
-                  <select id="parkingtime" className='selectInput' name='parking_time' >
-
-                    <option disabled>Select Parking Time</option>
-                    {timeSlots.map(slot => {
-                      return <option value={slot.time}>{slot.dTime}</option>
-                    })
-                    }
-                  </select>
-                </>
-
-                } */}
-
-
-
+                <div><label className='vehicleno'>Parking Time: {listData.parking_time || 'N/A'}</label></div>
               </div>
-
               <br></br>
-
               {listData.status == 1 ? <button type="submit" onClick={(e) => { handleSubmit(e, listData.booking_id) }} id='inout' className="btnOut">Out</button>
                 : <button type="button" onClick={() => { deny() }} id='inout' className="btnOut">Back</button>
               }
-
               <br></br>
             </div>
           </div>
@@ -243,9 +185,7 @@ const Inoutbookcard = () => {
         </Loader>
       </div>
       <GuardMobileSidebar open={menu} onHide={() => setMenuOpen(false)} />
-
     </div>
   )
 }
-
-export default Inoutbookcard
+export default Inoutbookcard;

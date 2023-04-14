@@ -103,6 +103,18 @@ const Community = () => {
               ></img>
             </div>
           </div>
+          <div className="col card_hover_animation">
+            <div className="Cdashboardcard">
+              <img
+                src="/images/Assignrfid.svg"
+                className="dbcard-img-top"
+                onClick={() => {
+                  window.location.href = "/AssignRfid";
+                }}
+                alt="Assign RFID"
+              ></img>
+            </div>
+          </div>
         </div>
       </div>
     </div>

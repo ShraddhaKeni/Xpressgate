@@ -17,7 +17,7 @@ const SocietyPaymentHistory = () => {
   const [utilities,setUtility]= useState([])
   const [block,setBlock] = useState([])
   const [currentPage, setCurrentpage] = useState(1)
-  const [postPerPage, setPostPerPage] = useState(12)
+  const [postPerPage, setPostPerPage] = useState(10)
   const [currentPosts,setCurrentPosts] = useState([])
   const location = useLocation()
   const [bills,setBills] = useState([])

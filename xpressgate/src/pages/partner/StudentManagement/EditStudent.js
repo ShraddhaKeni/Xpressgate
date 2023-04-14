@@ -49,7 +49,7 @@ function EditStudent() {
         ...student,
         community_id: location.state.id,
         name: data.data.name,
-        program: data.data.program,
+        program: data.data.program_id,
         program_type: data.data.program_type,
         phone: data.data.phone,
         email: data.data.email,
@@ -60,13 +60,14 @@ function EditStudent() {
       })
 
       document.getElementById('name').defaultValue = data.data.name
-      document.getElementById('programname').value = data.data.program
+      document.getElementById('programname').value = data.data.program_id
       document.getElementById('Program_type').defaultValue = data.data.program_type
       document.getElementById('phone').defaultValue = data.data.phone
       document.getElementById('email').defaultValue = data.data.email
       document.getElementById('address').defaultValue = data.data.address
       document.getElementById('occupation').defaultValue = data.data.occupation
       document.getElementById('attachment').defaultValue = data.data.attachment
+
       return data.data
     } catch (error) {
       console.log(error)

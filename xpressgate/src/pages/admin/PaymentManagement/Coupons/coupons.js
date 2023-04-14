@@ -108,7 +108,7 @@ export const CouponsList = () => {
                                         <div className="Coupon-card-green ">
                                             <div className='d-flex justify-content-end mr-5'><button className={`${coupon.status == 1 ? 'highlight-active' : 'highlight-inactive'} p-2 px-3`}><span className={`${coupon.status == 1 ? 'dot' : 'dot-inactive'}`}></span>{coupon.status == 1 ? 'Active' : 'Inactive'}</button></div>
                                             <div>
-                                                <p className='dash-Coupon_heading-sm'>{coupon.name || "n/a"}</p>
+                                                <p className='dash-Coupon_heading-sm '>{coupon.name || "n/a"}</p>
                                                 <p className='Coupon_heading'>{coupon.code || "n/a"}</p>
                                                 <p className='dash-Coupon_heading-md'>{coupon.amount || "n/a"}</p>
                                                 <Link to={`${RouterPath.COUPON_DETAILS}`} state={{ coupon }} type="button" className="btn btn-primary blue-bg">View</Link>

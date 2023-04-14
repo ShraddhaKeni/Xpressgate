@@ -77,7 +77,6 @@ const PackageList = () => {
   const handleSubmit =async(e)=>{
     try {
       e.preventDefault()
-
       if(edit)
       {
         const sendData={
@@ -96,7 +95,6 @@ const PackageList = () => {
       }
       else
       {
-        setToast({ show: true, type: "success", message: "Package added" })
         const sendData={
           plan_id:plan_id.current.value,
           booked_by:booked_by.current.value,
@@ -148,7 +146,7 @@ const PackageList = () => {
             <div class="form-group row">
               <label class="col-lg-2 col-form-label ADN_label">Package</label>
               <div class="col-lg-4">
-                <select type="text" class="form-control input-lg SBorder" id='plan_id' name="plan_id" >
+                <select type="text" class="form-control input-lg SBorder" id='plan_id' name="plan_id" ref={plan_id}>
                   <option  disabled value={null} selected>Select Plan</option>
                     {plan.map(item=>{
                       return <option value={item.id}>{item.name}</option>
