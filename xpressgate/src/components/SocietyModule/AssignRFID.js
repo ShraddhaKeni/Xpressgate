@@ -12,68 +12,79 @@ import { Loader } from "../Loader";
 import { ButtonBase, Icon, IconButton } from '@mui/material';
 import { useLocation } from "react-router-dom";
 import { ToastMessage } from "../ToastMessage";
+import id from "date-fns/esm/locale/id/index.js";
 
 const AssignRFID = () => {
-//   const [loading, setLoading] = useState(false)
-//   const [maintenance, setMaintenance] = useState([])
-//   const [currentPage, setCurrentpage] = useState(0)
-//   const [postPerPage, setPostPerPage] = useState(10)
-//   const [currentPosts, setCurrentPosts] = useState([])
-//   const [toast, setToast] = useState({ show: false })
-//   const location = useLocation()
-//   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false)
+  const [rfid, setRfid] = useState([])
+  const [currentPage, setCurrentpage] = useState(0)
+  const [postPerPage, setPostPerPage] = useState(10)
+  const [currentPosts, setCurrentPosts] = useState([])
+  const [toast, setToast] = useState({ show: false })
+  const location = useLocation()
+  const navigate = useNavigate();
 
-//   useEffect(() => {
-//     getMaintenance()
-//   }, [])
+  useEffect(() => {
+    getRfid();
+  }, [])
 
-//   const getMaintenance = async () => {
-//     try {
-//       const { data } = await axios.get(`${window.env_var}api/maintenance/getall/${localStorage.getItem("community_id")}`)
-//       console.log(data.data.maintenance);
-//       setMaintenance(data.data.maintenance)
-//       const indexoflast =  (currentPage + 1) * postPerPage   //endoffset
-//       const indexoffirst = indexoflast - postPerPage //startoffset
-//       setCurrentPosts(data.data.maintenance.slice(indexoffirst, indexoflast))
-//       setLoading(false);
-//     } catch (error) {
-//       console.log(error)
-//       setLoading(false);
-//     }
-//   }
-//   async function findText(e) {
-//     console.log(maintenance)
-//     let text = maintenance.filter(x => x.block_name?.toLowerCase().includes(e.target.value.toLowerCase()))
-//     if (text) {
-//         setCurrentPosts(text)
-//     }
-//     else {
-//         await paginate(0)
-//     }
+  const getRfid = async () => {
+    try {
+      const { data } = await axios.get(`${window.env_var}api/resident/rfidlist/${localStorage.getItem("community_id")}`)
+      // console.log(location.state.id);
+      console.log(data.data);
+      setRfid(data.data)
+      const indexoflast =  (currentPage + 1) * postPerPage   //endoffset
+      const indexoffirst = indexoflast - postPerPage //startoffset
+      setCurrentPosts(data.data.slice(indexoffirst, indexoflast))
+      setLoading(false);
+    } catch (error) {
+      console.log(error)
+      setLoading(false);
+    }
+  }
+function findText(e) {
+  let search = e.target.value.toLowerCase()
+  let arr = rfid.filter(x => {
+    if (x.firstname?.toLowerCase().includes(search)) {
+      return true
+    }
+    else if (x.lastname?.toLowerCase().includes(search)) {
+      return true
+    }
+  })
 
-// }
-//   async function paginate(event) {
-//     setCurrentpage(event.selected + 1)
-//     const indexoflast = (event.selected + 1) * postPerPage  //endoffset
-//     const indexoffirst = (indexoflast - postPerPage) //startoffset
-//     setCurrentPosts(maintenance.slice(indexoffirst, indexoflast))
-//   }
+  if (arr) {
+    const indexoflast = (currentPage + 1) * postPerPage    //endoffset
+    const indexoffirst = (indexoflast - postPerPage)
+    setCurrentPosts(arr.slice(indexoffirst, indexoflast))
+  }
+  else {
+    paginate(0)
+  }
+} 
+  async function paginate(event) {
+    setCurrentpage(event.selected + 1)
+    const indexoflast = (event.selected + 1) * postPerPage  //endoffset
+    const indexoffirst = (indexoflast - postPerPage) //startoffset
+    setCurrentPosts(rfid.slice(indexoffirst, indexoflast))
+  }
 
-//   const handleEditLink = (item) => {
-//     navigate('/addmaintenancebill', { state: { id: item._id, type: 'edit' } })
-//   }
+  const handleEditLink = (item) => {
+    navigate('/addrfid', { state: { id: item , type: 'edit' } })
+  }
 
-//   const handleDeleteLink = async (item) => {
-//     try {
-//       const { data } = await axios.get(`${window.env_var}api/maintenance/remove/${item._id}`)
-//       setToast({ show: true, message: "Deleted Successfully", type: "error" })
-//       setTimeout(() => {
-//         window.location.reload()
-//       }, 2000)
-//     } catch (error) {
-//       console.log(error)
-//     }
-//   }
+  const handleDeleteLink = async (item) => {
+    try {
+      const { data } = await axios.get(`${window.env_var}api/maintenance/remove/${location.state.id}`)
+      setToast({ show: true, message: "Deleted Successfully", type: "error" })
+      setTimeout(() => {
+        window.location.reload()
+      }, 2000)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div className="addguestcontainer4">
@@ -86,24 +97,24 @@ const AssignRFID = () => {
           <label>Society Name</label>
         </div>
 
-        <div class="maintenancelist">
-          <a href="/AssignRfid" class="MSLList"><b>Assign RFID List</b></a><br /><br />
-          <a href="/addrfid" class="Addmaintenancelink">Add RFID</a>
+        <div class="AssignSideLink">
+          <a href="/AssignRfid" class="BListsidelink"><b>Assign RFID List</b></a><br /><br />
+          <a href="/addrfid" class="ARfidlink">Add RFID</a>
         </div>
         <div className="EN_sideimg">
           <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
         </div>
       </div>
       <div className="addguestbackgroundimg">
-      {/* <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} /> */}
+      <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <div className="EN_display">
           <label>Assign RFID List</label>
         </div>
         <br />
-        {/* <Loader loading={loading}> */}
+        <Loader loading={loading}>
           <div className='vendorpayment_search'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-              <input placeholder='Search' ></input></span>
+              <input placeholder='Search' onChange={(e) => { findText(e) }} ></input></span>
           </div>
           <div className="AddSDBlock">
             <button type="button" className="SDAddBTN" onClick={() => {
@@ -120,20 +131,22 @@ const AssignRFID = () => {
             <thead>
               <tr>
                 <th class="th-sm">Sr. No.</th>
-                <th class="th-sm">Flat</th>
                 <th class="th-sm">Resident Name</th>
+                <th class="th-sm">Block</th>
+                <th class="th-sm">Flat</th>
                 <th class="th-sm">RFID</th>
                 <th class="th-sm">Actions</th>
               </tr>
             </thead>
             <tbody>
-              {/* {currentPosts.map((item, index)=> {
+              {currentPosts.map((item, index)=> {
                 return (
                   <tr>
                     <td>{index + 1 + (currentPage * postPerPage)}</td>
-                    <td>{item.block_name}</td>
-                    <td >{item.flat_name}</td>
-                    <td>{item.amount}</td>
+                    <td >{item.firstname} {item.lastname}</td>
+                    <td >{item.block_name}</td>
+                    <td >{item.flat_no}</td>
+                    <td>{item.rfid}</td>
                     <td>
                       <div>
                         <IconButton onClick={() => { handleEditLink(item) }}>
@@ -148,11 +161,11 @@ const AssignRFID = () => {
                     </td>
                   </tr>
                 )
-              })} */}
+              })}
             </tbody>
           </table>
-          {/* <PaginationCalculate totalPages={maintenance.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} /> */}
-        {/* </Loader> */}
+          <PaginationCalculate totalPages={rfid.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+        </Loader>
       </div>
     </div>
 
