@@ -51,33 +51,28 @@ html {
   height: 70%;
   margin-top: 5%;
 }
-/* .csidelinks {
-  margin-right: 55%;
-  margin-top: 10%;            
+.AssignSideLink{
+    margin-right: 29%;
+    margin-top: 10%;
 }
-
-.CNsidelinks{
-  color:#757575;
-  font-size: 1vw;
-  font-family: 'Rubik';
-font-style: normal;
-font-weight: 500;
-
+.ARfidlink{
+  color: #757575;
+  font-weight: 500;
+  font-size: 1.1vw;
+  margin-left: -27%;
 }
-.CNsidelinks:hover{
-color: #000;
+.ARfidlink:hover{
+color: black;
 }
-.CANsidelinks:hover{
-color: #000;
+.AddUpdateLink{
+  color: black;
+  font-weight: 500;
+  font-size: 1.1vw;
+  margin-left: -14%;
 }
-.CANsidelinks{
-  color:#757575;
-  font-size: 1vw;
-  font-family: 'Rubik';
-font-style: normal;
-font-weight: 500;
-text-decoration: none;
-} */
+.AddUpdateLink:hover{
+color: black;
+}
 .SC_sideimage img {
   display: flex;
   margin-top: 113%;
