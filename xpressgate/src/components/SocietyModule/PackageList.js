@@ -50,7 +50,7 @@ const PackageList = () => {
     } catch (error) {
       console.log(error)
       setLoading(false);
-      //setError(true)
+      setError(true)
     }
   }
 
@@ -91,7 +91,6 @@ const PackageList = () => {
         setTimeout(() => {
           window.location.href='/package'
         }, 1500);
-        // window.location.href='/package'
       }
       else
       {
