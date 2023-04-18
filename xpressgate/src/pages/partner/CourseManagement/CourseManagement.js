@@ -126,42 +126,7 @@ return <div className="col  card_hover_animation" key={program.id}>
 
 
 })}
-                                        {/* <div className="col card_hover_animation">
-                                            <div className="Coupon-card-green ">
-                                            <a href="/partner/course/editcourse"><img src="/images/pencilicon.png" className="pencilicon"></img></a>
-                                                <div>
-                                                    <p className='dash-Coupon_heading-sm'>Program Name</p>
-                                                    <p className='Coupon-heading'>Fashion Designing</p>
-                                                    <p className='dash-Coupon_heading-md'><b>Live - Online Classes</b></p>
-                                                    <Link   type="button" className="btn btn-primary blue-bg">View</Link>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div className="col card_hover_animation">
-                                            <div className="Coupon-card-green ">
-                                            <a href="/partner/course/editcourse"><img src="/images/pencilicon.png" className="pencilicon"></img></a>
-                                                <div>
-                                                    <p className='dash-Coupon_heading-sm'>Program Name</p>
-                                                    <p className='Coupon-heading'>Fashion Designing</p>
-                                                    <p className='dash-Coupon_heading-md'><b>Live - Online Classes</b></p>
-                                                    <Link   type="button" className="btn btn-primary blue-bg">View</Link>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div className="col card_hover_animation">
-                                            <div className="Coupon-card-green ">
-                                            <a href="/partner/course/editcourse"><img src="/images/pencilicon.png" className="pencilicon"></img></a>
-                                                <div>
-                                                    <p className='dash-Coupon_heading-sm'>Program Name</p>
-                                                    <p className='Coupon-heading'>Fashion Designing</p>
-                                                    <p className='dash-Coupon_heading-md'><b>Live - Online Classes</b></p>
-                                                    <Link to={`${RouterPath.COURSE_DETAILS}`} type="button" className="btn btn-primary blue-bg">View</Link>
-                                                </div>
-                                            </div>
-
-                                        </div> */}
+                                       
 
                             </div>                
                             {allprograms?.length &&

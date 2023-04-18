@@ -121,6 +121,7 @@ import ProgramDetails from './components/SocietyModule/ProgramDetails';
 import SocietyInOutBook from './components/SocietyModule/SocietyInOutBook';
 import AddAssignRFID from './components/SocietyModule/AddAssignRFID';
 import AssignRFID from './components/SocietyModule/AssignRFID';
+import GuardSecurityChecklist from './components/GuardModule/GuardSecurityChecklist';
 
 
 
@@ -356,6 +357,7 @@ function App() {
       
           <Route path="/addrfid" element={<AddAssignRFID />} exact></Route>
           <Route path="/assignrfid" element={<AssignRFID />} exact></Route>
+          <Route path="/guardsecuritychecklist" element={<GuardSecurityChecklist />} exact></Route>
        
 
 

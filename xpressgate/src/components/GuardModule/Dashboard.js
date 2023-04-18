@@ -212,6 +212,11 @@ const Dashboard = () => {
                     <img src="/images/videoclass.svg" className="dbcard-img-top card_hover_animation" onClick={() => { window.location.href = '/videoclass' }} alt="video class"></img>
                   </div>
                 </div>
+                <div className="col">
+                  <div className="DashBoardCard">
+                    <img src="/images/security_checklist.svg" className="dbcard-img-top card_hover_animation" onClick={() => { window.location.href = '/guardsecuritychecklist' }} alt="Security Checklist"></img>
+                  </div>
+                </div>
               </div>
             </div>
           </Loader>

@@ -258,7 +258,22 @@ font-weight: 500;
 .videoclass{
   border-radius: 10px;
 }
-
+.MarkCompleteButn{
+  width: 10rem;
+    height: 3rem;
+    border: none;
+    outline: none;
+    background-color: #0A8996;
+    color: #F9FAFF;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-radius: 5px;
+    padding: 0%;
+}
+.MarkCompleteButn:hover{
+  background-color: #14335D;
+  color: #F9FAFF;
+}
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
 
 
