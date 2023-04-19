@@ -82,8 +82,8 @@ const ChecklistCommunityStaffReport = () => {
 
                 <div className='GLsidelinks pl-5'>
                     <p className='aggnotice float-left' onClick={() => navigate('/community-staff-checklist-report')}><b>Reports</b></p>
-                    <p className='noticegll float-left' onClick={() => navigate('/add-community-staff-checklist')}><b>Add Staff</b></p>
-                    <p className='noticegll float-left' onClick={() => navigate('/community-staff-checklist')}><b>Society Staff</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/addsocietystaffchecklist')}><b>Add Checklist</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/societystaffchecklist')}><b>Checklists</b></p>
                 </div>
                 <div className="NCSsideImg">
                     <img src="/images/societysideimg.svg" alt="dashboard sideimage" />

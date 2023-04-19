@@ -12,7 +12,7 @@ import { goBackInOneSec, reloadInOneSec, TOAST } from "../../common/utils";
 import { ToastMessage } from "../ToastMessage";
 import Societyheader from "./Utils/Societyheader";
 
-const AddChecklistSecurity = () => {
+const AddSocietyStaffChecklist = () => {
     const [loading, setLoading] = useState(true)
   
     const [staffTypes, setStaffTypes] = useState([]);
@@ -59,7 +59,7 @@ const AddChecklistSecurity = () => {
                     'frequency': document.getElementById('frequency').value,
                     'other_details': document.getElementById('other_details').value,
                     'for': document.getElementById('for').value,
-                    'type': 1
+                    'type': 2
                     
                 }
 
@@ -146,9 +146,9 @@ console.log(data)
 
                 <div className='GLsidelinks pl-5'>
 
-                    <p className='noticegll float-left' onClick={() => navigate('/security-checklist-report')}><b>Reports</b></p>
-                    <p className='aggnotice float-left' onClick={() => navigate('/add-security-checklist')}><b>Add Checklist</b></p>
-                    <p className='noticegll float-left' onClick={() => navigate('/security-checklist')}><b>Checklists</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/community-staff-checklist-report')}><b>Reports</b></p>
+                    <p className='aggnotice float-left' onClick={() => navigate('/addsocietystaffchecklist')}><b>Add Checklist</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/societystaffchecklist')}><b>Checklists</b></p>
 
                 </div>
                 <div className="NCSsideImg">
@@ -233,4 +233,4 @@ console.log(data)
     );
 };
 
-export default AddChecklistSecurity;
+export default AddSocietyStaffChecklist;

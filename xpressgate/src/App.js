@@ -122,6 +122,8 @@ import SocietyInOutBook from './components/SocietyModule/SocietyInOutBook';
 import AddAssignRFID from './components/SocietyModule/AddAssignRFID';
 import AssignRFID from './components/SocietyModule/AssignRFID';
 import GuardSecurityChecklist from './components/GuardModule/GuardSecurityChecklist';
+import SocietyStaffChecklist from './components/SocietyModule/SocietyStaffChecklist';
+import AddSocietyStaffChecklist from './components/SocietyModule/AddSocietyStaffChecklist';
 
 
 
@@ -358,6 +360,8 @@ function App() {
           <Route path="/addrfid" element={<AddAssignRFID />} exact></Route>
           <Route path="/assignrfid" element={<AssignRFID />} exact></Route>
           <Route path="/guardsecuritychecklist" element={<GuardSecurityChecklist />} exact></Route>
+          <Route path="/societystaffchecklist" element={<SocietyStaffChecklist />} exact></Route>
+          <Route path="/addsocietystaffchecklist" element={<AddSocietyStaffChecklist />} exact></Route>
        
 
 

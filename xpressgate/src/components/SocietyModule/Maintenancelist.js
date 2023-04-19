@@ -27,7 +27,11 @@ const Maintenancelist = () => {
 
   const getMaintenance = async () => {
     try {
-      const { data } = await axios.get(`${window.env_var}api/checklist/getall/${localStorage.getItem("community_id")}`)
+      const sendData = {
+        community_id : localStorage.getItem('community_id'),
+        type : 3
+    }
+    const { data } = await axios.post(`${window.env_var}api/checklist/getbytype`, sendData)
       setMaintenance(data.data.Checklist_Details)
       const indexoflast = currentPage * postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
