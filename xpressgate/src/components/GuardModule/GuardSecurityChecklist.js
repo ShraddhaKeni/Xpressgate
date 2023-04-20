@@ -8,16 +8,16 @@ import { useNavigate } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import { ToastMessage } from "../ToastMessage";
 import { reloadInOneSec, TOAST } from "../../common/utils";
-import Societyheader from "./Utils/Societyheader";
-
-
-const ChecklistSecurity = () => {
+import GuardHeader from './Utils/GuardHeader';
+import GuardMobileSidebar from '../GuardMobileSidebar';
+import Table from 'react-bootstrap/Table';
+const GuardSecurityChecklist = () => {
     const [Checklist, setChecklist] = useState([])
     const [currentPage, setCurrentpage] = useState(0)
     const [postPerPage, setPostPerPage] = useState(10)
     const [currentPosts, setCurrentPosts] = useState([])
     const [toast, setToast] = useState({ show: false })
-
+    const [menu, setMenuOpen] = useState(false)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -27,10 +27,11 @@ const ChecklistSecurity = () => {
     const getGuardDetails = async () => {
         try {
             const sendData = {
-                community_id : localStorage.getItem('community_id'),
-                type : 1
-            }
-            const { data } = await axios.post(`${window.env_var}api/checklist/getbytype`, sendData)
+                // community_id: '632970d054edb049bcd0f0b4',
+                community_id: localStorage.getItem('community_id'),
+                for : '643d109268fc88d397db5c5a'
+              }
+            const { data } = await axios.post(`${window.env_var}api/checklist/gettypechecklist`, sendData)
             console.log(data.data)
             setChecklist(data.data.Checklist_Details)
             const indexoflast = (currentPage + 1 ) * postPerPage  //endoffset
@@ -49,37 +50,21 @@ const ChecklistSecurity = () => {
         setCurrentPosts(Checklist.slice(indexoffirst, indexoflast))
     }
 
-    async function findText(e) {
-        console.log(Checklist)
-        let text = Checklist.filter(x => x.item?.toLowerCase().includes(e.target.value.toLowerCase()))
-        if(text)
-    {
-      const indexoflast = (currentPage + 1 ) * postPerPage   //endoffset
-      const indexoffirst = (indexoflast - postPerPage)
-      setCurrentPosts(text.slice(indexoffirst,indexoflast))
-    }
-    else
-    {
-      paginate(0)
-    }
-  }
+//     async function findText(e) {
+//         console.log(Checklist)
+//         let text = Checklist.filter(x => x.item?.toLowerCase().includes(e.target.value.toLowerCase()))
+//         if(text)
+//     {
+//       const indexoflast = (currentPage + 1 ) * postPerPage   //endoffset
+//       const indexoffirst = (indexoflast - postPerPage)
+//       setCurrentPosts(text.slice(indexoffirst,indexoflast))
+//     }
+//     else
+//     {
+//       paginate(0)
+//     }
+//   }
 
-    const handleEditClick = (checklist) => {
-        navigate('/add-security-checklist', { state: { data: checklist, type: 'edit', id: checklist.id } })
-    }
-
-    async function handelRemoveClick(item) {
-        const sendData = { id: item.id };
-        const { data } = await axios.post(`${window.env_var}api/checklist/remove`, sendData)
-        if (data.status_code == 403) {
-            reloadInOneSec()
-            setToast(TOAST.SUCCESS(data?.message));
-
-        } else {
-            setToast(TOAST.ERROR(data?.message));
-        }
-
-    }
 
 
 
@@ -88,41 +73,36 @@ const ChecklistSecurity = () => {
             <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
 
             <div id="addflatsection">
-                <Societyheader />
+            <GuardHeader onMenuClick={() => {
+          setMenuOpen(true)
+        }} />
 
 
             </div>
             <div id="societynamesection">
                 <div className="GL_societyname">
-                    <img src="/images/societyicon.svg" alt="Society image" />
-                    <label>Society Name</label>
+                    <img src="/images/guardnameicon.svg" alt="Guard image" />
+                    <label>{localStorage.getItem('name')}</label>
                 </div>
 
 
-                <div className='GLsidelinks pl-5'>
-                    <p className='noticegll float-left' onClick={() => navigate('/security-checklist-report')}><b>Reports</b></p>
-                    <p className='noticegll float-left' onClick={() => navigate('/add-security-checklist')}><b>Add Checklist</b></p>
-                    <p className='aggnotice float-left' onClick={() => navigate('/security-checklist')}><b>Checklists</b></p>
-                </div>
-                <div className="NCSsideImg">
-                    <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
-                </div>
+                <div className='GuestLsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
             </div>
-            <div className="addguestbackgroundimg">
-                <div className='GL_display'>
-                    <label>Security Checklist</label>
+            <div className='flex-1 d-flex' style={{ width: "100%", height: '100%' }}>
+            <div className='new-main-container'>
+            <main>
+            <div className='GuestL_display'>
+                  <label>Security Checklist</label>
                 </div>
                
-                <div> <button type="submit" className="btnAddnotice" onClick={() => {
-            window.location.href = "/add-security-checklist";
-        }}>&#10011; Add checklist</button></div>
-        <div className='row'>
-          <div className='nlsearchbox'>
-            <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
-              <input className='vlsearch_input' placeholder='Search' onChange={(e) => { findText(e) }}></input></span>
-          </div>
-                </div>
-                <table id="viewparkingtable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }}>
+           {/* <div className='row'>
+            <div className='mtsearchbox'>
+              <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
+                <input className='vlsearch_input' placeholder='Search' onChange={(e) => findText(e)}></input></span>
+            </div>
+          </div> */}
+          <div>
+                <Table id="InoutBooktable" class="table table-striped table-bordered table-sm " cellspacing="0" style={{ border: '2px solid black' }} size='sm' responsive>
                     <thead>
                         <tr>
                             <th class="th-sm">Sr No. </th>
@@ -143,24 +123,31 @@ const ChecklistSecurity = () => {
                                     <td>{item.frequency == '1' ? 'Daily' :item.frequency == '2' ? 'Monthly' :item.frequency  == '3' ? 'Quarterly' : item.frequency  == '4' ? 'Half-yearly ' : item.frequency  == '5' ?  'Yearly' : ' - ' } </td>
                                     <td>{item.other_details}</td>
                                     <td><div>
-                                        <IconButton onClick={() => { handleEditClick(item) }}>
+                                   
+                            <button className='MarkCompleteButn'>Mark Complete</button>
+                      
+                                        {/* <IconButton onClick={() => { handleEditClick(item) }}>
                                             <img src="/images/icon_edit.svg" />
                                         </IconButton>
 
                                         <IconButton onClick={() => handelRemoveClick(item)}>
                                             <img src="/images/icon_delete.svg" />
-                                        </IconButton>
+                                        </IconButton> */}
 
                                     </div></td>
                                 </tr>
                             )
                         })}
                     </tbody>
-                </table>
+                </Table>
+                </div>
                 <PaginationCalculate totalPages={Checklist.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+                </main>
             </div>
+            </div>
+            <GuardMobileSidebar open={menu} onHide={() => setMenuOpen(false)} />
         </div>
     );
 };
 
-export default ChecklistSecurity;
+export default GuardSecurityChecklist;

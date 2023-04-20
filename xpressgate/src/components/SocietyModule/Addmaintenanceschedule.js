@@ -89,6 +89,7 @@ const Addmaintenanceschedule = () => {
           time: document.getElementById('maintenancedate').value,
           other_details: document.getElementById('otherdetails').value,
           no_of_days: document.getElementById('reminderdays').value,
+          'type': 3
         }
 
         const { data } = await axios.post(`${window.env_var}api/checklist/add`, sendData)

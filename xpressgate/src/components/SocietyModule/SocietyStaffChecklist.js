@@ -11,7 +11,7 @@ import { reloadInOneSec, TOAST } from "../../common/utils";
 import Societyheader from "./Utils/Societyheader";
 
 
-const ChecklistSecurity = () => {
+const SocietyStaffChecklist = () => {
     const [Checklist, setChecklist] = useState([])
     const [currentPage, setCurrentpage] = useState(0)
     const [postPerPage, setPostPerPage] = useState(10)
@@ -28,7 +28,7 @@ const ChecklistSecurity = () => {
         try {
             const sendData = {
                 community_id : localStorage.getItem('community_id'),
-                type : 1
+                type : 2
             }
             const { data } = await axios.post(`${window.env_var}api/checklist/getbytype`, sendData)
             console.log(data.data)
@@ -100,9 +100,9 @@ const ChecklistSecurity = () => {
 
 
                 <div className='GLsidelinks pl-5'>
-                    <p className='noticegll float-left' onClick={() => navigate('/security-checklist-report')}><b>Reports</b></p>
-                    <p className='noticegll float-left' onClick={() => navigate('/add-security-checklist')}><b>Add Checklist</b></p>
-                    <p className='aggnotice float-left' onClick={() => navigate('/security-checklist')}><b>Checklists</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/community-staff-checklist-report')}><b>Reports</b></p>
+                    <p className='noticegll float-left' onClick={() => navigate('/addsocietystaffchecklist')}><b>Add Checklist</b></p>
+                    <p className='aggnotice float-left' onClick={() => navigate('/societystaffchecklist')}><b>Checklists</b></p>
                 </div>
                 <div className="NCSsideImg">
                     <img src="/images/societysideimg.svg" alt="dashboard sideimage" />
@@ -110,11 +110,11 @@ const ChecklistSecurity = () => {
             </div>
             <div className="addguestbackgroundimg">
                 <div className='GL_display'>
-                    <label>Security Checklist</label>
+                    <label>Society Checklist</label>
                 </div>
                
                 <div> <button type="submit" className="btnAddnotice" onClick={() => {
-            window.location.href = "/add-security-checklist";
+            window.location.href = "/addsocietystaffchecklist";
         }}>&#10011; Add checklist</button></div>
         <div className='row'>
           <div className='nlsearchbox'>
@@ -163,4 +163,4 @@ const ChecklistSecurity = () => {
     );
 };
 
-export default ChecklistSecurity;
+export default SocietyStaffChecklist;

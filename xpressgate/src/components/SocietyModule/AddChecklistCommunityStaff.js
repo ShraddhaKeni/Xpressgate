@@ -72,6 +72,7 @@ const AddChecklistCommunityStaff = () => {
                     'contact': document.getElementById('contact').value,
                     'service': document.getElementById('service').value,
                     'address': document.getElementById('address').value,
+                    'type' : 2
                 }
 
 

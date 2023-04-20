@@ -57,12 +57,12 @@ const ChecklistsMain = () => {
                                 className="dbcard-img-top"
                                 alt="Local Services"
                                 onClick={() => {
-                                    window.location.href = "/community-staff-checklist";
+                                    window.location.href = "/societystaffchecklist";
                                 }}
                             ></img>
                         </div>
                     </div>
-                    <div className="col card_hover_animation">
+                    {/* <div className="col card_hover_animation">
                         <div className="Cdashboardcard">
                             <img
                                 src="/images/maintenance_checklist.svg"
@@ -73,7 +73,7 @@ const ChecklistsMain = () => {
                                 alt="Emergency"
                             ></img>
                         </div>
-                    </div>
+                    </div> */}
 
                 </div>
             </div>
