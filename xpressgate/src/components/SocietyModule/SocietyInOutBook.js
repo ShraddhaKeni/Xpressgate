@@ -133,20 +133,20 @@ const SocietyInOutBook = () => {
           if(e.target.files.length < 1){
             return;
           }
-        
+        else{
           const file = e.target.files[0];
-            var validExts = [".xlsx", ".xls"];
-           var fileExt = file.type
-            if (validExts.indexOf(fileExt) < 0) {
-                alert("Invalid file selected, valid files are of " +
-                    validExts.toString() + " types.");
-                return false;
-            } 
-            else
-            {
+            // var validExts = [".xlsx", ".xls"];
+          //  var fileExt = file.type
+            // if (validExts.indexOf(fileExt) < 0) {
+            //     alert("Invalid file selected, valid files are of " +
+            //         validExts.toString() + " types.");
+            //     return false;
+            // } 
+            // else
+            // {
               setUploadFile(e.target.files[0])
-          }
-        setUpload(false);
+            }
+      
 
     }
 
@@ -158,7 +158,7 @@ const SocietyInOutBook = () => {
         if (uploadFile) {
             try {
                 const formData = new FormData();
-                formData.append('slider_pic', uploadFile);
+                formData.append('Excel_file', uploadFile);
                 formData.append('status', 1);
                 const config = {
                     headers: {
@@ -166,6 +166,7 @@ const SocietyInOutBook = () => {
                     }
                 }
                 const { data } = await axios.post(`${window.env_var}api/excel/upload`, formData, config);
+                console.log(data)
                 setToast(TOAST.SUCCESS("Added Successfully"));
                 reloadInOneSec();
             } catch (error) {
@@ -203,6 +204,7 @@ const SocietyInOutBook = () => {
         </div>
         {/* <Loader loading={loading}> */}
         <div> <button type="submit" className="btnImportData" onClick={handleImportFile} >Import Data</button></div>
+        
         <div className='row'>
           <div className='SIOsearchbox'>
             <span><img src="/images/vendorlistsearch.svg" alt='search icon'></img>
@@ -266,14 +268,15 @@ const SocietyInOutBook = () => {
                             <DialogContentText id="alert-dialog-description">
                                 Please select only Excel files.
                             </DialogContentText>
-                            <input type={'file'} placeholder={'Choose'} onChange={handleFileSelection} />
+                            <input type={'file'} accept=".xlsx, .xls" placeholder={'Choose'} onChange={handleFileSelection} />
                         </DialogContent>
                         <DialogActions>
                             <Button onClick={() => { setUpload(false) }}>Go Back</Button>
+                            <Button onClick={handleUploadFile} autoFocus>Upload</Button>
                         </DialogActions>
                     </Dialog>
 
-                    <Dialog
+                    {/* <Dialog
                         open={preview}
                         onClose={() => { }}
                         aria-labelledby="alert-dialog-title"
@@ -294,7 +297,7 @@ const SocietyInOutBook = () => {
                                 Upload
                             </Button>
                         </DialogActions>
-                    </Dialog>
+                    </Dialog> */}
     </div>     
   );
 }
