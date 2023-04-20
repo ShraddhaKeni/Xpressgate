@@ -71,8 +71,7 @@ const SocietyInOutBook = () => {
 
   const getInOutBookData = async () => {
     try {
-      const { data } = await axios.get(`${window.env_var}api/inout/getallSociety/` + community_id)
-      console.log(data)
+      const { data } = await axios.get(`${window.env_var}api/inout/getallSociety/` + localStorage.getItem('community_id'))
       setInoutdata(data.data.list)
       const indexoflast = currentPage * postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
@@ -118,47 +117,54 @@ const SocietyInOutBook = () => {
     }
   }
 
+  const handleFileSelection = (e) => {
+      
+          if(e.target.files.length < 1){
+            return;
+          }
+        else{
+          const file = e.target.files[0];
+            // var validExts = [".xlsx", ".xls"];
+          //  var fileExt = file.type
+            // if (validExts.indexOf(fileExt) < 0) {
+            //     alert("Invalid file selected, valid files are of " +
+            //         validExts.toString() + " types.");
+            //     return false;
+            // } 
+            // else
+            // {
+              setUploadFile(e.target.files[0])
+            }
+      
+
+    
+  }
+
   const handleImportFile = () => {
     setUpload(true);
   }
 
-  const handleFileSelection = (e) => {
-    if(e.target.files.length < 1){
-      return;
-    }    
-    const file = e.target.files[0];
-    var validExts = [".xlsx", ".xls"];
-    var fileExt = file.type
-    if (validExts.indexOf(fileExt) < 0) {
-      alert("Invalid file selected, valid files are of " + validExts.toString() + " types.");
-      return false;
-    } 
-    else
-    {
-      setUploadFile(e.target.files[0])
-    }
-    setUpload(false);
-  }
-
-  const handleUploadFile = async () => {
-    if (uploadFile) {
-      try {
-        const formData = new FormData();
-        formData.append('slider_pic', uploadFile);
-        formData.append('status', 1);
-        const config = {
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          }
+ 
+    const handleUploadFile = async () => {
+        if (uploadFile) {
+            try {
+                const formData = new FormData();
+                formData.append('file', uploadFile);
+                formData.append('status', 1);
+                const config = {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                }
+                const { data } = await axios.post(`${window.env_var}api/excel/upload`, formData, config);
+                console.log(data)
+                setToast(TOAST.SUCCESS("Added Successfully"));
+                reloadInOneSec();
+            } catch (error) {
+                alert(error);
+            }
         }
-        const { data } = await axios.post(`${window.env_var}api/excel/upload`, formData, config);
-        setToast(TOAST.SUCCESS("Added Successfully"));
-        reloadInOneSec();
-      } catch (error) {
-        alert(error);
       }
-    }
-  }
 
   if (isError)
     return <ErrorScreen />
@@ -182,6 +188,7 @@ const SocietyInOutBook = () => {
           <label>In-Out Book</label>
         </div>
         <div> <button type="submit" className="btnImportData" onClick={handleImportFile} >Import Data</button></div>
+        
         <div className='row'>
           <div className='SIOsearchbox'>
             <span>
@@ -232,36 +239,49 @@ const SocietyInOutBook = () => {
         <br/>
         <Pagination totalPages={filterArr.length > 0 ? filterArr.length : inoutdata.length} data={filterArr.length > 0 ? filterArr : inoutdata}  settingCurrent={settingCurrent}  />
       </div>
+      <Dialog
+                        open={upload}
+                        onClose={() => { setUpload(false); }}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                    >
+                        <DialogTitle id="alert-dialog-title">
+                            {"Choose an Excel File to upload"}
+                        </DialogTitle>
+                        <DialogContent>
+                            <DialogContentText id="alert-dialog-description">
+                                Please select only Excel files.
+                            </DialogContentText>
+                            <input type={'file'} accept=".xlsx, .xls" placeholder={'Choose'} onChange={handleFileSelection} />
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={() => { setUpload(false) }}>Go Back</Button>
+                            <Button onClick={handleUploadFile} autoFocus>Upload</Button>
+                        </DialogActions>
+                    </Dialog>
 
-      <Dialog open={upload} onClose={() => { setUpload(false); }} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description" >
-        <DialogTitle id="alert-dialog-title">
-          {"Choose an Excel File to upload"}
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Please select only Excel files.
-          </DialogContentText>
-          <input type={'file'} placeholder={'Choose'} onChange={handleFileSelection} />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => { setUpload(false) }}>Go Back</Button>
-        </DialogActions>
-      </Dialog>
+                    {/* <Dialog
+                        open={preview}
+                        onClose={() => { }}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                    >
+                        <DialogTitle id="alert-dialog-title">
+                            {"Do you want to upload this Image?"}
+                        </DialogTitle>
+                        <DialogContent>
+                            <DialogContentText id="alert-dialog-description">
 
-      <Dialog open={preview} onClose={() => { }} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description" >
-        <DialogTitle id="alert-dialog-title">
-          {"Do you want to upload this Image?"}
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-          </DialogContentText>
-          {uploadFile && <img style={{ maxHeight: '640px', maxWidth: '640px' }} src={URL.createObjectURL(uploadFile)} />}
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => { setUpload(true); setPreview("") }}> Cancel </Button>
-          <Button onClick={handleUploadFile} autoFocus> Upload </Button>
-        </DialogActions>
-      </Dialog>
+                            </DialogContentText>
+                            {uploadFile && <img style={{ maxHeight: '640px', maxWidth: '640px' }} src={URL.createObjectURL(uploadFile)} />}
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={() => { setUpload(true); setPreview("") }}>Cancel</Button>
+                            <Button onClick={handleUploadFile} autoFocus>
+                                Upload
+                            </Button>
+                        </DialogActions>
+                    </Dialog> */}
     </div>     
   );
 }
