@@ -30,10 +30,7 @@ const handleEditClick = (id) => {
 }
 
 const handleDelete = async () => {
-    console.log(program);
-    console.log(location.state.program._id)
     const res = await axios.delete(`${window.env_var}api/partner/programs/${location.state.program._id}`)
-    // console.log(location.state.id)
     if (res && res.data?.status_code == 200) {
         setToast(TOAST.SUCCESS(res?.data?.message));
         goBackInOneSec(navigate)

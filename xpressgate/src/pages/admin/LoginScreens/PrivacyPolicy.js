@@ -15,7 +15,7 @@ const PrivacyPolicy = () => {
   const handleChange = (e, editor) => {
     let edited_data = editor.getData();
     setEditedData(edited_data);
-    console.log(e, 'In handleChange', edited_data);
+   
   }
   const [toast, setToast] = useState({ show: false })
 
@@ -27,7 +27,7 @@ const PrivacyPolicy = () => {
     try {
       const { data } = await axios.post(`${window.env_var}api/legal/getone`, { type: 'privacy' });
       setdata(data.data[0]);
-      console.log(data.data[0]);
+    
     } catch (error) {
       console.log(error);
     }
@@ -38,10 +38,9 @@ const PrivacyPolicy = () => {
     if (editedData) {
       try {
         const { data } = await axios.post(`${window.env_var}api/legal/update`, { id: policydata.id, type: 'privacy', content: editedData, status: 1 });
-        //setdata(data.data[0]);
-        //console.log(data.data[0]);
+      
         setToast(TOAST.SUCCESS(data?.message));
-        //window.location.reload();
+       
       } catch (error) {
         console.log(error);
       }
@@ -53,16 +52,11 @@ const PrivacyPolicy = () => {
 
   return (
     <>
-      {/* <div className='flex flex-col'>
-
-<Header />
-<div className='flex'>
-
-    <SideLayOut/> */}
+     
       <div className="policy_page-label " >
         <label>Privacy Policy</label>
       </div>
-      {/* <div className='flex-1 d-flex' style={{ width: "100%", height: '100%' }}> */}
+     
 
       <div className='Policycontainer'>
         <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
@@ -83,10 +77,6 @@ const PrivacyPolicy = () => {
           </div>
         </div>
       </div>
-
-      {/* </div>
-</div>
-</div> */}
 
     </>
   );

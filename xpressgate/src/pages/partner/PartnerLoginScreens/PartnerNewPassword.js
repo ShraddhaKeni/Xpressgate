@@ -10,7 +10,6 @@ const PartnerNewPassword = () => {
   
   const location = useLocation()
   const navigate = useNavigate()
-  //console.log(location.state.guardid)
 
   useEffect(()=>{
     if (checkPartner()) {
@@ -25,7 +24,7 @@ const PartnerNewPassword = () => {
 
     try {
       if(await validatePassword(cp))
-      { console.log( location.state.partner_id)
+      { 
         const cpassworddata = {
           password: cp,
           partner_id: location.state.partner_id
@@ -50,46 +49,7 @@ const PartnerNewPassword = () => {
       console.log(error);
     }
   }
-  // let password = useRef([]);
-  // let confirmpassword = useRef([]);
-
-  // const [member,setMember] = useState({})
-
-  // const location = useLocation()
-
-
-  // const handleSubmit =async()=>{
-  //   try {
-  //     if( await validatePassword(password.current.value))
-  //     {
-  //       console.log(validatePassword(password.current.value))
-  //         if((password.current.value===confirmpassword.current.value)&&(password.current.value!==""&&confirmpassword.current.value!==""))
-  //         {
-  //         const sendData={
-  //           password:confirmpassword.current.value,
-  //           partner_id:location.state.partner_id
-  //         }
-  //         const {data} = await axios.post(`${window.env_var}api/auth/partner-update-password`,sendData)
-  //         // window.location.href = '/partnerlogin'
-  //       }
-  //       else
-  //       {
-  //         document.getElementById('loginemailid').style.border='2px solid red'
-  //         document.getElementById('loginpassword').style.border='2px solid red'
-  //       }
-  //     }
-  //     else
-  //     {
-  //       document.getElementById('loginemailid').style.border='2px solid red'
-  //       document.getElementById('loginpassword').style.border='2px solid red'
-  //     }
-      
-  //   } catch (error) {
-  //     document.getElementById('loginemailid').style.border='2px solid red'
-  //     document.getElementById('loginpassword').style.border='2px solid red'
-  //     console.log(error)
-  //   }
-  // }
+  
   return (
 <div className="superadmincontainer">
         <div id="Superadminlogo">

@@ -30,7 +30,7 @@ const Managementteam = () => {
   }, [])
 
   const getDetails = async () => {
-    //console.log(localStorage.getItem('community_id'));
+    
     try {
       const { data } = await axios.get(`${window.env_var}api/management/getAll/${localStorage.getItem('community_id')}`)
       setmanagement(data.data.managementteam)

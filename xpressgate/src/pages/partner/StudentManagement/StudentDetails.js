@@ -11,7 +11,7 @@ function StudentDetails() {
 
  
 
-console.log(location?.state?.student)
+
   const [student, setStudent] = useState({});
   const [allprograms, setAllPrograms] = useState();
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,14 +19,14 @@ console.log(location?.state?.student)
   useEffect(() => {
 
     getProgram();
-    console.log(student)
+   
 
 }, [])
 async function getProgram() {
   
-  console.log(location.state.student)
+
   const res = await axios.get(`${window.env_var}api/partner/students/${location.state.student}`)
-console.log(res.data.data)
+
 setStudent(res.data.data)
 
 }

@@ -36,7 +36,7 @@ const Addarrears = () => {
         .then(({ data }) => {
           if (location.state) {
             getEditData();
-            console.log(location.state.type)
+          
             setType(location.state.type);
             //setType(location.state.addedittype);
           } else {
@@ -64,7 +64,7 @@ const Addarrears = () => {
       document.getElementById('blockid').value = data.data.arrears[0].block_name;
       await getFlatsUpdate(data.data.arrears[0].block_id);
       await getResidentUpdate(data.data.arrears[0].flat_id);
-      // console.log(data.data.arrears[0].resident.resident_id)
+     
       await getInvoicenumberUpdate(data.data.arrears[0].resident.resident_id);
       document.getElementById('residentid').value = data.data.arrears[0].resident.resident_id
       document.getElementById('invoiceid').value = data.data.arrears[0].invoice_number
@@ -78,7 +78,7 @@ const Addarrears = () => {
   const getBlocks = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/block/blockList`)
-      //console.log(data)
+     
       setBlocks(data.data.block)
     } catch (error) {
       console.log(error)
@@ -100,7 +100,7 @@ const Addarrears = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/flats/getList/${e.target.value}`)
       setFlats(data.data.list)
-      // console.log(editarrearsdata)
+   
       setError(false)
     } catch (error) {
       console.log(error)
@@ -131,7 +131,7 @@ const Addarrears = () => {
   }
 
   const getResidentname = async (e) => {
-    //console.log(e)
+ 
     try {
 
       const config = {
@@ -153,9 +153,7 @@ const Addarrears = () => {
   const getInvoicenumber = async (e) => {
     try {
       const { data } = await axios.get(`${window.env_var}api/maintenancepayment/getByResident/${e.target.value}`)
-      //console.log(e.target.value)
-      //setFlats(data.data.list)
-      //console.log(e.target.value)
+      
     } catch (error) {
       console.log(error)
     }

@@ -22,7 +22,7 @@ const AddChecklistCommunityStaff = () => {
     const [isError, setError] = useState(false)
     const [toast, setToast] = useState({ show: false })
 
-    console.log(location.state);
+   
     const [guard, setGuard] = useState(location?.state?.data || undefined);
 
 
@@ -104,7 +104,7 @@ const AddChecklistCommunityStaff = () => {
                     if (location.state) {
                         getGuardDetails()
                         setType(location.state.type)
-                        console.log(type);
+                       
                     }
                     else {
                         // window.history.back(-1)
@@ -131,8 +131,7 @@ const AddChecklistCommunityStaff = () => {
             const { data } = await axios.get(`${window.env_var}api/admin/otherstaff/getAll`)
             setStaffTypes(data.data.OtherStaffType)
             setError(false)
-            //console.log(data.data.community.filter(x=>x.name))
-            //setCommunityid(data.data.community[0].name)
+       
         } catch (error) {
             setError(true)
         }
@@ -141,7 +140,7 @@ const AddChecklistCommunityStaff = () => {
     const getGuardDetails = async () => {
         try {
             const { data } = await axios.get(`${window.env_var}api/societystaff/getone/${location.state.id}`)
-            console.log("Data Gouse", data.data.Details);
+          
             setGuard(data.data.Details[0])
             setError(false)
         } catch (error) {

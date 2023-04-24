@@ -43,7 +43,7 @@ const ChecklistCommunityStaff = () => {
     }
 
     function guardDetails(item) {
-        console.log(item);
+       
         navigate('/add-community-staff-checklist', { state: { data: item, type: 'edit', id: item._id } })
     }
 
@@ -61,9 +61,9 @@ const ChecklistCommunityStaff = () => {
 
     const findText = (e) => {
         let search = e.target.value.toLowerCase()
-        //console.log(search)
+    
         let arr = Guards.filter(x => {
-            //console.log(Guards)
+        
             if (x.name.toLowerCase().includes(search)) {
                 return true
             }

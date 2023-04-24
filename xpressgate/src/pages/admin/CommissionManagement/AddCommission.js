@@ -39,7 +39,7 @@ const AddCommission = () => {
   }
 
   const getProgramDetails = async (e) => {
-    //console.log(e.target.selectedOptions[0].id);
+   
     setCommission({ ...commission, amount: e.target.selectedOptions[0].id,program_id: e.target.value }) 
   }
 

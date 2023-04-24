@@ -30,7 +30,7 @@ const Maintenancebilllist = () => {
   const getMaintenance = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/maintenance/getall/${localStorage.getItem("community_id")}`)
-      console.log(data.data.maintenance);
+     
       setMaintenance(data.data.maintenance)
       const indexoflast =  (currentPage + 1) * postPerPage   //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
@@ -42,7 +42,7 @@ const Maintenancebilllist = () => {
     }
   }
   async function findText(e) {
-    console.log(maintenance)
+    
     let text = maintenance.filter(x => x.block_name?.toLowerCase().includes(e.target.value.toLowerCase()))
     if (text) {
         setCurrentPosts(text)

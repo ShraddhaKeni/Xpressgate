@@ -64,7 +64,6 @@ const AddSocietyStaffChecklist = () => {
                 }
 
                 const { data } = await axios.post(`${window.env_var}api/checklist/add`, formdata)
-console.log(data)
                 if (data && data?.status_code == 200) {
                     setToast(TOAST.SUCCESS(data?.message));
                     goBackInOneSec(navigate)
@@ -118,8 +117,6 @@ console.log(data)
             const { data } = await axios.get(`${window.env_var}api/admin/otherstaff/getAll`)
             setStaffTypes(data.data.OtherStaffType)
             setError(false)
-            //console.log(data.data.community.filter(x=>x.name))
-            //setCommunityid(data.data.community[0].name)
         } catch (error) {
             setError(true)
         }
@@ -177,7 +174,6 @@ console.log(data)
                                 <select class="form-control input-lg ADTBorder" id="for" placeholder="Block" required>
                                     <option value={null} disabled selected>Select Staff Type</option>
                                     {staffTypes && staffTypes.map(item => {
-                                        console.log(item, checklist)
                                         return (
                                             <option value={item.id} >{item.designation}</option>
                                         )

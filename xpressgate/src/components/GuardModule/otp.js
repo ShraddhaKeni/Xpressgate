@@ -27,7 +27,7 @@ const Otp = () => {
           document.getElementById('otp').style.border='1px solid red'
         }
           
-        console.log(data)
+     
       }
       else
       {

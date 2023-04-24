@@ -130,10 +130,7 @@ const Addmaintenancebill = () => {
       document.getElementById('blockid').value = data.data.maintenance[0].block_id;
       document.getElementById('flatid').value = data.data.maintenance[0].flat_id;
       document.getElementById('residentid').value = data.data.maintenance[0].resident_id
-      //document.getElementById('flatid').value = data.data.maintenance[0].flat_id;
-      console.log(data.data.maintenance[0].block_id)
-      //await getResidentname()
-      //console.log(document.getElementById('blockid').value)
+ 
       
       setError(false)
     } catch (error) {
@@ -155,7 +152,7 @@ const Addmaintenancebill = () => {
           area: document.getElementById('area').value,
         }
         const saveData = await axios.post(`${window.env_var}api/maintenance/add`, submitData)
-        //console.log(saveData)
+
         setToast({ show: true, type: "success", message: "Data added Successfully" })
         setTimeout(() => {
           window.location.href = '/maintenancebilllist'

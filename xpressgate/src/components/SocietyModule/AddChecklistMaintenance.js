@@ -26,7 +26,7 @@ const AddChecklistMaintenance = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log("ipdate")
+       
         try {
 
             if (type == 'edit') {
@@ -111,8 +111,7 @@ const AddChecklistMaintenance = () => {
             const { data } = await axios.get(`${window.env_var}api/admin/otherstaff/getAll`)
             setStaffTypes(data.data.OtherStaffType)
             setError(false)
-            //console.log(data.data.community.filter(x=>x.name))
-            //setCommunityid(data.data.community[0].name)
+          
         } catch (error) {
             setError(true)
         }
@@ -195,7 +194,6 @@ const AddChecklistMaintenance = () => {
                                 <select class="form-control input-lg ADTBorder" id="for" placeholder="Block" required>
                                     <option value={null} disabled selected>Select Staff Type</option>
                                     {staffTypes && staffTypes.map(item => {
-                                        console.log(item, checklist)
                                         return (
                                             <option value={item.id} >{item.designation}</option>
                                         )

@@ -22,7 +22,7 @@ const Dailyservicepasscode = ({ props }) => {
   const [isError, setError] = useState(false)
   const [menu, setMenuOpen] = useState(false)
 
-  //console.log(location);
+
 
   const navigate = useNavigate()
 
@@ -43,7 +43,7 @@ const Dailyservicepasscode = ({ props }) => {
           window.location.href = '/guardLogin'
         })
       if (location.state) {
-        console.log(location.state)
+       
         getdailyhelp()
       }
       else {
@@ -64,11 +64,10 @@ const Dailyservicepasscode = ({ props }) => {
       setDailyhelp(dailyhelpdata.data.data.list)
       setDetails(dailyhelpdata.data.data.list[0])
       setError(false)
-      //console.log(dailyhelpdata.data.data.list)
-      //console.log(dailyhelpdata.data.data.list[0])
+    
     } catch (error) {
       setError(true)
-      // console.log('Try again after sometime')
+    
     }
   }
 
@@ -126,7 +125,7 @@ const Dailyservicepasscode = ({ props }) => {
           allowed_by: localStorage.getItem('guard_id')
         }
         const saveData = await axios.post(`${window.env_var}api/inout/add`, submitData)
-        console.log(saveData.data.data)
+       
         setToast({ show: true, type: "success", message: "Approved" })
         setTimeout(() => {
           window.location.href = '/dailyhelp'

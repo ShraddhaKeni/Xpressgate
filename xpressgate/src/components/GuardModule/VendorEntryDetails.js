@@ -60,7 +60,7 @@ const VendorEntryDetails = () => {
   }, [])
 
   const getData = async () => {
-    // console.log(location.state)
+   
     try {
       const { data } = await axios.get(`${window.env_var}api/vendorlist/getOne/${location.state.id}`)
       if (data.data.list[0] == null) {
@@ -73,7 +73,7 @@ const VendorEntryDetails = () => {
       setCode(location.state.code)
       setLoading(false)
       setError(false)
-      // console.log(data)
+      
     } catch (error) {
       navigate('/dashboard')
     }

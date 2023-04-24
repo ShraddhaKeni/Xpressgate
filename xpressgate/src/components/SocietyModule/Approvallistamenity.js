@@ -28,7 +28,6 @@ const Approvallistamenity = () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/resident/booking/getSingle/${id}`);
       setBooking(data.data.amenities[0])
-      //console.log(booking)
       setLoading(false);
       setError(false)
     } catch (error) {
@@ -43,9 +42,6 @@ const Approvallistamenity = () => {
   }
 
   const getTime = (time) => {
-    console.log(time)
-    // var d = new Date(date)
-    // return d.getHours()+':'+d.getMinutes()
     let ntime = time.split('T');
     let titime = ntime[1].split('.');
 

@@ -22,7 +22,7 @@ const Enter_new_pswd = () => {
     try {
       if( await validatePassword(password.current.value))
       {
-        console.log(validatePassword(password.current.value))
+       
           if((password.current.value===confirmpassword.current.value)&&(password.current.value!==""&&confirmpassword.current.value!==""))
           {
           const sendData={

@@ -33,7 +33,7 @@ const UtilityPyamentLinkList = () => {
       setCommunity(data.data.links)
       const indexoflast = (currentPage + 1) * postPerPage  //endoffset
       const indexoffirst = (indexoflast - postPerPage) //startoffset
-      console.log(data.data);
+  
       setCurrentPosts(data.data.links.slice(indexoffirst, indexoflast))
       setLoading(false);
       setError(false)
@@ -65,7 +65,7 @@ const UtilityPyamentLinkList = () => {
       community_id: localStorage.getItem("community_id"),
       type: link.type,
     }
-    console.log(sendData);
+
     const { data } = await axios.post(`${window.env_var}api/paymentlink/delete`, sendData)
     if (data.status_code == 200) {
       setToast({ show: true, type: "success", message: data.message })
@@ -73,7 +73,7 @@ const UtilityPyamentLinkList = () => {
         window.location.href = '/utilitypaymentlinklist'
       }, 1000)
     } else {
-      console.log(data.status_code)
+     
       setToast({ show: true, type: "error", message: `${data.message}` })
     }
   }

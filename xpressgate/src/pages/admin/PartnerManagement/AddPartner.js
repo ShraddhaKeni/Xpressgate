@@ -28,51 +28,10 @@ const AddPartner = () => {
 
     const navigate = useNavigate()
 
-    // useEffect(() => {
-    //     // getDetails()
-    // }, [])
-
-    // const getDetails = async () => {
-    //     try {
-    //         const { data } = await axios.get(`${window.env_var}api/state/get`)
-    //         let array = data.data.map(item => {
-    //             return {
-    //                 id: item._id,
-    //                 option: item.name,
-    //                 country_id: item.country_id
-    //             }
-    //         })
-    //         setState(array)
-    //     } catch (error) {
-    //         console.log(error)
-    //         alert('Data loading Failed')
-    //     }
-    // }
-
-    // const getArea = async (value) => {
-    //     try {
-    //         console.log(states.find(item => item.id == value));
-    //         const id = states.find(item => item.id == value).id
-    //         const { data } = await axios.get(`${window.env_var}api/area/get/${id}`)
-    //         let array = data.data.map(item => {
-    //             console.log(item);
-    //             return {
-    //                 id: item._id,
-    //                 option: item.area_name,
-    //                 state_id: item.state_id,
-    //                 pincode: item.pincode
-    //             }
-    //         })
-    //         setArea(array)
-    //     } catch (error) {
-    //         console.log(error)
-    //         alert('Data loading Failed')
-    //     }
-    // }
-
+   
 
     const handleSubmit = async (e) => {
-        console.log(partner)
+  
         e.preventDefault()
         try {
 

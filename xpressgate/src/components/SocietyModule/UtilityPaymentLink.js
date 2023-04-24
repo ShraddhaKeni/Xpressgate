@@ -80,7 +80,7 @@ const UtilityPaymentLink = () => {
           link: document.getElementById('link').value,
           status: "1",
         }
-        console.log(sendData);
+       
         const { data } = await axios.post(`${window.env_var}api/paymentlink/update`, sendData)
         if (data.status_code == 200) {
           setToast({ show: true, type: "success", message: data.message })
@@ -88,7 +88,7 @@ const UtilityPaymentLink = () => {
             window.location.href = '/utilitypaymentlinklist'
           }, 1500);
         } else {
-          console.log(data.status_code)
+        
           setToast({ show: true, type: "error", message: `${data.message}` })
         }
       }
@@ -107,7 +107,7 @@ const UtilityPaymentLink = () => {
           }, 1500);
           // window.location.href = '/utilitypaymentlinklist'
         } else {
-          console.log(data.status_code)
+       
           setToast({ show: true, type: "error", message: `${data.message}` })
         }
       }

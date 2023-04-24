@@ -68,7 +68,7 @@ const Addinout = () => {
         community_id: localStorage.getItem('community_id')
       }
       const { data } = await axios.post(`${window.env_var}api/block/get`, param)
-      //console.log(data.data.block)
+   
       setBlock(data.data.block)
       setError(false)
     } catch (error) {
@@ -91,7 +91,7 @@ const Addinout = () => {
   const getFlats = async (e) => {
     try {
       const { data } = await axios.get(`${window.env_var}api/flats/getList/${e.target.value}`)
-      //console.log(data)
+   
       setFlatNo(data.data.list)
       setError(false)
     } catch (error) {
@@ -105,7 +105,7 @@ const Addinout = () => {
         headers: { 'x-access-token': localStorage.getItem('accesstoken') },
       }
       const { data } = await axios.get(`${window.env_var}api/resident/getResidentByFlatId/${e.target.value}`, config)
-      console.log(data)
+  
       setResidents(data.data)
       setError(false)
     } catch (error) {

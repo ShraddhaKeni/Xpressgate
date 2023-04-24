@@ -37,7 +37,7 @@ const Sliders = () => {
             setSliders(data.data.sliders)
             const indexoflast = (currentPage + 1) * postPerPage  //endoffset
             const indexoffirst = (indexoflast - postPerPage) //startoffset
-            console.log(data.data);
+    
             setCurrentPosts(data.data.sliders.slice(indexoffirst, indexoflast))
             setLoading(false);
         } catch (error) {
@@ -69,16 +69,12 @@ const Sliders = () => {
     const handleImageSelection = (e) => {
 
         setUploadFile(e.target.files[0])
-        console.log(e.target.files[0]);
+     
         setPreview(true);
         setUpload(false);
 
     }
-
-
-    console.log(uploadFile);
-
-
+    
     const handleImageUpload = async () => {
         if (uploadFile) {
             try {

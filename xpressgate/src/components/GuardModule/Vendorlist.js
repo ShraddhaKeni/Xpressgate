@@ -90,7 +90,7 @@ const Vendorlist = () => {
     // return d.getHours()+':'+d.getMinutes()
     let ntime = date.split('T');
     let titime = ntime[1].split('.');
-    //console.log(titime[0])
+   
     return titime[0]
 
   }

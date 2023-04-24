@@ -20,7 +20,7 @@ export const PlansList = () => {
         async function getCoupons() {
             const res = await getAllPlans();
             if (res && res.data.status_code == 200) {
-                console.log(res.data.data.plan);
+         
                 setAllPlans(res.data.data.plan);
                 getCurrentPlans(res.data.data.plan)
             }
@@ -32,7 +32,7 @@ export const PlansList = () => {
     function getCurrentPlans(data) {
         const lastPageIndex = (currentPage) * PageSize
         const firstPageIndex = lastPageIndex - PageSize;
-        console.log(lastPageIndex, firstPageIndex);
+     
 
         if (data.length < PageSize) {
             setPlans(data?.slice(firstPageIndex, lastPageIndex));
@@ -45,7 +45,7 @@ export const PlansList = () => {
         setCurrentPage(page.selected + 1);
         const lastPageIndex = (page.selected + 1) * PageSize
         const firstPageIndex = lastPageIndex - PageSize;
-        console.log(lastPageIndex, firstPageIndex);
+       
         setPlans(allPlans?.slice(firstPageIndex, lastPageIndex));
     }
 
@@ -68,7 +68,6 @@ export const PlansList = () => {
             }
 
         })
-        console.log(arr);
         if (arr) {
             getCurrentPlans(arr);
         }
@@ -102,7 +101,7 @@ export const PlansList = () => {
                         <div id="cardsection">
                             <div className="row row-cols-1 row-cols-md-3 g-3 mb-5 allcards">
 
-                                {console.log("Main", plans)}
+                             
                                 {plans && plans.map((plan) => {
 
                                     return <div className="col card_hover_animation" key={plan.id}>

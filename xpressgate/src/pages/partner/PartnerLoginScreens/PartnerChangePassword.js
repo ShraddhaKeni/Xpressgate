@@ -71,7 +71,7 @@ const ChangePassword = () => {
       const { data } = await axios.get(
         `${window.env_var}api/partner/${localStorage.getItem("partner_id")}`
       );
-      console.log(data.data)
+      
       setMem(data.data);
     } catch (error) {
       console.log(error);

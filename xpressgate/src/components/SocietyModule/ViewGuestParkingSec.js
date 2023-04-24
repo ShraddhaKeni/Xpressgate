@@ -28,7 +28,7 @@ const ViewGuestParkingSec = () => {
     try {
       const {data}=await axios.get(`${window.env_var}api/guestparkingsection/getAll/`+community_id);
       setGuestParkingSections(data.data);
-      console.log(data.data);
+  
       const indexoflast = currentPage*postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.slice(indexoffirst,indexoflast))

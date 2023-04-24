@@ -32,7 +32,7 @@ const Addmanagementteam = () => {
       }
       axios.get(`${window.env_var}api/society/checkLogin`, config)
         .then(({ data }) => {
-          //console.log(location.state.id)
+    
           if (location.state) {
             getResidents()
             getResidents()// 2 times getResidents is required
@@ -46,7 +46,7 @@ const Addmanagementteam = () => {
         .catch(err => {
           localStorage.clear();
           window.location.href = '/societylogin'
-          //console.log(err)
+    
         })
         setLoading(false);
         setError(false)
@@ -62,7 +62,7 @@ const Addmanagementteam = () => {
       seteditdata(data.data.managementteam[0])
       document.getElementById('ToDate').value = new Date(data.data.managementteam[0].to).toISOString().split('T')[0];
       document.getElementById('ForDate').value = new Date(data.data.managementteam[0].from).toISOString().split('T')[0];
-      //console.log(document.getElementById('ToDate').value);
+  
       setError(false)
     } catch (error) {
       setError(true)
@@ -74,7 +74,7 @@ const Addmanagementteam = () => {
       const { data } = await axios.get(`${window.env_var}api/resident/getall`)
       let resident_1 = await data.data.Resident.find(x => x.id === location.state.id)
       document.getElementById('resident_id').value = resident_1.id
-      //setOne(data.data.Resident.find(x=>x.id===location.state.id))
+     
       setResidents(data.data.Resident)
       setError(false)
     } catch (error) {
@@ -102,9 +102,8 @@ const Addmanagementteam = () => {
     try {
       if (type == 'add') {
      
-        //if (document.getElementById('management_title').value !== "" && document.getElementById('from').value != "" && document.getElementById('to').value !== "") {
         const sendData = {
-          // community_id: '632970d054edb049bcd0f0b4',
+         
           community_id: localStorage.getItem('community_id'),
           managementTitle: document.getElementById('management_title').value,
           resident_id: document.getElementById('resident_id').value,
@@ -116,7 +115,7 @@ const Addmanagementteam = () => {
         setTimeout(() => {
           window.location.href = '/management'
         }, 1500);
-        // }
+      
       }
       else {
       
@@ -133,7 +132,7 @@ const Addmanagementteam = () => {
         setTimeout(() => {
           window.location.href = '/management'
         }, 1500);
-        // window.location.href = '/management'
+
        
       }
     } catch (error) {
@@ -185,17 +184,6 @@ const Addmanagementteam = () => {
           <label>{type=='edit'?'Update':'Add'} Management Team</label>
         </div>
         <Form className="formclass">
-          {/* <div class="form-group form-group5 row">
-            <label class="col-lg-2 col-form-label  labelsize">Resident</label>
-            <div class="col-lg-4">
-              <select className="form-control input-lg" id='resident_id'>
-                <option value={null} selected disabled>Select resident</option>
-                {residents.map(item => {
-                  return <option value={item.id}>{item.firstname} {item.lastname}</option>
-                })}
-              </select>
-            </div>
-          </div> */}
           <div className="AMM_form">
             <div className="inboxes">
               <label for="Resident" className="AMMResident">Resident</label>
@@ -207,21 +195,6 @@ const Addmanagementteam = () => {
               </select>
             </div>
           </div>
-          {/* <div class="form-group form-group5 row">
-            <label class="col-lg-2 col-form-label labelsize labelsize2">
-              {" "}
-              Designation
-            </label>
-            <div class="col-lg-4">
-              <input
-                type="text"
-                class="form-control input-lg "
-                name="Designation"
-                placeholder=""
-                id='management_title'
-              ></input>
-            </div>
-          </div> */}
           <div className="AMM_form">
             <div className="inboxes">
               <label for="Designation" className="AMMDesignation">Designation</label>

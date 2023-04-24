@@ -33,7 +33,7 @@ const Password = () => {
   const handleSubmit=async(e)=>{
     e.preventDefault()
     try {
-      console.log(details)
+     
       if(validatePassword(password.current.value))
       {
         if((password.current.value===confirmPass.current.value)&&(password.current.value!==""&&confirmPass.current.value!==""))

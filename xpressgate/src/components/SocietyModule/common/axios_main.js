@@ -23,7 +23,7 @@ export const postData= async(url,payload)=>{
     try {
         
         const {data} = axios_client.post(`${url}`,payload)
-        console.log(data)
+       
         return data
     } catch (error) {
         console.log(error)
