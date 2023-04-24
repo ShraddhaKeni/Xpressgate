@@ -32,7 +32,6 @@ const Addflat = () => {
           await getBlocks()
           //  let comm_select = document.getElementById('community_select').options
           //  let options = Array.from(comm_select)
-          //  console.log(options)
           // let select = options.find(x=>x.value===localStorage.getItem('community_id'))
           // select.selected= true
         })
@@ -53,8 +52,6 @@ const Addflat = () => {
       const { data } = await axios.get(`${window.env_var}api/community/get`)
       setCommunity(data.data.community)
       setError(false)
-      //console.log(data.data.community.filter(x=>x.name))
-      //setCommunityid(data.data.community[0].name)
     } catch (error) {
       setError(true)
     }
@@ -62,9 +59,6 @@ const Addflat = () => {
 
   const getBlocks = async (e) => {
     try {
-      // const param = {
-      //   community_id: e.target.value
-      // }
       const { data } = await axios.post(`${window.env_var}api/block/get`, {
         community_id: localStorage.getItem('community_id')
       })

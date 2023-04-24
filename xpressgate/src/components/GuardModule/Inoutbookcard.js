@@ -92,7 +92,7 @@ const Inoutbookcard = () => {
 
   const dateConvert = (date) => {
     const d = new Date(date)
-    //console.log(d)
+   
     return d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear()
   }
   const timeConvert = (date) => {

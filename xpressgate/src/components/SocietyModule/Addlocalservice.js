@@ -87,7 +87,7 @@ const Addlocalservice = () => {
             contact: document.getElementById('contact_no').value,
             address: document.getElementById('address').value,
           }
-          console.log(sendData);
+       
           const { data } = await axios.post(`${window.env_var}api/vendor/update`, sendData)
           setToast({ show: true, type: "success", message: "Vendor updated successfully" })
           setTimeout(() => {

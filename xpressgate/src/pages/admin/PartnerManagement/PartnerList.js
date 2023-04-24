@@ -33,7 +33,6 @@ const PartnerList = () => {
             setPartner(data.data)
             const indexoflast = (currentPage + 1) * postPerPage  //endoffset
             const indexoffirst = (indexoflast - postPerPage) //startoffset
-            console.log(data.data);
             setCurrentPosts(data.data.slice(indexoffirst, indexoflast))
             setLoading(false);
         } catch (error) {
@@ -68,7 +67,6 @@ const PartnerList = () => {
 
 
     async function findText(e) {
-        console.log(partner)
         let text = partner.filter(x => x.firstname?.toLowerCase().includes(e.target.value.toLowerCase()))
         if(text)
         {

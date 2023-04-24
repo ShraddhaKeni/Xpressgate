@@ -62,7 +62,7 @@ const SocietyInOutBook = () => {
   const calculateParkingTime = (intime, outtime) => {
     if (intime && outtime) {
       var duration = moment.duration(moment(outtime).diff(moment(intime)));
-      console.log(duration);
+   
       let hours = duration.asHours() ? duration.asHours().toFixed(0) + " Hrs" : ""
       var minutes = hours + duration.asMinutes() ? duration.asMinutes().toFixed(0) + " Mins" : ""
       return minutes;
@@ -74,7 +74,7 @@ const SocietyInOutBook = () => {
   const getInOutBookData = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/inout/getallSociety/` + community_id)
-      console.log(data)
+   
       setInoutdata(data.data.list)
       const indexoflast = currentPage * postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
@@ -166,7 +166,7 @@ const SocietyInOutBook = () => {
                     }
                 }
                 const { data } = await axios.post(`${window.env_var}api/excel/upload`, formData, config);
-                console.log(data)
+               
                 setToast(TOAST.SUCCESS("Added Successfully"));
                 reloadInOneSec();
             } catch (error) {

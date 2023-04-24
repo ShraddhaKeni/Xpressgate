@@ -32,7 +32,7 @@ const GuardSecurityChecklist = () => {
                 for : '643d109268fc88d397db5c5a'
               }
             const { data } = await axios.post(`${window.env_var}api/checklist/gettypechecklist`, sendData)
-            console.log(data.data)
+       
             setChecklist(data.data.Checklist_Details)
             const indexoflast = (currentPage + 1 ) * postPerPage  //endoffset
             const indexoffirst = indexoflast - postPerPage //startoffset

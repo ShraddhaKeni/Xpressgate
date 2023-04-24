@@ -31,7 +31,6 @@ const SMSGatewayList = () => {
             setSmsgateway(data.data.sms_gateway)
             const indexoflast = (currentPage + 1) * postPerPage  //endoffset
             const indexoffirst = (indexoflast - postPerPage) //startoffset
-            console.log(data.data);
             setCurrentPosts(data.data.sms_gateway.slice(indexoffirst, indexoflast))
             setLoading(false);
         } catch (error) {

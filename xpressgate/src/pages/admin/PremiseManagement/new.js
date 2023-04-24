@@ -51,11 +51,11 @@ const AddPremise = () => {
 
     const getArea = async (value) => {
         try {
-            console.log(states.find(item => item.id == value));
+          
             const id = states.find(item => item.id == value).id
             const { data } = await axios.get(`${window.env_var}api/area/get/${id}`)
             let array = data.data.map(item => {
-                console.log(item);
+            
                 return {
                     id: item._id,
                     option: item.area_name,

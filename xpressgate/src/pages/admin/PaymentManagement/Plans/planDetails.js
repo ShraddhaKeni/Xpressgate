@@ -21,7 +21,6 @@ export const PlanDetails = () => {
 
     const handleDelete = async () => {
         const res = await deletePlan(plan.id)
-        console.log(res)
         if (res && res.data?.status_code == 200) {
             setToast(TOAST.SUCCESS(res?.data?.message));
             goBackInOneSec(navigate)
@@ -35,7 +34,6 @@ export const PlanDetails = () => {
         updatedPlan.status = updatedPlan.status == 1 ? 0 : 1;
         setplans(updatedPlan);
         const res = await updatePlan(updatedPlan)
-        console.log(updatedPlan)
         if (res && res.data?.status_code == 200) {
             navigate(RouterPath.PRLANS_LIST)
         }

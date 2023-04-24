@@ -50,7 +50,6 @@ export const PremisesPayHistory = ({ route }) => {
         }
         const lastPageIndex = (currentPage) * PageSize
         const firstPageIndex = lastPageIndex - PageSize;
-        console.log(lastPageIndex, firstPageIndex);
         setHistory(data?.slice(firstPageIndex, lastPageIndex));
     }
 

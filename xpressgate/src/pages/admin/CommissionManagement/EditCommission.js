@@ -34,7 +34,7 @@ const EditCommission = () => {
     const getCommission = async () => {
         try {
             const { data } = await axios.get(`${window.env_var}api/commission/getone/${location.state.id}`)
-            console.log(data)
+           
             setCommission({
                 ...commission,
                 program_id: data.data.program_id,

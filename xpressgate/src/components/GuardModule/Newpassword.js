@@ -10,7 +10,7 @@ const Newpassword = () => {
 
   const location = useLocation()
   const navigate = useNavigate()
-  //console.log(location.state.guardid)
+
 
   useEffect(()=>{
     if (checkGuard()) {

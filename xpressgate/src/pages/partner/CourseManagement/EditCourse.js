@@ -33,12 +33,8 @@ useEffect(() => {
   
       const getProgram = async () => {
           try {
-            // console.log(location.state.program?.id)
-            const { data } = await axios.get(`${window.env_var}api/partner/programs/${location.state.id}`)
          
-         
-            console.log(data)
-           
+            const { data } = await axios.get(`${window.env_var}api/partner/programs/${location.state.id}`)   
               setProgram({
                 
                   ...program,
@@ -60,7 +56,6 @@ useEffect(() => {
               document.getElementById('Program_type').defaultValue = data.data.type
               document.getElementById('fee').defaultValue =  data.data.fee
               document.getElementById('details').defaultValue = data.data.details
-              console.log(data.data)
               return data.data
           } catch (error) {
               console.log(error)
@@ -69,14 +64,12 @@ useEffect(() => {
 
 
       const handleSubmit = async (e) => {
-        console.log(program)
         e.preventDefault()
         try {
       
             if (program.name != '' && program.category != '' && program.max_members != '' && program.mobileno != '' && program.type != '' && program.fee != '' && program.fee != '') {
                 
                 const { data } = await axios.put(`${window.env_var}api/partner/programs/${location.state.id}`, program)
-                console.log(data)
                 if (data.status_code == 200) {
                     setToast(TOAST.SUCCESS(data?.message));
                     goBackInOneSec(navigate)
@@ -94,56 +87,6 @@ useEffect(() => {
         }
       
       }
-
-      // const handleTypeChange = (e) => {
-      //   console.log(e.target.value);
-      //   setProgramType(e.target.value);
-      
-      // };
-      // const handleCategoryChange = (e) => {
-      //   console.log(e.target.value);
-      //   setProgramCategory(e.target.value);
-      
-      // };
-      
-      
-      
-      // const handleSubmit = async (e) => {
-      //   e.preventDefault();
-      
-      //   //Validate the data by regex before submit
-      
-      // //   let c = { ...program, valid: value }
-      // //   c.type = programType;
-      
-      // //   if (programType === 0) {
-      // //       alert("Please select Program Type");
-      // //       return;
-      // //   }
-      // //   if (ProgramCategory === 0) {
-      // //       alert("Please select Program Type");
-      // //       return;
-      // //   }
-      // // c.category= ProgramCategory
-      
-      // // console.log(c)
-      //   const res = await updateProgram()
-     
-      //   console.log(res)
-      //   if (res && res.data?.status_code == 200) {
-      //       setToast(TOAST.SUCCESS(res?.data?.message));
-      //       goBackInOneSec(navigate)
-      //   } else if (res.data?.status_code == 201) {
-      //       setToast(TOAST.ERROR(res?.data?.message));
-      //   }
-      //   else {
-      //       alert(res.message);
-      //   }
-      
-      
-      // }
-
-
 
 
   return (

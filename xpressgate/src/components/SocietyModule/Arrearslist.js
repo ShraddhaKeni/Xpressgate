@@ -66,7 +66,6 @@ const Arrearslist = () => {
   }
 
   async function findText(e) {
-    console.log(arrears)
     let text = arrears.filter(x => x.block_name?.toLowerCase().includes(e.target.value.toLowerCase()))
     if (text) {
         setCurrentPosts(text)

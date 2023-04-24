@@ -93,7 +93,6 @@ const AddGuestParkingSec = () => {
     try {
       const {data} = await axios.get(`${window.env_var}api/guestparkingsection/getOne/${location.state.id}`)
       setGuestParkingSections(data.data[0]);
-      console.log(data.data[0].block_id)
       document.getElementById('block_id').value=data.data[0].block_id;
       
       setError(false)

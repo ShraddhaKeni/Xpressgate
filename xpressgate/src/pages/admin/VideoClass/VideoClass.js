@@ -65,8 +65,6 @@ const VideoClass = () => {
               </div>
             </div>
             <div className="row row-cols-1 row-cols-md-3 mt-5 allcards">
-
-              {console.log(currentPosts)}
               {currentPosts.map(item => {
                 return (
                   <div className="col">

@@ -30,7 +30,6 @@ const [value, setValue] = useState(new Date().toLocaleString());
 
 
 const handleSubmit = async (e) => {
-  console.log(program)
   e.preventDefault()
   try {
 

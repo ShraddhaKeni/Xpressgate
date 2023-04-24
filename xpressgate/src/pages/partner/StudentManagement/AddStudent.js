@@ -30,12 +30,7 @@ const getAllProgram = async () => {
   try {
   
     const { data } = await axios.get(`${window.env_var}api/partner/programs`)
-    console.log(data)
     setAllPrograms(data.data)
-  
-  //   document.getElementById('programname').value = location.state.id;
-  
-    
     setError(false)
   } catch (error) {
     setError(true)
@@ -43,9 +38,9 @@ const getAllProgram = async () => {
 }
 const getProgramDetails = async (e) => { 
   setStudent({ ...student, program: e.target.value }) 
- console.log(e.target.value )
+
  const { data } = await axios.get(`${window.env_var}api/partner/programs/${e.target.value}`)
-console.log(data)
+
 }
 
 const handleSubmit = async (e) => {

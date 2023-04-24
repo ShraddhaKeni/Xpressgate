@@ -41,9 +41,9 @@ const EditPartner = () => {
 
     const getCommunity = async () => {
         try {
-            console.log(location.state.id)
+          
             const { data } = await axios.get(`${window.env_var}api/partner/${location.state.id}`)
-            console.log(data)
+       
             setPartner({
                 ...partner,
                 community_id: location.state.id,
@@ -55,16 +55,7 @@ const EditPartner = () => {
                 profile_pic: data.data.profile_pic,
                 status: true
             })
-            // document.getElementById('firstname').defaultValue = data.data.firstname
-            //document.getElementById('lastname').defaultValue = data.data.lastname
-            //document.getElementById('username').defaultValue = data.data.username
-            //document.getElementById('mobileno').defaultValue = data.data.mobileno
-            // document.getElementById('email').value = data.data.email
-
-            // await getArea(data.data.community[0].state)
-            // document.getElementById('password').value = data.data.password
-
-            // document.getElementById('profile_pic').defaultValue = data.data.profile_pic
+       
             return data.data
         } catch (error) {
             console.log(error)
@@ -80,8 +71,7 @@ const EditPartner = () => {
          
             if (partner.firstname != '' && partner.lastname != '' && partner.username != '' && partner.mobileno != '' && partner.email != '' && partner.password != '' && partner.profile_pic != '') {
                 if (await mobileValidation(document.getElementById('mobileno').value) && emailValidation(document.getElementById('email').value)) {
-                console.log(location.state.id)
-                console.log(partner)
+              
                 const { data } = await axios.put(`${window.env_var}api/partner/${location.state.id}`, partner)
                 if (data.status_code == 200) {
                     setToast(TOAST.SUCCESS(data?.message));

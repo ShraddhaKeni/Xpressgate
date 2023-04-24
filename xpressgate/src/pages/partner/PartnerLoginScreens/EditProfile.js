@@ -48,9 +48,9 @@ const EditProfile = () => {
       if (document.getElementById('picture').value) {
         formdata.append('profile_pic', document.getElementById('picture').files[0])
       }
-console.log(id)
+
       const { data } = await axios.put(`${window.env_var}api/partner/${localStorage.getItem('partner_id')}`, formdata)
-      console.log(data)
+   
       setToast({ show: true, type: "success", message: "Partner profile updated successfully" })
       setTimeout(() => {
         window.location.href = '/partner/dashboard'

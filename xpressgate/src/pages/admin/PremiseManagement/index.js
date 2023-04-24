@@ -32,7 +32,6 @@ const PremiseList = () => {
             setCommunity(data.data.community)
             const indexoflast = (currentPage + 1) * postPerPage  //endoffset
             const indexoffirst = (indexoflast - postPerPage) //startoffset
-            console.log(data.data);
             setCurrentPosts(data.data.community.slice(indexoffirst, indexoflast))
             setLoading(false);
         } catch (error) {

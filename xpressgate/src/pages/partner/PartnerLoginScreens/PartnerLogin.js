@@ -17,14 +17,13 @@ const PartnerLogin = () => {
       };
       const res = await axios.post(`${window.env_var}api/auth/partnerlogin`, loginCreds);
       const { data } = res;
-      console.log(res)
+    
       if (res.data) {
         localStorage.clear();
         localStorage.setItem("accesstoken", data.data.accessToken);
         // localStorage.setItem("community_id", data.data.community_id);
         localStorage.setItem("partner_id", data.data.id);
         localStorage.setItem('mode', 'partner')
-        console.log(data.data)
         setToast({ show: true, type: "success", message: "Logged in successfully" })
         setTimeout(() => {
           window.location.href = "/partner/dashboard";

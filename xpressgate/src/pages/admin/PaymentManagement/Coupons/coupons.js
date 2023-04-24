@@ -34,7 +34,6 @@ export const CouponsList = () => {
     function getCurrentCoupons(data) {
         const lastPageIndex = (currentPage) * PageSize
         const firstPageIndex = lastPageIndex - PageSize;
-        console.log(lastPageIndex, firstPageIndex);
 
         if (data.length < PageSize) {
             setCoupons(data?.slice(firstPageIndex, lastPageIndex));
@@ -53,7 +52,6 @@ export const CouponsList = () => {
         setCurrentPage(page.selected + 1);
         const lastPageIndex = (page.selected + 1) * PageSize
         const firstPageIndex = lastPageIndex - PageSize;
-        console.log(lastPageIndex, firstPageIndex);
         setCoupons(allCoupons?.slice(firstPageIndex, lastPageIndex));
 
     }

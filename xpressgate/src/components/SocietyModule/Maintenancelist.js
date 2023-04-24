@@ -74,7 +74,7 @@ const Maintenancelist = () => {
     return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate()
   }
   async function findText(e) {
-    console.log(maintenance)
+    
     let text = maintenance.filter(x => x.item?.toLowerCase().includes(e.target.value.toLowerCase()))
     if(text)
     {

@@ -90,8 +90,7 @@ const AddAssignRFID = () => {
       const { data } = await axios.get(`${window.env_var}api/flats/getList/${e}`);
       setFlats(data.data.list);
     
-      console.log(e)
-      console.log(data.data.list)
+     
      
       setError(false)
     } catch (error) {

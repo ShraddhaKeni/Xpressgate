@@ -45,9 +45,9 @@ const ChecklistCommunityStaffReport = () => {
 
     const findText = (e) => {
         let search = e.target.value.toLowerCase()
-        //console.log(search)
+     
         let arr = Guards.filter(x => {
-            //console.log(Guards)
+      
             if (x.firstname.toLowerCase().includes(search)) {
                 return true
             }

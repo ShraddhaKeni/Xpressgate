@@ -22,7 +22,7 @@ const SocietyDuesTable = () => {
   }, [])
 
   function getDate(value) {
-    // console.log(value)
+   
     let date = new Date(value)
     return  date.getDate() + '/' + (date.getMonth()+1) + '/' + date.getFullYear()
   }

@@ -33,7 +33,7 @@ const CommissionList = () => {
             setCommission(data.data)
             const indexoflast = (currentPage + 1) * postPerPage  //endoffset
             const indexoffirst = (indexoflast - postPerPage) //startoffset
-            console.log(data.data);
+         
             setCurrentPosts(data.data.slice(indexoffirst, indexoflast))
             setLoading(false);
         } catch (error) {
@@ -70,7 +70,7 @@ const CommissionList = () => {
 
 
     async function findText(e) {
-        console.log(commission)
+        
         let text = commission.filter(x => x.name?.toLowerCase().includes(e.target.value.toLowerCase()))
         if(text)
         {

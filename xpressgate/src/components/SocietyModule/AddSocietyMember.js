@@ -84,7 +84,7 @@ const AddSocietyMember = () => {
               <label class="col-lg-3 col-form-label ADN_label">Community</label>
               <div class="col-lg-7">
                 <select type="text" class="form-control input-lg SideB" id='community_id' name="community_id" required
-                  onChange={(e) => { setMember({ ...member, community_id: e.target.value }); console.log(member) }}
+                  onChange={(e) => { setMember({ ...member, community_id: e.target.value }); }}
                 >
                   <option value={null} selected>Select Community</option>
                   {communities.length && communities.map((community) => {
@@ -98,7 +98,7 @@ const AddSocietyMember = () => {
               <label class="col-lg-3 col-form-label ADN_label">First Name</label>
               <div class="col-lg-7">
                 <input required type="text" class="form-control input-lg SideB" id='First_name' name="firstname" placeholder="Enter First Name"
-                  onChange={(e) => { setMember({ ...member, firstname: e.target.value }); console.log(member) }}
+                  onChange={(e) => { setMember({ ...member, firstname: e.target.value });}}
                 >
                 </input>
 
@@ -108,7 +108,7 @@ const AddSocietyMember = () => {
               <label class="col-lg-3 col-form-label ADN_label">Last Name</label>
               <div class="col-lg-7">
                 <input required type="text" class="form-control input-lg SideB" id='last_name' name="lastname" placeholder="Enter Last Name"
-                  onChange={(e) => { setMember({ ...member, lastname: e.target.value }); console.log(member) }}
+                  onChange={(e) => { setMember({ ...member, lastname: e.target.value });}}
 
                 >
                 </input>
@@ -119,7 +119,7 @@ const AddSocietyMember = () => {
               <label class="col-lg-3 col-form-label ADN_label">Gender</label>
               <div class="col-lg-7">
                 <select required type="text" class="form-control input-lg SideB" id='gender' name="Gender"
-                  onChange={(e) => { setMember({ ...member, gender: e.target.value }); console.log(member) }}
+                  onChange={(e) => { setMember({ ...member, gender: e.target.value });}}
                 >
                   <option disabled value={'1'} selected>Male</option>
                   <option value={'2'}>Female</option>
@@ -131,7 +131,7 @@ const AddSocietyMember = () => {
               <label class="col-lg-3 col-form-label ADN_label">User Name</label>
               <div class="col-lg-7">
                 <input required type="text" class="form-control input-lg SideB" id='username' name="username" placeholder="Enter Username"
-                  onChange={(e) => { setMember({ ...member, username: e.target.value }); console.log(member) }}
+                  onChange={(e) => { setMember({ ...member, username: e.target.value });}}
 
                 />
               </div>
@@ -144,7 +144,7 @@ const AddSocietyMember = () => {
                     setToast(TOAST.ERROR("Enter Valid Phone Number")
                     )
                   }} class="form-control input-lg SideB" id='mobile_no' name="Mobile No" placeholder="Enter Mobile No"
-                  onChange={(e) => { setMember({ ...member, mobileno: e.target.value }); console.log(member) }}
+                  onChange={(e) => { setMember({ ...member, mobileno: e.target.value });}}
 
                 />
               </div>
@@ -153,7 +153,7 @@ const AddSocietyMember = () => {
               <label class="col-lg-3 col-form-label ADN_label">Email</label>
               <div class="col-lg-7">
                 <input required type="email" class="form-control input-lg SideB" id='email' name="Email" placeholder="Enter Email"
-                  onChange={(e) => { setMember({ ...member, email: e.target.value }); console.log(member) }}
+                  onChange={(e) => { setMember({ ...member, email: e.target.value });}}
 
                 />
               </div>

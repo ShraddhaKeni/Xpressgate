@@ -29,7 +29,7 @@ const ParticipantList = () => {
     try {
       const {data}=await axios.get(`${window.env_var}api/partner/programs`);
       setGuestParkingSections(data.data);
-      console.log(data.data);
+     
       const indexoflast = currentPage * postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
       setCurrentPosts(data.data.slice(indexoffirst,indexoflast))

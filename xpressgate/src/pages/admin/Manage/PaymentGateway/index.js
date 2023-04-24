@@ -30,7 +30,7 @@ const PaymentGateways = () => {
             setCommunity(data.data.payment_gateway)
             const indexoflast = (currentPage + 1) * postPerPage  //endoffset
             const indexoffirst = (indexoflast - postPerPage) //startoffset
-            console.log(data.data);
+        
             setCurrentPosts(data.data.payment_gateway.slice(indexoffirst, indexoflast))
             setLoading(false);
         } catch (error) {
@@ -47,7 +47,7 @@ const PaymentGateways = () => {
 
     const removePremise = async (id) => {
         const { data } = await deletePaymentGateway(id);
-        console.log(data);
+   
         if (data && data?.status_code == 200) {
             setToast(TOAST.SUCCESS(data?.message));
             getCommunities();

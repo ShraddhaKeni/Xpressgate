@@ -34,7 +34,7 @@ const Addmaintenanceschedule = () => {
         .then(({ data }) => {
           if (location.state) {
             getEditData();
-            //console.log(location.state.type)
+        
             setType(location.state.type);
           } else {
             getForDropdown();
@@ -93,7 +93,6 @@ const Addmaintenanceschedule = () => {
         }
 
         const { data } = await axios.post(`${window.env_var}api/checklist/add`, sendData)
-console.log(data)
          setToast({ show: true, type: "success", message: "Added successfully" })
         setTimeout(() => {
           window.location.href = '/maintenancelist'

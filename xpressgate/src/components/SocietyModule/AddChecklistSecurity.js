@@ -177,7 +177,6 @@ console.log(data)
                                 <select class="form-control input-lg ADTBorder" id="for" placeholder="Block" required>
                                     <option value={null} disabled selected>Select Staff Type</option>
                                     {staffTypes && staffTypes.map(item => {
-                                        console.log(item, checklist)
                                         return (
                                             <option value={item.id} >{item.designation}</option>
                                         )
