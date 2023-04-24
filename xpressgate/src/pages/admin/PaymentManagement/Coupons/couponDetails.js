@@ -33,9 +33,9 @@ export const CouponDetails = () => {
     }, [])
 
     const handleDelete = async () => {
-        console.log(coupon);
+    
         const res = await deleteCoupon(coupon.id)
-        console.log(res)
+  
         if (res && res.data?.status_code == 200) {
             setToast(TOAST.SUCCESS(res?.data?.message));
             goBackInOneSec(navigate)
@@ -49,7 +49,7 @@ export const CouponDetails = () => {
         coupon.status = coupon.status == 1 ? 0 : 1;
         setCoupons(coupon);
         const res = await updateCoupon(coupon)
-        console.log(coupon)
+       
         if (res && res.data?.status_code == 200) {
             navigate(RouterPath.COUPONS_LIST)
         }

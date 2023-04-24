@@ -27,8 +27,6 @@ const Addnotice = () => {
       var tzoffset = (new Date()).getTimezoneOffset() * 60000;
       let date = new Date(document.getElementById('notice_date').value+'T'+document.getElementById('notice_time').value+':00');//.toISOString();
       var localISOTime = (new Date(date - tzoffset)).toISOString().slice(0, -1);
-      console.log(date);
-      console.log(localISOTime);
       if (type == 'edit') {
      
         let formdata = new FormData();
@@ -67,12 +65,12 @@ const Addnotice = () => {
             formdata.append('id', location.state.id);
 
             const { data } = await axios.post(`${window.env_var}api/notices/updateNotice`, formdata);
-            //console.log(data);
+          
             setToast({ show: true, type: "success", message: "Updated Successfully" })
             setTimeout(() => {
               window.location.href = '/noticeList'
             }, 1500);
-            // window.location.href = '/noticeList'
+      
         }
       }
       else {
@@ -80,7 +78,7 @@ const Addnotice = () => {
        
         if (file.type != "application/pdf") {
           document.getElementById("attachment").style.border = "2px solid red";
-          //return;
+        
         }
         else{
           let formdata = new FormData()

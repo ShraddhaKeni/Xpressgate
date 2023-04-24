@@ -16,12 +16,12 @@ export async function getRequest(URL) {
 }
 
 export async function postRequest(URL, payload) {
-    console.log(payload)
+   
     return axiosClient.post(URL, payload).then(response => response);
 }
 
 export async function putRequest(URL, payload) {
-    console.log(payload)
+ 
     return axiosClient.post(URL, payload).then(response => response);
 }
 

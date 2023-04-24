@@ -98,7 +98,7 @@ const AddParticipant = () => {
         }
       }
       const { data } = await axios.get(`${window.env_var}api/resident/getone/${e.target.value}`, config)
-      console.log(data)
+   
    document.getElementById('phoneno').value = data.data.mobileno
    document.getElementById('email').value = data.data.email
    document.getElementById('resident_name').value = data.data.firstname + ' ' + data.data.lastname
@@ -114,7 +114,7 @@ const AddParticipant = () => {
     try {
     
       const { data } = await axios.get(`${window.env_var}api/partner/programs`)
-      console.log()
+  
       await setAllPrograms(data.data)
     
       document.getElementById('programname').value = location.state.id;
@@ -144,7 +144,7 @@ const AddParticipant = () => {
 
         }
         const saveData = await axios.post(`${window.env_var}api/partner/students`, submitData)
-        console.log(saveData)
+       
         setToast({ show: true, type: "success", message: "Data added Successfully" })
         setTimeout(() => {
           window.location.href = '/programlist'

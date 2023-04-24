@@ -24,7 +24,6 @@ export const EditPlan = () => {
         e.preventDefault();
 
         const res = await addPlan(plan)
-        console.log(res);
         if (res && res.data.status_code == 200) {
             navigate(RouterPath.PRLANS_LIST);
         }

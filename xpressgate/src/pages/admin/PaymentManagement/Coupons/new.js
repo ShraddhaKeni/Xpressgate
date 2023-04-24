@@ -32,13 +32,11 @@ export const AddCoupon = () => {
     const [value, setValue] = useState(new Date().toLocaleString());
 
     const handleChange = (e) => {
-        console.log(e.target.value);
-
         setValue(e.target.value);
     };
 
     const handleTypeChange = (e) => {
-        console.log(e.target.value);
+   
         setCouponType(e.target.value);
 
     };

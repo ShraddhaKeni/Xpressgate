@@ -130,7 +130,7 @@ const Addemergencyno = () => {
         }
         
         const { data } = await axios.post(`${window.env_var}api/emergencycontacts/update`, sendData)
-        console.log(data)
+     
         setTimeout(() => {
           window.location.href = '/emergencyList'
         }, 1500);

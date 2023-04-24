@@ -26,7 +26,7 @@ const Viewparking = () => {
     try {
       const {data}=await axios.get(`${window.env_var}api/parkingsectionbyid/getAll/`+community_id);
       setParkingSections(data.data.block_list);
-      console.log(data.data.block_list);
+   
       const indexoflast = (currentPage + 1) * postPerPage  //endoffset
       const indexoffirst = (indexoflast - postPerPage) //startoffset
       setCurrentPosts(data.data.block_list.slice(indexoffirst,indexoflast))

@@ -71,7 +71,7 @@ const VendorPaymentTable = () => {
       <div id="addflatsection">
         <Societyheader />
       </div>
-      {console.log(currentPosts)}
+   
       <div id="societynamesection">
         <div className="VPT_societyname">
           <img src="/images/societyicon.svg" alt="Society image" />

@@ -18,7 +18,6 @@ function CourseManagement() {
     useEffect(() => {
       async function getPrograms() {
         const res = await getAllPrograms();
-        console.log(res)
         if (res && res.data.status_code == 200) {
           setAllPrograms(res.data.data);
             getCurrentPrograms(res.data.data)
@@ -34,8 +33,6 @@ function CourseManagement() {
     function getCurrentPrograms(data) {
         const lastPageIndex = (currentPage) * PageSize
         const firstPageIndex = lastPageIndex - PageSize;
-        console.log(lastPageIndex, firstPageIndex);
-console.log(data)
         if (data.length < PageSize) {
           setPrograms(data?.slice(firstPageIndex, lastPageIndex));
             return data;
@@ -50,7 +47,6 @@ console.log(data)
         setCurrentPage(page.selected + 1);
         const lastPageIndex = (page.selected + 1) * PageSize
         const firstPageIndex = lastPageIndex - PageSize;
-        console.log(lastPageIndex, firstPageIndex);
         setPrograms(allprograms?.slice(firstPageIndex, lastPageIndex));
 
     }

@@ -49,7 +49,7 @@ export const mobileValidation = async (mob) => {
 
 export const passcodeValidation = async (passcode) => {
     try {
-        //console.log(passcode.toString())
+       
         if (validator.isNumeric((passcode.toString()))) {
             return true;
         } else {

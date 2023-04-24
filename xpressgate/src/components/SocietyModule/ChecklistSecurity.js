@@ -31,7 +31,7 @@ const ChecklistSecurity = () => {
                 type : 1
             }
             const { data } = await axios.post(`${window.env_var}api/checklist/getbytype`, sendData)
-            console.log(data.data)
+            
             setChecklist(data.data.Checklist_Details)
             const indexoflast = (currentPage + 1 ) * postPerPage  //endoffset
             const indexoffirst = indexoflast - postPerPage //startoffset
@@ -50,7 +50,7 @@ const ChecklistSecurity = () => {
     }
 
     async function findText(e) {
-        console.log(Checklist)
+     
         let text = Checklist.filter(x => x.item?.toLowerCase().includes(e.target.value.toLowerCase()))
         if(text)
     {

@@ -18,7 +18,6 @@ const SuperAdminLogin = () => {
       };
       const res = await axios.post(`${window.env_var}api/auth/adminlogin`, loginCreds);
       const { data } = res;
-      console.log(res)
       if (res.data) {
         localStorage.clear();
         localStorage.setItem("accesstoken", data.data.accessToken);

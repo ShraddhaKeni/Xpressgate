@@ -15,7 +15,7 @@ const Terms = () => {
 
   const handleChange = (e, editor) => {
     let edited_data = editor.getData();
-    console.log(e, 'In handleChange', edited_data);
+    
     setEditedData(edited_data);
   }
   const [toast, setToast] = useState({ show: false })
@@ -29,7 +29,7 @@ const Terms = () => {
     try {
       const { data } = await axios.post(`${window.env_var}api/legal/getone`, { type: 'term' });
       setdata(data.data[0]);
-      console.log(data.data[0]);
+   
     } catch (error) {
       console.log(error);
     }
@@ -39,10 +39,9 @@ const Terms = () => {
     if (editedData) {
       try {
         const { data } = await axios.post(`${window.env_var}api/legal/update`, { id: policydata.id, type: 'term', content: editedData, status: 1 });
-        //setdata(data.data[0]);
-        //console.log(data.data[0]);
+       
         setToast(TOAST.SUCCESS(data?.message));
-        //window.location.reload();
+       
       } catch (error) {
         console.log(error);
       }

@@ -67,7 +67,7 @@ const GuestList = () => {
   const dateTimeFormat = (time) => {
     let ntime = time.split('T');
     let titime = ntime[1].split('.');
-    console.log(titime[0])
+  
     return titime[0]
   }
 

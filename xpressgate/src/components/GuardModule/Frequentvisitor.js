@@ -43,7 +43,7 @@ const Frequentvisitor = ({freqvisitordata}) => {
     <div className="frequentvisitorcontainer">
       <div id="headersection">
         <div class="firstheadersection">
-          {console.log(freqvisitordata.service)}
+        
           <div id="dashboardlogo"><img src="/images/loginlogo.svg" alt="header logo" /></div>
           <div id="dashboardguard"><label>Guard</label></div>
           <div id="dashboardspace"></div>

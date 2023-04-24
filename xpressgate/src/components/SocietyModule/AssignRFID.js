@@ -31,8 +31,7 @@ const AssignRFID = () => {
   const getRfid = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/resident/rfidlist/${localStorage.getItem("community_id")}`)
-      // console.log(location.state.id);
-      console.log(data.data);
+   
       setRfid(data.data)
       const indexoflast =  (currentPage + 1) * postPerPage   //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset

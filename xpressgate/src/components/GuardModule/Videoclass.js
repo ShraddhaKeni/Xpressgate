@@ -41,7 +41,7 @@ const Videoclass = () => {
       setError(true)
     }
 
-    //console.log("sk" + JSON.stringify(videodata))
+  
     setLoading(false);
   }
 
@@ -102,10 +102,10 @@ const Videoclass = () => {
                   </div>)
               })}
             </div>
-            <br />
-            <PaginationCalculate totalPages={videodata.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
           </div>
-
+          <div style={{marginTop : '5%'}}>
+          <PaginationCalculate totalPages={videodata.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+        </div>
         </div>
       </div>
 

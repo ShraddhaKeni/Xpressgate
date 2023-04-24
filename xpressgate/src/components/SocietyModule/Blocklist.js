@@ -84,7 +84,7 @@ const Blocklist = () => {
           
               <div className="row row-cols-3 d-f BLfullcardscss allcards">
                 {currentPosts.map((item, index) => {
-                  console.log(item.flat)
+                
                   return (
                     <div className="col card_hover_animation ">
                       <div className="blminicard"><br></br>

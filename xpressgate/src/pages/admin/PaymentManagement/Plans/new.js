@@ -27,7 +27,6 @@ export const AddPlan = () => {
         e.preventDefault();
 
         const res = await addPlan(plan)
-        console.log(res);
         if (res && res.data?.status_code == 200) {
             setToast(TOAST.SUCCESS(res?.data?.message));
             goBackInOneSec(navigate)
