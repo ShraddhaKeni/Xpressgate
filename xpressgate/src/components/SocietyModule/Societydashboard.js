@@ -124,7 +124,7 @@ const Societydashboard = () => {
                 </div>
                 <div className="col card_hover_animation">
                   <div className="sddashboardcard">
-                    <img src="/images/inoutbookcard.svg" className="dbcard-img-top" alt="InOutBook" onClick={() => { window.location.href = '/societyinoutbook ' }}></img>
+                    <img src="/images/inoutbookcard.svg" className="dbcard-img-top" alt="InOutBook" onClick={() => { window.location.href = '/societyinoutbookmain ' }}></img>
                   </div>
                 </div>
               </div>

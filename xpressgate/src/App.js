@@ -124,6 +124,8 @@ import AssignRFID from './components/SocietyModule/AssignRFID';
 import GuardSecurityChecklist from './components/GuardModule/GuardSecurityChecklist';
 import SocietyStaffChecklist from './components/SocietyModule/SocietyStaffChecklist';
 import AddSocietyStaffChecklist from './components/SocietyModule/AddSocietyStaffChecklist';
+import InOutSocietyMain from './components/SocietyModule/InOutSocietyMain';
+import ResidentInOutBook from './components/SocietyModule/ResidentInOutBook';
 
 
 
@@ -355,13 +357,15 @@ function App() {
           <Route path="/programlist" element={<ParticipantList />} exact></Route>
           <Route path="/addparticipant" element={<AddParticipant />} exact></Route>
           <Route path="/programdetails" element={<ProgramDetails />} exact></Route>
-          <Route path="/societyinoutbook" element={<SocietyInOutBook />} exact></Route>
+          <Route path="/visitorinoutbook" element={<SocietyInOutBook />} exact></Route>
       
           <Route path="/addrfid" element={<AddAssignRFID />} exact></Route>
           <Route path="/assignrfid" element={<AssignRFID />} exact></Route>
           <Route path="/guardsecuritychecklist" element={<GuardSecurityChecklist />} exact></Route>
           <Route path="/societystaffchecklist" element={<SocietyStaffChecklist />} exact></Route>
           <Route path="/addsocietystaffchecklist" element={<AddSocietyStaffChecklist />} exact></Route>
+          <Route path="/societyinoutbookmain" element={<InOutSocietyMain />} exact></Route>
+          <Route path="/residentinoutbook" element={<ResidentInOutBook />} exact></Route>
        
 
 
