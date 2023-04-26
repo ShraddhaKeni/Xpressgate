@@ -119,22 +119,13 @@ const SocietyInOutBook = () => {
 
   // const handleFileSelection = (e) => {
       
-  //         if(e.target.files.length < 1){
-  //           return;
-  //         }
-  //       else{
-  //         const file = e.target.files[0];
-  //           // var validExts = [".xlsx", ".xls"];
-  //         //  var fileExt = file.type
-  //           // if (validExts.indexOf(fileExt) < 0) {
-  //           //     alert("Invalid file selected, valid files are of " +
-  //           //         validExts.toString() + " types.");
-  //           //     return false;
-  //           // } 
-  //           // else
-  //           // {
-  //             setUploadFile(e.target.files[0])
-  //           }
+        //   if(e.target.files.length < 1){
+        //     return;
+        //   }
+        // else{
+        //   const file = e.target.files[0];
+        //       setUploadFile(e.target.files[0])
+        //     }
       
 
     
