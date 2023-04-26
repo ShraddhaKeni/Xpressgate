@@ -37,6 +37,11 @@ const SocietyInOutBook = () => {
     return d.getHours() + ':' + d.getMinutes()
   }
 
+  const dateFormat = (date) => {
+    var d = new Date(date)
+    return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate()
+  }
+
   useEffect(() => {
     if (checkSociety()) {
       const config = {
@@ -117,46 +122,6 @@ const SocietyInOutBook = () => {
     }
   }
 
-  // const handleFileSelection = (e) => {
-      
-        //   if(e.target.files.length < 1){
-        //     return;
-        //   }
-        // else{
-        //   const file = e.target.files[0];
-        //       setUploadFile(e.target.files[0])
-        //     }
-      
-
-    
-  // }
-
-  // const handleImportFile = () => {
-  //   setUpload(true);
-  // }
-
- 
-    // const handleUploadFile = async () => {
-    //     if (uploadFile) {
-    //         try {
-    //             const formData = new FormData();
-    //             formData.append('file', uploadFile);
-    //             formData.append('status', 1);
-    //             const config = {
-    //                 headers: {
-    //                     'Content-Type': 'multipart/form-data'
-    //                 }
-    //             }
-    //             const { data } = await axios.post(`${window.env_var}api/excel/upload`, formData, config);
-               
-    //             setToast(TOAST.SUCCESS("Added Successfully"));
-    //             reloadInOneSec();
-    //         } catch (error) {
-    //             alert(error);
-    //         }
-    //     }
-    //   }
-
   if (isError)
     return <ErrorScreen />
 
@@ -178,7 +143,6 @@ const SocietyInOutBook = () => {
         <div className='VPdisplay'>
           <label>Visitor In-Out Book</label>
         </div>
-        {/* <div> <button type="submit" className="btnImportData" onClick={handleImportFile} >Import Data</button></div> */}
        <br/>
        <br/>
        <br/>
@@ -217,7 +181,7 @@ const SocietyInOutBook = () => {
                   <td>{iodata.type == '1' ? 'Guest' : iodata.type == '2' ? 'Vendor' : 'Daily Helper'}</td>
                   <td>{iodata.block_name}</td>
                   <td>{iodata.flat_number}</td>
-                  <td>{date}</td>
+                  <td>{dateFormat(iodata.intime)}</td>
                   <td>{dateTimeFormat(iodata.intime)}</td>
                   <td>{dateTimeFormat(iodata.outtime)}</td>
                   <td>{iodata.parking_section_details}</td>
@@ -232,28 +196,6 @@ const SocietyInOutBook = () => {
         <br/>
         <Pagination totalPages={filterArr.length > 0 ? filterArr.length : inoutdata.length} data={filterArr.length > 0 ? filterArr : inoutdata}  settingCurrent={settingCurrent}  />
       </div>
-      {/* <Dialog
-                        open={upload}
-                        onClose={() => { setUpload(false); }}
-                        aria-labelledby="alert-dialog-title"
-                        aria-describedby="alert-dialog-description"
-                    >
-                        <DialogTitle id="alert-dialog-title">
-                            {"Choose an Excel File to upload"}
-                        </DialogTitle>
-                        <DialogContent>
-                            <DialogContentText id="alert-dialog-description">
-                                Please select only Excel files.
-                            </DialogContentText>
-                            <input type={'file'} accept=".xlsx, .xls" placeholder={'Choose'} onChange={handleFileSelection} />
-                        </DialogContent>
-                        <DialogActions>
-                            <Button onClick={() => { setUpload(false) }}>Go Back</Button>
-                            <Button onClick={handleUploadFile} autoFocus>Upload</Button>
-                        </DialogActions>
-                    </Dialog> */}
-
-                  
     </div>     
   );
 }
