@@ -81,7 +81,6 @@ const ResidentInOutBook = () => {
   const getInOutBookData = async () => {
     try {
       const { data } = await axios.get(`${window.env_var}api/excel/get/${localStorage.getItem('community_id')}`)
-      console.log(data)
       setInoutdata(data.data.inout_details)
       const indexoflast = currentPage * postPerPage  //endoffset
       const indexoffirst = indexoflast - postPerPage //startoffset
