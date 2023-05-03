@@ -30,6 +30,7 @@ const GuardMobileSidebar = ({ open, onHide }) => {
                     <a href="/videoclass" className={`GS_LabelName mt-5 ${!router.pathname.includes("/videoclass") && 'text-secondary'}`}><b>Video Class</b></a>
 
                     <a href="/inoutbook" className={`GS_LabelName mt-5 ${!(router.pathname.includes("/inout") || router.pathname.includes("/addinout")) && 'text-secondary'}`}><b>In-Out book</b></a>
+                    <a href="/guardsecuritychecklist" className={`GS_LabelName mt-5 ${!(router.pathname.includes("/guardsecuritychecklist") )&& 'text-secondary'}`}><b>Security Checklist</b></a>
 
                 </div>
             </div >

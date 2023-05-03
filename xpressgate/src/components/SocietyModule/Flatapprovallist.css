@@ -419,13 +419,14 @@ color: #14335D;
 }
 
 .frequentvisitorcard {
-  min-width: 33rem;
+  min-width: 85vw;
   margin-top: 8%;
   background-color: #fff;
   border: 2px solid #14335D;
   border-radius: 15px;
-  margin-left: 9%;
+  margin-left: 6%;
   height: auto;
+  margin-bottom: 8%;
 }
 .flatclass {
   background-color: #AED8DC;

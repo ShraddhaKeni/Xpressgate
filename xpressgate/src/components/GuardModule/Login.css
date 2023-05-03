@@ -251,10 +251,10 @@ font-weight: 500;
   #Gloginimgid {
     /* display: none; */
     position: absolute;
-    margin-top: 143%;
+    margin-top: 151%;
 }
 #Gloginimgid img {
-  height: 34vh;
+  height: 32vh;
   width: 100vw;
   animation: moveImage 5s infinite;
 }
