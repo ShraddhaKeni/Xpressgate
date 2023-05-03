@@ -95,10 +95,16 @@ const SocietyInOutBook = () => {
     navigate('/inoutbookcard', { state: { id: id } })
   }
 
-  function settingCurrent(value) {
-    setCurrentPosts(value)
+  // function settingCurrent(value) {
+  //   setCurrentPosts(value)
+  // }
+  async function paginate(event) {
+    const { data } = await axios.get(`${window.env_var}api/inout/getallSociety/` + localStorage.getItem('community_id'))
+    setCurrentpage(event.selected + 1)
+    const indexoflast = (event.selected + 1) * postPerPage  //endoffset
+    const indexoffirst = (indexoflast - postPerPage) //startoffset
+    setCurrentPosts(data.data.videolist.slice(indexoffirst, indexoflast))
   }
-
   function findText(e) {
     let search = e.target.value.toLowerCase()
     let arr = inoutdata.filter(x => {
@@ -118,7 +124,7 @@ const SocietyInOutBook = () => {
     }
     else
     {
-      settingCurrent(0)
+      paginate(0)
     }
   }
 
@@ -176,7 +182,7 @@ const SocietyInOutBook = () => {
             {currentPosts.map((iodata, index) => {
               return (
                 <tr>       
-                  <td>{(currentPage - 1) * 12 + (index + 1)}</td>
+                  <td>{currentPage <= 2 ? (currentPage - 1) * 12 + (index + 1) : (currentPage - 1) * 12 + (index + 1)}</td>
                   <td >{iodata.guestFirstName} {iodata.guestLastName}</td>
                   <td>{iodata.type == '1' ? 'Guest' : iodata.type == '2' ? 'Vendor' : 'Daily Helper'}</td>
                   <td>{iodata.block_name}</td>
@@ -194,7 +200,8 @@ const SocietyInOutBook = () => {
           </tbody>
         </Table>
         <br/>
-        <Pagination totalPages={filterArr.length > 0 ? filterArr.length : inoutdata.length} data={filterArr.length > 0 ? filterArr : inoutdata}  settingCurrent={settingCurrent}  />
+        <PaginationCalculate totalPages={filterArr.length > 0 ? filterArr.length : inoutdata.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
+        {/* <Pagination totalPages={filterArr.length > 0 ? filterArr.length : inoutdata.length} data={filterArr.length > 0 ? filterArr : inoutdata}  settingCurrent={settingCurrent}  /> */}
       </div>
     </div>     
   );
