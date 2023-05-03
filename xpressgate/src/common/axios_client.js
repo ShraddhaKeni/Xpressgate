@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const DOMAIN = 'http://143.110.187.80:5050/'
+export const DOMAIN = 'https://xpressgate.axzoragroup.com:5050/'
 const axiosClient = axios.create({ baseURL: DOMAIN + 'api/' });
 
 axiosClient.defaults.headers = {
