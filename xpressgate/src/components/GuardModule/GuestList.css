@@ -194,7 +194,7 @@
     padding-top: 4.5%;
     margin: auto;
     margin-top: -1%;
-    margin-right: 22%;
+    margin-right: 26%;
 }
 .GuestE_display label {
   font-family: 'Rubik';
@@ -213,9 +213,10 @@
   font-size: 1.3rem;
   font-weight: 500;
   padding-top: 0%;
-  margin-right: 42%;
+  margin-right: 20%;
   border: none;
   margin-bottom: 6%;
+  margin-left: -15%;
 }
 .BTN_Deny {
   background-color: #96230A;
@@ -227,7 +228,6 @@
   font-weight: 500;
   margin-top: 0%;
   padding-top: 0%;
-  margin-left: -24.5%;
   border: none;
   position: absolute;
 }

@@ -69,21 +69,22 @@ const GuardSecurityChecklist = () => {
 
 
     return (
-        <div className="addguestcontainer4">
-            <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
-
-            <div id="addflatsection">
-            <GuardHeader onMenuClick={() => {
-          setMenuOpen(true)
-        }} />
 
 
+            <div className='flex flex-col'>
+
+<div id="headersection">
+  <GuardHeader onMenuClick={() => {
+    setMenuOpen(true)
+  }} />
+</div>
+            <div className='flex'>
+            <div id="guardnamesection">
+            <div className='GuestLName'>
+              <img src="/images/guardnameicon.svg" alt="guard name" />
+              <label>{localStorage.getItem('name')}</label>
             </div>
-            <div id="societynamesection">
-                <div className="GL_societyname">
-                    <img src="/images/guardnameicon.svg" alt="Guard image" />
-                    <label>{localStorage.getItem('name')}</label>
-                </div>
+           
 
 
                 <div className='GuestLsideimage'><img src="/images/sideimage.svg" alt="dashboard sideimage" /></div>
@@ -143,6 +144,7 @@ const GuardSecurityChecklist = () => {
                 </div>
                 <PaginationCalculate totalPages={Checklist.length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
                 </main>
+            </div>
             </div>
             </div>
             <GuardMobileSidebar open={menu} onHide={() => setMenuOpen(false)} />

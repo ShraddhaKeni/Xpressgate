@@ -439,10 +439,9 @@ color: #14335D;
     height: 5rem;
     background-color: #AED8DC;
     border-radius: 14px;
-    padding-top: 3.5%;
-    margin: auto;
+    padding-top: 8.5%;
     margin-top: -2%;
-    margin-right: 24%;
+    margin-right: -70%;
 }
 .DHL_display label {
   font-family: 'Rubik';
@@ -501,5 +500,16 @@ color: #14335D;
   font-style: normal;
   font-weight: 400;
   margin-top: 2%;
+}
+.dhfullcardscss {
+  margin-top: 0%;
+  padding-left: 0%;
+  padding-right: 16%;
+  margin-left: 68%;
+  margin-bottom: 15%;
+}
+.PaGinatIon{
+  margin-left: -19%;
+  width: 250%;
 }
 }

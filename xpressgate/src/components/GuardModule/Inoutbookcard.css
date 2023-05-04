@@ -154,6 +154,7 @@ font-weight: 500;
   background-color: #fff;
   border: 2px solid #14335D;
   border-radius: 20px;
+  margin-bottom: 5%;
 }
 
 .profclass {
@@ -353,7 +354,7 @@ color: #14335D;
     padding-top: 4.5%;
     margin: auto;
     margin-top: -1%;
-    margin-right: 21%;
+    margin-right: 27%;
 }
 .IOBC_display label {
   font-family: 'Rubik';
@@ -364,13 +365,14 @@ color: #14335D;
   color: #14335D;
 }
 .inoutbookcard {
-  min-width: 33rem;
+  min-width: 87vw;
   margin-top: 2.5%;
   background-color: #fff;
   border: 2px solid #14335D;
   border-radius: 15px;
-  margin-left: 9%;
+  margin-left: 3%;
   height: auto;
+  margin-bottom: 10%;
 }
 
 

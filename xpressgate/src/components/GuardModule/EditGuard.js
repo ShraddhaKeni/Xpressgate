@@ -78,7 +78,7 @@ const EditGuard = () => {
             <label>Update Guard</label>
           </div>
           <Loader loading={loading}>
-            <Form className="formclass" >
+            <Form className="FORMCLASS" >
               <div class="form-group row" onSubmit={(e) => handleSubmit(e)}>
                 <label class="col-lg-2 col-form-label ADN_label">First Name</label>
                 <div class="col-lg-4">

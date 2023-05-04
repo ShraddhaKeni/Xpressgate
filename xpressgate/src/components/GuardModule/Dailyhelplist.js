@@ -98,7 +98,7 @@ const Dailyhelplist = () => {
           <div className='DHL_display'>
             <label>Daily Help List</label>
           </div>
-          <div className="row row-cols-2 row-cols-md-3 g-4 dhfullcardscss allcards ">
+          <div className="row row-cols-md-2 row-cols-md-3 g-4 dhfullcardscss allcards ">
 
             {currentPosts.map((dailydata) => {
 
@@ -116,7 +116,7 @@ const Dailyhelplist = () => {
               )
             })}
           </div>
-          <div style={{ marginTop: '0.5%' }}>
+          <div style={{ marginTop: '0.5%' }} className="PaGinatIon">
 
             <PaginationCalculate totalPages={dailyhelpdata.filter(x => x.booking_id.length != 0).length} postperPage={postPerPage} currentPage={currentPage} paginate={paginate} />
           </div>
