@@ -206,21 +206,21 @@ color: #14335D;
   }
 .aiodisplay {
   width: 15rem;
-  height: 5rem;
+  height: 4rem;
   background-color: #AED8DC;
   border-radius: 14px;
-  padding-top: 4.5%;
-  margin: auto;
+  padding-top: 4%;
+  /* margin: auto; */
   margin-top: 1%;
-  margin-right: 5%;
+  margin-right: -2%;
 }
 .aiodisplay label {
-font-family: 'Rubik';
-font-style: normal;
-font-weight: 600;
-font-size: 1.5rem;
-text-align: center;
-color: #14335D;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.6rem;
+  text-align: center;
+  color: #14335D;
 }
 .btnInOut {
   background-color: #0A8996;
@@ -235,7 +235,7 @@ color: #14335D;
 }
 .AIOformclass {
   margin-top: 5%;
-  margin-left: 16%;
+  margin-left: 21%;
   width: 100%;
 }
 

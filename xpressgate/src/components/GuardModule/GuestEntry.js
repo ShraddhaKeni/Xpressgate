@@ -210,6 +210,7 @@ const GuestEntry = () => {
               <br></br>
               <button type="button" onClick={() => { handleSubmit() }} className="BTN_Approve">APPROVE</button>
               <button type="submit" className="BTN_Deny" onClick={() => { deny() }}>DENY</button>
+
               <br></br>
             </div>
           </div>
