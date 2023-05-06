@@ -120,7 +120,7 @@ const Amenitylist = () => {
           <label>Society Name</label>
         </div>
         <div className='amen_sidelinks'>
-          <a className='AnoticeSL'  onClick={()=>{navigate('/addeditamenity',{state:{id:location.state.id,type:'edit'}})}}>Edit Amenity</a>
+          <a className='AnoticeSL'  onClick={()=>{navigate('/addeditamenity',{state:{id:location.state.id,type:'edit'}})}}>Update Amenity</a>
         </div>
         {/* <Button onClick={()=>{navigate('/addeditamenity',{state:{id:location.state.id,type:'edit'}})}} className='btnAdd' style={{marginLeft:'65px'}}>Edit Amenity</Button> */}
         <div className='alsideimage'><img src="/images/societysideimg.svg" alt="dashboard sideimage" /></div>

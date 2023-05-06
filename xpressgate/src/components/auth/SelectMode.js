@@ -72,7 +72,7 @@ const SelectMode = () => {
           </div> </div>
       
          <div className='copyright'>
-          © Copyright 2023 Designed by <a href="https://www.axzoragroup.com/" target="_blank">Axzora Private Limited</a>
+          © Copyright 2023 Designed by <a href="https://www.axzoragroup.com/" target="_blank" className='CopyRightLabel'>Axzora Private Limited</a>
         </div> 
 
       </div>

@@ -139,7 +139,7 @@ const Addeditamenity = () => {
       <ToastMessage show={toast.show} message={toast.message} type={toast.type} handleClose={() => { setToast({ show: false }) }} />
         <Loader loading={loading}>
           <div className='aeadisplay'>
-            <label>{type == 'edit' ? 'Edit Amenity' : 'New Amenity'}</label>
+            <label>{type == 'edit' ? 'Update Amenity' : 'New Amenity'}</label>
           </div>
           <Form className='aeaclass'>
             <div class="form-group row">
@@ -183,7 +183,7 @@ const Addeditamenity = () => {
                 <input type="file" accept='.jpg ,.jpeg ,.png' class="form-control input-lg sideBord" id='amenity_image' ref={image} name="inputnoofpeople"></input>
               </div>
             </div>
-            <button type="submit" onClick={(e) => { handleSubmit(e) }} className="btnAddAmenity">{type == 'edit' ? 'Edit' : 'Add'}  Amenity</button>
+            <button type="submit" onClick={(e) => { handleSubmit(e) }} className="btnAddAmenity">{type == 'edit' ? 'Update' : 'Add'}  Amenity</button>
           </Form>
         </Loader>
       </div>

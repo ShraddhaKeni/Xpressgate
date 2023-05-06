@@ -210,6 +210,15 @@ a:link {
    padding: 8px;
    z-index: 99999;
    align-items: center;
+   font-weight: 500;
+    }
+    .CopyRightLabel{
+        color: #ffffff;
+        cursor: pointer;
+    }
+    .CopyRightLabel:hover{
+        color: #060606;
+        font-weight: 500;
     }
   @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
     .ellipseimg {
