@@ -63,7 +63,7 @@ function findText(e) {
   }
 } 
   async function paginate(event) {
-    setCurrentpage(event.selected + 1)
+    setCurrentpage(event.selected)
     const indexoflast = (event.selected + 1) * postPerPage  //endoffset
     const indexoffirst = (indexoflast - postPerPage) //startoffset
     setCurrentPosts(rfid.slice(indexoffirst, indexoflast))
