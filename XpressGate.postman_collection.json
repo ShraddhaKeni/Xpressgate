@@ -1,0 +1,6695 @@
+{
+	"info": {
+		"_postman_id": "07ce8eb0-7555-4a11-8e7d-00b959f7601f",
+		"name": "XpressGate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19710109"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Alerts",
+					"item": [
+						{
+							"name": "getAlerts",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "addAlerts",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-type",
+										"value": "multipart/alternative",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"emp_id\": \"e83aced1-9f29-4adb-94bd-ca7f69ab175b\",\n    \"offBoard_reason\": \"adasdfaf\",\n    \"offboard_date\": \"2022-08-02\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/offboard/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"offboard",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "removeAlerts",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-CSRFToken",
+										"value": "IjkwMTY3YTk3ODNhMmI3ZmIxNzU1YjdiNGRkNzAzZGJhMWY4NDU4Yzgi.Yw3WCw.PyxNHQMcW6mjVq9Tnmak0aESL04",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Cookie",
+										"value": "access_token_cookie=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjIwOTQ0OTAsIm5iZiI6MTY2MjA5NDQ5MCwianRpIjoiOWI5YTA1ZTUtODU5ZC00ZWVmLWI4ZTItYmYxMDE3MDFlY2JjIiwiZXhwIjoxNjYyMTM3NjkwLCJpZGVudGl0eSI6ImVsZV9hZG1pbiIsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyIsImNzcmYiOiJjZGE5NmZkYi0wOWFmLTRjN2UtYjI1ZC02MjJiYjMxMWM2ZjMifQ.rA2gW1FqOmnIzkKUNcu6_ceX4kAz1EnBD3CAlLA8t0k; csrf_access_token=cda96fdb-09af-4c7e-b25d-622bb311c6f3; type=dept_admin; session=.eJw9jkFuBCEMBP_COQcbDIb9DDLYTkbZnZVmdk5R_h6iSDl2SV2qr9D9sPMj3F7HZW-hbxpugdBFeRQpObVGSYHUySZqTDBMR6TGJpDJIbGqJWVUGZTErAximqwtmVpkBG6WbXJigokzsoOQoUcBFBbCUYjBVdAXsFxjCSvkOu34qym09jwP76_np-2LeFSqaI5VMc-ahCfVMSEXF9YpOSroCl2_-_N92_v1Kyr0P5d7l4ctld2tiz62PXz_ACMjUDA.YxGMmg.UZ8poLn8VLHTh1uQUwNWv8yUf6A",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"vehicalName\":\"req.body.vehicalName\",\n        \"vehicalClass\":\"req.body.vehicalClass\",\n        \"vehicalNumber\":\"req.body.vehicalNumber\",\n        \"ownerID\":\"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/resident/vehical/addVehical",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"resident",
+										"vehical",
+										"addVehical"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Local Services",
+					"item": [
+						{
+							"name": "Get all local services",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{xpressgate_live}}api/admin/localservices/getAll",
+									"host": [
+										"{{xpressgate_live}}api"
+									],
+									"path": [
+										"admin",
+										"localservices",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add local services",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "serviceName",
+											"value": "Laundry",
+											"type": "text"
+										},
+										{
+											"key": "icons",
+											"type": "file",
+											"src": "/home/it-06/Downloads/icons/Xpress Gate (7)/laundry-machine 1.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/admin/localservices/addService",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"localservices",
+										"addService"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find One",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/admin/localservices/getOne/63240d4ee15ad2351752937b",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"localservices",
+										"getOne",
+										"63240d4ee15ad2351752937b"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Service Workers",
+					"item": [
+						{
+							"name": "Get All Workers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/admin/serviceworker/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"serviceworker",
+										"getAll"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get All Workers",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/admin/serviceworker/getAll",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"admin",
+												"serviceworker",
+												"getAll"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "http://localhost:8081"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "x-access-token, Origin, Content-Type, Accept"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "21"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"15-r7RtiD6fA2belg1avcEwEfdCPAs\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 16 Sep 2022 07:08:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"serviceworkers\": []\n}"
+								}
+							]
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"workerFirstName\":\"Eliza\",\n        \"workerLastName\":\"Olsen\",\n        \"workerContact\":123456789,\n        \"localServiceID\":\"63240d4ee15ad2351752937b\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/admin/serviceworker/addWoker",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"serviceworker",
+										"addWoker"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Catogory Worker",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/admin/serviceworker/getCatoWorker/63240d6de15ad2351752937e",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"serviceworker",
+										"getCatoWorker",
+										"63240d6de15ad2351752937e"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get One Worker",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/admin/serviceworker/getOneWorker/6324218e763f6c8eb116a48e",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"serviceworker",
+										"getOneWorker",
+										"6324218e763f6c8eb116a48e"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove Worker",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/admin/serviceworker/removeWorker/6324218e763f6c8eb116a48e",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"serviceworker",
+										"removeWorker",
+										"6324218e763f6c8eb116a48e"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Emergency Contacts",
+					"item": [
+						{
+							"name": "All Contacts",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"contactName\":\"Doctor2\",\n    \"contactNumber\":1234567890,\n    \"contactType\":\"632466e4adf47b3856f426bb\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/emergencycontacts/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"emergencycontacts",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/admin/emergencycontacts/findcontactCatogory/632466e4adf47b3856f426bb",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"emergencycontacts",
+										"findcontactCatogory",
+										"632466e4adf47b3856f426bb"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find by catogory > Pass the contactType",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/emergencycontacts/findcontactCatogory/6352338f6623a72a31a9b662",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"emergencycontacts",
+										"findcontactCatogory",
+										"6352338f6623a72a31a9b662"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"contactName\":\"Medicine Shop 2\",\n    \"contactType\":\"635233846623a72a31a9b660\",\n    \"contactNumber\":123456789\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/emergencycontacts/addContact",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"emergencycontacts",
+										"addContact"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{xpressgate_local}}/api/emergencycontacts/getAll",
+									"host": [
+										"{{xpressgate_local}}"
+									],
+									"path": [
+										"api",
+										"emergencycontacts",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Emergency Contact Types",
+					"item": [
+						{
+							"name": "add all contact types",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "emgContactType",
+											"value": "Doctor",
+											"type": "text"
+										},
+										{
+											"key": "icons",
+											"type": "file",
+											"src": "/home/it-06/Downloads/icons/Xpress Gate (4)/Xpress Gate (5)/Group-1.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/admin/emergencycontactstype/addContacttype",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"emergencycontactstype",
+										"addContacttype"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all contact types",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/admin/emergencycontactstype/getAlltype",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"emergencycontactstype",
+										"getAlltype"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Staff types",
+					"item": [
+						{
+							"name": "Get all staff types",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/admin/staffservices/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"staffservices",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Staff types",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"serviceType\":\"Driver\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/admin/staffservices/addStafftype",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"staffservices",
+										"addStafftype"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Utility Bills",
+					"item": [
+						{
+							"name": "Get all bills",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/admin/utilitypayment/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"utilitypayment",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all bills Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"utilityID\":\"632c2d591a26f445d93cb2cc\",\n    \"residentID\":\"63283ed7e39d3a21e83dec1d\",\n    \"paymentAmount\":500\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/admin/utilitypayment/addBill",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"utilitypayment",
+										"addBill"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get single bill",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/admin/utilitypayment/getOne/632d586d3cb683c7c17f8774",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"utilitypayment",
+										"getOne",
+										"632d586d3cb683c7c17f8774"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get bill by resident",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/admin/utilitypayment/getResidentBill/63283ed7e39d3a21e83dec1d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"utilitypayment",
+										"getResidentBill",
+										"63283ed7e39d3a21e83dec1d"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Bill types",
+					"item": [
+						{
+							"name": "Get all bills",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/admin/utilitypayment/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"utilitypayment",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all bills Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"utilityType\":\"Water\",\n    \"utilityGroup\":\"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/admin/utilities/addUtility",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"utilities",
+										"addUtility"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get single bill",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/admin/utilitypayment/getOne/632d586d3cb683c7c17f8774",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"utilitypayment",
+										"getOne",
+										"632d586d3cb683c7c17f8774"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get bill by resident",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/admin/utilitypayment/getResidentBill/63283ed7e39d3a21e83dec1d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"utilitypayment",
+										"getResidentBill",
+										"63283ed7e39d3a21e83dec1d"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Daily Help",
+					"item": [
+						{
+							"name": "Add Daily Staff",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"serviceType\":\"Garbage\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/admin/dailyhelp/addStafftype",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"dailyhelp",
+										"addStafftype"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{xpressgate_live}}api/admin/dailyhelp/getAll",
+									"host": [
+										"{{xpressgate_live}}api"
+									],
+									"path": [
+										"admin",
+										"dailyhelp",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "remove",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/admin/dailyhelp/removeStafftype/632d5dba752987d70b7b0bd2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"dailyhelp",
+										"removeStafftype",
+										"632d5dba752987d70b7b0bd2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get obe",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/admin/dailyhelp/getStafftype/632d5dba752987d70b7b0bd2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"dailyhelp",
+										"getStafftype",
+										"632d5dba752987d70b7b0bd2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Relation",
+					"item": [
+						{
+							"name": "get all",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_live}}api/relations/get",
+									"host": [
+										"{{xpressgate_live}}api"
+									],
+									"path": [
+										"relations",
+										"get"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"relationType\":\"type\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/relations/post",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"relations",
+										"post"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "document types",
+					"item": [
+						{
+							"name": "add doc type",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Admins",
+					"item": [
+						{
+							"name": "Add Admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "firstname",
+											"value": "Admin",
+											"type": "text"
+										},
+										{
+											"key": "lastname",
+											"value": "Xpressgate",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "Admin",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "admin@axzora.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Axzora@2020",
+											"type": "text"
+										},
+										{
+											"key": "profile_pic",
+											"type": "file",
+											"src": "/C:/Users/keshav.methar/Downloads/Screenshot from 2022-08-19 15-28-35.png"
+										},
+										{
+											"key": "mobileno",
+											"value": "7798101424",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/admin/addAdmin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"addAdmin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "firstname",
+											"value": "Xpressgate",
+											"type": "text"
+										},
+										{
+											"key": "lastname",
+											"value": "Admin",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "Admin",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "admin@axzora.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Axzora@2020",
+											"type": "text"
+										},
+										{
+											"key": "profile_pic",
+											"type": "file",
+											"src": "/C:/Users/keshav.methar/Downloads/Screenshot from 2022-08-19 15-28-35.png"
+										},
+										{
+											"key": "mobileno",
+											"value": "7798101422",
+											"type": "text"
+										},
+										{
+											"key": "id",
+											"value": "63735bb77225962320f4c9d7",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "true",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/admin/updateAdmin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"updateAdmin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Admins",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/admin/getAllAdmin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"getAllAdmin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get One Admin",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/admin/getOne/63735bb77225962320f4c9d7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"admin",
+										"getOne",
+										"63735bb77225962320f4c9d7"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Admin Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"Admin\",\r\n    \"password\":\"Axzora@2020\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/auth/adminlogin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"auth",
+										"adminlogin"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Parking sections",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"section\":\"A-1\",\n    \"block_id\":\"632970fd54edb049bcd0f0b6\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/parkingsection/post",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"parkingsection",
+										"post"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/parkingsection/getAll/632970fd54edb049bcd0f0b6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"parkingsection",
+										"getAll",
+										"632970fd54edb049bcd0f0b6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ticket types",
+					"item": [
+						{
+							"name": "Add Ticket type",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Payment Issue\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/tickettype/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"tickettype",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Ticket type",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tickettype_id\":\"637b616921f00f47746a3d21\",\r\n    \"name\":\"Billing Issue\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/tickettype/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"tickettype",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all ticket types",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/tickettype/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"tickettype",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get one ticket type",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/tickettype/getOne/637b610021f00f47746a3d1e",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"tickettype",
+										"getOne",
+										"637b610021f00f47746a3d1e"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Ticket type",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tickettype_id\":\"637b616921f00f47746a3d21\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/tickettype/delete",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"tickettype",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Community",
+					"item": [
+						{
+							"name": "Update Community",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"community_id\":\"637c7cbe323500238c16725f\",\r\n    \"name\":\"Kamat Towers\",\r\n    \"type\":\"Panaji\",\r\n    \"noofblocks\":\"3\",\r\n    \"address\":\"St Inez\",\r\n    \"landmark\":\"Near Mall\",\r\n    \"state\":\"Goa\",\r\n    \"city\":\"Panaji\",\r\n    \"pincode\":\"403001\",\r\n    \"status\":\"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/community/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"community",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Community",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Kamat Towers\",\r\n    \"type\":\"Panaji\",\r\n    \"noofblocks\":\"3\",\r\n    \"address\":\"St Inez\",\r\n    \"landmark\":\"Near Mall\",\r\n    \"state\":\"Goa\",\r\n    \"city\":\"Panaji\",\r\n    \"pincode\":\"403001\",\r\n    \"status\":\"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/community/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"community",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Communities",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMTcxZThlZmQxNjQ4NDY2YzUzYWVhNSIsImlhdCI6MTY2MjQ2MDE0MSwiZXhwIjoxNjYyNTQ2NTQxfQ.hQ2gxmFr-GATmTaiNoNe9QUQNeohhXQDFgPK_9N-koU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/community/get",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"community",
+										"get"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Community",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"community_id\":\"637c7cbe323500238c16725f\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/community/delete",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"community",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get One Communities",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMTcxZThlZmQxNjQ4NDY2YzUzYWVhNSIsImlhdCI6MTY2MjQ2MDE0MSwiZXhwIjoxNjYyNTQ2NTQxfQ.hQ2gxmFr-GATmTaiNoNe9QUQNeohhXQDFgPK_9N-koU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/community/getone/632970d054edb049bcd0f0b4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"community",
+										"getone",
+										"632970d054edb049bcd0f0b4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Terms & Privacy",
+					"item": [
+						{
+							"name": "Add legal",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\":\"term\",\r\n    \"content\":\"This is Terms & Conditions page\",\r\n    \"status\":\"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/legal/add",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"legal",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get legal",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{xpressgate_local}}api/legal/getall",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"legal",
+										"getall"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Single legal ",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\":\"term\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/legal/getone",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"legal",
+										"getone"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all legal",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{xpressgate_local}}api/legal/getall",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"legal",
+										"getall"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Slider",
+					"item": [
+						{
+							"name": "Add slider",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "slider_pic",
+											"type": "file",
+											"src": "/C:/Users/keshav.methar/Downloads/Xpress Gate (1)/Group 130.png"
+										},
+										{
+											"key": "status",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/slider/add",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"slider",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get slider images",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{xpressgate_local}}api/slider/getall",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"slider",
+										"getall"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove slider",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":\"632eb32f0933923e14eff0e5\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/slider/remove",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"slider",
+										"remove"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Coupon",
+					"item": []
+				}
+			]
+		},
+		{
+			"name": "Resident",
+			"item": [
+				{
+					"name": "Guests",
+					"item": [
+						{
+							"name": "get all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/resident/guest/getAllGuest",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"guest",
+										"getAllGuest"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get guest",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/resident/guest/getSingleGuest/6358c58e3bce36328c5aa618",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"guest",
+										"getSingleGuest",
+										"6358c58e3bce36328c5aa618"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get guest by resident",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/resident/guest/getGuestOfResident/63283ed7e39d3a21e83dec1d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"guest",
+										"getGuestOfResident",
+										"63283ed7e39d3a21e83dec1d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get guest by resident",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/resident/guest/getGuestOfResident/63283ed7e39d3a21e83dec1d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"guest",
+										"getGuestOfResident",
+										"63283ed7e39d3a21e83dec1d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Guest type Once",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"guestFirstName\":\"Guest 1\",\n    \"guestLastName\":\"Guest\",\n    \"guestPhone\":\"1234567890\",\n    \"guestTimeFrom\":\"2022-11-16T12:09:03.184+00:00\",\n    \"guestTimeTo\":\"2022-11-16T12:09:03.184+00:00\",\n    \"guestType\":\"Once\",\n    \"residentID\":\"63283ed7e39d3a21e83dec1d\",\n    \"flatID\":\"633987bdc9f0238e32b86d4c\",\n    \"numberOfGuest\":\"3\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/guest/addGuest",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"guest",
+										"addGuest"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Guest type Frequent",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"guestFirstName\":\"firstname\",\n    \"guestLastName\":\"lastname\",\n    \"guestPhone\":\"1234567890\",\n    \"guestTimeFrom\":\"2022-09-22T12:09:03.184+00:00\",\n    \"guestTimeTo\":\"2022-09-22T12:09:03.184+00:00\",\n    \"guestType\":\"Frequent\",\n    \"residentID\":\"63283ed7e39d3a21e83dec1d\",\n    \"flatID\":\"633987bdc9f0238e32b86d4c\",\n    \"numberOfGuest\":\"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_live}}api/resident/guest/addGuest",
+									"host": [
+										"{{xpressgate_live}}api"
+									],
+									"path": [
+										"resident",
+										"guest",
+										"addGuest"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update guest",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"guest_id\":\"636e0ffa64ec06e9266edcd4\",\n    \"guestFirstName\":\"firstname Updated\",\n    \"guestLastName\":\"lastname\",\n    \"guestPhone\":\"1234567899\",\n    \"guestTimeFrom\":\"2022-09-22T12:09:03.184+00:00\",\n    \"guestTimeTo\":\"2022-09-22T12:09:03.184+00:00\",\n    \"guestType\":\"Frequent\",\n    \"residentID\":\"63283ed7e39d3a21e83dec1d\",\n    \"flatID\":\"633987bdc9f0238e32b86d4c\",\n    \"numberOfGuest\":\"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/guest/updateGuest",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"guest",
+										"updateGuest"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete guest",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/resident/guest/deleteGuest/636e0ffa64ec06e9266edcd4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"guest",
+										"deleteGuest",
+										"636e0ffa64ec06e9266edcd4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Vehicle",
+					"item": [
+						{
+							"name": "search vehicle via Resident",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{xpressgate_live}}api/resident/vehicle/getResidentVehicle/6329754a4756dc4c408ab68a",
+									"host": [
+										"{{xpressgate_live}}api"
+									],
+									"path": [
+										"resident",
+										"vehicle",
+										"getResidentVehicle",
+										"6329754a4756dc4c408ab68a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add vehicle",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ownerID\":\"6329754a4756dc4c408ab68a\", \n    \"vehicalName\":\"GTX\",\n    \"vehicalNumber\":\"AX03AJ244222\",\n    \"vehicalClass\":\"Fast\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/vehicle/addVehicle",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"vehicle",
+										"addVehicle"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update vehicle",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vehical_id\":\"6349109b020d39713dbd1ca9\",\n    \"ownerID\":\"6329754a4756dc4c408ab68a\", \n    \"vehicalName\":\"GTR\",\n    \"vehicalNumber\":\"AX03AJ244224\",\n    \"vehicalClass\":\"Fast\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/vehicle/updateVehicle",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"vehicle",
+										"updateVehicle"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Vehicle",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\":\"634fd9f189171f20079628a3\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/resident/vehicle/removeVehicle",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"resident",
+										"vehicle",
+										"removeVehicle"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "help desk",
+					"item": [
+						{
+							"name": "get all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/helpdesk/getall",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"helpdesk",
+										"getall"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/helpdesk/getByResident/63283ed7e39d3a21e83dec1d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"helpdesk",
+										"getByResident",
+										"63283ed7e39d3a21e83dec1d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"residentID\":\"63283ed7e39d3a21e83dec1d\", \n    \"complaint\":\"Water problem\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/helpdesk/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"helpdesk",
+										"add"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Staff",
+					"item": [
+						{
+							"name": "add Staff Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "serviceType",
+											"value": "63255433818edb27f93dadb6",
+											"type": "text"
+										},
+										{
+											"key": "staffName",
+											"value": "Best Staff",
+											"type": "text"
+										},
+										{
+											"key": "staffContact",
+											"value": "1234567890",
+											"type": "text"
+										},
+										{
+											"key": "profileDP",
+											"type": "file",
+											"src": "/home/it-06/Pictures/Screenshots/Screenshot from 2022-07-26 12-15-00.png"
+										},
+										{
+											"key": "ownerID",
+											"value": "6329754a4756dc4c408ab68a",
+											"type": "text"
+										},
+										{
+											"key": "flatID",
+											"value": "6329714354edb049bcd0f0b8",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{xpressgate_live}}api/resident/staff/addStaff",
+									"host": [
+										"{{xpressgate_live}}api"
+									],
+									"path": [
+										"resident",
+										"staff",
+										"addStaff"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "staff update",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "serviceType",
+											"value": "634ce9fcb4798459f76eaf14",
+											"type": "text"
+										},
+										{
+											"key": "staffName",
+											"value": "JethaLal",
+											"type": "text"
+										},
+										{
+											"key": "staffContact",
+											"value": "2233131",
+											"type": "text"
+										},
+										{
+											"key": "profileDP",
+											"type": "file",
+											"src": "/C:/Users/keshav.methar/Pictures/RM/6.PNG"
+										},
+										{
+											"key": "ownerID",
+											"value": "6329754a4756dc4c408ab68a",
+											"type": "text"
+										},
+										{
+											"key": "flatID",
+											"value": "6329714354edb049bcd0f0b8",
+											"type": "text"
+										},
+										{
+											"key": "id",
+											"value": "634ce9fcb4798459f76eaf14",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/staff/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"staff",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/staff/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"staff",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get one staff",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/staff/getOne/634d28696183c3e8b9f9d6e3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"staff",
+										"getOne",
+										"634d28696183c3e8b9f9d6e3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get staff by resident",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_live}}api/resident/staff/getStaffResident/63380a64c9f0238e32b86d43",
+									"host": [
+										"{{xpressgate_live}}api"
+									],
+									"path": [
+										"resident",
+										"staff",
+										"getStaffResident",
+										"63380a64c9f0238e32b86d43"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete staff",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/staff/remove/634d28696183c3e8b9f9d6e3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"staff",
+										"remove",
+										"634d28696183c3e8b9f9d6e3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Book amenity",
+					"item": [
+						{
+							"name": "get all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/resident/booking/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"booking",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "book",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"amenityType\":\"632d6399bea82dda56c387d0\",\n        \"residentID\":\"6329754a4756dc4c408ab68a\",\n        \"bookedTime\":\"2022-03-29T00:00:00.000Z\",\n        \"bookedDate\":\"2023-04-29T00:00:00.000Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/booking/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"booking",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get one booking",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/resident/booking/getSingle/632d64b2bea82dda56c387d6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"booking",
+										"getSingle",
+										"632d64b2bea82dda56c387d6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get booking with resident id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/resident/booking/getResidentBooking/6329754a4756dc4c408ab68a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"booking",
+										"getResidentBooking",
+										"6329754a4756dc4c408ab68a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "remove booking",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/resident/booking/removeBooking/632d64b2bea82dda56c387d6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"booking",
+										"removeBooking",
+										"632d64b2bea82dda56c387d6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "accept booking",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/resident/booking/approveBooking/632d64b2bea82dda56c387d6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"booking",
+										"approveBooking",
+										"632d64b2bea82dda56c387d6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "cab entry",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/resident/cabentry/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"cabentry",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "push cab",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"residentID\":\"63283ed7e39d3a21e83dec1d\",\n    \"cabNumber\":\"12334243455\",\n    \"cabTime\":\"2022-09-21T11:10:00.771+00:00\",\n    \"flatID\":\"6329714354edb049bcd0f0b8\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/cabentry/pushCab",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"cabentry",
+										"pushCab"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find one",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/resident/cabentry/getOne/632d6892fbaa17ef55602481",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"cabentry",
+										"getOne",
+										"632d6892fbaa17ef55602481"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Dicussion Topic",
+					"item": [
+						{
+							"name": "get all > Pass community ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/resident/discussiontopic/getAll/632970d054edb049bcd0f0b4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"discussiontopic",
+										"getAll",
+										"632970d054edb049bcd0f0b4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"topicTitle\":\"Pool Too small \",\n    \"topicDetails\":\"Need new Hall\",\n    \"resident_id\":\"63283ed7e39d3a21e83dec1d\",\n    \"flat_id\":\"6329714354edb049bcd0f0b8\",\n    \"community_id\":\"632970d054edb049bcd0f0b4\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/discussiontopic/addTopic",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"discussiontopic",
+										"addTopic"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get one",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/resident/discussiontopic/getOne/635238738ec81331db2f0bcc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"discussiontopic",
+										"getOne",
+										"635238738ec81331db2f0bcc"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Topic discussion comments",
+					"item": [
+						{
+							"name": "get all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{xpressgate_live}}api/resident/comments/getAll",
+									"host": [
+										"{{xpressgate_live}}api"
+									],
+									"path": [
+										"resident",
+										"comments",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get one",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/resident/comments/getOne/63527a216c2fce87e2dbb9fc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"comments",
+										"getOne",
+										"63527a216c2fce87e2dbb9fc"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get comment by resident",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/resident/comments/findResidentComment/632aaa561fc0f8065426ad56",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"comments",
+										"findResidentComment",
+										"632aaa561fc0f8065426ad56"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get comment by topic",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"resident_id\":\"63283ed7e39d3a21e83dec1d\",\n    \"topicID\":\"635238738ec81331db2f0bcc\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/comments/findTopicComment/63527a216c2fce87e2dbb9fc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"comments",
+										"findTopicComment",
+										"63527a216c2fce87e2dbb9fc"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "post comment",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"topicID\":\"63527a216c2fce87e2dbb9fc\",\n    \"commentBy\":\"632aaa561fc0f8065426ad56\",\n    \"comment\":\"Bekar Topics\",\n    \"flat_id\":\"6329714354edb049bcd0f0b8\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/comments/addComment",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"comments",
+										"addComment"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "bookdaily help",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/resident/dailyhelp/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"dailyhelp",
+										"getAll"
+									],
+									"query": [
+										{
+											"key": null,
+											"value": "r120349",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request Copy",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/resident/dailyhelp/getSingle/6336c51e5d8c4d637371ce47",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"dailyhelp",
+										"getSingle",
+										"6336c51e5d8c4d637371ce47"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request Copy 2",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/resident/dailyhelp/byHelperID/632d77867b622b15a723aafc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"dailyhelp",
+										"byHelperID",
+										"632d77867b622b15a723aafc"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"helperID\":\"636101ca7a0080de0e4bfe77\",\n    \"residentID\":\"63283ed7e39d3a21e83dec1d\",\n    \"flatID\":\"6329714354edb049bcd0f0b8\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/dailyhelp/book",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"dailyhelp",
+										"book"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "book vendor",
+					"item": [
+						{
+							"name": "get all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/bookvendor/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"bookvendor",
+										"getAll"
+									],
+									"query": [
+										{
+											"key": null,
+											"value": "r120349",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get one",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/bookvendor/getone/6360df3c93453584cadb092b",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"bookvendor",
+										"getone",
+										"6360df3c93453584cadb092b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all vendors by community",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/bookvendor/vendorid/633a8319b14c4841d53339df",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"bookvendor",
+										"vendorid",
+										"633a8319b14c4841d53339df"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Book Service",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vendorID\": \"633a8319b14c4841d53339df\",\n    \"residentID\": \"6329754a4756dc4c408ab68a\",\n    \"flatID\": \"635230e253a3fe57ab081794\",\n    \"bookedTime\": \"2022-11-16T00:00:00.000Z\",\n    \"bookedDate\": \"2022-11-16T00:00:00.000Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/bookvendor/book",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"bookvendor",
+										"book"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "vendor bill payment",
+					"item": [
+						{
+							"name": "http://localhost:5050/api/payvendorbill/pay/635102fd39faca52d234133f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/payvendorbill/pay/63511bd8bdc98367d61b75ba",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"payvendorbill",
+										"pay",
+										"63511bd8bdc98367d61b75ba"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "pay maintenance bill",
+					"item": [
+						{
+							"name": "http://localhost:5050/api/payvendorbill/pay/635102fd39faca52d234133f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/maintenanceBill/pay/635132766f717f8157974872",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"maintenanceBill",
+										"pay",
+										"635132766f717f8157974872"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "pay maintenance bill Copy",
+					"item": [
+						{
+							"name": "http://localhost:5050/api/payvendorbill/pay/635102fd39faca52d234133f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/maintenanceBill/pay/635132766f717f8157974872",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"maintenanceBill",
+										"pay",
+										"635132766f717f8157974872"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Upload",
+					"item": [
+						{
+							"name": "uploadDocs",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "docType",
+											"value": "Test",
+											"type": "text"
+										},
+										{
+											"key": "docTitle",
+											"value": "Test",
+											"type": "text"
+										},
+										{
+											"key": "docDescription",
+											"value": "Test",
+											"type": "text"
+										},
+										{
+											"key": "docUpload",
+											"type": "file",
+											"src": "/C:/Users/keshav.methar/Downloads/thumbnail_Slide1.jpg"
+										},
+										{
+											"key": "residentID",
+											"value": "63380a64c9f0238e32b86d43",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/uploaddocs/uploadDocs",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"uploaddocs",
+										"uploadDocs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Pass the ID of resident",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "docType",
+											"value": "Passport",
+											"type": "text"
+										},
+										{
+											"key": "docTitle",
+											"value": "Passport Copy",
+											"type": "text"
+										},
+										{
+											"key": "docDescription",
+											"value": "docDescription",
+											"type": "text"
+										},
+										{
+											"key": "residentID",
+											"value": "63283ed7e39d3a21e83dec1d",
+											"type": "text"
+										},
+										{
+											"key": "docUpload",
+											"type": "file",
+											"src": "/home/it-06/Pictures/Screenshots/Screenshot from 2022-07-26 12-15-00.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/uploaddocs/getResidentDoc/63283ed7e39d3a21e83dec1d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"uploaddocs",
+										"getResidentDoc",
+										"63283ed7e39d3a21e83dec1d"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Message to guard",
+					"item": [
+						{
+							"name": "add message to guard",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"community_id\":\"632970d054edb049bcd0f0b4\",\n    \"messageFrom\":\"6329754a4756dc4c408ab68a\", \n    \"messageTo\":\"GTX\",\n    \"message\":\"AX03AJ244222\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/message/pushMessage",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"message",
+										"pushMessage"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get message",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/resident/message/getMessages",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"message",
+										"getMessages"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Myflats",
+					"item": [
+						{
+							"name": "Update my flat",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"myflat_id\":\"635fc6a5ed530d0dbaf9ec60\",\r\n    \"resident_id\":\"63283ed7e39d3a21e83dec1d\",\r\n    \"community_id\":\"632970d054edb049bcd0f0b4\",\r\n    \"block_id\":\"632970fd54edb049bcd0f0b6\",\r\n    \"flat_id\":\"6329714354edb049bcd0f0b8\",\r\n    \"type\":\"1\",\r\n    \"status\":\"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/myflat/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"myflat",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete my flat",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"myflat_id\":\"635fc6a5ed530d0dbaf9ec60\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/myflat/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"myflat",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add My Flat",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"resident_id\":\"63283ed7e39d3a21e83dec1d\",\r\n    \"community_id\":\"632970d054edb049bcd0f0b4\",\r\n    \"block_id\":\"632970fd54edb049bcd0f0b6\",\r\n    \"flat_id\":\"6329714354edb049bcd0f0b8\",\r\n    \"type\":\"1\",\r\n    \"status\":\"0\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/myflat/add",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"myflat",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get my flats",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"resident_id\":\"63283ed7e39d3a21e83dec1d\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/myflat/get",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"myflat",
+										"get"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get flats",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"block\":\"632970fd54edb049bcd0f0b6\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/flat/get",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"flat",
+										"get"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Renter",
+					"item": [
+						{
+							"name": "Add Renter",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "resident_id",
+											"value": "63283ed7e39d3a21e83dec1d",
+											"type": "text"
+										},
+										{
+											"key": "community_id",
+											"value": "632970d054edb049bcd0f0b4",
+											"type": "text"
+										},
+										{
+											"key": "firstname",
+											"value": "My Renter",
+											"type": "text"
+										},
+										{
+											"key": "lastname",
+											"value": "23-11-2022",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "My23",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "Abc@axzora.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Axzora@2020",
+											"type": "text"
+										},
+										{
+											"key": "profile_pic",
+											"type": "file",
+											"src": "/C:/Users/keshav.methar/Downloads/bannergit.jpg"
+										},
+										{
+											"key": "type",
+											"value": "3",
+											"type": "text"
+										},
+										{
+											"key": "flat_id",
+											"value": "6329714354edb049bcd0f0b8",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{xpressgate_live}}api/renter/add",
+									"host": [
+										"{{xpressgate_live}}api"
+									],
+									"path": [
+										"renter",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all renter",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"resident_id\":\"63283ed7e39d3a21e83dec1d\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/renter/getall",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"renter",
+										"getall"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get renter by Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/renter/getone/632aaa561fc0f8065426ad56",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"renter",
+										"getone",
+										"632aaa561fc0f8065426ad56"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update renter",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "resident_id",
+											"value": "632aaa561fc0f8065426ad56",
+											"type": "text"
+										},
+										{
+											"key": "community_id",
+											"value": "632970d054edb049bcd0f0b4",
+											"type": "text"
+										},
+										{
+											"key": "firstname",
+											"value": "Abc",
+											"type": "text"
+										},
+										{
+											"key": "lastname",
+											"value": "Xyz",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "AbcXyz",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "Xyz@axzora.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Axzora@2022",
+											"type": "text"
+										},
+										{
+											"key": "profile_pic",
+											"type": "file",
+											"src": "/C:/Users/keshav.methar/Downloads/section_atable_a1.png"
+										},
+										{
+											"key": "type",
+											"value": "3",
+											"type": "text"
+										},
+										{
+											"key": "flat_id",
+											"value": "6329714354edb049bcd0f0b8",
+											"type": "text"
+										},
+										{
+											"key": "mobileno",
+											"value": "9588673275",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/renter/update",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"renter",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete renter",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"resident_id\":\"632aaa561fc0f8065426ad56\",\r\n    \"renter_id\":\"632aaa561fc0f8065426ad58\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/renter/delete",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"renter",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Family",
+					"item": [
+						{
+							"name": "Add family",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "resident_id",
+											"value": "63283ed7e39d3a21e83dec1d",
+											"type": "text"
+										},
+										{
+											"key": "community_id",
+											"value": "632970d054edb049bcd0f0b4",
+											"type": "text"
+										},
+										{
+											"key": "firstname",
+											"value": "D",
+											"type": "text"
+										},
+										{
+											"key": "lastname",
+											"value": "Test",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "Mobile No",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "D.methar@axzora.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Axzora@2020",
+											"type": "text"
+										},
+										{
+											"key": "profile_pic",
+											"type": "file",
+											"src": "/C:/Users/keshav.methar/Downloads/WhatsApp Image 2022-08-24 at 12.19.42 PM.jpeg"
+										},
+										{
+											"key": "type",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "relation",
+											"value": "63206902cca2fea569515547",
+											"type": "text"
+										},
+										{
+											"key": "mobileno",
+											"value": "1234567893",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{xpressgate_live}}api/family/add",
+									"host": [
+										"{{xpressgate_live}}api"
+									],
+									"path": [
+										"family",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update family",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "resident_id",
+											"value": "6329754a4756dc4c408ab68a",
+											"type": "text"
+										},
+										{
+											"key": "community_id",
+											"value": "632970d054edb049bcd0f0b4",
+											"type": "text"
+										},
+										{
+											"key": "firstname",
+											"value": "Abc asd",
+											"type": "text"
+										},
+										{
+											"key": "lastname",
+											"value": "Xyz asd",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "AbcXyz",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "Xyz@axzora.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Axzora@2022",
+											"type": "text"
+										},
+										{
+											"key": "profile_pic",
+											"type": "file",
+											"src": "/C:/Users/keshav.methar/Downloads/thumbnail_Slide1.jpg",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "flat_id",
+											"value": "6329714354edb049bcd0f0b8",
+											"type": "text"
+										},
+										{
+											"key": "mobileno",
+											"value": "9588673275",
+											"type": "text"
+										},
+										{
+											"key": "relation",
+											"value": "6346647e1383f5274114aeec",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{xpressgate_live}}api/family/update",
+									"host": [
+										"{{xpressgate_live}}api"
+									],
+									"path": [
+										"family",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all family",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"resident_id\":\"63283ed7e39d3a21e83dec1d\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/family/getall",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"family",
+										"getall"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get family by Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{xpressgate_live}}api/family/getOne/6329754a4756dc4c408ab68a",
+									"host": [
+										"{{xpressgate_live}}api"
+									],
+									"path": [
+										"family",
+										"getOne",
+										"6329754a4756dc4c408ab68a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update family",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "resident_id",
+											"value": "6329754a4756dc4c408ab68a",
+											"type": "text"
+										},
+										{
+											"key": "community_id",
+											"value": "632970d054edb049bcd0f0b4",
+											"type": "text"
+										},
+										{
+											"key": "firstname",
+											"value": "D",
+											"type": "text"
+										},
+										{
+											"key": "lastname",
+											"value": "Methar",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "DMethar",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "D.methar@axzora.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Axzora@2022",
+											"type": "text"
+										},
+										{
+											"key": "profile_pic",
+											"type": "file",
+											"src": "/C:/Users/keshav.methar/Pictures/BI S.PNG"
+										},
+										{
+											"key": "type",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "relation",
+											"value": "63206902cca2fea569515547",
+											"type": "text"
+										},
+										{
+											"key": "mobileno",
+											"value": "9588673275",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/family/update",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"family",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete family",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "resident_id",
+											"value": "6329754a4756dc4c408ab68a",
+											"type": "text"
+										},
+										{
+											"key": "family_id",
+											"value": "6329754b4756dc4c408ab68c",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{xpressgate_live}}api/family/remove",
+									"host": [
+										"{{xpressgate_live}}api"
+									],
+									"path": [
+										"family",
+										"remove"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Resident",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mobileno\":\"7798101424\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/auth/login",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update resident with pic",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "resident_id",
+											"value": "63283ed7e39d3a21e83dec1d",
+											"type": "text"
+										},
+										{
+											"key": "community_id",
+											"value": "632970d054edb049bcd0f0b4",
+											"type": "text"
+										},
+										{
+											"key": "firstname",
+											"value": "Keshav",
+											"type": "text"
+										},
+										{
+											"key": "lastname",
+											"value": "Methar",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "KeshavMethar",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "keshav.methar@axzora.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Axzora@2020",
+											"type": "text"
+										},
+										{
+											"key": "profile_pic",
+											"type": "file",
+											"src": "/C:/Users/keshav.methar/Pictures/Adobe.png"
+										},
+										{
+											"key": "type",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/updatepic",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"updatepic"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get resident by Id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/resident/getone/63283ed7e39d3a21e83dec1d",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"resident",
+										"getone",
+										"63283ed7e39d3a21e83dec1d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all resident",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{xpressgate_local}}api/resident/getall",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"resident",
+										"getall"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify OTP",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mobileno\":\"7798101424\",\r\n    \"otp\":\"5378\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/auth/verifyotp",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"auth",
+										"verifyotp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Resent otp",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mobileno\":\"9588673275\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/auth/resentotp",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"auth",
+										"resentotp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Dashboard",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc5NjkxMzQsImV4cCI6MTY3MDU2MTEzNH0.SX1fCnPwF6pH9FYXplJ9qdDQRwykBWR__vz66xZ3hHU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":\"63283ed7e39d3a21e83dec1d\",\r\n    \"community_id\":\"632970d054edb049bcd0f0b4\",\r\n    \"type\":\"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/home",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"home"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update resident",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"resident_id\":\"6321b900677a9f1f788de42a\",\r\n    \"community_id\":\"631880008d0eb01f38c54ca7\",\r\n    \"firstname\":\"Keshav\",\r\n    \"lastname\":\"Methar\",\r\n    \"username\":\"KeshavM\",\r\n    \"email\":\"keshav.methar@axzora.com\",\r\n    \"password\":\"Axzora@2020\",\r\n    \"profile_pic\":\"0\",\r\n    \"type\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/resident/update",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"resident",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete resident",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"resident_id\":\"6329754a4756dc4c408ab68a\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/delete",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Testimonials",
+					"item": [
+						{
+							"name": "Get all testimonials",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{xpressgate_live}}api/testimonials/getall",
+									"host": [
+										"{{xpressgate_live}}api"
+									],
+									"path": [
+										"testimonials",
+										"getall"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Testimonials",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"resident_id\":\"63283ed7e39d3a21e83dec1d\",\r\n    \"comment\":\"This is my review on 11-21-2022\",\r\n    \"rating\":\"3\",\r\n    \"status\":\"0\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/testimonials/add",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"testimonials",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Testimonials",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":\"632aeaadb4c3c04bec4993a7\",\r\n    \"resident_id\":\"63283ed7e39d3a21e83dec1d\",\r\n    \"comment\":\"This is my review updated\",\r\n    \"rating\":\"3\",\r\n    \"status\":\"0\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/testimonials/update",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"testimonials",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Testimonials by Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{xpressgate_local}}api/testimonials/getone/63283ed7e39d3a21e83dec1d",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"testimonials",
+										"getone",
+										"63283ed7e39d3a21e83dec1d"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Notifications",
+					"item": [
+						{
+							"name": "Add Notification Resident",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"notificationType\":1,\r\n    \"notificationFrom\":\"63341c467e35ab184cdf420d\",\r\n    \"notificationTo\":\"63283ed7e39d3a21e83dec1d\",\r\n    \"notification\":\"Daily help allowed by guard\",\r\n    \"icon\":\"uploads/notification/dailyhelp.PNG\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/addnotification",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"addnotification"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Acivity logs",
+					"item": [
+						{
+							"name": "Add Activity log",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"resident_id\":\"63283ed7e39d3a21e83dec1d\",\r\n    \"flat_id\":\"6329714354edb049bcd0f0b8\",\r\n    \"logtitle\":\"Allowed my staff\",\r\n    \"name\":\"Raju\",\r\n    \"by\":\"6350dd0589171f2007962973\",\r\n    \"action\":\"Allowed by Keshav\",\r\n    \"type\":\"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/activitylog/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"activitylog",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get activity logs",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"resident_id\":\"63283ed7e39d3a21e83dec1d\",\r\n    \"flat_id\":\"6329714354edb049bcd0f0b8\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/activitylog/get",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"activitylog",
+										"get"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Society",
+			"item": [
+				{
+					"name": "Amenities",
+					"item": [
+						{
+							"name": "add",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "amenityType",
+											"value": "Hall Test 1",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/keshav.methar/Downloads/Xpress Gate (12)/hall 1.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/society/amenities/addAmenities",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"society",
+										"amenities",
+										"addAmenities"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{xpressgate_local}}api/society/amenities/getAll",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"society",
+										"amenities",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get One",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/society/amenities/getEach/632aafdd10d1a165e564c1b0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"society",
+										"amenities",
+										"getEach",
+										"632aafdd10d1a165e564c1b0"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "632aafdd10d1a165e564c1b0",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Daily Helper",
+					"item": [
+						{
+							"name": "get all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/resident/helperstaff/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"helperstaff",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update staff",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "serviceType",
+											"value": "632d5dfd752987d70b7b0bd6",
+											"type": "text"
+										},
+										{
+											"key": "staffName",
+											"value": "Adrian",
+											"type": "text"
+										},
+										{
+											"key": "staffContact",
+											"value": "1234567890",
+											"type": "text"
+										},
+										{
+											"key": "profileDP",
+											"type": "file",
+											"src": "/home/it-06/Pictures/Screenshots/Screenshot from 2022-07-26 12-24-21.png"
+										},
+										{
+											"key": "ownerID",
+											"value": "63283ed7e39d3a21e83dec1d",
+											"type": "text"
+										},
+										{
+											"key": "id",
+											"value": "632d77667b622b15a723aaf9",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/helperstaff/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"helperstaff",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add Staff",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/resident/helperstaff/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"resident",
+										"helperstaff",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{xpressgate_live}}api/resident/helperstaff/getOne/632d77867b622b15a723aafc",
+									"host": [
+										"{{xpressgate_live}}api"
+									],
+									"path": [
+										"resident",
+										"helperstaff",
+										"getOne",
+										"632d77867b622b15a723aafc"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Vendors",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/vendor/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"vendor",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vendorName\":\"Totla Seht\",\n    \"addedBy\":\"63283ed7e39d3a21e83dec1d\",\n    \"service\":\"electric equipments\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/vendor/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"vendor",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vendorName\":\"Ramesh\",\n    \"addedBy\":\"63283ed7e39d3a21e83dec1d\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/vendor/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"vendor",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Custome get entry",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vendorName\":\"Ramesh\",\n    \"addedBy\":\"63283ed7e39d3a21e83dec1d\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/vendor/find/633a8358b14c4841d53339e6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"vendor",
+										"find",
+										"633a8358b14c4841d53339e6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "remove",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vendorName\":\"Ramesh\",\n    \"addedBy\":\"63283ed7e39d3a21e83dec1d\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/vendor/remove/633a8358b14c4841d53339e6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"vendor",
+										"remove",
+										"633a8358b14c4841d53339e6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "check code",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"code\":322762,\n    \"community_id\":\"632970d054edb049bcd0f0b4\"\n}\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_live}}api/inoutentires/getdata",
+									"host": [
+										"{{xpressgate_live}}api"
+									],
+									"path": [
+										"inoutentires",
+										"getdata"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "approve",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/approveresidents/getall",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"approveresidents",
+										"getall"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request Copy",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/approveresidents/approve/63440cf1977553fd614bbd4b",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"approveresidents",
+										"approve",
+										"63440cf1977553fd614bbd4b"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Notice",
+					"item": [
+						{
+							"name": "getAllNotice",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{xpressgate_live}}api/notices/getAll/632970d054edb049bcd0f0b4",
+									"host": [
+										"{{xpressgate_live}}api"
+									],
+									"path": [
+										"notices",
+										"getAll",
+										"632970d054edb049bcd0f0b4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "addNotice",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"noticeTitle\":\"Diwali Celebration\",\n    \"noticeBody\":\"Celebration\",\n    \"eventDate\":\"2018-03-29\",\n    \"fromTime\":\"2018-03-29\",\n    \"toTime\":\"2018-03-29\",\n    \"community_id\":\"632970d054edb049bcd0f0b4\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/notices/addNotice",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"notices",
+										"addNotice"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getOneNotice",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{xpressgate_live}}api/notices/getOne/632318252cc0d9138e63fc42",
+									"host": [
+										"{{xpressgate_live}}api"
+									],
+									"path": [
+										"notices",
+										"getOne",
+										"632318252cc0d9138e63fc42"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "removeNotice",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"noticeStatus\":false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/admin/notices/removeNotice/632317ad2cc0d9138e63fc3f",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"notices",
+										"removeNotice",
+										"632317ad2cc0d9138e63fc3f"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ticket management",
+					"item": [
+						{
+							"name": "Get all Tickets",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/tickets/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"tickets",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Ticket",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"tickettype\":\"637b610021f00f47746a3d1e\",\n    \"ticketDescription\":\"Test 1\",\n    \"resident_id\":\"6347a38f7ed0a6a200c45927\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/tickets/addTicket",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"tickets",
+										"addTicket"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get one ticket",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/tickets/findTicket/637b696e8492fc2fac7dc23a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"tickets",
+										"findTicket",
+										"637b696e8492fc2fac7dc23a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove Ticket",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ticket_id\":false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/tickets/removeTicket",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"tickets",
+										"removeTicket"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "management",
+					"item": [
+						{
+							"name": "getAllNotice",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/management/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"management",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "addNotice",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"community_id\":\"632970d054edb049bcd0f0b4\",\n    \"managementTitle\":\"Security Advisor\",\n    \"resident_id\":\"63283ed7e39d3a21e83dec1d\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/management/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"management",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getOneNotice",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/management/getOne/6347f2128b4125346dd1c156",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"management",
+										"getOne",
+										"6347f2128b4125346dd1c156"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "removeNotice",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"noticeStatus\":false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/management/remove/6347f2128b4125346dd1c156",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"management",
+										"remove",
+										"6347f2128b4125346dd1c156"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "vendor payment bill generation",
+					"item": [
+						{
+							"name": "get all",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/vendorpayment/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"vendorpayment",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all Copy",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/vendorpayment/getbyresident/632aaa561fc0f8065426ad56",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"vendorpayment",
+										"getbyresident",
+										"632aaa561fc0f8065426ad56"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vendor_id\":\"633a832cb14c4841d53339e2\",\n    \"paymentDue\":\"2022-03-29T00:00:00.000+00:00\",\n    \"dueDate\":\"2022-03-29T00:00:00.000+00:00\",\n    \"resident_id\":\"63283ed7e39d3a21e83dec1d\",\n    \"paymentAmount\":50220.55\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/vendorpayment/addBill",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"vendorpayment",
+										"addBill"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "maintenance bill generation",
+					"item": [
+						{
+							"name": "get all",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/maintenancepayment/getall",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"maintenancepayment",
+										"getall"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get by resident",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/maintenancepayment/getByResident/632aaa561fc0f8065426ad56",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"maintenancepayment",
+										"getByResident",
+										"632aaa561fc0f8065426ad56"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"paymentDue\":\"2022-03-29T00:00:00.000+00:00\",\n    \"dueDate\":\"2022-03-29T00:00:00.000+00:00\",\n    \"resident_id\":\"63283ed7e39d3a21e83dec1d\",\n    \"paymentAmount\":50220.55\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/maintenancepayment/addBill",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"maintenancepayment",
+										"addBill"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "list of daily helpers",
+					"item": [
+						{
+							"name": "http://localhost:5050/api/helperlist/getAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/helperlist/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"helperlist",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Members",
+					"item": [
+						{
+							"name": "Add Society Member",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "community_id",
+											"value": "632970d054edb049bcd0f0b4",
+											"type": "text"
+										},
+										{
+											"key": "firstname",
+											"value": "Society",
+											"type": "text"
+										},
+										{
+											"key": "lastname",
+											"value": "Member",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "society1",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "society1@axzora.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Axzora@2020",
+											"type": "text"
+										},
+										{
+											"key": "profile_pic",
+											"type": "file",
+											"src": "/C:/Users/keshav.methar/Pictures/RM/8.2.PNG"
+										},
+										{
+											"key": "mobileno",
+											"value": "7798101424",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/society/addMember",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"society",
+										"addMember"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Society Member",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "community_id",
+											"value": "632970d054edb049bcd0f0b4",
+											"type": "text"
+										},
+										{
+											"key": "firstname",
+											"value": "Society",
+											"type": "text"
+										},
+										{
+											"key": "lastname",
+											"value": "Member",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "society1",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "society1@axzora.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Axzora@2020",
+											"type": "text"
+										},
+										{
+											"key": "profile_pic",
+											"type": "file",
+											"src": "/C:/Users/keshav.methar/Pictures/RM/7.PNG"
+										},
+										{
+											"key": "mobileno",
+											"value": "7798101422",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "id",
+											"value": "636b7a8c722f151aa48df55a",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "true",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/society/updateMember",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"society",
+										"updateMember"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Society Members",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/society/getAllCommunityMembers/632970d054edb049bcd0f0b4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"society",
+										"getAllCommunityMembers",
+										"632970d054edb049bcd0f0b4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get One Society Members",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/society/getOne/636b7a8c722f151aa48df55a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"society",
+										"getOne",
+										"636b7a8c722f151aa48df55a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Society Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"society1\",\r\n    \"password\":\"Axzora@2020\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/auth/societylogin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"auth",
+										"societylogin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change password society",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njc5OTEyOTAsImV4cCI6MTY2ODA3NzY5MH0.K_HAxMF-HWByLidF4QlnR6o1KLOL7KqfQU3TRdadqgg",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"society1\",\r\n    \"password\":\"Axzora@2022\",\r\n    \"newpassword\":\"Axzora@2020\",\r\n    \"confirmpassword\":\"Axzora@2020\",\r\n    \"id\":\"636b7a8c722f151aa48df55a\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/society/changepassword",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"society",
+										"changepassword"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Society Forget password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mobileno\":\"7798101424\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/society/societyforgotpass",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"society",
+										"societyforgotpass"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Society Verify OTP",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mobileno\":\"7798101424\",\r\n    \"otp\":7597\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/society/societyresetpass",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"society",
+										"societyresetpass"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Society Update Password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\":\"Axzora@2020\",\r\n    \"mem_id\":\"636b7a8c722f151aa48df55a\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/society/societyupdatepass",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"society",
+										"societyupdatepass"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "assign section",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Flats",
+					"item": [
+						{
+							"name": "Add Flat Society",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"community_id\":\"632970d054edb049bcd0f0b4\",\r\n    \"block\":\"632970fd54edb049bcd0f0b6\",\r\n    \"number\":\"106\",\r\n    \"description\":\"100sq meters\",\r\n    \"status\":\"0\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/flat/add",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"flat",
+										"add"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Blocks",
+					"item": [
+						{
+							"name": "Add Block",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"A\",\r\n    \"community_id\":\"632970d054edb049bcd0f0b4\",\r\n    \"status\":\"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/block/add",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"block",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get blocks",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"community_id\":\"632970d054edb049bcd0f0b4\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/block/get",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"block",
+										"get"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Guard",
+			"item": [
+				{
+					"name": "Guards",
+					"item": [
+						{
+							"name": "Add Guard",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "community_id",
+											"value": "632970d054edb049bcd0f0b4",
+											"type": "text"
+										},
+										{
+											"key": "firstname",
+											"value": "Guard",
+											"type": "text"
+										},
+										{
+											"key": "lastname",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "Guard123",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "guard1@axzora.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Guard1",
+											"type": "text"
+										},
+										{
+											"key": "profile_pic",
+											"type": "file",
+											"src": "/C:/Users/keshav.methar/Downloads/section_atable_a1.png"
+										},
+										{
+											"key": "mobileno",
+											"value": "1234567899",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/guard/add",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"guard",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Guard",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "community_id",
+											"value": "632970d054edb049bcd0f0b4",
+											"type": "text"
+										},
+										{
+											"key": "firstname",
+											"value": "Guard",
+											"type": "text"
+										},
+										{
+											"key": "lastname",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "Guard12",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "guard1@axzora.com",
+											"type": "text"
+										},
+										{
+											"key": "profile_pic",
+											"type": "file",
+											"src": "/C:/Users/keshav.methar/Pictures/htaccess.PNG"
+										},
+										{
+											"key": "mobileno",
+											"value": "1234567890",
+											"type": "text"
+										},
+										{
+											"key": "guard_id",
+											"value": "63341c467e35ab184cdf420d",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/guard/update",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"guard",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Guards of community",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"community_id\":\"632970d054edb049bcd0f0b4\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/guard/getall",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"guard",
+										"getall"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all guards",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{xpressgate_local}}api/guard/getall",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"guard",
+										"getall"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get guard by Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{xpressgate_local}}api/guard/getone/63341c467e35ab184cdf420d",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"guard",
+										"getone",
+										"63341c467e35ab184cdf420d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Guard login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\":\"Guard1234\",\n    \"password\":\"Guard1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/auth/guardlogin",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"auth",
+										"guardlogin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all guest for Guard",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"community_id\":\"632970d054edb049bcd0f0b4\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/guard/getallguest",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"guard",
+										"getallguest"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Guard Forget password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mobileno\":\"9588673275\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/auth/guardforgotpass",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"auth",
+										"guardforgotpass"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Guard Verify OTP",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mobileno\":\"9588673275\",\r\n    \"otp\":2474\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/auth/guardresetpass",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"auth",
+										"guardresetpass"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Guard Update Password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\":\"9588673275\",\r\n    \"guard_id\":\"6336c8d1618c8b15c8fa09c3\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/auth/guardupdatepass",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"auth",
+										"guardupdatepass"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Guard Add Notification",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"notificationType\":1,\r\n    \"notificationFrom\":\"63283ed7e39d3a21e83dec1d\",\r\n    \"flat_id\":\"6329714354edb049bcd0f0b8\",\r\n    \"notification\":\"Test Notification 4\",\r\n    \"community_id\":\"632970d054edb049bcd0f0b4\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/guard/notifications/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"guard",
+										"notifications",
+										"add"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "InOut",
+					"item": [
+						{
+							"name": "Add Inout record",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\":\"Guest\",\r\n    \"lastname\":\"2\",\r\n    \"mobileno\":\"9876543210\",\r\n    \"intime\":\"2022-10-18 14:30:00\",\r\n    \"outtime\":\"2022-10-18 15:00:00\",\r\n    \"community_id\":\"632970d054edb049bcd0f0b4\",\r\n    \"flat_id\":\"6329714354edb049bcd0f0b8\",\r\n    \"type\":\"2\",\r\n    \"status\":\"1\",\r\n    \"allowed_by\":\"63341c467e35ab184cdf420d\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/inout/add",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"inout",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Inout record",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"inout_id\":\"634fde3cef782a1534f938de\",\r\n    \"firstname\":\"Guest\",\r\n    \"lastname\":\"2\",\r\n    \"mobileno\":\"9876543211\",\r\n    \"intime\":\"2022-10-18 14:30:00\",\r\n    \"outtime\":\"2022-10-18 15:00:00\",\r\n    \"community_id\":\"632970d054edb049bcd0f0b4\",\r\n    \"flat_id\":\"6329714354edb049bcd0f0b8\",\r\n    \"type\":\"2\",\r\n    \"status\":\"1\",\r\n    \"allowed_by\":\"63341c467e35ab184cdf420d\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{xpressgate_local}}api/inout/update",
+									"host": [
+										"{{xpressgate_local}}api"
+									],
+									"path": [
+										"inout",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add out record",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"outtime\":\"2022-10-19 15:00:00\",\r\n    \"status\":\"3\",\r\n    \"booking_id\":\"633a8319b14c4841d53339df\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/inout/addout",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"inout",
+										"addout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get one Inout record",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"booking_id\":\"633a8319b14c4841d53339df\",\r\n    \"type\":\"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/inout/getone",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"inout",
+										"getone"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Inouts",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/inout/getall/632970d054edb049bcd0f0b4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"inout",
+										"getall",
+										"632970d054edb049bcd0f0b4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Dailyhelp",
+					"item": [
+						{
+							"name": "get dailyhelp list guard",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"resident_id\":\"63283ed7e39d3a21e83dec1d\",\n    \"topicID\":\"635238738ec81331db2f0bcc\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5050/api/helperlist/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"helperlist",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Notification",
+					"item": [
+						{
+							"name": "Get Notification Guard",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5050/api/guard/notifications/getAll/63341c467e35ab184cdf420d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5050",
+									"path": [
+										"api",
+										"guard",
+										"notifications",
+										"getAll",
+										"63341c467e35ab184cdf420d"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
